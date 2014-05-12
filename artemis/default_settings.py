@@ -2,6 +2,8 @@
 
 RESPONSE_FILE_PATH = 'output'
 
+REFERENCE_FILE_PATH = '/home/antoine/run/artemis'
+
 LOGGER = {
     'version': 1,
     'disable_existing_loggers': False,
