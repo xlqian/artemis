@@ -101,7 +101,7 @@ class ArtemisTestFixture:
     # wrappers around utils functions #
     ###################################
 
-    def api(self, url):
+    def api(self, url, response_mask=None):
         """
         call the api and check against previous results
 
@@ -110,11 +110,38 @@ class ArtemisTestFixture:
         complete_url = utils._api_current_root_point + url
         response = utils.api(complete_url)
 
-        filename = self.save_response(complete_url, response)
+        filename = self._save_response(complete_url, response)
 
-        utils.compare_with_ref(response, filename)
+        utils.compare_with_ref(response, filename, response_mask)
 
-    def get_file_name(self, url):
+    def journey(self, _from, to, datetime, datetime_represents='departure',
+                response_mask=utils.default_journey_mask, auto_from=None, auto_to=None, **kwargs):
+        """
+        syntaxic sugar around the journey api
+
+        auto_from and auto_to are used to access the autocomplete api
+
+        TODO: example
+        """
+        real_from = self.call_autocomplete(auto_from) if auto_from else _from
+        assert real_from
+
+        real_to = self.call_autocomplete(auto_to) if auto_to else to
+        assert real_to
+
+        assert datetime
+        query = "from={real_from}&to={real_to}&datetime={date}&datetime_represents={represent}".\
+            format(date=datetime, represent=datetime_represents)
+
+        for k, v in kwargs:
+            query = "{query}&{k}={v}".format(query=query, k=k, v=v)
+
+        self.journey(query, response_mask)
+
+    def journey(self, url, response_mask=utils.default_journey_mask):
+        self.api(url, response_mask)
+
+    def _get_file_name(self, url):
         """
         create the name of the file for storing the query.
 
@@ -141,11 +168,11 @@ class ArtemisTestFixture:
         return "{fixture_name}/{function_name}_{specific_call_id}.json"\
             .format(fixture_name=class_name, function_name=func_name, specific_call_id=call_id)
 
-    def save_response(self, url, response):
+    def _save_response(self, url, response):
         """
         save the response in a file and return the filename (with the fixture directory)
         """
-        filename = self.get_file_name(url)
+        filename = self._get_file_name(url)
         file_complete_path = os.path.join(config['RESPONSE_FILE_PATH'], filename)
         if not os.path.exists(os.path.dirname(file_complete_path)):
             os.makedirs(os.path.dirname(file_complete_path))
@@ -159,3 +186,7 @@ class ArtemisTestFixture:
         file_.close()
 
         return filename
+
+    def call_autocomplete(self, place):
+        #TODO!
+        pass

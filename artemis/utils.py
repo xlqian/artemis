@@ -11,6 +11,41 @@ _api_main_root_point = 'http://localhost:5000/'
 
 _api_current_root_point = _api_main_root_point + 'v1/'
 
+"""
+The default behaviour for journeys is to check:
+TODO copy the confluence specs
+
+the mask create a new dict filtering only the wanted elt
+
+"""
+default_journey_mask = {}  #TODO
+
+
+def check_equals(a, b, msg=None):
+    """
+    TODO!
+
+     check the equality without stoping the test on error (the test will still be in error if that's the case)
+     equivalent to BOOST_CHECK_EQUALS
+
+
+    For the moment it is a simple assert, but the shell is important to use is possible
+    """
+    # note, important to all the good function, py.test does some magic to change the assert at import time
+    if msg:
+        assert a == b, msg
+    else:
+        assert a == b
+
+
+def check(exp, msg=None):
+    """
+    TODO, same as check_equals
+    """
+    if msg:
+        assert exp, msg
+    else:
+        assert exp
 
 def api(url):
     """
@@ -47,18 +82,21 @@ def get_ref(call_id):
     return dict_response["response"]  #only the response object is important, the rest is for debug
 
 
-def compare_with_ref(resp, call_id):
+def filter_dict(dict, mask):
+    return dict  #TODO!
+
+
+def compare_with_ref(resp, call_id, mask):
     """
-    compare the answer to it's reference
+    compare the answer to it's reference.
+    if a mask is provided we only compare the filtered field
     """
     ref = get_ref(call_id)
 
     logging.getLogger(__name__).info("ref: {}".format(ref))
-    assert ref == resp
 
+    sub_ref = filter_dict(ref, mask)
+    sub_response = filter_dict(ref, mask)
 
-
-
-
-
+    check_equals(sub_ref, sub_response)
 
