@@ -5,6 +5,7 @@ import os
 import urllib2
 import logging
 from flask import json
+import werkzeug
 from artemis.configuration_manager import config
 
 _api_main_root_point = 'http://localhost:5000/'
@@ -47,15 +48,17 @@ def check(exp, msg=None):
     else:
         assert exp
 
+
 def api(url):
     """
     default call to the api
     call http://endpoint/v1/{url}
     """
-    raw_response = urllib2.urlopen(url)
+    norm_url = werkzeug.url_fix(url)  # normalize url
+
+    raw_response = urllib2.urlopen(norm_url)
 
     response = raw_response.read()
-    logging.getLogger(__name__).debug("we got : {}".format(response))
 
     json_resp = json.loads(response)
     return json_resp

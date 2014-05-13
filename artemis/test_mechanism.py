@@ -131,15 +131,16 @@ class ArtemisTestFixture:
 
         assert datetime
         query = "from={real_from}&to={real_to}&datetime={date}&datetime_represents={represent}".\
-            format(date=datetime, represent=datetime_represents)
+            format(date=datetime, represent=datetime_represents,
+                   real_from=real_from, real_to=real_to)
 
-        for k, v in kwargs:
+        for k, v in kwargs.iteritems():
             query = "{query}&{k}={v}".format(query=query, k=k, v=v)
 
-        self.journey(query, response_mask)
+        self.journey_url(query, response_mask)
 
-    def journey(self, url, response_mask=utils.default_journey_mask):
-        self.api(url, response_mask)
+    def journey_url(self, url, response_mask=utils.default_journey_mask):
+        self.api("journeys?" + url, response_mask)
 
     def _get_file_name(self, url):
         """
