@@ -3,7 +3,8 @@ import inspect
 import logging
 import os
 import re
-from flask import json
+import shutil
+import json
 import utils
 from configuration_manager import config
 
@@ -45,9 +46,12 @@ class ArtemisTestFixture:
 
         Launch all necessary services to have a running navitia solution
         """
-        self.init()
         logging.getLogger(__name__).info("Initing the tests {}, let's deploy!"
                                          .format(self.__class__.__name__))
+        self.init()
+
+        self.clean_up()
+
         self.run_tyr()
 
         self.run_additional_service()
@@ -191,3 +195,11 @@ class ArtemisTestFixture:
     def call_autocomplete(self, place):
         #TODO!
         pass
+
+    def clean_up(self):
+        """
+        clean up the response dir
+        """
+        logging.getLogger(__name__).info("removing output dir {}".format(config['RESPONSE_FILE_PATH']))
+        if os.path.exists(config['RESPONSE_FILE_PATH']):
+            shutil.rmtree(config['RESPONSE_FILE_PATH'])

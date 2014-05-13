@@ -2,7 +2,7 @@
 Lots of helper functions to ease tests
 """
 import os
-import urllib2
+import requests
 import logging
 from flask import json
 import werkzeug
@@ -30,7 +30,9 @@ def check_equals(a, b, msg=None):
      equivalent to BOOST_CHECK_EQUALS
 
 
-    For the moment it is a simple assert, but the shell is important to use is possible
+    For the moment it is a simple assert, but try to use this shell as often as possible.
+
+    the implementation might be done with hidden variables and a default decorator on each test function
     """
     # note, important to all the good function, py.test does some magic to change the assert at import time
     if msg:
@@ -56,12 +58,11 @@ def api(url):
     """
     norm_url = werkzeug.url_fix(url)  # normalize url
 
-    raw_response = urllib2.urlopen(norm_url)
+    raw_response = requests.get(norm_url)
 
-    response = raw_response.read()
+    response = raw_response.json()
 
-    json_resp = json.loads(response)
-    return json_resp
+    return response
 
 
 def get_ref(call_id):
