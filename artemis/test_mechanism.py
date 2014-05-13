@@ -206,3 +206,15 @@ class ArtemisTestFixture:
     def call_autocomplete(self, place):
         #TODO!
         pass
+
+
+def dataset(datasets):
+    """
+    decorator giving class attribute 'data_sets'
+
+    each test should have this decorator to make clear the data set used for the tests
+    """
+    def deco(cls):
+        cls.data_sets = datasets
+        return cls
+    return deco

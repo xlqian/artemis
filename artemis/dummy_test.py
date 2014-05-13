@@ -1,6 +1,7 @@
-from artemis.test_mechanism import ArtemisTestFixture
+from artemis.test_mechanism import ArtemisTestFixture, dataset
 
 
+@dataset(["kraken"])
 class TestDummyJourney(ArtemisTestFixture):
 
     def test_call_to_end_point(self):
