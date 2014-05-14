@@ -1,7 +1,7 @@
 from flask.ext.restful import fields
 
 """
-The default behaviour for journeys is to check only a subset
+The default behaviour for journeys is to check only a subset journey
 
 the mask create a new dict filtering only the wanted elt
 """
@@ -18,8 +18,8 @@ journey = {
     'departure_date_time': fields.Raw,
     'arrival_date_time': fields.Raw,
     'sections': fields.List(fields.Nested(section)),
-    'from': fields.Raw,
-    'to': fields.Raw,
+    #'from': fields.Raw,  #TODO, those field are more complicated
+    #'to': fields.Raw,
     'type': fields.Raw,
     'tags': fields.List(fields.Raw),
 }

@@ -3,7 +3,6 @@ import inspect
 import logging
 import os
 import re
-import shutil
 import json
 import utils
 from configuration_manager import config
@@ -135,6 +134,8 @@ class ArtemisTestFixture:
         auto_from and auto_to are used to access the autocomplete api
 
         TODO: example
+
+        TODO: just forward args to the 'request' module without creating a string
         """
         real_from = self.call_autocomplete(auto_from) if auto_from else _from
         assert real_from

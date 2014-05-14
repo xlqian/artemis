@@ -20,8 +20,8 @@ def check_equals(a, b, msg=None):
     """
     TODO!
 
-     check the equality without stoping the test on error (the test will still be in error if that's the case)
-     equivalent to BOOST_CHECK_EQUALS
+    check the equality without stoping the test on error (the test will still be in error if that's the case)
+    equivalent to BOOST_CHECK_EQUALS
 
 
     For the moment it is a simple assert, but try to use this shell as often as possible.
@@ -64,7 +64,12 @@ def api(url):
 def get_ref(call_id):
     """
     get the associated reference for this API call
+
     the reference is stored in the REFERENCE_FILE_PATH directory with the same name as the call_id
+
+    TODO: I think it might be nice to access the ref from another platform
+    It would thus be possible to execute the tests on a dev computer and access the ref
+    on the CI platform
     """
     assert os.path.exists(config['REFERENCE_FILE_PATH']), \
         "no reference directory found: {} does not exists".format(config['REFERENCE_FILE_PATH'])
