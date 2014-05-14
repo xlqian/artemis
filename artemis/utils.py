@@ -5,29 +5,23 @@ import os
 import requests
 import logging
 from flask import json
+import flask_restful
 import werkzeug
 from artemis.configuration_manager import config
+
+from default_mask import default_journey_mask
 
 _api_main_root_point = 'http://localhost:5000/'
 
 _api_current_root_point = _api_main_root_point + 'v1/'
-
-"""
-The default behaviour for journeys is to check:
-TODO copy the confluence specs
-
-the mask create a new dict filtering only the wanted elt
-
-"""
-default_journey_mask = {}  #TODO
 
 
 def check_equals(a, b, msg=None):
     """
     TODO!
 
-     check the equality without stoping the test on error (the test will still be in error if that's the case)
-     equivalent to BOOST_CHECK_EQUALS
+    check the equality without stoping the test on error (the test will still be in error if that's the case)
+    equivalent to BOOST_CHECK_EQUALS
 
 
     For the moment it is a simple assert, but try to use this shell as often as possible.
@@ -55,6 +49,8 @@ def api(url):
     """
     default call to the api
     call http://endpoint/v1/{url}
+
+    return the response and the url called (it might have been modified with the normalization)
     """
     norm_url = werkzeug.url_fix(url)  # normalize url
 
@@ -62,13 +58,18 @@ def api(url):
 
     response = raw_response.json()
 
-    return response
+    return response, norm_url
 
 
 def get_ref(call_id):
     """
     get the associated reference for this API call
+
     the reference is stored in the REFERENCE_FILE_PATH directory with the same name as the call_id
+
+    TODO: I think it might be nice to access the ref from another platform
+    It would thus be possible to execute the tests on a dev computer and access the ref
+    on the CI platform
     """
     assert os.path.exists(config['REFERENCE_FILE_PATH']), \
         "no reference directory found: {} does not exists".format(config['REFERENCE_FILE_PATH'])
@@ -80,27 +81,29 @@ def get_ref(call_id):
 
     _file = open(ref_filename, 'r')
 
-    #ref_enhanced_response = _file.read()
     dict_response = json.load(_file)
 
-    return dict_response["response"]  #only the response object is important, the rest is for debug
+    return dict_response["response"]  # only the response object is important, the rest is for debug
 
 
 def filter_dict(dict, mask):
-    return dict  #TODO!
+    """
+    filter a dict using the marshal of flask restful
+    """
+    if not mask:
+        return dict  # without mask we do not filter
+    return flask_restful.marshal(dict, mask)
 
 
-def compare_with_ref(resp, call_id, mask):
+def compare_with_ref(resp, call_id):
     """
     compare the answer to it's reference.
     if a mask is provided we only compare the filtered field
     """
     ref = get_ref(call_id)
 
-    logging.getLogger(__name__).info("ref: {}".format(ref))
+    #logging.getLogger(__name__).info("ref: {}".format(ref))
 
-    sub_ref = filter_dict(ref, mask)
-    sub_response = filter_dict(ref, mask)
-
-    check_equals(sub_ref, sub_response)
+    # logging.getLogger(__name__).info("current: {}".format(sub_response))
+    check_equals(ref, resp)
 

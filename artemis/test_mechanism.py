@@ -3,11 +3,9 @@ import inspect
 import logging
 import os
 import re
-import shutil
 import json
 import utils
 from configuration_manager import config
-
 
 # regexp used to identify a test method (simplified version of nose)
 _test_method_regexp = re.compile("^(test_.*|.*_test)$")
@@ -33,69 +31,76 @@ class ArtemisTestFixture:
     Mother class for all integration tests
     """
 
-    def init(self):
+    def setup(self):
         """
-        py.test does not want to collect class with custom constructor,
+        setup function called before each test
+
+        Note: py.test does not want to collect class with custom constructor,
         so we init the class in the setup
         """
-        self.api_call_by_function = {}
+        logging.getLogger(__name__).warn("setup before function")
+        self.api_call_by_params = {}  # key is md5 of url, val is the number of call
 
-    def setup(self):
+    @classmethod
+    def setup_class(cls):
         """
         Method called once before running the tests of the fixture
 
         Launch all necessary services to have a running navitia solution
         """
-        logging.getLogger(__name__).info("Initing the tests {}, let's deploy!"
-                                         .format(self.__class__.__name__))
-        self.init()
+        logging.getLogger(__name__).warn("Initing the tests {}, let's deploy!"
+                                         .format(cls.__name__))
 
-        self.clean_up()
+        cls.run_tyr()
 
-        self.run_tyr()
+        cls.run_additional_service()
 
-        self.run_additional_service()
+        cls.read_data()
 
-        self.read_data()
+        cls.pop_krakens()  # this might be removed if tyr manage it (in the read_data process)
 
-        self.pop_krakens()  # this might be removed if tyr manage it (in the read_data process)
+        cls.pop_jormungandr()
 
-        self.pop_jormungandr()
-
-    def teardown(self):
+    @classmethod
+    def teardown_class(cls):
         """
         Method called once after running the tests of the fixture.
         """
         logging.getLogger(__name__).info("Tearing down the tests {}, time to clean up"
-                                         .format(self.__class__.__name__))
+                                         .format(cls.__name__))
 
-    def run_tyr(self):
+    @classmethod
+    def run_tyr(cls):
         """
         run tyr
         tyr is the conductor of navitia.
         """
         pass
 
-    def run_additional_service(self):
+    @classmethod
+    def run_additional_service(cls):
         """
         run all services that have to be active for all tests
         """
         pass
 
-    def read_data(self):
+    @classmethod
+    def read_data(cls):
         """
         Read the different data given by Fusio
         launch the different readers (Fusio2Ed, osm2is, ...) and binarize the data
         """
         pass
 
-    def pop_krakens(self):
+    @classmethod
+    def pop_krakens(cls):
         """
         launch all the kraken services
         """
         pass
 
-    def pop_jormungandr(self):
+    @classmethod
+    def pop_jormungandr(cls):
         """
         launch the front end
         """
@@ -112,11 +117,14 @@ class ArtemisTestFixture:
         the query is writen in a file
         """
         complete_url = utils._api_current_root_point + url
-        response = utils.api(complete_url)
 
-        filename = self._save_response(complete_url, response)
+        response, url = utils.api(complete_url)
 
-        utils.compare_with_ref(response, filename, response_mask)
+        filtered_response = utils.filter_dict(response, response_mask)
+
+        filename = self._save_response(url, response, filtered_response)
+
+        utils.compare_with_ref(filtered_response, filename)
 
     def journey(self, _from, to, datetime, datetime_represents='departure',
                 response_mask=utils.default_journey_mask, auto_from=None, auto_to=None, **kwargs):
@@ -126,6 +134,8 @@ class ArtemisTestFixture:
         auto_from and auto_to are used to access the autocomplete api
 
         TODO: example
+
+        TODO: just forward args to the 'request' module without creating a string
         """
         real_from = self.call_autocomplete(auto_from) if auto_from else _from
         assert real_from
@@ -164,16 +174,16 @@ class ArtemisTestFixture:
 
         #if we already called this url in the same method, we add a number
         key = (func_name, call_id)
-        if key in self.api_call_by_function:
-            call_id = "{call}_{number}".format(call=call_id, number=self.api_call_by_function[key])
-            self.api_call_by_function[key] += 1
+        if key in self.api_call_by_params:
+            call_id = "{call}_{number}".format(call=call_id, number=self.api_call_by_params[key])
+            self.api_call_by_params[call_id] += 1
         else:
-            self.api_call_by_function[key] = 1
+            self.api_call_by_params[call_id] = 1
 
         return "{fixture_name}/{function_name}_{specific_call_id}.json"\
             .format(fixture_name=class_name, function_name=func_name, specific_call_id=call_id)
 
-    def _save_response(self, url, response):
+    def _save_response(self, url, response, filtered_response):
         """
         save the response in a file and return the filename (with the fixture directory)
         """
@@ -184,7 +194,9 @@ class ArtemisTestFixture:
 
         #to ease debug, we add additional information to the file
         #only the response elt will be compared, so we can add what we want (additional flags or whatever)
-        enhanced_response = {"query": url, "response": response}
+        enhanced_response = {"query": url,
+                             "response": filtered_response,
+                             "full_response": response}
 
         file_ = open(file_complete_path, 'w')
         file_.write(json.dumps(enhanced_response, indent=2))
@@ -196,10 +208,14 @@ class ArtemisTestFixture:
         #TODO!
         pass
 
-    def clean_up(self):
-        """
-        clean up the response dir
-        """
-        logging.getLogger(__name__).info("removing output dir {}".format(config['RESPONSE_FILE_PATH']))
-        if os.path.exists(config['RESPONSE_FILE_PATH']):
-            shutil.rmtree(config['RESPONSE_FILE_PATH'])
+
+def dataset(datasets):
+    """
+    decorator giving class attribute 'data_sets'
+
+    each test should have this decorator to make clear the data set used for the tests
+    """
+    def deco(cls):
+        cls.data_sets = datasets
+        return cls
+    return deco
