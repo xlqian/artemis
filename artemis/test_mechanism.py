@@ -103,18 +103,24 @@ class ArtemisTestFixture:
     @classmethod
     def clean_jormun_db(cls):
         logging.getLogger(__name__).info("cleaning jomrungandr database")
-        conn = psycopg2.connect(config['JORMUNGANDR_DB'])
-        cur = conn.cursor()
-        for table in ['admin', 'data_set', 'line', 'network', 'poi', 'rel_admin_instance',
+        try:
+            conn = psycopg2.connect(config['JORMUNGANDR_DB'])
+            cur = conn.cursor()
+            tables = ['admin', 'data_set', 'line', 'network', 'poi', 'rel_admin_instance',
                       'rel_line_instance', 'rel_network_instance', 'rel_poi_instance',
                       'rel_route_instance', 'rel_stop_area_instance',
                       'rel_stop_point_instance', 'route', 'stop_area', 'stop_point',
-                      'instance']:
-            cur.execute("TRUNCATE TABLE {};".format(table))
+                      'instance']
 
-        #we add the instances in the table
-        for data_set in cls.data_sets:
-            cur.execute("INSERT INTO instance (name, is_free) VALUES ('{}', true);".format(data_set))
+            cur.execute("TRUNCATE {} CASCADE ;".format(', '.join(tables)))
+
+            #we add the instances in the table
+            for data_set in cls.data_sets:
+                cur.execute("INSERT INTO instance (name, is_free) VALUES ('{}', true);".format(data_set))
+
+            conn.commit()
+        finally:
+            conn.close()
 
     @classmethod
     def pop_krakens(cls):

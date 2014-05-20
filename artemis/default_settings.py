@@ -4,7 +4,7 @@ RESPONSE_FILE_PATH = 'output'
 
 REFERENCE_FILE_PATH = '/home/antoine/run/artemis'
 
-JORMUNGANDR_DB = 'postgresql://jormungandr:jormungandr@localhost/jormungandr'
+JORMUNGANDR_DB = 'dbname=jormungandr user=jormungandr host=localhost password=jormungandr'
 
 LOGGER = {
     'version': 1,
