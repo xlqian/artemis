@@ -10,6 +10,8 @@ import werkzeug
 from artemis.configuration_manager import config
 
 from default_mask import default_journey_mask
+import subprocess
+import select
 
 _api_main_root_point = 'http://localhost:5000/'
 
@@ -107,3 +109,40 @@ def compare_with_ref(resp, call_id):
     # logging.getLogger(__name__).info("current: {}".format(sub_response))
     check_equals(ref, resp)
 
+
+def launch_exec_background(exec_name, args):
+    logging.getLogger(__name__).debug('Launching ' + exec_name + ' ' + ' '.join(args))
+    args.insert(0, exec_name)
+    proc = subprocess.Popen(args)
+
+    return proc
+
+
+def launch_exec(exec_name, args):
+    """
+    Launch an exec with args, log the outputs
+    return a tuple with (return code, process)
+    the process can be used for example to kill the process later
+    """
+    logger = logging.getLogger(__name__)
+    logger.debug('Launching ' + exec_name + ' ' + ' '.join(args))
+
+    args.insert(0, exec_name)
+    fdr, fdw = os.pipe()
+    try:
+        proc = subprocess.Popen(args, stderr=fdw,
+                         stdout=fdw, close_fds=True)
+        poller = select.poll()
+        poller.register(fdr)
+        while True:
+            if poller.poll(1000):
+                line = os.read(fdr, 1000)
+                logger.debug(line)
+            if proc.poll() is not None:
+                break
+
+    finally:
+        os.close(fdr)
+        os.close(fdw)
+
+    return proc.returncode, proc

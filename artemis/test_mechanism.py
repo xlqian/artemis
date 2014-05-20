@@ -10,6 +10,8 @@ from configuration_manager import config
 # regexp used to identify a test method (simplified version of nose)
 _test_method_regexp = re.compile("^(test_.*|.*_test)$")
 
+tyr = "/srv/tyr/manage.py"
+
 
 def get_calling_test_function():
     """
@@ -51,8 +53,6 @@ class ArtemisTestFixture:
         logging.getLogger(__name__).warn("Initing the tests {}, let's deploy!"
                                          .format(cls.__name__))
 
-        cls.run_tyr()
-
         cls.run_additional_service()
 
         cls.read_data()
@@ -68,14 +68,8 @@ class ArtemisTestFixture:
         """
         logging.getLogger(__name__).info("Tearing down the tests {}, time to clean up"
                                          .format(cls.__name__))
-
-    @classmethod
-    def run_tyr(cls):
-        """
-        run tyr
-        tyr is the conductor of navitia.
-        """
-        pass
+        cls.kill_the_krakens()
+        cls.kill_jormungandr()
 
     @classmethod
     def run_additional_service(cls):
@@ -89,22 +83,44 @@ class ArtemisTestFixture:
         """
         Read the different data given by Fusio
         launch the different readers (Fusio2Ed, osm2is, ...) and binarize the data
+
+        All is left to tyr
         """
-        pass
+        for data_set in cls.data_sets:
+            logging.getLogger(__name__).info("reading data for {}".format(data_set))
+            #utils.launch_exec(tyr, 'load_data {data_set_dir}'.format(data_set_dir=dir_path(dataset)))
+
 
     @classmethod
     def pop_krakens(cls):
         """
         launch all the kraken services
         """
-        pass
+        for data_set in cls.data_sets:
+            logging.getLogger(__name__).info("launching the kraken {}".format(data_set))
+            return_code, = utils.launch_exec('service', 'kraken_{dataset} start'.format(dataset=data_set))
+
+            assert return_code == 0, "command failed"
+
+    @classmethod
+    def kill_the_krakens(cls):
+        for data_set in cls.data_sets:
+            logging.getLogger(__name__).info("killing the kraken {}".format(data_set))
+            utils.launch_exec('service', 'kraken_{dataset} stop'.format(dataset=data_set))
 
     @classmethod
     def pop_jormungandr(cls):
         """
         launch the front end
         """
-        pass
+        logging.getLogger(__name__).info("running jormungandr")
+        # jormungandr is launched with apache
+        utils.launch_exec('service', 'apache start')
+
+    @classmethod
+    def kill_jormungandr(cls):
+        logging.getLogger(__name__).info("killing jormungandr")
+        utils.launch_exec('service', 'apache stop')
 
     ###################################
     # wrappers around utils functions #
