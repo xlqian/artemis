@@ -98,7 +98,7 @@ class ArtemisTestFixture:
         """
         for data_set in cls.data_sets:
             logging.getLogger(__name__).info("launching the kraken {}".format(data_set))
-            return_code, = utils.launch_exec('service', 'kraken_{dataset} start'.format(dataset=data_set))
+            return_code, _ = utils.launch_exec('service kraken_{} start'.format(data_set))
 
             assert return_code == 0, "command failed"
 
@@ -106,7 +106,7 @@ class ArtemisTestFixture:
     def kill_the_krakens(cls):
         for data_set in cls.data_sets:
             logging.getLogger(__name__).info("killing the kraken {}".format(data_set))
-            utils.launch_exec('service', 'kraken_{dataset} stop'.format(dataset=data_set))
+            utils.launch_exec('service kraken_{name} stop'.format(name=data_set))
 
     @classmethod
     def pop_jormungandr(cls):
@@ -115,12 +115,16 @@ class ArtemisTestFixture:
         """
         logging.getLogger(__name__).info("running jormungandr")
         # jormungandr is launched with apache
-        utils.launch_exec('service', 'apache start')
+        ret, _ = utils.launch_exec('service apache2 start')
+
+	assert ret == 0, "cannot start apache"
 
     @classmethod
     def kill_jormungandr(cls):
         logging.getLogger(__name__).info("killing jormungandr")
-        utils.launch_exec('service', 'apache stop')
+        ret, _ = utils.launch_exec('service apache2 stop')
+
+	assert ret == 0, "cannot stop apache"
 
     ###################################
     # wrappers around utils functions #

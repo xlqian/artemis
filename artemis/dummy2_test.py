@@ -1,7 +1,7 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset
 
 
-@dataset(["kraken"])
+@dataset(["airport"])
 class TestDummy2(ArtemisTestFixture):
     # to test that the init are done correctly and that we can call separatly one test fixture
 

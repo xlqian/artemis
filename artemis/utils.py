@@ -13,7 +13,7 @@ from default_mask import default_journey_mask
 import subprocess
 import select
 
-_api_main_root_point = 'http://localhost:5000/'
+_api_main_root_point = 'http://localhost/'
 
 _api_current_root_point = _api_main_root_point + 'v1/'
 
@@ -118,19 +118,18 @@ def launch_exec_background(exec_name, args):
     return proc
 
 
-def launch_exec(exec_name, args):
+def launch_exec(cmd):
     """
     Launch an exec with args, log the outputs
     return a tuple with (return code, process)
     the process can be used for example to kill the process later
     """
     logger = logging.getLogger(__name__)
-    logger.debug('Launching ' + exec_name + ' ' + ' '.join(args))
+    logger.debug('Launching ' + cmd)
 
-    args.insert(0, exec_name)
     fdr, fdw = os.pipe()
     try:
-        proc = subprocess.Popen(args, stderr=fdw,
+        proc = subprocess.Popen(cmd.split(' '), stderr=fdw,
                          stdout=fdw, close_fds=True)
         poller = select.poll()
         poller.register(fdr)
