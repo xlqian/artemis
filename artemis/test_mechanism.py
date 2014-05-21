@@ -30,7 +30,7 @@ def get_calling_test_function():
 
 
 def dir_path(data_set):
-    return "/srv/ed/{}/source/".format(data_set)
+    return "/srv/ed/{}/data/".format(data_set)
 
 
 class ArtemisTestFixture:
