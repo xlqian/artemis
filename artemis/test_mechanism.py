@@ -11,7 +11,7 @@ from configuration_manager import config
 # regexp used to identify a test method (simplified version of nose)
 _test_method_regexp = re.compile("^(test_.*|.*_test)$")
 
-tyr = "/srv/tyr/manage.py"
+_tyr = "/srv/tyr/manage.py"
 
 
 def get_calling_test_function():
@@ -96,7 +96,7 @@ class ArtemisTestFixture:
         for data_set in cls.data_sets:
             logging.getLogger(__name__).info("reading data for {}".format(data_set))
             utils.launch_exec('{tyr} load_data {data_set} {data_set_dir}'
-                              .format(tyr=tyr, 
+                              .format(tyr=_tyr,
                                       data_set=data_set, 
                                       data_set_dir=dir_path(dataset)))
 
@@ -129,7 +129,7 @@ class ArtemisTestFixture:
         """
         for data_set in cls.data_sets:
             logging.getLogger(__name__).info("launching the kraken {}".format(data_set))
-            return_code, _ = utils.launch_exec('service kraken_{} start'.format(data_set))
+            return_code, _ = utils.launch_exec('sudo service kraken_{} start'.format(data_set))
 
             assert return_code == 0, "command failed"
 
@@ -137,7 +137,7 @@ class ArtemisTestFixture:
     def kill_the_krakens(cls):
         for data_set in cls.data_sets:
             logging.getLogger(__name__).info("killing the kraken {}".format(data_set))
-            utils.launch_exec('service kraken_{name} stop'.format(name=data_set))
+            utils.launch_exec('sudo service kraken_{name} stop'.format(name=data_set))
 
     @classmethod
     def pop_jormungandr(cls):
@@ -146,14 +146,14 @@ class ArtemisTestFixture:
         """
         logging.getLogger(__name__).info("running jormungandr")
         # jormungandr is launched with apache
-        ret, _ = utils.launch_exec('service apache2 start')
+        ret, _ = utils.launch_exec('sudo service apache2 start')
 
         assert ret == 0, "cannot start apache"
 
     @classmethod
     def kill_jormungandr(cls):
         logging.getLogger(__name__).info("killing jormungandr")
-        ret, _ = utils.launch_exec('service apache2 stop')
+        ret, _ = utils.launch_exec('sudo service apache2 stop')
 
         assert ret == 0, "cannot stop apache"
 
