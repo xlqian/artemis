@@ -14,6 +14,10 @@ _test_method_regexp = re.compile("^(test_.*|.*_test)$")
 _tyr = config['TYR']
 
 
+#to limit the permissions of the jenkins user on the artemis platform, we create a proxy for all kraken services
+_kraken_wrapper = '/usr/local/bin/kraken_service_wrapper'
+
+
 def get_calling_test_function():
     """
     return the calling test method.
@@ -129,7 +133,7 @@ class ArtemisTestFixture:
         """
         for data_set in cls.data_sets:
             logging.getLogger(__name__).info("launching the kraken {}".format(data_set))
-            return_code, _ = utils.launch_exec('sudo service kraken_{} start'.format(data_set))
+            return_code, _ = utils.launch_exec('sudo {service} {kraken} start'.format(service=_kraken_wrapper, kraken=data_set))
 
             assert return_code == 0, "command failed"
 
@@ -137,7 +141,9 @@ class ArtemisTestFixture:
     def kill_the_krakens(cls):
         for data_set in cls.data_sets:
             logging.getLogger(__name__).info("killing the kraken {}".format(data_set))
-            utils.launch_exec('sudo service kraken_{name} stop'.format(name=data_set))
+            return_code, _ = utils.launch_exec('sudo {service} {kraken} stop'.format(service=_kraken_wrapper, kraken=data_set))
+
+            assert return_code == 0, "command failed"
 
     @classmethod
     def pop_jormungandr(cls):
