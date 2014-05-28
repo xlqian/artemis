@@ -2,6 +2,7 @@ import hashlib
 import inspect
 import logging
 import os
+import psycopg2
 import re
 import json
 import utils
@@ -9,6 +10,8 @@ from configuration_manager import config
 
 # regexp used to identify a test method (simplified version of nose)
 _test_method_regexp = re.compile("^(test_.*|.*_test)$")
+
+_tyr = config['TYR']
 
 
 def get_calling_test_function():
@@ -24,6 +27,10 @@ def get_calling_test_function():
 
     #a test method has to be found by construction, if none is found there is a problem
     raise KeyError("impossible to find the calling test method")
+
+
+def dir_path(data_set):
+    return config['DATASET_PATH_LAYOUT'].format(data_set)
 
 
 class ArtemisTestFixture:
@@ -51,8 +58,6 @@ class ArtemisTestFixture:
         logging.getLogger(__name__).warn("Initing the tests {}, let's deploy!"
                                          .format(cls.__name__))
 
-        cls.run_tyr()
-
         cls.run_additional_service()
 
         cls.read_data()
@@ -68,14 +73,8 @@ class ArtemisTestFixture:
         """
         logging.getLogger(__name__).info("Tearing down the tests {}, time to clean up"
                                          .format(cls.__name__))
-
-    @classmethod
-    def run_tyr(cls):
-        """
-        run tyr
-        tyr is the conductor of navitia.
-        """
-        pass
+        cls.kill_the_krakens()
+        cls.kill_jormungandr()
 
     @classmethod
     def run_additional_service(cls):
@@ -89,22 +88,74 @@ class ArtemisTestFixture:
         """
         Read the different data given by Fusio
         launch the different readers (Fusio2Ed, osm2is, ...) and binarize the data
+
+        All is left to tyr
         """
-        pass
+        #clean jormungandr database
+        cls.clean_jormun_db()
+        for data_set in cls.data_sets:
+            logging.getLogger(__name__).info("reading data for {}".format(data_set))
+            utils.launch_exec('{tyr} load_data {data_set} {data_set_dir}'
+                              .format(tyr=_tyr,
+                                      data_set=data_set, 
+                                      data_set_dir=dir_path(dataset)))
+
+    @classmethod
+    def clean_jormun_db(cls):
+        logging.getLogger(__name__).info("cleaning jomrungandr database")
+        conn = psycopg2.connect(config['JORMUNGANDR_DB'])
+        try:
+            cur = conn.cursor()
+            tables = ['admin', 'data_set', 'line', 'network', 'poi', 'rel_admin_instance',
+                      'rel_line_instance', 'rel_network_instance', 'rel_poi_instance',
+                      'rel_route_instance', 'rel_stop_area_instance',
+                      'rel_stop_point_instance', 'route', 'stop_area', 'stop_point',
+                      'instance']
+
+            cur.execute("TRUNCATE {} CASCADE ;".format(', '.join(tables)))
+
+            #we add the instances in the table
+            for data_set in cls.data_sets:
+                cur.execute("INSERT INTO instance (name, is_free) VALUES ('{}', true);".format(data_set))
+
+            conn.commit()
+        finally:
+            conn.close()
 
     @classmethod
     def pop_krakens(cls):
         """
         launch all the kraken services
         """
-        pass
+        for data_set in cls.data_sets:
+            logging.getLogger(__name__).info("launching the kraken {}".format(data_set))
+            return_code, _ = utils.launch_exec('sudo service kraken_{} start'.format(data_set))
+
+            assert return_code == 0, "command failed"
+
+    @classmethod
+    def kill_the_krakens(cls):
+        for data_set in cls.data_sets:
+            logging.getLogger(__name__).info("killing the kraken {}".format(data_set))
+            utils.launch_exec('sudo service kraken_{name} stop'.format(name=data_set))
 
     @classmethod
     def pop_jormungandr(cls):
         """
         launch the front end
         """
-        pass
+        logging.getLogger(__name__).info("running jormungandr")
+        # jormungandr is launched with apache
+        ret, _ = utils.launch_exec('sudo service apache2 start')
+
+        assert ret == 0, "cannot start apache"
+
+    @classmethod
+    def kill_jormungandr(cls):
+        logging.getLogger(__name__).info("killing jormungandr")
+        ret, _ = utils.launch_exec('sudo service apache2 stop')
+
+        assert ret == 0, "cannot stop apache"
 
     ###################################
     # wrappers around utils functions #
