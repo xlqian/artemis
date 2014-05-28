@@ -1,5 +1,9 @@
 # encoding: utf-8
 
+TYR = "/srv/tyr/manage.py"
+
+DATASET_PATH_LAYOUT = "/srv/ed/{}/data/"
+
 RESPONSE_FILE_PATH = 'output'
 
 REFERENCE_FILE_PATH = '/home/antoine/run/artemis'

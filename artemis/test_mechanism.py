@@ -11,7 +11,7 @@ from configuration_manager import config
 # regexp used to identify a test method (simplified version of nose)
 _test_method_regexp = re.compile("^(test_.*|.*_test)$")
 
-_tyr = "/srv/tyr/manage.py"
+_tyr = config['TYR']
 
 
 def get_calling_test_function():
@@ -30,7 +30,7 @@ def get_calling_test_function():
 
 
 def dir_path(data_set):
-    return "/srv/ed/{}/data/".format(data_set)
+    return config['DATASET_PATH_LAYOUT'].format(data_set)
 
 
 class ArtemisTestFixture:
@@ -103,8 +103,8 @@ class ArtemisTestFixture:
     @classmethod
     def clean_jormun_db(cls):
         logging.getLogger(__name__).info("cleaning jomrungandr database")
+        conn = psycopg2.connect(config['JORMUNGANDR_DB'])
         try:
-            conn = psycopg2.connect(config['JORMUNGANDR_DB'])
             cur = conn.cursor()
             tables = ['admin', 'data_set', 'line', 'network', 'poi', 'rel_admin_instance',
                       'rel_line_instance', 'rel_network_instance', 'rel_poi_instance',
