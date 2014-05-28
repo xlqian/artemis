@@ -1,12 +1,12 @@
 # encoding: utf-8
 
-TYR = "/srv/tyr/manage.py"
+TYR_DIR = "/srv/tyr"
 
-DATASET_PATH_LAYOUT = "/srv/ed/{}/data/"
+DATASET_PATH_LAYOUT = "/srv/ed/{dataset}/data/"
 
 RESPONSE_FILE_PATH = 'output'
 
-REFERENCE_FILE_PATH = '/home/antoine/run/artemis'
+REFERENCE_FILE_PATH = 'output'
 
 JORMUNGANDR_DB = 'dbname=jormungandr user=jormungandr host=localhost password=jormungandr'
 
@@ -29,6 +29,11 @@ LOGGER = {
         '': {
             'handlers': ['default'],
             'level': 'INFO',
+            'propagate': True
+        },
+        'requests': {
+            'handlers': ['default'],
+            'level': 'WARN',
             'propagate': True
         },
     }

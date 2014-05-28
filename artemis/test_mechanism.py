@@ -11,7 +11,8 @@ from configuration_manager import config
 # regexp used to identify a test method (simplified version of nose)
 _test_method_regexp = re.compile("^(test_.*|.*_test)$")
 
-_tyr = config['TYR']
+_tyr = config['TYR_DIR'] + "/manage.py"
+_tyr_config_file = config['TYR_DIR'] + "/settings.py"
 
 
 #to limit the permissions of the jenkins user on the artemis platform, we create a proxy for all kraken services
@@ -33,8 +34,13 @@ def get_calling_test_function():
     raise KeyError("impossible to find the calling test method")
 
 
-def dir_path(data_set):
-    return config['DATASET_PATH_LAYOUT'].format(data_set)
+def dir_path(dataset):
+    p = config['DATASET_PATH_LAYOUT']
+    logging.getLogger(__name__).info("dataset: {}".format(dataset))
+    formated_path = p.format(dataset=dataset)
+
+    logging.getLogger(__name__).info("formated: {}".format(formated_path))
+    return formated_path
 
 
 class ArtemisTestFixture:
@@ -99,10 +105,11 @@ class ArtemisTestFixture:
         cls.clean_jormun_db()
         for data_set in cls.data_sets:
             logging.getLogger(__name__).info("reading data for {}".format(data_set))
-            utils.launch_exec('{tyr} load_data {data_set} {data_set_dir}'
+            utils.launch_exec("{tyr} load_data {data_set} {data_set_dir}"
                               .format(tyr=_tyr,
                                       data_set=data_set, 
-                                      data_set_dir=dir_path(dataset)))
+                                      data_set_dir=dir_path(data_set)), 
+			      additional_env={'TYR_CONFIG_FILE':_tyr_config_file})
 
     @classmethod
     def clean_jormun_db(cls):
@@ -116,6 +123,7 @@ class ArtemisTestFixture:
                       'rel_stop_point_instance', 'route', 'stop_area', 'stop_point',
                       'instance']
 
+            logging.getLogger(__name__).info("query: TRUNCATE {} CASCADE ;".format(', '.join(tables)))
             cur.execute("TRUNCATE {} CASCADE ;".format(', '.join(tables)))
 
             #we add the instances in the table
@@ -123,8 +131,11 @@ class ArtemisTestFixture:
                 cur.execute("INSERT INTO instance (name, is_free) VALUES ('{}', true);".format(data_set))
 
             conn.commit()
-        finally:
+	except Exception as e:
+	    logging.getLogger(__name__).exception("problem with jormun db")
             conn.close()
+	    assert "jormungandr db KO"
+        conn.close()
 
     @classmethod
     def pop_krakens(cls):
