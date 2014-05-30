@@ -163,6 +163,19 @@ class ArtemisTestFixture:
 
         assert ret == 0, "cannot start apache"
 
+        # to have better errors, we check at the beginning that all is right
+        for data_set in cls.data_sets:
+            response, _ = utils.api("coverage/{r}".format(r=data_set))
+            assert 'error' not in response, "problem with the region: {error}".format(error=response['error'])
+
+            first_region = response.get('regions', [None])[0]
+            #the region should be the one asked for
+            assert first_region and first_region['id'] == data_set
+
+            #and it should be running
+            assert first_region['status'] == 'running', "region {r} KO, status={s}, \n full response={resp}".\
+                format(r=data_set, s=first_region['status'], resp=response)
+
     @classmethod
     def kill_jormungandr(cls):
         logging.getLogger(__name__).info("killing jormungandr")
@@ -180,9 +193,7 @@ class ArtemisTestFixture:
 
         the query is writen in a file
         """
-        complete_url = utils._api_current_root_point + url
-
-        response, url = utils.api(complete_url)
+        response, url = utils.api(url)
 
         filtered_response = utils.filter_dict(response, response_mask)
 
