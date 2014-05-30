@@ -22,34 +22,43 @@ Tests Organisation
 
 The tests are structured around data sets. Each dataset will be build to test a certain number of navitia fixtures (classic journey calls, over midnight journeys, ...).
 
-Each data set is technically represented by a junit like test fixture. The fixture are modeled as class in the implementation.
+Each data set is technically represented by a junit-like test fixture. The fixtures are implemented as class.
 On the same data set lot's of different tests can be made. Each test will be modeled as a python method of the data set class.
 
 Tests Mechanism
 ===============
 
-## Test setup
+Test setup
+----------
+
 The aim of Artemis is to test navitia.io, so the tested navitia architecture is as close to the production architecture as possible.
 
-At the setup of test fixture (the dataset), the different services that have to be run will be launched (the statistics service, ``TYR``, ...) and the data import process will be run. The ``Tyr`` service will be responsible for this (like in production).
+At the setup of test fixture (the dataset), the different services that have to be run will be launched (the statistics service, ``TYR``, ...)
+and the data import process will be run. The ``Tyr`` service will be responsible for this (like in production).
  The only difference with the production architecture is that no data backup process will be done, thus ``Tyr`` do not move the data from the data directory.
 
 Once the data import process is finished, the krakens will be poped. One kraken service will the launched for each data set needed for the test (we might want to test several dataset in the same fixture).
 
 Apache is started after that to start the ``jörmungandr`` front end.
 
-## API call tests
+API call tests
+--------------
+
 Each api call in a test function will be stored as json and compared to a reference.
-The comparison will be done only on a subset of the field, to limit the update of the tests references for minor api modifications.
+The comparison will be done only on a subset of the response field to limit the update of the tests references for minor api modifications.
 
 If the api call is different than the reference the test is marked as in error and a user has to analyze the differences.
 The user can then either correct the code if it is an error or update the reference if the new behavior is correct.
 
 Test example
 ============
-```Python
+
+````python
+
 @dataset(["paris", "lyon"])
 # --> the paris and the lyon data set will be used.
+# --> it means that a paris and a lyon instance must have been installed
+# --> must must thus have 2 data directory configured, 2 valid database and 2 kraken services: kraken_paris, kraken_lyon
 class TestParisAndLyon(ArtemisTestFixture):
     # --> the test fixture. It has to have 'Test' at the begining or the end of its name
     # --> And it must inherit from ArtemisTestFixture
@@ -77,11 +86,12 @@ class TestParisAndLyon(ArtemisTestFixture):
 
         check_some_stuff(res)  # --> more custom python tests might be made
 
-        add_diruptions()  # --> some changes might be made to the environment (like adding disruptions, killing a service to test failure recovery, adding data, ...)
-
+        add_diruptions()
+        # --> some changes might be made to the environment 
+        # --> like adding disruptions, killing a service to test failure recovery, adding data, ...
 
         res2 = self.api("v1/stop_areas/bob/stop_points/")
         # --> we can now test another call to the API
         # --> this test will be checked against the reference as the first call
 
-```
+````
