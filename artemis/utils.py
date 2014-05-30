@@ -54,7 +54,7 @@ def api(url):
 
     return the response and the url called (it might have been modified with the normalization)
     """
-    norm_url = werkzeug.url_fix(url)  # normalize url
+    norm_url = werkzeug.url_fix(_api_current_root_point + url)  # normalize url
 
     raw_response = requests.get(norm_url)
 
