@@ -226,10 +226,13 @@ class ArtemisTestFixture:
         for k, v in kwargs.iteritems():
             query = "{query}&{k}={v}".format(query=query, k=k, v=v)
 
-        self.journey_url(query, response_mask)
+        if len(self.__class__.data_sets) == 1:
+            # for tests with only one dataset, we directly use the region's journey API
+            # Note: this shoudl not be mandatory, but since there are still bugs with the global journey API
+            # we use this for the moment.
+            query = "coverage/{region}/journeys?{q}".format(region=self.__class__.data_sets[0], q=query)
 
-    def journey_url(self, url, response_mask=utils.default_journey_mask):
-        self.api("journeys?" + url, response_mask)
+        self.api(query, response_mask)
 
     def _get_file_name(self, url):
         """
