@@ -130,8 +130,8 @@ def launch_exec(cmd, additional_env=None):
     fdr, fdw = os.pipe()
     new_env = os.environ.copy()
     if additional_env:
-	    for k, v in additional_env.iteritems():
-		    new_env[k] = v
+        for k, v in additional_env.iteritems():
+            new_env[k] = v
     try:
         proc = subprocess.Popen(cmd.split(' '), stderr=fdw,
                          stdout=fdw, close_fds=True, env=new_env)

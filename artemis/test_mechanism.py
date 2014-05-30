@@ -7,6 +7,7 @@ import re
 import json
 import time
 import utils
+from performance_monitor import PerformanceMonitor
 from configuration_manager import config
 
 # regexp used to identify a test method (simplified version of nose)
@@ -19,6 +20,7 @@ _tyr_config_file = config['TYR_DIR'] + "/settings.py"
 #to limit the permissions of the jenkins user on the artemis platform, we create a proxy for all kraken services
 _kraken_wrapper = '/usr/local/bin/kraken_service_wrapper'
 
+_perf_monitor = PerformanceMonitor('perf.json')
 
 def get_calling_test_function():
     """
@@ -68,6 +70,8 @@ class ArtemisTestFixture:
         """
         logging.getLogger(__name__).warn("Initing the tests {}, let's deploy!"
                                          .format(cls.__name__))
+        _perf_monitor.start_fixture(cls)
+        cls.kraken_pids = {}
 
         cls.run_additional_service()
 
@@ -78,6 +82,7 @@ class ArtemisTestFixture:
         cls.pop_krakens()  # this might be removed if tyr manage it (in the read_data process)
 
         cls.pop_jormungandr()
+        _perf_monitor.end_fixture_init(cls)
 
     @classmethod
     def teardown_class(cls):
@@ -86,6 +91,7 @@ class ArtemisTestFixture:
         """
         logging.getLogger(__name__).info("Tearing down the tests {}, time to clean up"
                                          .format(cls.__name__))
+        _perf_monitor.end_fixture(cls)
         cls.kill_the_krakens()
         cls.kill_jormungandr()
 
@@ -148,9 +154,10 @@ class ArtemisTestFixture:
         """
         for data_set in cls.data_sets:
             logging.getLogger(__name__).info("launching the kraken {}".format(data_set))
-            return_code, _ = utils.launch_exec('sudo {service} {kraken} start'.format(service=_kraken_wrapper, kraken=data_set))
+            return_code, proc = utils.launch_exec('sudo {service} {kraken} start'.format(service=_kraken_wrapper, kraken=data_set))
 
             assert return_code == 0, "command failed"
+            cls.kraken_pids[data_set] = proc.pid
 
     @classmethod
     def kill_the_krakens(cls):
