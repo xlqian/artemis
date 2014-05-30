@@ -36,11 +36,7 @@ def get_calling_test_function():
 
 def dir_path(dataset):
     p = config['DATASET_PATH_LAYOUT']
-    logging.getLogger(__name__).info("dataset: {}".format(dataset))
-    formated_path = p.format(dataset=dataset)
-
-    logging.getLogger(__name__).info("formated: {}".format(formated_path))
-    return formated_path
+    return p.format(dataset=dataset)
 
 
 class ArtemisTestFixture:
@@ -107,9 +103,9 @@ class ArtemisTestFixture:
             logging.getLogger(__name__).info("reading data for {}".format(data_set))
             utils.launch_exec("{tyr} load_data {data_set} {data_set_dir}"
                               .format(tyr=_tyr,
-                                      data_set=data_set, 
-                                      data_set_dir=dir_path(data_set)), 
-			      additional_env={'TYR_CONFIG_FILE':_tyr_config_file})
+                                      data_set=data_set,
+                                      data_set_dir=dir_path(data_set)),
+                              additional_env={'TYR_CONFIG_FILE': _tyr_config_file})
 
     @classmethod
     def clean_jormun_db(cls):
@@ -131,10 +127,10 @@ class ArtemisTestFixture:
                 cur.execute("INSERT INTO instance (name, is_free) VALUES ('{}', true);".format(data_set))
 
             conn.commit()
-	except Exception as e:
-	    logging.getLogger(__name__).exception("problem with jormun db")
+        except:
+            logging.getLogger(__name__).exception("problem with jormun db")
             conn.close()
-	    assert "jormungandr db KO"
+            assert "problem while cleaning jormungandr db"
         conn.close()
 
     @classmethod
