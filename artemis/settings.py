@@ -2,7 +2,8 @@
 
 RESPONSE_FILE_PATH = 'output'
 
-REFERENCE_FILE_PATH = '/home/antoine/run/artemis'
+#REFERENCE_FILE_PATH = '/home/antoine/run/artemis'
+REFERENCE_FILE_PATH = 'output'
 
 JORMUNGANDR_DB = 'dbname=jormungandr user=jormungandr host=localhost password=navitia'
 

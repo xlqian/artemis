@@ -118,19 +118,23 @@ def launch_exec_background(exec_name, args):
     return proc
 
 
-def launch_exec(cmd):
+def launch_exec(cmd, additional_env=None):
     """
     Launch an exec with args, log the outputs
     return a tuple with (return code, process)
     the process can be used for example to kill the process later
     """
     logger = logging.getLogger(__name__)
-    logger.debug('Launching ' + cmd)
+    logger.info('Launching ' + cmd)
 
     fdr, fdw = os.pipe()
+    new_env = os.environ.copy()
+    if additional_env:
+	    for k, v in additional_env.iteritems():
+		    new_env[k] = v
     try:
         proc = subprocess.Popen(cmd.split(' '), stderr=fdw,
-                         stdout=fdw, close_fds=True)
+                         stdout=fdw, close_fds=True, env=new_env)
         poller = select.poll()
         poller.register(fdr)
         while True:
