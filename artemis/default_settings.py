@@ -2,7 +2,7 @@
 
 TYR_DIR = "/srv/tyr"
 
-DATASET_PATH_LAYOUT = "/srv/ed/{dataset}/data/"
+DATASET_PATH_LAYOUT = "/srv/fusio/source/{dataset}/NAVITIART/"
 
 RESPONSE_FILE_PATH = 'output'
 
