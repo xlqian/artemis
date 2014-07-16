@@ -127,6 +127,7 @@ class ArtemisTestFixture:
                 cur.execute("INSERT INTO instance (name, is_free) VALUES ('{}', true);".format(data_set))
 
             conn.commit()
+            logging.getLogger(__name__).info("query done")
         except:
             logging.getLogger(__name__).exception("problem with jormun db")
             conn.close()
