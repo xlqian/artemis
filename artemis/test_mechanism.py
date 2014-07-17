@@ -38,6 +38,10 @@ def dir_path(dataset):
     p = config['DATASET_PATH_LAYOUT']
     return p.format(dataset=dataset.upper())
 
+def nav_path(dataset):
+    p = config['NAV_FILE_PATH_LAYOUT']
+    return p.format(dataset=dataset)
+
 
 class ArtemisTestFixture:
     """
@@ -65,6 +69,8 @@ class ArtemisTestFixture:
                                          .format(cls.__name__))
 
         cls.run_additional_service()
+
+        cls.remove_data()
 
         cls.read_data()
 
@@ -183,6 +189,18 @@ class ArtemisTestFixture:
         ret, _ = utils.launch_exec('sudo service apache2 stop')
 
         assert ret == 0, "cannot stop apache"
+
+    @classmethod
+    def remove_data(cls):
+        for data_set in cls.data_sets:
+            logging.getLogger(__name__).info("deleting data for {}".format(
+                data_set))
+            try:
+                os.remove(nav_path(data_set))
+            except:
+                logging.getLogger(__name__).exception("can't remove data.nav"
+                                                      ".lz4")
+                assert "problem while cleaning data"
 
     ###################################
     # wrappers around utils functions #
