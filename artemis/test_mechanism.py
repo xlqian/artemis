@@ -70,6 +70,8 @@ class ArtemisTestFixture:
 
         cls.run_additional_service()
 
+        cls.remove_data()
+
         cls.read_data()
 
         cls.pop_krakens()  # this might be removed if tyr manage it (in the read_data process)
@@ -85,7 +87,6 @@ class ArtemisTestFixture:
                                          .format(cls.__name__))
         cls.kill_the_krakens()
         cls.kill_jormungandr()
-        cls.remove_data()
 
     @classmethod
     def run_additional_service(cls):
