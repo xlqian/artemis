@@ -4,7 +4,7 @@ TYR_DIR = "/srv/tyr"
 
 DATASET_PATH_LAYOUT = "/srv/fusio/source/{dataset}/NAVITIART/"
 
-NAV_FILE_PATH_LAYOUT = "/srv/ed/source/{dataset}/data.nav.lz4"
+NAV_FILE_PATH_LAYOUT = "/srv/ed/{dataset}/data.nav.lz4"
 
 RESPONSE_FILE_PATH = 'output'
 
