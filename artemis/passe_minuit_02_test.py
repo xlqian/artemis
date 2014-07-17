@@ -1,0 +1,59 @@
+from artemis.test_mechanism import ArtemisTestFixture, dataset
+
+
+@dataset(["passe-minuit-02"])
+class TestPasseMinuit02(ArtemisTestFixture):
+    """
+    TODO: put there comments about the dataset
+    """
+    def test_passe_minuit_02_01(self):
+        self.journey(_from="stop_area:PM2:SA:1",
+                     to="stop_area:PM2:SA:2", datetime="20080310T2300")
+
+    def test_passe_minuit_02_02(self):
+        self.journey(_from="stop_area:PM2:SA:1",
+                     to="stop_area:PM2:SA:4", datetime="20080310T2300")
+
+    def test_passe_minuit_02_03(self):
+        self.journey(_from="stop_area:PM2:SA:2",
+                     to="stop_area:PM2:SA:4", datetime="20080310T0000")
+
+    def test_passe_minuit_02_04(self):
+        self.journey(_from="stop_area:PM2:SA:2",
+                     to="stop_area:PM2:SA:4", datetime="20080311T0000")
+
+    def test_passe_minuit_02_05(self):
+        self.journey(_from="stop_area:PM2:SA:2",
+                     to="stop_area:PM2:SA:4", datetime="20080310T2350")
+
+    def test_passe_minuit_02_06(self):
+        self.journey(_from="stop_area:PM2:SA:2",
+                     to="stop_area:PM2:SA:4", datetime="20080311T0040", datetime_represents="arrival")
+
+    def test_passe_minuit_02_07(self):
+        self.journey(_from="stop_area:PM2:SA:1",
+                     to="stop_area:PM2:SA:4", datetime="20080311T0040", datetime_represents="arrival")
+
+    def test_passe_minuit_02_08(self):
+        self.journey(_from="stop_area:PM2:SA:2",
+                     to="stop_area:PM2:SA:4", datetime="20080408T0006")
+
+    def test_passe_minuit_02_09(self):
+        self.journey(_from="stop_area:PM2:SA:1",
+                     to="stop_area:PM2:SA:2", datetime="20080408T0011", datetime_represents="arrival")
+
+    def test_passe_minuit_02_10(self):
+        self.journey(_from="stop_area:PM2:SA:1",
+                     to="stop_area:PM2:SA:4", datetime="20080407T2340")
+
+    def test_passe_minuit_02_11(self):
+        self.journey(_from="stop_area:PM2:SA:5",
+                     to="stop_area:PM2:SA:6", datetime="20080407T2250")
+
+    def test_passe_minuit_02_12(self):
+        self.journey(_from="stop_area:PM2:SA:5",
+                     to="stop_area:PM2:SA:6", datetime="20080408T0040", datetime_represents="arrival")
+
+    def test_passe_minuit_02_13(self):
+        self.journey(_from="stop_area:PM2:SA:5",
+                     to="stop_area:PM2:SA:6", datetime="20080408T0055", datetime_represents="arrival")
