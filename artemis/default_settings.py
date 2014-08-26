@@ -8,7 +8,7 @@ NAV_FILE_PATH_LAYOUT = "/srv/ed/{dataset}/data.nav.lz4"
 
 RESPONSE_FILE_PATH = 'output'
 
-REFERENCE_FILE_PATH = 'output'
+REFERENCE_FILE_PATH = '/srv/artemis'
 
 JORMUNGANDR_DB = 'dbname=jormungandr user=jormungandr host=localhost password=jormungandr'
 
