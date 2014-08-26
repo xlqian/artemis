@@ -8,7 +8,7 @@ class TestFreqSimple(ArtemisTestFixture):
     """
     def test_freqsimple_01(self):
         self.journey(_from="stop_area:FQS:SA:GRA",
-                     to="stop_area:FQS:SA:MBC", datetime="20090922T0700")
+                     to="stop_area:FQS:SA:MBC", datetime="20070417T0540")
 
     def test_freqsimple_02(self):
         self.journey(_from="stop_area:FQS:SA:GRA",
