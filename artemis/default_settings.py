@@ -2,7 +2,7 @@
 
 TYR_DIR = "/srv/tyr"
 
-DATASET_PATH_LAYOUT = "/srv/fusio/source/{dataset}/NAVITIART/"
+DATASET_PATH_LAYOUT = "/srv/ed/{}/data/"
 
 NAV_FILE_PATH_LAYOUT = "/srv/ed/{dataset}/data.nav.lz4"
 
