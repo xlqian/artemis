@@ -36,7 +36,7 @@ def get_calling_test_function():
 
 def dir_path(dataset):
     p = config['DATASET_PATH_LAYOUT']
-    return p.format(dataset=dataset.upper())
+    return p.format(dataset=dataset)
 
 def nav_path(dataset):
     p = config['NAV_FILE_PATH_LAYOUT']
