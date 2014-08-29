@@ -9,4 +9,4 @@ class TestCorr01(ArtemisTestFixture):
 
     def test_corr_01_01(self):
         self.journey(_from="stop_area:CR1:SA:1",
-                     to="stop_area:CR1:SA:13", datetime="20041210T0700")
+                     to="stop_area:CR1:SA:13", datetime="20041210T0700", max_nb_transfers=12)
