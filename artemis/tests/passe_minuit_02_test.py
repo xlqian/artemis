@@ -15,6 +15,9 @@ class TestPasseMinuit02(ArtemisTestFixture):
                      to="stop_area:PM2:SA:4", datetime="20080310T2300")
 
     def test_passe_minuit_02_03(self):
+        """
+        no solution found for this journey because first itinerary available is 2 days later
+        """
         self.journey(_from="stop_area:PM2:SA:2",
                      to="stop_area:PM2:SA:4", datetime="20080310T0000")
 
