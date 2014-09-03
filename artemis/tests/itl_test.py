@@ -4,7 +4,7 @@ from artemis.test_mechanism import ArtemisTestFixture, dataset
 @dataset(["itl"])
 class TestItl(ArtemisTestFixture):
     """
-    TODO: put there comments about the dataset
+    test local traffic policy constraint
     """
 
     def test_itl_01(self):
