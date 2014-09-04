@@ -5,6 +5,7 @@ import os
 import psycopg2
 import re
 import json
+import time
 import utils
 from configuration_manager import config
 
@@ -172,16 +173,30 @@ class ArtemisTestFixture:
 
         # to have better errors, we check at the beginning that all is right
         for data_set in cls.data_sets:
-            response, _ = utils.api("coverage/{r}".format(r=data_set))
-            assert 'error' not in response, "problem with the region: {error}".format(error=response['error'])
 
-            first_region = response.get('regions', [None])[0]
-            #the region should be the one asked for
-            assert first_region and first_region['id'] == data_set
+            #we have to let some time to kraken to load the data
+            nb_try = 5
+            current_region = None
+            for i_try in range (0, nb_try):
+
+                response, _ = utils.api("coverage/{r}".format(r=data_set))
+                assert 'error' not in response, "problem with the region: {error}".format(error=response['error'])
+
+                current_region = response.get('regions', [None])[0]
+                #the region should be the one asked for
+                assert current_region and current_region['id'] == data_set
+
+                status = current_region['status']
+                if status == None or \
+                    status == 'loading_data':  #should be corrected in kraken, status should only be loading_data
+                    logging.getLogger(__name__).info("{} still loading data, waiting a bit".format(current_region['id']))
+                    continue
+
+                time.sleep(1)
 
             #and it should be running
-            assert first_region['status'] == 'running', "region {r} KO, status={s}, \n full response={resp}".\
-                format(r=data_set, s=first_region['status'], resp=response)
+            assert current_region['status'] == 'running', "region {r} KO, status={s}, \n full response={resp}".\
+                format(r=data_set, s=current_region['status'], resp=response)
 
     @classmethod
     def kill_jormungandr(cls):
