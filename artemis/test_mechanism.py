@@ -175,10 +175,9 @@ class ArtemisTestFixture:
         for data_set in cls.data_sets:
 
             #we have to let some time to kraken to load the data
-            nb_try = 5
+            nb_try = 15
             current_region = None
             for i_try in range (0, nb_try):
-
                 response, _ = utils.api("coverage/{r}".format(r=data_set))
                 assert 'error' not in response, "problem with the region: {error}".format(error=response['error'])
 
@@ -187,10 +186,11 @@ class ArtemisTestFixture:
                 assert current_region and current_region['id'] == data_set
 
                 status = current_region['status']
-                if status == None or \
-                    status == 'loading_data':  #should be corrected in kraken, status should only be loading_data
-                    logging.getLogger(__name__).info("{} still loading data, waiting a bit".format(current_region['id']))
-                    continue
+                if status is not None and \
+                    status != 'loading_data':  #should be corrected in kraken, status should only be loading_data
+                    break
+
+                logging.getLogger(__name__).info("{} still loading data, waiting a bit".format(current_region['id']))
 
                 time.sleep(1)
 
