@@ -1,0 +1,789 @@
+{
+  "query": "http://localhost/v1/coverage/freqsimple/journeys?from=stop_area:FQS:SA:GRA&to=stop_area:FQS:SA:MBC&datetime=20070417T0540&datetime_represents=departure", 
+  "response": {
+    "journeys": [
+      {
+        "tags": [], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20070417T060408", 
+        "departure_date_time": "20070417T054200", 
+        "type": "best", 
+        "duration": 1328, 
+        "sections": [
+          {
+            "duration": 0, 
+            "arrival_date_time": "20070417T054200", 
+            "departure_date_time": "20070417T054200"
+          }, 
+          {
+            "duration": 1328, 
+            "arrival_date_time": "20070417T060408", 
+            "departure_date_time": "20070417T054200"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20070417T060408", 
+            "departure_date_time": "20070417T060408"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/freqsimple/journeys?to=stop_area%3AFQS%3ASA%3AMBC&from=stop_area%3AFQS%3ASA%3AGRA&datetime_represents=arrival&datetime=20070417T060308", 
+        "type": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqsimple/journeys?to=stop_area%3AFQS%3ASA%3AMBC&from=stop_area%3AFQS%3ASA%3AGRA&datetime_represents=departure&datetime=20070417T054300", 
+        "type": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqsimple/journeys?to=stop_area%3AFQS%3ASA%3AMBC&from=stop_area%3AFQS%3ASA%3AGRA&datetime_represents=departure&datetime=20070417T000000", 
+        "type": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqsimple/journeys?to=stop_area%3AFQS%3ASA%3AMBC&from=stop_area%3AFQS%3ASA%3AGRA&datetime_represents=arrival&datetime=20070417T235900", 
+        "type": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqsimple/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqsimple/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqsimple/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqsimple/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqsimple/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqsimple/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20070417T060408", 
+        "departure_date_time": "20070417T054200", 
+        "requested_date_time": "20070417T054000", 
+        "type": "best", 
+        "duration": 1328, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "BALMA-GRAMONT", 
+                "coord": {
+                  "lat": "48.843979", 
+                  "lon": "2.379063"
+                }, 
+                "id": "stop_area:FQS:SA:GRA"
+              }, 
+              "name": "BALMA-GRAMONT", 
+              "id": "stop_area:FQS:SA:GRA"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20070417T054200", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20070417T054200", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "BALMA-GRAMONT", 
+                "coord": {
+                  "lat": "31.925987", 
+                  "lon": "1.635687"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQS:SP:GRA", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "BALMA-GRAMONT", 
+                  "coord": {
+                    "lat": "48.843979", 
+                    "lon": "2.379063"
+                  }, 
+                  "id": "stop_area:FQS:SA:GRA"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQS:SP:GRA", 
+              "name": "BALMA-GRAMONT"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.379063, 
+                  48.843979
+                ], 
+                [
+                  1.635687, 
+                  31.925987
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "BALMA-GRAMONT", 
+                "coord": {
+                  "lat": "31.925987", 
+                  "lon": "1.635687"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQS:SP:GRA", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "BALMA-GRAMONT", 
+                  "coord": {
+                    "lat": "48.843979", 
+                    "lon": "2.379063"
+                  }, 
+                  "id": "stop_area:FQS:SA:GRA"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQS:SP:GRA", 
+              "name": "BALMA-GRAMONT"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:FQS:A10361535"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:FQS:Ligne1"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:FQS:Route1-2"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:METRO"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Metro"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:FQS"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20070417T060408", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20070417T054200", 
+            "display_informations": {
+              "direction": "BASSO-CAMBO", 
+              "code": "", 
+              "description": "", 
+              "color": "", 
+              "physical_mode": "M\u00e9tro", 
+              "headsign": "FQS:A10361535", 
+              "commercial_mode": "METRO", 
+              "equipments": [], 
+              "label": "Ligne 1", 
+              "network": "FRE"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "BASSO-CAMBO", 
+                "coord": {
+                  "lat": "43.56997", 
+                  "lon": "1.39228"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQS:SP:MBC", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "BASSO-CAMBO", 
+                  "coord": {
+                    "lat": "48.830492", 
+                    "lon": "2.390951"
+                  }, 
+                  "id": "stop_area:FQS:SA:MBC"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQS:SP:MBC", 
+              "name": "BASSO-CAMBO"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 1316530
+                }
+              ], 
+              "coordinates": [
+                [
+                  1.635687, 
+                  31.925987
+                ], 
+                [
+                  1.625002, 
+                  31.916708
+                ], 
+                [
+                  1.619154, 
+                  31.911627
+                ], 
+                [
+                  1.614006, 
+                  31.907155
+                ], 
+                [
+                  1.607215, 
+                  31.901253
+                ], 
+                [
+                  1.587529, 
+                  31.884137
+                ], 
+                [
+                  1.599228, 
+                  31.89431
+                ], 
+                [
+                  1.597797, 
+                  31.893066
+                ], 
+                [
+                  1.587529, 
+                  31.884137
+                ], 
+                [
+                  1.580783, 
+                  31.878269
+                ], 
+                [
+                  1.576929, 
+                  31.874916
+                ], 
+                [
+                  1.576736, 
+                  31.874748
+                ], 
+                [
+                  1.574028, 
+                  31.872392
+                ], 
+                [
+                  1.571635, 
+                  31.870309
+                ], 
+                [
+                  1.563097, 
+                  31.862878
+                ], 
+                [
+                  1.402291, 
+                  43.570848
+                ], 
+                [
+                  1.396361, 
+                  43.566114
+                ], 
+                [
+                  1.39228, 
+                  43.56997
+                ]
+              ]
+            }, 
+            "duration": 1328, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "BALMA-GRAMONT", 
+                  "coord": {
+                    "lat": "31.925987", 
+                    "lon": "1.635687"
+                  }, 
+                  "id": "stop_point:FQS:SP:GRA"
+                }, 
+                "arrival_date_time": "20070417T054200", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T054200", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "ARGOULETS", 
+                  "coord": {
+                    "lat": "31.916708", 
+                    "lon": "1.625002"
+                  }, 
+                  "id": "stop_point:FQS:SP:ARG"
+                }, 
+                "arrival_date_time": "20070417T054310", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T054310", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "ROSERAIE", 
+                  "coord": {
+                    "lat": "31.911627", 
+                    "lon": "1.619154"
+                  }, 
+                  "id": "stop_point:FQS:SP:ROS"
+                }, 
+                "arrival_date_time": "20070417T054429", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T054429", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "JOLIMONT", 
+                  "coord": {
+                    "lat": "31.907155", 
+                    "lon": "1.614006"
+                  }, 
+                  "id": "stop_point:FQS:SP:JOL"
+                }, 
+                "arrival_date_time": "20070417T054556", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T054556", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "MARENGO-SNCF", 
+                  "coord": {
+                    "lat": "31.901253", 
+                    "lon": "1.607215"
+                  }, 
+                  "id": "stop_point:FQS:SP:MAR"
+                }, 
+                "arrival_date_time": "20070417T054720", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T054720", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "JEAN JAURES", 
+                  "coord": {
+                    "lat": "31.884137", 
+                    "lon": "1.587529"
+                  }, 
+                  "id": "stop_point:FQS:SP:JAU"
+                }, 
+                "arrival_date_time": "20070417T054838", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T054838", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "CAPITOLE", 
+                  "coord": {
+                    "lat": "31.89431", 
+                    "lon": "1.599228"
+                  }, 
+                  "id": "stop_point:FQS:SP:CAP"
+                }, 
+                "arrival_date_time": "20070417T054941", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T054941", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "ESQUIROL", 
+                  "coord": {
+                    "lat": "31.893066", 
+                    "lon": "1.597797"
+                  }, 
+                  "id": "stop_point:FQS:SP:ESQ"
+                }, 
+                "arrival_date_time": "20070417T055054", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T055054", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "ST-CYPRIEN-REPUBLIQUE", 
+                  "coord": {
+                    "lat": "31.884137", 
+                    "lon": "1.587529"
+                  }, 
+                  "id": "stop_point:FQS:SP:SCY"
+                }, 
+                "arrival_date_time": "20070417T055238", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T055238", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "PATTE D'OIE", 
+                  "coord": {
+                    "lat": "31.878269", 
+                    "lon": "1.580783"
+                  }, 
+                  "id": "stop_point:FQS:SP:PAT"
+                }, 
+                "arrival_date_time": "20070417T055355", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T055355", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "ARENES", 
+                  "coord": {
+                    "lat": "31.874916", 
+                    "lon": "1.576929"
+                  }, 
+                  "id": "stop_point:FQS:SP:ARE"
+                }, 
+                "arrival_date_time": "20070417T055504", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T055504", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "FONTAINE-LESTANG", 
+                  "coord": {
+                    "lat": "31.874748", 
+                    "lon": "1.576736"
+                  }, 
+                  "id": "stop_point:FQS:SP:FLE"
+                }, 
+                "arrival_date_time": "20070417T055626", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T055626", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "MERMOZ", 
+                  "coord": {
+                    "lat": "31.872392", 
+                    "lon": "1.574028"
+                  }, 
+                  "id": "stop_point:FQS:SP:MER"
+                }, 
+                "arrival_date_time": "20070417T055732", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T055732", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "BAGATELLE", 
+                  "coord": {
+                    "lat": "31.870309", 
+                    "lon": "1.571635"
+                  }, 
+                  "id": "stop_point:FQS:SP:BAG"
+                }, 
+                "arrival_date_time": "20070417T055837", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T055837", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "MIRAIL-UNIVERSITE", 
+                  "coord": {
+                    "lat": "31.862878", 
+                    "lon": "1.563097"
+                  }, 
+                  "id": "stop_point:FQS:SP:MUN"
+                }, 
+                "arrival_date_time": "20070417T060019", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T060019", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "REYNERIE", 
+                  "coord": {
+                    "lat": "43.570848", 
+                    "lon": "1.402291"
+                  }, 
+                  "id": "stop_point:FQS:SP:REY"
+                }, 
+                "arrival_date_time": "20070417T060126", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T060126", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "BELLEFONTAINE", 
+                  "coord": {
+                    "lat": "43.566114", 
+                    "lon": "1.396361"
+                  }, 
+                  "id": "stop_point:FQS:SP:BEL"
+                }, 
+                "arrival_date_time": "20070417T060244", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T060244", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "BASSO-CAMBO", 
+                  "coord": {
+                    "lat": "43.56997", 
+                    "lon": "1.39228"
+                  }, 
+                  "id": "stop_point:FQS:SP:MBC"
+                }, 
+                "arrival_date_time": "20070417T060408", 
+                "additional_informations": [], 
+                "departure_date_time": "20070417T060408", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "BASSO-CAMBO", 
+                "coord": {
+                  "lat": "43.56997", 
+                  "lon": "1.39228"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQS:SP:MBC", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "BASSO-CAMBO", 
+                  "coord": {
+                    "lat": "48.830492", 
+                    "lon": "2.390951"
+                  }, 
+                  "id": "stop_area:FQS:SA:MBC"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQS:SP:MBC", 
+              "name": "BASSO-CAMBO"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20070417T060408", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20070417T060408", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "BASSO-CAMBO", 
+                "coord": {
+                  "lat": "48.830492", 
+                  "lon": "2.390951"
+                }, 
+                "id": "stop_area:FQS:SA:MBC"
+              }, 
+              "name": "BASSO-CAMBO", 
+              "id": "stop_area:FQS:SA:MBC"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  1.39228, 
+                  43.56997
+                ], 
+                [
+                  2.390951, 
+                  48.830492
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_2_0"
+          }
+        ]
+      }
+    ]
+  }
+}

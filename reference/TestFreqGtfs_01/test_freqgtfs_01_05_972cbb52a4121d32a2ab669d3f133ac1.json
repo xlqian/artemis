@@ -1,0 +1,789 @@
+{
+  "query": "http://localhost/v1/coverage/freqgtfs-01/journeys?from=stop_area:FQT:SA:210216&to=stop_area:FQT:SA:211020&datetime=20120923T094000&datetime_represents=departure", 
+  "response": {
+    "journeys": [
+      {
+        "tags": [], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20120923T100400", 
+        "departure_date_time": "20120923T094200", 
+        "type": "best", 
+        "duration": 1320, 
+        "sections": [
+          {
+            "duration": 0, 
+            "arrival_date_time": "20120923T094200", 
+            "departure_date_time": "20120923T094200"
+          }, 
+          {
+            "duration": 1320, 
+            "arrival_date_time": "20120923T100400", 
+            "departure_date_time": "20120923T094200"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20120923T100400", 
+            "departure_date_time": "20120923T100400"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A211020&from=stop_area%3AFQT%3ASA%3A210216&datetime_represents=arrival&datetime=20120923T100300", 
+        "type": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A211020&from=stop_area%3AFQT%3ASA%3A210216&datetime_represents=departure&datetime=20120923T094300", 
+        "type": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A211020&from=stop_area%3AFQT%3ASA%3A210216&datetime_represents=departure&datetime=20120923T000000", 
+        "type": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A211020&from=stop_area%3AFQT%3ASA%3A210216&datetime_represents=arrival&datetime=20120923T235900", 
+        "type": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20120923T100400", 
+        "departure_date_time": "20120923T094200", 
+        "requested_date_time": "20120923T094000", 
+        "type": "best", 
+        "duration": 1320, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Basso Cambo", 
+                "coord": {
+                  "lat": "27.324835", 
+                  "lon": "1.605018"
+                }, 
+                "id": "stop_area:FQT:SA:210216"
+              }, 
+              "name": "Basso Cambo", 
+              "id": "stop_area:FQT:SA:210216"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20120923T094200", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20120923T094200", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Basso Cambo", 
+                "coord": {
+                  "lat": "43.5701", 
+                  "lon": "1.39201"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQT:SP:353105", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Basso Cambo", 
+                  "coord": {
+                    "lat": "27.324835", 
+                    "lon": "1.605018"
+                  }, 
+                  "id": "stop_area:FQT:SA:210216"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQT:SP:353105", 
+              "name": "Basso Cambo"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  1.605018, 
+                  27.324835
+                ], 
+                [
+                  1.39201, 
+                  43.5701
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Basso Cambo", 
+                "coord": {
+                  "lat": "43.5701", 
+                  "lon": "1.39201"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQT:SP:353105", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Basso Cambo", 
+                  "coord": {
+                    "lat": "27.324835", 
+                    "lon": "1.605018"
+                  }, 
+                  "id": "stop_area:FQT:SA:210216"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQT:SP:353105", 
+              "name": "Basso Cambo"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:FQT:429647000126267"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:FQT:44142"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:FQT:44142"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:METRO"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Metro"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:FQT:43019"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20120923T100400", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20120923T094200", 
+            "display_informations": {
+              "direction": "Balma-Gramont", 
+              "code": "A", 
+              "description": "", 
+              "color": "ff0000", 
+              "physical_mode": "M\u00e9tro", 
+              "headsign": "MP/TLS/A/11", 
+              "commercial_mode": "METRO", 
+              "equipments": [], 
+              "label": "A", 
+              "network": "R\u00e9seau Tiss\u00e9o R\u00e9seau Urbain"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Balma-Gramont", 
+                "coord": {
+                  "lat": "43.6276", 
+                  "lon": "1.48178"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQT:SP:354506", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Balma Gramont", 
+                  "coord": {
+                    "lat": "27.325395", 
+                    "lon": "1.675697"
+                  }, 
+                  "id": "stop_area:FQT:SA:211020"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQT:SP:354506", 
+              "name": "Balma-Gramont"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 10983
+                }
+              ], 
+              "coordinates": [
+                [
+                  1.39201, 
+                  43.5701
+                ], 
+                [
+                  1.39838, 
+                  43.5664
+                ], 
+                [
+                  1.40148, 
+                  43.5703
+                ], 
+                [
+                  1.4015, 
+                  43.5753
+                ], 
+                [
+                  1.4126, 
+                  43.5799
+                ], 
+                [
+                  1.41589, 
+                  43.5843
+                ], 
+                [
+                  1.41798, 
+                  43.5876
+                ], 
+                [
+                  1.4186, 
+                  43.5928
+                ], 
+                [
+                  1.42322, 
+                  43.5964
+                ], 
+                [
+                  1.43149, 
+                  43.5978
+                ], 
+                [
+                  1.44463, 
+                  43.6004
+                ], 
+                [
+                  1.44569, 
+                  43.605
+                ], 
+                [
+                  1.44832, 
+                  43.606
+                ], 
+                [
+                  1.45524, 
+                  43.6104
+                ], 
+                [
+                  1.46346, 
+                  43.6153
+                ], 
+                [
+                  1.46947, 
+                  43.6193
+                ], 
+                [
+                  1.47741, 
+                  43.6255
+                ], 
+                [
+                  1.48178, 
+                  43.6276
+                ]
+              ]
+            }, 
+            "duration": 1320, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Basso Cambo", 
+                  "coord": {
+                    "lat": "43.5701", 
+                    "lon": "1.39201"
+                  }, 
+                  "id": "stop_point:FQT:SP:353105"
+                }, 
+                "arrival_date_time": "20120923T094200", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T094200", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Bellefontaine", 
+                  "coord": {
+                    "lat": "43.5664", 
+                    "lon": "1.39838"
+                  }, 
+                  "id": "stop_point:FQT:SP:353574"
+                }, 
+                "arrival_date_time": "20120923T094300", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T094300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Reynerie", 
+                  "coord": {
+                    "lat": "43.5703", 
+                    "lon": "1.40148"
+                  }, 
+                  "id": "stop_point:FQT:SP:353568"
+                }, 
+                "arrival_date_time": "20120923T094500", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T094500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Mirail-Universit\u00e9", 
+                  "coord": {
+                    "lat": "43.5753", 
+                    "lon": "1.4015"
+                  }, 
+                  "id": "stop_point:FQT:SP:353567"
+                }, 
+                "arrival_date_time": "20120923T094600", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T094600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Bagatelle", 
+                  "coord": {
+                    "lat": "43.5799", 
+                    "lon": "1.4126"
+                  }, 
+                  "id": "stop_point:FQT:SP:353114"
+                }, 
+                "arrival_date_time": "20120923T094700", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T094700", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Mermoz", 
+                  "coord": {
+                    "lat": "43.5843", 
+                    "lon": "1.41589"
+                  }, 
+                  "id": "stop_point:FQT:SP:353562"
+                }, 
+                "arrival_date_time": "20120923T094800", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T094800", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Fontaine Lestang", 
+                  "coord": {
+                    "lat": "43.5876", 
+                    "lon": "1.41798"
+                  }, 
+                  "id": "stop_point:FQT:SP:353554"
+                }, 
+                "arrival_date_time": "20120923T094900", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T094900", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Ar\u00e8nes", 
+                  "coord": {
+                    "lat": "43.5928", 
+                    "lon": "1.4186"
+                  }, 
+                  "id": "stop_point:FQT:SP:352937"
+                }, 
+                "arrival_date_time": "20120923T095100", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T095100", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Patte d'Oie", 
+                  "coord": {
+                    "lat": "43.5964", 
+                    "lon": "1.42322"
+                  }, 
+                  "id": "stop_point:FQT:SP:353180"
+                }, 
+                "arrival_date_time": "20120923T095200", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T095200", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "St Cyprien - R\u00e9publique", 
+                  "coord": {
+                    "lat": "43.5978", 
+                    "lon": "1.43149"
+                  }, 
+                  "id": "stop_point:FQT:SP:353035"
+                }, 
+                "arrival_date_time": "20120923T095300", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T095300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Esquirol", 
+                  "coord": {
+                    "lat": "43.6004", 
+                    "lon": "1.44463"
+                  }, 
+                  "id": "stop_point:FQT:SP:353299"
+                }, 
+                "arrival_date_time": "20120923T095500", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T095500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Capitole", 
+                  "coord": {
+                    "lat": "43.605", 
+                    "lon": "1.44569"
+                  }, 
+                  "id": "stop_point:FQT:SP:353135"
+                }, 
+                "arrival_date_time": "20120923T095600", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T095600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Jean Jaur\u00e8s", 
+                  "coord": {
+                    "lat": "43.606", 
+                    "lon": "1.44832"
+                  }, 
+                  "id": "stop_point:FQT:SP:353119"
+                }, 
+                "arrival_date_time": "20120923T095700", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T095700", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Marengo-SNCF", 
+                  "coord": {
+                    "lat": "43.6104", 
+                    "lon": "1.45524"
+                  }, 
+                  "id": "stop_point:FQT:SP:352707"
+                }, 
+                "arrival_date_time": "20120923T095900", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T095900", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Jolimont", 
+                  "coord": {
+                    "lat": "43.6153", 
+                    "lon": "1.46346"
+                  }, 
+                  "id": "stop_point:FQT:SP:353548"
+                }, 
+                "arrival_date_time": "20120923T100000", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T100000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Roseraie", 
+                  "coord": {
+                    "lat": "43.6193", 
+                    "lon": "1.46947"
+                  }, 
+                  "id": "stop_point:FQT:SP:360823"
+                }, 
+                "arrival_date_time": "20120923T100200", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T100200", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Argoulets", 
+                  "coord": {
+                    "lat": "43.6255", 
+                    "lon": "1.47741"
+                  }, 
+                  "id": "stop_point:FQT:SP:360727"
+                }, 
+                "arrival_date_time": "20120923T100300", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T100300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Balma-Gramont", 
+                  "coord": {
+                    "lat": "43.6276", 
+                    "lon": "1.48178"
+                  }, 
+                  "id": "stop_point:FQT:SP:354506"
+                }, 
+                "arrival_date_time": "20120923T100400", 
+                "additional_informations": [], 
+                "departure_date_time": "20120923T100400", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Balma-Gramont", 
+                "coord": {
+                  "lat": "43.6276", 
+                  "lon": "1.48178"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQT:SP:354506", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Balma Gramont", 
+                  "coord": {
+                    "lat": "27.325395", 
+                    "lon": "1.675697"
+                  }, 
+                  "id": "stop_area:FQT:SA:211020"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQT:SP:354506", 
+              "name": "Balma-Gramont"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20120923T100400", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20120923T100400", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Balma Gramont", 
+                "coord": {
+                  "lat": "27.325395", 
+                  "lon": "1.675697"
+                }, 
+                "id": "stop_area:FQT:SA:211020"
+              }, 
+              "name": "Balma Gramont", 
+              "id": "stop_area:FQT:SA:211020"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  1.48178, 
+                  43.6276
+                ], 
+                [
+                  1.675697, 
+                  27.325395
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_2_0"
+          }
+        ]
+      }
+    ]
+  }
+}

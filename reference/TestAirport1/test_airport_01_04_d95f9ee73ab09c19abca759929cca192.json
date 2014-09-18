@@ -1,0 +1,31 @@
+{
+  "query": "http://localhost/v1/coverage/airport-01/journeys?from=stop_area:AI1:SA:AIRPORTAIRPORT&to=stop_area:AI1:SA:AIRPORTMRS&datetime=20120908T1200&datetime_represents=departure", 
+  "response": {
+    "journeys": null
+  }, 
+  "full_response": {
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/airport-01/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport-01/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport-01/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }
+    ], 
+    "error": {
+      "message": "no solution found for this journey", 
+      "id": "no_solution"
+    }
+  }
+}

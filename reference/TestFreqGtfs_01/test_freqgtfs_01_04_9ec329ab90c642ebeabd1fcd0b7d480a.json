@@ -1,0 +1,509 @@
+{
+  "query": "http://localhost/v1/coverage/freqgtfs-01/journeys?from=stop_area:FQT:SA:212127&to=stop_area:FQT:SA:215949&datetime=20121110T070000&datetime_represents=departure", 
+  "response": {
+    "journeys": [
+      {
+        "tags": [], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20121110T074400", 
+        "departure_date_time": "20121110T074300", 
+        "type": "best", 
+        "duration": 60, 
+        "sections": [
+          {
+            "duration": 0, 
+            "arrival_date_time": "20121110T074300", 
+            "departure_date_time": "20121110T074300"
+          }, 
+          {
+            "duration": 60, 
+            "arrival_date_time": "20121110T074400", 
+            "departure_date_time": "20121110T074300"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20121110T074400", 
+            "departure_date_time": "20121110T074400"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A215949&from=stop_area%3AFQT%3ASA%3A212127&datetime_represents=arrival&datetime=20121110T074300", 
+        "type": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A215949&from=stop_area%3AFQT%3ASA%3A212127&datetime_represents=departure&datetime=20121110T074400", 
+        "type": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A215949&from=stop_area%3AFQT%3ASA%3A212127&datetime_represents=departure&datetime=20121110T000000", 
+        "type": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A215949&from=stop_area%3AFQT%3ASA%3A212127&datetime_represents=arrival&datetime=20121110T235900", 
+        "type": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20121110T074400", 
+        "departure_date_time": "20121110T074300", 
+        "requested_date_time": "20121110T070000", 
+        "type": "best", 
+        "duration": 60, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "La Lie", 
+                "coord": {
+                  "lat": "43.34302", 
+                  "lon": "-5.061669"
+                }, 
+                "id": "stop_area:FQT:SA:212127"
+              }, 
+              "name": "La Lie", 
+              "id": "stop_area:FQT:SA:212127"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20121110T074300", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20121110T074300", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "La Lie", 
+                "coord": {
+                  "lat": "43.5942", 
+                  "lon": "1.55798"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQT:SP:356427", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "La Lie", 
+                  "coord": {
+                    "lat": "43.34302", 
+                    "lon": "-5.061669"
+                  }, 
+                  "id": "stop_area:FQT:SA:212127"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQT:SP:356427", 
+              "name": "La Lie"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  -5.061669, 
+                  43.34302
+                ], 
+                [
+                  1.55798, 
+                  43.5942
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "La Lie", 
+                "coord": {
+                  "lat": "43.5942", 
+                  "lon": "1.55798"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQT:SP:356427", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "La Lie", 
+                  "coord": {
+                    "lat": "43.34302", 
+                    "lon": "-5.061669"
+                  }, 
+                  "id": "stop_area:FQT:SA:212127"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQT:SP:356427", 
+              "name": "La Lie"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:FQT:42985337116846"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:FQT:44345"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:FQT:44345"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:BUS"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:FQT:43019"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20121110T074400", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20121110T074300", 
+            "display_informations": {
+              "direction": "Dr\u00e9mil Stade", 
+              "code": "35", 
+              "description": "", 
+              "color": "94d24d", 
+              "physical_mode": "Bus", 
+              "headsign": "MP/TLS/035/47", 
+              "commercial_mode": "BUS", 
+              "equipments": [], 
+              "label": "35", 
+              "network": "R\u00e9seau Tiss\u00e9o R\u00e9seau Urbain"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Lac", 
+                "coord": {
+                  "lat": "43.5961", 
+                  "lon": "1.564"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQT:SP:360637", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Lac", 
+                  "coord": {
+                    "lat": "27.325844", 
+                    "lon": "1.73839"
+                  }, 
+                  "id": "stop_area:FQT:SA:215949"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQT:SP:360637", 
+              "name": "Lac"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 563
+                }
+              ], 
+              "coordinates": [
+                [
+                  1.55798, 
+                  43.5942
+                ], 
+                [
+                  1.55938, 
+                  43.5944
+                ], 
+                [
+                  1.56195, 
+                  43.5945
+                ], 
+                [
+                  1.564, 
+                  43.5961
+                ]
+              ]
+            }, 
+            "duration": 60, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "La Lie", 
+                  "coord": {
+                    "lat": "43.5942", 
+                    "lon": "1.55798"
+                  }, 
+                  "id": "stop_point:FQT:SP:356427"
+                }, 
+                "arrival_date_time": "20121110T074300", 
+                "additional_informations": [], 
+                "departure_date_time": "20121110T074300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Digue", 
+                  "coord": {
+                    "lat": "43.5944", 
+                    "lon": "1.55938"
+                  }, 
+                  "id": "stop_point:FQT:SP:356429"
+                }, 
+                "arrival_date_time": "20121110T074300", 
+                "additional_informations": [], 
+                "departure_date_time": "20121110T074300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Mairie Flourens", 
+                  "coord": {
+                    "lat": "43.5945", 
+                    "lon": "1.56195"
+                  }, 
+                  "id": "stop_point:FQT:SP:360685"
+                }, 
+                "arrival_date_time": "20121110T074300", 
+                "additional_informations": [], 
+                "departure_date_time": "20121110T074300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Lac", 
+                  "coord": {
+                    "lat": "43.5961", 
+                    "lon": "1.564"
+                  }, 
+                  "id": "stop_point:FQT:SP:360637"
+                }, 
+                "arrival_date_time": "20121110T074400", 
+                "additional_informations": [], 
+                "departure_date_time": "20121110T074400", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Lac", 
+                "coord": {
+                  "lat": "43.5961", 
+                  "lon": "1.564"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQT:SP:360637", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Lac", 
+                  "coord": {
+                    "lat": "27.325844", 
+                    "lon": "1.73839"
+                  }, 
+                  "id": "stop_area:FQT:SA:215949"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQT:SP:360637", 
+              "name": "Lac"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20121110T074400", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20121110T074400", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Lac", 
+                "coord": {
+                  "lat": "27.325844", 
+                  "lon": "1.73839"
+                }, 
+                "id": "stop_area:FQT:SA:215949"
+              }, 
+              "name": "Lac", 
+              "id": "stop_area:FQT:SA:215949"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  1.564, 
+                  43.5961
+                ], 
+                [
+                  1.73839, 
+                  27.325844
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_2_0"
+          }
+        ]
+      }
+    ]
+  }
+}

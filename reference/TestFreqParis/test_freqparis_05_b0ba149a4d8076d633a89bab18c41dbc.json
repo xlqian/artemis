@@ -1,0 +1,692 @@
+{
+  "query": "http://localhost/v1/coverage/freqparis/journeys?from=stop_area:FQP:SA:defen&to=stop_area:FQP:SA:grest&datetime=20090922T0020&datetime_represents=arrival", 
+  "response": {
+    "journeys": [
+      {
+        "tags": [], 
+        "nb_transfers": 1, 
+        "arrival_date_time": "20090922T001400", 
+        "departure_date_time": "20090921T233900", 
+        "type": "best", 
+        "duration": 2100, 
+        "sections": [
+          {
+            "duration": 0, 
+            "arrival_date_time": "20090921T233900", 
+            "departure_date_time": "20090921T233900"
+          }, 
+          {
+            "duration": 1380, 
+            "arrival_date_time": "20090922T000200", 
+            "departure_date_time": "20090921T233900"
+          }, 
+          {
+            "duration": 240, 
+            "arrival_date_time": "20090922T000600", 
+            "departure_date_time": "20090922T000200"
+          }, 
+          {
+            "duration": 480, 
+            "arrival_date_time": "20090922T001400", 
+            "departure_date_time": "20090922T000600"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20090922T001400", 
+            "departure_date_time": "20090922T001400"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_3_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/freqparis/journeys?to=stop_area%3AFQP%3ASA%3Agrest&from=stop_area%3AFQP%3ASA%3Adefen&datetime_represents=arrival&datetime=20090922T001300", 
+        "type": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqparis/journeys?to=stop_area%3AFQP%3ASA%3Agrest&from=stop_area%3AFQP%3ASA%3Adefen&datetime_represents=departure&datetime=20090921T234000", 
+        "type": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqparis/journeys?to=stop_area%3AFQP%3ASA%3Agrest&from=stop_area%3AFQP%3ASA%3Adefen&datetime_represents=departure&datetime=20090921T000000", 
+        "type": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqparis/journeys?to=stop_area%3AFQP%3ASA%3Agrest&from=stop_area%3AFQP%3ASA%3Adefen&datetime_represents=arrival&datetime=20090922T235900", 
+        "type": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqparis/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqparis/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqparis/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqparis/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqparis/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqparis/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [], 
+        "nb_transfers": 1, 
+        "arrival_date_time": "20090922T001400", 
+        "departure_date_time": "20090921T233900", 
+        "requested_date_time": "20090922T002000", 
+        "type": "best", 
+        "duration": 2100, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "La defense", 
+                "coord": {
+                  "lat": "27.140274", 
+                  "lon": "-3.403865"
+                }, 
+                "id": "stop_area:FQP:SA:defen"
+              }, 
+              "name": "La defense", 
+              "id": "stop_area:FQP:SA:defen"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20090921T233900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20090921T233900", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "La Defense", 
+                "coord": {
+                  "lat": "48.89183", 
+                  "lon": "2.23801"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQP:SP:defen", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "La defense", 
+                  "coord": {
+                    "lat": "27.140274", 
+                    "lon": "-3.403865"
+                  }, 
+                  "id": "stop_area:FQP:SA:defen"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQP:SP:defen", 
+              "name": "La Defense"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  -3.403865, 
+                  27.140274
+                ], 
+                [
+                  2.23801, 
+                  48.89183
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "La Defense", 
+                "coord": {
+                  "lat": "48.89183", 
+                  "lon": "2.23801"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQP:SP:defen", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "La defense", 
+                  "coord": {
+                    "lat": "27.140274", 
+                    "lon": "-3.403865"
+                  }, 
+                  "id": "stop_area:FQP:SA:defen"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQP:SP:defen", 
+              "name": "La Defense"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:FQP:A10606402"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:FQP:Ligne1"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:FQP:Route1-1"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:METRO"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Metro"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:FQP"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20090922T000200", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20090921T233900", 
+            "display_informations": {
+              "direction": "Nation", 
+              "code": "", 
+              "description": "", 
+              "color": "", 
+              "physical_mode": "M\u00e9tro", 
+              "headsign": "FQP:A10606402", 
+              "commercial_mode": "METRO", 
+              "equipments": [], 
+              "label": "Ligne 1", 
+              "network": "FRE"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Bastille", 
+                "coord": {
+                  "lat": "48.852905", 
+                  "lon": "2.369292"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQP:SP:basti", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Bastille", 
+                  "coord": {
+                    "lat": "48.852905", 
+                    "lon": "2.369292"
+                  }, 
+                  "id": "stop_area:FQP:SA:basti"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQP:SP:basti", 
+              "name": "Bastille"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 10546
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.23801, 
+                  48.89183
+                ], 
+                [
+                  2.347829, 
+                  48.857476
+                ], 
+                [
+                  2.369292, 
+                  48.852905
+                ]
+              ]
+            }, 
+            "duration": 1380, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "La Defense", 
+                  "coord": {
+                    "lat": "48.89183", 
+                    "lon": "2.23801"
+                  }, 
+                  "id": "stop_point:FQP:SP:defen"
+                }, 
+                "arrival_date_time": "20090921T233900", 
+                "additional_informations": [], 
+                "departure_date_time": "20090921T233900", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Chatelet", 
+                  "coord": {
+                    "lat": "48.857476", 
+                    "lon": "2.347829"
+                  }, 
+                  "id": "stop_point:FQP:SP:chate"
+                }, 
+                "arrival_date_time": "20090921T235800", 
+                "additional_informations": [], 
+                "departure_date_time": "20090921T235800", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Bastille", 
+                  "coord": {
+                    "lat": "48.852905", 
+                    "lon": "2.369292"
+                  }, 
+                  "id": "stop_point:FQP:SP:basti"
+                }, 
+                "arrival_date_time": "20090922T000200", 
+                "additional_informations": [], 
+                "departure_date_time": "20090922T000200", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "links": [], 
+            "arrival_date_time": "20090922T000600", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20090922T000200", 
+            "duration": 240, 
+            "type": "waiting", 
+            "id": "section_2_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Bastille", 
+                "coord": {
+                  "lat": "48.852905", 
+                  "lon": "2.369292"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQP:SP:basti", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Bastille", 
+                  "coord": {
+                    "lat": "48.852905", 
+                    "lon": "2.369292"
+                  }, 
+                  "id": "stop_area:FQP:SA:basti"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQP:SP:basti", 
+              "name": "Bastille"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:FQP:A73113370"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:FQP:Ligne5"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:FQP:Route5-2"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:METRO"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Metro"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:FQP"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20090922T001400", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20090922T000600", 
+            "display_informations": {
+              "direction": "Gare du Nord", 
+              "code": "", 
+              "description": "", 
+              "color": "", 
+              "physical_mode": "M\u00e9tro", 
+              "headsign": "FQP:A73113370", 
+              "commercial_mode": "METRO", 
+              "equipments": [], 
+              "label": "Line 5", 
+              "network": "FRE"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Gare de l'Est", 
+                "coord": {
+                  "lat": "48.875926", 
+                  "lon": "2.357997"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQP:SP:grest", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Gare de l'Est", 
+                  "coord": {
+                    "lat": "27.140274", 
+                    "lon": "-3.403865"
+                  }, 
+                  "id": "stop_area:FQP:SA:grest"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQP:SP:grest", 
+              "name": "Gare de l'Est"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 2690
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.369292, 
+                  48.852905
+                ], 
+                [
+                  2.357997, 
+                  48.875926
+                ]
+              ]
+            }, 
+            "duration": 480, 
+            "type": "public_transport", 
+            "id": "section_3_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Bastille", 
+                  "coord": {
+                    "lat": "48.852905", 
+                    "lon": "2.369292"
+                  }, 
+                  "id": "stop_point:FQP:SP:basti"
+                }, 
+                "arrival_date_time": "20090922T000600", 
+                "additional_informations": [], 
+                "departure_date_time": "20090922T000600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Gare de l'Est", 
+                  "coord": {
+                    "lat": "48.875926", 
+                    "lon": "2.357997"
+                  }, 
+                  "id": "stop_point:FQP:SP:grest"
+                }, 
+                "arrival_date_time": "20090922T001400", 
+                "additional_informations": [], 
+                "departure_date_time": "20090922T001400", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Gare de l'Est", 
+                "coord": {
+                  "lat": "48.875926", 
+                  "lon": "2.357997"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQP:SP:grest", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Gare de l'Est", 
+                  "coord": {
+                    "lat": "27.140274", 
+                    "lon": "-3.403865"
+                  }, 
+                  "id": "stop_area:FQP:SA:grest"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQP:SP:grest", 
+              "name": "Gare de l'Est"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20090922T001400", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20090922T001400", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Gare de l'Est", 
+                "coord": {
+                  "lat": "27.140274", 
+                  "lon": "-3.403865"
+                }, 
+                "id": "stop_area:FQP:SA:grest"
+              }, 
+              "name": "Gare de l'Est", 
+              "id": "stop_area:FQP:SA:grest"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.357997, 
+                  48.875926
+                ], 
+                [
+                  -3.403865, 
+                  27.140274
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_4_0"
+          }
+        ]
+      }
+    ]
+  }
+}

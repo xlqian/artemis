@@ -1,0 +1,529 @@
+{
+  "query": "http://localhost/v1/coverage/mission/journeys?from=stop_area:MIS:SA:1&to=stop_area:MIS:SA:5&datetime=20041210T090000&datetime_represents=departure", 
+  "response": {
+    "journeys": [
+      {
+        "tags": [], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20041210T100900", 
+        "departure_date_time": "20041210T100000", 
+        "type": "best", 
+        "duration": 540, 
+        "sections": [
+          {
+            "duration": 0, 
+            "arrival_date_time": "20041210T100000", 
+            "departure_date_time": "20041210T100000"
+          }, 
+          {
+            "duration": 540, 
+            "arrival_date_time": "20041210T100900", 
+            "departure_date_time": "20041210T100000"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20041210T100900", 
+            "departure_date_time": "20041210T100900"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/mission/journeys?to=stop_area%3AMIS%3ASA%3A5&from=stop_area%3AMIS%3ASA%3A1&datetime_represents=arrival&datetime=20041210T100800", 
+        "type": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/journeys?to=stop_area%3AMIS%3ASA%3A5&from=stop_area%3AMIS%3ASA%3A1&datetime_represents=departure&datetime=20041210T100100", 
+        "type": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/journeys?to=stop_area%3AMIS%3ASA%3A5&from=stop_area%3AMIS%3ASA%3A1&datetime_represents=departure&datetime=20041210T000000", 
+        "type": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/journeys?to=stop_area%3AMIS%3ASA%3A5&from=stop_area%3AMIS%3ASA%3A1&datetime_represents=arrival&datetime=20041210T235900", 
+        "type": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20041210T100900", 
+        "departure_date_time": "20041210T100000", 
+        "requested_date_time": "20041210T090000", 
+        "type": "best", 
+        "duration": 540, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Gare 1", 
+                "coord": {
+                  "lat": "0.0", 
+                  "lon": "0.0"
+                }, 
+                "id": "stop_area:MIS:SA:1"
+              }, 
+              "name": "Gare 1", 
+              "id": "stop_area:MIS:SA:1"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041210T100000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041210T100000", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Gare 1", 
+                "coord": {
+                  "lat": "0.0", 
+                  "lon": "0.0"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:MIS:SP:Nav1", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Gare 1", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "id": "stop_area:MIS:SA:1"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:MIS:SP:Nav1", 
+              "name": "Gare 1"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  0.0, 
+                  0.0
+                ], 
+                [
+                  0.0, 
+                  0.0
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Gare 1", 
+                "coord": {
+                  "lat": "0.0", 
+                  "lon": "0.0"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:MIS:SP:Nav1", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Gare 1", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "id": "stop_area:MIS:SA:1"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:MIS:SP:Nav1", 
+              "name": "Gare 1"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:MIS:1-252"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:MIS:Nav1"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:MIS:Nav1"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:RER"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:RapidTransit"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:default_network"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20041210T100900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041210T100000", 
+            "display_informations": {
+              "direction": "Gare 12", 
+              "code": "A", 
+              "description": "", 
+              "color": "000000", 
+              "physical_mode": "Train de banlieue / RER", 
+              "headsign": "omnibus", 
+              "commercial_mode": "RER", 
+              "equipments": [], 
+              "label": "A", 
+              "network": "default network"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Gare 5", 
+                "coord": {
+                  "lat": "0.0", 
+                  "lon": "0.0"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:MIS:SP:Nav5", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Gare 5", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "id": "stop_area:MIS:SA:5"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:MIS:SP:Nav5", 
+              "name": "Gare 5"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  0.0, 
+                  0.0
+                ], 
+                [
+                  0.0, 
+                  0.0
+                ], 
+                [
+                  0.0, 
+                  0.0
+                ], 
+                [
+                  0.0, 
+                  0.0
+                ], 
+                [
+                  0.0, 
+                  0.0
+                ]
+              ]
+            }, 
+            "duration": 540, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Gare 1", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "id": "stop_point:MIS:SP:Nav1"
+                }, 
+                "arrival_date_time": "20041210T100000", 
+                "additional_informations": [], 
+                "departure_date_time": "20041210T100000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Gare 2", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "id": "stop_point:MIS:SP:Nav2"
+                }, 
+                "arrival_date_time": "20041210T100200", 
+                "additional_informations": [], 
+                "departure_date_time": "20041210T100200", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Gare 3", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "id": "stop_point:MIS:SP:Nav3"
+                }, 
+                "arrival_date_time": "20041210T100500", 
+                "additional_informations": [], 
+                "departure_date_time": "20041210T100500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Gare 4", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "id": "stop_point:MIS:SP:Nav4"
+                }, 
+                "arrival_date_time": "20041210T100700", 
+                "additional_informations": [], 
+                "departure_date_time": "20041210T100700", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Gare 5", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "id": "stop_point:MIS:SP:Nav5"
+                }, 
+                "arrival_date_time": "20041210T100900", 
+                "additional_informations": [], 
+                "departure_date_time": "20041210T100900", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Gare 5", 
+                "coord": {
+                  "lat": "0.0", 
+                  "lon": "0.0"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:MIS:SP:Nav5", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Gare 5", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "id": "stop_area:MIS:SA:5"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:MIS:SP:Nav5", 
+              "name": "Gare 5"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041210T100900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041210T100900", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Gare 5", 
+                "coord": {
+                  "lat": "0.0", 
+                  "lon": "0.0"
+                }, 
+                "id": "stop_area:MIS:SA:5"
+              }, 
+              "name": "Gare 5", 
+              "id": "stop_area:MIS:SA:5"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  0.0, 
+                  0.0
+                ], 
+                [
+                  0.0, 
+                  0.0
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_2_0"
+          }
+        ]
+      }
+    ]
+  }
+}

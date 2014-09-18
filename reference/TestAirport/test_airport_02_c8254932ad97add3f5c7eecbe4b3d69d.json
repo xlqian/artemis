@@ -1,0 +1,31 @@
+{
+  "query": "http://localhost/v1/coverage/airport/journeys?from=stop_area:AIR:SA:AIRPORTAMS&to=stop_area:AIR:SA:AIRPORTAIRPORT&datetime=20120904T0900&datetime_represents=departure", 
+  "response": {
+    "journeys": null
+  }, 
+  "full_response": {
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/airport/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }
+    ], 
+    "error": {
+      "message": "no solution found for this journey", 
+      "id": "no_solution"
+    }
+  }
+}

@@ -1,0 +1,509 @@
+{
+  "query": "http://localhost/v1/coverage/rebroussement/journeys?from=stop_area:RBR:SA:4&to=stop_area:RBR:SA:6&datetime=20041213T0900&datetime_represents=departure", 
+  "response": {
+    "journeys": [
+      {
+        "tags": [], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20041213T091800", 
+        "departure_date_time": "20041213T090900", 
+        "type": "best", 
+        "duration": 540, 
+        "sections": [
+          {
+            "duration": 0, 
+            "arrival_date_time": "20041213T090900", 
+            "departure_date_time": "20041213T090900"
+          }, 
+          {
+            "duration": 540, 
+            "arrival_date_time": "20041213T091800", 
+            "departure_date_time": "20041213T090900"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20041213T091800", 
+            "departure_date_time": "20041213T091800"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/rebroussement/journeys?to=stop_area%3ARBR%3ASA%3A6&from=stop_area%3ARBR%3ASA%3A4&datetime_represents=arrival&datetime=20041213T091700", 
+        "type": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/rebroussement/journeys?to=stop_area%3ARBR%3ASA%3A6&from=stop_area%3ARBR%3ASA%3A4&datetime_represents=departure&datetime=20041213T091000", 
+        "type": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/rebroussement/journeys?to=stop_area%3ARBR%3ASA%3A6&from=stop_area%3ARBR%3ASA%3A4&datetime_represents=departure&datetime=20041213T000000", 
+        "type": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/rebroussement/journeys?to=stop_area%3ARBR%3ASA%3A6&from=stop_area%3ARBR%3ASA%3A4&datetime_represents=arrival&datetime=20041213T235900", 
+        "type": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/rebroussement/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/rebroussement/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/rebroussement/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/rebroussement/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20041213T091800", 
+        "departure_date_time": "20041213T090900", 
+        "requested_date_time": "20041213T090000", 
+        "type": "best", 
+        "duration": 540, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Centre Commercial Kerdrezec", 
+                "coord": {
+                  "lat": "43.307893", 
+                  "lon": "-0.357136"
+                }, 
+                "id": "stop_area:RBR:SA:4"
+              }, 
+              "name": "Centre Commercial Kerdrezec", 
+              "id": "stop_area:RBR:SA:4"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041213T090900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041213T090900", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Centre Commercial Kerdrezec", 
+                "coord": {
+                  "lat": "43.307893", 
+                  "lon": "-0.357136"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:RBR:SP:Nav4", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Centre Commercial Kerdrezec", 
+                  "coord": {
+                    "lat": "43.307893", 
+                    "lon": "-0.357136"
+                  }, 
+                  "id": "stop_area:RBR:SA:4"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:RBR:SP:Nav4", 
+              "name": "Centre Commercial Kerdrezec"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  -0.357136, 
+                  43.307893
+                ], 
+                [
+                  -0.357136, 
+                  43.307893
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Centre Commercial Kerdrezec", 
+                "coord": {
+                  "lat": "43.307893", 
+                  "lon": "-0.357136"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:RBR:SP:Nav4", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Centre Commercial Kerdrezec", 
+                  "coord": {
+                    "lat": "43.307893", 
+                    "lon": "-0.357136"
+                  }, 
+                  "id": "stop_area:RBR:SA:4"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:RBR:SP:Nav4", 
+              "name": "Centre Commercial Kerdrezec"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:RBR:1-132"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:RBR:Nav1"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:RBR:Nav1"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:TRAIN"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Train"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:default_network"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20041213T091800", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041213T090900", 
+            "display_informations": {
+              "direction": "Centre Ville", 
+              "code": "5", 
+              "description": "", 
+              "color": "000000", 
+              "physical_mode": "Train", 
+              "headsign": "RBR:1-132", 
+              "commercial_mode": "TRAIN", 
+              "equipments": [], 
+              "label": "5", 
+              "network": "default network"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Centre Ville", 
+                "coord": {
+                  "lat": "43.32539", 
+                  "lon": "-0.295383"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:RBR:SP:Nav6", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Centre Ville", 
+                  "coord": {
+                    "lat": "43.32539", 
+                    "lon": "-0.295383"
+                  }, 
+                  "id": "stop_area:RBR:SA:6"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:RBR:SP:Nav6", 
+              "name": "Centre Ville"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 9851
+                }
+              ], 
+              "coordinates": [
+                [
+                  -0.357136, 
+                  43.307893
+                ], 
+                [
+                  -0.381937, 
+                  43.322267
+                ], 
+                [
+                  -0.304883, 
+                  43.319088
+                ], 
+                [
+                  -0.295383, 
+                  43.32539
+                ]
+              ]
+            }, 
+            "duration": 540, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Centre Commercial Kerdrezec", 
+                  "coord": {
+                    "lat": "43.307893", 
+                    "lon": "-0.357136"
+                  }, 
+                  "id": "stop_point:RBR:SP:Nav4"
+                }, 
+                "arrival_date_time": "20041213T090900", 
+                "additional_informations": [], 
+                "departure_date_time": "20041213T090900", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Prat Maria", 
+                  "coord": {
+                    "lat": "43.322267", 
+                    "lon": "-0.381937"
+                  }, 
+                  "id": "stop_point:RBR:SP:Nav3"
+                }, 
+                "arrival_date_time": "20041213T091100", 
+                "additional_informations": [], 
+                "departure_date_time": "20041213T091100", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Michelet", 
+                  "coord": {
+                    "lat": "43.319088", 
+                    "lon": "-0.304883"
+                  }, 
+                  "id": "stop_point:RBR:SP:Nav5"
+                }, 
+                "arrival_date_time": "20041213T091500", 
+                "additional_informations": [], 
+                "departure_date_time": "20041213T091500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Centre Ville", 
+                  "coord": {
+                    "lat": "43.32539", 
+                    "lon": "-0.295383"
+                  }, 
+                  "id": "stop_point:RBR:SP:Nav6"
+                }, 
+                "arrival_date_time": "20041213T091800", 
+                "additional_informations": [], 
+                "departure_date_time": "20041213T091800", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Centre Ville", 
+                "coord": {
+                  "lat": "43.32539", 
+                  "lon": "-0.295383"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:RBR:SP:Nav6", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Centre Ville", 
+                  "coord": {
+                    "lat": "43.32539", 
+                    "lon": "-0.295383"
+                  }, 
+                  "id": "stop_area:RBR:SA:6"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:RBR:SP:Nav6", 
+              "name": "Centre Ville"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041213T091800", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041213T091800", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Centre Ville", 
+                "coord": {
+                  "lat": "43.32539", 
+                  "lon": "-0.295383"
+                }, 
+                "id": "stop_area:RBR:SA:6"
+              }, 
+              "name": "Centre Ville", 
+              "id": "stop_area:RBR:SA:6"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  -0.295383, 
+                  43.32539
+                ], 
+                [
+                  -0.295383, 
+                  43.32539
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_2_0"
+          }
+        ]
+      }
+    ]
+  }
+}
