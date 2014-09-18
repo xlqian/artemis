@@ -154,10 +154,14 @@ class ArtemisTestFixture:
         """
         for data_set in cls.data_sets:
             logging.getLogger(__name__).info("launching the kraken {}".format(data_set))
-            return_code, proc = utils.launch_exec('sudo {service} {kraken} start'.format(service=_kraken_wrapper, kraken=data_set))
+            return_code, _ = utils.launch_exec('sudo {service} {kraken} start'.format(service=_kraken_wrapper, kraken=data_set))
 
             assert return_code == 0, "command failed"
-            cls.kraken_pids[data_set] = proc.pid
+            #I could not find a better way to get the kraken's pid
+            with open("/srv/kraken/{i}/kraken.pid".format(i=data_set)) as f:
+                pid = int(f.next())
+
+            cls.kraken_pids[data_set] = pid
 
     @classmethod
     def kill_the_krakens(cls):

@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 import time
 import psutil
 
@@ -40,6 +41,8 @@ class PerformanceMonitor:
 
     def __init__(self, logfile):
         self.logfile = logfile  # output file
+        #remove the log file if exists
+        os.remove(logfile) if os.path.exists(logfile) else None
         self.fixtures = []
 
     def start_fixture(self, fixture):
@@ -50,6 +53,7 @@ class PerformanceMonitor:
     def end_fixture(self, fixture):
         last_fixture_prof = self.fixtures[-1]
         last_fixture_prof.end = ProfilingPoint(fixture.kraken_pids)
+        self.write_file()
 
     def end_fixture_init(self, fixture):
         last_fixture_prof = self.fixtures[-1]
@@ -62,8 +66,8 @@ class PerformanceMonitor:
         pass
 
     def write_file(self):
-        output = open(self.logfile, 'w')
-
+        output = open(self.logfile, 'a')
+        output.write("--test")
         output.write(json.dump(self.fixtures))
 
         output.close()
