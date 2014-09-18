@@ -1,0 +1,829 @@
+{
+  "query": "http://localhost/v1/coverage/freqgtfs-01/journeys?from=stop_area:FQT:SA:527405&to=stop_area:FQT:SA:1374208&datetime=20120822T192900&datetime_represents=departure", 
+  "response": {
+    "journeys": [
+      {
+        "tags": [], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20120822T200100", 
+        "departure_date_time": "20120822T193000", 
+        "type": "best", 
+        "duration": 1860, 
+        "sections": [
+          {
+            "duration": 0, 
+            "arrival_date_time": "20120822T193000", 
+            "departure_date_time": "20120822T193000"
+          }, 
+          {
+            "duration": 1860, 
+            "arrival_date_time": "20120822T200100", 
+            "departure_date_time": "20120822T193000"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20120822T200100", 
+            "departure_date_time": "20120822T200100"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A1374208&from=stop_area%3AFQT%3ASA%3A527405&datetime_represents=arrival&datetime=20120822T200000", 
+        "type": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A1374208&from=stop_area%3AFQT%3ASA%3A527405&datetime_represents=departure&datetime=20120822T193100", 
+        "type": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A1374208&from=stop_area%3AFQT%3ASA%3A527405&datetime_represents=departure&datetime=20120822T000000", 
+        "type": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A1374208&from=stop_area%3AFQT%3ASA%3A527405&datetime_represents=arrival&datetime=20120822T235900", 
+        "type": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20120822T200100", 
+        "departure_date_time": "20120822T193000", 
+        "requested_date_time": "20120822T192900", 
+        "type": "best", 
+        "duration": 1860, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Borderouge", 
+                "coord": {
+                  "lat": "43.390506", 
+                  "lon": "-5.067816"
+                }, 
+                "id": "stop_area:FQT:SA:527405"
+              }, 
+              "name": "Borderouge", 
+              "id": "stop_area:FQT:SA:527405"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20120822T193000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20120822T193000", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Borderouge", 
+                "coord": {
+                  "lat": "43.6407", 
+                  "lon": "1.45272"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQT:SP:1344487", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Borderouge", 
+                  "coord": {
+                    "lat": "43.390506", 
+                    "lon": "-5.067816"
+                  }, 
+                  "id": "stop_area:FQT:SA:527405"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQT:SP:1344487", 
+              "name": "Borderouge"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  -5.067816, 
+                  43.390506
+                ], 
+                [
+                  1.45272, 
+                  43.6407
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Borderouge", 
+                "coord": {
+                  "lat": "43.6407", 
+                  "lon": "1.45272"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQT:SP:1344487", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Borderouge", 
+                  "coord": {
+                    "lat": "43.390506", 
+                    "lon": "-5.067816"
+                  }, 
+                  "id": "stop_area:FQT:SA:527405"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQT:SP:1344487", 
+              "name": "Borderouge"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:FQT:4298545014A3271245843"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:FQT:44452"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:FQT:44452"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:METRO"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Metro"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:FQT:43019"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20120822T200100", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20120822T193000", 
+            "display_informations": {
+              "direction": "Ramonville", 
+              "code": "B", 
+              "description": "", 
+              "color": "ffff00", 
+              "physical_mode": "M\u00e9tro", 
+              "headsign": "MP/TLS/B/2", 
+              "commercial_mode": "METRO", 
+              "equipments": [], 
+              "label": "B", 
+              "network": "R\u00e9seau Tiss\u00e9o R\u00e9seau Urbain"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Ramonville", 
+                "coord": {
+                  "lat": "43.555", 
+                  "lon": "1.47594"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQT:SP:1374210", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Ramonville M\u00e9tro", 
+                  "coord": {
+                    "lat": "27.325355", 
+                    "lon": "1.670417"
+                  }, 
+                  "id": "stop_area:FQT:SA:1374208"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQT:SP:1374210", 
+              "name": "Ramonville"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 13512
+                }
+              ], 
+              "coordinates": [
+                [
+                  1.45272, 
+                  43.6407
+                ], 
+                [
+                  1.44362, 
+                  43.6386
+                ], 
+                [
+                  1.43343, 
+                  43.6337
+                ], 
+                [
+                  1.43315, 
+                  43.6269
+                ], 
+                [
+                  1.43598, 
+                  43.6199
+                ], 
+                [
+                  1.43469, 
+                  43.6157
+                ], 
+                [
+                  1.43591, 
+                  43.6112
+                ], 
+                [
+                  1.4457, 
+                  43.6085
+                ], 
+                [
+                  1.44832, 
+                  43.606
+                ], 
+                [
+                  1.45213, 
+                  43.6016
+                ], 
+                [
+                  1.44553, 
+                  43.5977
+                ], 
+                [
+                  1.44456, 
+                  43.593
+                ], 
+                [
+                  1.44712, 
+                  43.5866
+                ], 
+                [
+                  1.44309, 
+                  43.5816
+                ], 
+                [
+                  1.45016, 
+                  43.5801
+                ], 
+                [
+                  1.45901, 
+                  43.5811
+                ], 
+                [
+                  1.46265, 
+                  43.5752
+                ], 
+                [
+                  1.46338, 
+                  43.568
+                ], 
+                [
+                  1.46332, 
+                  43.5608
+                ], 
+                [
+                  1.47594, 
+                  43.555
+                ]
+              ]
+            }, 
+            "duration": 1860, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Borderouge", 
+                  "coord": {
+                    "lat": "43.6407", 
+                    "lon": "1.45272"
+                  }, 
+                  "id": "stop_point:FQT:SP:1344487"
+                }, 
+                "arrival_date_time": "20120822T193000", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T193000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Trois Cocus", 
+                  "coord": {
+                    "lat": "43.6386", 
+                    "lon": "1.44362"
+                  }, 
+                  "id": "stop_point:FQT:SP:1344291"
+                }, 
+                "arrival_date_time": "20120822T193500", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T193500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "La Vache", 
+                  "coord": {
+                    "lat": "43.6337", 
+                    "lon": "1.43343"
+                  }, 
+                  "id": "stop_point:FQT:SP:1344490"
+                }, 
+                "arrival_date_time": "20120822T193700", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T193700", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Barri\u00e8re de Paris", 
+                  "coord": {
+                    "lat": "43.6269", 
+                    "lon": "1.43315"
+                  }, 
+                  "id": "stop_point:FQT:SP:1483153"
+                }, 
+                "arrival_date_time": "20120822T193800", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T193800", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Minimes - Cl. Nougaro", 
+                  "coord": {
+                    "lat": "43.6199", 
+                    "lon": "1.43598"
+                  }, 
+                  "id": "stop_point:FQT:SP:1483159"
+                }, 
+                "arrival_date_time": "20120822T194000", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T194000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Canal du Midi", 
+                  "coord": {
+                    "lat": "43.6157", 
+                    "lon": "1.43469"
+                  }, 
+                  "id": "stop_point:FQT:SP:1483162"
+                }, 
+                "arrival_date_time": "20120822T194100", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T194100", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Compans - Caffarelli", 
+                  "coord": {
+                    "lat": "43.6112", 
+                    "lon": "1.43591"
+                  }, 
+                  "id": "stop_point:FQT:SP:1374195"
+                }, 
+                "arrival_date_time": "20120822T194200", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T194200", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Jeanne d'Arc", 
+                  "coord": {
+                    "lat": "43.6085", 
+                    "lon": "1.4457"
+                  }, 
+                  "id": "stop_point:FQT:SP:1483168"
+                }, 
+                "arrival_date_time": "20120822T194400", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T194400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Jean Jaur\u00e8s", 
+                  "coord": {
+                    "lat": "43.606", 
+                    "lon": "1.44832"
+                  }, 
+                  "id": "stop_point:FQT:SP:1353328"
+                }, 
+                "arrival_date_time": "20120822T194500", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T194500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Fran\u00e7ois Verdier", 
+                  "coord": {
+                    "lat": "43.6016", 
+                    "lon": "1.45213"
+                  }, 
+                  "id": "stop_point:FQT:SP:1374232"
+                }, 
+                "arrival_date_time": "20120822T194600", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T194600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Carmes", 
+                  "coord": {
+                    "lat": "43.5977", 
+                    "lon": "1.44553"
+                  }, 
+                  "id": "stop_point:FQT:SP:1483222"
+                }, 
+                "arrival_date_time": "20120822T194700", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T194700", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Palais de Justice", 
+                  "coord": {
+                    "lat": "43.593", 
+                    "lon": "1.44456"
+                  }, 
+                  "id": "stop_point:FQT:SP:1344393"
+                }, 
+                "arrival_date_time": "20120822T194900", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T194900", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "St Michel - Marcel Langer", 
+                  "coord": {
+                    "lat": "43.5866", 
+                    "lon": "1.44712"
+                  }, 
+                  "id": "stop_point:FQT:SP:1483226"
+                }, 
+                "arrival_date_time": "20120822T195000", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T195000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Empalot", 
+                  "coord": {
+                    "lat": "43.5816", 
+                    "lon": "1.44309"
+                  }, 
+                  "id": "stop_point:FQT:SP:1344282"
+                }, 
+                "arrival_date_time": "20120822T195200", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T195200", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Saint Agne-SNCF", 
+                  "coord": {
+                    "lat": "43.5801", 
+                    "lon": "1.45016"
+                  }, 
+                  "id": "stop_point:FQT:SP:1483229"
+                }, 
+                "arrival_date_time": "20120822T195300", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T195300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Saouzelong", 
+                  "coord": {
+                    "lat": "43.5811", 
+                    "lon": "1.45901"
+                  }, 
+                  "id": "stop_point:FQT:SP:1344434"
+                }, 
+                "arrival_date_time": "20120822T195500", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T195500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Rangueil", 
+                  "coord": {
+                    "lat": "43.5752", 
+                    "lon": "1.46265"
+                  }, 
+                  "id": "stop_point:FQT:SP:1344364"
+                }, 
+                "arrival_date_time": "20120822T195600", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T195600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Facult\u00e9 de Pharmacie", 
+                  "coord": {
+                    "lat": "43.568", 
+                    "lon": "1.46338"
+                  }, 
+                  "id": "stop_point:FQT:SP:1483231"
+                }, 
+                "arrival_date_time": "20120822T195700", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T195700", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Universit\u00e9 Paul Sabatier", 
+                  "coord": {
+                    "lat": "43.5608", 
+                    "lon": "1.46332"
+                  }, 
+                  "id": "stop_point:FQT:SP:1344385"
+                }, 
+                "arrival_date_time": "20120822T195900", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T195900", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Ramonville", 
+                  "coord": {
+                    "lat": "43.555", 
+                    "lon": "1.47594"
+                  }, 
+                  "id": "stop_point:FQT:SP:1374210"
+                }, 
+                "arrival_date_time": "20120822T200100", 
+                "additional_informations": [], 
+                "departure_date_time": "20120822T200100", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Ramonville", 
+                "coord": {
+                  "lat": "43.555", 
+                  "lon": "1.47594"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQT:SP:1374210", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Ramonville M\u00e9tro", 
+                  "coord": {
+                    "lat": "27.325355", 
+                    "lon": "1.670417"
+                  }, 
+                  "id": "stop_area:FQT:SA:1374208"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQT:SP:1374210", 
+              "name": "Ramonville"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20120822T200100", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20120822T200100", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Ramonville M\u00e9tro", 
+                "coord": {
+                  "lat": "27.325355", 
+                  "lon": "1.670417"
+                }, 
+                "id": "stop_area:FQT:SA:1374208"
+              }, 
+              "name": "Ramonville M\u00e9tro", 
+              "id": "stop_area:FQT:SA:1374208"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  1.47594, 
+                  43.555
+                ], 
+                [
+                  1.670417, 
+                  27.325355
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_2_0"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,873 @@
+{
+  "query": "http://localhost/v1/coverage/airport/journeys?from=stop_area:AIR:SA:AIRPORTAIRPORT&to=stop_area:AIR:SA:AIRPORTLYS&datetime=20120904T0700&datetime_represents=departure", 
+  "response": {
+    "journeys": [
+      {
+        "tags": [], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20120904T154000", 
+        "departure_date_time": "20120904T122500", 
+        "type": "best", 
+        "duration": 11700, 
+        "sections": [
+          {
+            "duration": 0, 
+            "arrival_date_time": "20120904T122500", 
+            "departure_date_time": "20120904T122500"
+          }, 
+          {
+            "duration": 3600, 
+            "arrival_date_time": "20120904T132500", 
+            "departure_date_time": "20120904T122500"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20120904T132500", 
+            "departure_date_time": "20120904T132500"
+          }, 
+          {
+            "duration": 4500, 
+            "arrival_date_time": "20120904T144000", 
+            "departure_date_time": "20120904T132500"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20120904T144000", 
+            "departure_date_time": "20120904T144000"
+          }, 
+          {
+            "duration": 3600, 
+            "arrival_date_time": "20120904T154000", 
+            "departure_date_time": "20120904T144000"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20120904T154000", 
+            "departure_date_time": "20120904T154000"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_3_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_5_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/airport/journeys?to=stop_area%3AAIR%3ASA%3AAIRPORTLYS&from=stop_area%3AAIR%3ASA%3AAIRPORTAIRPORT&datetime_represents=arrival&datetime=20120904T153900", 
+        "type": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport/journeys?to=stop_area%3AAIR%3ASA%3AAIRPORTLYS&from=stop_area%3AAIR%3ASA%3AAIRPORTAIRPORT&datetime_represents=departure&datetime=20120904T122600", 
+        "type": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport/journeys?to=stop_area%3AAIR%3ASA%3AAIRPORTLYS&from=stop_area%3AAIR%3ASA%3AAIRPORTAIRPORT&datetime_represents=departure&datetime=20120904T000000", 
+        "type": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport/journeys?to=stop_area%3AAIR%3ASA%3AAIRPORTLYS&from=stop_area%3AAIR%3ASA%3AAIRPORTAIRPORT&datetime_represents=arrival&datetime=20120904T235900", 
+        "type": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20120904T154000", 
+        "departure_date_time": "20120904T122500", 
+        "requested_date_time": "20120904T070000", 
+        "type": "best", 
+        "duration": 11700, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "A\u00e9roport Caen-Carpiquet", 
+                "coord": {
+                  "lat": "48.059422", 
+                  "lon": "-0.777753"
+                }, 
+                "id": "stop_area:AIR:SA:AIRPORTAIRPORT"
+              }, 
+              "name": "A\u00e9roport Caen-Carpiquet", 
+              "id": "stop_area:AIR:SA:AIRPORTAIRPORT"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20120904T122500", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20120904T122500", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "A\u00e9roport Caen-Carpiquet", 
+                "coord": {
+                  "lat": "49.183563", 
+                  "lon": "-0.458405"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:AIR:SP:AIRPORTAIRPORT", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "A\u00e9roport Caen-Carpiquet", 
+                  "coord": {
+                    "lat": "48.059422", 
+                    "lon": "-0.777753"
+                  }, 
+                  "id": "stop_area:AIR:SA:AIRPORTAIRPORT"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AIR:SP:AIRPORTAIRPORT", 
+              "name": "A\u00e9roport Caen-Carpiquet"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  -0.777753, 
+                  48.059422
+                ], 
+                [
+                  -0.458405, 
+                  49.183563
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "A\u00e9roport Caen-Carpiquet", 
+                "coord": {
+                  "lat": "49.183563", 
+                  "lon": "-0.458405"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:AIR:SP:AIRPORTAIRPORT", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "A\u00e9roport Caen-Carpiquet", 
+                  "coord": {
+                    "lat": "48.059422", 
+                    "lon": "-0.777753"
+                  }, 
+                  "id": "stop_area:AIR:SA:AIRPORTAIRPORT"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AIR:SP:AIRPORTAIRPORT", 
+              "name": "A\u00e9roport Caen-Carpiquet"
+            }, 
+            "links": [
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20120904T132500", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20120904T122500", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Caen BOARDING - LANDING", 
+                "coord": {
+                  "lat": "48.053091", 
+                  "lon": "-0.74252"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:AIR:SP:BOARDING2", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Caen BOARDING - LANDING", 
+                  "coord": {
+                    "lat": "48.053091", 
+                    "lon": "-0.74252"
+                  }, 
+                  "id": "stop_area:AIR:SA:BOARDING2"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AIR:SP:BOARDING2", 
+              "name": "Caen BOARDING - LANDING"
+            }, 
+            "duration": 3600, 
+            "type": "boarding", 
+            "id": "section_1_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Caen BOARDING - LANDING", 
+                "coord": {
+                  "lat": "48.053091", 
+                  "lon": "-0.74252"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:AIR:SP:BOARDING2", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Caen BOARDING - LANDING", 
+                  "coord": {
+                    "lat": "48.053091", 
+                    "lon": "-0.74252"
+                  }, 
+                  "id": "stop_area:AIR:SA:BOARDING2"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AIR:SP:BOARDING2", 
+              "name": "Caen BOARDING - LANDING"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20120904T132500", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20120904T132500", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Caen BOARDING - LANDING", 
+                "coord": {
+                  "lat": "48.053091", 
+                  "lon": "-0.74252"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:AIR:SP:BOARDING2", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Caen BOARDING - LANDING", 
+                  "coord": {
+                    "lat": "48.053091", 
+                    "lon": "-0.74252"
+                  }, 
+                  "id": "stop_area:AIR:SA:BOARDING2"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AIR:SP:BOARDING2", 
+              "name": "Caen BOARDING - LANDING"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  -0.74252, 
+                  48.053091
+                ], 
+                [
+                  -0.74252, 
+                  48.053091
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "transfer_type": "stay_in", 
+            "type": "transfer", 
+            "id": "section_2_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Caen BOARDING - LANDING", 
+                "coord": {
+                  "lat": "48.053091", 
+                  "lon": "-0.74252"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:AIR:SP:BOARDING2", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Caen BOARDING - LANDING", 
+                  "coord": {
+                    "lat": "48.053091", 
+                    "lon": "-0.74252"
+                  }, 
+                  "id": "stop_area:AIR:SA:BOARDING2"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AIR:SP:BOARDING2", 
+              "name": "Caen BOARDING - LANDING"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:AIR:6473"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:AIR:LYS"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:AIR:D|LYS"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:AVION"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Air"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:AIR"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20120904T144000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20120904T132500", 
+            "display_informations": {
+              "direction": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+              "code": "LYS", 
+              "description": "", 
+              "color": "", 
+              "physical_mode": "Avion", 
+              "headsign": "AF5732", 
+              "commercial_mode": "AVION", 
+              "equipments": [], 
+              "label": "LYS", 
+              "network": "AIRPORT"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                "coord": {
+                  "lat": "48.055086", 
+                  "lon": "-0.734032"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:AIR:SP:LANDINGLYS", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                  "coord": {
+                    "lat": "48.055086", 
+                    "lon": "-0.734032"
+                  }, 
+                  "id": "stop_area:AIR:SA:LANDINGLYS"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AIR:SP:LANDINGLYS", 
+              "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 668
+                }
+              ], 
+              "coordinates": [
+                [
+                  -0.74252, 
+                  48.053091
+                ], 
+                [
+                  -0.734032, 
+                  48.055086
+                ]
+              ]
+            }, 
+            "duration": 4500, 
+            "type": "public_transport", 
+            "id": "section_3_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Caen BOARDING - LANDING", 
+                  "coord": {
+                    "lat": "48.053091", 
+                    "lon": "-0.74252"
+                  }, 
+                  "id": "stop_point:AIR:SP:BOARDING2"
+                }, 
+                "arrival_date_time": "20120904T132500", 
+                "additional_informations": [], 
+                "departure_date_time": "20120904T132500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                  "coord": {
+                    "lat": "48.055086", 
+                    "lon": "-0.734032"
+                  }, 
+                  "id": "stop_point:AIR:SP:LANDINGLYS"
+                }, 
+                "arrival_date_time": "20120904T144000", 
+                "additional_informations": [], 
+                "departure_date_time": "20120904T144000", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                "coord": {
+                  "lat": "48.055086", 
+                  "lon": "-0.734032"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:AIR:SP:LANDINGLYS", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                  "coord": {
+                    "lat": "48.055086", 
+                    "lon": "-0.734032"
+                  }, 
+                  "id": "stop_area:AIR:SA:LANDINGLYS"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AIR:SP:LANDINGLYS", 
+              "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20120904T144000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20120904T144000", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                "coord": {
+                  "lat": "48.055086", 
+                  "lon": "-0.734032"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:AIR:SP:LANDINGLYS", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                  "coord": {
+                    "lat": "48.055086", 
+                    "lon": "-0.734032"
+                  }, 
+                  "id": "stop_area:AIR:SA:LANDINGLYS"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AIR:SP:LANDINGLYS", 
+              "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  -0.734032, 
+                  48.055086
+                ], 
+                [
+                  -0.734032, 
+                  48.055086
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "transfer_type": "stay_in", 
+            "type": "transfer", 
+            "id": "section_4_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                "coord": {
+                  "lat": "48.055086", 
+                  "lon": "-0.734032"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:AIR:SP:LANDINGLYS", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                  "coord": {
+                    "lat": "48.055086", 
+                    "lon": "-0.734032"
+                  }, 
+                  "id": "stop_area:AIR:SA:LANDINGLYS"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AIR:SP:LANDINGLYS", 
+              "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING"
+            }, 
+            "links": [
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20120904T154000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20120904T144000", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "A\u00e9roport de LYON ST EXUPERY", 
+                "coord": {
+                  "lat": "48.051176", 
+                  "lon": "-0.792728"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:AIR:SP:AIRPORTLYS", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "A\u00e9roport de LYON ST EXUPERY", 
+                  "coord": {
+                    "lat": "48.051176", 
+                    "lon": "-0.792728"
+                  }, 
+                  "id": "stop_area:AIR:SA:AIRPORTLYS"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AIR:SP:AIRPORTLYS", 
+              "name": "A\u00e9roport de LYON ST EXUPERY"
+            }, 
+            "duration": 3600, 
+            "type": "landing", 
+            "id": "section_5_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "A\u00e9roport de LYON ST EXUPERY", 
+                "coord": {
+                  "lat": "48.051176", 
+                  "lon": "-0.792728"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:AIR:SP:AIRPORTLYS", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "A\u00e9roport de LYON ST EXUPERY", 
+                  "coord": {
+                    "lat": "48.051176", 
+                    "lon": "-0.792728"
+                  }, 
+                  "id": "stop_area:AIR:SA:AIRPORTLYS"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AIR:SP:AIRPORTLYS", 
+              "name": "A\u00e9roport de LYON ST EXUPERY"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20120904T154000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20120904T154000", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "A\u00e9roport de LYON ST EXUPERY", 
+                "coord": {
+                  "lat": "48.051176", 
+                  "lon": "-0.792728"
+                }, 
+                "id": "stop_area:AIR:SA:AIRPORTLYS"
+              }, 
+              "name": "A\u00e9roport de LYON ST EXUPERY", 
+              "id": "stop_area:AIR:SA:AIRPORTLYS"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  -0.792728, 
+                  48.051176
+                ], 
+                [
+                  -0.792728, 
+                  48.051176
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_6_0"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,489 @@
+{
+  "query": "http://localhost/v1/coverage/freqgtfs-01/journeys?from=stop_area:FQT:SA:527405&to=stop_area:FQT:SA:1344488&datetime=20120820T170000&datetime_represents=departure", 
+  "response": {
+    "journeys": [
+      {
+        "tags": [], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20120820T170700", 
+        "departure_date_time": "20120820T170100", 
+        "type": "best", 
+        "duration": 360, 
+        "sections": [
+          {
+            "duration": 0, 
+            "arrival_date_time": "20120820T170100", 
+            "departure_date_time": "20120820T170100"
+          }, 
+          {
+            "duration": 360, 
+            "arrival_date_time": "20120820T170700", 
+            "departure_date_time": "20120820T170100"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20120820T170700", 
+            "departure_date_time": "20120820T170700"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A1344488&from=stop_area%3AFQT%3ASA%3A527405&datetime_represents=arrival&datetime=20120820T170600", 
+        "type": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A1344488&from=stop_area%3AFQT%3ASA%3A527405&datetime_represents=departure&datetime=20120820T170200", 
+        "type": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A1344488&from=stop_area%3AFQT%3ASA%3A527405&datetime_represents=departure&datetime=20120820T000000", 
+        "type": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A1344488&from=stop_area%3AFQT%3ASA%3A527405&datetime_represents=arrival&datetime=20120820T235900", 
+        "type": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqgtfs-01/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20120820T170700", 
+        "departure_date_time": "20120820T170100", 
+        "requested_date_time": "20120820T170000", 
+        "type": "best", 
+        "duration": 360, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Borderouge", 
+                "coord": {
+                  "lat": "43.390506", 
+                  "lon": "-5.067816"
+                }, 
+                "id": "stop_area:FQT:SA:527405"
+              }, 
+              "name": "Borderouge", 
+              "id": "stop_area:FQT:SA:527405"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20120820T170100", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20120820T170100", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Borderouge", 
+                "coord": {
+                  "lat": "43.6407", 
+                  "lon": "1.45272"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQT:SP:1344487", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Borderouge", 
+                  "coord": {
+                    "lat": "43.390506", 
+                    "lon": "-5.067816"
+                  }, 
+                  "id": "stop_area:FQT:SA:527405"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQT:SP:1344487", 
+              "name": "Borderouge"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  -5.067816, 
+                  43.390506
+                ], 
+                [
+                  1.45272, 
+                  43.6407
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Borderouge", 
+                "coord": {
+                  "lat": "43.6407", 
+                  "lon": "1.45272"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQT:SP:1344487", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Borderouge", 
+                  "coord": {
+                    "lat": "43.390506", 
+                    "lon": "-5.067816"
+                  }, 
+                  "id": "stop_area:FQT:SA:527405"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQT:SP:1344487", 
+              "name": "Borderouge"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:FQT:4298545012A3266245644"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:FQT:44452"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:FQT:44452"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:METRO"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Metro"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:FQT:43019"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20120820T170700", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20120820T170100", 
+            "display_informations": {
+              "direction": "Ramonville", 
+              "code": "B", 
+              "description": "", 
+              "color": "ffff00", 
+              "physical_mode": "M\u00e9tro", 
+              "headsign": "MP/TLS/B/2", 
+              "commercial_mode": "METRO", 
+              "equipments": [], 
+              "label": "B", 
+              "network": "R\u00e9seau Tiss\u00e9o R\u00e9seau Urbain"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "La Vache", 
+                "coord": {
+                  "lat": "43.6337", 
+                  "lon": "1.43343"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQT:SP:1344490", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "La Vache", 
+                  "coord": {
+                    "lat": "43.6335", 
+                    "lon": "1.43432"
+                  }, 
+                  "id": "stop_area:FQT:SA:1344488"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQT:SP:1344490", 
+              "name": "La Vache"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 1752
+                }
+              ], 
+              "coordinates": [
+                [
+                  1.45272, 
+                  43.6407
+                ], 
+                [
+                  1.44362, 
+                  43.6386
+                ], 
+                [
+                  1.43343, 
+                  43.6337
+                ]
+              ]
+            }, 
+            "duration": 360, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Borderouge", 
+                  "coord": {
+                    "lat": "43.6407", 
+                    "lon": "1.45272"
+                  }, 
+                  "id": "stop_point:FQT:SP:1344487"
+                }, 
+                "arrival_date_time": "20120820T170100", 
+                "additional_informations": [], 
+                "departure_date_time": "20120820T170100", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Trois Cocus", 
+                  "coord": {
+                    "lat": "43.6386", 
+                    "lon": "1.44362"
+                  }, 
+                  "id": "stop_point:FQT:SP:1344291"
+                }, 
+                "arrival_date_time": "20120820T170500", 
+                "additional_informations": [], 
+                "departure_date_time": "20120820T170500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "La Vache", 
+                  "coord": {
+                    "lat": "43.6337", 
+                    "lon": "1.43343"
+                  }, 
+                  "id": "stop_point:FQT:SP:1344490"
+                }, 
+                "arrival_date_time": "20120820T170700", 
+                "additional_informations": [], 
+                "departure_date_time": "20120820T170700", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "La Vache", 
+                "coord": {
+                  "lat": "43.6337", 
+                  "lon": "1.43343"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:FQT:SP:1344490", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "La Vache", 
+                  "coord": {
+                    "lat": "43.6335", 
+                    "lon": "1.43432"
+                  }, 
+                  "id": "stop_area:FQT:SA:1344488"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:FQT:SP:1344490", 
+              "name": "La Vache"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20120820T170700", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20120820T170700", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "La Vache", 
+                "coord": {
+                  "lat": "43.6335", 
+                  "lon": "1.43432"
+                }, 
+                "id": "stop_area:FQT:SA:1344488"
+              }, 
+              "name": "La Vache", 
+              "id": "stop_area:FQT:SA:1344488"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  1.43343, 
+                  43.6337
+                ], 
+                [
+                  1.43432, 
+                  43.6335
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_2_0"
+          }
+        ]
+      }
+    ]
+  }
+}

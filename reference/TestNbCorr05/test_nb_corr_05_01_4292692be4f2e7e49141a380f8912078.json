@@ -1,0 +1,875 @@
+{
+  "query": "http://localhost/v1/coverage/nb-corr-05/journeys?from=stop_area:NC5:SA:1&to=stop_area:NC5:SA:4&datetime=20041213T0700&datetime_represents=departure", 
+  "response": {
+    "journeys": [
+      {
+        "tags": [], 
+        "nb_transfers": 2, 
+        "arrival_date_time": "20041213T110000", 
+        "departure_date_time": "20041213T071000", 
+        "type": "best", 
+        "duration": 13800, 
+        "sections": [
+          {
+            "duration": 0, 
+            "arrival_date_time": "20041213T071000", 
+            "departure_date_time": "20041213T071000"
+          }, 
+          {
+            "duration": 3600, 
+            "arrival_date_time": "20041213T081000", 
+            "departure_date_time": "20041213T071000"
+          }, 
+          {
+            "duration": 3000, 
+            "arrival_date_time": "20041213T090000", 
+            "departure_date_time": "20041213T081000"
+          }, 
+          {
+            "duration": 3600, 
+            "arrival_date_time": "20041213T100000", 
+            "departure_date_time": "20041213T090000"
+          }, 
+          {
+            "duration": 1800, 
+            "arrival_date_time": "20041213T103000", 
+            "departure_date_time": "20041213T100000"
+          }, 
+          {
+            "duration": 1800, 
+            "arrival_date_time": "20041213T110000", 
+            "departure_date_time": "20041213T103000"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20041213T110000", 
+            "departure_date_time": "20041213T110000"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_3_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_5_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/nb-corr-05/journeys?to=stop_area%3ANC5%3ASA%3A4&from=stop_area%3ANC5%3ASA%3A1&datetime_represents=arrival&datetime=20041213T105900", 
+        "type": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/nb-corr-05/journeys?to=stop_area%3ANC5%3ASA%3A4&from=stop_area%3ANC5%3ASA%3A1&datetime_represents=departure&datetime=20041213T071100", 
+        "type": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/nb-corr-05/journeys?to=stop_area%3ANC5%3ASA%3A4&from=stop_area%3ANC5%3ASA%3A1&datetime_represents=departure&datetime=20041213T000000", 
+        "type": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/nb-corr-05/journeys?to=stop_area%3ANC5%3ASA%3A4&from=stop_area%3ANC5%3ASA%3A1&datetime_represents=arrival&datetime=20041213T235900", 
+        "type": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/nb-corr-05/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/nb-corr-05/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/nb-corr-05/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/nb-corr-05/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/nb-corr-05/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/nb-corr-05/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [], 
+        "nb_transfers": 2, 
+        "arrival_date_time": "20041213T110000", 
+        "departure_date_time": "20041213T071000", 
+        "requested_date_time": "20041213T070000", 
+        "type": "best", 
+        "duration": 13800, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Arret 1", 
+                "coord": {
+                  "lat": "49.860099", 
+                  "lon": "2.242386"
+                }, 
+                "id": "stop_area:NC5:SA:1"
+              }, 
+              "name": "Arret 1", 
+              "id": "stop_area:NC5:SA:1"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041213T071000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041213T071000", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret 1", 
+                "coord": {
+                  "lat": "49.860099", 
+                  "lon": "2.242386"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:NC5:SP:Nav1", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret 1", 
+                  "coord": {
+                    "lat": "49.860099", 
+                    "lon": "2.242386"
+                  }, 
+                  "id": "stop_area:NC5:SA:1"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:NC5:SP:Nav1", 
+              "name": "Arret 1"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.242386, 
+                  49.860099
+                ], 
+                [
+                  2.242386, 
+                  49.860099
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret 1", 
+                "coord": {
+                  "lat": "49.860099", 
+                  "lon": "2.242386"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:NC5:SP:Nav1", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret 1", 
+                  "coord": {
+                    "lat": "49.860099", 
+                    "lon": "2.242386"
+                  }, 
+                  "id": "stop_area:NC5:SA:1"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:NC5:SP:Nav1", 
+              "name": "Arret 1"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:NC5:1-25"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:NC5:Nav1"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:NC5:Nav1"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:TRAMWAY"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Tramway"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:default_network"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20041213T081000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041213T071000", 
+            "display_informations": {
+              "direction": "Arret 2", 
+              "code": "T1", 
+              "description": "", 
+              "color": "000000", 
+              "physical_mode": "Tramway", 
+              "headsign": "NC5:1-25", 
+              "commercial_mode": "TRAMWAY", 
+              "equipments": [], 
+              "label": "T1", 
+              "network": "default network"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret 2", 
+                "coord": {
+                  "lat": "49.933005", 
+                  "lon": "2.25712"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:NC5:SP:Nav2", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret 2", 
+                  "coord": {
+                    "lat": "49.933005", 
+                    "lon": "2.25712"
+                  }, 
+                  "id": "stop_area:NC5:SA:2"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:NC5:SP:Nav2", 
+              "name": "Arret 2"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 8177
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.242386, 
+                  49.860099
+                ], 
+                [
+                  2.25712, 
+                  49.933005
+                ]
+              ]
+            }, 
+            "duration": 3600, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Arret 1", 
+                  "coord": {
+                    "lat": "49.860099", 
+                    "lon": "2.242386"
+                  }, 
+                  "id": "stop_point:NC5:SP:Nav1"
+                }, 
+                "arrival_date_time": "20041213T071000", 
+                "additional_informations": [], 
+                "departure_date_time": "20041213T071000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Arret 2", 
+                  "coord": {
+                    "lat": "49.933005", 
+                    "lon": "2.25712"
+                  }, 
+                  "id": "stop_point:NC5:SP:Nav2"
+                }, 
+                "arrival_date_time": "20041213T081000", 
+                "additional_informations": [], 
+                "departure_date_time": "20041213T081000", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "links": [], 
+            "arrival_date_time": "20041213T090000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041213T081000", 
+            "duration": 3000, 
+            "type": "waiting", 
+            "id": "section_2_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret 2", 
+                "coord": {
+                  "lat": "49.933005", 
+                  "lon": "2.25712"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:NC5:SP:Nav2", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret 2", 
+                  "coord": {
+                    "lat": "49.933005", 
+                    "lon": "2.25712"
+                  }, 
+                  "id": "stop_area:NC5:SA:2"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:NC5:SP:Nav2", 
+              "name": "Arret 2"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:NC5:2-13"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:NC5:Nav2"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:NC5:Nav2"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:TRAMWAY"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Tramway"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:default_network"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20041213T100000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041213T090000", 
+            "display_informations": {
+              "direction": "Arret 3", 
+              "code": "T2", 
+              "description": "", 
+              "color": "000000", 
+              "physical_mode": "Tramway", 
+              "headsign": "NC5:2-13", 
+              "commercial_mode": "TRAMWAY", 
+              "equipments": [], 
+              "label": "T2", 
+              "network": "default network"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret 3", 
+                "coord": {
+                  "lat": "49.858695", 
+                  "lon": "2.250583"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:NC5:SP:Nav3", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret 3", 
+                  "coord": {
+                    "lat": "49.858695", 
+                    "lon": "2.250583"
+                  }, 
+                  "id": "stop_area:NC5:SA:3"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:NC5:SP:Nav3", 
+              "name": "Arret 3"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 8278
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.25712, 
+                  49.933005
+                ], 
+                [
+                  2.250583, 
+                  49.858695
+                ]
+              ]
+            }, 
+            "duration": 3600, 
+            "type": "public_transport", 
+            "id": "section_3_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Arret 2", 
+                  "coord": {
+                    "lat": "49.933005", 
+                    "lon": "2.25712"
+                  }, 
+                  "id": "stop_point:NC5:SP:Nav2"
+                }, 
+                "arrival_date_time": "20041213T090000", 
+                "additional_informations": [], 
+                "departure_date_time": "20041213T090000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Arret 3", 
+                  "coord": {
+                    "lat": "49.858695", 
+                    "lon": "2.250583"
+                  }, 
+                  "id": "stop_point:NC5:SP:Nav3"
+                }, 
+                "arrival_date_time": "20041213T100000", 
+                "additional_informations": [], 
+                "departure_date_time": "20041213T100000", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "links": [], 
+            "arrival_date_time": "20041213T103000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041213T100000", 
+            "duration": 1800, 
+            "type": "waiting", 
+            "id": "section_4_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret 3", 
+                "coord": {
+                  "lat": "49.858695", 
+                  "lon": "2.250583"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:NC5:SP:Nav3", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret 3", 
+                  "coord": {
+                    "lat": "49.858695", 
+                    "lon": "2.250583"
+                  }, 
+                  "id": "stop_area:NC5:SA:3"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:NC5:SP:Nav3", 
+              "name": "Arret 3"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:NC5:3-10"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:NC5:Nav3"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:NC5:Nav3"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:TRAMWAY"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Tramway"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:default_network"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20041213T110000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041213T103000", 
+            "display_informations": {
+              "direction": "Arret 4", 
+              "code": "T3", 
+              "description": "", 
+              "color": "000000", 
+              "physical_mode": "Tramway", 
+              "headsign": "NC5:3-10", 
+              "commercial_mode": "TRAMWAY", 
+              "equipments": [], 
+              "label": "T3", 
+              "network": "default network"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret 4", 
+                "coord": {
+                  "lat": "49.864596", 
+                  "lon": "2.28398"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:NC5:SP:Nav4", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret 4", 
+                  "coord": {
+                    "lat": "49.864596", 
+                    "lon": "2.28398"
+                  }, 
+                  "id": "stop_area:NC5:SA:4"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:NC5:SP:Nav4", 
+              "name": "Arret 4"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 2482
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.250583, 
+                  49.858695
+                ], 
+                [
+                  2.28398, 
+                  49.864596
+                ]
+              ]
+            }, 
+            "duration": 1800, 
+            "type": "public_transport", 
+            "id": "section_5_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Arret 3", 
+                  "coord": {
+                    "lat": "49.858695", 
+                    "lon": "2.250583"
+                  }, 
+                  "id": "stop_point:NC5:SP:Nav3"
+                }, 
+                "arrival_date_time": "20041213T103000", 
+                "additional_informations": [], 
+                "departure_date_time": "20041213T103000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Arret 4", 
+                  "coord": {
+                    "lat": "49.864596", 
+                    "lon": "2.28398"
+                  }, 
+                  "id": "stop_point:NC5:SP:Nav4"
+                }, 
+                "arrival_date_time": "20041213T110000", 
+                "additional_informations": [], 
+                "departure_date_time": "20041213T110000", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret 4", 
+                "coord": {
+                  "lat": "49.864596", 
+                  "lon": "2.28398"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "name": ""
+                }, 
+                "id": "stop_point:NC5:SP:Nav4", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret 4", 
+                  "coord": {
+                    "lat": "49.864596", 
+                    "lon": "2.28398"
+                  }, 
+                  "id": "stop_area:NC5:SA:4"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:NC5:SP:Nav4", 
+              "name": "Arret 4"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041213T110000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041213T110000", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Arret 4", 
+                "coord": {
+                  "lat": "49.864596", 
+                  "lon": "2.28398"
+                }, 
+                "id": "stop_area:NC5:SA:4"
+              }, 
+              "name": "Arret 4", 
+              "id": "stop_area:NC5:SA:4"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.28398, 
+                  49.864596
+                ], 
+                [
+                  2.28398, 
+                  49.864596
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_6_0"
+          }
+        ]
+      }
+    ]
+  }
+}
