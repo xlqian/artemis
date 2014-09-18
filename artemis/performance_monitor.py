@@ -28,6 +28,14 @@ class FixtureMonitor:
         self.kraken_pids = None
 
 
+def default_json_format(obj):
+    """call to_dict if exist (if we want to customize), else __dict__"""
+    try:
+        return obj.to_dict()
+    except AttributeError:
+        return obj.__dict__
+
+
 class PerformanceMonitor:
     """
     Performance monitor for artemis.
@@ -68,6 +76,6 @@ class PerformanceMonitor:
     def write_file(self):
         output = open(self.logfile, 'a')
         output.write("--test")
-        output.write(json.dump(self.fixtures))
+        output.write(json.dumps(self.fixtures, default=default_json_format, sort_keys=True))
 
         output.close()
