@@ -21,7 +21,7 @@ journey = {
     #'from': fields.Raw,  #TODO, those field are more complicated
     #'to': fields.Raw,
     'type': fields.Raw,
-    'tags': fields.List(fields.Raw),
+    #'tags': fields.List(fields.Raw),
 }
 
 default_journey_mask = {
