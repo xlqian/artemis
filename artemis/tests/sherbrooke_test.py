@@ -46,13 +46,13 @@ class TestSherbrooke(ArtemisTestFixture):
                      datetime_represents="arrival", walking_speed="0.83", max_duration_to_pt="720")
 
     def test_sherbrooke_09(self):
-        self.journey(_from="-71.95548316830511;45.36690784660204",
+        self.journey(_from="-71.95535627761828;45.36689251290319",
                      to="stop_area:STS:SA:1476", datetime="20111116T080000",
                      datetime_represents="arrival", walking_speed="0.83", max_duration_to_pt="720")
 
     def test_sherbrooke_10(self):
-        self.journey(_from="-71.83239976085014;45.40468003803435",
-                     to="-71.92757436963002;45.388413539257456", datetime="20111118T111500",
+        self.journey(_from="-71.83185402499441;45.40472718160273",
+                     to="-71.92733380024467;45.387133244175885", datetime="20111118T111500",
                      walking_speed="0.83", max_duration_to_pt="720")
 
     def test_sherbrooke_11(self):
