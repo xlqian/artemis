@@ -85,7 +85,7 @@ def get_ref(call_id):
 
     dict_response = json.load(_file)
 
-    return dict_response["response"]  # only the response object is important, the rest is for debug
+    return dict_response
 
 
 def filter_dict(dict, mask):
@@ -97,16 +97,19 @@ def filter_dict(dict, mask):
     return flask_restful.marshal(dict, mask)
 
 
-def compare_with_ref(resp, call_id):
+def compare_with_ref(resp, call_id, mask):
     """
     compare the answer to it's reference.
     if a mask is provided we only compare the filtered field
     """
-    ref = get_ref(call_id)
+    all_ref_dict = get_ref(call_id)
 
-    #logging.getLogger(__name__).info("ref: {}".format(ref))
+    response = all_ref_dict["full_response"]
 
-    # logging.getLogger(__name__).info("current: {}".format(sub_response))
+    #we filter again the reference with the mask to have less
+    # differences when the output or the mask change
+    ref = filter_dict(response, mask)
+
     check_equals(ref, resp)
 
 
@@ -130,8 +133,8 @@ def launch_exec(cmd, additional_env=None):
     fdr, fdw = os.pipe()
     new_env = os.environ.copy()
     if additional_env:
-	    for k, v in additional_env.iteritems():
-		    new_env[k] = v
+        for k, v in additional_env.iteritems():
+            new_env[k] = v
     try:
         proc = subprocess.Popen(cmd.split(' '), stderr=fdw,
                          stdout=fdw, close_fds=True, env=new_env)
