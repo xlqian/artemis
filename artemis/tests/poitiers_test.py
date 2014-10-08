@@ -4,7 +4,6 @@ from artemis.test_mechanism import ArtemisTestFixture, dataset
 @dataset(["poitiers"])
 class TestPoitiers(ArtemisTestFixture):
     """
-      test "on demand transport"
     """
     def test_poitiers_01(self):
         """
