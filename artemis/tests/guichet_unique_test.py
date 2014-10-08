@@ -4,7 +4,6 @@ from artemis.test_mechanism import ArtemisTestFixture, dataset
 @dataset(["guichet-unique"])
 class TestGuichetUnique(ArtemisTestFixture):
     """
-      test "on demand transport"
     """
     def test_guichet_unique_caen_to_marseille(self):
         """
