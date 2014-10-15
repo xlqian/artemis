@@ -120,11 +120,7 @@ class ArtemisTestFixture:
         conn = psycopg2.connect(config['JORMUNGANDR_DB'])
         try:
             cur = conn.cursor()
-            tables = ['admin', 'data_set', 'line', 'network', 'poi', 'rel_admin_instance',
-                      'rel_line_instance', 'rel_network_instance', 'rel_poi_instance',
-                      'rel_route_instance', 'rel_stop_area_instance',
-                      'rel_stop_point_instance', 'route', 'stop_area', 'stop_point',
-                      'instance']
+            tables = ['data_set', 'instance', 'job']
 
             logging.getLogger(__name__).info("query: TRUNCATE {} CASCADE ;".format(', '.join(tables)))
             cur.execute("TRUNCATE {} CASCADE ;".format(', '.join(tables)))
