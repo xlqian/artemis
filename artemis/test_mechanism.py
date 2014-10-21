@@ -229,7 +229,7 @@ class ArtemisTestFixture:
 
         filename = self._save_response(url, response, filtered_response)
 
-        utils.compare_with_ref(filtered_response, filename)
+        utils.compare_with_ref(filtered_response, filename, response_mask)
 
     def journey(self, _from, to, datetime, datetime_represents='departure',
                 response_mask=utils.default_journey_mask, auto_from=None, auto_to=None, **kwargs):
