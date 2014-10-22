@@ -46,7 +46,7 @@ def nav_path(dataset):
 
 def zip_path(dataset):
     p = config['ZIP_FILE_PATH_LAYOUT']
-    return p.format(dataset=dataset)
+    return p.format(dataset=dataset.upper())
 
 class ArtemisTestFixture:
     """
