@@ -1,0 +1,712 @@
+{
+  "query": "http://localhost/v1/coverage/tcl/journeys?from=stop_area:TCL:SA:5520&to=stop_area:TCL:SA:5085&datetime=20090722T120000&datetime_represents=departure&max_duration_to_pt=600&walking_speed=0.83", 
+  "response": {
+    "journeys": [
+      {
+        "nb_transfers": 0, 
+        "arrival_date_time": "20090722T121600", 
+        "departure_date_time": "20090722T120000", 
+        "type": "best", 
+        "duration": 960, 
+        "sections": [
+          {
+            "duration": 0, 
+            "arrival_date_time": "20090722T120000", 
+            "departure_date_time": "20090722T120000"
+          }, 
+          {
+            "duration": 960, 
+            "arrival_date_time": "20090722T121600", 
+            "departure_date_time": "20090722T120000"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20090722T121600", 
+            "departure_date_time": "20090722T121600"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/tcl/journeys?to=stop_area%3ATCL%3ASA%3A5085&datetime_represents=arrival&from=stop_area%3ATCL%3ASA%3A5520&max_duration_to_pt=600&walking_speed=0.83&datetime=20090722T121500", 
+        "type": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/tcl/journeys?to=stop_area%3ATCL%3ASA%3A5085&datetime_represents=departure&from=stop_area%3ATCL%3ASA%3A5520&max_duration_to_pt=600&walking_speed=0.83&datetime=20090722T120100", 
+        "type": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/tcl/journeys?to=stop_area%3ATCL%3ASA%3A5085&datetime_represents=departure&from=stop_area%3ATCL%3ASA%3A5520&max_duration_to_pt=600&walking_speed=0.83&datetime=20090722T000000", 
+        "type": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/tcl/journeys?to=stop_area%3ATCL%3ASA%3A5085&datetime_represents=arrival&from=stop_area%3ATCL%3ASA%3A5520&max_duration_to_pt=600&walking_speed=0.83&datetime=20090722T235900", 
+        "type": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/tcl/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/tcl/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/tcl/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/tcl/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/tcl/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/tcl/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [
+          "standard"
+        ], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20090722T121600", 
+        "departure_date_time": "20090722T120000", 
+        "requested_date_time": "20090722T120000", 
+        "type": "best", 
+        "duration": 960, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "timezone": "Europe/Paris", 
+                "name": "Gare Part-Dieu Vivier Merle", 
+                "coord": {
+                  "lat": "45.761367", 
+                  "lon": "4.857862"
+                }, 
+                "id": "stop_area:TCL:SA:5520"
+              }, 
+              "name": "Gare Part-Dieu Vivier Merle", 
+              "id": "stop_area:TCL:SA:5520"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20090722T120000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20090722T120000", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Gare Part-Dieu Vivier Merle", 
+                "coord": {
+                  "lat": "45.761877", 
+                  "lon": "4.8578"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "4.8578;45.761877", 
+                  "coord": {
+                    "lat": "45.761877", 
+                    "lon": "4.8578"
+                  }, 
+                  "name": "Boulevard Vivier-Merle"
+                }, 
+                "id": "stop_point:TCL:SP:32120", 
+                "stop_area": {
+                  "comment": "", 
+                  "timezone": "Europe/Paris", 
+                  "name": "Gare Part-Dieu Vivier Merle", 
+                  "coord": {
+                    "lat": "45.761367", 
+                    "lon": "4.857862"
+                  }, 
+                  "id": "stop_area:TCL:SA:5520"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:TCL:SP:32120", 
+              "name": "Gare Part-Dieu Vivier Merle"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Gare Part-Dieu Vivier Merle", 
+                "coord": {
+                  "lat": "45.761877", 
+                  "lon": "4.8578"
+                }, 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "4.8578;45.761877", 
+                  "coord": {
+                    "lat": "45.761877", 
+                    "lon": "4.8578"
+                  }, 
+                  "name": "Boulevard Vivier-Merle"
+                }, 
+                "id": "stop_point:TCL:SP:32120", 
+                "stop_area": {
+                  "comment": "", 
+                  "timezone": "Europe/Paris", 
+                  "name": "Gare Part-Dieu Vivier Merle", 
+                  "coord": {
+                    "lat": "45.761367", 
+                    "lon": "4.857862"
+                  }, 
+                  "id": "stop_area:TCL:SA:5520"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:TCL:SP:32120", 
+              "name": "Gare Part-Dieu Vivier Merle"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:TCL:T1-135AS-021023-255035"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:TCL:T1"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:TCL:T1-059-30582"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:TCLTRA"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Tramway"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:TCL:"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20090722T121600", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20090722T120000", 
+            "display_informations": {
+              "direction": "Montrochet (Lyon)", 
+              "code": "T1", 
+              "description": "", 
+              "color": "", 
+              "physical_mode": "Tramway", 
+              "headsign": "135AS", 
+              "commercial_mode": "Tramway", 
+              "equipments": [], 
+              "label": "T1", 
+              "network": "TCL"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Perrache", 
+                "coord": {
+                  "lat": "45.749762", 
+                  "lon": "4.827159"
+                }, 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "45.751111", 
+                      "lon": "4.827373"
+                    }, 
+                    "zip_code": "69002", 
+                    "id": "10680", 
+                    "name": "Lyon 2e Arrondissement", 
+                    "level": 9
+                  }, 
+                  {
+                    "coord": {
+                      "lat": "45.757595", 
+                      "lon": "4.832323"
+                    }, 
+                    "zip_code": "69001;69002;69003;69004;69005;69006;69007;69008;69009", 
+                    "id": "120965", 
+                    "name": "Lyon", 
+                    "level": 8
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "4.827159;45.749762", 
+                  "coord": {
+                    "lat": "45.749762", 
+                    "lon": "4.827159"
+                  }, 
+                  "name": "Tr\u00e9mie n\u00b0 1"
+                }, 
+                "id": "stop_point:TCL:SP:32102", 
+                "stop_area": {
+                  "comment": "", 
+                  "timezone": "Europe/Paris", 
+                  "name": "Perrache", 
+                  "coord": {
+                    "lat": "45.749749", 
+                    "lon": "4.826615"
+                  }, 
+                  "id": "stop_area:TCL:SA:5085"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:TCL:SP:32102", 
+              "name": "Perrache"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 3120
+                }
+              ], 
+              "coordinates": [
+                [
+                  4.8578, 
+                  45.761877
+                ], 
+                [
+                  4.853965, 
+                  45.760694
+                ], 
+                [
+                  4.847943, 
+                  45.760334
+                ], 
+                [
+                  4.844912, 
+                  45.760141
+                ], 
+                [
+                  4.842406, 
+                  45.758757
+                ], 
+                [
+                  4.841964, 
+                  45.75414
+                ], 
+                [
+                  4.841044, 
+                  45.752846
+                ], 
+                [
+                  4.838914, 
+                  45.751246
+                ], 
+                [
+                  4.836408, 
+                  45.750996
+                ], 
+                [
+                  4.827159, 
+                  45.749762
+                ]
+              ]
+            }, 
+            "duration": 960, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Gare Part-Dieu Vivier Merle", 
+                  "coord": {
+                    "lat": "45.761877", 
+                    "lon": "4.8578"
+                  }, 
+                  "id": "stop_point:TCL:SP:32120"
+                }, 
+                "arrival_date_time": "20090722T120000", 
+                "additional_informations": [], 
+                "departure_date_time": "20090722T120000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Part-Dieu - Servient", 
+                  "coord": {
+                    "lat": "45.760694", 
+                    "lon": "4.853965"
+                  }, 
+                  "id": "stop_point:TCL:SP:32119"
+                }, 
+                "arrival_date_time": "20090722T120200", 
+                "additional_informations": [], 
+                "departure_date_time": "20090722T120200", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Palais Justice - Mairie 3e", 
+                  "coord": {
+                    "lat": "45.760334", 
+                    "lon": "4.847943"
+                  }, 
+                  "id": "stop_point:TCL:SP:32117"
+                }, 
+                "arrival_date_time": "20090722T120400", 
+                "additional_informations": [], 
+                "departure_date_time": "20090722T120400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Saxe - Pr\u00e9fecture", 
+                  "coord": {
+                    "lat": "45.760141", 
+                    "lon": "4.844912"
+                  }, 
+                  "id": "stop_point:TCL:SP:32115"
+                }, 
+                "arrival_date_time": "20090722T120500", 
+                "additional_informations": [], 
+                "departure_date_time": "20090722T120500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Libert\u00e9", 
+                  "coord": {
+                    "lat": "45.758757", 
+                    "lon": "4.842406"
+                  }, 
+                  "id": "stop_point:TCL:SP:32113"
+                }, 
+                "arrival_date_time": "20090722T120700", 
+                "additional_informations": [], 
+                "departure_date_time": "20090722T120700", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Guilloti\u00e8re - Gabriel P\u00e9ri", 
+                  "coord": {
+                    "lat": "45.75414", 
+                    "lon": "4.841964"
+                  }, 
+                  "id": "stop_point:TCL:SP:32111"
+                }, 
+                "arrival_date_time": "20090722T120900", 
+                "additional_informations": [], 
+                "departure_date_time": "20090722T120900", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Saint-Andr\u00e9", 
+                  "coord": {
+                    "lat": "45.752846", 
+                    "lon": "4.841044"
+                  }, 
+                  "id": "stop_point:TCL:SP:32109"
+                }, 
+                "arrival_date_time": "20090722T121000", 
+                "additional_informations": [], 
+                "departure_date_time": "20090722T121000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Rue de l'Universit\u00e9", 
+                  "coord": {
+                    "lat": "45.751246", 
+                    "lon": "4.838914"
+                  }, 
+                  "id": "stop_point:TCL:SP:32107"
+                }, 
+                "arrival_date_time": "20090722T121200", 
+                "additional_informations": [], 
+                "departure_date_time": "20090722T121200", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Quai Claude Bernard", 
+                  "coord": {
+                    "lat": "45.750996", 
+                    "lon": "4.836408"
+                  }, 
+                  "id": "stop_point:TCL:SP:32105"
+                }, 
+                "arrival_date_time": "20090722T121300", 
+                "additional_informations": [], 
+                "departure_date_time": "20090722T121300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Perrache", 
+                  "coord": {
+                    "lat": "45.749762", 
+                    "lon": "4.827159"
+                  }, 
+                  "id": "stop_point:TCL:SP:32102"
+                }, 
+                "arrival_date_time": "20090722T121600", 
+                "additional_informations": [], 
+                "departure_date_time": "20090722T121600", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Perrache", 
+                "coord": {
+                  "lat": "45.749762", 
+                  "lon": "4.827159"
+                }, 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "45.751111", 
+                      "lon": "4.827373"
+                    }, 
+                    "zip_code": "69002", 
+                    "id": "10680", 
+                    "name": "Lyon 2e Arrondissement", 
+                    "level": 9
+                  }, 
+                  {
+                    "coord": {
+                      "lat": "45.757595", 
+                      "lon": "4.832323"
+                    }, 
+                    "zip_code": "69001;69002;69003;69004;69005;69006;69007;69008;69009", 
+                    "id": "120965", 
+                    "name": "Lyon", 
+                    "level": 8
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "coord": {
+                    "lat": "45.749762", 
+                    "lon": "4.827159"
+                  }, 
+                  "id": "4.827159;45.749762", 
+                  "administrative_regions": [
+                    {
+                      "coord": {
+                        "lat": "45.751111", 
+                        "lon": "4.827373"
+                      }, 
+                      "zip_code": "69002", 
+                      "id": "10680", 
+                      "name": "Lyon 2e Arrondissement", 
+                      "level": 9
+                    }, 
+                    {
+                      "coord": {
+                        "lat": "45.757595", 
+                        "lon": "4.832323"
+                      }, 
+                      "zip_code": "69001;69002;69003;69004;69005;69006;69007;69008;69009", 
+                      "id": "120965", 
+                      "name": "Lyon", 
+                      "level": 8
+                    }
+                  ], 
+                  "name": "Tr\u00e9mie n\u00b0 1"
+                }, 
+                "id": "stop_point:TCL:SP:32102", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Perrache", 
+                  "coord": {
+                    "lat": "45.749749", 
+                    "lon": "4.826615"
+                  }, 
+                  "administrative_regions": [
+                    {
+                      "name": "Lyon 2e Arrondissement", 
+                      "level": 9, 
+                      "id": "10680", 
+                      "coord": {
+                        "lat": "45.751111", 
+                        "lon": "4.827373"
+                      }, 
+                      "zip_code": "69002"
+                    }, 
+                    {
+                      "name": "Lyon", 
+                      "level": 8, 
+                      "id": "120965", 
+                      "coord": {
+                        "lat": "45.757595", 
+                        "lon": "4.832323"
+                      }, 
+                      "zip_code": "69001;69002;69003;69004;69005;69006;69007;69008;69009"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:TCL:SA:5085"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:TCL:SP:32102", 
+              "name": "Perrache"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20090722T121600", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20090722T121600", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Perrache", 
+                "coord": {
+                  "lat": "45.749749", 
+                  "lon": "4.826615"
+                }, 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "45.751111", 
+                      "lon": "4.827373"
+                    }, 
+                    "zip_code": "69002", 
+                    "id": "10680", 
+                    "name": "Lyon 2e Arrondissement", 
+                    "level": 9
+                  }, 
+                  {
+                    "coord": {
+                      "lat": "45.757595", 
+                      "lon": "4.832323"
+                    }, 
+                    "zip_code": "69001;69002;69003;69004;69005;69006;69007;69008;69009", 
+                    "id": "120965", 
+                    "name": "Lyon", 
+                    "level": 8
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
+                "id": "stop_area:TCL:SA:5085"
+              }, 
+              "name": "Perrache (Lyon)", 
+              "id": "stop_area:TCL:SA:5085"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_2_0"
+          }
+        ]
+      }
+    ]
+  }
+}
