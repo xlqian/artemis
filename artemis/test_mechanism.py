@@ -91,10 +91,10 @@ class ArtemisTestFixture:
         if new dataset exist we must unzip in data directory to consider in "read_data"
         """
         for data_set in cls.data_sets:
-            logging.getLogger(__name__).info("updating data for {}".format(data_set))
             zip_filename = zip_path(data_set)
             if not os.path.exists(zip_filename):
                 continue
+            logging.getLogger(__name__).info("updating data for {}".format(data_set))
             zip_file = zipfile.ZipFile(zip_filename)
             zip_file.extractall(path=dir_path(data_set))
             os.remove(zip_filename)
