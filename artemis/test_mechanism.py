@@ -97,7 +97,10 @@ class ArtemisTestFixture:
             logging.getLogger(__name__).info("updating data for {}".format(data_set))
             zip_file = zipfile.ZipFile(zip_filename)
             zip_file.extractall(path=dir_path(data_set))
-            os.remove(zip_filename)
+            try:
+                os.remove(zip_filename)
+            except:
+                logging.getLogger(__name__).info("can't remove {}".format(zip_filename))
 
     @classmethod
     def teardown_class(cls):
