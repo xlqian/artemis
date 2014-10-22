@@ -7,6 +7,7 @@ import re
 import json
 import time
 import utils
+import zipfile
 from configuration_manager import config
 
 # regexp used to identify a test method (simplified version of nose)
@@ -43,6 +44,9 @@ def nav_path(dataset):
     p = config['NAV_FILE_PATH_LAYOUT']
     return p.format(dataset=dataset)
 
+def zip_path(dataset):
+    p = config['ZIP_FILE_PATH_LAYOUT']
+    return p.format(dataset=dataset)
 
 class ArtemisTestFixture:
     """
@@ -73,11 +77,27 @@ class ArtemisTestFixture:
 
         cls.remove_data()
 
+        cls.update_data()
+
         cls.read_data()
 
         cls.pop_krakens()  # this might be removed if tyr manage it (in the read_data process)
 
         cls.pop_jormungandr()
+
+    @classmethod
+    def update_data(cls):
+        """
+        if new dataset exist we must unzip in data directory to consider in "read_data"
+        """
+        for data_set in cls.data_sets:
+            zip_filename = zip_path(data_set)
+            if not os.path.exists(zip_filename):
+                continue
+            logging.getLogger(__name__).info("updating data for {}".format(data_set))
+            zip_file = zipfile.ZipFile(zip_filename)
+            zip_file.extractall(path=dir_path(data_set))
+            os.remove(zip_filename)
 
     @classmethod
     def teardown_class(cls):

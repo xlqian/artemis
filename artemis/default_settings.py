@@ -6,6 +6,8 @@ DATASET_PATH_LAYOUT = "/srv/ed/{dataset}/data/"
 
 NAV_FILE_PATH_LAYOUT = "/srv/ed/{dataset}/data.nav.lz4"
 
+ZIP_FILE_PATH_LAYOUT = "/srv/fusio/source/{dataset}/NAVITIART/databases.zip"
+
 RESPONSE_FILE_PATH = 'output'
 
 REFERENCE_FILE_PATH = 'reference'
