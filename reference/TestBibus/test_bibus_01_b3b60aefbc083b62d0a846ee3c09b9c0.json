@@ -1,0 +1,2669 @@
+{
+  "query": "http://localhost/v1/coverage/bibus/journeys?from=stop_area:BIB:SA:527&to=stop_area:BIB:SA:9&datetime=20041214T070000&datetime_represents=arrival&max_duration_to_pt=1200&walking_speed=0.83", 
+  "response": {
+    "journeys": [
+      {
+        "nb_transfers": 0, 
+        "arrival_date_time": "20041214T065913", 
+        "departure_date_time": "20041214T061306", 
+        "type": "comfort", 
+        "duration": 2766, 
+        "sections": [
+          {
+            "duration": 415, 
+            "arrival_date_time": "20041214T062001", 
+            "departure_date_time": "20041214T061306"
+          }, 
+          {
+            "duration": 1440, 
+            "arrival_date_time": "20041214T064700", 
+            "departure_date_time": "20041214T062300"
+          }, 
+          {
+            "duration": 640, 
+            "arrival_date_time": "20041214T065740", 
+            "departure_date_time": "20041214T064700"
+          }
+        ]
+      }, 
+      {
+        "nb_transfers": 1, 
+        "arrival_date_time": "20041214T065000", 
+        "departure_date_time": "20041214T061306", 
+        "type": "best", 
+        "duration": 2213, 
+        "sections": [
+          {
+            "duration": 415, 
+            "arrival_date_time": "20041214T062001", 
+            "departure_date_time": "20041214T061306"
+          }, 
+          {
+            "duration": 1260, 
+            "arrival_date_time": "20041214T064400", 
+            "departure_date_time": "20041214T062300"
+          }, 
+          {
+            "duration": 120, 
+            "arrival_date_time": "20041214T064600", 
+            "departure_date_time": "20041214T064400"
+          }, 
+          {
+            "duration": 240, 
+            "arrival_date_time": "20041214T065000", 
+            "departure_date_time": "20041214T064600"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20041214T065000", 
+            "departure_date_time": "20041214T065000"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_4_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_6_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A9&datetime_represents=arrival&from=stop_area%3ABIB%3ASA%3A527&max_duration_to_pt=1200&walking_speed=0.83&datetime=20041214T064900", 
+        "type": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A9&datetime_represents=departure&from=stop_area%3ABIB%3ASA%3A527&max_duration_to_pt=1200&walking_speed=0.83&datetime=20041214T061406", 
+        "type": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A9&datetime_represents=departure&from=stop_area%3ABIB%3ASA%3A527&max_duration_to_pt=1200&walking_speed=0.83&datetime=20041214T000000", 
+        "type": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A9&datetime_represents=arrival&from=stop_area%3ABIB%3ASA%3A527&max_duration_to_pt=1200&walking_speed=0.83&datetime=20041214T235900", 
+        "type": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}", 
+        "rel": "stop_point", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}", 
+        "rel": "stop_area", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}", 
+        "rel": "address", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20041214T065913", 
+        "departure_date_time": "20041214T061306", 
+        "requested_date_time": "20041214T070000", 
+        "type": "comfort", 
+        "duration": 2766, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "stop_area": {
+                "comment": "", 
+                "name": "Vizac", 
+                "coord": {
+                  "lat": "48.435997", 
+                  "lon": "-4.405732"
+                }, 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.43415357", 
+                      "lon": "-4.401862454"
+                    }, 
+                    "zip_code": "29490", 
+                    "id": "admin:29075", 
+                    "name": "Guipavas", 
+                    "level": 8
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
+                "id": "stop_area:BIB:SA:527"
+              }, 
+              "address": {
+                "house_number": 46, 
+                "coord": {
+                  "lat": "48.43599993852562", 
+                  "lon": "-4.40573014819982"
+                }, 
+                "id": "-4.40573014819982;48.43599993852562", 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.43415357", 
+                      "lon": "-4.401862454"
+                    }, 
+                    "zip_code": "29490", 
+                    "id": "admin:29075", 
+                    "name": "Guipavas", 
+                    "level": 8
+                  }
+                ], 
+                "name": "Rue Anne de Bretagne"
+              }, 
+              "quality": 0, 
+              "id": "stop_area:BIB:SA:527", 
+              "name": "Vizac (Guipavas)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041214T062001", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041214T061306", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "St Herbot", 
+                "coord": {
+                  "lat": "48.435108", 
+                  "lon": "-4.4006"
+                }, 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.43415357", 
+                      "lon": "-4.401862454"
+                    }, 
+                    "zip_code": "29490", 
+                    "id": "admin:29075", 
+                    "name": "Guipavas", 
+                    "level": 8
+                  }
+                ], 
+                "address": {
+                  "house_number": 30, 
+                  "coord": {
+                    "lat": "48.435108", 
+                    "lon": "-4.4006"
+                  }, 
+                  "id": "-4.4006;48.435108", 
+                  "administrative_regions": [
+                    {
+                      "coord": {
+                        "lat": "48.43415357", 
+                        "lon": "-4.401862454"
+                      }, 
+                      "zip_code": "29490", 
+                      "id": "admin:29075", 
+                      "name": "Guipavas", 
+                      "level": 8
+                    }
+                  ], 
+                  "name": "Rue de Paris"
+                }, 
+                "id": "stop_point:BIB:SP:Nav2018", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "St Herbot", 
+                  "coord": {
+                    "lat": "48.434976", 
+                    "lon": "-4.400549"
+                  }, 
+                  "administrative_regions": [
+                    {
+                      "name": "Guipavas", 
+                      "level": 8, 
+                      "id": "admin:29075", 
+                      "coord": {
+                        "lat": "48.43415357", 
+                        "lon": "-4.401862454"
+                      }, 
+                      "zip_code": "29490"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:BIB:SA:336"
+                }
+              }, 
+              "name": "St Herbot", 
+              "address": {
+                "house_number": 30, 
+                "coord": {
+                  "lat": "48.435108", 
+                  "lon": "-4.4006"
+                }, 
+                "id": "-4.4006;48.435108", 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.43415357", 
+                      "lon": "-4.401862454"
+                    }, 
+                    "zip_code": "29490", 
+                    "id": "admin:29075", 
+                    "name": "Guipavas", 
+                    "level": 8
+                  }
+                ], 
+                "name": "Rue de Paris"
+              }, 
+              "quality": 0, 
+              "id": "stop_point:BIB:SP:Nav2018"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 344
+                }
+              ], 
+              "coordinates": [
+                [
+                  -4.40573014819982, 
+                  48.43599993852562
+                ], 
+                [
+                  -4.40573014819982, 
+                  48.43599993852562
+                ], 
+                [
+                  -4.404725517, 
+                  48.43536684
+                ], 
+                [
+                  -4.404489258, 
+                  48.43511363
+                ], 
+                [
+                  -4.403445855, 
+                  48.43458924
+                ], 
+                [
+                  -4.402948831, 
+                  48.43444505
+                ], 
+                [
+                  -4.402905912, 
+                  48.43443821
+                ], 
+                [
+                  -4.402671126, 
+                  48.43439994
+                ], 
+                [
+                  -4.402614597, 
+                  48.43439586
+                ], 
+                [
+                  -4.402537626, 
+                  48.4343889
+                ], 
+                [
+                  -4.402350607, 
+                  48.43436034
+                ], 
+                [
+                  -4.402280776, 
+                  48.43434882
+                ], 
+                [
+                  -4.402108045, 
+                  48.43431015
+                ], 
+                [
+                  -4.401996795, 
+                  48.43427925
+                ], 
+                [
+                  -4.401920004, 
+                  48.43424953
+                ], 
+                [
+                  -4.401862454, 
+                  48.43415357
+                ], 
+                [
+                  -4.400997697, 
+                  48.4347706
+                ], 
+                [
+                  -4.400578477188528, 
+                  48.435078716286824
+                ], 
+                [
+                  -4.4006, 
+                  48.435108
+                ]
+              ]
+            }, 
+            "duration": 415, 
+            "path": [
+              {
+                "duration": 303, 
+                "length": 252, 
+                "direction": 0, 
+                "name": "Rue Anne de Bretagne"
+              }, 
+              {
+                "duration": 112, 
+                "length": 92, 
+                "direction": -115, 
+                "name": "Rue de Paris"
+              }
+            ], 
+            "type": "street_network", 
+            "id": "section_0_0", 
+            "mode": "walking"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "St Herbot", 
+                "coord": {
+                  "lat": "48.435108", 
+                  "lon": "-4.4006"
+                }, 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.43415357", 
+                      "lon": "-4.401862454"
+                    }, 
+                    "zip_code": "29490", 
+                    "id": "admin:29075", 
+                    "name": "Guipavas", 
+                    "level": 8
+                  }
+                ], 
+                "address": {
+                  "house_number": 30, 
+                  "id": "-4.4006;48.435108", 
+                  "coord": {
+                    "lat": "48.435108", 
+                    "lon": "-4.4006"
+                  }, 
+                  "name": "Rue de Paris"
+                }, 
+                "id": "stop_point:BIB:SP:Nav2018", 
+                "stop_area": {
+                  "comment": "", 
+                  "timezone": "Europe/Paris", 
+                  "name": "St Herbot", 
+                  "coord": {
+                    "lat": "48.434976", 
+                    "lon": "-4.400549"
+                  }, 
+                  "id": "stop_area:BIB:SA:336"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:BIB:SP:Nav2018", 
+              "name": "St Herbot"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:BIB:2099-16324_dst_1"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:BIB:Nav8"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:BIB:Nav2099"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:bus"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:BIB:1001"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20041214T064700", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041214T062300", 
+            "display_informations": {
+              "direction": "Libert\u00e9 (Brest)", 
+              "code": "24", 
+              "description": "", 
+              "color": "", 
+              "physical_mode": "Bus", 
+              "headsign": "BIB:2099-16324_dst_1", 
+              "commercial_mode": "Bus", 
+              "equipments": [], 
+              "label": "24", 
+              "network": "Bibus"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Libert\u00e9", 
+                "coord": {
+                  "lat": "48.390026", 
+                  "lon": "-4.485046"
+                }, 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.38987538", 
+                      "lon": "-4.487201604"
+                    }, 
+                    "zip_code": "29200", 
+                    "id": "admin:29019", 
+                    "name": "Brest", 
+                    "level": 8
+                  }
+                ], 
+                "address": {
+                  "house_number": 5, 
+                  "id": "-4.485046;48.390026", 
+                  "coord": {
+                    "lat": "48.390026", 
+                    "lon": "-4.485046"
+                  }, 
+                  "name": "Place de la Libert\u00e9"
+                }, 
+                "id": "stop_point:BIB:SP:Nav333", 
+                "stop_area": {
+                  "comment": "", 
+                  "timezone": "Europe/Paris", 
+                  "name": "Libert\u00e9", 
+                  "coord": {
+                    "lat": "48.390572", 
+                    "lon": "-4.485996"
+                  }, 
+                  "id": "stop_area:BIB:SA:313"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:BIB:SP:Nav333", 
+              "name": "Libert\u00e9"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 12662
+                }
+              ], 
+              "coordinates": [
+                [
+                  -4.4006, 
+                  48.435108
+                ], 
+                [
+                  -4.406564, 
+                  48.431419
+                ], 
+                [
+                  -4.405505, 
+                  48.432039
+                ], 
+                [
+                  -4.414679, 
+                  48.426858
+                ], 
+                [
+                  -4.41029, 
+                  48.429094
+                ], 
+                [
+                  -4.425541, 
+                  48.420595
+                ], 
+                [
+                  -4.421675, 
+                  48.422991
+                ], 
+                [
+                  -4.430051, 
+                  48.417954
+                ], 
+                [
+                  -4.43305, 
+                  48.416509
+                ], 
+                [
+                  -4.444471, 
+                  48.413957
+                ], 
+                [
+                  -4.440305, 
+                  48.414548
+                ], 
+                [
+                  -4.450182, 
+                  48.413258
+                ], 
+                [
+                  -4.453913, 
+                  48.411409
+                ], 
+                [
+                  -4.459644, 
+                  48.40764
+                ], 
+                [
+                  -4.456951, 
+                  48.409339
+                ], 
+                [
+                  -4.465139, 
+                  48.404047
+                ], 
+                [
+                  -4.462401, 
+                  48.405812
+                ], 
+                [
+                  -4.467843, 
+                  48.40223
+                ], 
+                [
+                  -4.471783, 
+                  48.403447
+                ], 
+                [
+                  -4.475409, 
+                  48.404022
+                ], 
+                [
+                  -4.480819, 
+                  48.40342
+                ], 
+                [
+                  -4.488146, 
+                  48.397265
+                ], 
+                [
+                  -4.484291, 
+                  48.395864
+                ], 
+                [
+                  -4.484663, 
+                  48.392278
+                ], 
+                [
+                  -4.485046, 
+                  48.390026
+                ]
+              ]
+            }, 
+            "duration": 1440, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "St Herbot", 
+                  "coord": {
+                    "lat": "48.435108", 
+                    "lon": "-4.4006"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2018"
+                }, 
+                "arrival_date_time": "20041214T062300", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Hortensias", 
+                  "coord": {
+                    "lat": "48.431419", 
+                    "lon": "-4.406564"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2020"
+                }, 
+                "arrival_date_time": "20041214T062400", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Le Coat", 
+                  "coord": {
+                    "lat": "48.432039", 
+                    "lon": "-4.405505"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2019"
+                }, 
+                "arrival_date_time": "20041214T062400", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Coat - Jestin", 
+                  "coord": {
+                    "lat": "48.426858", 
+                    "lon": "-4.414679"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2022"
+                }, 
+                "arrival_date_time": "20041214T062500", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Kerjaouen", 
+                  "coord": {
+                    "lat": "48.429094", 
+                    "lon": "-4.41029"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav3901"
+                }, 
+                "arrival_date_time": "20041214T062500", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Lavallot", 
+                  "coord": {
+                    "lat": "48.420595", 
+                    "lon": "-4.425541"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2024"
+                }, 
+                "arrival_date_time": "20041214T062700", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062700", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Ti - Ruz", 
+                  "coord": {
+                    "lat": "48.422991", 
+                    "lon": "-4.421675"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2023"
+                }, 
+                "arrival_date_time": "20041214T062700", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062700", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Salanguis", 
+                  "coord": {
+                    "lat": "48.417954", 
+                    "lon": "-4.430051"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2025"
+                }, 
+                "arrival_date_time": "20041214T062800", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062800", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Froutven", 
+                  "coord": {
+                    "lat": "48.416509", 
+                    "lon": "-4.43305"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2026"
+                }, 
+                "arrival_date_time": "20041214T062900", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062900", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Kervillerm", 
+                  "coord": {
+                    "lat": "48.413957", 
+                    "lon": "-4.444471"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2028"
+                }, 
+                "arrival_date_time": "20041214T063000", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Coataudon", 
+                  "coord": {
+                    "lat": "48.414548", 
+                    "lon": "-4.440305"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2027"
+                }, 
+                "arrival_date_time": "20041214T063000", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Tourbian", 
+                  "coord": {
+                    "lat": "48.413258", 
+                    "lon": "-4.450182"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2029"
+                }, 
+                "arrival_date_time": "20041214T063100", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063100", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Stang-Alar", 
+                  "coord": {
+                    "lat": "48.411409", 
+                    "lon": "-4.453913"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2030"
+                }, 
+                "arrival_date_time": "20041214T063200", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063200", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Kerbernard", 
+                  "coord": {
+                    "lat": "48.40764", 
+                    "lon": "-4.459644"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav613"
+                }, 
+                "arrival_date_time": "20041214T063300", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Pont Neuf", 
+                  "coord": {
+                    "lat": "48.409339", 
+                    "lon": "-4.456951"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav612"
+                }, 
+                "arrival_date_time": "20041214T063300", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Pen Ar Creach", 
+                  "coord": {
+                    "lat": "48.404047", 
+                    "lon": "-4.465139"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav615"
+                }, 
+                "arrival_date_time": "20041214T063400", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Coq Hardi", 
+                  "coord": {
+                    "lat": "48.405812", 
+                    "lon": "-4.462401"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav614"
+                }, 
+                "arrival_date_time": "20041214T063400", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Strasbourg", 
+                  "coord": {
+                    "lat": "48.40223", 
+                    "lon": "-4.467843"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav306"
+                }, 
+                "arrival_date_time": "20041214T063500", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Braille", 
+                  "coord": {
+                    "lat": "48.403447", 
+                    "lon": "-4.471783"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav305"
+                }, 
+                "arrival_date_time": "20041214T063600", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Hoche", 
+                  "coord": {
+                    "lat": "48.404022", 
+                    "lon": "-4.475409"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav304"
+                }, 
+                "arrival_date_time": "20041214T063700", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063700", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Montaigne", 
+                  "coord": {
+                    "lat": "48.40342", 
+                    "lon": "-4.480819"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav1150"
+                }, 
+                "arrival_date_time": "20041214T063800", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063800", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Albert 1er", 
+                  "coord": {
+                    "lat": "48.397265", 
+                    "lon": "-4.488146"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav400"
+                }, 
+                "arrival_date_time": "20041214T064300", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T064300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Malakoff", 
+                  "coord": {
+                    "lat": "48.395864", 
+                    "lon": "-4.484291"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav207"
+                }, 
+                "arrival_date_time": "20041214T064400", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T064400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "H\u00f4tel De Ville (Glasgow)", 
+                  "coord": {
+                    "lat": "48.392278", 
+                    "lon": "-4.484663"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav205"
+                }, 
+                "arrival_date_time": "20041214T064600", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T064600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Libert\u00e9", 
+                  "coord": {
+                    "lat": "48.390026", 
+                    "lon": "-4.485046"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav333"
+                }, 
+                "arrival_date_time": "20041214T064700", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T064700", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Libert\u00e9", 
+                "coord": {
+                  "lat": "48.390026", 
+                  "lon": "-4.485046"
+                }, 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.38987538", 
+                      "lon": "-4.487201604"
+                    }, 
+                    "zip_code": "29200", 
+                    "id": "admin:29019", 
+                    "name": "Brest", 
+                    "level": 8
+                  }, 
+                  {
+                    "coord": {
+                      "lat": "48.38987538", 
+                      "lon": "-4.487201604"
+                    }, 
+                    "zip_code": "29200", 
+                    "id": "admin:29019", 
+                    "name": "Brest", 
+                    "level": 8
+                  }
+                ], 
+                "address": {
+                  "house_number": 5, 
+                  "coord": {
+                    "lat": "48.390026", 
+                    "lon": "-4.485046"
+                  }, 
+                  "id": "-4.485046;48.390026", 
+                  "administrative_regions": [
+                    {
+                      "coord": {
+                        "lat": "48.38987538", 
+                        "lon": "-4.487201604"
+                      }, 
+                      "zip_code": "29200", 
+                      "id": "admin:29019", 
+                      "name": "Brest", 
+                      "level": 8
+                    }
+                  ], 
+                  "name": "Place de la Libert\u00e9"
+                }, 
+                "id": "stop_point:BIB:SP:Nav333", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Libert\u00e9", 
+                  "coord": {
+                    "lat": "48.390572", 
+                    "lon": "-4.485996"
+                  }, 
+                  "administrative_regions": [
+                    {
+                      "name": "Brest", 
+                      "level": 8, 
+                      "id": "admin:29019", 
+                      "coord": {
+                        "lat": "48.38987538", 
+                        "lon": "-4.487201604"
+                      }, 
+                      "zip_code": "29200"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:BIB:SA:313"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:BIB:SP:Nav333", 
+              "name": "Libert\u00e9"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041214T065740", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041214T064700", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "stop_area": {
+                "comment": "", 
+                "name": "Aiguillon", 
+                "coord": {
+                  "lat": "48.386406", 
+                  "lon": "-4.490981"
+                }, 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.38987538", 
+                      "lon": "-4.487201604"
+                    }, 
+                    "zip_code": "29200", 
+                    "id": "admin:29019", 
+                    "name": "Brest", 
+                    "level": 8
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
+                "id": "stop_area:BIB:SA:9"
+              }, 
+              "address": {
+                "house_number": 40, 
+                "coord": {
+                  "lat": "48.3864615366135", 
+                  "lon": "-4.491022886753634"
+                }, 
+                "id": "-4.491022886753634;48.3864615366135", 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.38987538", 
+                      "lon": "-4.487201604"
+                    }, 
+                    "zip_code": "29200", 
+                    "id": "admin:29019", 
+                    "name": "Brest", 
+                    "level": 8
+                  }
+                ], 
+                "name": "Rue de Siam"
+              }, 
+              "quality": 0, 
+              "id": "stop_area:BIB:SA:9", 
+              "name": "Aiguillon (Brest)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 531
+                }
+              ], 
+              "coordinates": [
+                [
+                  -4.485046, 
+                  48.390026
+                ], 
+                [
+                  -4.485099287280275, 
+                  48.390114578679444
+                ], 
+                [
+                  -4.485566138, 
+                  48.38983373
+                ], 
+                [
+                  -4.48563084, 
+                  48.38978242
+                ], 
+                [
+                  -4.485681133, 
+                  48.3897629
+                ], 
+                [
+                  -4.486904912, 
+                  48.38962482
+                ], 
+                [
+                  -4.487031075, 
+                  48.38953267
+                ], 
+                [
+                  -4.48755578, 
+                  48.38920038
+                ], 
+                [
+                  -4.487618183, 
+                  48.38915534
+                ], 
+                [
+                  -4.488437747, 
+                  48.38850092
+                ], 
+                [
+                  -4.489050155, 
+                  48.38802086
+                ], 
+                [
+                  -4.489488098, 
+                  48.38766561
+                ], 
+                [
+                  -4.489655133, 
+                  48.3876136
+                ], 
+                [
+                  -4.490095215, 
+                  48.38726337
+                ], 
+                [
+                  -4.490144314, 
+                  48.38722334
+                ], 
+                [
+                  -4.490222991, 
+                  48.38716084
+                ], 
+                [
+                  -4.490269529, 
+                  48.38712403
+                ], 
+                [
+                  -4.490684192, 
+                  48.38679395
+                ], 
+                [
+                  -4.490741505, 
+                  48.38667376
+                ], 
+                [
+                  -4.491022886753634, 
+                  48.3864615366135
+                ], 
+                [
+                  -4.491022886753634, 
+                  48.3864615366135
+                ]
+              ]
+            }, 
+            "duration": 640, 
+            "path": [
+              {
+                "duration": 8, 
+                "length": 6, 
+                "direction": 0, 
+                "name": "Place de la Libert\u00e9"
+              }, 
+              {
+                "duration": 114, 
+                "length": 95, 
+                "direction": 20, 
+                "name": "Avanc\u00e9e de la Porte Saint-Louis"
+              }, 
+              {
+                "duration": 87, 
+                "length": 72, 
+                "direction": -38, 
+                "name": "Place du G\u00e9n\u00e9ral Leclerc"
+              }, 
+              {
+                "duration": 257, 
+                "length": 213, 
+                "direction": -3, 
+                "name": "Rue de Siam"
+              }, 
+              {
+                "duration": 16, 
+                "length": 13, 
+                "direction": 26, 
+                "name": ""
+              }, 
+              {
+                "duration": 60, 
+                "length": 50, 
+                "direction": -25, 
+                "name": ""
+              }, 
+              {
+                "duration": 6, 
+                "length": 5, 
+                "direction": -1, 
+                "name": ""
+              }, 
+              {
+                "duration": 10, 
+                "length": 8, 
+                "direction": 1, 
+                "name": "Square Monseigneur Roull"
+              }, 
+              {
+                "duration": 78, 
+                "length": 64, 
+                "direction": 0, 
+                "name": "Rue de Siam"
+              }
+            ], 
+            "type": "street_network", 
+            "id": "section_2_0", 
+            "mode": "walking"
+          }
+        ]
+      }, 
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": []
+        }, 
+        "tags": [
+          "standard"
+        ], 
+        "nb_transfers": 1, 
+        "arrival_date_time": "20041214T065000", 
+        "departure_date_time": "20041214T061306", 
+        "requested_date_time": "20041214T070000", 
+        "type": "best", 
+        "duration": 2213, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "stop_area": {
+                "comment": "", 
+                "name": "Vizac", 
+                "coord": {
+                  "lat": "48.435997", 
+                  "lon": "-4.405732"
+                }, 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.43415357", 
+                      "lon": "-4.401862454"
+                    }, 
+                    "zip_code": "29490", 
+                    "id": "admin:29075", 
+                    "name": "Guipavas", 
+                    "level": 8
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
+                "id": "stop_area:BIB:SA:527"
+              }, 
+              "address": {
+                "house_number": 46, 
+                "coord": {
+                  "lat": "48.43599993852562", 
+                  "lon": "-4.40573014819982"
+                }, 
+                "id": "-4.40573014819982;48.43599993852562", 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.43415357", 
+                      "lon": "-4.401862454"
+                    }, 
+                    "zip_code": "29490", 
+                    "id": "admin:29075", 
+                    "name": "Guipavas", 
+                    "level": 8
+                  }
+                ], 
+                "name": "Rue Anne de Bretagne"
+              }, 
+              "quality": 0, 
+              "id": "stop_area:BIB:SA:527", 
+              "name": "Vizac (Guipavas)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041214T062001", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041214T061306", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "St Herbot", 
+                "coord": {
+                  "lat": "48.435108", 
+                  "lon": "-4.4006"
+                }, 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.43415357", 
+                      "lon": "-4.401862454"
+                    }, 
+                    "zip_code": "29490", 
+                    "id": "admin:29075", 
+                    "name": "Guipavas", 
+                    "level": 8
+                  }
+                ], 
+                "address": {
+                  "house_number": 30, 
+                  "coord": {
+                    "lat": "48.435108", 
+                    "lon": "-4.4006"
+                  }, 
+                  "id": "-4.4006;48.435108", 
+                  "administrative_regions": [
+                    {
+                      "coord": {
+                        "lat": "48.43415357", 
+                        "lon": "-4.401862454"
+                      }, 
+                      "zip_code": "29490", 
+                      "id": "admin:29075", 
+                      "name": "Guipavas", 
+                      "level": 8
+                    }
+                  ], 
+                  "name": "Rue de Paris"
+                }, 
+                "id": "stop_point:BIB:SP:Nav2018", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "St Herbot", 
+                  "coord": {
+                    "lat": "48.434976", 
+                    "lon": "-4.400549"
+                  }, 
+                  "administrative_regions": [
+                    {
+                      "name": "Guipavas", 
+                      "level": 8, 
+                      "id": "admin:29075", 
+                      "coord": {
+                        "lat": "48.43415357", 
+                        "lon": "-4.401862454"
+                      }, 
+                      "zip_code": "29490"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:BIB:SA:336"
+                }
+              }, 
+              "name": "St Herbot", 
+              "address": {
+                "house_number": 30, 
+                "coord": {
+                  "lat": "48.435108", 
+                  "lon": "-4.4006"
+                }, 
+                "id": "-4.4006;48.435108", 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.43415357", 
+                      "lon": "-4.401862454"
+                    }, 
+                    "zip_code": "29490", 
+                    "id": "admin:29075", 
+                    "name": "Guipavas", 
+                    "level": 8
+                  }
+                ], 
+                "name": "Rue de Paris"
+              }, 
+              "quality": 0, 
+              "id": "stop_point:BIB:SP:Nav2018"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 344
+                }
+              ], 
+              "coordinates": [
+                [
+                  -4.40573014819982, 
+                  48.43599993852562
+                ], 
+                [
+                  -4.40573014819982, 
+                  48.43599993852562
+                ], 
+                [
+                  -4.404725517, 
+                  48.43536684
+                ], 
+                [
+                  -4.404489258, 
+                  48.43511363
+                ], 
+                [
+                  -4.403445855, 
+                  48.43458924
+                ], 
+                [
+                  -4.402948831, 
+                  48.43444505
+                ], 
+                [
+                  -4.402905912, 
+                  48.43443821
+                ], 
+                [
+                  -4.402671126, 
+                  48.43439994
+                ], 
+                [
+                  -4.402614597, 
+                  48.43439586
+                ], 
+                [
+                  -4.402537626, 
+                  48.4343889
+                ], 
+                [
+                  -4.402350607, 
+                  48.43436034
+                ], 
+                [
+                  -4.402280776, 
+                  48.43434882
+                ], 
+                [
+                  -4.402108045, 
+                  48.43431015
+                ], 
+                [
+                  -4.401996795, 
+                  48.43427925
+                ], 
+                [
+                  -4.401920004, 
+                  48.43424953
+                ], 
+                [
+                  -4.401862454, 
+                  48.43415357
+                ], 
+                [
+                  -4.400997697, 
+                  48.4347706
+                ], 
+                [
+                  -4.400578477188528, 
+                  48.435078716286824
+                ], 
+                [
+                  -4.4006, 
+                  48.435108
+                ]
+              ]
+            }, 
+            "duration": 415, 
+            "path": [
+              {
+                "duration": 303, 
+                "length": 252, 
+                "direction": 0, 
+                "name": "Rue Anne de Bretagne"
+              }, 
+              {
+                "duration": 112, 
+                "length": 92, 
+                "direction": -115, 
+                "name": "Rue de Paris"
+              }
+            ], 
+            "type": "street_network", 
+            "id": "section_3_0", 
+            "mode": "walking"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "St Herbot", 
+                "coord": {
+                  "lat": "48.435108", 
+                  "lon": "-4.4006"
+                }, 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.43415357", 
+                      "lon": "-4.401862454"
+                    }, 
+                    "zip_code": "29490", 
+                    "id": "admin:29075", 
+                    "name": "Guipavas", 
+                    "level": 8
+                  }
+                ], 
+                "address": {
+                  "house_number": 30, 
+                  "id": "-4.4006;48.435108", 
+                  "coord": {
+                    "lat": "48.435108", 
+                    "lon": "-4.4006"
+                  }, 
+                  "name": "Rue de Paris"
+                }, 
+                "id": "stop_point:BIB:SP:Nav2018", 
+                "stop_area": {
+                  "comment": "", 
+                  "timezone": "Europe/Paris", 
+                  "name": "St Herbot", 
+                  "coord": {
+                    "lat": "48.434976", 
+                    "lon": "-4.400549"
+                  }, 
+                  "id": "stop_area:BIB:SA:336"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:BIB:SP:Nav2018", 
+              "name": "St Herbot"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:BIB:2099-16324_dst_1"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:BIB:Nav8"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:BIB:Nav2099"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:bus"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:BIB:1001"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20041214T064400", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041214T062300", 
+            "display_informations": {
+              "direction": "Libert\u00e9 (Brest)", 
+              "code": "24", 
+              "description": "", 
+              "color": "", 
+              "physical_mode": "Bus", 
+              "headsign": "BIB:2099-16324_dst_1", 
+              "commercial_mode": "Bus", 
+              "equipments": [], 
+              "label": "24", 
+              "network": "Bibus"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Malakoff", 
+                "coord": {
+                  "lat": "48.395864", 
+                  "lon": "-4.484291"
+                }, 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.38987538", 
+                      "lon": "-4.487201604"
+                    }, 
+                    "zip_code": "29200", 
+                    "id": "admin:29019", 
+                    "name": "Brest", 
+                    "level": 8
+                  }
+                ], 
+                "address": {
+                  "house_number": 37, 
+                  "id": "-4.484291;48.395864", 
+                  "coord": {
+                    "lat": "48.395864", 
+                    "lon": "-4.484291"
+                  }, 
+                  "name": "Rue de Glasgow"
+                }, 
+                "id": "stop_point:BIB:SP:Nav207", 
+                "stop_area": {
+                  "comment": "", 
+                  "timezone": "Europe/Paris", 
+                  "name": "Malakoff", 
+                  "coord": {
+                    "lat": "48.395835", 
+                    "lon": "-4.484016"
+                  }, 
+                  "id": "stop_area:BIB:SA:267"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:BIB:SP:Nav207", 
+              "name": "Malakoff"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 12011
+                }
+              ], 
+              "coordinates": [
+                [
+                  -4.4006, 
+                  48.435108
+                ], 
+                [
+                  -4.406564, 
+                  48.431419
+                ], 
+                [
+                  -4.405505, 
+                  48.432039
+                ], 
+                [
+                  -4.414679, 
+                  48.426858
+                ], 
+                [
+                  -4.41029, 
+                  48.429094
+                ], 
+                [
+                  -4.425541, 
+                  48.420595
+                ], 
+                [
+                  -4.421675, 
+                  48.422991
+                ], 
+                [
+                  -4.430051, 
+                  48.417954
+                ], 
+                [
+                  -4.43305, 
+                  48.416509
+                ], 
+                [
+                  -4.444471, 
+                  48.413957
+                ], 
+                [
+                  -4.440305, 
+                  48.414548
+                ], 
+                [
+                  -4.450182, 
+                  48.413258
+                ], 
+                [
+                  -4.453913, 
+                  48.411409
+                ], 
+                [
+                  -4.459644, 
+                  48.40764
+                ], 
+                [
+                  -4.456951, 
+                  48.409339
+                ], 
+                [
+                  -4.465139, 
+                  48.404047
+                ], 
+                [
+                  -4.462401, 
+                  48.405812
+                ], 
+                [
+                  -4.467843, 
+                  48.40223
+                ], 
+                [
+                  -4.471783, 
+                  48.403447
+                ], 
+                [
+                  -4.475409, 
+                  48.404022
+                ], 
+                [
+                  -4.480819, 
+                  48.40342
+                ], 
+                [
+                  -4.488146, 
+                  48.397265
+                ], 
+                [
+                  -4.484291, 
+                  48.395864
+                ]
+              ]
+            }, 
+            "duration": 1260, 
+            "type": "public_transport", 
+            "id": "section_4_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "St Herbot", 
+                  "coord": {
+                    "lat": "48.435108", 
+                    "lon": "-4.4006"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2018"
+                }, 
+                "arrival_date_time": "20041214T062300", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Hortensias", 
+                  "coord": {
+                    "lat": "48.431419", 
+                    "lon": "-4.406564"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2020"
+                }, 
+                "arrival_date_time": "20041214T062400", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Le Coat", 
+                  "coord": {
+                    "lat": "48.432039", 
+                    "lon": "-4.405505"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2019"
+                }, 
+                "arrival_date_time": "20041214T062400", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Coat - Jestin", 
+                  "coord": {
+                    "lat": "48.426858", 
+                    "lon": "-4.414679"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2022"
+                }, 
+                "arrival_date_time": "20041214T062500", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Kerjaouen", 
+                  "coord": {
+                    "lat": "48.429094", 
+                    "lon": "-4.41029"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav3901"
+                }, 
+                "arrival_date_time": "20041214T062500", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Lavallot", 
+                  "coord": {
+                    "lat": "48.420595", 
+                    "lon": "-4.425541"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2024"
+                }, 
+                "arrival_date_time": "20041214T062700", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062700", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Ti - Ruz", 
+                  "coord": {
+                    "lat": "48.422991", 
+                    "lon": "-4.421675"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2023"
+                }, 
+                "arrival_date_time": "20041214T062700", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062700", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Salanguis", 
+                  "coord": {
+                    "lat": "48.417954", 
+                    "lon": "-4.430051"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2025"
+                }, 
+                "arrival_date_time": "20041214T062800", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062800", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Froutven", 
+                  "coord": {
+                    "lat": "48.416509", 
+                    "lon": "-4.43305"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2026"
+                }, 
+                "arrival_date_time": "20041214T062900", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T062900", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Kervillerm", 
+                  "coord": {
+                    "lat": "48.413957", 
+                    "lon": "-4.444471"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2028"
+                }, 
+                "arrival_date_time": "20041214T063000", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Coataudon", 
+                  "coord": {
+                    "lat": "48.414548", 
+                    "lon": "-4.440305"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2027"
+                }, 
+                "arrival_date_time": "20041214T063000", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Tourbian", 
+                  "coord": {
+                    "lat": "48.413258", 
+                    "lon": "-4.450182"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2029"
+                }, 
+                "arrival_date_time": "20041214T063100", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063100", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Stang-Alar", 
+                  "coord": {
+                    "lat": "48.411409", 
+                    "lon": "-4.453913"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav2030"
+                }, 
+                "arrival_date_time": "20041214T063200", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063200", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Kerbernard", 
+                  "coord": {
+                    "lat": "48.40764", 
+                    "lon": "-4.459644"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav613"
+                }, 
+                "arrival_date_time": "20041214T063300", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Pont Neuf", 
+                  "coord": {
+                    "lat": "48.409339", 
+                    "lon": "-4.456951"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav612"
+                }, 
+                "arrival_date_time": "20041214T063300", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Pen Ar Creach", 
+                  "coord": {
+                    "lat": "48.404047", 
+                    "lon": "-4.465139"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav615"
+                }, 
+                "arrival_date_time": "20041214T063400", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Coq Hardi", 
+                  "coord": {
+                    "lat": "48.405812", 
+                    "lon": "-4.462401"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav614"
+                }, 
+                "arrival_date_time": "20041214T063400", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Strasbourg", 
+                  "coord": {
+                    "lat": "48.40223", 
+                    "lon": "-4.467843"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav306"
+                }, 
+                "arrival_date_time": "20041214T063500", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Braille", 
+                  "coord": {
+                    "lat": "48.403447", 
+                    "lon": "-4.471783"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav305"
+                }, 
+                "arrival_date_time": "20041214T063600", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Hoche", 
+                  "coord": {
+                    "lat": "48.404022", 
+                    "lon": "-4.475409"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav304"
+                }, 
+                "arrival_date_time": "20041214T063700", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063700", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Montaigne", 
+                  "coord": {
+                    "lat": "48.40342", 
+                    "lon": "-4.480819"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav1150"
+                }, 
+                "arrival_date_time": "20041214T063800", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T063800", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Albert 1er", 
+                  "coord": {
+                    "lat": "48.397265", 
+                    "lon": "-4.488146"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav400"
+                }, 
+                "arrival_date_time": "20041214T064300", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T064300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Malakoff", 
+                  "coord": {
+                    "lat": "48.395864", 
+                    "lon": "-4.484291"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav207"
+                }, 
+                "arrival_date_time": "20041214T064400", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T064400", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "links": [], 
+            "arrival_date_time": "20041214T064600", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041214T064400", 
+            "duration": 120, 
+            "type": "waiting", 
+            "id": "section_5_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Malakoff", 
+                "coord": {
+                  "lat": "48.395864", 
+                  "lon": "-4.484291"
+                }, 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.38987538", 
+                      "lon": "-4.487201604"
+                    }, 
+                    "zip_code": "29200", 
+                    "id": "admin:29019", 
+                    "name": "Brest", 
+                    "level": 8
+                  }
+                ], 
+                "address": {
+                  "house_number": 37, 
+                  "id": "-4.484291;48.395864", 
+                  "coord": {
+                    "lat": "48.395864", 
+                    "lon": "-4.484291"
+                  }, 
+                  "name": "Rue de Glasgow"
+                }, 
+                "id": "stop_point:BIB:SP:Nav207", 
+                "stop_area": {
+                  "comment": "", 
+                  "timezone": "Europe/Paris", 
+                  "name": "Malakoff", 
+                  "coord": {
+                    "lat": "48.395835", 
+                    "lon": "-4.484016"
+                  }, 
+                  "id": "stop_area:BIB:SA:267"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:BIB:SP:Nav207", 
+              "name": "Malakoff"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:BIB:2104-3834517_dst_1"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:BIB:Nav13"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:BIB:Nav2104"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:bus"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:BIB:1001"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20041214T065000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041214T064600", 
+            "display_informations": {
+              "direction": "Hopital Cavale 2 (Brest)", 
+              "code": "11", 
+              "description": "", 
+              "color": "", 
+              "physical_mode": "Bus", 
+              "headsign": "BIB:2104-3834517_dst_1", 
+              "commercial_mode": "Bus", 
+              "equipments": [], 
+              "label": "11", 
+              "network": "Bibus"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Aiguillon", 
+                "coord": {
+                  "lat": "48.386488", 
+                  "lon": "-4.491128"
+                }, 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.38987538", 
+                      "lon": "-4.487201604"
+                    }, 
+                    "zip_code": "29200", 
+                    "id": "admin:29019", 
+                    "name": "Brest", 
+                    "level": 8
+                  }
+                ], 
+                "address": {
+                  "house_number": 40, 
+                  "id": "-4.491128;48.386488", 
+                  "coord": {
+                    "lat": "48.386488", 
+                    "lon": "-4.491128"
+                  }, 
+                  "name": "Rue de Siam"
+                }, 
+                "id": "stop_point:BIB:SP:Nav179", 
+                "stop_area": {
+                  "comment": "", 
+                  "timezone": "Europe/Paris", 
+                  "name": "Aiguillon", 
+                  "coord": {
+                    "lat": "48.386406", 
+                    "lon": "-4.490981"
+                  }, 
+                  "id": "stop_area:BIB:SA:9"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:BIB:SP:Nav179", 
+              "name": "Aiguillon"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 1264
+                }
+              ], 
+              "coordinates": [
+                [
+                  -4.484291, 
+                  48.395864
+                ], 
+                [
+                  -4.484663, 
+                  48.392278
+                ], 
+                [
+                  -4.485046, 
+                  48.390026
+                ], 
+                [
+                  -4.488208, 
+                  48.389031
+                ], 
+                [
+                  -4.491128, 
+                  48.386488
+                ]
+              ]
+            }, 
+            "duration": 240, 
+            "type": "public_transport", 
+            "id": "section_6_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Malakoff", 
+                  "coord": {
+                    "lat": "48.395864", 
+                    "lon": "-4.484291"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav207"
+                }, 
+                "arrival_date_time": "20041214T064600", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T064600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "H\u00f4tel De Ville (Glasgow)", 
+                  "coord": {
+                    "lat": "48.392278", 
+                    "lon": "-4.484663"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav205"
+                }, 
+                "arrival_date_time": "20041214T064700", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T064700", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Libert\u00e9", 
+                  "coord": {
+                    "lat": "48.390026", 
+                    "lon": "-4.485046"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav333"
+                }, 
+                "arrival_date_time": "20041214T064800", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T064800", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Lyon", 
+                  "coord": {
+                    "lat": "48.389031", 
+                    "lon": "-4.488208"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav178"
+                }, 
+                "arrival_date_time": "20041214T064900", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T064900", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "equipments": [], 
+                  "name": "Aiguillon", 
+                  "coord": {
+                    "lat": "48.386488", 
+                    "lon": "-4.491128"
+                  }, 
+                  "id": "stop_point:BIB:SP:Nav179"
+                }, 
+                "arrival_date_time": "20041214T065000", 
+                "additional_informations": [], 
+                "departure_date_time": "20041214T065000", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Aiguillon", 
+                "coord": {
+                  "lat": "48.386488", 
+                  "lon": "-4.491128"
+                }, 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.38987538", 
+                      "lon": "-4.487201604"
+                    }, 
+                    "zip_code": "29200", 
+                    "id": "admin:29019", 
+                    "name": "Brest", 
+                    "level": 8
+                  }
+                ], 
+                "address": {
+                  "house_number": 40, 
+                  "coord": {
+                    "lat": "48.386488", 
+                    "lon": "-4.491128"
+                  }, 
+                  "id": "-4.491128;48.386488", 
+                  "administrative_regions": [
+                    {
+                      "coord": {
+                        "lat": "48.38987538", 
+                        "lon": "-4.487201604"
+                      }, 
+                      "zip_code": "29200", 
+                      "id": "admin:29019", 
+                      "name": "Brest", 
+                      "level": 8
+                    }
+                  ], 
+                  "name": "Rue de Siam"
+                }, 
+                "id": "stop_point:BIB:SP:Nav179", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Aiguillon", 
+                  "coord": {
+                    "lat": "48.386406", 
+                    "lon": "-4.490981"
+                  }, 
+                  "administrative_regions": [
+                    {
+                      "name": "Brest", 
+                      "level": 8, 
+                      "id": "admin:29019", 
+                      "coord": {
+                        "lat": "48.38987538", 
+                        "lon": "-4.487201604"
+                      }, 
+                      "zip_code": "29200"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:BIB:SA:9"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:BIB:SP:Nav179", 
+              "name": "Aiguillon"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041214T065000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "departure_date_time": "20041214T065000", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Aiguillon", 
+                "coord": {
+                  "lat": "48.386406", 
+                  "lon": "-4.490981"
+                }, 
+                "administrative_regions": [
+                  {
+                    "coord": {
+                      "lat": "48.38987538", 
+                      "lon": "-4.487201604"
+                    }, 
+                    "zip_code": "29200", 
+                    "id": "admin:29019", 
+                    "name": "Brest", 
+                    "level": 8
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
+                "id": "stop_area:BIB:SA:9"
+              }, 
+              "name": "Aiguillon (Brest)", 
+              "id": "stop_area:BIB:SA:9"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_7_0"
+          }
+        ]
+      }
+    ]
+  }
+}
