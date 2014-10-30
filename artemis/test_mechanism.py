@@ -40,6 +40,7 @@ def dir_path(dataset):
     p = config['DATASET_PATH_LAYOUT']
     return p.format(dataset=dataset)
 
+
 def nav_path(dataset):
     p = config['NAV_FILE_PATH_LAYOUT']
     return p.format(dataset=dataset)
@@ -131,11 +132,19 @@ class ArtemisTestFixture:
         cls.clean_jormun_db()
         for data_set in cls.data_sets:
             logging.getLogger(__name__).info("reading data for {}".format(data_set))
-            utils.launch_exec("{tyr} load_data {data_set} {data_set_dir}"
-                              .format(tyr=_tyr,
-                                      data_set=data_set,
-                                      data_set_dir=dir_path(data_set)),
-                              additional_env={'TYR_CONFIG_FILE': _tyr_config_file})
+            #we'll read all subdir
+            data_path = dir_path(data_set)
+            for sub_dir_name in os.listdir(data_path):
+                sub_dir = os.path.join(data_path, sub_dir_name)
+                if not os.path.isdir(sub_dir):
+                    continue
+                logging.getLogger(__name__).info("loading {}".format(sub_dir))
+
+                utils.launch_exec("{tyr} load_data {data_set} {data_set_dir}"
+                                  .format(tyr=_tyr,
+                                          data_set=data_set,
+                                          data_set_dir=sub_dir),
+                                  additional_env={'TYR_CONFIG_FILE': _tyr_config_file})
 
     @classmethod
     def clean_jormun_db(cls):
