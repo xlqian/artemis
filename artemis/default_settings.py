@@ -2,7 +2,7 @@
 
 TYR_DIR = "/srv/tyr"
 
-DATASET_PATH_LAYOUT = "/srv/ed/{dataset}/data/"
+DATASET_PATH_LAYOUT = "/srv/artemis_data/{dataset}/"
 
 NAV_FILE_PATH_LAYOUT = "/srv/ed/{dataset}/data.nav.lz4"
 
