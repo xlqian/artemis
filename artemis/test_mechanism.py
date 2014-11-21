@@ -97,7 +97,7 @@ class ArtemisTestFixture:
                 continue
             logging.getLogger(__name__).info("updating data for {}".format(data_set))
             zip_file = zipfile.ZipFile(zip_filename)
-            zip_file.extractall(path=dir_path(data_set))
+            zip_file.extractall(path=os.path.join(dir_path(data_set), 'fusio'))
             try:
                 os.remove(zip_filename)
             except:
