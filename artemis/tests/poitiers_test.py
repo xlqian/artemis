@@ -1,7 +1,7 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 
 
-@dataset(["poitiers"])
+@dataset([DataSet("poitiers")])
 class TestPoitiers(ArtemisTestFixture):
     """
     """

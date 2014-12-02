@@ -55,7 +55,7 @@ Test example
 
 ````python
 
-@dataset(["paris", "lyon"])
+@dataset([DataSet("paris"), DataSet("lyon")])
 # --> the paris and the lyon data set will be used.
 # --> it means that a paris and a lyon instance must have been installed
 # --> must must thus have 2 data directory configured, 2 valid database and 2 kraken services: kraken_paris, kraken_lyon

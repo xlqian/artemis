@@ -1,7 +1,7 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 
 
-@dataset(["map"])
+@dataset([DataSet("map")])
 class TestMap(ArtemisTestFixture):
     """
     test walk transfert

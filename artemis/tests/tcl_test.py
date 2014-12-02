@@ -1,7 +1,7 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 
 
-@dataset(["tcl"])
+@dataset([DataSet("tcl")])
 class TestTCL(ArtemisTestFixture):
     """
     TODO: put there comments about the dataset

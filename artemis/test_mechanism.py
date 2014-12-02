@@ -49,6 +49,14 @@ def zip_path(dataset):
     p = config['ZIP_FILE_PATH_LAYOUT']
     return p.format(dataset=dataset.upper())
 
+class DataSet(object):
+    def __init__(self, name, scenario='default'):
+        self.name = name
+        self.scenario = scenario
+
+    def __str__(self):
+        return self.name
+
 class ArtemisTestFixture:
     """
     Mother class for all integration tests
@@ -92,12 +100,12 @@ class ArtemisTestFixture:
         if new dataset exist we must unzip in data directory to consider in "read_data"
         """
         for data_set in cls.data_sets:
-            zip_filename = zip_path(data_set)
+            zip_filename = zip_path(data_set.name)
             if not os.path.exists(zip_filename):
                 continue
-            logging.getLogger(__name__).info("updating data for {}".format(data_set))
+            logging.getLogger(__name__).info("updating data for {}".format(data_set.name))
             zip_file = zipfile.ZipFile(zip_filename)
-            zip_file.extractall(path=os.path.join(dir_path(data_set), 'fusio'))
+            zip_file.extractall(path=os.path.join(dir_path(data_set.name), 'fusio'))
             try:
                 os.remove(zip_filename)
             except:
@@ -131,9 +139,9 @@ class ArtemisTestFixture:
         #clean jormungandr database
         cls.clean_jormun_db()
         for data_set in cls.data_sets:
-            logging.getLogger(__name__).info("reading data for {}".format(data_set))
+            logging.getLogger(__name__).info("reading data for {}".format(data_set.name))
             #we'll read all subdir
-            data_path = dir_path(data_set)
+            data_path = dir_path(data_set.name)
             for sub_dir_name in os.listdir(data_path):
                 sub_dir = os.path.join(data_path, sub_dir_name)
                 if not os.path.isdir(sub_dir):
@@ -142,7 +150,7 @@ class ArtemisTestFixture:
 
                 utils.launch_exec("{tyr} load_data {data_set} {data_set_dir}"
                                   .format(tyr=_tyr,
-                                          data_set=data_set,
+                                          data_set=data_set.name,
                                           data_set_dir=sub_dir),
                                   additional_env={'TYR_CONFIG_FILE': _tyr_config_file})
 
@@ -159,7 +167,7 @@ class ArtemisTestFixture:
 
             #we add the instances in the table
             for data_set in cls.data_sets:
-                cur.execute("INSERT INTO instance (name, is_free) VALUES ('{}', true);".format(data_set))
+                cur.execute("INSERT INTO instance (name, is_free, scenario) VALUES ('{}', true, '{}');".format(data_set.name, data_set.scenario))
 
             conn.commit()
             logging.getLogger(__name__).info("query done")
@@ -175,16 +183,16 @@ class ArtemisTestFixture:
         launch all the kraken services
         """
         for data_set in cls.data_sets:
-            logging.getLogger(__name__).info("launching the kraken {}".format(data_set))
-            return_code, _ = utils.launch_exec('sudo {service} {kraken} start'.format(service=_kraken_wrapper, kraken=data_set))
+            logging.getLogger(__name__).info("launching the kraken {}".format(data_set.name))
+            return_code, _ = utils.launch_exec('sudo {service} {kraken} start'.format(service=_kraken_wrapper, kraken=data_set.name))
 
             assert return_code == 0, "command failed"
 
     @classmethod
     def kill_the_krakens(cls):
         for data_set in cls.data_sets:
-            logging.getLogger(__name__).info("killing the kraken {}".format(data_set))
-            return_code, _ = utils.launch_exec('sudo {service} {kraken} stop'.format(service=_kraken_wrapper, kraken=data_set))
+            logging.getLogger(__name__).info("killing the kraken {}".format(data_set.name))
+            return_code, _ = utils.launch_exec('sudo {service} {kraken} stop'.format(service=_kraken_wrapper, kraken=data_set.name))
 
             assert return_code == 0, "command failed"
 
@@ -206,12 +214,12 @@ class ArtemisTestFixture:
             nb_try = 15
             current_region = None
             for i_try in range (0, nb_try):
-                response, _ = utils.api("coverage/{r}".format(r=data_set))
+                response, _ = utils.api("coverage/{r}".format(r=data_set.name))
                 assert 'error' not in response, "problem with the region: {error}".format(error=response['error'])
 
                 current_region = response.get('regions', [None])[0]
                 #the region should be the one asked for
-                assert current_region and current_region['id'] == data_set
+                assert current_region and current_region['id'] == data_set.name
 
                 status = current_region['status']
                 if status is not None and \
@@ -224,7 +232,7 @@ class ArtemisTestFixture:
 
             #and it should be running
             assert current_region['status'] == 'running', "region {r} KO, status={s}, \n full response={resp}".\
-                format(r=data_set, s=current_region['status'], resp=response)
+                format(r=data_set.name, s=current_region['status'], resp=response)
 
     @classmethod
     def kill_jormungandr(cls):
@@ -236,10 +244,9 @@ class ArtemisTestFixture:
     @classmethod
     def remove_data(cls):
         for data_set in cls.data_sets:
-            logging.getLogger(__name__).info("deleting data for {}".format(
-                data_set))
+            logging.getLogger(__name__).info("deleting data for {}".format(data_set.name))
             try:
-                os.remove(nav_path(data_set))
+                os.remove(nav_path(data_set.name))
             except:
                 logging.getLogger(__name__).exception("can't remove data.nav"
                                                       ".lz4")
@@ -292,7 +299,7 @@ class ArtemisTestFixture:
             # for tests with only one dataset, we directly use the region's journey API
             # Note: this shoudl not be mandatory, but since there are still bugs with the global journey API
             # we use this for the moment.
-            query = "coverage/{region}/journeys?{q}".format(region=self.__class__.data_sets[0], q=query)
+            query = "coverage/{region}/journeys?{q}".format(region=self.__class__.data_sets[0].name, q=query)
 
         self.api(query, response_mask)
 

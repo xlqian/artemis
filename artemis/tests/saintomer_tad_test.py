@@ -1,7 +1,7 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 
 
-@dataset(["saintomer"])
+@dataset([DataSet("saintomer")])
 class TestSaintOmer(ArtemisTestFixture):
     """
       test "on demand transport"

@@ -1,7 +1,7 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 
 
-@dataset(["bibus"])
+@dataset([DataSet("bibus")])
 class TestBibus(ArtemisTestFixture):
     """
     """

@@ -1,7 +1,7 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 
 
-@dataset(["airport"])
+@dataset([DataSet("airport")])
 class TestAirport(ArtemisTestFixture):
     """
     TODO: put there comments about the dataset
@@ -28,7 +28,7 @@ class TestAirport(ArtemisTestFixture):
                      datetime="20120908T1200")
 
 
-@dataset(["airport-01"])
+@dataset([DataSet("airport-01")])
 class TestAirport1(ArtemisTestFixture):
     """
     TODO: put there comments about the dataset
