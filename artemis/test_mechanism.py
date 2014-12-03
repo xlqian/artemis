@@ -211,7 +211,7 @@ class ArtemisTestFixture:
         for data_set in cls.data_sets:
 
             #we have to let some time to kraken to load the data
-            nb_try = 15
+            nb_try = 12
             current_region = None
             for i_try in range (0, nb_try):
                 response, _ = utils.api("coverage/{r}".format(r=data_set.name))
@@ -228,7 +228,7 @@ class ArtemisTestFixture:
 
                 logging.getLogger(__name__).info("{} still loading data, waiting a bit".format(current_region['id']))
 
-                time.sleep(1)
+                time.sleep(5)
 
             #and it should be running
             assert current_region['status'] == 'running', "region {r} KO, status={s}, \n full response={resp}".\
