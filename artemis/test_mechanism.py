@@ -223,7 +223,7 @@ class ArtemisTestFixture:
 
                 status = current_region['status']
                 if status is not None and \
-                    status != 'loading_data':  #should be corrected in kraken, status should only be loading_data
+                    status not in  ('loading_data', 'no_data'):  #should be corrected in kraken, status should only be loading_data
                     break
 
                 logging.getLogger(__name__).info("{} still loading data, waiting a bit".format(current_region['id']))
