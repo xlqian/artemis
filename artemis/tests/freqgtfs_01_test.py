@@ -1,7 +1,7 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 
 
-@dataset(["freqgtfs-01"])
+@dataset([DataSet("freqgtfs-01")])
 class TestFreqGtfs_01(ArtemisTestFixture):
     """
     test frequencies to stops serialisation by FUSiO

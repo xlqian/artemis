@@ -1,7 +1,7 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 
 
-@dataset(["corr-02"])
+@dataset([DataSet("corr-02")])
 class TestCorr02(ArtemisTestFixture):
     """
     TODO: put there comments about the dataset

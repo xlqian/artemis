@@ -1,8 +1,8 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 
 #TODO: rename the test
 
-@dataset(["boucle-01"])
+@dataset([DataSet("boucle-01")])
 class TestBoucle01(ArtemisTestFixture):
     """
     TODO: put there comments about the dataset

@@ -1,7 +1,7 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 
 
-@dataset(["itl"])
+@dataset([DataSet("itl")])
 class TestItl(ArtemisTestFixture):
     """
     test local traffic policy constraint

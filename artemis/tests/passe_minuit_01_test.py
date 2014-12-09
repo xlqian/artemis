@@ -1,7 +1,7 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 
 
-@dataset(["passe-minuit-01"])
+@dataset([DataSet("passe-minuit-01")])
 class TestPasseMinuit01(ArtemisTestFixture):
     """
     test journeys over midnight

@@ -1,7 +1,7 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 
 
-@dataset(["prolong-auto"])
+@dataset([DataSet("prolong-auto")])
 class TestProlongAuto(ArtemisTestFixture):
     """
     TODO: put there comments about the dataset
