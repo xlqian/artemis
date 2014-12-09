@@ -271,7 +271,8 @@ class ArtemisTestFixture:
         utils.compare_with_ref(filtered_response, filename, response_mask)
 
     def journey(self, _from, to, datetime, datetime_represents='departure',
-                response_mask=utils.default_journey_mask, auto_from=None, auto_to=None, **kwargs):
+                response_mask=utils.default_journey_mask, auto_from=None, auto_to=None, first_section_mode=[],
+                last_section_mode=[], **kwargs):
         """
         syntaxic sugar around the journey api
 
@@ -291,6 +292,12 @@ class ArtemisTestFixture:
         query = "from={real_from}&to={real_to}&datetime={date}&datetime_represents={represent}".\
             format(date=datetime, represent=datetime_represents,
                    real_from=real_from, real_to=real_to)
+        for mode in first_section_mode:
+            query = '{query}&first_section_mode[]={mode}'.format(query=query, mode=mode)
+
+        for mode in last_section_mode:
+            query = '{query}&last_section_mode[]={mode}'.format(query=query, mode=mode)
+
 
         for k, v in kwargs.iteritems():
             query = "{query}&{k}={v}".format(query=query, k=k, v=v)
