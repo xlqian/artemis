@@ -37,3 +37,14 @@ class TestDestineo(ArtemisTestFixture):
                      to="-1.544638559;47.21411767", datetime="20141201T090000",
                      first_section_mode=['walking', 'car'],
                      min_nb_journeys=3)
+
+    def test_destineo_04(self):
+        """
+        we go to "Pazanne-Mairie-(Ste) (Sainte-Pazanne)" from "gare de Ste-Pazanne (Sainte-Pazanne)"
+        there is a non_pt_walk solution, all PT solutions must be filtered since they are way longer than the non pt
+        """
+        self.journey(_from='stop_area:SNC:SA:SAOCE87481226',
+                     to='stop_area:SNC:SA:SAOCE87328625', datetime='20141204T101500',
+                     first_section_mode=['walking', 'bike', 'bss', 'car'],
+                     last_section_mode=['walking', 'bss'],
+                     min_nb_journeys=3)
