@@ -1,0 +1,444 @@
+{
+  "query": "http://localhost/v1/coverage/fr-pdl/journeys?from=stop_area:SNC:SA:SAOCE87481226&to=stop_area:SNC:SA:SAOCE87328625&datetime=20141204T101500&datetime_represents=departure&first_section_mode%5B%5D=walking&first_section_mode%5B%5D=bike&first_section_mode%5B%5D=bss&first_section_mode%5B%5D=car&last_section_mode%5B%5D=walking&last_section_mode%5B%5D=bss&min_nb_journeys=3", 
+  "response": {
+    "journeys": [
+      {
+        "nb_transfers": 0, 
+        "arrival_date_time": "20141204T102023", 
+        "departure_date_time": "20141204T101500", 
+        "type": "non_pt_walk", 
+        "duration": 323, 
+        "sections": [
+          {
+            "duration": 323, 
+            "arrival_date_time": "20141204T102023", 
+            "departure_date_time": "20141204T101500"
+          }
+        ]
+      }, 
+      {
+        "nb_transfers": 0, 
+        "arrival_date_time": "20141204T101626", 
+        "departure_date_time": "20141204T101500", 
+        "type": "non_pt_bike", 
+        "duration": 86, 
+        "sections": [
+          {
+            "duration": 86, 
+            "arrival_date_time": "20141204T101626", 
+            "departure_date_time": "20141204T101500"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_3_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }, 
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_2", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_4_2", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_2"
+      }
+    ], 
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/fr-pdl/journeys?from=stop_area%3ASNC%3ASA%3ASAOCE87481226&last_section_mode%5B%5D=walking&last_section_mode%5B%5D=bss&min_nb_journeys=3&datetime=20141204T000000&to=stop_area%3ASNC%3ASA%3ASAOCE87328625&datetime_represents=departure&first_section_mode%5B%5D=walking&first_section_mode%5B%5D=bike&first_section_mode%5B%5D=bss&first_section_mode%5B%5D=car", 
+        "type": "first", 
+        "rel": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/fr-pdl/journeys?from=stop_area%3ASNC%3ASA%3ASAOCE87481226&last_section_mode%5B%5D=walking&last_section_mode%5B%5D=bss&min_nb_journeys=3&datetime=20141204T235900&to=stop_area%3ASNC%3ASA%3ASAOCE87328625&datetime_represents=arrival&first_section_mode%5B%5D=walking&first_section_mode%5B%5D=bike&first_section_mode%5B%5D=bss&first_section_mode%5B%5D=car", 
+        "type": "last", 
+        "rel": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/fr-pdl/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/fr-pdl/poi_types/{poi_type.id}?collection=poi_types", 
+        "type": "poi_type", 
+        "rel": "poi_types", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/fr-pdl/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/fr-pdl/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/fr-pdl/pois/{poi.id}?collection=pois", 
+        "type": "poi", 
+        "rel": "pois", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/fr-pdl/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": []
+        }, 
+        "tags": [
+          "alternative"
+        ], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20141204T102023", 
+        "departure_date_time": "20141204T101500", 
+        "requested_date_time": "20141204T101500", 
+        "type": "non_pt_walk", 
+        "duration": 323, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "gare de Ste-Pazanne", 
+                "coord": {
+                  "lat": "47.105436", 
+                  "lon": "-1.813729"
+                }, 
+                "label": "gare de Ste-Pazanne (Sainte-Pazanne)", 
+                "administrative_regions": [
+                  {
+                    "name": "Sainte-Pazanne", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.08448986", 
+                      "lon": "-1.817823783"
+                    }, 
+                    "label": "Sainte-Pazanne (44680)", 
+                    "id": "admin:44186", 
+                    "zip_code": "44680"
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
+                "id": "stop_area:SNC:SA:SAOCE87481226"
+              }, 
+              "name": "gare de Ste-Pazanne (Sainte-Pazanne)", 
+              "id": "stop_area:SNC:SA:SAOCE87481226"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20141204T102023", 
+            "additional_informations": [], 
+            "departure_date_time": "20141204T101500", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Pazanne-Mairie-(Ste)", 
+                "coord": {
+                  "lat": "47.103048", 
+                  "lon": "-1.811114"
+                }, 
+                "label": "Pazanne-Mairie-(Ste) (Sainte-Pazanne)", 
+                "administrative_regions": [
+                  {
+                    "name": "Sainte-Pazanne", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.08448986", 
+                      "lon": "-1.817823783"
+                    }, 
+                    "label": "Sainte-Pazanne (44680)", 
+                    "id": "admin:44186", 
+                    "zip_code": "44680"
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
+                "id": "stop_area:SNC:SA:SAOCE87328625"
+              }, 
+              "name": "Pazanne-Mairie-(Ste) (Sainte-Pazanne)", 
+              "id": "stop_area:SNC:SA:SAOCE87328625"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 361
+                }
+              ], 
+              "coordinates": [
+                [
+                  -1.8136683895031966, 
+                  47.10535610093771
+                ], 
+                [
+                  -1.812928411, 
+                  47.10591744
+                ], 
+                [
+                  -1.812443144, 
+                  47.10529192
+                ], 
+                [
+                  -1.811868191, 
+                  47.10459334
+                ], 
+                [
+                  -1.811480851, 
+                  47.10408726
+                ], 
+                [
+                  -1.810517138, 
+                  47.10350323
+                ], 
+                [
+                  -1.8110593303874587, 
+                  47.102990220473124
+                ]
+              ]
+            }, 
+            "duration": 323, 
+            "path": [
+              {
+                "duration": 23, 
+                "length": 25, 
+                "direction": 0, 
+                "name": "rue DE LA GARE"
+              }, 
+              {
+                "duration": 292, 
+                "length": 327, 
+                "direction": 0, 
+                "name": "avenue DU GENERAL DE GAULLE"
+              }, 
+              {
+                "duration": 8, 
+                "length": 8, 
+                "direction": 0, 
+                "name": "rue DE L'HOTEL DE VILLE"
+              }
+            ], 
+            "type": "street_network", 
+            "id": "section_5_0", 
+            "mode": "walking"
+          }
+        ]
+      }, 
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": []
+        }, 
+        "tags": [
+          "standard", 
+          "alternative"
+        ], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20141204T101626", 
+        "departure_date_time": "20141204T101500", 
+        "requested_date_time": "20141204T101500", 
+        "type": "non_pt_bike", 
+        "duration": 86, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "gare de Ste-Pazanne", 
+                "coord": {
+                  "lat": "47.105436", 
+                  "lon": "-1.813729"
+                }, 
+                "label": "gare de Ste-Pazanne (Sainte-Pazanne)", 
+                "administrative_regions": [
+                  {
+                    "name": "Sainte-Pazanne", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.08448986", 
+                      "lon": "-1.817823783"
+                    }, 
+                    "label": "Sainte-Pazanne (44680)", 
+                    "id": "admin:44186", 
+                    "zip_code": "44680"
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
+                "id": "stop_area:SNC:SA:SAOCE87481226"
+              }, 
+              "name": "gare de Ste-Pazanne (Sainte-Pazanne)", 
+              "id": "stop_area:SNC:SA:SAOCE87481226"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20141204T101626", 
+            "additional_informations": [], 
+            "departure_date_time": "20141204T101500", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Pazanne-Mairie-(Ste)", 
+                "coord": {
+                  "lat": "47.103048", 
+                  "lon": "-1.811114"
+                }, 
+                "label": "Pazanne-Mairie-(Ste) (Sainte-Pazanne)", 
+                "administrative_regions": [
+                  {
+                    "name": "Sainte-Pazanne", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.08448986", 
+                      "lon": "-1.817823783"
+                    }, 
+                    "label": "Sainte-Pazanne (44680)", 
+                    "id": "admin:44186", 
+                    "zip_code": "44680"
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
+                "id": "stop_area:SNC:SA:SAOCE87328625"
+              }, 
+              "name": "Pazanne-Mairie-(Ste) (Sainte-Pazanne)", 
+              "id": "stop_area:SNC:SA:SAOCE87328625"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 352
+                }
+              ], 
+              "coordinates": [
+                [
+                  -1.8136683895031966, 
+                  47.10535610093771
+                ], 
+                [
+                  -1.812928411, 
+                  47.10591744
+                ], 
+                [
+                  -1.812443144, 
+                  47.10529192
+                ], 
+                [
+                  -1.811868191, 
+                  47.10459334
+                ], 
+                [
+                  -1.811480851, 
+                  47.10408726
+                ], 
+                [
+                  -1.810517138, 
+                  47.10350323
+                ], 
+                [
+                  -1.8110593303874587, 
+                  47.102990220473124
+                ]
+              ]
+            }, 
+            "duration": 86, 
+            "path": [
+              {
+                "duration": 6, 
+                "length": 24, 
+                "direction": 0, 
+                "name": "rue DE LA GARE"
+              }, 
+              {
+                "duration": 78, 
+                "length": 319, 
+                "direction": 0, 
+                "name": "avenue DU GENERAL DE GAULLE"
+              }, 
+              {
+                "duration": 2, 
+                "length": 8, 
+                "direction": 0, 
+                "name": "rue DE L'HOTEL DE VILLE"
+              }
+            ], 
+            "type": "street_network", 
+            "id": "section_0_0_1", 
+            "mode": "bike"
+          }
+        ]
+      }
+    ]
+  }
+}
