@@ -20,14 +20,14 @@
             "departure_date_time": "20041214T071400"
           }, 
           {
-            "duration": 120, 
-            "arrival_date_time": "20041214T074000", 
+            "duration": 51, 
+            "arrival_date_time": "20041214T073851", 
             "departure_date_time": "20041214T073800"
           }, 
           {
-            "duration": 240, 
+            "duration": 309, 
             "arrival_date_time": "20041214T074400", 
-            "departure_date_time": "20041214T074000"
+            "departure_date_time": "20041214T073851"
           }, 
           {
             "duration": 480, 
@@ -50,51 +50,61 @@
       {
         "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A236&datetime_represents=arrival&from=stop_area%3ABIB%3ASA%3A139&max_duration_to_pt=1333&walking_speed=0.75&datetime=20041214T075100", 
         "type": "prev", 
+        "rel": "prev", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A236&datetime_represents=departure&from=stop_area%3ABIB%3ASA%3A139&max_duration_to_pt=1333&walking_speed=0.75&datetime=20041214T071500", 
         "type": "next", 
+        "rel": "next", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A236&datetime_represents=departure&from=stop_area%3ABIB%3ASA%3A139&max_duration_to_pt=1333&walking_speed=0.75&datetime=20041214T000000", 
         "type": "first", 
+        "rel": "first", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A236&datetime_represents=arrival&from=stop_area%3ABIB%3ASA%3A139&max_duration_to_pt=1333&walking_speed=0.75&datetime=20041214T235900", 
         "type": "last", 
+        "rel": "last", 
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}", 
-        "rel": "address", 
+        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}", 
-        "rel": "address", 
+        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -129,16 +139,18 @@
                   "lat": "48.425122", 
                   "lon": "-4.557357"
                 }, 
+                "label": "Bourg (Guilers)", 
                 "administrative_regions": [
                   {
+                    "name": "Guilers", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.42503654", 
                       "lon": "-4.558971807"
                     }, 
-                    "zip_code": "29820", 
+                    "label": "Guilers (29820)", 
                     "id": "admin:29069", 
-                    "name": "Guilers", 
-                    "level": 8
+                    "zip_code": "29820"
                   }
                 ], 
                 "timezone": "Europe/Paris", 
@@ -149,9 +161,7 @@
             }, 
             "links": [], 
             "arrival_date_time": "20041214T071400", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041214T071400", 
             "to": {
               "embedded_type": "stop_point", 
@@ -162,39 +172,43 @@
                   "lat": "48.425034", 
                   "lon": "-4.556932"
                 }, 
+                "label": "Bourg (Guilers)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "name": "Guilers", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.42503654", 
                       "lon": "-4.558971807"
                     }, 
-                    "zip_code": "29820", 
+                    "label": "Guilers (29820)", 
                     "id": "admin:29069", 
-                    "name": "Guilers", 
-                    "level": 8
+                    "zip_code": "29820"
                   }
                 ], 
                 "address": {
-                  "house_number": 7, 
+                  "name": "Rue Le Gonidec", 
+                  "house_number": 0, 
                   "coord": {
                     "lat": "48.425034", 
                     "lon": "-4.556932"
                   }, 
-                  "id": "-4.556932;48.425034", 
+                  "label": "Rue Le Gonidec (Guilers)", 
                   "administrative_regions": [
                     {
+                      "name": "Guilers", 
+                      "level": 8, 
                       "coord": {
                         "lat": "48.42503654", 
                         "lon": "-4.558971807"
                       }, 
-                      "zip_code": "29820", 
+                      "label": "Guilers (29820)", 
                       "id": "admin:29069", 
-                      "name": "Guilers", 
-                      "level": 8
+                      "zip_code": "29820"
                     }
                   ], 
-                  "name": "Rue de Bohars"
+                  "id": "-4.556932;48.425034"
                 }, 
                 "id": "stop_point:BIB:SP:Nav1519", 
                 "stop_area": {
@@ -204,15 +218,17 @@
                     "lat": "48.425122", 
                     "lon": "-4.557357"
                   }, 
+                  "label": "Bourg (Guilers)", 
                   "administrative_regions": [
                     {
                       "name": "Guilers", 
                       "level": 8, 
-                      "id": "admin:29069", 
                       "coord": {
                         "lat": "48.42503654", 
                         "lon": "-4.558971807"
                       }, 
+                      "label": "Guilers (29820)", 
+                      "id": "admin:29069", 
                       "zip_code": "29820"
                     }
                   ], 
@@ -222,7 +238,7 @@
               }, 
               "quality": 0, 
               "id": "stop_point:BIB:SP:Nav1519", 
-              "name": "Bourg"
+              "name": "Bourg (Guilers)"
             }, 
             "mode": "walking", 
             "duration": 0, 
@@ -239,43 +255,47 @@
                   "lat": "48.425034", 
                   "lon": "-4.556932"
                 }, 
+                "label": "Bourg (Guilers)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "name": "Guilers", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.42503654", 
                       "lon": "-4.558971807"
                     }, 
-                    "zip_code": "29820", 
+                    "label": "Guilers (29820)", 
                     "id": "admin:29069", 
-                    "name": "Guilers", 
-                    "level": 8
+                    "zip_code": "29820"
                   }
                 ], 
                 "address": {
-                  "house_number": 7, 
+                  "house_number": 0, 
                   "id": "-4.556932;48.425034", 
+                  "name": "Rue Le Gonidec", 
                   "coord": {
                     "lat": "48.425034", 
                     "lon": "-4.556932"
                   }, 
-                  "name": "Rue de Bohars"
+                  "label": "Rue Le Gonidec (Guilers)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav1519", 
                 "stop_area": {
                   "comment": "", 
-                  "timezone": "Europe/Paris", 
                   "name": "Bourg", 
                   "coord": {
                     "lat": "48.425122", 
                     "lon": "-4.557357"
                   }, 
+                  "label": "Bourg (Guilers)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:BIB:SA:139"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:BIB:SP:Nav1519", 
-              "name": "Bourg"
+              "name": "Bourg (Guilers)"
             }, 
             "links": [
               {
@@ -304,15 +324,13 @@
               }
             ], 
             "arrival_date_time": "20041214T073800", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041214T071400", 
             "display_informations": {
               "direction": "Libert\u00e9 (Brest)", 
               "code": "23", 
               "description": "", 
-              "color": "", 
+              "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "BIB:2137-45984_dst_1", 
               "commercial_mode": "Bus", 
@@ -329,43 +347,47 @@
                   "lat": "48.397265", 
                   "lon": "-4.488146"
                 }, 
+                "label": "Albert 1er (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "name": "Brest", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.38987538", 
                       "lon": "-4.487201604"
                     }, 
-                    "zip_code": "29200", 
+                    "label": "Brest (29200)", 
                     "id": "admin:29019", 
-                    "name": "Brest", 
-                    "level": 8
+                    "zip_code": "29200"
                   }
                 ], 
                 "address": {
                   "house_number": 88, 
                   "id": "-4.488146;48.397265", 
+                  "name": "Avenue Camille Desmoulins", 
                   "coord": {
                     "lat": "48.397265", 
                     "lon": "-4.488146"
                   }, 
-                  "name": "Avenue Camille Desmoulins"
+                  "label": "88 Avenue Camille Desmoulins (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav400", 
                 "stop_area": {
                   "comment": "", 
-                  "timezone": "Europe/Paris", 
                   "name": "Albert 1er", 
                   "coord": {
                     "lat": "48.397051", 
                     "lon": "-4.488484"
                   }, 
+                  "label": "Albert 1er (Brest)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:BIB:SA:323"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:BIB:SP:Nav400", 
-              "name": "Albert 1er"
+              "name": "Albert 1er (Brest)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -460,12 +482,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Bourg", 
                   "coord": {
                     "lat": "48.425034", 
                     "lon": "-4.556932"
                   }, 
+                  "label": "Bourg (Guilers)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1519"
                 }, 
                 "arrival_date_time": "20041214T071400", 
@@ -476,12 +499,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Joubin", 
                   "coord": {
                     "lat": "48.425309", 
                     "lon": "-4.554704"
                   }, 
+                  "label": "Joubin (Guilers)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav3701"
                 }, 
                 "arrival_date_time": "20041214T071400", 
@@ -492,12 +516,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Croas - Ar - Pennoc", 
                   "coord": {
                     "lat": "48.425151", 
                     "lon": "-4.551849"
                   }, 
+                  "label": "Croas - Ar - Pennoc (Guilers)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1517"
                 }, 
                 "arrival_date_time": "20041214T071500", 
@@ -508,12 +533,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Kermonfort", 
                   "coord": {
                     "lat": "48.423398", 
                     "lon": "-4.551116"
                   }, 
+                  "label": "Kermonfort (Guilers)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1868"
                 }, 
                 "arrival_date_time": "20041214T071600", 
@@ -524,12 +550,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Coat - Mez", 
                   "coord": {
                     "lat": "48.420848", 
                     "lon": "-4.553653"
                   }, 
+                  "label": "Coat - Mez (Guilers)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1869"
                 }, 
                 "arrival_date_time": "20041214T071700", 
@@ -540,12 +567,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Surcouf", 
                   "coord": {
                     "lat": "48.421981", 
                     "lon": "-4.555267"
                   }, 
+                  "label": "Surcouf (Guilers)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1870"
                 }, 
                 "arrival_date_time": "20041214T071700", 
@@ -556,12 +584,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Lancelot Du Lac", 
                   "coord": {
                     "lat": "48.421968", 
                     "lon": "-4.558588"
                   }, 
+                  "label": "Lancelot Du Lac (Guilers)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1871"
                 }, 
                 "arrival_date_time": "20041214T071800", 
@@ -572,12 +601,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Croaz - Lann", 
                   "coord": {
                     "lat": "48.42001", 
                     "lon": "-4.559034"
                   }, 
+                  "label": "Croaz - Lann (Guilers)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1872"
                 }, 
                 "arrival_date_time": "20041214T071800", 
@@ -588,12 +618,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Coat - Ty - Ogant", 
                   "coord": {
                     "lat": "48.417757", 
                     "lon": "-4.5485"
                   }, 
+                  "label": "Coat - Ty - Ogant (Guilers)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1873"
                 }, 
                 "arrival_date_time": "20041214T072100", 
@@ -604,12 +635,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Castelmein", 
                   "coord": {
                     "lat": "48.412536", 
                     "lon": "-4.540545"
                   }, 
+                  "label": "Castelmein (Guilers)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1874"
                 }, 
                 "arrival_date_time": "20041214T072300", 
@@ -620,12 +652,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Penfeld", 
                   "coord": {
                     "lat": "48.410574", 
                     "lon": "-4.532248"
                   }, 
+                  "label": "Penfeld (Guilers)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav3738"
                 }, 
                 "arrival_date_time": "20041214T072500", 
@@ -636,12 +669,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Gouez", 
                   "coord": {
                     "lat": "48.411148", 
                     "lon": "-4.527213"
                   }, 
+                  "label": "Gouez (Guilers)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1876"
                 }, 
                 "arrival_date_time": "20041214T072600", 
@@ -652,12 +686,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Etang", 
                   "coord": {
                     "lat": "48.41013", 
                     "lon": "-4.520518"
                   }, 
+                  "label": "Etang (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1877"
                 }, 
                 "arrival_date_time": "20041214T072700", 
@@ -668,12 +703,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Bergot", 
                   "coord": {
                     "lat": "48.406863", 
                     "lon": "-4.509814"
                   }, 
+                  "label": "Bergot (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav872"
                 }, 
                 "arrival_date_time": "20041214T072900", 
@@ -684,12 +720,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Le Gorgeu", 
                   "coord": {
                     "lat": "48.404299", 
                     "lon": "-4.505791"
                   }, 
+                  "label": "Le Gorgeu (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1879"
                 }, 
                 "arrival_date_time": "20041214T073100", 
@@ -700,12 +737,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Kermenguy", 
                   "coord": {
                     "lat": "48.402244", 
                     "lon": "-4.502188"
                   }, 
+                  "label": "Kermenguy (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav652"
                 }, 
                 "arrival_date_time": "20041214T073300", 
@@ -716,12 +754,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Bouguen", 
                   "coord": {
                     "lat": "48.400488", 
                     "lon": "-4.498705"
                   }, 
+                  "label": "Bouguen (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav653"
                 }, 
                 "arrival_date_time": "20041214T073400", 
@@ -732,12 +771,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Universit\u00e9s", 
                   "coord": {
                     "lat": "48.39865", 
                     "lon": "-4.494765"
                   }, 
+                  "label": "Universit\u00e9s (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav654"
                 }, 
                 "arrival_date_time": "20041214T073600", 
@@ -748,12 +788,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Albert 1er", 
                   "coord": {
                     "lat": "48.397265", 
                     "lon": "-4.488146"
                   }, 
+                  "label": "Albert 1er (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav400"
                 }, 
                 "arrival_date_time": "20041214T073800", 
@@ -773,49 +814,51 @@
                   "lat": "48.397265", 
                   "lon": "-4.488146"
                 }, 
+                "label": "Albert 1er (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "name": "Brest", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.38987538", 
                       "lon": "-4.487201604"
                     }, 
-                    "zip_code": "29200", 
+                    "label": "Brest (29200)", 
                     "id": "admin:29019", 
-                    "name": "Brest", 
-                    "level": 8
+                    "zip_code": "29200"
                   }
                 ], 
                 "address": {
                   "house_number": 88, 
                   "id": "-4.488146;48.397265", 
+                  "name": "Avenue Camille Desmoulins", 
                   "coord": {
                     "lat": "48.397265", 
                     "lon": "-4.488146"
                   }, 
-                  "name": "Avenue Camille Desmoulins"
+                  "label": "88 Avenue Camille Desmoulins (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav400", 
                 "stop_area": {
                   "comment": "", 
-                  "timezone": "Europe/Paris", 
                   "name": "Albert 1er", 
                   "coord": {
                     "lat": "48.397051", 
                     "lon": "-4.488484"
                   }, 
+                  "label": "Albert 1er (Brest)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:BIB:SA:323"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:BIB:SP:Nav400", 
-              "name": "Albert 1er"
+              "name": "Albert 1er (Brest)"
             }, 
             "links": [], 
-            "arrival_date_time": "20041214T074000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "arrival_date_time": "20041214T073851", 
+            "additional_informations": [], 
             "departure_date_time": "20041214T073800", 
             "to": {
               "embedded_type": "stop_point", 
@@ -826,43 +869,47 @@
                   "lat": "48.397534", 
                   "lon": "-4.488182"
                 }, 
+                "label": "Albert 1er (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "name": "Brest", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.38987538", 
                       "lon": "-4.487201604"
                     }, 
-                    "zip_code": "29200", 
+                    "label": "Brest (29200)", 
                     "id": "admin:29019", 
-                    "name": "Brest", 
-                    "level": 8
+                    "zip_code": "29200"
                   }
                 ], 
                 "address": {
                   "house_number": 39, 
                   "id": "-4.488182;48.397534", 
+                  "name": "Avenue Camille Desmoulins", 
                   "coord": {
                     "lat": "48.397534", 
                     "lon": "-4.488182"
                   }, 
-                  "name": "Avenue Camille Desmoulins"
+                  "label": "39 Avenue Camille Desmoulins (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav429", 
                 "stop_area": {
                   "comment": "", 
-                  "timezone": "Europe/Paris", 
                   "name": "Albert 1er", 
                   "coord": {
                     "lat": "48.397051", 
                     "lon": "-4.488484"
                   }, 
+                  "label": "Albert 1er (Brest)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:BIB:SA:323"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:BIB:SP:Nav429", 
-              "name": "Albert 1er"
+              "name": "Albert 1er (Brest)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -882,7 +929,7 @@
                 ]
               ]
             }, 
-            "duration": 120, 
+            "duration": 51, 
             "transfer_type": "walking", 
             "type": "transfer", 
             "id": "section_10_0"
@@ -890,11 +937,9 @@
           {
             "links": [], 
             "arrival_date_time": "20041214T074400", 
-            "additional_informations": [
-              "regular"
-            ], 
-            "departure_date_time": "20041214T074000", 
-            "duration": 240, 
+            "additional_informations": [], 
+            "departure_date_time": "20041214T073851", 
+            "duration": 309, 
             "type": "waiting", 
             "id": "section_11_0"
           }, 
@@ -908,43 +953,47 @@
                   "lat": "48.397534", 
                   "lon": "-4.488182"
                 }, 
+                "label": "Albert 1er (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "name": "Brest", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.38987538", 
                       "lon": "-4.487201604"
                     }, 
-                    "zip_code": "29200", 
+                    "label": "Brest (29200)", 
                     "id": "admin:29019", 
-                    "name": "Brest", 
-                    "level": 8
+                    "zip_code": "29200"
                   }
                 ], 
                 "address": {
                   "house_number": 39, 
                   "id": "-4.488182;48.397534", 
+                  "name": "Avenue Camille Desmoulins", 
                   "coord": {
                     "lat": "48.397534", 
                     "lon": "-4.488182"
                   }, 
-                  "name": "Avenue Camille Desmoulins"
+                  "label": "39 Avenue Camille Desmoulins (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav429", 
                 "stop_area": {
                   "comment": "", 
-                  "timezone": "Europe/Paris", 
                   "name": "Albert 1er", 
                   "coord": {
                     "lat": "48.397051", 
                     "lon": "-4.488484"
                   }, 
+                  "label": "Albert 1er (Brest)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:BIB:SA:323"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:BIB:SP:Nav429", 
-              "name": "Albert 1er"
+              "name": "Albert 1er (Brest)"
             }, 
             "links": [
               {
@@ -973,15 +1022,13 @@
               }
             ], 
             "arrival_date_time": "20041214T075200", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041214T074400", 
             "display_informations": {
               "direction": "Kervenal (Plougastel-Daoulas)", 
               "code": "25", 
               "description": "", 
-              "color": "", 
+              "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "BIB:2185-226653_dst_1", 
               "commercial_mode": "Bus", 
@@ -998,43 +1045,47 @@
                   "lat": "48.401762", 
                   "lon": "-4.459705"
                 }, 
+                "label": "Le Bot Haut (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "name": "Brest", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.38987538", 
                       "lon": "-4.487201604"
                     }, 
-                    "zip_code": "29200", 
+                    "label": "Brest (29200)", 
                     "id": "admin:29019", 
-                    "name": "Brest", 
-                    "level": 8
+                    "zip_code": "29200"
                   }
                 ], 
                 "address": {
                   "house_number": 43, 
                   "id": "-4.459705;48.401762", 
+                  "name": "Rue de Quimper", 
                   "coord": {
                     "lat": "48.401762", 
                     "lon": "-4.459705"
                   }, 
-                  "name": "Rue de Quimper"
+                  "label": "43 Rue de Quimper (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav1225", 
                 "stop_area": {
                   "comment": "", 
-                  "timezone": "Europe/Paris", 
                   "name": "Le Bot Haut", 
                   "coord": {
                     "lat": "48.401698", 
                     "lon": "-4.458463"
                   }, 
+                  "label": "Le Bot Haut (Brest)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:BIB:SA:236"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:BIB:SP:Nav1225", 
-              "name": "Le Bot Haut"
+              "name": "Le Bot Haut (Brest)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -1077,12 +1128,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Albert 1er", 
                   "coord": {
                     "lat": "48.397534", 
                     "lon": "-4.488182"
                   }, 
+                  "label": "Albert 1er (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav429"
                 }, 
                 "arrival_date_time": "20041214T074400", 
@@ -1093,12 +1145,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Montaigne", 
                   "coord": {
                     "lat": "48.403364", 
                     "lon": "-4.480541"
                   }, 
+                  "label": "Montaigne (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1117"
                 }, 
                 "arrival_date_time": "20041214T074700", 
@@ -1109,12 +1162,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Hoche", 
                   "coord": {
                     "lat": "48.404022", 
                     "lon": "-4.475409"
                   }, 
+                  "label": "Hoche (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav304"
                 }, 
                 "arrival_date_time": "20041214T074900", 
@@ -1125,12 +1179,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Braille", 
                   "coord": {
                     "lat": "48.403598", 
                     "lon": "-4.471816"
                   }, 
+                  "label": "Braille (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav361"
                 }, 
                 "arrival_date_time": "20041214T075000", 
@@ -1141,12 +1196,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Strasbourg", 
                   "coord": {
                     "lat": "48.402262", 
                     "lon": "-4.467305"
                   }, 
+                  "label": "Strasbourg (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav360"
                 }, 
                 "arrival_date_time": "20041214T075100", 
@@ -1157,12 +1213,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Le Bot Haut", 
                   "coord": {
                     "lat": "48.401762", 
                     "lon": "-4.459705"
                   }, 
+                  "label": "Le Bot Haut (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1225"
                 }, 
                 "arrival_date_time": "20041214T075200", 
@@ -1182,39 +1239,43 @@
                   "lat": "48.401762", 
                   "lon": "-4.459705"
                 }, 
+                "label": "Le Bot Haut (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "name": "Brest", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.38987538", 
                       "lon": "-4.487201604"
                     }, 
-                    "zip_code": "29200", 
+                    "label": "Brest (29200)", 
                     "id": "admin:29019", 
-                    "name": "Brest", 
-                    "level": 8
+                    "zip_code": "29200"
                   }
                 ], 
                 "address": {
+                  "name": "Rue de Quimper", 
                   "house_number": 43, 
                   "coord": {
                     "lat": "48.401762", 
                     "lon": "-4.459705"
                   }, 
-                  "id": "-4.459705;48.401762", 
+                  "label": "43 Rue de Quimper (Brest)", 
                   "administrative_regions": [
                     {
+                      "name": "Brest", 
+                      "level": 8, 
                       "coord": {
                         "lat": "48.38987538", 
                         "lon": "-4.487201604"
                       }, 
-                      "zip_code": "29200", 
+                      "label": "Brest (29200)", 
                       "id": "admin:29019", 
-                      "name": "Brest", 
-                      "level": 8
+                      "zip_code": "29200"
                     }
                   ], 
-                  "name": "Rue de Quimper"
+                  "id": "-4.459705;48.401762"
                 }, 
                 "id": "stop_point:BIB:SP:Nav1225", 
                 "stop_area": {
@@ -1224,15 +1285,17 @@
                     "lat": "48.401698", 
                     "lon": "-4.458463"
                   }, 
+                  "label": "Le Bot Haut (Brest)", 
                   "administrative_regions": [
                     {
                       "name": "Brest", 
                       "level": 8, 
-                      "id": "admin:29019", 
                       "coord": {
                         "lat": "48.38987538", 
                         "lon": "-4.487201604"
                       }, 
+                      "label": "Brest (29200)", 
+                      "id": "admin:29019", 
                       "zip_code": "29200"
                     }
                   ], 
@@ -1242,13 +1305,11 @@
               }, 
               "quality": 0, 
               "id": "stop_point:BIB:SP:Nav1225", 
-              "name": "Le Bot Haut"
+              "name": "Le Bot Haut (Brest)"
             }, 
             "links": [], 
             "arrival_date_time": "20041214T075200", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041214T075200", 
             "to": {
               "embedded_type": "stop_area", 
@@ -1260,16 +1321,18 @@
                   "lat": "48.401698", 
                   "lon": "-4.458463"
                 }, 
+                "label": "Le Bot Haut (Brest)", 
                 "administrative_regions": [
                   {
+                    "name": "Brest", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.38987538", 
                       "lon": "-4.487201604"
                     }, 
-                    "zip_code": "29200", 
+                    "label": "Brest (29200)", 
                     "id": "admin:29019", 
-                    "name": "Brest", 
-                    "level": 8
+                    "zip_code": "29200"
                   }
                 ], 
                 "timezone": "Europe/Paris", 
