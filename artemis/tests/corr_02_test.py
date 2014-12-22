@@ -20,5 +20,5 @@ class TestCorr02(ArtemisTestFixture):
         13/12  15:40 Arret 3
         13/12  15:50 Arret 4
         """
-        self.journey(_from="stop_area:CR2:SA:12",
+        self.journey(_from="stop_area:CR2:SA:1",
                      to="stop_area:CR2:SA:4", datetime="20041213T0700")
