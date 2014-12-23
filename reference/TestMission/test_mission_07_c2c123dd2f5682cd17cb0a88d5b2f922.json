@@ -1,0 +1,486 @@
+{
+  "query": "http://localhost/v1/coverage/mission/journeys?from=stop_area:MIS:SA:6&to=stop_area:MIS:SA:9&datetime=20041210T090000&datetime_represents=departure", 
+  "response": {
+    "journeys": [
+      {
+        "nb_transfers": 0, 
+        "arrival_date_time": "20041210T102100", 
+        "departure_date_time": "20041210T101100", 
+        "type": "best", 
+        "duration": 600, 
+        "sections": [
+          {
+            "duration": 0, 
+            "arrival_date_time": "20041210T101100", 
+            "departure_date_time": "20041210T101100"
+          }, 
+          {
+            "duration": 600, 
+            "arrival_date_time": "20041210T102100", 
+            "departure_date_time": "20041210T101100"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20041210T102100", 
+            "departure_date_time": "20041210T102100"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/mission/journeys?to=stop_area%3AMIS%3ASA%3A9&from=stop_area%3AMIS%3ASA%3A6&datetime_represents=arrival&datetime=20041210T102000", 
+        "type": "prev", 
+        "rel": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/journeys?to=stop_area%3AMIS%3ASA%3A9&from=stop_area%3AMIS%3ASA%3A6&datetime_represents=departure&datetime=20041210T101200", 
+        "type": "next", 
+        "rel": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/journeys?to=stop_area%3AMIS%3ASA%3A9&from=stop_area%3AMIS%3ASA%3A6&datetime_represents=departure&datetime=20041210T000000", 
+        "type": "first", 
+        "rel": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/journeys?to=stop_area%3AMIS%3ASA%3A9&from=stop_area%3AMIS%3ASA%3A6&datetime_represents=arrival&datetime=20041210T235900", 
+        "type": "last", 
+        "rel": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/mission/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [
+          "standard"
+        ], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20041210T102100", 
+        "departure_date_time": "20041210T101100", 
+        "requested_date_time": "20041210T090000", 
+        "type": "best", 
+        "duration": 600, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Gare 6", 
+                "coord": {
+                  "lat": "0.0", 
+                  "lon": "0.0"
+                }, 
+                "label": "Gare 6", 
+                "timezone": "Africa/Abidjan", 
+                "id": "stop_area:MIS:SA:6"
+              }, 
+              "name": "Gare 6", 
+              "id": "stop_area:MIS:SA:6"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041210T101100", 
+            "additional_informations": [], 
+            "departure_date_time": "20041210T101100", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Gare 6", 
+                "coord": {
+                  "lat": "0.0", 
+                  "lon": "0.0"
+                }, 
+                "label": "Gare 6", 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:MIS:SP:Nav6", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Gare 6", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": "Gare 6", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:MIS:SA:6"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:MIS:SP:Nav6", 
+              "name": "Gare 6"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Gare 6", 
+                "coord": {
+                  "lat": "0.0", 
+                  "lon": "0.0"
+                }, 
+                "label": "Gare 6", 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:MIS:SP:Nav6", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Gare 6", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": "Gare 6", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:MIS:SA:6"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:MIS:SP:Nav6", 
+              "name": "Gare 6"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:MIS:1-252"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:MIS:Nav1"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:MIS:Nav1"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:RER"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:RapidTransit"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:default_network"
+              }, 
+              {
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20041210T102100", 
+            "additional_informations": [], 
+            "departure_date_time": "20041210T101100", 
+            "display_informations": {
+              "direction": "Gare 12", 
+              "code": "A", 
+              "description": "", 
+              "color": "000000", 
+              "physical_mode": "Train de banlieue / RER", 
+              "headsign": "omnibus", 
+              "commercial_mode": "RER", 
+              "equipments": [], 
+              "label": "A", 
+              "network": "default network"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Gare 9", 
+                "coord": {
+                  "lat": "0.0", 
+                  "lon": "0.0"
+                }, 
+                "label": "Gare 9", 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:MIS:SP:Nav9", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Gare 9", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": "Gare 9", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:MIS:SA:9"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:MIS:SP:Nav9", 
+              "name": "Gare 9"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": []
+            }, 
+            "duration": 600, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Gare 6", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": "Gare 6", 
+                  "equipments": [], 
+                  "id": "stop_point:MIS:SP:Nav6"
+                }, 
+                "arrival_date_time": "20041210T101100", 
+                "additional_informations": [], 
+                "departure_date_time": "20041210T101100", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Gare 7", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": "Gare 7", 
+                  "equipments": [], 
+                  "id": "stop_point:MIS:SP:Nav7"
+                }, 
+                "arrival_date_time": "20041210T101300", 
+                "additional_informations": [], 
+                "departure_date_time": "20041210T101500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Gare 8", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": "Gare 8", 
+                  "equipments": [], 
+                  "id": "stop_point:MIS:SP:Nav8"
+                }, 
+                "arrival_date_time": "20041210T101800", 
+                "additional_informations": [], 
+                "departure_date_time": "20041210T101800", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Gare 9", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": "Gare 9", 
+                  "equipments": [], 
+                  "id": "stop_point:MIS:SP:Nav9"
+                }, 
+                "arrival_date_time": "20041210T102100", 
+                "additional_informations": [], 
+                "departure_date_time": "20041210T102100", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Gare 9", 
+                "coord": {
+                  "lat": "0.0", 
+                  "lon": "0.0"
+                }, 
+                "label": "Gare 9", 
+                "equipments": [], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:MIS:SP:Nav9", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Gare 9", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": "Gare 9", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:MIS:SA:9"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:MIS:SP:Nav9", 
+              "name": "Gare 9"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041210T102100", 
+            "additional_informations": [], 
+            "departure_date_time": "20041210T102100", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Gare 9", 
+                "coord": {
+                  "lat": "0.0", 
+                  "lon": "0.0"
+                }, 
+                "label": "Gare 9", 
+                "timezone": "Africa/Abidjan", 
+                "id": "stop_area:MIS:SA:9"
+              }, 
+              "name": "Gare 9", 
+              "id": "stop_area:MIS:SA:9"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_2_0"
+          }
+        ]
+      }
+    ]
+  }
+}
