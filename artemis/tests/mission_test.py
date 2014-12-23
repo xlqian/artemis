@@ -40,7 +40,7 @@ class TestMission(ArtemisTestFixture):
     def test_mission_07(self):
         self.journey(_from="stop_area:MIS:SA:6",
                      to="stop_area:MIS:SA:9",
-                     datetime="20041210T084000", datetime_represents="arrival")
+                     datetime="20041210T090000")
 
     def test_mission_08(self):
         self.journey(_from="stop_area:MIS:SA:1",
