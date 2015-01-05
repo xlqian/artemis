@@ -3,7 +3,6 @@
   "response": {
     "journeys": [
       {
-        "tags": [], 
         "nb_transfers": 0, 
         "arrival_date_time": "20041213T090700", 
         "departure_date_time": "20041213T090000", 
@@ -57,51 +56,61 @@
       {
         "href": "http://localhost/v1/coverage/rebroussement/journeys?to=stop_area%3ARBR%3ASA%3A3&from=stop_area%3ARBR%3ASA%3A1&datetime_represents=arrival&datetime=20041213T090600", 
         "type": "prev", 
+        "rel": "prev", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/rebroussement/journeys?to=stop_area%3ARBR%3ASA%3A3&from=stop_area%3ARBR%3ASA%3A1&datetime_represents=departure&datetime=20041213T090100", 
         "type": "next", 
+        "rel": "next", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/rebroussement/journeys?to=stop_area%3ARBR%3ASA%3A3&from=stop_area%3ARBR%3ASA%3A1&datetime_represents=departure&datetime=20041213T000000", 
         "type": "first", 
+        "rel": "first", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/rebroussement/journeys?to=stop_area%3ARBR%3ASA%3A3&from=stop_area%3ARBR%3ASA%3A1&datetime_represents=arrival&datetime=20041213T235900", 
         "type": "last", 
+        "rel": "last", 
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "href": "http://localhost/v1/coverage/rebroussement/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "href": "http://localhost/v1/coverage/rebroussement/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}", 
-        "rel": "address", 
+        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "href": "http://localhost/v1/coverage/rebroussement/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "href": "http://localhost/v1/coverage/rebroussement/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}", 
-        "rel": "address", 
+        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -123,7 +132,9 @@
             }
           ]
         }, 
-        "tags": [], 
+        "tags": [
+          "standard"
+        ], 
         "nb_transfers": 0, 
         "arrival_date_time": "20041213T090700", 
         "departure_date_time": "20041213T090000", 
@@ -142,16 +153,29 @@
                   "lat": "43.327232", 
                   "lon": "-0.38934"
                 }, 
+                "label": "Braden (Lons)", 
+                "administrative_regions": [
+                  {
+                    "name": "Lons", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.315407", 
+                      "lon": "-0.409763"
+                    }, 
+                    "label": "Lons (64140)", 
+                    "id": "admin:166786extern", 
+                    "zip_code": "64140"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:RBR:SA:1"
               }, 
-              "name": "Braden", 
+              "name": "Braden (Lons)", 
               "id": "stop_area:RBR:SA:1"
             }, 
             "links": [], 
             "arrival_date_time": "20041213T090000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T090000", 
             "to": {
               "embedded_type": "stop_point", 
@@ -162,15 +186,30 @@
                   "lat": "43.327232", 
                   "lon": "-0.38934"
                 }, 
+                "label": "Braden (Lons)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Lons", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.315407", 
+                      "lon": "-0.409763"
+                    }, 
+                    "label": "Lons (64140)", 
+                    "id": "admin:166786extern", 
+                    "zip_code": "64140"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:RBR:SP:Nav1", 
                 "stop_area": {
@@ -180,31 +219,29 @@
                     "lat": "43.327232", 
                     "lon": "-0.38934"
                   }, 
+                  "label": "Braden (Lons)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Lons", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "43.315407", 
+                        "lon": "-0.409763"
+                      }, 
+                      "label": "Lons (64140)", 
+                      "id": "admin:166786extern", 
+                      "zip_code": "64140"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:RBR:SA:1"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:RBR:SP:Nav1", 
-              "name": "Braden"
+              "name": "Braden (Lons)"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  -0.38934, 
-                  43.327232
-                ], 
-                [
-                  -0.38934, 
-                  43.327232
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_0_0"
@@ -219,15 +256,30 @@
                   "lat": "43.327232", 
                   "lon": "-0.38934"
                 }, 
+                "label": "Braden (Lons)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Lons", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.315407", 
+                      "lon": "-0.409763"
+                    }, 
+                    "label": "Lons (64140)", 
+                    "id": "admin:166786extern", 
+                    "zip_code": "64140"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:RBR:SP:Nav1", 
                 "stop_area": {
@@ -237,12 +289,14 @@
                     "lat": "43.327232", 
                     "lon": "-0.38934"
                   }, 
+                  "label": "Braden (Lons)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:RBR:SA:1"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:RBR:SP:Nav1", 
-              "name": "Braden"
+              "name": "Braden (Lons)"
             }, 
             "links": [
               {
@@ -270,7 +324,6 @@
                 "id": "network:default_network"
               }, 
               {
-                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -278,12 +331,10 @@
               }
             ], 
             "arrival_date_time": "20041213T090700", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T090000", 
             "display_informations": {
-              "direction": "Centre Ville", 
+              "direction": "Centre Ville (Morla\u00e0s)", 
               "code": "5", 
               "description": "", 
               "color": "000000", 
@@ -303,15 +354,30 @@
                   "lat": "43.322267", 
                   "lon": "-0.381937"
                 }, 
+                "label": "Prat Maria (Lons)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Lons", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.315407", 
+                      "lon": "-0.409763"
+                    }, 
+                    "label": "Lons (64140)", 
+                    "id": "admin:166786extern", 
+                    "zip_code": "64140"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:RBR:SP:Nav3", 
                 "stop_area": {
@@ -321,12 +387,14 @@
                     "lat": "43.322267", 
                     "lon": "-0.381937"
                   }, 
+                  "label": "Prat Maria (Lons)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:RBR:SA:3"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:RBR:SP:Nav3", 
-              "name": "Prat Maria"
+              "name": "Prat Maria (Lons)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -357,12 +425,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Braden", 
                   "coord": {
                     "lat": "43.327232", 
                     "lon": "-0.38934"
                   }, 
+                  "label": "Braden (Lons)", 
+                  "equipments": [], 
                   "id": "stop_point:RBR:SP:Nav1"
                 }, 
                 "arrival_date_time": "20041213T090000", 
@@ -373,12 +442,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Iut", 
                   "coord": {
                     "lat": "43.337249", 
                     "lon": "-0.354315"
                   }, 
+                  "label": "Iut (Pau)", 
+                  "equipments": [], 
                   "id": "stop_point:RBR:SP:Nav2"
                 }, 
                 "arrival_date_time": "20041213T090500", 
@@ -389,12 +459,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Prat Maria", 
                   "coord": {
                     "lat": "43.322267", 
                     "lon": "-0.381937"
                   }, 
+                  "label": "Prat Maria (Lons)", 
+                  "equipments": [], 
                   "id": "stop_point:RBR:SP:Nav3"
                 }, 
                 "arrival_date_time": "20041213T090700", 
@@ -414,15 +485,30 @@
                   "lat": "43.322267", 
                   "lon": "-0.381937"
                 }, 
+                "label": "Prat Maria (Lons)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Lons", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.315407", 
+                      "lon": "-0.409763"
+                    }, 
+                    "label": "Lons (64140)", 
+                    "id": "admin:166786extern", 
+                    "zip_code": "64140"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:RBR:SP:Nav3", 
                 "stop_area": {
@@ -432,18 +518,31 @@
                     "lat": "43.322267", 
                     "lon": "-0.381937"
                   }, 
+                  "label": "Prat Maria (Lons)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Lons", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "43.315407", 
+                        "lon": "-0.409763"
+                      }, 
+                      "label": "Lons (64140)", 
+                      "id": "admin:166786extern", 
+                      "zip_code": "64140"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:RBR:SA:3"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:RBR:SP:Nav3", 
-              "name": "Prat Maria"
+              "name": "Prat Maria (Lons)"
             }, 
             "links": [], 
             "arrival_date_time": "20041213T090700", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T090700", 
             "to": {
               "embedded_type": "stop_area", 
@@ -455,29 +554,27 @@
                   "lat": "43.322267", 
                   "lon": "-0.381937"
                 }, 
+                "label": "Prat Maria (Lons)", 
+                "administrative_regions": [
+                  {
+                    "name": "Lons", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.315407", 
+                      "lon": "-0.409763"
+                    }, 
+                    "label": "Lons (64140)", 
+                    "id": "admin:166786extern", 
+                    "zip_code": "64140"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:RBR:SA:3"
               }, 
-              "name": "Prat Maria", 
+              "name": "Prat Maria (Lons)", 
               "id": "stop_area:RBR:SA:3"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  -0.381937, 
-                  43.322267
-                ], 
-                [
-                  -0.381937, 
-                  43.322267
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_2_0"

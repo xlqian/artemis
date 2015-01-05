@@ -3,7 +3,6 @@
   "response": {
     "journeys": [
       {
-        "tags": [], 
         "nb_transfers": 0, 
         "arrival_date_time": "20041213T091800", 
         "departure_date_time": "20041213T091100", 
@@ -57,51 +56,61 @@
       {
         "href": "http://localhost/v1/coverage/rebroussement/journeys?to=stop_area%3ARBR%3ASA%3A6&from=stop_area%3ARBR%3ASA%3A3&datetime_represents=arrival&datetime=20041213T091700", 
         "type": "prev", 
+        "rel": "prev", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/rebroussement/journeys?to=stop_area%3ARBR%3ASA%3A6&from=stop_area%3ARBR%3ASA%3A3&datetime_represents=departure&datetime=20041213T091200", 
         "type": "next", 
+        "rel": "next", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/rebroussement/journeys?to=stop_area%3ARBR%3ASA%3A6&from=stop_area%3ARBR%3ASA%3A3&datetime_represents=departure&datetime=20041213T000000", 
         "type": "first", 
+        "rel": "first", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/rebroussement/journeys?to=stop_area%3ARBR%3ASA%3A6&from=stop_area%3ARBR%3ASA%3A3&datetime_represents=arrival&datetime=20041213T235900", 
         "type": "last", 
+        "rel": "last", 
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "href": "http://localhost/v1/coverage/rebroussement/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "href": "http://localhost/v1/coverage/rebroussement/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}", 
-        "rel": "address", 
+        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "href": "http://localhost/v1/coverage/rebroussement/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "href": "http://localhost/v1/coverage/rebroussement/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}", 
-        "rel": "address", 
+        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -123,7 +132,9 @@
             }
           ]
         }, 
-        "tags": [], 
+        "tags": [
+          "standard"
+        ], 
         "nb_transfers": 0, 
         "arrival_date_time": "20041213T091800", 
         "departure_date_time": "20041213T091100", 
@@ -142,16 +153,29 @@
                   "lat": "43.322267", 
                   "lon": "-0.381937"
                 }, 
+                "label": "Prat Maria (Lons)", 
+                "administrative_regions": [
+                  {
+                    "name": "Lons", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.315407", 
+                      "lon": "-0.409763"
+                    }, 
+                    "label": "Lons (64140)", 
+                    "id": "admin:166786extern", 
+                    "zip_code": "64140"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:RBR:SA:3"
               }, 
-              "name": "Prat Maria", 
+              "name": "Prat Maria (Lons)", 
               "id": "stop_area:RBR:SA:3"
             }, 
             "links": [], 
             "arrival_date_time": "20041213T091100", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T091100", 
             "to": {
               "embedded_type": "stop_point", 
@@ -162,15 +186,30 @@
                   "lat": "43.322267", 
                   "lon": "-0.381937"
                 }, 
+                "label": "Prat Maria (Lons)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Lons", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.315407", 
+                      "lon": "-0.409763"
+                    }, 
+                    "label": "Lons (64140)", 
+                    "id": "admin:166786extern", 
+                    "zip_code": "64140"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:RBR:SP:Nav3", 
                 "stop_area": {
@@ -180,31 +219,29 @@
                     "lat": "43.322267", 
                     "lon": "-0.381937"
                   }, 
+                  "label": "Prat Maria (Lons)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Lons", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "43.315407", 
+                        "lon": "-0.409763"
+                      }, 
+                      "label": "Lons (64140)", 
+                      "id": "admin:166786extern", 
+                      "zip_code": "64140"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:RBR:SA:3"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:RBR:SP:Nav3", 
-              "name": "Prat Maria"
+              "name": "Prat Maria (Lons)"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  -0.381937, 
-                  43.322267
-                ], 
-                [
-                  -0.381937, 
-                  43.322267
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_0_0"
@@ -219,15 +256,30 @@
                   "lat": "43.322267", 
                   "lon": "-0.381937"
                 }, 
+                "label": "Prat Maria (Lons)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Lons", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.315407", 
+                      "lon": "-0.409763"
+                    }, 
+                    "label": "Lons (64140)", 
+                    "id": "admin:166786extern", 
+                    "zip_code": "64140"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:RBR:SP:Nav3", 
                 "stop_area": {
@@ -237,12 +289,14 @@
                     "lat": "43.322267", 
                     "lon": "-0.381937"
                   }, 
+                  "label": "Prat Maria (Lons)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:RBR:SA:3"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:RBR:SP:Nav3", 
-              "name": "Prat Maria"
+              "name": "Prat Maria (Lons)"
             }, 
             "links": [
               {
@@ -270,7 +324,6 @@
                 "id": "network:default_network"
               }, 
               {
-                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -278,12 +331,10 @@
               }
             ], 
             "arrival_date_time": "20041213T091800", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T091100", 
             "display_informations": {
-              "direction": "Centre Ville", 
+              "direction": "Centre Ville (Morla\u00e0s)", 
               "code": "5", 
               "description": "", 
               "color": "000000", 
@@ -303,15 +354,30 @@
                   "lat": "43.32539", 
                   "lon": "-0.295383"
                 }, 
+                "label": "Centre Ville (Morla\u00e0s)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Morla\u00e0s", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.34544", 
+                      "lon": "-0.264945"
+                    }, 
+                    "label": "Morla\u00e0s (64160)", 
+                    "id": "admin:1270822extern", 
+                    "zip_code": "64160"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:RBR:SP:Nav6", 
                 "stop_area": {
@@ -321,12 +387,14 @@
                     "lat": "43.32539", 
                     "lon": "-0.295383"
                   }, 
+                  "label": "Centre Ville (Morla\u00e0s)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:RBR:SA:6"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:RBR:SP:Nav6", 
-              "name": "Centre Ville"
+              "name": "Centre Ville (Morla\u00e0s)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -357,12 +425,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Prat Maria", 
                   "coord": {
                     "lat": "43.322267", 
                     "lon": "-0.381937"
                   }, 
+                  "label": "Prat Maria (Lons)", 
+                  "equipments": [], 
                   "id": "stop_point:RBR:SP:Nav3"
                 }, 
                 "arrival_date_time": "20041213T091100", 
@@ -373,12 +442,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Michelet", 
                   "coord": {
                     "lat": "43.319088", 
                     "lon": "-0.304883"
                   }, 
+                  "label": "Michelet (Pau)", 
+                  "equipments": [], 
                   "id": "stop_point:RBR:SP:Nav5"
                 }, 
                 "arrival_date_time": "20041213T091500", 
@@ -389,12 +459,13 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Centre Ville", 
                   "coord": {
                     "lat": "43.32539", 
                     "lon": "-0.295383"
                   }, 
+                  "label": "Centre Ville (Morla\u00e0s)", 
+                  "equipments": [], 
                   "id": "stop_point:RBR:SP:Nav6"
                 }, 
                 "arrival_date_time": "20041213T091800", 
@@ -414,15 +485,30 @@
                   "lat": "43.32539", 
                   "lon": "-0.295383"
                 }, 
+                "label": "Centre Ville (Morla\u00e0s)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Morla\u00e0s", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.34544", 
+                      "lon": "-0.264945"
+                    }, 
+                    "label": "Morla\u00e0s (64160)", 
+                    "id": "admin:1270822extern", 
+                    "zip_code": "64160"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:RBR:SP:Nav6", 
                 "stop_area": {
@@ -432,18 +518,31 @@
                     "lat": "43.32539", 
                     "lon": "-0.295383"
                   }, 
+                  "label": "Centre Ville (Morla\u00e0s)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Morla\u00e0s", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "43.34544", 
+                        "lon": "-0.264945"
+                      }, 
+                      "label": "Morla\u00e0s (64160)", 
+                      "id": "admin:1270822extern", 
+                      "zip_code": "64160"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:RBR:SA:6"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:RBR:SP:Nav6", 
-              "name": "Centre Ville"
+              "name": "Centre Ville (Morla\u00e0s)"
             }, 
             "links": [], 
             "arrival_date_time": "20041213T091800", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T091800", 
             "to": {
               "embedded_type": "stop_area", 
@@ -455,29 +554,27 @@
                   "lat": "43.32539", 
                   "lon": "-0.295383"
                 }, 
+                "label": "Centre Ville (Morla\u00e0s)", 
+                "administrative_regions": [
+                  {
+                    "name": "Morla\u00e0s", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.34544", 
+                      "lon": "-0.264945"
+                    }, 
+                    "label": "Morla\u00e0s (64160)", 
+                    "id": "admin:1270822extern", 
+                    "zip_code": "64160"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:RBR:SA:6"
               }, 
-              "name": "Centre Ville", 
+              "name": "Centre Ville (Morla\u00e0s)", 
               "id": "stop_area:RBR:SA:6"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  -0.295383, 
-                  43.32539
-                ], 
-                [
-                  -0.295383, 
-                  43.32539
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_2_0"
