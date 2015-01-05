@@ -1,0 +1,34 @@
+{
+  "query": "http://localhost/v1/coverage/passe-minuit-01/journeys?from=stop_area:PM1:SA:1&to=stop_area:PM1:SA:3&datetime=20051124T233000&datetime_represents=departure", 
+  "response": {
+    "journeys": null
+  }, 
+  "full_response": {
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/passe-minuit-01/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/passe-minuit-01/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/passe-minuit-01/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
+        "templated": true
+      }
+    ], 
+    "error": {
+      "message": "no solution found for this journey", 
+      "id": "no_solution"
+    }
+  }
+}
