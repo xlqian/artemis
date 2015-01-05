@@ -1,0 +1,565 @@
+{
+  "query": "http://localhost/v1/coverage/passe-minuit-01/journeys?from=stop_area:PM1:SA:1&to=stop_area:PM1:SA:4&datetime=20051124T070000&datetime_represents=arrival", 
+  "response": {
+    "journeys": [
+      {
+        "nb_transfers": 0, 
+        "arrival_date_time": "20051124T001000", 
+        "departure_date_time": "20051123T235900", 
+        "type": "best", 
+        "duration": 660, 
+        "sections": [
+          {
+            "duration": 0, 
+            "arrival_date_time": "20051123T235900", 
+            "departure_date_time": "20051123T235900"
+          }, 
+          {
+            "duration": 660, 
+            "arrival_date_time": "20051124T001000", 
+            "departure_date_time": "20051123T235900"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20051124T001000", 
+            "departure_date_time": "20051124T001000"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/passe-minuit-01/journeys?to=stop_area%3APM1%3ASA%3A4&from=stop_area%3APM1%3ASA%3A1&datetime_represents=arrival&datetime=20051124T000900", 
+        "type": "prev", 
+        "rel": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/passe-minuit-01/journeys?to=stop_area%3APM1%3ASA%3A4&from=stop_area%3APM1%3ASA%3A1&datetime_represents=departure&datetime=20051124T000000", 
+        "type": "next", 
+        "rel": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/passe-minuit-01/journeys?to=stop_area%3APM1%3ASA%3A4&from=stop_area%3APM1%3ASA%3A1&datetime_represents=departure&datetime=20051123T000000", 
+        "type": "first", 
+        "rel": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/passe-minuit-01/journeys?to=stop_area%3APM1%3ASA%3A4&from=stop_area%3APM1%3ASA%3A1&datetime_represents=arrival&datetime=20051124T235900", 
+        "type": "last", 
+        "rel": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/passe-minuit-01/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/passe-minuit-01/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/passe-minuit-01/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/passe-minuit-01/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/passe-minuit-01/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/passe-minuit-01/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [
+          "standard"
+        ], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20051124T001000", 
+        "departure_date_time": "20051123T235900", 
+        "requested_date_time": "20051124T070000", 
+        "type": "best", 
+        "duration": 660, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Arret1", 
+                "coord": {
+                  "lat": "47.429181", 
+                  "lon": "0.694363"
+                }, 
+                "label": "Arret1 (Tours)", 
+                "administrative_regions": [
+                  {
+                    "name": "Tours", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.390045", 
+                      "lon": "0.688926"
+                    }, 
+                    "label": "Tours (37000-37200)", 
+                    "id": "admin:76306extern", 
+                    "zip_code": "37000-37200"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
+                "id": "stop_area:PM1:SA:1"
+              }, 
+              "name": "Arret1 (Tours)", 
+              "id": "stop_area:PM1:SA:1"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20051123T235900", 
+            "additional_informations": [], 
+            "departure_date_time": "20051123T235900", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret1", 
+                "coord": {
+                  "lat": "47.429181", 
+                  "lon": "0.694363"
+                }, 
+                "label": "Arret1 (Tours)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Tours", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.390045", 
+                      "lon": "0.688926"
+                    }, 
+                    "label": "Tours (37000-37200)", 
+                    "id": "admin:76306extern", 
+                    "zip_code": "37000-37200"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:PM1:SP:Nav1", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret1", 
+                  "coord": {
+                    "lat": "47.429181", 
+                    "lon": "0.694363"
+                  }, 
+                  "label": "Arret1 (Tours)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Tours", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "47.390045", 
+                        "lon": "0.688926"
+                      }, 
+                      "label": "Tours (37000-37200)", 
+                      "id": "admin:76306extern", 
+                      "zip_code": "37000-37200"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:PM1:SA:1"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:PM1:SP:Nav1", 
+              "name": "Arret1 (Tours)"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret1", 
+                "coord": {
+                  "lat": "47.429181", 
+                  "lon": "0.694363"
+                }, 
+                "label": "Arret1 (Tours)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Tours", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.390045", 
+                      "lon": "0.688926"
+                    }, 
+                    "label": "Tours (37000-37200)", 
+                    "id": "admin:76306extern", 
+                    "zip_code": "37000-37200"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:PM1:SP:Nav1", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret1", 
+                  "coord": {
+                    "lat": "47.429181", 
+                    "lon": "0.694363"
+                  }, 
+                  "label": "Arret1 (Tours)", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:PM1:SA:1"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:PM1:SP:Nav1", 
+              "name": "Arret1 (Tours)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:PM1:3-10"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:PM1:Nav3"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:PM1:Nav3"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:TRAIN"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Train"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:default_network"
+              }, 
+              {
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20051124T001000", 
+            "additional_informations": [], 
+            "departure_date_time": "20051123T235900", 
+            "display_informations": {
+              "direction": "Arret4 (Saint-Cyr-sur-Loire)", 
+              "code": "34", 
+              "description": "", 
+              "color": "000000", 
+              "physical_mode": "Train", 
+              "headsign": "PM1:3-10", 
+              "commercial_mode": "TRAIN", 
+              "equipments": [], 
+              "label": "34", 
+              "network": "default network"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret4", 
+                "coord": {
+                  "lat": "47.426007", 
+                  "lon": "0.65071"
+                }, 
+                "label": "Arret4 (Saint-Cyr-sur-Loire)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Cyr-sur-Loire", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.405243", 
+                      "lon": "0.665819"
+                    }, 
+                    "label": "Saint-Cyr-sur-Loire (37540)", 
+                    "id": "admin:76307extern", 
+                    "zip_code": "37540"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:PM1:SP:Nav4", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret4", 
+                  "coord": {
+                    "lat": "47.426007", 
+                    "lon": "0.65071"
+                  }, 
+                  "label": "Arret4 (Saint-Cyr-sur-Loire)", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:PM1:SA:4"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:PM1:SP:Nav4", 
+              "name": "Arret4 (Saint-Cyr-sur-Loire)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 3303
+                }
+              ], 
+              "coordinates": [
+                [
+                  0.694363, 
+                  47.429181
+                ], 
+                [
+                  0.65071, 
+                  47.426007
+                ]
+              ]
+            }, 
+            "duration": 660, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Arret1", 
+                  "coord": {
+                    "lat": "47.429181", 
+                    "lon": "0.694363"
+                  }, 
+                  "label": "Arret1 (Tours)", 
+                  "equipments": [], 
+                  "id": "stop_point:PM1:SP:Nav1"
+                }, 
+                "arrival_date_time": "20051123T235900", 
+                "additional_informations": [], 
+                "departure_date_time": "20051123T235900", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Arret4", 
+                  "coord": {
+                    "lat": "47.426007", 
+                    "lon": "0.65071"
+                  }, 
+                  "label": "Arret4 (Saint-Cyr-sur-Loire)", 
+                  "equipments": [], 
+                  "id": "stop_point:PM1:SP:Nav4"
+                }, 
+                "arrival_date_time": "20051124T001000", 
+                "additional_informations": [], 
+                "departure_date_time": "20051124T001000", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret4", 
+                "coord": {
+                  "lat": "47.426007", 
+                  "lon": "0.65071"
+                }, 
+                "label": "Arret4 (Saint-Cyr-sur-Loire)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Cyr-sur-Loire", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.405243", 
+                      "lon": "0.665819"
+                    }, 
+                    "label": "Saint-Cyr-sur-Loire (37540)", 
+                    "id": "admin:76307extern", 
+                    "zip_code": "37540"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:PM1:SP:Nav4", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret4", 
+                  "coord": {
+                    "lat": "47.426007", 
+                    "lon": "0.65071"
+                  }, 
+                  "label": "Arret4 (Saint-Cyr-sur-Loire)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Saint-Cyr-sur-Loire", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "47.405243", 
+                        "lon": "0.665819"
+                      }, 
+                      "label": "Saint-Cyr-sur-Loire (37540)", 
+                      "id": "admin:76307extern", 
+                      "zip_code": "37540"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:PM1:SA:4"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:PM1:SP:Nav4", 
+              "name": "Arret4 (Saint-Cyr-sur-Loire)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20051124T001000", 
+            "additional_informations": [], 
+            "departure_date_time": "20051124T001000", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Arret4", 
+                "coord": {
+                  "lat": "47.426007", 
+                  "lon": "0.65071"
+                }, 
+                "label": "Arret4 (Saint-Cyr-sur-Loire)", 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Cyr-sur-Loire", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.405243", 
+                      "lon": "0.665819"
+                    }, 
+                    "label": "Saint-Cyr-sur-Loire (37540)", 
+                    "id": "admin:76307extern", 
+                    "zip_code": "37540"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
+                "id": "stop_area:PM1:SA:4"
+              }, 
+              "name": "Arret4 (Saint-Cyr-sur-Loire)", 
+              "id": "stop_area:PM1:SA:4"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_2_0"
+          }
+        ]
+      }
+    ]
+  }
+}
