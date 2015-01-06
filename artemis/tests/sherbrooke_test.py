@@ -46,7 +46,7 @@ class TestSherbrooke(ArtemisTestFixture):
                      datetime_represents="arrival", walking_speed="0.83", max_duration_to_pt="720")
 
     def test_sherbrooke_09(self):
-        self.journey(_from="-71.95535627761828;45.36689251290319",
+        self.journey(_from="-71.95892423;45.36721098",
                      to="stop_area:STS:SA:1476", datetime="20111116T080000",
                      datetime_represents="arrival", walking_speed="0.83", max_duration_to_pt="720")
 
