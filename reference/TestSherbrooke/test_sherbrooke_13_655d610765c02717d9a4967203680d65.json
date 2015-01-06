@@ -4,25 +4,25 @@
     "journeys": [
       {
         "nb_transfers": 0, 
-        "arrival_date_time": null, 
-        "departure_date_time": null, 
+        "arrival_date_time": "20111114T090500", 
+        "departure_date_time": "20111114T085607", 
         "type": "best", 
-        "duration": 502, 
+        "duration": 533, 
         "sections": [
           {
             "duration": 152, 
-            "arrival_date_time": null, 
-            "departure_date_time": null
+            "arrival_date_time": "20111114T085839", 
+            "departure_date_time": "20111114T085607"
           }, 
           {
-            "duration": 360, 
-            "arrival_date_time": null, 
-            "departure_date_time": null
+            "duration": 420, 
+            "arrival_date_time": "20111114T090500", 
+            "departure_date_time": "20111114T085800"
           }, 
           {
             "duration": 0, 
-            "arrival_date_time": null, 
-            "departure_date_time": null
+            "arrival_date_time": "20111114T090500", 
+            "departure_date_time": "20111114T090500"
           }
         ]
       }
@@ -54,43 +54,75 @@
     "notes": [], 
     "links": [
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "href": "http://localhost/v1/coverage/sherbrooke/journeys?to=stop_area%3ASTS%3ASA%3A2079&datetime_represents=arrival&from=stop_area%3ASTS%3ASA%3A2073&max_duration_to_pt=720&walking_speed=0.83&datetime=20111114T090400", 
+        "type": "prev", 
+        "rel": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/sherbrooke/journeys?to=stop_area%3ASTS%3ASA%3A2079&datetime_represents=departure&from=stop_area%3ASTS%3ASA%3A2073&max_duration_to_pt=720&walking_speed=0.83&datetime=20111114T085707", 
+        "type": "next", 
+        "rel": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/sherbrooke/journeys?to=stop_area%3ASTS%3ASA%3A2079&datetime_represents=departure&from=stop_area%3ASTS%3ASA%3A2073&max_duration_to_pt=720&walking_speed=0.83&datetime=20111114T000000", 
+        "type": "first", 
+        "rel": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/sherbrooke/journeys?to=stop_area%3ASTS%3ASA%3A2079&datetime_represents=arrival&from=stop_area%3ASTS%3ASA%3A2073&max_duration_to_pt=720&walking_speed=0.83&datetime=20111114T235900", 
+        "type": "last", 
+        "rel": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/poi_types/{poi_type.id}", 
-        "rel": "poi_type", 
+        "href": "http://localhost/v1/coverage/sherbrooke/poi_types/{poi_type.id}?collection=poi_types", 
+        "type": "poi_type", 
+        "rel": "poi_types", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/pois/{poi.id}", 
-        "rel": "poi", 
+        "href": "http://localhost/v1/coverage/sherbrooke/pois/{poi.id}?collection=pois", 
+        "type": "poi", 
+        "rel": "pois", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}", 
-        "rel": "address", 
+        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}", 
-        "rel": "address", 
+        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -115,6 +147,12 @@
         "tags": [
           "standard"
         ], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20111114T090500", 
+        "departure_date_time": "20111114T085607", 
+        "requested_date_time": "20111114T091500", 
+        "type": "best", 
+        "duration": 533, 
         "sections": [
           {
             "from": {
@@ -126,50 +164,154 @@
                   "lat": "45.385782", 
                   "lon": "-71.948811"
                 }, 
+                "label": "Jolliet / Galt Ouest (Sherbrooke)", 
                 "administrative_regions": [
                   {
+                    "name": "Sherbrooke", 
+                    "level": 8, 
                     "coord": {
                       "lat": "0.0", 
                       "lon": "-73.23728992"
                     }, 
-                    "zip_code": "", 
+                    "label": "Sherbrooke", 
                     "id": "admin:43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8
+                    "zip_code": ""
                   }
                 ], 
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:STS:SA:2073"
               }, 
               "address": {
+                "name": "rue JOLLIET", 
                 "house_number": 1391, 
                 "coord": {
                   "lat": "45.38577754291664", 
                   "lon": "-71.94891827238074"
                 }, 
-                "id": "-71.94891827238074;45.38577754291664", 
+                "label": "1391 rue JOLLIET (Sherbrooke)", 
                 "administrative_regions": [
                   {
+                    "name": "Sherbrooke", 
+                    "level": 8, 
                     "coord": {
                       "lat": "0.0", 
                       "lon": "-73.23728992"
                     }, 
-                    "zip_code": "", 
+                    "label": "Sherbrooke", 
                     "id": "admin:43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8
+                    "zip_code": ""
                   }
                 ], 
-                "name": "rue JOLLIET"
+                "id": "-71.94891827238074;45.38577754291664"
               }, 
               "quality": 0, 
               "id": "stop_area:STS:SA:2073", 
               "name": "Jolliet / Galt Ouest (Sherbrooke)"
             }, 
             "links": [], 
-            "additional_informations": [
-              "regular"
-            ], 
+            "arrival_date_time": "20111114T085839", 
+            "additional_informations": [], 
+            "departure_date_time": "20111114T085607", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Letendre / Galt Ouest", 
+                "coord": {
+                  "lat": "45.385246", 
+                  "lon": "-71.949853"
+                }, 
+                "label": "Letendre / Galt Ouest (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "address": {
+                  "name": "rue GALT O,", 
+                  "house_number": 3151, 
+                  "coord": {
+                    "lat": "45.385246", 
+                    "lon": "-71.949853"
+                  }, 
+                  "label": "3151 rue GALT O, (Sherbrooke)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Sherbrooke", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "0.0", 
+                        "lon": "-73.23728992"
+                      }, 
+                      "label": "Sherbrooke", 
+                      "id": "admin:43027", 
+                      "zip_code": ""
+                    }
+                  ], 
+                  "id": "-71.949853;45.385246"
+                }, 
+                "id": "stop_point:STS:SP:480", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Letendre / Galt Ouest", 
+                  "coord": {
+                    "lat": "45.385246", 
+                    "lon": "-71.949853"
+                  }, 
+                  "label": "Letendre / Galt Ouest (Sherbrooke)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Sherbrooke", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "0.0", 
+                        "lon": "-73.23728992"
+                      }, 
+                      "label": "Sherbrooke", 
+                      "id": "admin:43027", 
+                      "zip_code": ""
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:480"
+                }
+              }, 
+              "name": "Letendre / Galt Ouest (Sherbrooke)", 
+              "address": {
+                "name": "rue LETENDRE", 
+                "house_number": 1385, 
+                "coord": {
+                  "lat": "45.385246", 
+                  "lon": "-71.949853"
+                }, 
+                "label": "1385 rue LETENDRE (Sherbrooke)", 
+                "administrative_regions": [
+                  {
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "-71.949853;45.385246"
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:480"
+            }, 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -204,99 +346,6 @@
                 ]
               ]
             }, 
-            "to": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "comment": "", 
-                "name": "Letendre / Galt Ouest", 
-                "coord": {
-                  "lat": "45.385246", 
-                  "lon": "-71.949853"
-                }, 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "zip_code": "", 
-                    "id": "admin:43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8
-                  }
-                ], 
-                "address": {
-                  "house_number": 1385, 
-                  "coord": {
-                    "lat": "45.385246", 
-                    "lon": "-71.949853"
-                  }, 
-                  "id": "-71.949853;45.385246", 
-                  "administrative_regions": [
-                    {
-                      "coord": {
-                        "lat": "0.0", 
-                        "lon": "-73.23728992"
-                      }, 
-                      "zip_code": "", 
-                      "id": "admin:43027", 
-                      "name": "Sherbrooke", 
-                      "level": 8
-                    }
-                  ], 
-                  "name": "rue LETENDRE"
-                }, 
-                "id": "stop_point:STS:SP:480", 
-                "stop_area": {
-                  "comment": "", 
-                  "name": "Letendre / Galt Ouest", 
-                  "coord": {
-                    "lat": "45.385246", 
-                    "lon": "-71.949853"
-                  }, 
-                  "administrative_regions": [
-                    {
-                      "name": "Sherbrooke", 
-                      "level": 8, 
-                      "id": "admin:43027", 
-                      "coord": {
-                        "lat": "0.0", 
-                        "lon": "-73.23728992"
-                      }, 
-                      "zip_code": ""
-                    }
-                  ], 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:480"
-                }
-              }, 
-              "name": "Letendre / Galt Ouest", 
-              "address": {
-                "house_number": 1385, 
-                "coord": {
-                  "lat": "45.385246", 
-                  "lon": "-71.949853"
-                }, 
-                "id": "-71.949853;45.385246", 
-                "administrative_regions": [
-                  {
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "zip_code": "", 
-                    "id": "admin:43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8
-                  }
-                ], 
-                "name": "rue LETENDRE"
-              }, 
-              "quality": 0, 
-              "id": "stop_point:STS:SP:480"
-            }, 
-            "mode": "walking", 
             "duration": 152, 
             "path": [
               {
@@ -319,7 +368,8 @@
               }
             ], 
             "type": "street_network", 
-            "id": "section_0_0"
+            "id": "section_0_0", 
+            "mode": "walking"
           }, 
           {
             "from": {
@@ -331,48 +381,52 @@
                   "lat": "45.385246", 
                   "lon": "-71.949853"
                 }, 
+                "label": "Letendre / Galt Ouest (Sherbrooke)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "name": "Sherbrooke", 
+                    "level": 8, 
                     "coord": {
                       "lat": "0.0", 
                       "lon": "-73.23728992"
                     }, 
-                    "zip_code": "", 
+                    "label": "Sherbrooke", 
                     "id": "admin:43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8
+                    "zip_code": ""
                   }
                 ], 
                 "address": {
-                  "house_number": 1385, 
+                  "house_number": 3151, 
                   "id": "-71.949853;45.385246", 
+                  "name": "rue GALT O,", 
                   "coord": {
                     "lat": "45.385246", 
                     "lon": "-71.949853"
                   }, 
-                  "name": "rue LETENDRE"
+                  "label": "3151 rue GALT O, (Sherbrooke)"
                 }, 
                 "id": "stop_point:STS:SP:480", 
                 "stop_area": {
                   "comment": "", 
-                  "timezone": "Europe/Paris", 
                   "name": "Letendre / Galt Ouest", 
                   "coord": {
                     "lat": "45.385246", 
                     "lon": "-71.949853"
                   }, 
+                  "label": "Letendre / Galt Ouest (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:STS:SA:480"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:STS:SP:480", 
-              "name": "Letendre / Galt Ouest"
+              "name": "Letendre / Galt Ouest (Sherbrooke)"
             }, 
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:STS:50684968_dst_2"
+                "id": "vehicle_journey:STS:49784984_dst_2"
               }, 
               {
                 "type": "line", 
@@ -395,86 +449,15 @@
                 "id": "network:STS"
               }, 
               {
-                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
                 "templated": false
               }
             ], 
-            "additional_informations": [
-              "regular"
-            ], 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 2816
-                }
-              ], 
-              "coordinates": [
-                [
-                  -71.949853, 
-                  45.385246
-                ], 
-                [
-                  -71.948999, 
-                  45.388444
-                ], 
-                [
-                  -71.947919, 
-                  45.389603
-                ], 
-                [
-                  -71.945711, 
-                  45.390624
-                ], 
-                [
-                  -71.944547, 
-                  45.391134
-                ], 
-                [
-                  -71.944357, 
-                  45.38906
-                ], 
-                [
-                  -71.944253, 
-                  45.387127
-                ], 
-                [
-                  -71.942491, 
-                  45.38692
-                ], 
-                [
-                  -71.940247, 
-                  45.386934
-                ], 
-                [
-                  -71.937254, 
-                  45.386968
-                ], 
-                [
-                  -71.935165, 
-                  45.386991
-                ], 
-                [
-                  -71.93296, 
-                  45.387004
-                ], 
-                [
-                  -71.930371, 
-                  45.386951
-                ], 
-                [
-                  -71.928461, 
-                  45.386942
-                ], 
-                [
-                  -71.9245, 
-                  45.386873
-                ]
-              ]
-            }, 
+            "arrival_date_time": "20111114T090500", 
+            "additional_informations": [], 
+            "departure_date_time": "20111114T085800", 
             "display_informations": {
               "direction": "Station du C\u00e9gep (Sherbrooke)", 
               "code": "19", 
@@ -496,256 +479,511 @@
                   "lat": "45.386873", 
                   "lon": "-71.9245"
                 }, 
+                "label": "Galt Ouest / boul. de l'Universit\u00e9 (Sherbrooke)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "name": "Sherbrooke", 
+                    "level": 8, 
                     "coord": {
                       "lat": "0.0", 
                       "lon": "-73.23728992"
                     }, 
-                    "zip_code": "", 
+                    "label": "Sherbrooke", 
                     "id": "admin:43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8
+                    "zip_code": ""
                   }
                 ], 
                 "address": {
                   "house_number": 2019, 
                   "id": "-71.9245;45.386873", 
+                  "name": "rue GALT O,", 
                   "coord": {
                     "lat": "45.386873", 
                     "lon": "-71.9245"
                   }, 
-                  "name": "rue GALT O,"
+                  "label": "2019 rue GALT O, (Sherbrooke)"
                 }, 
                 "id": "stop_point:STS:SP:2079", 
                 "stop_area": {
                   "comment": "", 
-                  "timezone": "Europe/Paris", 
                   "name": "Galt Ouest / boul. de l'Universit\u00e9", 
                   "coord": {
                     "lat": "45.386873", 
                     "lon": "-71.9245"
                   }, 
+                  "label": "Galt Ouest / boul. de l'Universit\u00e9 (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:STS:SA:2079"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:STS:SP:2079", 
-              "name": "Galt Ouest / boul. de l'Universit\u00e9"
+              "name": "Galt Ouest / boul. de l'Universit\u00e9 (Sherbrooke)"
             }, 
-            "duration": 360, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 2816
+                }
+              ], 
+              "coordinates": [
+                [
+                  -71.949853, 
+                  45.385246
+                ], 
+                [
+                  -71.94994, 
+                  45.38524
+                ], 
+                [
+                  -71.94995, 
+                  45.3854
+                ], 
+                [
+                  -71.94893, 
+                  45.38584
+                ], 
+                [
+                  -71.94904, 
+                  45.38815
+                ], 
+                [
+                  -71.94909, 
+                  45.38833
+                ], 
+                [
+                  -71.948999, 
+                  45.388444
+                ], 
+                [
+                  -71.94886, 
+                  45.38874
+                ], 
+                [
+                  -71.94817, 
+                  45.38961
+                ], 
+                [
+                  -71.94793, 
+                  45.38964
+                ], 
+                [
+                  -71.947919, 
+                  45.389603
+                ], 
+                [
+                  -71.94793, 
+                  45.38964
+                ], 
+                [
+                  -71.94724, 
+                  45.38981
+                ], 
+                [
+                  -71.94667, 
+                  45.39002
+                ], 
+                [
+                  -71.94576, 
+                  45.39066
+                ], 
+                [
+                  -71.945711, 
+                  45.390624
+                ], 
+                [
+                  -71.94576, 
+                  45.39066
+                ], 
+                [
+                  -71.9451, 
+                  45.39107
+                ], 
+                [
+                  -71.94492, 
+                  45.39113
+                ], 
+                [
+                  -71.944547, 
+                  45.391134
+                ], 
+                [
+                  -71.94439, 
+                  45.39117
+                ], 
+                [
+                  -71.94431, 
+                  45.38906
+                ], 
+                [
+                  -71.944357, 
+                  45.38906
+                ], 
+                [
+                  -71.94431, 
+                  45.38906
+                ], 
+                [
+                  -71.944253, 
+                  45.387127
+                ], 
+                [
+                  -71.94422, 
+                  45.38697
+                ], 
+                [
+                  -71.9425, 
+                  45.38699
+                ], 
+                [
+                  -71.942491, 
+                  45.38692
+                ], 
+                [
+                  -71.94025, 
+                  45.38703
+                ], 
+                [
+                  -71.940247, 
+                  45.386934
+                ], 
+                [
+                  -71.94025, 
+                  45.38703
+                ], 
+                [
+                  -71.93726, 
+                  45.38707
+                ], 
+                [
+                  -71.937254, 
+                  45.386968
+                ], 
+                [
+                  -71.93708, 
+                  45.38707
+                ], 
+                [
+                  -71.93517, 
+                  45.38708
+                ], 
+                [
+                  -71.935165, 
+                  45.386991
+                ], 
+                [
+                  -71.934, 
+                  45.38708
+                ], 
+                [
+                  -71.93296, 
+                  45.38707
+                ], 
+                [
+                  -71.93296, 
+                  45.387004
+                ], 
+                [
+                  -71.93296, 
+                  45.38707
+                ], 
+                [
+                  -71.93037, 
+                  45.38704
+                ], 
+                [
+                  -71.930371, 
+                  45.386951
+                ], 
+                [
+                  -71.93037, 
+                  45.38704
+                ], 
+                [
+                  -71.92846, 
+                  45.38702
+                ], 
+                [
+                  -71.928461, 
+                  45.386942
+                ], 
+                [
+                  -71.92846, 
+                  45.38702
+                ], 
+                [
+                  -71.92494, 
+                  45.38699
+                ], 
+                [
+                  -71.92449, 
+                  45.38696
+                ], 
+                [
+                  -71.9245, 
+                  45.386873
+                ]
+              ]
+            }, 
+            "duration": 420, 
             "type": "public_transport", 
             "id": "section_1_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Letendre / Galt Ouest", 
                   "coord": {
                     "lat": "45.385246", 
                     "lon": "-71.949853"
                   }, 
+                  "label": "Letendre / Galt Ouest (Sherbrooke)", 
+                  "equipments": [], 
                   "id": "stop_point:STS:SP:480"
                 }, 
+                "arrival_date_time": "20111114T085800", 
                 "additional_informations": [], 
+                "departure_date_time": "20111114T085800", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Jolliet / Delorme", 
                   "coord": {
                     "lat": "45.388444", 
                     "lon": "-71.948999"
                   }, 
+                  "label": "Jolliet / Delorme (Sherbrooke)", 
+                  "equipments": [], 
                   "id": "stop_point:STS:SP:2075"
                 }, 
+                "arrival_date_time": "20111114T085900", 
                 "additional_informations": [], 
+                "departure_date_time": "20111114T085900", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Gervais / Delorme", 
                   "coord": {
                     "lat": "45.389603", 
                     "lon": "-71.947919"
                   }, 
+                  "label": "Gervais / Delorme (Sherbrooke)", 
+                  "equipments": [], 
                   "id": "stop_point:STS:SP:676"
                 }, 
+                "arrival_date_time": "20111114T090000", 
                 "additional_informations": [], 
+                "departure_date_time": "20111114T090000", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Gervais / Genest", 
                   "coord": {
                     "lat": "45.390624", 
                     "lon": "-71.945711"
                   }, 
+                  "label": "Gervais / Genest (Sherbrooke)", 
+                  "equipments": [], 
                   "id": "stop_point:STS:SP:677"
                 }, 
+                "arrival_date_time": "20111114T090000", 
                 "additional_informations": [], 
+                "departure_date_time": "20111114T090000", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Gervais / de Lisieux", 
                   "coord": {
                     "lat": "45.391134", 
                     "lon": "-71.944547"
                   }, 
+                  "label": "Gervais / de Lisieux (Sherbrooke)", 
+                  "equipments": [], 
                   "id": "stop_point:STS:SP:678"
                 }, 
+                "arrival_date_time": "20111114T090000", 
                 "additional_informations": [], 
+                "departure_date_time": "20111114T090000", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "de Lisieux / de Lachine", 
                   "coord": {
                     "lat": "45.38906", 
                     "lon": "-71.944357"
                   }, 
+                  "label": "de Lisieux / de Lachine (Sherbrooke)", 
+                  "equipments": [], 
                   "id": "stop_point:STS:SP:2076"
                 }, 
+                "arrival_date_time": "20111114T090100", 
                 "additional_informations": [], 
+                "departure_date_time": "20111114T090100", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "de Lisieux / Galt Ouest", 
                   "coord": {
                     "lat": "45.387127", 
                     "lon": "-71.944253"
                   }, 
+                  "label": "de Lisieux / Galt Ouest (Sherbrooke)", 
+                  "equipments": [], 
                   "id": "stop_point:STS:SP:487"
                 }, 
+                "arrival_date_time": "20111114T090200", 
                 "additional_informations": [], 
+                "departure_date_time": "20111114T090200", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Galt Ouest / B\u00e9langer", 
                   "coord": {
                     "lat": "45.38692", 
                     "lon": "-71.942491"
                   }, 
+                  "label": "Galt Ouest / B\u00e9langer (Sherbrooke)", 
+                  "equipments": [], 
                   "id": "stop_point:STS:SP:488"
                 }, 
+                "arrival_date_time": "20111114T090200", 
                 "additional_informations": [], 
+                "departure_date_time": "20111114T090200", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Galt Ouest / Panneton", 
                   "coord": {
                     "lat": "45.386934", 
                     "lon": "-71.940247"
                   }, 
+                  "label": "Galt Ouest / Panneton (Sherbrooke)", 
+                  "equipments": [], 
                   "id": "stop_point:STS:SP:489"
                 }, 
+                "arrival_date_time": "20111114T090200", 
                 "additional_informations": [], 
+                "departure_date_time": "20111114T090200", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Galt Ouest / Godbout", 
                   "coord": {
                     "lat": "45.386968", 
                     "lon": "-71.937254"
                   }, 
+                  "label": "Galt Ouest / Godbout (Sherbrooke)", 
+                  "equipments": [], 
                   "id": "stop_point:STS:SP:490"
                 }, 
+                "arrival_date_time": "20111114T090300", 
                 "additional_informations": [], 
+                "departure_date_time": "20111114T090300", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Galt Ouest / Desnoyers", 
                   "coord": {
                     "lat": "45.386991", 
                     "lon": "-71.935165"
                   }, 
+                  "label": "Galt Ouest / Desnoyers (Sherbrooke)", 
+                  "equipments": [], 
                   "id": "stop_point:STS:SP:491"
                 }, 
+                "arrival_date_time": "20111114T090300", 
                 "additional_informations": [], 
+                "departure_date_time": "20111114T090300", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Galt Ouest / Caron", 
                   "coord": {
                     "lat": "45.387004", 
                     "lon": "-71.93296"
                   }, 
+                  "label": "Galt Ouest / Caron (Sherbrooke)", 
+                  "equipments": [], 
                   "id": "stop_point:STS:SP:492"
                 }, 
+                "arrival_date_time": "20111114T090300", 
                 "additional_informations": [], 
+                "departure_date_time": "20111114T090300", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Galt Ouest / Prunier", 
                   "coord": {
                     "lat": "45.386951", 
                     "lon": "-71.930371"
                   }, 
+                  "label": "Galt Ouest / Prunier (Sherbrooke)", 
+                  "equipments": [], 
                   "id": "stop_point:STS:SP:493"
                 }, 
+                "arrival_date_time": "20111114T090400", 
                 "additional_informations": [], 
+                "departure_date_time": "20111114T090400", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Galt Ouest / L\u00e9onard", 
                   "coord": {
                     "lat": "45.386942", 
                     "lon": "-71.928461"
                   }, 
+                  "label": "Galt Ouest / L\u00e9onard (Sherbrooke)", 
+                  "equipments": [], 
                   "id": "stop_point:STS:SP:494"
                 }, 
+                "arrival_date_time": "20111114T090400", 
                 "additional_informations": [], 
+                "departure_date_time": "20111114T090400", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Galt Ouest / boul. de l'Universit\u00e9", 
                   "coord": {
                     "lat": "45.386873", 
                     "lon": "-71.9245"
                   }, 
+                  "label": "Galt Ouest / boul. de l'Universit\u00e9 (Sherbrooke)", 
+                  "equipments": [], 
                   "id": "stop_point:STS:SP:2079"
                 }, 
+                "arrival_date_time": "20111114T090500", 
                 "additional_informations": [], 
+                "departure_date_time": "20111114T090500", 
                 "links": []
               }
             ]
@@ -760,39 +998,43 @@
                   "lat": "45.386873", 
                   "lon": "-71.9245"
                 }, 
+                "label": "Galt Ouest / boul. de l'Universit\u00e9 (Sherbrooke)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "name": "Sherbrooke", 
+                    "level": 8, 
                     "coord": {
                       "lat": "0.0", 
                       "lon": "-73.23728992"
                     }, 
-                    "zip_code": "", 
+                    "label": "Sherbrooke", 
                     "id": "admin:43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8
+                    "zip_code": ""
                   }
                 ], 
                 "address": {
+                  "name": "rue GALT O,", 
                   "house_number": 2019, 
                   "coord": {
                     "lat": "45.386873", 
                     "lon": "-71.9245"
                   }, 
-                  "id": "-71.9245;45.386873", 
+                  "label": "2019 rue GALT O, (Sherbrooke)", 
                   "administrative_regions": [
                     {
+                      "name": "Sherbrooke", 
+                      "level": 8, 
                       "coord": {
                         "lat": "0.0", 
                         "lon": "-73.23728992"
                       }, 
-                      "zip_code": "", 
+                      "label": "Sherbrooke", 
                       "id": "admin:43027", 
-                      "name": "Sherbrooke", 
-                      "level": 8
+                      "zip_code": ""
                     }
                   ], 
-                  "name": "rue GALT O,"
+                  "id": "-71.9245;45.386873"
                 }, 
                 "id": "stop_point:STS:SP:2079", 
                 "stop_area": {
@@ -802,15 +1044,17 @@
                     "lat": "45.386873", 
                     "lon": "-71.9245"
                   }, 
+                  "label": "Galt Ouest / boul. de l'Universit\u00e9 (Sherbrooke)", 
                   "administrative_regions": [
                     {
                       "name": "Sherbrooke", 
                       "level": 8, 
-                      "id": "admin:43027", 
                       "coord": {
                         "lat": "0.0", 
                         "lon": "-73.23728992"
                       }, 
+                      "label": "Sherbrooke", 
+                      "id": "admin:43027", 
                       "zip_code": ""
                     }
                   ], 
@@ -820,12 +1064,12 @@
               }, 
               "quality": 0, 
               "id": "stop_point:STS:SP:2079", 
-              "name": "Galt Ouest / boul. de l'Universit\u00e9"
+              "name": "Galt Ouest / boul. de l'Universit\u00e9 (Sherbrooke)"
             }, 
             "links": [], 
-            "additional_informations": [
-              "regular"
-            ], 
+            "arrival_date_time": "20111114T090500", 
+            "additional_informations": [], 
+            "departure_date_time": "20111114T090500", 
             "to": {
               "embedded_type": "stop_area", 
               "quality": 0, 
@@ -836,16 +1080,18 @@
                   "lat": "45.386873", 
                   "lon": "-71.9245"
                 }, 
+                "label": "Galt Ouest / boul. de l'Universit\u00e9 (Sherbrooke)", 
                 "administrative_regions": [
                   {
+                    "name": "Sherbrooke", 
+                    "level": 8, 
                     "coord": {
                       "lat": "0.0", 
                       "lon": "-73.23728992"
                     }, 
-                    "zip_code": "", 
+                    "label": "Sherbrooke", 
                     "id": "admin:43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8
+                    "zip_code": ""
                   }
                 ], 
                 "timezone": "Europe/Paris", 
@@ -859,10 +1105,7 @@
             "type": "crow_fly", 
             "id": "section_2_0"
           }
-        ], 
-        "nb_transfers": 0, 
-        "duration": 502, 
-        "type": "best"
+        ]
       }
     ]
   }
