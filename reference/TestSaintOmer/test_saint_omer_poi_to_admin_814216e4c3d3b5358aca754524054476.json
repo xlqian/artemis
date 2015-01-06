@@ -1,14 +1,1200 @@
 {
   "query": "http://localhost/v1/coverage/saintomer/journeys?from=poi:adm117&to=admin:62595&datetime=20121206T153500&datetime_represents=departure&max_duration_to_pt=1000&walking_speed=1", 
   "response": {
-    "journeys": null
+    "journeys": [
+      {
+        "nb_transfers": 0, 
+        "arrival_date_time": "20121206T175200", 
+        "departure_date_time": "20121206T170018", 
+        "type": "best", 
+        "duration": 3102, 
+        "sections": [
+          {
+            "duration": 584, 
+            "arrival_date_time": "20121206T171002", 
+            "departure_date_time": "20121206T170018"
+          }, 
+          {
+            "duration": 2580, 
+            "arrival_date_time": "20121206T175200", 
+            "departure_date_time": "20121206T170900"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20121206T175200", 
+            "departure_date_time": "20121206T175200"
+          }
+        ]
+      }
+    ]
   }, 
   "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
     "exceptions": [], 
     "notes": [], 
-    "error": {
-      "message": "no destination point", 
-      "id": "no_destination"
-    }
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62595&datetime_represents=arrival&from=poi%3Aadm117&max_duration_to_pt=1000&walking_speed=1&datetime=20121206T175100", 
+        "type": "prev", 
+        "rel": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62595&datetime_represents=departure&from=poi%3Aadm117&max_duration_to_pt=1000&walking_speed=1&datetime=20121206T170118", 
+        "type": "next", 
+        "rel": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62595&datetime_represents=departure&from=poi%3Aadm117&max_duration_to_pt=1000&walking_speed=1&datetime=20121206T000000", 
+        "type": "first", 
+        "rel": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62595&datetime_represents=arrival&from=poi%3Aadm117&max_duration_to_pt=1000&walking_speed=1&datetime=20121206T235900", 
+        "type": "last", 
+        "rel": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/poi_types/{poi_type.id}?collection=poi_types", 
+        "type": "poi_type", 
+        "rel": "poi_types", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/pois/{poi.id}?collection=pois", 
+        "type": "poi", 
+        "rel": "pois", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/poi_types/{poi_type.id}?collection=poi_types", 
+        "type": "poi_type", 
+        "rel": "poi_types", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/pois/{poi.id}?collection=pois", 
+        "type": "poi", 
+        "rel": "pois", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [
+          "standard"
+        ], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20121206T175200", 
+        "departure_date_time": "20121206T170018", 
+        "requested_date_time": "20121206T153500", 
+        "type": "best", 
+        "duration": 3102, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "poi", 
+              "name": "P\u00f4le Emploi (ANPE) (Saint-Omer)", 
+              "address": {
+                "name": "rue de l'Ancien Rivage", 
+                "house_number": 0, 
+                "coord": {
+                  "lat": "50.751954923328846", 
+                  "lon": "2.2657372276200283"
+                }, 
+                "label": "rue de l'Ancien Rivage (Saint-Omer)", 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Omer", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.75004624", 
+                      "lon": "2.260695471"
+                    }, 
+                    "label": "Saint-Omer (62500)", 
+                    "id": "admin:62765", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "id": "2.2657372276200283;50.751954923328846"
+              }, 
+              "poi": {
+                "poi_type": {
+                  "name": "ADMI", 
+                  "id": "poi_type:ADMI"
+                }, 
+                "name": "P\u00f4le Emploi (ANPE)", 
+                "coord": {
+                  "lat": "50.751839", 
+                  "lon": "2.26566"
+                }, 
+                "label": "P\u00f4le Emploi (ANPE) (Saint-Omer)", 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Omer", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.75004624", 
+                      "lon": "2.260695471"
+                    }, 
+                    "label": "Saint-Omer (62500)", 
+                    "id": "admin:62765", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "name": "4 Rue de l'ancien rivage", 
+                  "house_number": 0, 
+                  "coord": {
+                    "lat": "50.751839", 
+                    "lon": "2.26566"
+                  }, 
+                  "label": "P\u00f4le Emploi (ANPE) (Saint-Omer)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Saint-Omer", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "50.75004624", 
+                        "lon": "2.260695471"
+                      }, 
+                      "label": "Saint-Omer (62500)", 
+                      "id": "admin:62765", 
+                      "zip_code": "62500"
+                    }
+                  ], 
+                  "id": "2.26566;50.751839"
+                }, 
+                "id": "poi:adm117", 
+                "properties": {}
+              }, 
+              "quality": 0, 
+              "id": "poi:adm117"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20121206T171002", 
+            "additional_informations": [], 
+            "departure_date_time": "20121206T170018", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Rue De Metz", 
+                "coord": {
+                  "lat": "50.755503", 
+                  "lon": "2.260493"
+                }, 
+                "label": "Rue De Metz (Saint-Omer)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Omer", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.75004624", 
+                      "lon": "2.260695471"
+                    }, 
+                    "label": "Saint-Omer (62500)", 
+                    "id": "admin:62765", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "name": "rue de Metz", 
+                  "house_number": 2, 
+                  "coord": {
+                    "lat": "50.755503", 
+                    "lon": "2.260493"
+                  }, 
+                  "label": "2 rue de Metz (Saint-Omer)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Saint-Omer", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "50.75004624", 
+                        "lon": "2.260695471"
+                      }, 
+                      "label": "Saint-Omer (62500)", 
+                      "id": "admin:62765", 
+                      "zip_code": "62500"
+                    }
+                  ], 
+                  "id": "2.260493;50.755503"
+                }, 
+                "id": "stop_point:SC1:SP:Nav204", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Rue De Metz", 
+                  "coord": {
+                    "lat": "50.755503", 
+                    "lon": "2.260493"
+                  }, 
+                  "label": "Rue De Metz (Saint-Omer)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Saint-Omer", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "50.75004624", 
+                        "lon": "2.260695471"
+                      }, 
+                      "label": "Saint-Omer (62500)", 
+                      "id": "admin:62765", 
+                      "zip_code": "62500"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:SC1:SA:87"
+                }
+              }, 
+              "name": "Rue De Metz (Saint-Omer)", 
+              "address": {
+                "name": "rue de Metz", 
+                "house_number": 2, 
+                "coord": {
+                  "lat": "50.755503", 
+                  "lon": "2.260493"
+                }, 
+                "label": "2 rue de Metz (Saint-Omer)", 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Omer", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.75004624", 
+                      "lon": "2.260695471"
+                    }, 
+                    "label": "Saint-Omer (62500)", 
+                    "id": "admin:62765", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "id": "2.260493;50.755503"
+              }, 
+              "quality": 0, 
+              "id": "stop_point:SC1:SP:Nav204"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 584
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.2657372276200283, 
+                  50.751954923328846
+                ], 
+                [
+                  2.2657372276200283, 
+                  50.751954923328846
+                ], 
+                [
+                  2.265436285, 
+                  50.75215541
+                ], 
+                [
+                  2.264969481, 
+                  50.7523442
+                ], 
+                [
+                  2.264716942, 
+                  50.75227831
+                ], 
+                [
+                  2.264677865, 
+                  50.75241497
+                ], 
+                [
+                  2.264610858, 
+                  50.75280021
+                ], 
+                [
+                  2.264584657, 
+                  50.7530262
+                ], 
+                [
+                  2.263962475, 
+                  50.75321085
+                ], 
+                [
+                  2.263385543, 
+                  50.7533862
+                ], 
+                [
+                  2.260828884, 
+                  50.75495772
+                ], 
+                [
+                  2.260574313, 
+                  50.75510554
+                ], 
+                [
+                  2.260546618, 
+                  50.75518668
+                ], 
+                [
+                  2.260528668, 
+                  50.75527501
+                ], 
+                [
+                  2.2605465067634674, 
+                  50.7554987335994
+                ], 
+                [
+                  2.260493, 
+                  50.755503
+                ]
+              ]
+            }, 
+            "duration": 584, 
+            "path": [
+              {
+                "duration": 33, 
+                "length": 33, 
+                "direction": 0, 
+                "name": "rue de l'Ancien Rivage"
+              }, 
+              {
+                "duration": 38, 
+                "length": 38, 
+                "direction": 0, 
+                "name": "rue de l'Arsenal"
+              }, 
+              {
+                "duration": 100, 
+                "length": 100, 
+                "direction": -55, 
+                "name": "place du 11 Novembre 1918"
+              }, 
+              {
+                "duration": 367, 
+                "length": 367, 
+                "direction": -61, 
+                "name": "quai du Commerce"
+              }, 
+              {
+                "duration": 8, 
+                "length": 8, 
+                "direction": 35, 
+                "name": "D209"
+              }, 
+              {
+                "duration": 35, 
+                "length": 35, 
+                "direction": 5, 
+                "name": "rue de Metz"
+              }
+            ], 
+            "type": "street_network", 
+            "id": "section_0_0", 
+            "mode": "walking"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Rue De Metz", 
+                "coord": {
+                  "lat": "50.755503", 
+                  "lon": "2.260493"
+                }, 
+                "label": "Rue De Metz (Saint-Omer)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Omer", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.75004624", 
+                      "lon": "2.260695471"
+                    }, 
+                    "label": "Saint-Omer (62500)", 
+                    "id": "admin:62765", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 2, 
+                  "id": "2.260493;50.755503", 
+                  "name": "rue de Metz", 
+                  "coord": {
+                    "lat": "50.755503", 
+                    "lon": "2.260493"
+                  }, 
+                  "label": "2 rue de Metz (Saint-Omer)"
+                }, 
+                "id": "stop_point:SC1:SP:Nav204", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Rue De Metz", 
+                  "coord": {
+                    "lat": "50.755503", 
+                    "lon": "2.260493"
+                  }, 
+                  "label": "Rue De Metz (Saint-Omer)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:SC1:SA:87"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:SC1:SP:Nav204", 
+              "name": "Rue De Metz (Saint-Omer)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:SC1:35-12102_dst_2"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:SC1:Nav20"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:SC1:Nav35"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:Bus"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:CASO"
+              }, 
+              {
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20121206T175200", 
+            "additional_informations": [], 
+            "departure_date_time": "20121206T170900", 
+            "display_informations": {
+              "direction": "La Sabli\u00e8re (Moulle)", 
+              "code": "CS 3700", 
+              "description": "", 
+              "color": "000000", 
+              "physical_mode": "Bus", 
+              "headsign": "SC1:35-12102_dst_2", 
+              "commercial_mode": "Bus", 
+              "equipments": [
+                "has_school_vehicle"
+              ], 
+              "label": "CS 3700", 
+              "network": "CASO Bus"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "La Poste", 
+                "coord": {
+                  "lat": "50.790259", 
+                  "lon": "2.176112"
+                }, 
+                "label": "La Poste (Moulle)", 
+                "equipments": [
+                  "has_sheltered"
+                ], 
+                "administrative_regions": [
+                  {
+                    "name": "Moulle", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.78984005", 
+                      "lon": "2.176029818"
+                    }, 
+                    "label": "Moulle (62910)", 
+                    "id": "admin:62595", 
+                    "zip_code": "62910"
+                  }
+                ], 
+                "address": {
+                  "house_number": 2, 
+                  "id": "2.176112;50.790259", 
+                  "name": "route de Houlle", 
+                  "coord": {
+                    "lat": "50.790259", 
+                    "lon": "2.176112"
+                  }, 
+                  "label": "2 route de Houlle (Moulle)"
+                }, 
+                "id": "stop_point:SC1:SP:Nav209", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "La Poste", 
+                  "coord": {
+                    "lat": "50.790259", 
+                    "lon": "2.176112"
+                  }, 
+                  "label": "La Poste (Moulle)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:SC1:SA:111"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:SC1:SP:Nav209", 
+              "name": "La Poste (Moulle)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 28743421
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.260493, 
+                  50.755503
+                ], 
+                [
+                  2.260431, 
+                  50.758446
+                ], 
+                [
+                  2.25973, 
+                  50.7613
+                ], 
+                [
+                  2.261263, 
+                  50.766448
+                ], 
+                [
+                  2.20787, 
+                  50.82634
+                ], 
+                [
+                  2.199311, 
+                  50.822105
+                ], 
+                [
+                  2.182524, 
+                  50.820048
+                ], 
+                [
+                  2.172174, 
+                  50.817079
+                ], 
+                [
+                  2.15408, 
+                  50.815796
+                ], 
+                [
+                  2.149098, 
+                  50.816137
+                ], 
+                [
+                  2.14861, 
+                  50.811482
+                ], 
+                [
+                  2.152133, 
+                  50.805817
+                ], 
+                [
+                  115.462382, 
+                  -32.930387
+                ], 
+                [
+                  2.182882, 
+                  50.812424
+                ], 
+                [
+                  2.193382, 
+                  50.808344
+                ], 
+                [
+                  2.181572, 
+                  50.803528
+                ], 
+                [
+                  2.173837, 
+                  50.802211
+                ], 
+                [
+                  2.174108, 
+                  50.796578
+                ], 
+                [
+                  2.17434, 
+                  50.792949
+                ], 
+                [
+                  2.176112, 
+                  50.790259
+                ]
+              ]
+            }, 
+            "duration": 2580, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Rue De Metz", 
+                  "coord": {
+                    "lat": "50.755503", 
+                    "lon": "2.260493"
+                  }, 
+                  "label": "Rue De Metz (Saint-Omer)", 
+                  "equipments": [], 
+                  "id": "stop_point:SC1:SP:Nav204"
+                }, 
+                "arrival_date_time": "20121206T170900", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T170900", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Pont Vert", 
+                  "coord": {
+                    "lat": "50.758446", 
+                    "lon": "2.260431"
+                  }, 
+                  "label": "Pont Vert (Saint-Omer)", 
+                  "equipments": [], 
+                  "id": "stop_point:SC1:SP:Nav182"
+                }, 
+                "arrival_date_time": "20121206T171000", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T171000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Pont Rouge", 
+                  "coord": {
+                    "lat": "50.7613", 
+                    "lon": "2.25973"
+                  }, 
+                  "label": "Pont Rouge (Saint-Omer)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav181"
+                }, 
+                "arrival_date_time": "20121206T171100", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T171100", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "L'Ecluse", 
+                  "coord": {
+                    "lat": "50.766448", 
+                    "lon": "2.261263"
+                  }, 
+                  "label": "L'Ecluse (Saint-Omer)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav180"
+                }, 
+                "arrival_date_time": "20121206T171200", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T171200", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "La Gare", 
+                  "coord": {
+                    "lat": "50.82634", 
+                    "lon": "2.20787"
+                  }, 
+                  "label": "La Gare (Eperlecques)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav196"
+                }, 
+                "arrival_date_time": "20121206T172400", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T172400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Bleue Maison", 
+                  "coord": {
+                    "lat": "50.822105", 
+                    "lon": "2.199311"
+                  }, 
+                  "label": "Bleue Maison (Eperlecques)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav197"
+                }, 
+                "arrival_date_time": "20121206T172500", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T172500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Les Sarts", 
+                  "coord": {
+                    "lat": "50.820048", 
+                    "lon": "2.182524"
+                  }, 
+                  "label": "Les Sarts (Eperlecques)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav239"
+                }, 
+                "arrival_date_time": "20121206T172900", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T172900", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Le Ganspette", 
+                  "coord": {
+                    "lat": "50.817079", 
+                    "lon": "2.172174"
+                  }, 
+                  "label": "Le Ganspette (Eperlecques)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav199"
+                }, 
+                "arrival_date_time": "20121206T173200", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T173200", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Kerckeweghe", 
+                  "coord": {
+                    "lat": "50.815796", 
+                    "lon": "2.15408"
+                  }, 
+                  "label": "Kerckeweghe (Eperlecques)", 
+                  "equipments": [], 
+                  "id": "stop_point:SC1:SP:Nav148"
+                }, 
+                "arrival_date_time": "20121206T173400", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T173400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Le Mont", 
+                  "coord": {
+                    "lat": "50.816137", 
+                    "lon": "2.149098"
+                  }, 
+                  "label": "Le Mont (Eperlecques)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav149"
+                }, 
+                "arrival_date_time": "20121206T173500", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T173500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Pauverstraete", 
+                  "coord": {
+                    "lat": "50.811482", 
+                    "lon": "2.14861"
+                  }, 
+                  "label": "Pauverstraete (Eperlecques)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav150"
+                }, 
+                "arrival_date_time": "20121206T173600", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T173600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "La Place", 
+                  "coord": {
+                    "lat": "50.805817", 
+                    "lon": "2.152133"
+                  }, 
+                  "label": "La Place (Eperlecques)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav151"
+                }, 
+                "arrival_date_time": "20121206T173800", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T173800", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Hellebroucq", 
+                  "coord": {
+                    "lat": "-32.930387", 
+                    "lon": "115.462382"
+                  }, 
+                  "label": "Hellebroucq", 
+                  "equipments": [], 
+                  "id": "stop_point:SC1:SP:Nav152"
+                }, 
+                "arrival_date_time": "20121206T174000", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T174000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Les Coquelicots", 
+                  "coord": {
+                    "lat": "50.812424", 
+                    "lon": "2.182882"
+                  }, 
+                  "label": "Les Coquelicots (Eperlecques)", 
+                  "equipments": [], 
+                  "id": "stop_point:SC1:SP:Nav205"
+                }, 
+                "arrival_date_time": "20121206T174200", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T174200", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Vincq / Voie Express", 
+                  "coord": {
+                    "lat": "50.808344", 
+                    "lon": "2.193382"
+                  }, 
+                  "label": "Vincq / Voie Express (Houlle)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav207"
+                }, 
+                "arrival_date_time": "20121206T174400", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T174400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Vincq", 
+                  "coord": {
+                    "lat": "50.803528", 
+                    "lon": "2.181572"
+                  }, 
+                  "label": "Vincq (Houlle)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav206"
+                }, 
+                "arrival_date_time": "20121206T174500", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T174500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Basse Boulogne", 
+                  "coord": {
+                    "lat": "50.802211", 
+                    "lon": "2.173837"
+                  }, 
+                  "label": "Basse Boulogne (Houlle)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav153"
+                }, 
+                "arrival_date_time": "20121206T174700", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T174700", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Place", 
+                  "coord": {
+                    "lat": "50.796578", 
+                    "lon": "2.174108"
+                  }, 
+                  "label": "Place (Houlle)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav200"
+                }, 
+                "arrival_date_time": "20121206T174800", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T174800", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Les Marronniers", 
+                  "coord": {
+                    "lat": "50.792949", 
+                    "lon": "2.17434"
+                  }, 
+                  "label": "Les Marronniers (Moulle)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav208"
+                }, 
+                "arrival_date_time": "20121206T175000", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T175000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "La Poste", 
+                  "coord": {
+                    "lat": "50.790259", 
+                    "lon": "2.176112"
+                  }, 
+                  "label": "La Poste (Moulle)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav209"
+                }, 
+                "arrival_date_time": "20121206T175200", 
+                "additional_informations": [], 
+                "departure_date_time": "20121206T175200", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "La Poste", 
+                "coord": {
+                  "lat": "50.790259", 
+                  "lon": "2.176112"
+                }, 
+                "label": "La Poste (Moulle)", 
+                "equipments": [
+                  "has_sheltered"
+                ], 
+                "administrative_regions": [
+                  {
+                    "name": "Moulle", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.78984005", 
+                      "lon": "2.176029818"
+                    }, 
+                    "label": "Moulle (62910)", 
+                    "id": "admin:62595", 
+                    "zip_code": "62910"
+                  }
+                ], 
+                "address": {
+                  "name": "route de Houlle", 
+                  "house_number": 2, 
+                  "coord": {
+                    "lat": "50.790259", 
+                    "lon": "2.176112"
+                  }, 
+                  "label": "2 route de Houlle (Moulle)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Moulle", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "50.78984005", 
+                        "lon": "2.176029818"
+                      }, 
+                      "label": "Moulle (62910)", 
+                      "id": "admin:62595", 
+                      "zip_code": "62910"
+                    }
+                  ], 
+                  "id": "2.176112;50.790259"
+                }, 
+                "id": "stop_point:SC1:SP:Nav209", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "La Poste", 
+                  "coord": {
+                    "lat": "50.790259", 
+                    "lon": "2.176112"
+                  }, 
+                  "label": "La Poste (Moulle)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Moulle", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "50.78984005", 
+                        "lon": "2.176029818"
+                      }, 
+                      "label": "Moulle (62910)", 
+                      "id": "admin:62595", 
+                      "zip_code": "62910"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:SC1:SA:111"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:SC1:SP:Nav209", 
+              "name": "La Poste (Moulle)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20121206T175200", 
+            "additional_informations": [], 
+            "departure_date_time": "20121206T175200", 
+            "to": {
+              "embedded_type": "administrative_region", 
+              "quality": 0, 
+              "administrative_region": {
+                "name": "Moulle", 
+                "level": 8, 
+                "coord": {
+                  "lat": "50.78984005", 
+                  "lon": "2.176029818"
+                }, 
+                "label": "Moulle (62910)", 
+                "id": "admin:62595", 
+                "zip_code": "62910"
+              }, 
+              "id": "admin:62595", 
+              "name": "Moulle (62910)"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_2_0"
+          }
+        ]
+      }
+    ]
   }
 }
