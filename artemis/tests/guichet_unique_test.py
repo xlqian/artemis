@@ -61,10 +61,10 @@ class TestGuichetUnique(ArtemisTestFixture):
                      to="admin:417494extern", datetime="20121121T120000",
                      walking_speed="0.83", max_duration_to_pt="240")
 
-    def test_guichet_unique_paris_to_sainte_lizaigne(self):
+    def test_guichet_unique_paris_to_Avenay_Val_d_Or(self):
         """
         ID artemis v1: 22
         """
         self.journey(_from="admin:7444extern",
-                     to="admin:2143280extern", datetime="20121025T120000",
+                     to="admin:2651291extern", datetime="20121025T120000",
                      walking_speed="0.83", max_duration_to_pt="6000")
