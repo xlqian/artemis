@@ -1,6 +1,8 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+import pytest
+xfail = pytest.mark.xfail
 
-
+@xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1123", raises=AssertionError)
 @dataset([DataSet("prolong-auto")])
 class TestProlongAuto(ArtemisTestFixture):
     """
