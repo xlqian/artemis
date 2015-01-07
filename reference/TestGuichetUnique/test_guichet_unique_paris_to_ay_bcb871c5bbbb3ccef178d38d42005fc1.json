@@ -1,0 +1,848 @@
+{
+  "query": "http://localhost/v1/coverage/guichet-unique/journeys?from=admin:7444extern&to=admin:417494extern&datetime=20121121T120000&datetime_represents=departure&max_duration_to_pt=240&walking_speed=0.83", 
+  "response": {
+    "journeys": [
+      {
+        "nb_transfers": 1, 
+        "arrival_date_time": "20121121T140500", 
+        "departure_date_time": "20121121T123600", 
+        "type": "best", 
+        "duration": 5340, 
+        "sections": [
+          {
+            "duration": 0, 
+            "arrival_date_time": "20121121T123600", 
+            "departure_date_time": "20121121T123600"
+          }, 
+          {
+            "duration": 4440, 
+            "arrival_date_time": "20121121T135000", 
+            "departure_date_time": "20121121T123600"
+          }, 
+          {
+            "duration": 660, 
+            "arrival_date_time": "20121121T140100", 
+            "departure_date_time": "20121121T135000"
+          }, 
+          {
+            "duration": 240, 
+            "arrival_date_time": "20121121T140500", 
+            "departure_date_time": "20121121T140100"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20121121T140600", 
+            "departure_date_time": "20121121T140600"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_3_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/journeys?to=admin%3A417494extern&datetime_represents=arrival&from=admin%3A7444extern&max_duration_to_pt=240&walking_speed=0.83&datetime=20121121T140400", 
+        "type": "prev", 
+        "rel": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/journeys?to=admin%3A417494extern&datetime_represents=departure&from=admin%3A7444extern&max_duration_to_pt=240&walking_speed=0.83&datetime=20121121T123700", 
+        "type": "next", 
+        "rel": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/journeys?to=admin%3A417494extern&datetime_represents=departure&from=admin%3A7444extern&max_duration_to_pt=240&walking_speed=0.83&datetime=20121121T000000", 
+        "type": "first", 
+        "rel": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/journeys?to=admin%3A417494extern&datetime_represents=arrival&from=admin%3A7444extern&max_duration_to_pt=240&walking_speed=0.83&datetime=20121121T235900", 
+        "type": "last", 
+        "rel": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [
+          "standard"
+        ], 
+        "nb_transfers": 1, 
+        "arrival_date_time": "20121121T140500", 
+        "departure_date_time": "20121121T123600", 
+        "requested_date_time": "20121121T120000", 
+        "type": "best", 
+        "duration": 5340, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "administrative_region", 
+              "quality": 0, 
+              "administrative_region": {
+                "name": "Paris", 
+                "level": 8, 
+                "coord": {
+                  "lat": "48.856506", 
+                  "lon": "2.352133"
+                }, 
+                "label": "Paris (75001-75116)", 
+                "id": "admin:7444extern", 
+                "zip_code": "75001-75116"
+              }, 
+              "id": "admin:7444extern", 
+              "name": "Paris (75001-75116)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20121121T123600", 
+            "additional_informations": [], 
+            "departure_date_time": "20121121T123600", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "gare de Paris-Est", 
+                "coord": {
+                  "lat": "48.877552", 
+                  "lon": "2.359156"
+                }, 
+                "label": "gare de Paris-Est (Paris)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Paris", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.856506", 
+                      "lon": "2.352133"
+                    }, 
+                    "label": "Paris (75001-75116)", 
+                    "id": "admin:7444extern", 
+                    "zip_code": "75001-75116"
+                  }, 
+                  {
+                    "name": "10e Arrondissement", 
+                    "level": 9, 
+                    "coord": {
+                      "lat": "48.876106", 
+                      "lon": "2.35991"
+                    }, 
+                    "label": "10e Arrondissement (75010)", 
+                    "id": "admin:9528extern", 
+                    "zip_code": "75010"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:OCE:SP:TrainTER-87113001", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "gare de Paris-Est", 
+                  "coord": {
+                    "lat": "48.877552", 
+                    "lon": "2.359156"
+                  }, 
+                  "label": "gare de Paris-Est (Paris)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Paris", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "48.856506", 
+                        "lon": "2.352133"
+                      }, 
+                      "label": "Paris (75001-75116)", 
+                      "id": "admin:7444extern", 
+                      "zip_code": "75001-75116"
+                    }, 
+                    {
+                      "name": "10e Arrondissement", 
+                      "level": 9, 
+                      "coord": {
+                        "lat": "48.876106", 
+                        "lon": "2.35991"
+                      }, 
+                      "label": "10e Arrondissement (75010)", 
+                      "id": "admin:9528extern", 
+                      "zip_code": "75010"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:OCE:SA:87113001"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:OCE:SP:TrainTER-87113001", 
+              "name": "gare de Paris-Est (Paris)"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "gare de Paris-Est", 
+                "coord": {
+                  "lat": "48.877552", 
+                  "lon": "2.359156"
+                }, 
+                "label": "gare de Paris-Est (Paris)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Paris", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.856506", 
+                      "lon": "2.352133"
+                    }, 
+                    "label": "Paris (75001-75116)", 
+                    "id": "admin:7444extern", 
+                    "zip_code": "75001-75116"
+                  }, 
+                  {
+                    "name": "10e Arrondissement", 
+                    "level": 9, 
+                    "coord": {
+                      "lat": "48.876106", 
+                      "lon": "2.35991"
+                    }, 
+                    "label": "10e Arrondissement (75010)", 
+                    "id": "admin:9528extern", 
+                    "zip_code": "75010"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:OCE:SP:TrainTER-87113001", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "gare de Paris-Est", 
+                  "coord": {
+                    "lat": "48.877552", 
+                    "lon": "2.359156"
+                  }, 
+                  "label": "gare de Paris-Est (Paris)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:OCE:SA:87113001"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:OCE:SP:TrainTER-87113001", 
+              "name": "gare de Paris-Est (Paris)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:OCE:SN839123F0500219672_dst_2"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:OCE:TrainTER-87113001-87175000"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:OCE:TrainTER-87113001-87175000-1"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:OCETrainTER"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:OCETrainTER"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:SNC"
+              }, 
+              {
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20121121T135000", 
+            "additional_informations": [], 
+            "departure_date_time": "20121121T123600", 
+            "display_informations": {
+              "direction": "gare de St-Dizier (Saint-Dizier)", 
+              "code": "", 
+              "description": "", 
+              "color": "000000", 
+              "physical_mode": "Train TER", 
+              "headsign": "839123", 
+              "commercial_mode": "Train TER", 
+              "equipments": [], 
+              "label": "Paris-Est - St-Dizier", 
+              "network": "SNCF"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "gare de Epernay", 
+                "coord": {
+                  "lat": "49.046512", 
+                  "lon": "3.960227"
+                }, 
+                "label": "gare de Epernay (\u00c9pernay)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "\u00c9pernay", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.043617", 
+                      "lon": "3.955159"
+                    }, 
+                    "label": "\u00c9pernay (51200)", 
+                    "id": "admin:417327extern", 
+                    "zip_code": "51200"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:OCE:SP:TrainTER-87171553", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "gare de Epernay", 
+                  "coord": {
+                    "lat": "49.046512", 
+                    "lon": "3.960227"
+                  }, 
+                  "label": "gare de Epernay (\u00c9pernay)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:OCE:SA:87171553"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:OCE:SP:TrainTER-87171553", 
+              "name": "gare de Epernay (\u00c9pernay)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 119789
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.359156, 
+                  48.877552
+                ], 
+                [
+                  3.409432, 
+                  49.037905
+                ], 
+                [
+                  3.641749, 
+                  49.079244
+                ], 
+                [
+                  3.960227, 
+                  49.046512
+                ]
+              ]
+            }, 
+            "duration": 4440, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "gare de Paris-Est", 
+                  "coord": {
+                    "lat": "48.877552", 
+                    "lon": "2.359156"
+                  }, 
+                  "label": "gare de Paris-Est (Paris)", 
+                  "equipments": [], 
+                  "id": "stop_point:OCE:SP:TrainTER-87113001"
+                }, 
+                "arrival_date_time": "20121121T123600", 
+                "additional_informations": [], 
+                "departure_date_time": "20121121T123600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "gare de Ch\u00e2teau-Thierry", 
+                  "coord": {
+                    "lat": "49.037905", 
+                    "lon": "3.409432"
+                  }, 
+                  "label": "gare de Ch\u00e2teau-Thierry (Ch\u00e2teau-Thierry)", 
+                  "equipments": [], 
+                  "id": "stop_point:OCE:SP:TrainTER-87116582"
+                }, 
+                "arrival_date_time": "20121121T132200", 
+                "additional_informations": [], 
+                "departure_date_time": "20121121T132400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "gare de Dormans", 
+                  "coord": {
+                    "lat": "49.079244", 
+                    "lon": "3.641749"
+                  }, 
+                  "label": "gare de Dormans (Dormans)", 
+                  "equipments": [], 
+                  "id": "stop_point:OCE:SP:TrainTER-87171512"
+                }, 
+                "arrival_date_time": "20121121T133600", 
+                "additional_informations": [], 
+                "departure_date_time": "20121121T133800", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "gare de Epernay", 
+                  "coord": {
+                    "lat": "49.046512", 
+                    "lon": "3.960227"
+                  }, 
+                  "label": "gare de Epernay (\u00c9pernay)", 
+                  "equipments": [], 
+                  "id": "stop_point:OCE:SP:TrainTER-87171553"
+                }, 
+                "arrival_date_time": "20121121T135000", 
+                "additional_informations": [], 
+                "departure_date_time": "20121121T135200", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "links": [], 
+            "arrival_date_time": "20121121T140100", 
+            "additional_informations": [], 
+            "departure_date_time": "20121121T135000", 
+            "duration": 660, 
+            "type": "waiting", 
+            "id": "section_2_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "gare de Epernay", 
+                "coord": {
+                  "lat": "49.046512", 
+                  "lon": "3.960227"
+                }, 
+                "label": "gare de Epernay (\u00c9pernay)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "\u00c9pernay", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.043617", 
+                      "lon": "3.955159"
+                    }, 
+                    "label": "\u00c9pernay (51200)", 
+                    "id": "admin:417327extern", 
+                    "zip_code": "51200"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:OCE:SP:TrainTER-87171553", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "gare de Epernay", 
+                  "coord": {
+                    "lat": "49.046512", 
+                    "lon": "3.960227"
+                  }, 
+                  "label": "gare de Epernay (\u00c9pernay)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:OCE:SA:87171553"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:OCE:SP:TrainTER-87171553", 
+              "name": "gare de Epernay (\u00c9pernay)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:OCE:SN839917F0100219957_dst_2"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:OCE:TrainTER-87171553-87171009"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:OCE:TrainTER-87171553-87171009-1"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:OCETrainTER"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:OCETrainTER"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:SNC"
+              }, 
+              {
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20121121T140500", 
+            "additional_informations": [], 
+            "departure_date_time": "20121121T140100", 
+            "display_informations": {
+              "direction": "gare de Reims (Reims)", 
+              "code": "", 
+              "description": "", 
+              "color": "000000", 
+              "physical_mode": "Train TER", 
+              "headsign": "839917", 
+              "commercial_mode": "Train TER", 
+              "equipments": [], 
+              "label": "Epernay - Reims", 
+              "network": "SNCF"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "gare de Ay", 
+                "coord": {
+                  "lat": "49.048782", 
+                  "lon": "4.001661"
+                }, 
+                "label": "gare de Ay (Ay)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Ay", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.054871", 
+                      "lon": "4.002504"
+                    }, 
+                    "label": "Ay (51160)", 
+                    "id": "admin:417494extern", 
+                    "zip_code": "51160"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:OCE:SP:TrainTER-87171561", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "gare de Ay", 
+                  "coord": {
+                    "lat": "49.048782", 
+                    "lon": "4.001661"
+                  }, 
+                  "label": "gare de Ay (Ay)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:OCE:SA:87171561"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:OCE:SP:TrainTER-87171561", 
+              "name": "gare de Ay (Ay)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 3031
+                }
+              ], 
+              "coordinates": [
+                [
+                  3.960227, 
+                  49.046512
+                ], 
+                [
+                  4.001661, 
+                  49.048782
+                ]
+              ]
+            }, 
+            "duration": 240, 
+            "type": "public_transport", 
+            "id": "section_3_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "gare de Epernay", 
+                  "coord": {
+                    "lat": "49.046512", 
+                    "lon": "3.960227"
+                  }, 
+                  "label": "gare de Epernay (\u00c9pernay)", 
+                  "equipments": [], 
+                  "id": "stop_point:OCE:SP:TrainTER-87171553"
+                }, 
+                "arrival_date_time": "20121121T140100", 
+                "additional_informations": [], 
+                "departure_date_time": "20121121T140100", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "gare de Ay", 
+                  "coord": {
+                    "lat": "49.048782", 
+                    "lon": "4.001661"
+                  }, 
+                  "label": "gare de Ay (Ay)", 
+                  "equipments": [], 
+                  "id": "stop_point:OCE:SP:TrainTER-87171561"
+                }, 
+                "arrival_date_time": "20121121T140500", 
+                "additional_informations": [], 
+                "departure_date_time": "20121121T140600", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "gare de Ay", 
+                "coord": {
+                  "lat": "49.048782", 
+                  "lon": "4.001661"
+                }, 
+                "label": "gare de Ay (Ay)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Ay", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.054871", 
+                      "lon": "4.002504"
+                    }, 
+                    "label": "Ay (51160)", 
+                    "id": "admin:417494extern", 
+                    "zip_code": "51160"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:OCE:SP:TrainTER-87171561", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "gare de Ay", 
+                  "coord": {
+                    "lat": "49.048782", 
+                    "lon": "4.001661"
+                  }, 
+                  "label": "gare de Ay (Ay)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Ay", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "49.054871", 
+                        "lon": "4.002504"
+                      }, 
+                      "label": "Ay (51160)", 
+                      "id": "admin:417494extern", 
+                      "zip_code": "51160"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:OCE:SA:87171561"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:OCE:SP:TrainTER-87171561", 
+              "name": "gare de Ay (Ay)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20121121T140600", 
+            "additional_informations": [], 
+            "departure_date_time": "20121121T140600", 
+            "to": {
+              "embedded_type": "administrative_region", 
+              "quality": 0, 
+              "administrative_region": {
+                "name": "Ay", 
+                "level": 8, 
+                "coord": {
+                  "lat": "49.054871", 
+                  "lon": "4.002504"
+                }, 
+                "label": "Ay (51160)", 
+                "id": "admin:417494extern", 
+                "zip_code": "51160"
+              }, 
+              "id": "admin:417494extern", 
+              "name": "Ay (51160)"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_4_0"
+          }
+        ]
+      }
+    ]
+  }
+}

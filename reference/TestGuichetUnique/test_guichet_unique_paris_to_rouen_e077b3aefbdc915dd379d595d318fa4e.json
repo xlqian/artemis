@@ -1,0 +1,677 @@
+{
+  "query": "http://localhost/v1/coverage/guichet-unique/journeys?from=admin:7444extern&to=admin:75628extern&datetime=20121012T120000&datetime_represents=departure&max_duration_to_pt=240&walking_speed=0.83", 
+  "response": {
+    "journeys": [
+      {
+        "nb_transfers": 0, 
+        "arrival_date_time": "20121012T135000", 
+        "departure_date_time": "20121012T122000", 
+        "type": "best", 
+        "duration": 5400, 
+        "sections": [
+          {
+            "duration": 0, 
+            "arrival_date_time": "20121012T122000", 
+            "departure_date_time": "20121012T122000"
+          }, 
+          {
+            "duration": 5400, 
+            "arrival_date_time": "20121012T135000", 
+            "departure_date_time": "20121012T122000"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20121012T135000", 
+            "departure_date_time": "20121012T135000"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unkown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
+    "exceptions": [], 
+    "notes": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/journeys?to=admin%3A75628extern&datetime_represents=arrival&from=admin%3A7444extern&max_duration_to_pt=240&walking_speed=0.83&datetime=20121012T134900", 
+        "type": "prev", 
+        "rel": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/journeys?to=admin%3A75628extern&datetime_represents=departure&from=admin%3A7444extern&max_duration_to_pt=240&walking_speed=0.83&datetime=20121012T122100", 
+        "type": "next", 
+        "rel": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/journeys?to=admin%3A75628extern&datetime_represents=departure&from=admin%3A7444extern&max_duration_to_pt=240&walking_speed=0.83&datetime=20121012T000000", 
+        "type": "first", 
+        "rel": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/journeys?to=admin%3A75628extern&datetime_represents=arrival&from=admin%3A7444extern&max_duration_to_pt=240&walking_speed=0.83&datetime=20121012T235900", 
+        "type": "last", 
+        "rel": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/guichet-unique/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [
+          "standard"
+        ], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20121012T135000", 
+        "departure_date_time": "20121012T122000", 
+        "requested_date_time": "20121012T120000", 
+        "type": "best", 
+        "duration": 5400, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "administrative_region", 
+              "quality": 0, 
+              "administrative_region": {
+                "name": "Paris", 
+                "level": 8, 
+                "coord": {
+                  "lat": "48.856506", 
+                  "lon": "2.352133"
+                }, 
+                "label": "Paris (75001-75116)", 
+                "id": "admin:7444extern", 
+                "zip_code": "75001-75116"
+              }, 
+              "id": "admin:7444extern", 
+              "name": "Paris (75001-75116)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20121012T122000", 
+            "additional_informations": [], 
+            "departure_date_time": "20121012T122000", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "gare de Paris-St-Lazare", 
+                "coord": {
+                  "lat": "48.877868", 
+                  "lon": "2.324451"
+                }, 
+                "label": "gare de Paris-St-Lazare (Paris)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Paris", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.856506", 
+                      "lon": "2.352133"
+                    }, 
+                    "label": "Paris (75001-75116)", 
+                    "id": "admin:7444extern", 
+                    "zip_code": "75001-75116"
+                  }, 
+                  {
+                    "name": "8e Arrondissement", 
+                    "level": 9, 
+                    "coord": {
+                      "lat": "48.877316", 
+                      "lon": "2.317261"
+                    }, 
+                    "label": "8e Arrondissement (75008)", 
+                    "id": "admin:20872extern", 
+                    "zip_code": "75008"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:OCE:SP:CorailIntercit\u00e9-87384008", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "gare de Paris-St-Lazare", 
+                  "coord": {
+                    "lat": "48.877868", 
+                    "lon": "2.324451"
+                  }, 
+                  "label": "gare de Paris-St-Lazare (Paris)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Paris", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "48.856506", 
+                        "lon": "2.352133"
+                      }, 
+                      "label": "Paris (75001-75116)", 
+                      "id": "admin:7444extern", 
+                      "zip_code": "75001-75116"
+                    }, 
+                    {
+                      "name": "8e Arrondissement", 
+                      "level": 9, 
+                      "coord": {
+                        "lat": "48.877316", 
+                        "lon": "2.317261"
+                      }, 
+                      "label": "8e Arrondissement (75008)", 
+                      "id": "admin:20872extern", 
+                      "zip_code": "75008"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:OCE:SA:87384008"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:OCE:SP:CorailIntercit\u00e9-87384008", 
+              "name": "gare de Paris-St-Lazare (Paris)"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "gare de Paris-St-Lazare", 
+                "coord": {
+                  "lat": "48.877868", 
+                  "lon": "2.324451"
+                }, 
+                "label": "gare de Paris-St-Lazare (Paris)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Paris", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.856506", 
+                      "lon": "2.352133"
+                    }, 
+                    "label": "Paris (75001-75116)", 
+                    "id": "admin:7444extern", 
+                    "zip_code": "75001-75116"
+                  }, 
+                  {
+                    "name": "8e Arrondissement", 
+                    "level": 9, 
+                    "coord": {
+                      "lat": "48.877316", 
+                      "lon": "2.317261"
+                    }, 
+                    "label": "8e Arrondissement (75008)", 
+                    "id": "admin:20872extern", 
+                    "zip_code": "75008"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:OCE:SP:CorailIntercit\u00e9-87384008", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "gare de Paris-St-Lazare", 
+                  "coord": {
+                    "lat": "48.877868", 
+                    "lon": "2.324451"
+                  }, 
+                  "label": "gare de Paris-St-Lazare (Paris)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:OCE:SA:87384008"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:OCE:SP:CorailIntercit\u00e9-87384008", 
+              "name": "gare de Paris-St-Lazare (Paris)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:OCE:SN013107F0100367502_dst_1"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:OCE:CorailIntercit\u00e9-87384008-87411017"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:OCE:CorailInterc-87384008-87411017-2"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:OCECorailIntercit\u00e9"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:OCECorailIntercit\u00e9"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:SNC"
+              }, 
+              {
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20121012T135000", 
+            "additional_informations": [], 
+            "departure_date_time": "20121012T122000", 
+            "display_informations": {
+              "direction": "gare de Rouen-Rive-Droite (Rouen)", 
+              "code": "", 
+              "description": "", 
+              "color": "000000", 
+              "physical_mode": "INTERCIT\u00c9S", 
+              "headsign": "13107", 
+              "commercial_mode": "INTERCIT\u00c9S", 
+              "equipments": [], 
+              "label": "Paris-St-Lazare - Rouen-Rive-Droite", 
+              "network": "SNCF"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "gare de Rouen-Rive-Droite", 
+                "coord": {
+                  "lat": "49.44899", 
+                  "lon": "1.094042"
+                }, 
+                "label": "gare de Rouen-Rive-Droite (Rouen)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Rouen", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.44046", 
+                      "lon": "1.093965"
+                    }, 
+                    "label": "Rouen (76000-76100)", 
+                    "id": "admin:75628extern", 
+                    "zip_code": "76000-76100"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:OCE:SP:CorailIntercit\u00e9-87411017", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "gare de Rouen-Rive-Droite", 
+                  "coord": {
+                    "lat": "49.44899", 
+                    "lon": "1.094042"
+                  }, 
+                  "label": "gare de Rouen-Rive-Droite (Rouen)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:OCE:SA:87411017"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:OCE:SP:CorailIntercit\u00e9-87411017", 
+              "name": "gare de Rouen-Rive-Droite (Rouen)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 118018
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.324451, 
+                  48.877868
+                ], 
+                [
+                  1.703311, 
+                  48.989548
+                ], 
+                [
+                  1.478332, 
+                  49.091569
+                ], 
+                [
+                  1.352532, 
+                  49.174637
+                ], 
+                [
+                  1.224622, 
+                  49.275405
+                ], 
+                [
+                  1.101833, 
+                  49.343047
+                ], 
+                [
+                  1.094042, 
+                  49.44899
+                ]
+              ]
+            }, 
+            "duration": 5400, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "gare de Paris-St-Lazare", 
+                  "coord": {
+                    "lat": "48.877868", 
+                    "lon": "2.324451"
+                  }, 
+                  "label": "gare de Paris-St-Lazare (Paris)", 
+                  "equipments": [], 
+                  "id": "stop_point:OCE:SP:CorailIntercit\u00e9-87384008"
+                }, 
+                "arrival_date_time": "20121012T122000", 
+                "additional_informations": [], 
+                "departure_date_time": "20121012T122000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "gare de Mantes-la-Jolie", 
+                  "coord": {
+                    "lat": "48.989548", 
+                    "lon": "1.703311"
+                  }, 
+                  "label": "gare de Mantes-la-Jolie (Mantes-la-Jolie)", 
+                  "equipments": [], 
+                  "id": "stop_point:OCE:SP:CorailIntercit\u00e9-87381509"
+                }, 
+                "arrival_date_time": "20121012T125000", 
+                "additional_informations": [], 
+                "departure_date_time": "20121012T125200", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "gare de Vernon (Eure)", 
+                  "coord": {
+                    "lat": "49.091569", 
+                    "lon": "1.478332"
+                  }, 
+                  "label": "gare de Vernon (Eure) (Vernon)", 
+                  "equipments": [], 
+                  "id": "stop_point:OCE:SP:CorailIntercit\u00e9-87415604"
+                }, 
+                "arrival_date_time": "20121012T130400", 
+                "additional_informations": [], 
+                "departure_date_time": "20121012T130600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "gare de Gaillon-Aubevoye", 
+                  "coord": {
+                    "lat": "49.174637", 
+                    "lon": "1.352532"
+                  }, 
+                  "label": "gare de Gaillon-Aubevoye (Aubevoye)", 
+                  "equipments": [], 
+                  "id": "stop_point:OCE:SP:CorailIntercit\u00e9-87415620"
+                }, 
+                "arrival_date_time": "20121012T131500", 
+                "additional_informations": [], 
+                "departure_date_time": "20121012T131600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "gare de Val-de-Reuil", 
+                  "coord": {
+                    "lat": "49.275405", 
+                    "lon": "1.224622"
+                  }, 
+                  "label": "gare de Val-de-Reuil (Val-de-Reuil)", 
+                  "equipments": [], 
+                  "id": "stop_point:OCE:SP:CorailIntercit\u00e9-87415877"
+                }, 
+                "arrival_date_time": "20121012T132600", 
+                "additional_informations": [], 
+                "departure_date_time": "20121012T132700", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "gare de Oissel", 
+                  "coord": {
+                    "lat": "49.343047", 
+                    "lon": "1.101833"
+                  }, 
+                  "label": "gare de Oissel (Oissel)", 
+                  "equipments": [], 
+                  "id": "stop_point:OCE:SP:CorailIntercit\u00e9-87411207"
+                }, 
+                "arrival_date_time": "20121012T133500", 
+                "additional_informations": [], 
+                "departure_date_time": "20121012T133600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "gare de Rouen-Rive-Droite", 
+                  "coord": {
+                    "lat": "49.44899", 
+                    "lon": "1.094042"
+                  }, 
+                  "label": "gare de Rouen-Rive-Droite (Rouen)", 
+                  "equipments": [], 
+                  "id": "stop_point:OCE:SP:CorailIntercit\u00e9-87411017"
+                }, 
+                "arrival_date_time": "20121012T135000", 
+                "additional_informations": [], 
+                "departure_date_time": "20121012T135000", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "gare de Rouen-Rive-Droite", 
+                "coord": {
+                  "lat": "49.44899", 
+                  "lon": "1.094042"
+                }, 
+                "label": "gare de Rouen-Rive-Droite (Rouen)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Rouen", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.44046", 
+                      "lon": "1.093965"
+                    }, 
+                    "label": "Rouen (76000-76100)", 
+                    "id": "admin:75628extern", 
+                    "zip_code": "76000-76100"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:OCE:SP:CorailIntercit\u00e9-87411017", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "gare de Rouen-Rive-Droite", 
+                  "coord": {
+                    "lat": "49.44899", 
+                    "lon": "1.094042"
+                  }, 
+                  "label": "gare de Rouen-Rive-Droite (Rouen)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Rouen", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "49.44046", 
+                        "lon": "1.093965"
+                      }, 
+                      "label": "Rouen (76000-76100)", 
+                      "id": "admin:75628extern", 
+                      "zip_code": "76000-76100"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:OCE:SA:87411017"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:OCE:SP:CorailIntercit\u00e9-87411017", 
+              "name": "gare de Rouen-Rive-Droite (Rouen)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20121012T135000", 
+            "additional_informations": [], 
+            "departure_date_time": "20121012T135000", 
+            "to": {
+              "embedded_type": "administrative_region", 
+              "quality": 0, 
+              "administrative_region": {
+                "name": "Rouen", 
+                "level": 8, 
+                "coord": {
+                  "lat": "49.44046", 
+                  "lon": "1.093965"
+                }, 
+                "label": "Rouen (76000-76100)", 
+                "id": "admin:75628extern", 
+                "zip_code": "76000-76100"
+              }, 
+              "id": "admin:75628extern", 
+              "name": "Rouen (76000-76100)"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_2_0"
+          }
+        ]
+      }
+    ]
+  }
+}
