@@ -1,11 +1,13 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
-
+import pytest
+xfail = pytest.mark.xfail
 
 @dataset([DataSet("tcl")])
 class TestTCL(ArtemisTestFixture):
     """
     TODO: put there comments about the dataset
     """
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1471", raises=AssertionError)
     def test_tcl_01(self):
         """
         ID artemis v1: 0
