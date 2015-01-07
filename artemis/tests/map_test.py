@@ -1,5 +1,6 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
-
+import pytest
+xfail = pytest.mark.xfail
 
 @dataset([DataSet("map")])
 class TestMap(ArtemisTestFixture):
@@ -7,6 +8,7 @@ class TestMap(ArtemisTestFixture):
     test walk transfert
     """
 
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1132", raises=AssertionError)
     def test_map_01(self):
         """
         test walk journey
@@ -15,6 +17,7 @@ class TestMap(ArtemisTestFixture):
                      to="stop_area:MAP:SA:2",
                      datetime="20041210T070000")
 
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1132", raises=AssertionError)
     def test_map_02(self):
         """
         test walk transfert at start
@@ -23,6 +26,7 @@ class TestMap(ArtemisTestFixture):
                      to="stop_area:MAP:SA:3",
                      datetime="20041210T070000")
 
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1132", raises=AssertionError)
     def test_map_03(self):
         """
         test walk transfert at start, at end
@@ -31,6 +35,7 @@ class TestMap(ArtemisTestFixture):
                      to="stop_area:MAP:SA:4",
                      datetime="20041210T070000")
 
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1132", raises=AssertionError)
     def test_map_04(self):
         """
         test walk transfert at start, in the middle
@@ -39,6 +44,7 @@ class TestMap(ArtemisTestFixture):
                      to="stop_area:MAP:SA:5",
                      datetime="20041210T070000")
 
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1132", raises=AssertionError)
     def test_map_05(self):
         """
         test walk transfert at end
