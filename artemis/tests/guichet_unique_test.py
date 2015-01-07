@@ -26,7 +26,7 @@ class TestGuichetUnique(ArtemisTestFixture):
         ID artemis v1: 2
         """
         self.journey(_from="admin:149197extern",
-                     to="admin:7444extern", datetime="20121022T054500",
+                     to="admin:1076124extern", datetime="20121022T054500",
                      walking_speed="0.83", max_duration_to_pt="240", count="7", type="rapid")
 
     def test_guichet_unique_reims_to_paris(self):
