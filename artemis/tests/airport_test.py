@@ -30,6 +30,7 @@ class TestAirport(ArtemisTestFixture):
                      datetime="20120908T1200")
 
 
+@xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1485", raises=AssertionError)
 @dataset([DataSet("airport-01")])
 class TestAirport1(ArtemisTestFixture):
     """
