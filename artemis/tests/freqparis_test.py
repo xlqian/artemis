@@ -8,7 +8,7 @@ class TestFreqParis(ArtemisTestFixture):
     TODO: put there comments about the dataset
     """
     @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1459", raises=AssertionError)
-	def test_freqparis_01(self):
+    def test_freqparis_01(self):
         self.journey(_from="stop_area:FQP:SA:defen",
                      to="stop_area:FQP:SA:grest", datetime="20090922T0700")
 
