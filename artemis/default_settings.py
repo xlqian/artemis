@@ -6,7 +6,7 @@ DATASET_PATH_LAYOUT = "/srv/artemis_data/{dataset}/"
 
 NAV_FILE_PATH_LAYOUT = "/srv/ed/{dataset}/data.nav.lz4"
 
-ZIP_FILE_PATH_LAYOUT = "/srv/fusio/source/{dataset}/NAVITIART/databases.zip"
+NEW_FUSIO_FILE_PATH_LAYOUT = "/srv/fusio/source/{dataset}/NAVITIART/databases.zip"
 
 RESPONSE_FILE_PATH = 'output'
 
