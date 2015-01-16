@@ -2,12 +2,12 @@ import hashlib
 import inspect
 import logging
 import os
+import shutil
 import psycopg2
 import re
 import json
 import time
 import utils
-import zipfile
 from configuration_manager import config
 
 # regexp used to identify a test method (simplified version of nose)
@@ -45,9 +45,11 @@ def nav_path(dataset):
     p = config['NAV_FILE_PATH_LAYOUT']
     return p.format(dataset=dataset)
 
-def zip_path(dataset):
-    p = config['ZIP_FILE_PATH_LAYOUT']
+
+def new_fusio_files_path(dataset):
+    p = config['NEW_FUSIO_FILE_PATH_LAYOUT']
     return p.format(dataset=dataset.upper())
+
 
 class DataSet(object):
     def __init__(self, name, scenario='default'):
@@ -99,17 +101,19 @@ class ArtemisTestFixture:
         """
         if new dataset exist we must unzip in data directory to consider in "read_data"
         """
+        if not config['NEW_FUSIO_FILE_PATH_LAYOUT']:
+            # if we don't have a fusio dir we don't update the data
+            return
+
         for data_set in cls.data_sets:
-            zip_filename = zip_path(data_set.name)
-            if not os.path.exists(zip_filename):
+            fusio_databases_file = new_fusio_files_path(data_set.name)
+            if not os.path.exists(fusio_databases_file):
                 continue
+
             logging.getLogger(__name__).info("updating data for {}".format(data_set.name))
-            zip_file = zipfile.ZipFile(zip_filename)
-            zip_file.extractall(path=os.path.join(dir_path(data_set.name), 'fusio'))
-            try:
-                os.remove(zip_filename)
-            except:
-                logging.getLogger(__name__).info("can't remove {}".format(zip_filename))
+
+            #we copy the file to update the reference data
+            shutil.move(fusio_databases_file, os.path.join(dir_path(data_set.name), 'fusio/databases.zip'))
 
     @classmethod
     def teardown_class(cls):
@@ -140,19 +144,19 @@ class ArtemisTestFixture:
         cls.clean_jormun_db()
         for data_set in cls.data_sets:
             logging.getLogger(__name__).info("reading data for {}".format(data_set.name))
-            #we'll read all subdir
+            # we'll read all subdir
             data_path = dir_path(data_set.name)
-            for sub_dir_name in os.listdir(data_path):
-                sub_dir = os.path.join(data_path, sub_dir_name)
-                if not os.path.isdir(sub_dir):
-                    continue
-                logging.getLogger(__name__).info("loading {}".format(sub_dir))
 
-                utils.launch_exec("{tyr} load_data {data_set} {data_set_dir}"
-                                  .format(tyr=_tyr,
-                                          data_set=data_set.name,
-                                          data_set_dir=sub_dir),
-                                  additional_env={'TYR_CONFIG_FILE': _tyr_config_file})
+            data_dirs = [os.path.join(data_path, sub_dir_name)
+                         for sub_dir_name in os.listdir(data_path)
+                         if os.path.isdir(os.path.join(data_path, sub_dir_name))]
+
+            logging.getLogger(__name__).info("loading {}".format(data_dirs))
+            utils.launch_exec("{tyr} load_data {data_set} {data_set_dir}"
+                              .format(tyr=_tyr,
+                                      data_set=data_set.name,
+                                      data_set_dir=','.join(data_dirs)),
+                              additional_env={'TYR_CONFIG_FILE': _tyr_config_file})
 
     @classmethod
     def clean_jormun_db(cls):
