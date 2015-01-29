@@ -16,6 +16,7 @@ class TestSaintOmer(ArtemisTestFixture):
                      to="poi:adm117", datetime="20121206T133500",
                      walking_speed="1", max_duration_to_pt="1000")
 
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1542", raises=AssertionError)
     def test_saint_omer_poi_to_admin(self):
         """
         ID artemis v1: 2
