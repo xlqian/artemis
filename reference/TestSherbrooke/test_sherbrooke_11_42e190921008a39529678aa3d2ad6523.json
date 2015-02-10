@@ -4,10 +4,10 @@
     "journeys": [
       {
         "nb_transfers": 1, 
-        "arrival_date_time": "20111116T214817", 
+        "arrival_date_time": "20111116T214808", 
         "departure_date_time": "20111116T212432", 
         "type": "best", 
-        "duration": 1425, 
+        "duration": 1416, 
         "sections": [
           {
             "duration": 37, 
@@ -15,28 +15,28 @@
             "departure_date_time": "20111116T212432"
           }, 
           {
-            "duration": 480, 
-            "arrival_date_time": "20111116T213300", 
+            "duration": 420, 
+            "arrival_date_time": "20111116T213200", 
             "departure_date_time": "20111116T212500"
           }, 
           {
-            "duration": 240, 
-            "arrival_date_time": "20111116T213700", 
-            "departure_date_time": "20111116T213300"
+            "duration": 120, 
+            "arrival_date_time": "20111116T213400", 
+            "departure_date_time": "20111116T213200"
+          }, 
+          {
+            "duration": 540, 
+            "arrival_date_time": "20111116T214300", 
+            "departure_date_time": "20111116T213400"
           }, 
           {
             "duration": 300, 
-            "arrival_date_time": "20111116T214200", 
-            "departure_date_time": "20111116T213700"
-          }, 
-          {
-            "duration": 360, 
             "arrival_date_time": "20111116T214800", 
-            "departure_date_time": "20111116T214200"
+            "departure_date_time": "20111116T214300"
           }, 
           {
-            "duration": 22, 
-            "arrival_date_time": "20111116T214822", 
+            "duration": 10, 
+            "arrival_date_time": "20111116T214810", 
             "departure_date_time": "20111116T214800"
           }
         ]
@@ -44,11 +44,37 @@
     ]
   }, 
   "full_response": {
-    "exceptions": [], 
-    "notes": [], 
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unknown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_4_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
     "links": [
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/journeys?to=poi%3A4107+-+ADDRESS740+-+ADDRESS1261&datetime_represents=arrival&from=poi%3A5245+-+ADDRESS512+-+ADDRESS1919&max_duration_to_pt=720&walking_speed=0.83&datetime=20111116T214717", 
+        "href": "http://localhost/v1/coverage/sherbrooke/journeys?to=poi%3A4107+-+ADDRESS740+-+ADDRESS1261&datetime_represents=arrival&from=poi%3A5245+-+ADDRESS512+-+ADDRESS1919&max_duration_to_pt=720&walking_speed=0.83&datetime=20111116T214708", 
         "type": "prev", 
         "rel": "prev", 
         "templated": false
@@ -120,15 +146,15 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}?collection=addresses", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
         "href": "http://localhost/v1/coverage/sherbrooke/pois/{poi.id}?collection=pois", 
         "type": "poi", 
         "rel": "pois", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -140,17 +166,44 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": []
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
         }, 
         "tags": [
           "standard"
         ], 
         "nb_transfers": 1, 
-        "arrival_date_time": "20111116T214817", 
+        "arrival_date_time": "20111116T214808", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20111031", 
+                "end": "20111224"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20111116T212432", 
         "requested_date_time": "20111116T223000", 
         "type": "best", 
-        "duration": 1425, 
+        "duration": 1416, 
         "sections": [
           {
             "from": {
@@ -158,14 +211,15 @@
               "name": "RUE ANDRE - RUE THIBAULT (Sherbrooke)", 
               "address": {
                 "name": "rue THIBAULT", 
-                "house_number": 945, 
+                "house_number": 960, 
                 "coord": {
                   "lat": "45.37501615224149", 
                   "lon": "-71.90303798944952"
                 }, 
-                "label": "945 rue THIBAULT (Sherbrooke)", 
+                "label": "960 rue THIBAULT (Sherbrooke)", 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -192,6 +246,7 @@
                 "label": "RUE ANDRE - RUE THIBAULT (Sherbrooke)", 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -213,6 +268,7 @@
                   "label": "RUE ANDRE - RUE THIBAULT (Sherbrooke)", 
                   "administrative_regions": [
                     {
+                      "insee": "43027", 
                       "name": "Sherbrooke", 
                       "level": 8, 
                       "coord": {
@@ -241,6 +297,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Andr\u00e9 / Thibault", 
+                "links": [], 
                 "coord": {
                   "lat": "45.374806", 
                   "lon": "-71.90307"
@@ -249,6 +306,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -262,14 +320,15 @@
                 ], 
                 "address": {
                   "name": "rue ANDRE", 
-                  "house_number": 1895, 
+                  "house_number": 1974, 
                   "coord": {
                     "lat": "45.374806", 
                     "lon": "-71.90307"
                   }, 
-                  "label": "1895 rue ANDRE (Sherbrooke)", 
+                  "label": "1974 rue ANDRE (Sherbrooke)", 
                   "administrative_regions": [
                     {
+                      "insee": "43027", 
                       "name": "Sherbrooke", 
                       "level": 8, 
                       "coord": {
@@ -287,6 +346,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Andr\u00e9 / Thibault", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.374806", 
                     "lon": "-71.90307"
@@ -294,6 +354,7 @@
                   "label": "Andr\u00e9 / Thibault (Sherbrooke)", 
                   "administrative_regions": [
                     {
+                      "insee": "43027", 
                       "name": "Sherbrooke", 
                       "level": 8, 
                       "coord": {
@@ -312,14 +373,15 @@
               "name": "Andr\u00e9 / Thibault (Sherbrooke)", 
               "address": {
                 "name": "rue ANDRE", 
-                "house_number": 1895, 
+                "house_number": 1974, 
                 "coord": {
                   "lat": "45.374806", 
                   "lon": "-71.90307"
                 }, 
-                "label": "1895 rue ANDRE (Sherbrooke)", 
+                "label": "1974 rue ANDRE (Sherbrooke)", 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -382,7 +444,7 @@
               }
             ], 
             "type": "street_network", 
-            "id": "section_3_0", 
+            "id": "section_0_0", 
             "mode": "walking"
           }, 
           {
@@ -391,6 +453,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Andr\u00e9 / Thibault", 
+                "links": [], 
                 "coord": {
                   "lat": "45.374806", 
                   "lon": "-71.90307"
@@ -399,6 +462,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -411,19 +475,20 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 1895, 
+                  "house_number": 1974, 
                   "id": "-71.90307;45.374806", 
                   "name": "rue ANDRE", 
                   "coord": {
                     "lat": "45.374806", 
                     "lon": "-71.90307"
                   }, 
-                  "label": "1895 rue ANDRE (Sherbrooke)"
+                  "label": "1974 rue ANDRE (Sherbrooke)"
                 }, 
                 "id": "stop_point:STS:SP:1281", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Andr\u00e9 / Thibault", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.374806", 
                     "lon": "-71.90307"
@@ -461,15 +526,23 @@
               {
                 "type": "network", 
                 "id": "network:STS"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
               }
             ], 
-            "arrival_date_time": "20111116T213300", 
+            "arrival_date_time": "20111116T213200", 
             "additional_informations": [], 
             "departure_date_time": "20111116T212500", 
             "display_informations": {
               "direction": "Carrefour de l'Estrie - quai B (Sherbrooke)", 
               "code": "11", 
               "description": "", 
+              "links": [], 
               "color": "E6E600", 
               "physical_mode": "Bus", 
               "headsign": "Carrefour de l'Estrie", 
@@ -482,15 +555,17 @@
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
-                "name": "Denault / Galt Ouest", 
+                "name": "McManamy / de Kingston", 
+                "links": [], 
                 "coord": {
-                  "lat": "45.389012", 
-                  "lon": "-71.907703"
+                  "lat": "45.389663", 
+                  "lon": "-71.902057"
                 }, 
-                "label": "Denault / Galt Ouest (Sherbrooke)", 
+                "label": "McManamy / de Kingston (Sherbrooke)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -503,37 +578,38 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 1239, 
-                  "id": "-71.907703;45.389012", 
-                  "name": "rue DENAULT", 
+                  "house_number": 997, 
+                  "id": "-71.902057;45.389663", 
+                  "name": "rue MCMANAMY", 
                   "coord": {
-                    "lat": "45.389012", 
-                    "lon": "-71.907703"
+                    "lat": "45.389663", 
+                    "lon": "-71.902057"
                   }, 
-                  "label": "1239 rue DENAULT (Sherbrooke)"
+                  "label": "997 rue MCMANAMY (Sherbrooke)"
                 }, 
-                "id": "stop_point:STS:SP:570", 
+                "id": "stop_point:STS:SP:782", 
                 "stop_area": {
                   "comment": "", 
-                  "name": "Denault / Galt Ouest", 
+                  "name": "McManamy / de Kingston", 
+                  "links": [], 
                   "coord": {
-                    "lat": "45.389012", 
-                    "lon": "-71.907703"
+                    "lat": "45.389663", 
+                    "lon": "-71.902057"
                   }, 
-                  "label": "Denault / Galt Ouest (Sherbrooke)", 
+                  "label": "McManamy / de Kingston (Sherbrooke)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:570"
+                  "id": "stop_area:STS:SA:782"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:STS:SP:570", 
-              "name": "Denault / Galt Ouest (Sherbrooke)"
+              "id": "stop_point:STS:SP:782", 
+              "name": "McManamy / de Kingston (Sherbrooke)"
             }, 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 2991
+                  "length": 2539
                 }
               ], 
               "coordinates": [
@@ -792,49 +868,18 @@
                 [
                   -71.902057, 
                   45.389663
-                ], 
-                [
-                  -71.90525, 
-                  45.38958
-                ], 
-                [
-                  -71.90525, 
-                  45.389616
-                ], 
-                [
-                  -71.90525, 
-                  45.38958
-                ], 
-                [
-                  -71.90563, 
-                  45.38958
-                ], 
-                [
-                  -71.90655, 
-                  45.38905
-                ], 
-                [
-                  -71.90693, 
-                  45.38897
-                ], 
-                [
-                  -71.9077, 
-                  45.38896
-                ], 
-                [
-                  -71.907703, 
-                  45.389012
                 ]
               ]
             }, 
-            "duration": 480, 
+            "duration": 420, 
             "type": "public_transport", 
-            "id": "section_4_0", 
+            "id": "section_1_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
                   "name": "Andr\u00e9 / Thibault", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.374806", 
                     "lon": "-71.90307"
@@ -852,6 +897,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Thibault / Gauthier", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.374786", 
                     "lon": "-71.900746"
@@ -869,6 +915,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Thibault (no.810)", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.375026", 
                     "lon": "-71.897398"
@@ -886,6 +933,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Bacon / Thibault", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.375651", 
                     "lon": "-71.894967"
@@ -903,6 +951,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Bacon / des Grands-Monts", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.376099", 
                     "lon": "-71.896123"
@@ -920,6 +969,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "des Bois\u00e9s / Tessier", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.377481", 
                     "lon": "-71.897276"
@@ -937,6 +987,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "des Bois\u00e9s / des Buissons", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.379134", 
                     "lon": "-71.897194"
@@ -954,6 +1005,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "des Bois\u00e9s (no.1662)", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.381819", 
                     "lon": "-71.897106"
@@ -971,6 +1023,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "des Bois\u00e9s/ Dunant", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.38357", 
                     "lon": "-71.89813"
@@ -988,6 +1041,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "de Kingston / Dunant", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.383245", 
                     "lon": "-71.90058"
@@ -1005,6 +1059,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "de Kingston / Raoul-Bruneau", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.384812", 
                     "lon": "-71.901287"
@@ -1022,6 +1077,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "de Kingston / de l'Ancienne-Carri\u00e8re", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.386292", 
                     "lon": "-71.901337"
@@ -1039,6 +1095,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "de Kingston / Westmount", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.388062", 
                     "lon": "-71.901364"
@@ -1056,6 +1113,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "McManamy / de Kingston", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.389663", 
                     "lon": "-71.902057"
@@ -1068,40 +1126,6 @@
                 "additional_informations": [], 
                 "departure_date_time": "20111116T213200", 
                 "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "McManamy / Galt Ouest", 
-                  "coord": {
-                    "lat": "45.389616", 
-                    "lon": "-71.90525"
-                  }, 
-                  "label": "McManamy / Galt Ouest (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:569"
-                }, 
-                "arrival_date_time": "20111116T213300", 
-                "additional_informations": [], 
-                "departure_date_time": "20111116T213300", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Denault / Galt Ouest", 
-                  "coord": {
-                    "lat": "45.389012", 
-                    "lon": "-71.907703"
-                  }, 
-                  "label": "Denault / Galt Ouest (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:570"
-                }, 
-                "arrival_date_time": "20111116T213300", 
-                "additional_informations": [], 
-                "departure_date_time": "20111116T213300", 
-                "links": []
               }
             ]
           }, 
@@ -1110,15 +1134,17 @@
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
-                "name": "Denault / Galt Ouest", 
+                "name": "McManamy / de Kingston", 
+                "links": [], 
                 "coord": {
-                  "lat": "45.389012", 
-                  "lon": "-71.907703"
+                  "lat": "45.389663", 
+                  "lon": "-71.902057"
                 }, 
-                "label": "Denault / Galt Ouest (Sherbrooke)", 
+                "label": "McManamy / de Kingston (Sherbrooke)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -1131,49 +1157,52 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 1239, 
-                  "id": "-71.907703;45.389012", 
-                  "name": "rue DENAULT", 
+                  "house_number": 997, 
+                  "id": "-71.902057;45.389663", 
+                  "name": "rue MCMANAMY", 
                   "coord": {
-                    "lat": "45.389012", 
-                    "lon": "-71.907703"
+                    "lat": "45.389663", 
+                    "lon": "-71.902057"
                   }, 
-                  "label": "1239 rue DENAULT (Sherbrooke)"
+                  "label": "997 rue MCMANAMY (Sherbrooke)"
                 }, 
-                "id": "stop_point:STS:SP:570", 
+                "id": "stop_point:STS:SP:782", 
                 "stop_area": {
                   "comment": "", 
-                  "name": "Denault / Galt Ouest", 
+                  "name": "McManamy / de Kingston", 
+                  "links": [], 
                   "coord": {
-                    "lat": "45.389012", 
-                    "lon": "-71.907703"
+                    "lat": "45.389663", 
+                    "lon": "-71.902057"
                   }, 
-                  "label": "Denault / Galt Ouest (Sherbrooke)", 
+                  "label": "McManamy / de Kingston (Sherbrooke)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:570"
+                  "id": "stop_area:STS:SA:782"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:STS:SP:570", 
-              "name": "Denault / Galt Ouest (Sherbrooke)"
+              "id": "stop_point:STS:SP:782", 
+              "name": "McManamy / de Kingston (Sherbrooke)"
             }, 
             "links": [], 
-            "arrival_date_time": "20111116T213700", 
+            "arrival_date_time": "20111116T213400", 
             "additional_informations": [], 
-            "departure_date_time": "20111116T213300", 
+            "departure_date_time": "20111116T213200", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
-                "name": "Galt Ouest / Saint-Andr\u00e9", 
+                "name": "McManamy / de Kingston", 
+                "links": [], 
                 "coord": {
-                  "lat": "45.387947", 
-                  "lon": "-71.908284"
+                  "lat": "45.38955", 
+                  "lon": "-71.901576"
                 }, 
-                "label": "Galt Ouest / Saint-Andr\u00e9 (Sherbrooke)", 
+                "label": "McManamy / de Kingston (Sherbrooke)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -1186,78 +1215,81 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 1273, 
-                  "id": "-71.908284;45.387947", 
-                  "name": "rue GALT O,", 
+                  "house_number": 994, 
+                  "id": "-71.901576;45.38955", 
+                  "name": "rue MCMANAMY", 
                   "coord": {
-                    "lat": "45.387947", 
-                    "lon": "-71.908284"
+                    "lat": "45.38955", 
+                    "lon": "-71.901576"
                   }, 
-                  "label": "1273 rue GALT O, (Sherbrooke)"
+                  "label": "994 rue MCMANAMY (Sherbrooke)"
                 }, 
-                "id": "stop_point:STS:SP:581", 
+                "id": "stop_point:STS:SP:583", 
                 "stop_area": {
                   "comment": "", 
-                  "name": "Galt Ouest / Saint-Andr\u00e9", 
+                  "name": "McManamy / de Kingston", 
+                  "links": [], 
                   "coord": {
-                    "lat": "45.387947", 
-                    "lon": "-71.908284"
+                    "lat": "45.38955", 
+                    "lon": "-71.901576"
                   }, 
-                  "label": "Galt Ouest / Saint-Andr\u00e9 (Sherbrooke)", 
+                  "label": "McManamy / de Kingston (Sherbrooke)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:581"
+                  "id": "stop_area:STS:SA:583"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:STS:SP:581", 
-              "name": "Galt Ouest / Saint-Andr\u00e9 (Sherbrooke)"
+              "id": "stop_point:STS:SP:583", 
+              "name": "McManamy / de Kingston (Sherbrooke)"
             }, 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 126
+                  "length": 39
                 }
               ], 
               "coordinates": [
                 [
-                  -71.907703, 
-                  45.389012
+                  -71.902057, 
+                  45.389663
                 ], 
                 [
-                  -71.908284, 
-                  45.387947
+                  -71.901576, 
+                  45.38955
                 ]
               ]
             }, 
-            "duration": 240, 
+            "duration": 120, 
             "transfer_type": "walking", 
             "type": "transfer", 
-            "id": "section_5_0"
+            "id": "section_2_0"
           }, 
           {
             "links": [], 
-            "arrival_date_time": "20111116T214200", 
+            "arrival_date_time": "20111116T214300", 
             "additional_informations": [], 
-            "departure_date_time": "20111116T213700", 
-            "duration": 300, 
+            "departure_date_time": "20111116T213400", 
+            "duration": 540, 
             "type": "waiting", 
-            "id": "section_6_0"
+            "id": "section_3_0"
           }, 
           {
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
-                "name": "Galt Ouest / Saint-Andr\u00e9", 
+                "name": "McManamy / de Kingston", 
+                "links": [], 
                 "coord": {
-                  "lat": "45.387947", 
-                  "lon": "-71.908284"
+                  "lat": "45.38955", 
+                  "lon": "-71.901576"
                 }, 
-                "label": "Galt Ouest / Saint-Andr\u00e9 (Sherbrooke)", 
+                "label": "McManamy / de Kingston (Sherbrooke)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -1270,31 +1302,32 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 1273, 
-                  "id": "-71.908284;45.387947", 
-                  "name": "rue GALT O,", 
+                  "house_number": 994, 
+                  "id": "-71.901576;45.38955", 
+                  "name": "rue MCMANAMY", 
                   "coord": {
-                    "lat": "45.387947", 
-                    "lon": "-71.908284"
+                    "lat": "45.38955", 
+                    "lon": "-71.901576"
                   }, 
-                  "label": "1273 rue GALT O, (Sherbrooke)"
+                  "label": "994 rue MCMANAMY (Sherbrooke)"
                 }, 
-                "id": "stop_point:STS:SP:581", 
+                "id": "stop_point:STS:SP:583", 
                 "stop_area": {
                   "comment": "", 
-                  "name": "Galt Ouest / Saint-Andr\u00e9", 
+                  "name": "McManamy / de Kingston", 
+                  "links": [], 
                   "coord": {
-                    "lat": "45.387947", 
-                    "lon": "-71.908284"
+                    "lat": "45.38955", 
+                    "lon": "-71.901576"
                   }, 
-                  "label": "Galt Ouest / Saint-Andr\u00e9 (Sherbrooke)", 
+                  "label": "McManamy / de Kingston (Sherbrooke)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:581"
+                  "id": "stop_area:STS:SA:583"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:STS:SP:581", 
-              "name": "Galt Ouest / Saint-Andr\u00e9 (Sherbrooke)"
+              "id": "stop_point:STS:SP:583", 
+              "name": "McManamy / de Kingston (Sherbrooke)"
             }, 
             "links": [
               {
@@ -1320,15 +1353,23 @@
               {
                 "type": "network", 
                 "id": "network:STS"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
               }
             ], 
             "arrival_date_time": "20111116T214800", 
             "additional_informations": [], 
-            "departure_date_time": "20111116T214200", 
+            "departure_date_time": "20111116T214300", 
             "display_informations": {
               "direction": "Station du C\u00e9gep (Sherbrooke)", 
               "code": "14", 
               "description": "", 
+              "links": [], 
               "color": "B8027E", 
               "physical_mode": "Bus", 
               "headsign": "Station du C\u00e9gep", 
@@ -1342,6 +1383,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Darche / \u00c9vang\u00e9line", 
+                "links": [], 
                 "coord": {
                   "lat": "45.383704", 
                   "lon": "-71.886863"
@@ -1350,6 +1392,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -1362,19 +1405,20 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 295, 
+                  "house_number": 234, 
                   "id": "-71.886863;45.383704", 
                   "name": "rue DARCHE", 
                   "coord": {
                     "lat": "45.383704", 
                     "lon": "-71.886863"
                   }, 
-                  "label": "295 rue DARCHE (Sherbrooke)"
+                  "label": "234 rue DARCHE (Sherbrooke)"
                 }, 
                 "id": "stop_point:STS:SP:699", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Darche / \u00c9vang\u00e9line", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.383704", 
                     "lon": "-71.886863"
@@ -1392,46 +1436,10 @@
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 2323
+                  "length": 1746
                 }
               ], 
               "coordinates": [
-                [
-                  -71.908284, 
-                  45.387947
-                ], 
-                [
-                  -71.90837, 
-                  45.38802
-                ], 
-                [
-                  -71.90698, 
-                  45.38876
-                ], 
-                [
-                  -71.90563, 
-                  45.38958
-                ], 
-                [
-                  -71.90509, 
-                  45.38958
-                ], 
-                [
-                  -71.905089, 
-                  45.389506
-                ], 
-                [
-                  -71.90509, 
-                  45.38958
-                ], 
-                [
-                  -71.90243, 
-                  45.38962
-                ], 
-                [
-                  -71.90158, 
-                  45.38963
-                ], 
                 [
                   -71.901576, 
                   45.38955
@@ -1558,48 +1566,15 @@
                 ]
               ]
             }, 
-            "duration": 360, 
+            "duration": 300, 
             "type": "public_transport", 
-            "id": "section_7_0", 
+            "id": "section_4_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
-                  "name": "Galt Ouest / Saint-Andr\u00e9", 
-                  "coord": {
-                    "lat": "45.387947", 
-                    "lon": "-71.908284"
-                  }, 
-                  "label": "Galt Ouest / Saint-Andr\u00e9 (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:581"
-                }, 
-                "arrival_date_time": "20111116T214200", 
-                "additional_informations": [], 
-                "departure_date_time": "20111116T214200", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "McManamy / Galt Ouest", 
-                  "coord": {
-                    "lat": "45.389506", 
-                    "lon": "-71.905089"
-                  }, 
-                  "label": "McManamy / Galt Ouest (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:582"
-                }, 
-                "arrival_date_time": "20111116T214300", 
-                "additional_informations": [], 
-                "departure_date_time": "20111116T214300", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
                   "name": "McManamy / de Kingston", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.38955", 
                     "lon": "-71.901576"
@@ -1617,6 +1592,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "McManamy / de Courcelette", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.389583", 
                     "lon": "-71.898667"
@@ -1634,6 +1610,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "McManamy / Belv\u00e9d\u00e8re Sud", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.389615", 
                     "lon": "-71.896323"
@@ -1651,6 +1628,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Belv\u00e9d\u00e8re Sud / Chapleau", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.387238", 
                     "lon": "-71.896356"
@@ -1668,6 +1646,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "de l'Union / Belv\u00e9d\u00e8re Sud", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.386419", 
                     "lon": "-71.895707"
@@ -1685,6 +1664,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "de l'Union / Saint-Louis", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.386637", 
                     "lon": "-71.891663"
@@ -1702,6 +1682,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Saint-Louis / Darche", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.383676", 
                     "lon": "-71.890943"
@@ -1719,6 +1700,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Darche / Ad\u00e9lard-Colette", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.383592", 
                     "lon": "-71.888904"
@@ -1736,6 +1718,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Darche / \u00c9vang\u00e9line", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.383704", 
                     "lon": "-71.886863"
@@ -1757,6 +1740,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Darche / \u00c9vang\u00e9line", 
+                "links": [], 
                 "coord": {
                   "lat": "45.383704", 
                   "lon": "-71.886863"
@@ -1765,6 +1749,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -1776,6 +1761,7 @@
                     "zip_code": ""
                   }, 
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -1789,14 +1775,15 @@
                 ], 
                 "address": {
                   "name": "rue DARCHE", 
-                  "house_number": 295, 
+                  "house_number": 234, 
                   "coord": {
                     "lat": "45.383704", 
                     "lon": "-71.886863"
                   }, 
-                  "label": "295 rue DARCHE (Sherbrooke)", 
+                  "label": "234 rue DARCHE (Sherbrooke)", 
                   "administrative_regions": [
                     {
+                      "insee": "43027", 
                       "name": "Sherbrooke", 
                       "level": 8, 
                       "coord": {
@@ -1814,6 +1801,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Darche / \u00c9vang\u00e9line", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.383704", 
                     "lon": "-71.886863"
@@ -1821,6 +1809,7 @@
                   "label": "Darche / \u00c9vang\u00e9line (Sherbrooke)", 
                   "administrative_regions": [
                     {
+                      "insee": "43027", 
                       "name": "Sherbrooke", 
                       "level": 8, 
                       "coord": {
@@ -1841,7 +1830,7 @@
               "name": "Darche / \u00c9vang\u00e9line (Sherbrooke)"
             }, 
             "links": [], 
-            "arrival_date_time": "20111116T214822", 
+            "arrival_date_time": "20111116T214810", 
             "additional_informations": [], 
             "departure_date_time": "20111116T214800", 
             "to": {
@@ -1857,6 +1846,7 @@
                 "label": "1495 rue EVANGELINE (Sherbrooke)", 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -1883,6 +1873,7 @@
                 "label": "RUE DARCHE - RUE EVANGELINE (Sherbrooke)", 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -1904,6 +1895,7 @@
                   "label": "RUE DARCHE - RUE EVANGELINE (Sherbrooke)", 
                   "administrative_regions": [
                     {
+                      "insee": "43027", 
                       "name": "Sherbrooke", 
                       "level": 8, 
                       "coord": {
@@ -1927,7 +1919,7 @@
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 19
+                  "length": 8
                 }
               ], 
               "coordinates": [
@@ -1936,8 +1928,8 @@
                   45.383704
                 ], 
                 [
-                  -71.8868658324169, 
-                  45.38376509567067
+                  -71.8866788482965, 
+                  45.38370724645956
                 ], 
                 [
                   -71.88668002, 
@@ -1953,27 +1945,24 @@
                 ]
               ]
             }, 
-            "duration": 22, 
+            "duration": 10, 
             "path": [
               {
-                "duration": 22, 
-                "length": 19, 
-                "direction": 0, 
-                "name": "rue DARCHE"
-              }, 
-              {
-                "duration": 0, 
-                "length": 0, 
+                "duration": 10, 
+                "length": 8, 
                 "direction": 0, 
                 "name": "rue EVANGELINE"
               }
             ], 
             "type": "street_network", 
-            "id": "section_8_0", 
+            "id": "section_5_0", 
             "mode": "walking"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }
