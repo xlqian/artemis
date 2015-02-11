@@ -44,8 +44,34 @@
     ]
   }, 
   "full_response": {
-    "exceptions": [], 
-    "notes": [], 
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unknown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_4_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A236&datetime_represents=arrival&from=stop_area%3ABIB%3ASA%3A139&max_duration_to_pt=1333&walking_speed=0.75&datetime=20041214T075100", 
@@ -116,13 +142,58 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": []
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
         }, 
         "tags": [
           "standard"
         ], 
         "nb_transfers": 1, 
         "arrival_date_time": "20041214T075200", 
+        "calendars": [
+          {
+            "exceptions": [
+              {
+                "type": "remove", 
+                "datetime": "20041111"
+              }, 
+              {
+                "type": "remove", 
+                "datetime": "20041217"
+              }
+            ], 
+            "active_periods": [
+              {
+                "begin": "20041104", 
+                "end": "20041220"
+              }, 
+              {
+                "begin": "20050103", 
+                "end": "20050214"
+              }, 
+              {
+                "begin": "20050228", 
+                "end": "20050326"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041214T071400", 
         "requested_date_time": "20041214T080000", 
         "type": "best", 
@@ -135,6 +206,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Bourg", 
+                "links": [], 
                 "coord": {
                   "lat": "48.425122", 
                   "lon": "-4.557357"
@@ -142,6 +214,7 @@
                 "label": "Bourg (Guilers)", 
                 "administrative_regions": [
                   {
+                    "insee": "29069", 
                     "name": "Guilers", 
                     "level": 8, 
                     "coord": {
@@ -168,6 +241,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Bourg", 
+                "links": [], 
                 "coord": {
                   "lat": "48.425034", 
                   "lon": "-4.556932"
@@ -176,6 +250,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29069", 
                     "name": "Guilers", 
                     "level": 8, 
                     "coord": {
@@ -188,15 +263,16 @@
                   }
                 ], 
                 "address": {
-                  "name": "Rue Le Gonidec", 
-                  "house_number": 0, 
+                  "name": "Rue de Bohars", 
+                  "house_number": 10, 
                   "coord": {
                     "lat": "48.425034", 
                     "lon": "-4.556932"
                   }, 
-                  "label": "Rue Le Gonidec (Guilers)", 
+                  "label": "10 Rue de Bohars (Guilers)", 
                   "administrative_regions": [
                     {
+                      "insee": "29069", 
                       "name": "Guilers", 
                       "level": 8, 
                       "coord": {
@@ -214,6 +290,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Bourg", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.425122", 
                     "lon": "-4.557357"
@@ -221,6 +298,7 @@
                   "label": "Bourg (Guilers)", 
                   "administrative_regions": [
                     {
+                      "insee": "29069", 
                       "name": "Guilers", 
                       "level": 8, 
                       "coord": {
@@ -243,7 +321,7 @@
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
-            "id": "section_8_0"
+            "id": "section_0_0"
           }, 
           {
             "from": {
@@ -251,6 +329,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Bourg", 
+                "links": [], 
                 "coord": {
                   "lat": "48.425034", 
                   "lon": "-4.556932"
@@ -259,6 +338,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29069", 
                     "name": "Guilers", 
                     "level": 8, 
                     "coord": {
@@ -271,19 +351,20 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 0, 
+                  "house_number": 10, 
                   "id": "-4.556932;48.425034", 
-                  "name": "Rue Le Gonidec", 
+                  "name": "Rue de Bohars", 
                   "coord": {
                     "lat": "48.425034", 
                     "lon": "-4.556932"
                   }, 
-                  "label": "Rue Le Gonidec (Guilers)"
+                  "label": "10 Rue de Bohars (Guilers)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav1519", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Bourg", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.425122", 
                     "lon": "-4.557357"
@@ -321,6 +402,13 @@
               {
                 "type": "network", 
                 "id": "network:BIB:1001"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
               }
             ], 
             "arrival_date_time": "20041214T073800", 
@@ -330,6 +418,7 @@
               "direction": "Libert\u00e9 (Brest)", 
               "code": "23", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "BIB:2137-45984_dst_1", 
@@ -343,6 +432,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Albert 1er", 
+                "links": [], 
                 "coord": {
                   "lat": "48.397265", 
                   "lon": "-4.488146"
@@ -351,6 +441,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -376,6 +467,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Albert 1er", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.397051", 
                     "lon": "-4.488484"
@@ -477,12 +569,13 @@
             }, 
             "duration": 1440, 
             "type": "public_transport", 
-            "id": "section_9_0", 
+            "id": "section_1_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
                   "name": "Bourg", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.425034", 
                     "lon": "-4.556932"
@@ -500,6 +593,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Joubin", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.425309", 
                     "lon": "-4.554704"
@@ -517,6 +611,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Croas - Ar - Pennoc", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.425151", 
                     "lon": "-4.551849"
@@ -534,6 +629,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Kermonfort", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.423398", 
                     "lon": "-4.551116"
@@ -551,6 +647,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Coat - Mez", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.420848", 
                     "lon": "-4.553653"
@@ -568,6 +665,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Surcouf", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.421981", 
                     "lon": "-4.555267"
@@ -585,6 +683,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Lancelot Du Lac", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.421968", 
                     "lon": "-4.558588"
@@ -602,6 +701,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Croaz - Lann", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.42001", 
                     "lon": "-4.559034"
@@ -619,6 +719,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Coat - Ty - Ogant", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.417757", 
                     "lon": "-4.5485"
@@ -636,6 +737,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Castelmein", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.412536", 
                     "lon": "-4.540545"
@@ -653,6 +755,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Penfeld", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.410574", 
                     "lon": "-4.532248"
@@ -670,6 +773,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Gouez", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.411148", 
                     "lon": "-4.527213"
@@ -687,6 +791,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Etang", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.41013", 
                     "lon": "-4.520518"
@@ -704,6 +809,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Bergot", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.406863", 
                     "lon": "-4.509814"
@@ -721,6 +827,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Le Gorgeu", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.404299", 
                     "lon": "-4.505791"
@@ -738,6 +845,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Kermenguy", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.402244", 
                     "lon": "-4.502188"
@@ -755,6 +863,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Bouguen", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.400488", 
                     "lon": "-4.498705"
@@ -772,6 +881,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Universit\u00e9s", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.39865", 
                     "lon": "-4.494765"
@@ -789,6 +899,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Albert 1er", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.397265", 
                     "lon": "-4.488146"
@@ -810,6 +921,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Albert 1er", 
+                "links": [], 
                 "coord": {
                   "lat": "48.397265", 
                   "lon": "-4.488146"
@@ -818,6 +930,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -843,6 +956,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Albert 1er", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.397051", 
                     "lon": "-4.488484"
@@ -865,6 +979,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Albert 1er", 
+                "links": [], 
                 "coord": {
                   "lat": "48.397534", 
                   "lon": "-4.488182"
@@ -873,6 +988,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -898,6 +1014,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Albert 1er", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.397051", 
                     "lon": "-4.488484"
@@ -932,7 +1049,7 @@
             "duration": 51, 
             "transfer_type": "walking", 
             "type": "transfer", 
-            "id": "section_10_0"
+            "id": "section_2_0"
           }, 
           {
             "links": [], 
@@ -941,7 +1058,7 @@
             "departure_date_time": "20041214T073851", 
             "duration": 309, 
             "type": "waiting", 
-            "id": "section_11_0"
+            "id": "section_3_0"
           }, 
           {
             "from": {
@@ -949,6 +1066,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Albert 1er", 
+                "links": [], 
                 "coord": {
                   "lat": "48.397534", 
                   "lon": "-4.488182"
@@ -957,6 +1075,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -982,6 +1101,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Albert 1er", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.397051", 
                     "lon": "-4.488484"
@@ -1019,6 +1139,13 @@
               {
                 "type": "network", 
                 "id": "network:BIB:1001"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
               }
             ], 
             "arrival_date_time": "20041214T075200", 
@@ -1028,6 +1155,7 @@
               "direction": "Kervenal (Plougastel-Daoulas)", 
               "code": "25", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "BIB:2185-226653_dst_1", 
@@ -1041,6 +1169,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Le Bot Haut", 
+                "links": [], 
                 "coord": {
                   "lat": "48.401762", 
                   "lon": "-4.459705"
@@ -1049,6 +1178,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -1061,19 +1191,20 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 43, 
+                  "house_number": 47, 
                   "id": "-4.459705;48.401762", 
                   "name": "Rue de Quimper", 
                   "coord": {
                     "lat": "48.401762", 
                     "lon": "-4.459705"
                   }, 
-                  "label": "43 Rue de Quimper (Brest)"
+                  "label": "47 Rue de Quimper (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav1225", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Le Bot Haut", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.401698", 
                     "lon": "-4.458463"
@@ -1123,12 +1254,13 @@
             }, 
             "duration": 480, 
             "type": "public_transport", 
-            "id": "section_12_0", 
+            "id": "section_4_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
                   "name": "Albert 1er", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.397534", 
                     "lon": "-4.488182"
@@ -1146,6 +1278,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Montaigne", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.403364", 
                     "lon": "-4.480541"
@@ -1163,6 +1296,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Hoche", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.404022", 
                     "lon": "-4.475409"
@@ -1180,6 +1314,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Braille", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.403598", 
                     "lon": "-4.471816"
@@ -1197,6 +1332,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Strasbourg", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.402262", 
                     "lon": "-4.467305"
@@ -1214,6 +1350,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Le Bot Haut", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.401762", 
                     "lon": "-4.459705"
@@ -1235,6 +1372,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Le Bot Haut", 
+                "links": [], 
                 "coord": {
                   "lat": "48.401762", 
                   "lon": "-4.459705"
@@ -1243,6 +1381,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -1256,14 +1395,15 @@
                 ], 
                 "address": {
                   "name": "Rue de Quimper", 
-                  "house_number": 43, 
+                  "house_number": 47, 
                   "coord": {
                     "lat": "48.401762", 
                     "lon": "-4.459705"
                   }, 
-                  "label": "43 Rue de Quimper (Brest)", 
+                  "label": "47 Rue de Quimper (Brest)", 
                   "administrative_regions": [
                     {
+                      "insee": "29019", 
                       "name": "Brest", 
                       "level": 8, 
                       "coord": {
@@ -1281,6 +1421,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Le Bot Haut", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.401698", 
                     "lon": "-4.458463"
@@ -1288,6 +1429,7 @@
                   "label": "Le Bot Haut (Brest)", 
                   "administrative_regions": [
                     {
+                      "insee": "29019", 
                       "name": "Brest", 
                       "level": 8, 
                       "coord": {
@@ -1317,6 +1459,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Le Bot Haut", 
+                "links": [], 
                 "coord": {
                   "lat": "48.401698", 
                   "lon": "-4.458463"
@@ -1324,6 +1467,7 @@
                 "label": "Le Bot Haut (Brest)", 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -1344,10 +1488,13 @@
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
-            "id": "section_13_0"
+            "id": "section_5_0"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }
