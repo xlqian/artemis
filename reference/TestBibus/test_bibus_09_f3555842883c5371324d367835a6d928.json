@@ -15,24 +15,24 @@
             "departure_date_time": "20041214T060000"
           }, 
           {
-            "duration": 780, 
-            "arrival_date_time": "20041214T061300", 
+            "duration": 660, 
+            "arrival_date_time": "20041214T061100", 
             "departure_date_time": "20041214T060000"
           }, 
           {
-            "duration": 145, 
-            "arrival_date_time": "20041214T061525", 
-            "departure_date_time": "20041214T061300"
+            "duration": 135, 
+            "arrival_date_time": "20041214T061315", 
+            "departure_date_time": "20041214T061100"
           }, 
           {
-            "duration": 215, 
-            "arrival_date_time": "20041214T061900", 
-            "departure_date_time": "20041214T061525"
+            "duration": 465, 
+            "arrival_date_time": "20041214T062100", 
+            "departure_date_time": "20041214T061315"
           }, 
           {
-            "duration": 660, 
+            "duration": 540, 
             "arrival_date_time": "20041214T063000", 
-            "departure_date_time": "20041214T061900"
+            "departure_date_time": "20041214T062100"
           }, 
           {
             "duration": 1067, 
@@ -47,7 +47,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -72,8 +72,6 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A180&datetime_represents=arrival&from=stop_area%3ABIB%3ASA%3A288&max_duration_to_pt=1200&walking_speed=0.83&datetime=20041214T064211", 
@@ -159,6 +157,43 @@
         ], 
         "nb_transfers": 1, 
         "arrival_date_time": "20041214T064311", 
+        "calendars": [
+          {
+            "exceptions": [
+              {
+                "type": "remove", 
+                "datetime": "20041111"
+              }, 
+              {
+                "type": "remove", 
+                "datetime": "20041217"
+              }
+            ], 
+            "active_periods": [
+              {
+                "begin": "20041104", 
+                "end": "20041220"
+              }, 
+              {
+                "begin": "20050103", 
+                "end": "20050214"
+              }, 
+              {
+                "begin": "20050228", 
+                "end": "20050326"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041214T060000", 
         "requested_date_time": "20041214T070000", 
         "type": "best", 
@@ -171,13 +206,27 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Palaren", 
+                "links": [], 
                 "coord": {
                   "lat": "48.396951", 
                   "lon": "-4.436042"
                 }, 
-                "label": "Palaren (Guipavas)", 
+                "label": "Palaren (Brest) (Guipavas)", 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
+                    "name": "Brest", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.38987538", 
+                      "lon": "-4.487201604"
+                    }, 
+                    "label": "Brest (29200)", 
+                    "id": "admin:29019", 
+                    "zip_code": "29200"
+                  }, 
+                  {
+                    "insee": "29075", 
                     "name": "Guipavas", 
                     "level": 8, 
                     "coord": {
@@ -192,7 +241,7 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:BIB:SA:288"
               }, 
-              "name": "Palaren (Guipavas)", 
+              "name": "Palaren (Brest) (Guipavas)", 
               "id": "stop_area:BIB:SA:288"
             }, 
             "links": [], 
@@ -204,44 +253,47 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Palaren", 
+                "links": [], 
                 "coord": {
                   "lat": "48.396741", 
                   "lon": "-4.436123"
                 }, 
-                "label": "Palaren (Guipavas)", 
+                "label": "Palaren (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
-                    "name": "Guipavas", 
+                    "insee": "29019", 
+                    "name": "Brest", 
                     "level": 8, 
                     "coord": {
-                      "lat": "48.43415357", 
-                      "lon": "-4.401862454"
+                      "lat": "48.38987538", 
+                      "lon": "-4.487201604"
                     }, 
-                    "label": "Guipavas (29490)", 
-                    "id": "admin:29075", 
-                    "zip_code": "29490"
+                    "label": "Brest (29200)", 
+                    "id": "admin:29019", 
+                    "zip_code": "29200"
                   }
                 ], 
                 "address": {
-                  "name": "Rue de Quimper", 
-                  "house_number": 0, 
+                  "name": "Rue de Verdun", 
+                  "house_number": 308, 
                   "coord": {
                     "lat": "48.396741", 
                     "lon": "-4.436123"
                   }, 
-                  "label": "Rue de Quimper (Guipavas)", 
+                  "label": "308 Rue de Verdun (Brest)", 
                   "administrative_regions": [
                     {
-                      "name": "Guipavas", 
+                      "insee": "29019", 
+                      "name": "Brest", 
                       "level": 8, 
                       "coord": {
-                        "lat": "48.43415357", 
-                        "lon": "-4.401862454"
+                        "lat": "48.38987538", 
+                        "lon": "-4.487201604"
                       }, 
-                      "label": "Guipavas (29490)", 
-                      "id": "admin:29075", 
-                      "zip_code": "29490"
+                      "label": "Brest (29200)", 
+                      "id": "admin:29019", 
+                      "zip_code": "29200"
                     }
                   ], 
                   "id": "-4.436123;48.396741"
@@ -250,13 +302,27 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Palaren", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.396951", 
                     "lon": "-4.436042"
                   }, 
-                  "label": "Palaren (Guipavas)", 
+                  "label": "Palaren (Brest) (Guipavas)", 
                   "administrative_regions": [
                     {
+                      "insee": "29019", 
+                      "name": "Brest", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "48.38987538", 
+                        "lon": "-4.487201604"
+                      }, 
+                      "label": "Brest (29200)", 
+                      "id": "admin:29019", 
+                      "zip_code": "29200"
+                    }, 
+                    {
+                      "insee": "29075", 
                       "name": "Guipavas", 
                       "level": 8, 
                       "coord": {
@@ -274,7 +340,7 @@
               }, 
               "quality": 0, 
               "id": "stop_point:BIB:SP:Nav280", 
-              "name": "Palaren (Guipavas)"
+              "name": "Palaren (Brest)"
             }, 
             "mode": "walking", 
             "duration": 0, 
@@ -287,51 +353,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Palaren", 
+                "links": [], 
                 "coord": {
                   "lat": "48.396741", 
                   "lon": "-4.436123"
                 }, 
-                "label": "Palaren (Guipavas)", 
+                "label": "Palaren (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
-                    "name": "Guipavas", 
+                    "insee": "29019", 
+                    "name": "Brest", 
                     "level": 8, 
                     "coord": {
-                      "lat": "48.43415357", 
-                      "lon": "-4.401862454"
+                      "lat": "48.38987538", 
+                      "lon": "-4.487201604"
                     }, 
-                    "label": "Guipavas (29490)", 
-                    "id": "admin:29075", 
-                    "zip_code": "29490"
+                    "label": "Brest (29200)", 
+                    "id": "admin:29019", 
+                    "zip_code": "29200"
                   }
                 ], 
                 "address": {
-                  "house_number": 0, 
+                  "house_number": 308, 
                   "id": "-4.436123;48.396741", 
-                  "name": "Rue de Quimper", 
+                  "name": "Rue de Verdun", 
                   "coord": {
                     "lat": "48.396741", 
                     "lon": "-4.436123"
                   }, 
-                  "label": "Rue de Quimper (Guipavas)"
+                  "label": "308 Rue de Verdun (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav280", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Palaren", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.396951", 
                     "lon": "-4.436042"
                   }, 
-                  "label": "Palaren (Guipavas)", 
+                  "label": "Palaren (Brest) (Guipavas)", 
                   "timezone": "Europe/Paris", 
                   "id": "stop_area:BIB:SA:288"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:BIB:SP:Nav280", 
-              "name": "Palaren (Guipavas)"
+              "name": "Palaren (Brest)"
             }, 
             "links": [
               {
@@ -359,19 +428,21 @@
                 "id": "network:BIB:1001"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
                 "templated": false
               }
             ], 
-            "arrival_date_time": "20041214T061300", 
+            "arrival_date_time": "20041214T061100", 
             "additional_informations": [], 
             "departure_date_time": "20041214T060000", 
             "display_informations": {
               "direction": "Provence (Brest)", 
               "code": "03", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "BIB:2107-512017_dst_1", 
@@ -384,15 +455,17 @@
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
-                "name": "Saint Martin", 
+                "name": "Ferry", 
+                "links": [], 
                 "coord": {
-                  "lat": "48.394372", 
-                  "lon": "-4.479828"
+                  "lat": "48.398065", 
+                  "lon": "-4.474184"
                 }, 
-                "label": "Saint Martin (Brest)", 
+                "label": "Ferry (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -405,37 +478,38 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 91, 
-                  "id": "-4.479828;48.394372", 
+                  "house_number": 184, 
+                  "id": "-4.474184;48.398065", 
                   "name": "Rue Jean Jaur\u00e8s", 
                   "coord": {
-                    "lat": "48.394372", 
-                    "lon": "-4.479828"
+                    "lat": "48.398065", 
+                    "lon": "-4.474184"
                   }, 
-                  "label": "91 Rue Jean Jaur\u00e8s (Brest)"
+                  "label": "184 Rue Jean Jaur\u00e8s (Brest)"
                 }, 
-                "id": "stop_point:BIB:SP:Nav310", 
+                "id": "stop_point:BIB:SP:Nav308", 
                 "stop_area": {
                   "comment": "", 
-                  "name": "Saint Martin", 
+                  "name": "Ferry", 
+                  "links": [], 
                   "coord": {
-                    "lat": "48.394546", 
-                    "lon": "-4.479315"
+                    "lat": "48.398223", 
+                    "lon": "-4.473704"
                   }, 
-                  "label": "Saint Martin (Brest)", 
+                  "label": "Ferry (Brest)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:BIB:SA:54"
+                  "id": "stop_area:BIB:SA:156"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:BIB:SP:Nav310", 
-              "name": "Saint Martin (Brest)"
+              "id": "stop_point:BIB:SP:Nav308", 
+              "name": "Ferry (Brest)"
             }, 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 3919
+                  "length": 3335
                 }
               ], 
               "coordinates": [
@@ -494,18 +568,10 @@
                 [
                   -4.474184, 
                   48.398065
-                ], 
-                [
-                  -4.476519, 
-                  48.39654
-                ], 
-                [
-                  -4.479828, 
-                  48.394372
                 ]
               ]
             }, 
-            "duration": 780, 
+            "duration": 660, 
             "type": "public_transport", 
             "id": "section_1_0", 
             "stop_date_times": [
@@ -513,11 +579,12 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Palaren", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.396741", 
                     "lon": "-4.436123"
                   }, 
-                  "label": "Palaren (Guipavas)", 
+                  "label": "Palaren (Brest)", 
                   "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav280"
                 }, 
@@ -530,6 +597,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Landelle", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.3966", 
                     "lon": "-4.440292"
@@ -547,6 +615,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Le Goffic", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.397522", 
                     "lon": "-4.444192"
@@ -564,6 +633,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Bernard", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.398093", 
                     "lon": "-4.446652"
@@ -581,6 +651,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Kerisbian", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.398975", 
                     "lon": "-4.44888"
@@ -598,6 +669,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Saint Marc", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.398637", 
                     "lon": "-4.454433"
@@ -615,6 +687,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Dixmude", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.398854", 
                     "lon": "-4.459123"
@@ -632,6 +705,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Brazza", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.396776", 
                     "lon": "-4.461197"
@@ -649,6 +723,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Maleyssie", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.396412", 
                     "lon": "-4.461095"
@@ -666,6 +741,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "D'estrees", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.395032", 
                     "lon": "-4.462013"
@@ -683,6 +759,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Rodin", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.396977", 
                     "lon": "-4.464435"
@@ -700,6 +777,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Douric", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.398077", 
                     "lon": "-4.465852"
@@ -717,6 +795,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Poul - Ar - Bachet", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.39706", 
                     "lon": "-4.471113"
@@ -734,6 +813,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Ferry", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.398065", 
                     "lon": "-4.474184"
@@ -746,40 +826,6 @@
                 "additional_informations": [], 
                 "departure_date_time": "20041214T061100", 
                 "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Octroi", 
-                  "coord": {
-                    "lat": "48.39654", 
-                    "lon": "-4.476519"
-                  }, 
-                  "label": "Octroi (Brest)", 
-                  "equipments": [], 
-                  "id": "stop_point:BIB:SP:Nav309"
-                }, 
-                "arrival_date_time": "20041214T061200", 
-                "additional_informations": [], 
-                "departure_date_time": "20041214T061200", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Saint Martin", 
-                  "coord": {
-                    "lat": "48.394372", 
-                    "lon": "-4.479828"
-                  }, 
-                  "label": "Saint Martin (Brest)", 
-                  "equipments": [], 
-                  "id": "stop_point:BIB:SP:Nav310"
-                }, 
-                "arrival_date_time": "20041214T061300", 
-                "additional_informations": [], 
-                "departure_date_time": "20041214T061300", 
-                "links": []
               }
             ]
           }, 
@@ -788,15 +834,17 @@
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
-                "name": "Saint Martin", 
+                "name": "Ferry", 
+                "links": [], 
                 "coord": {
-                  "lat": "48.394372", 
-                  "lon": "-4.479828"
+                  "lat": "48.398065", 
+                  "lon": "-4.474184"
                 }, 
-                "label": "Saint Martin (Brest)", 
+                "label": "Ferry (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -809,49 +857,52 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 91, 
-                  "id": "-4.479828;48.394372", 
+                  "house_number": 184, 
+                  "id": "-4.474184;48.398065", 
                   "name": "Rue Jean Jaur\u00e8s", 
                   "coord": {
-                    "lat": "48.394372", 
-                    "lon": "-4.479828"
+                    "lat": "48.398065", 
+                    "lon": "-4.474184"
                   }, 
-                  "label": "91 Rue Jean Jaur\u00e8s (Brest)"
+                  "label": "184 Rue Jean Jaur\u00e8s (Brest)"
                 }, 
-                "id": "stop_point:BIB:SP:Nav310", 
+                "id": "stop_point:BIB:SP:Nav308", 
                 "stop_area": {
                   "comment": "", 
-                  "name": "Saint Martin", 
+                  "name": "Ferry", 
+                  "links": [], 
                   "coord": {
-                    "lat": "48.394546", 
-                    "lon": "-4.479315"
+                    "lat": "48.398223", 
+                    "lon": "-4.473704"
                   }, 
-                  "label": "Saint Martin (Brest)", 
+                  "label": "Ferry (Brest)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:BIB:SA:54"
+                  "id": "stop_area:BIB:SA:156"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:BIB:SP:Nav310", 
-              "name": "Saint Martin (Brest)"
+              "id": "stop_point:BIB:SP:Nav308", 
+              "name": "Ferry (Brest)"
             }, 
             "links": [], 
-            "arrival_date_time": "20041214T061525", 
+            "arrival_date_time": "20041214T061315", 
             "additional_informations": [], 
-            "departure_date_time": "20041214T061300", 
+            "departure_date_time": "20041214T061100", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
-                "name": "Saint Martin", 
+                "name": "Ferry", 
+                "links": [], 
                 "coord": {
-                  "lat": "48.39472", 
-                  "lon": "-4.478802"
+                  "lat": "48.398382", 
+                  "lon": "-4.473223"
                 }, 
-                "label": "Saint Martin (Brest)", 
+                "label": "Ferry (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -864,61 +915,62 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 103, 
-                  "id": "-4.478802;48.39472", 
+                  "house_number": 195, 
+                  "id": "-4.473223;48.398382", 
                   "name": "Rue Jean Jaur\u00e8s", 
                   "coord": {
-                    "lat": "48.39472", 
-                    "lon": "-4.478802"
+                    "lat": "48.398382", 
+                    "lon": "-4.473223"
                   }, 
-                  "label": "103 Rue Jean Jaur\u00e8s (Brest)"
+                  "label": "195 Rue Jean Jaur\u00e8s (Brest)"
                 }, 
-                "id": "stop_point:BIB:SP:Nav356", 
+                "id": "stop_point:BIB:SP:Nav358", 
                 "stop_area": {
                   "comment": "", 
-                  "name": "Saint Martin", 
+                  "name": "Ferry", 
+                  "links": [], 
                   "coord": {
-                    "lat": "48.394546", 
-                    "lon": "-4.479315"
+                    "lat": "48.398223", 
+                    "lon": "-4.473704"
                   }, 
-                  "label": "Saint Martin (Brest)", 
+                  "label": "Ferry (Brest)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:BIB:SA:54"
+                  "id": "stop_area:BIB:SA:156"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:BIB:SP:Nav356", 
-              "name": "Saint Martin (Brest)"
+              "id": "stop_point:BIB:SP:Nav358", 
+              "name": "Ferry (Brest)"
             }, 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 85
+                  "length": 79
                 }
               ], 
               "coordinates": [
                 [
-                  -4.479828, 
-                  48.394372
+                  -4.474184, 
+                  48.398065
                 ], 
                 [
-                  -4.478802, 
-                  48.39472
+                  -4.473223, 
+                  48.398382
                 ]
               ]
             }, 
-            "duration": 145, 
+            "duration": 135, 
             "transfer_type": "walking", 
             "type": "transfer", 
             "id": "section_2_0"
           }, 
           {
             "links": [], 
-            "arrival_date_time": "20041214T061900", 
+            "arrival_date_time": "20041214T062100", 
             "additional_informations": [], 
-            "departure_date_time": "20041214T061525", 
-            "duration": 215, 
+            "departure_date_time": "20041214T061315", 
+            "duration": 465, 
             "type": "waiting", 
             "id": "section_3_0"
           }, 
@@ -927,15 +979,17 @@
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
-                "name": "Saint Martin", 
+                "name": "Ferry", 
+                "links": [], 
                 "coord": {
-                  "lat": "48.39472", 
-                  "lon": "-4.478802"
+                  "lat": "48.398382", 
+                  "lon": "-4.473223"
                 }, 
-                "label": "Saint Martin (Brest)", 
+                "label": "Ferry (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -948,31 +1002,32 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 103, 
-                  "id": "-4.478802;48.39472", 
+                  "house_number": 195, 
+                  "id": "-4.473223;48.398382", 
                   "name": "Rue Jean Jaur\u00e8s", 
                   "coord": {
-                    "lat": "48.39472", 
-                    "lon": "-4.478802"
+                    "lat": "48.398382", 
+                    "lon": "-4.473223"
                   }, 
-                  "label": "103 Rue Jean Jaur\u00e8s (Brest)"
+                  "label": "195 Rue Jean Jaur\u00e8s (Brest)"
                 }, 
-                "id": "stop_point:BIB:SP:Nav356", 
+                "id": "stop_point:BIB:SP:Nav358", 
                 "stop_area": {
                   "comment": "", 
-                  "name": "Saint Martin", 
+                  "name": "Ferry", 
+                  "links": [], 
                   "coord": {
-                    "lat": "48.394546", 
-                    "lon": "-4.479315"
+                    "lat": "48.398223", 
+                    "lon": "-4.473704"
                   }, 
-                  "label": "Saint Martin (Brest)", 
+                  "label": "Ferry (Brest)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:BIB:SA:54"
+                  "id": "stop_area:BIB:SA:156"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:BIB:SP:Nav356", 
-              "name": "Saint Martin (Brest)"
+              "id": "stop_point:BIB:SP:Nav358", 
+              "name": "Ferry (Brest)"
             }, 
             "links": [
               {
@@ -1000,6 +1055,7 @@
                 "id": "network:BIB:1001"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -1008,11 +1064,12 @@
             ], 
             "arrival_date_time": "20041214T063000", 
             "additional_informations": [], 
-            "departure_date_time": "20041214T061900", 
+            "departure_date_time": "20041214T062100", 
             "display_informations": {
               "direction": "Villeneuve (Brest)", 
               "code": "04", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "BIB:2093-383024_dst_1", 
@@ -1026,6 +1083,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Coat-ar-piquet", 
+                "links": [], 
                 "coord": {
                   "lat": "48.420128", 
                   "lon": "-4.46733"
@@ -1034,6 +1092,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -1046,19 +1105,20 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 197, 
+                  "house_number": 180, 
                   "id": "-4.46733;48.420128", 
                   "name": "Route de Gouesnou", 
                   "coord": {
                     "lat": "48.420128", 
                     "lon": "-4.46733"
                   }, 
-                  "label": "197 Route de Gouesnou (Brest)"
+                  "label": "180 Route de Gouesnou (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav601", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Coat-ar-piquet", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.415661", 
                     "lon": "-4.466544"
@@ -1076,18 +1136,10 @@
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 4268
+                  "length": 3690
                 }
               ], 
               "coordinates": [
-                [
-                  -4.478802, 
-                  48.39472
-                ], 
-                [
-                  -4.475912, 
-                  48.396557
-                ], 
                 [
                   -4.473223, 
                   48.398382
@@ -1142,48 +1194,15 @@
                 ]
               ]
             }, 
-            "duration": 660, 
+            "duration": 540, 
             "type": "public_transport", 
             "id": "section_4_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
-                  "name": "Saint Martin", 
-                  "coord": {
-                    "lat": "48.39472", 
-                    "lon": "-4.478802"
-                  }, 
-                  "label": "Saint Martin (Brest)", 
-                  "equipments": [], 
-                  "id": "stop_point:BIB:SP:Nav356"
-                }, 
-                "arrival_date_time": "20041214T061900", 
-                "additional_informations": [], 
-                "departure_date_time": "20041214T061900", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Octroi", 
-                  "coord": {
-                    "lat": "48.396557", 
-                    "lon": "-4.475912"
-                  }, 
-                  "label": "Octroi (Brest)", 
-                  "equipments": [], 
-                  "id": "stop_point:BIB:SP:Nav357"
-                }, 
-                "arrival_date_time": "20041214T062000", 
-                "additional_informations": [], 
-                "departure_date_time": "20041214T062000", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
                   "name": "Ferry", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.398382", 
                     "lon": "-4.473223"
@@ -1201,6 +1220,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Inkermann", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.400557", 
                     "lon": "-4.469942"
@@ -1218,6 +1238,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Strasbourg", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.402262", 
                     "lon": "-4.467305"
@@ -1235,6 +1256,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Pen Ar Creach", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.403756", 
                     "lon": "-4.464871"
@@ -1252,6 +1274,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Coq Hardi", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.405623", 
                     "lon": "-4.462227"
@@ -1269,6 +1292,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Kerbernard", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.407341", 
                     "lon": "-4.45951"
@@ -1286,6 +1310,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Pont Neuf", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.408946", 
                     "lon": "-4.457035"
@@ -1303,6 +1328,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Eau Blanche", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.412268", 
                     "lon": "-4.457793"
@@ -1320,6 +1346,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Reaumur", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.414004", 
                     "lon": "-4.460391"
@@ -1337,6 +1364,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Maupertuis", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.415343", 
                     "lon": "-4.461596"
@@ -1354,6 +1382,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Clairaut", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.414893", 
                     "lon": "-4.463448"
@@ -1371,6 +1400,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Lagrange", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.413018", 
                     "lon": "-4.465278"
@@ -1388,6 +1418,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Coat-ar-piquet", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.420128", 
                     "lon": "-4.46733"
@@ -1409,6 +1440,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Coat-ar-piquet", 
+                "links": [], 
                 "coord": {
                   "lat": "48.420128", 
                   "lon": "-4.46733"
@@ -1417,6 +1449,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -1428,6 +1461,7 @@
                     "zip_code": "29200"
                   }, 
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -1441,14 +1475,15 @@
                 ], 
                 "address": {
                   "name": "Route de Gouesnou", 
-                  "house_number": 197, 
+                  "house_number": 180, 
                   "coord": {
                     "lat": "48.420128", 
                     "lon": "-4.46733"
                   }, 
-                  "label": "197 Route de Gouesnou (Brest)", 
+                  "label": "180 Route de Gouesnou (Brest)", 
                   "administrative_regions": [
                     {
+                      "insee": "29019", 
                       "name": "Brest", 
                       "level": 8, 
                       "coord": {
@@ -1466,6 +1501,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Coat-ar-piquet", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.415661", 
                     "lon": "-4.466544"
@@ -1473,6 +1509,7 @@
                   "label": "Coat-ar-piquet (Brest)", 
                   "administrative_regions": [
                     {
+                      "insee": "29019", 
                       "name": "Brest", 
                       "level": 8, 
                       "coord": {
@@ -1501,6 +1538,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Kerguen", 
+                "links": [], 
                 "coord": {
                   "lat": "48.424201", 
                   "lon": "-4.460086"
@@ -1508,6 +1546,7 @@
                 "label": "Kerguen (Brest)", 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -1524,14 +1563,15 @@
               }, 
               "address": {
                 "name": "Rue Charles Le Gros", 
-                "house_number": 1, 
+                "house_number": 27, 
                 "coord": {
                   "lat": "48.42422480394026", 
                   "lon": "-4.460257615120766"
                 }, 
-                "label": "1 Rue Charles Le Gros (Brest)", 
+                "label": "27 Rue Charles Le Gros (Brest)", 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -1658,6 +1698,9 @@
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }
