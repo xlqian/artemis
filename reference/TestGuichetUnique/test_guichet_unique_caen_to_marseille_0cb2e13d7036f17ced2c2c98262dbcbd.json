@@ -59,8 +59,55 @@
     ]
   }, 
   "full_response": {
-    "exceptions": [], 
-    "notes": [], 
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unknown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_4_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_7_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_10_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_13_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/guichet-unique/journeys?to=admin%3A76469extern&datetime_represents=arrival&from=admin%3A149197extern&max_duration_to_pt=240&walking_speed=0.83&datetime=20120924T132400", 
@@ -138,6 +185,25 @@
         ], 
         "nb_transfers": 2, 
         "arrival_date_time": "20120924T132500", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20120914", 
+                "end": "20121027"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20120924T070800", 
         "requested_date_time": "20120924T070000", 
         "type": "best", 
@@ -148,6 +214,7 @@
               "embedded_type": "administrative_region", 
               "quality": 0, 
               "administrative_region": {
+                "insee": "14118", 
                 "name": "Caen", 
                 "level": 8, 
                 "coord": {
@@ -170,6 +237,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "gare de Caen", 
+                "links": [], 
                 "coord": {
                   "lat": "49.176551", 
                   "lon": "-0.348254"
@@ -178,6 +246,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "14118", 
                     "name": "Caen", 
                     "level": 8, 
                     "coord": {
@@ -203,6 +272,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "gare de Caen", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.176551", 
                     "lon": "-0.348254"
@@ -210,6 +280,7 @@
                   "label": "gare de Caen (Caen)", 
                   "administrative_regions": [
                     {
+                      "insee": "14118", 
                       "name": "Caen", 
                       "level": 8, 
                       "coord": {
@@ -232,7 +303,7 @@
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
-            "id": "section_20_0"
+            "id": "section_6_0"
           }, 
           {
             "from": {
@@ -240,6 +311,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "gare de Caen", 
+                "links": [], 
                 "coord": {
                   "lat": "49.176551", 
                   "lon": "-0.348254"
@@ -248,6 +320,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "14118", 
                     "name": "Caen", 
                     "level": 8, 
                     "coord": {
@@ -273,6 +346,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "gare de Caen", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.176551", 
                     "lon": "-0.348254"
@@ -310,6 +384,13 @@
               {
                 "type": "network", 
                 "id": "network:SNC"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
               }
             ], 
             "arrival_date_time": "20120924T085800", 
@@ -319,6 +400,7 @@
               "direction": "gare de Paris-St-Lazare (Paris)", 
               "code": "", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "INTERCIT\u00c9S", 
               "headsign": "3300", 
@@ -332,6 +414,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "gare de Paris-St-Lazare", 
+                "links": [], 
                 "coord": {
                   "lat": "48.877868", 
                   "lon": "2.324451"
@@ -340,6 +423,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "75056", 
                     "name": "Paris", 
                     "level": 8, 
                     "coord": {
@@ -351,6 +435,7 @@
                     "zip_code": "75001-75116"
                   }, 
                   {
+                    "insee": "75108", 
                     "name": "8e Arrondissement", 
                     "level": 9, 
                     "coord": {
@@ -376,6 +461,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "gare de Paris-St-Lazare", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.877868", 
                     "lon": "2.324451"
@@ -409,12 +495,13 @@
             }, 
             "duration": 6600, 
             "type": "public_transport", 
-            "id": "section_21_0", 
+            "id": "section_7_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
                   "name": "gare de Caen", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.176551", 
                     "lon": "-0.348254"
@@ -432,6 +519,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "gare de Paris-St-Lazare", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.877868", 
                     "lon": "2.324451"
@@ -453,6 +541,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "gare de Paris-St-Lazare", 
+                "links": [], 
                 "coord": {
                   "lat": "48.877868", 
                   "lon": "2.324451"
@@ -461,6 +550,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "75056", 
                     "name": "Paris", 
                     "level": 8, 
                     "coord": {
@@ -472,6 +562,7 @@
                     "zip_code": "75001-75116"
                   }, 
                   {
+                    "insee": "75108", 
                     "name": "8e Arrondissement", 
                     "level": 9, 
                     "coord": {
@@ -497,6 +588,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "gare de Paris-St-Lazare", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.877868", 
                     "lon": "2.324451"
@@ -519,6 +611,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Saint-Lazare", 
+                "links": [], 
                 "coord": {
                   "lat": "48.875433", 
                   "lon": "2.325024"
@@ -527,6 +620,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "75056", 
                     "name": "Paris", 
                     "level": 8, 
                     "coord": {
@@ -538,6 +632,7 @@
                     "zip_code": "75001-75116"
                   }, 
                   {
+                    "insee": "75108", 
                     "name": "8e Arrondissement", 
                     "level": 9, 
                     "coord": {
@@ -563,6 +658,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "gare de Paris-St-Lazare", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.877868", 
                     "lon": "2.324451"
@@ -597,7 +693,7 @@
             "duration": 465, 
             "transfer_type": "walking", 
             "type": "transfer", 
-            "id": "section_22_0"
+            "id": "section_8_0"
           }, 
           {
             "links": [], 
@@ -606,7 +702,7 @@
             "departure_date_time": "20120924T090545", 
             "duration": 1815, 
             "type": "waiting", 
-            "id": "section_23_0"
+            "id": "section_9_0"
           }, 
           {
             "from": {
@@ -614,6 +710,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Saint-Lazare", 
+                "links": [], 
                 "coord": {
                   "lat": "48.875433", 
                   "lon": "2.325024"
@@ -622,6 +719,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "75056", 
                     "name": "Paris", 
                     "level": 8, 
                     "coord": {
@@ -633,6 +731,7 @@
                     "zip_code": "75001-75116"
                   }, 
                   {
+                    "insee": "75108", 
                     "name": "8e Arrondissement", 
                     "level": 9, 
                     "coord": {
@@ -658,6 +757,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "gare de Paris-St-Lazare", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.877868", 
                     "lon": "2.324451"
@@ -695,6 +795,13 @@
               {
                 "type": "network", 
                 "id": "network:RAT"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
               }
             ], 
             "arrival_date_time": "20120924T094500", 
@@ -704,6 +811,7 @@
               "direction": "Olympiades (Paris)", 
               "code": "14", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "M\u00e9tro", 
               "headsign": "RAT:A424843422_dst_1", 
@@ -717,6 +825,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Bercy", 
+                "links": [], 
                 "coord": {
                   "lat": "48.838279", 
                   "lon": "2.382218"
@@ -725,6 +834,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "75056", 
                     "name": "Paris", 
                     "level": 8, 
                     "coord": {
@@ -736,6 +846,7 @@
                     "zip_code": "75001-75116"
                   }, 
                   {
+                    "insee": "75112", 
                     "name": "12e Arrondissement", 
                     "level": 9, 
                     "coord": {
@@ -761,6 +872,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "gare de Paris-Bercy", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.839214", 
                     "lon": "2.382817"
@@ -802,12 +914,13 @@
             }, 
             "duration": 540, 
             "type": "public_transport", 
-            "id": "section_24_0", 
+            "id": "section_10_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
                   "name": "Saint-Lazare", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.875433", 
                     "lon": "2.325024"
@@ -825,6 +938,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Chatelet", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.857476", 
                     "lon": "2.347829"
@@ -842,6 +956,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Gare de Lyon", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.844897", 
                     "lon": "2.373427"
@@ -859,6 +974,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Bercy", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.838279", 
                     "lon": "2.382218"
@@ -880,6 +996,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Bercy", 
+                "links": [], 
                 "coord": {
                   "lat": "48.838279", 
                   "lon": "2.382218"
@@ -888,6 +1005,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "75056", 
                     "name": "Paris", 
                     "level": 8, 
                     "coord": {
@@ -899,6 +1017,7 @@
                     "zip_code": "75001-75116"
                   }, 
                   {
+                    "insee": "75112", 
                     "name": "12e Arrondissement", 
                     "level": 9, 
                     "coord": {
@@ -924,6 +1043,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "gare de Paris-Bercy", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.839214", 
                     "lon": "2.382817"
@@ -946,6 +1066,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "gare de Paris-Gare-de-Lyon", 
+                "links": [], 
                 "coord": {
                   "lat": "48.844924", 
                   "lon": "2.373481"
@@ -954,6 +1075,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "75056", 
                     "name": "Paris", 
                     "level": 8, 
                     "coord": {
@@ -965,6 +1087,7 @@
                     "zip_code": "75001-75116"
                   }, 
                   {
+                    "insee": "75112", 
                     "name": "12e Arrondissement", 
                     "level": 9, 
                     "coord": {
@@ -990,6 +1113,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "gare de Paris-Gare-de-Lyon", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.844924", 
                     "lon": "2.373481"
@@ -1024,7 +1148,7 @@
             "duration": 1692, 
             "transfer_type": "walking", 
             "type": "transfer", 
-            "id": "section_25_0"
+            "id": "section_11_0"
           }, 
           {
             "links": [], 
@@ -1033,7 +1157,7 @@
             "departure_date_time": "20120924T101312", 
             "duration": 348, 
             "type": "waiting", 
-            "id": "section_26_0"
+            "id": "section_12_0"
           }, 
           {
             "from": {
@@ -1041,6 +1165,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "gare de Paris-Gare-de-Lyon", 
+                "links": [], 
                 "coord": {
                   "lat": "48.844924", 
                   "lon": "2.373481"
@@ -1049,6 +1174,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "75056", 
                     "name": "Paris", 
                     "level": 8, 
                     "coord": {
@@ -1060,6 +1186,7 @@
                     "zip_code": "75001-75116"
                   }, 
                   {
+                    "insee": "75112", 
                     "name": "12e Arrondissement", 
                     "level": 9, 
                     "coord": {
@@ -1085,6 +1212,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "gare de Paris-Gare-de-Lyon", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.844924", 
                     "lon": "2.373481"
@@ -1122,6 +1250,13 @@
               {
                 "type": "network", 
                 "id": "network:SNC"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
               }
             ], 
             "arrival_date_time": "20120924T132500", 
@@ -1131,6 +1266,7 @@
               "direction": "gare de Hy\u00e8res (Hy\u00e8res)", 
               "code": "", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "TGV", 
               "headsign": "6109", 
@@ -1144,6 +1280,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "gare de Marseille-St-Charles", 
+                "links": [], 
                 "coord": {
                   "lat": "43.30273", 
                   "lon": "5.380659"
@@ -1152,6 +1289,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "13201", 
                     "name": "Marseille 1er Arrondissement", 
                     "level": 9, 
                     "coord": {
@@ -1163,6 +1301,7 @@
                     "zip_code": "13001"
                   }, 
                   {
+                    "insee": "13055", 
                     "name": "Marseille", 
                     "level": 8, 
                     "coord": {
@@ -1188,6 +1327,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "gare de Marseille-St-Charles", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.30273", 
                     "lon": "5.380659"
@@ -1221,12 +1361,13 @@
             }, 
             "duration": 11160, 
             "type": "public_transport", 
-            "id": "section_27_0", 
+            "id": "section_13_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
                   "name": "gare de Paris-Gare-de-Lyon", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.844924", 
                     "lon": "2.373481"
@@ -1244,6 +1385,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "gare de Marseille-St-Charles", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.30273", 
                     "lon": "5.380659"
@@ -1265,6 +1407,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "gare de Marseille-St-Charles", 
+                "links": [], 
                 "coord": {
                   "lat": "43.30273", 
                   "lon": "5.380659"
@@ -1273,6 +1416,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "13201", 
                     "name": "Marseille 1er Arrondissement", 
                     "level": 9, 
                     "coord": {
@@ -1284,6 +1428,7 @@
                     "zip_code": "13001"
                   }, 
                   {
+                    "insee": "13055", 
                     "name": "Marseille", 
                     "level": 8, 
                     "coord": {
@@ -1309,6 +1454,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "gare de Marseille-St-Charles", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.30273", 
                     "lon": "5.380659"
@@ -1316,6 +1462,7 @@
                   "label": "gare de Marseille-St-Charles (Marseille)", 
                   "administrative_regions": [
                     {
+                      "insee": "13201", 
                       "name": "Marseille 1er Arrondissement", 
                       "level": 9, 
                       "coord": {
@@ -1327,6 +1474,7 @@
                       "zip_code": "13001"
                     }, 
                     {
+                      "insee": "13055", 
                       "name": "Marseille", 
                       "level": 8, 
                       "coord": {
@@ -1354,6 +1502,7 @@
               "embedded_type": "administrative_region", 
               "quality": 0, 
               "administrative_region": {
+                "insee": "13055", 
                 "name": "Marseille", 
                 "level": 8, 
                 "coord": {
@@ -1370,10 +1519,13 @@
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
-            "id": "section_28_0"
+            "id": "section_14_0"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }
