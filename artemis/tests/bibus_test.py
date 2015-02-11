@@ -1,10 +1,12 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
-
+import pytest
+xfail = pytest.mark.xfail
 
 @dataset([DataSet("bibus")])
 class TestBibus(ArtemisTestFixture):
     """
     """
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1572", raises=AssertionError)
     def test_bibus_01(self):
         self.journey(_from="stop_area:BIB:SA:527",
                      to="stop_area:BIB:SA:9", datetime="20041214T070000",
@@ -15,11 +17,13 @@ class TestBibus(ArtemisTestFixture):
                      to="stop_area:BIB:SA:123", datetime="20041215T080000",
                      datetime_represents="arrival", walking_speed="0.83", max_duration_to_pt="1200")
 
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1573", raises=AssertionError)
     def test_bibus_03(self):
         self.journey(_from="stop_area:BIB:SA:1202",
                      to="stop_area:BIB:SA:236", datetime="20041215T160000",
                      datetime_represents="arrival", walking_speed="0.83", max_duration_to_pt="1200")
 
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1573", raises=AssertionError)
     def test_bibus_04(self):
         """
         test_bibus_03 with different walking speed
@@ -38,6 +42,7 @@ class TestBibus(ArtemisTestFixture):
                      to="stop_area:BIB:SA:470", datetime="20041217T070000",
                      walking_speed="0.83", max_duration_to_pt="1200")
 
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1573", raises=AssertionError)
     def test_bibus_07(self):
         self.journey(_from="stop_area:BIB:SA:1204",
                      to="stop_area:BIB:SA:236", datetime="20041214T080000",
