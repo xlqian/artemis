@@ -15,7 +15,7 @@ class TestFreqSimple(ArtemisTestFixture):
         self.journey(_from="stop_area:FQS:SA:GRA",
                      to="stop_area:FQS:SA:MBC", datetime="20070417T0500")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1460", raises=AssertionError)
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1582", raises=AssertionError)
     def test_freqsimple_03(self):
         self.journey(_from="stop_area:FQS:SA:MBC",
                      to="stop_area:FQS:SA:GRA", datetime="20070417T0100")
