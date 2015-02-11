@@ -3,27 +3,26 @@
   "response": {
     "journeys": [
       {
-        "tags": [], 
         "nb_transfers": 1, 
         "arrival_date_time": "20090922T073000", 
-        "departure_date_time": "20090922T070300", 
+        "departure_date_time": "20090922T070000", 
         "type": "best", 
-        "duration": 1620, 
+        "duration": 1800, 
         "sections": [
           {
             "duration": 0, 
-            "arrival_date_time": "20090922T070300", 
-            "departure_date_time": "20090922T070300"
+            "arrival_date_time": "20090922T070000", 
+            "departure_date_time": "20090922T070000"
           }, 
           {
             "duration": 1140, 
-            "arrival_date_time": "20090922T072200", 
-            "departure_date_time": "20090922T070300"
+            "arrival_date_time": "20090922T071900", 
+            "departure_date_time": "20090922T070000"
           }, 
           {
-            "duration": 120, 
+            "duration": 300, 
             "arrival_date_time": "20090922T072400", 
-            "departure_date_time": "20090922T072200"
+            "departure_date_time": "20090922T071900"
           }, 
           {
             "duration": 360, 
@@ -43,7 +42,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -68,57 +67,65 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/freqparis/journeys?to=stop_area%3AFQP%3ASA%3Agrest&from=stop_area%3AFQP%3ASA%3Adefen&datetime_represents=arrival&datetime=20090922T072900", 
         "type": "prev", 
+        "rel": "prev", 
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqparis/journeys?to=stop_area%3AFQP%3ASA%3Agrest&from=stop_area%3AFQP%3ASA%3Adefen&datetime_represents=departure&datetime=20090922T070400", 
+        "href": "http://localhost/v1/coverage/freqparis/journeys?to=stop_area%3AFQP%3ASA%3Agrest&from=stop_area%3AFQP%3ASA%3Adefen&datetime_represents=departure&datetime=20090922T070100", 
         "type": "next", 
+        "rel": "next", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/freqparis/journeys?to=stop_area%3AFQP%3ASA%3Agrest&from=stop_area%3AFQP%3ASA%3Adefen&datetime_represents=departure&datetime=20090922T000000", 
         "type": "first", 
+        "rel": "first", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/freqparis/journeys?to=stop_area%3AFQP%3ASA%3Agrest&from=stop_area%3AFQP%3ASA%3Adefen&datetime_represents=arrival&datetime=20090922T235900", 
         "type": "last", 
+        "rel": "last", 
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqparis/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "href": "http://localhost/v1/coverage/freqparis/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqparis/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "href": "http://localhost/v1/coverage/freqparis/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqparis/addresses/{address.id}", 
-        "rel": "address", 
+        "href": "http://localhost/v1/coverage/freqparis/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqparis/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "href": "http://localhost/v1/coverage/freqparis/stop_points/{stop_point.id}?collection=stop_points", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqparis/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "href": "http://localhost/v1/coverage/freqparis/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqparis/addresses/{address.id}", 
-        "rel": "address", 
+        "href": "http://localhost/v1/coverage/freqparis/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -140,13 +147,34 @@
             }
           ]
         }, 
-        "tags": [], 
+        "tags": [
+          "standard"
+        ], 
         "nb_transfers": 1, 
         "arrival_date_time": "20090922T073000", 
-        "departure_date_time": "20090922T070300", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20090902", 
+                "end": "20091024"
+              }
+            ], 
+            "week_pattern": {
+              "monday": false, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
+        "departure_date_time": "20090922T070000", 
         "requested_date_time": "20090922T070000", 
         "type": "best", 
-        "duration": 1620, 
+        "duration": 1800, 
         "sections": [
           {
             "from": {
@@ -155,73 +183,105 @@
               "stop_area": {
                 "comment": "", 
                 "name": "La defense", 
+                "links": [], 
                 "coord": {
                   "lat": "27.140274", 
                   "lon": "-3.403865"
                 }, 
+                "label": "La defense (Puteaux)", 
+                "administrative_regions": [
+                  {
+                    "insee": "92062", 
+                    "name": "Puteaux", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.884151", 
+                      "lon": "2.236886"
+                    }, 
+                    "label": "Puteaux (92800)", 
+                    "id": "admin:91776extern", 
+                    "zip_code": "92800"
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
                 "id": "stop_area:FQP:SA:defen"
               }, 
-              "name": "La defense", 
+              "name": "La defense (Puteaux)", 
               "id": "stop_area:FQP:SA:defen"
             }, 
             "links": [], 
-            "arrival_date_time": "20090922T070300", 
-            "additional_informations": [
-              "regular"
-            ], 
-            "departure_date_time": "20090922T070300", 
+            "arrival_date_time": "20090922T070000", 
+            "additional_informations": [], 
+            "departure_date_time": "20090922T070000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
                 "name": "La Defense", 
+                "links": [], 
                 "coord": {
                   "lat": "48.89183", 
                   "lon": "2.23801"
                 }, 
+                "label": "La Defense (Puteaux)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "92062", 
+                    "name": "Puteaux", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.884151", 
+                      "lon": "2.236886"
+                    }, 
+                    "label": "Puteaux (92800)", 
+                    "id": "admin:91776extern", 
+                    "zip_code": "92800"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:FQP:SP:defen", 
                 "stop_area": {
                   "comment": "", 
                   "name": "La defense", 
+                  "links": [], 
                   "coord": {
                     "lat": "27.140274", 
                     "lon": "-3.403865"
                   }, 
+                  "label": "La defense (Puteaux)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "92062", 
+                      "name": "Puteaux", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "48.884151", 
+                        "lon": "2.236886"
+                      }, 
+                      "label": "Puteaux (92800)", 
+                      "id": "admin:91776extern", 
+                      "zip_code": "92800"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:FQP:SA:defen"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:FQP:SP:defen", 
-              "name": "La Defense"
+              "name": "La Defense (Puteaux)"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  -3.403865, 
-                  27.140274
-                ], 
-                [
-                  2.23801, 
-                  48.89183
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_0_0"
@@ -232,39 +292,59 @@
               "stop_point": {
                 "comment": "", 
                 "name": "La Defense", 
+                "links": [], 
                 "coord": {
                   "lat": "48.89183", 
                   "lon": "2.23801"
                 }, 
+                "label": "La Defense (Puteaux)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "92062", 
+                    "name": "Puteaux", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.884151", 
+                      "lon": "2.236886"
+                    }, 
+                    "label": "Puteaux (92800)", 
+                    "id": "admin:91776extern", 
+                    "zip_code": "92800"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:FQP:SP:defen", 
                 "stop_area": {
                   "comment": "", 
                   "name": "La defense", 
+                  "links": [], 
                   "coord": {
                     "lat": "27.140274", 
                     "lon": "-3.403865"
                   }, 
+                  "label": "La defense (Puteaux)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:FQP:SA:defen"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:FQP:SP:defen", 
-              "name": "La Defense"
+              "name": "La Defense (Puteaux)"
             }, 
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:FQP:A7626305"
+                "id": "vehicle_journey:FQP:A7616306_dst_1"
               }, 
               {
                 "type": "line", 
@@ -294,18 +374,17 @@
                 "templated": false
               }
             ], 
-            "arrival_date_time": "20090922T072200", 
-            "additional_informations": [
-              "regular"
-            ], 
-            "departure_date_time": "20090922T070300", 
+            "arrival_date_time": "20090922T071900", 
+            "additional_informations": [], 
+            "departure_date_time": "20090922T070000", 
             "display_informations": {
-              "direction": "Nation", 
+              "direction": "Nation (Paris)", 
               "code": "", 
               "description": "", 
-              "color": "", 
+              "links": [], 
+              "color": "000000", 
               "physical_mode": "M\u00e9tro", 
-              "headsign": "FQP:A7626305", 
+              "headsign": "FQP:A7616306_dst_1", 
               "commercial_mode": "METRO", 
               "equipments": [], 
               "label": "Ligne 1", 
@@ -316,34 +395,66 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Chatelet", 
+                "links": [], 
                 "coord": {
                   "lat": "48.857476", 
                   "lon": "2.347829"
                 }, 
+                "label": "Chatelet (Paris)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "75056", 
+                    "name": "Paris", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.856506", 
+                      "lon": "2.352133"
+                    }, 
+                    "label": "Paris (75001-75116)", 
+                    "id": "admin:7444extern", 
+                    "zip_code": "75001-75116"
+                  }, 
+                  {
+                    "insee": "75104", 
+                    "name": "4e Arrondissement", 
+                    "level": 9, 
+                    "coord": {
+                      "lat": "48.856201", 
+                      "lon": "2.355619"
+                    }, 
+                    "label": "4e Arrondissement (75004)", 
+                    "id": "admin:9597extern", 
+                    "zip_code": "75004"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:FQP:SP:chate", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Chatelet", 
+                  "links": [], 
                   "coord": {
                     "lat": "27.140274", 
                     "lon": "-3.403865"
                   }, 
+                  "label": "Chatelet (Paris)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:FQP:SA:chate"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:FQP:SP:chate", 
-              "name": "Chatelet"
+              "name": "Chatelet (Paris)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -370,33 +481,37 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "La Defense", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.89183", 
                     "lon": "2.23801"
                   }, 
+                  "label": "La Defense (Puteaux)", 
+                  "equipments": [], 
                   "id": "stop_point:FQP:SP:defen"
                 }, 
-                "arrival_date_time": "20090922T070300", 
+                "arrival_date_time": "20090922T070000", 
                 "additional_informations": [], 
-                "departure_date_time": "20090922T070300", 
+                "departure_date_time": "20090922T070000", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Chatelet", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.857476", 
                     "lon": "2.347829"
                   }, 
+                  "label": "Chatelet (Paris)", 
+                  "equipments": [], 
                   "id": "stop_point:FQP:SP:chate"
                 }, 
-                "arrival_date_time": "20090922T072200", 
+                "arrival_date_time": "20090922T071900", 
                 "additional_informations": [], 
-                "departure_date_time": "20090922T072200", 
+                "departure_date_time": "20090922T071900", 
                 "links": []
               }
             ]
@@ -404,11 +519,9 @@
           {
             "links": [], 
             "arrival_date_time": "20090922T072400", 
-            "additional_informations": [
-              "regular"
-            ], 
-            "departure_date_time": "20090922T072200", 
-            "duration": 120, 
+            "additional_informations": [], 
+            "departure_date_time": "20090922T071900", 
+            "duration": 300, 
             "type": "waiting", 
             "id": "section_2_0"
           }, 
@@ -418,39 +531,71 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Chatelet", 
+                "links": [], 
                 "coord": {
                   "lat": "48.857476", 
                   "lon": "2.347829"
                 }, 
+                "label": "Chatelet (Paris)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "75056", 
+                    "name": "Paris", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.856506", 
+                      "lon": "2.352133"
+                    }, 
+                    "label": "Paris (75001-75116)", 
+                    "id": "admin:7444extern", 
+                    "zip_code": "75001-75116"
+                  }, 
+                  {
+                    "insee": "75104", 
+                    "name": "4e Arrondissement", 
+                    "level": 9, 
+                    "coord": {
+                      "lat": "48.856201", 
+                      "lon": "2.355619"
+                    }, 
+                    "label": "4e Arrondissement (75004)", 
+                    "id": "admin:9597extern", 
+                    "zip_code": "75004"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:FQP:SP:chate", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Chatelet", 
+                  "links": [], 
                   "coord": {
                     "lat": "27.140274", 
                     "lon": "-3.403865"
                   }, 
+                  "label": "Chatelet (Paris)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:FQP:SA:chate"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:FQP:SP:chate", 
-              "name": "Chatelet"
+              "name": "Chatelet (Paris)"
             }, 
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:FQP:A205077"
+                "id": "vehicle_journey:FQP:A205077_dst_1"
               }, 
               {
                 "type": "line", 
@@ -481,17 +626,16 @@
               }
             ], 
             "arrival_date_time": "20090922T073000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20090922T072400", 
             "display_informations": {
-              "direction": "Gare du Nord", 
+              "direction": "Gare du Nord (Paris)", 
               "code": "", 
               "description": "", 
-              "color": "", 
+              "links": [], 
+              "color": "000000", 
               "physical_mode": "M\u00e9tro", 
-              "headsign": "FQP:A205077", 
+              "headsign": "FQP:A205077_dst_1", 
               "commercial_mode": "METRO", 
               "equipments": [], 
               "label": "Ligne 4", 
@@ -502,34 +646,66 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Gare de l'Est", 
+                "links": [], 
                 "coord": {
                   "lat": "48.875926", 
                   "lon": "2.357997"
                 }, 
+                "label": "Gare de l'Est (Paris)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "75056", 
+                    "name": "Paris", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.856506", 
+                      "lon": "2.352133"
+                    }, 
+                    "label": "Paris (75001-75116)", 
+                    "id": "admin:7444extern", 
+                    "zip_code": "75001-75116"
+                  }, 
+                  {
+                    "insee": "75110", 
+                    "name": "10e Arrondissement", 
+                    "level": 9, 
+                    "coord": {
+                      "lat": "48.876106", 
+                      "lon": "2.35991"
+                    }, 
+                    "label": "10e Arrondissement (75010)", 
+                    "id": "admin:9528extern", 
+                    "zip_code": "75010"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:FQP:SP:grest", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Gare de l'Est", 
+                  "links": [], 
                   "coord": {
                     "lat": "27.140274", 
                     "lon": "-3.403865"
                   }, 
+                  "label": "Gare de l'Est (Paris)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:FQP:SA:grest"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:FQP:SP:grest", 
-              "name": "Gare de l'Est"
+              "name": "Gare de l'Est (Paris)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -556,12 +732,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Chatelet", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.857476", 
                     "lon": "2.347829"
                   }, 
+                  "label": "Chatelet (Paris)", 
+                  "equipments": [], 
                   "id": "stop_point:FQP:SP:chate"
                 }, 
                 "arrival_date_time": "20090922T072400", 
@@ -572,12 +750,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Gare de l'Est", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.875926", 
                     "lon": "2.357997"
                   }, 
+                  "label": "Gare de l'Est (Paris)", 
+                  "equipments": [], 
                   "id": "stop_point:FQP:SP:grest"
                 }, 
                 "arrival_date_time": "20090922T073000", 
@@ -593,40 +773,96 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Gare de l'Est", 
+                "links": [], 
                 "coord": {
                   "lat": "48.875926", 
                   "lon": "2.357997"
                 }, 
+                "label": "Gare de l'Est (Paris)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "75056", 
+                    "name": "Paris", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.856506", 
+                      "lon": "2.352133"
+                    }, 
+                    "label": "Paris (75001-75116)", 
+                    "id": "admin:7444extern", 
+                    "zip_code": "75001-75116"
+                  }, 
+                  {
+                    "insee": "75110", 
+                    "name": "10e Arrondissement", 
+                    "level": 9, 
+                    "coord": {
+                      "lat": "48.876106", 
+                      "lon": "2.35991"
+                    }, 
+                    "label": "10e Arrondissement (75010)", 
+                    "id": "admin:9528extern", 
+                    "zip_code": "75010"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:FQP:SP:grest", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Gare de l'Est", 
+                  "links": [], 
                   "coord": {
                     "lat": "27.140274", 
                     "lon": "-3.403865"
                   }, 
+                  "label": "Gare de l'Est (Paris)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "75056", 
+                      "name": "Paris", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "48.856506", 
+                        "lon": "2.352133"
+                      }, 
+                      "label": "Paris (75001-75116)", 
+                      "id": "admin:7444extern", 
+                      "zip_code": "75001-75116"
+                    }, 
+                    {
+                      "insee": "75110", 
+                      "name": "10e Arrondissement", 
+                      "level": 9, 
+                      "coord": {
+                        "lat": "48.876106", 
+                        "lon": "2.35991"
+                      }, 
+                      "label": "10e Arrondissement (75010)", 
+                      "id": "admin:9528extern", 
+                      "zip_code": "75010"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:FQP:SA:grest"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:FQP:SP:grest", 
-              "name": "Gare de l'Est"
+              "name": "Gare de l'Est (Paris)"
             }, 
             "links": [], 
             "arrival_date_time": "20090922T073000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20090922T073000", 
             "to": {
               "embedded_type": "stop_area", 
@@ -634,39 +870,54 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Gare de l'Est", 
+                "links": [], 
                 "coord": {
                   "lat": "27.140274", 
                   "lon": "-3.403865"
                 }, 
+                "label": "Gare de l'Est (Paris)", 
+                "administrative_regions": [
+                  {
+                    "insee": "75056", 
+                    "name": "Paris", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.856506", 
+                      "lon": "2.352133"
+                    }, 
+                    "label": "Paris (75001-75116)", 
+                    "id": "admin:7444extern", 
+                    "zip_code": "75001-75116"
+                  }, 
+                  {
+                    "insee": "75110", 
+                    "name": "10e Arrondissement", 
+                    "level": 9, 
+                    "coord": {
+                      "lat": "48.876106", 
+                      "lon": "2.35991"
+                    }, 
+                    "label": "10e Arrondissement (75010)", 
+                    "id": "admin:9528extern", 
+                    "zip_code": "75010"
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
                 "id": "stop_area:FQP:SA:grest"
               }, 
-              "name": "Gare de l'Est", 
+              "name": "Gare de l'Est (Paris)", 
               "id": "stop_area:FQP:SA:grest"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  2.357997, 
-                  48.875926
-                ], 
-                [
-                  -3.403865, 
-                  27.140274
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_4_0"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }
