@@ -30,6 +30,7 @@ class TestPoitiers(ArtemisTestFixture):
                      to="stop_area:POI:SA:10046", datetime="20091116T225000",
                      walking_speed="0.83", max_duration_to_pt="1800")
 
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1575", raises=AssertionError)
     def test_poitiers_04(self):
         """
         ID artemis v1: 6
@@ -38,6 +39,7 @@ class TestPoitiers(ArtemisTestFixture):
                      to="stop_area:POI:SA:10046", datetime="20091116T002000",
                      walking_speed="0.83", max_duration_to_pt="1800")
 
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1575", raises=AssertionError)
     def test_poitiers_05(self):
         """
         ID artemis v1: 7
