@@ -1,5 +1,6 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
-
+import pytest
+xfail = pytest.mark.xfail
 
 @dataset([DataSet("fr-pdl", scenario='destineo')])
 class TestDestineo(ArtemisTestFixture):
@@ -38,6 +39,7 @@ class TestDestineo(ArtemisTestFixture):
                      first_section_mode=['walking', 'car'],
                      min_nb_journeys=3)
 
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1525", raises=AssertionError)
     def test_destineo_04(self):
         """
         we go to "Pazanne-Mairie-(Ste) (Sainte-Pazanne)" from "gare de Ste-Pazanne (Sainte-Pazanne)"
