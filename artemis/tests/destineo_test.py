@@ -50,3 +50,23 @@ class TestDestineo(ArtemisTestFixture):
                      first_section_mode=['walking', 'bike', 'bss', 'car'],
                      last_section_mode=['walking', 'bss'],
                      min_nb_journeys=3)
+
+    def test_destineo_05(self):
+        """
+        we go from "rue JEAN GORIN (Nantes)" to "15 rue ADOLPHE MOITIE (Nantes)"
+        """
+        self.journey(_from='-1.5288823896877313;47.2093118677334',
+                     to='-1.554597505;47.22280345', datetime='20141111T111000',
+                     first_section_mode=['walking', 'bike', 'bss', 'car'],
+                     last_section_mode=['walking', 'bss'],
+                     min_nb_journeys=3)
+
+    def test_destineo_06(self):
+        """
+        we go from "11 boulevard DE L'EGALITE (Nantes)" to "Pompidou (Nantes)"
+        """
+        self.journey(_from='-1.587547422;47.20738048',
+                     to='stop_area:NAN:SA:PPDO', datetime='20141111T111000',
+                     first_section_mode=['walking', 'bike', 'bss', 'car'],
+                     last_section_mode=['walking', 'bss'],
+                     min_nb_journeys=3)
