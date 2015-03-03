@@ -59,7 +59,7 @@ class TestDestineo(ArtemisTestFixture):
                      to='-1.554597505;47.22280345', datetime='20141111T111000',
                      first_section_mode=['walking', 'bike', 'bss', 'car'],
                      last_section_mode=['walking', 'bss'],
-                     min_nb_journeys=3)
+                     min_nb_journeys=3, max_nb_journeys=3)
 
     def test_destineo_06(self):
         """
