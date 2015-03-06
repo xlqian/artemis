@@ -19,7 +19,7 @@ LOGGER = {
     'disable_existing_loggers': False,
     'formatters':{
         'default': {
-            'format': '[%(asctime)s] [%(levelname)5s] [%(process)5s] [%(name)10s] %(message)s',
+            'format': '[%(asctime)s] [%(levelname)5s] %(message)s',
         },
     },
     'handlers': {
