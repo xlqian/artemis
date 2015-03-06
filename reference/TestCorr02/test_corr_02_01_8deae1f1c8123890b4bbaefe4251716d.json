@@ -20,19 +20,19 @@
             "departure_date_time": "20041213T150000"
           }, 
           {
-            "duration": 1080, 
-            "arrival_date_time": "20041213T152800", 
+            "duration": 360, 
+            "arrival_date_time": "20041213T151600", 
             "departure_date_time": "20041213T151000"
           }, 
           {
             "duration": 480, 
-            "arrival_date_time": "20041213T153600", 
-            "departure_date_time": "20041213T152800"
+            "arrival_date_time": "20041213T152400", 
+            "departure_date_time": "20041213T151600"
           }, 
           {
-            "duration": 240, 
+            "duration": 960, 
             "arrival_date_time": "20041213T154000", 
-            "departure_date_time": "20041213T153600"
+            "departure_date_time": "20041213T152400"
           }, 
           {
             "duration": 600, 
@@ -52,7 +52,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -84,8 +84,6 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/corr-02/journeys?to=stop_area%3ACR2%3ASA%3A4&from=stop_area%3ACR2%3ASA%3A1&datetime_represents=arrival&datetime=20041213T154900", 
@@ -112,37 +110,37 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/corr-02/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/corr-02/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/corr-02/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/corr-02/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/corr-02/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/corr-02/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/corr-02/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/corr-02/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/corr-02/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/corr-02/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/corr-02/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/corr-02/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
@@ -171,6 +169,25 @@
         ], 
         "nb_transfers": 2, 
         "arrival_date_time": "20041213T155000", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20040101", 
+                "end": "20041231"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041213T150000", 
         "requested_date_time": "20041213T070000", 
         "type": "best", 
@@ -183,6 +200,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "43.96298", 
                   "lon": "4.765615"
@@ -190,6 +208,7 @@
                 "label": "Arret 1 (Les Angles)", 
                 "administrative_regions": [
                   {
+                    "insee": "30011", 
                     "name": "Les Angles", 
                     "level": 8, 
                     "coord": {
@@ -216,6 +235,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "43.96298", 
                   "lon": "4.765615"
@@ -224,6 +244,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "30011", 
                     "name": "Les Angles", 
                     "level": 8, 
                     "coord": {
@@ -249,6 +270,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.96298", 
                     "lon": "4.765615"
@@ -256,6 +278,7 @@
                   "label": "Arret 1 (Les Angles)", 
                   "administrative_regions": [
                     {
+                      "insee": "30011", 
                       "name": "Les Angles", 
                       "level": 8, 
                       "coord": {
@@ -286,6 +309,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "43.96298", 
                   "lon": "4.765615"
@@ -294,6 +318,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "30011", 
                     "name": "Les Angles", 
                     "level": 8, 
                     "coord": {
@@ -319,6 +344,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.96298", 
                     "lon": "4.765615"
@@ -358,6 +384,7 @@
                 "id": "network:default_network"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -371,6 +398,7 @@
               "direction": "Arret 2 (Lirac)", 
               "code": "A", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "CR2:1-190", 
@@ -384,6 +412,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 2", 
+                "links": [], 
                 "coord": {
                   "lat": "44.030004", 
                   "lon": "4.666069"
@@ -392,6 +421,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "30149", 
                     "name": "Lirac", 
                     "level": 8, 
                     "coord": {
@@ -417,6 +447,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "44.030004", 
                     "lon": "4.666069"
@@ -456,6 +487,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.96298", 
                     "lon": "4.765615"
@@ -473,6 +505,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "44.030004", 
                     "lon": "4.666069"
@@ -490,10 +523,10 @@
           }, 
           {
             "links": [], 
-            "arrival_date_time": "20041213T152800", 
+            "arrival_date_time": "20041213T151600", 
             "additional_informations": [], 
             "departure_date_time": "20041213T151000", 
-            "duration": 1080, 
+            "duration": 360, 
             "type": "waiting", 
             "id": "section_2_0"
           }, 
@@ -503,6 +536,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 2", 
+                "links": [], 
                 "coord": {
                   "lat": "44.030004", 
                   "lon": "4.666069"
@@ -511,6 +545,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "30149", 
                     "name": "Lirac", 
                     "level": 8, 
                     "coord": {
@@ -536,6 +571,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "44.030004", 
                     "lon": "4.666069"
@@ -552,7 +588,7 @@
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:CR2:2-2380"
+                "id": "vehicle_journey:CR2:2-2054"
               }, 
               {
                 "type": "line", 
@@ -575,22 +611,24 @@
                 "id": "network:default_network"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
                 "templated": false
               }
             ], 
-            "arrival_date_time": "20041213T153600", 
+            "arrival_date_time": "20041213T152400", 
             "additional_informations": [], 
-            "departure_date_time": "20041213T152800", 
+            "departure_date_time": "20041213T151600", 
             "display_informations": {
               "direction": "Arret 3 (Sarrians)", 
               "code": "B", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
-              "headsign": "CR2:2-2380", 
+              "headsign": "CR2:2-2054", 
               "commercial_mode": "BUS", 
               "equipments": [], 
               "label": "B", 
@@ -601,6 +639,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 3", 
+                "links": [], 
                 "coord": {
                   "lat": "44.095802", 
                   "lon": "4.933265"
@@ -609,6 +648,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "84122", 
                     "name": "Sarrians", 
                     "level": 8, 
                     "coord": {
@@ -634,6 +674,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "44.095802", 
                     "lon": "4.933265"
@@ -673,6 +714,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "44.030004", 
                     "lon": "4.666069"
@@ -681,15 +723,16 @@
                   "equipments": [], 
                   "id": "stop_point:CR2:SP:Nav2"
                 }, 
-                "arrival_date_time": "20041213T152800", 
+                "arrival_date_time": "20041213T151600", 
                 "additional_informations": [], 
-                "departure_date_time": "20041213T152800", 
+                "departure_date_time": "20041213T151600", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "44.095802", 
                     "lon": "4.933265"
@@ -698,9 +741,9 @@
                   "equipments": [], 
                   "id": "stop_point:CR2:SP:Nav3"
                 }, 
-                "arrival_date_time": "20041213T153600", 
+                "arrival_date_time": "20041213T152400", 
                 "additional_informations": [], 
-                "departure_date_time": "20041213T153600", 
+                "departure_date_time": "20041213T152400", 
                 "links": []
               }
             ]
@@ -709,8 +752,8 @@
             "links": [], 
             "arrival_date_time": "20041213T154000", 
             "additional_informations": [], 
-            "departure_date_time": "20041213T153600", 
-            "duration": 240, 
+            "departure_date_time": "20041213T152400", 
+            "duration": 960, 
             "type": "waiting", 
             "id": "section_4_0"
           }, 
@@ -720,6 +763,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 3", 
+                "links": [], 
                 "coord": {
                   "lat": "44.095802", 
                   "lon": "4.933265"
@@ -728,6 +772,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "84122", 
                     "name": "Sarrians", 
                     "level": 8, 
                     "coord": {
@@ -753,6 +798,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "44.095802", 
                     "lon": "4.933265"
@@ -792,6 +838,7 @@
                 "id": "network:default_network"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -805,6 +852,7 @@
               "direction": "Arret 4 (Sarrians)", 
               "code": "C", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "CR2:3-191", 
@@ -818,6 +866,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "44.065538", 
                   "lon": "4.951042"
@@ -826,6 +875,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "84122", 
                     "name": "Sarrians", 
                     "level": 8, 
                     "coord": {
@@ -851,6 +901,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "44.065538", 
                     "lon": "4.951042"
@@ -890,6 +941,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "44.095802", 
                     "lon": "4.933265"
@@ -907,6 +959,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "44.065538", 
                     "lon": "4.951042"
@@ -928,6 +981,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "44.065538", 
                   "lon": "4.951042"
@@ -936,6 +990,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "84122", 
                     "name": "Sarrians", 
                     "level": 8, 
                     "coord": {
@@ -961,6 +1016,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "44.065538", 
                     "lon": "4.951042"
@@ -968,6 +1024,7 @@
                   "label": "Arret 4 (Sarrians)", 
                   "administrative_regions": [
                     {
+                      "insee": "84122", 
                       "name": "Sarrians", 
                       "level": 8, 
                       "coord": {
@@ -997,6 +1054,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "44.065538", 
                   "lon": "4.951042"
@@ -1004,6 +1062,7 @@
                 "label": "Arret 4 (Sarrians)", 
                 "administrative_regions": [
                   {
+                    "insee": "84122", 
                     "name": "Sarrians", 
                     "level": 8, 
                     "coord": {
@@ -1028,6 +1087,9 @@
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

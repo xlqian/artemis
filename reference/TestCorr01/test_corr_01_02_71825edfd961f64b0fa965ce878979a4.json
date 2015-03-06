@@ -3,7 +3,6 @@
   "response": {
     "journeys": [
       {
-        "tags": [], 
         "nb_transfers": 11, 
         "arrival_date_time": "20041210T185000", 
         "departure_date_time": "20041210T150000", 
@@ -21,19 +20,19 @@
             "departure_date_time": "20041210T150000"
           }, 
           {
-            "duration": 1080, 
-            "arrival_date_time": "20041210T152800", 
+            "duration": 360, 
+            "arrival_date_time": "20041210T151600", 
             "departure_date_time": "20041210T151000"
           }, 
           {
             "duration": 480, 
-            "arrival_date_time": "20041210T153600", 
-            "departure_date_time": "20041210T152800"
+            "arrival_date_time": "20041210T152400", 
+            "departure_date_time": "20041210T151600"
           }, 
           {
-            "duration": 240, 
+            "duration": 960, 
             "arrival_date_time": "20041210T154000", 
-            "departure_date_time": "20041210T153600"
+            "departure_date_time": "20041210T152400"
           }, 
           {
             "duration": 600, 
@@ -143,7 +142,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -238,57 +237,65 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/corr-01/journeys?max_nb_transfers=11&to=stop_area%3ACR1%3ASA%3A13&datetime_represents=arrival&from=stop_area%3ACR1%3ASA%3A1&datetime=20041210T184900", 
         "type": "prev", 
+        "rel": "prev", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/corr-01/journeys?max_nb_transfers=11&to=stop_area%3ACR1%3ASA%3A13&datetime_represents=departure&from=stop_area%3ACR1%3ASA%3A1&datetime=20041210T150100", 
         "type": "next", 
+        "rel": "next", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/corr-01/journeys?max_nb_transfers=11&to=stop_area%3ACR1%3ASA%3A13&datetime_represents=departure&from=stop_area%3ACR1%3ASA%3A1&datetime=20041210T000000", 
         "type": "first", 
+        "rel": "first", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/corr-01/journeys?max_nb_transfers=11&to=stop_area%3ACR1%3ASA%3A13&datetime_represents=arrival&from=stop_area%3ACR1%3ASA%3A1&datetime=20041210T235900", 
         "type": "last", 
+        "rel": "last", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/corr-01/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/corr-01/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/corr-01/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/corr-01/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/corr-01/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/corr-01/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -310,9 +317,30 @@
             }
           ]
         }, 
-        "tags": [], 
+        "tags": [
+          "standard"
+        ], 
         "nb_transfers": 11, 
         "arrival_date_time": "20041210T185000", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20040101", 
+                "end": "20041231"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041210T150000", 
         "requested_date_time": "20041210T070000", 
         "type": "best", 
@@ -325,73 +353,105 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "47.357874", 
                   "lon": "5.001213"
                 }, 
+                "label": "Arret 1 (Daix)", 
+                "administrative_regions": [
+                  {
+                    "insee": "21223", 
+                    "name": "Daix", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.353649", 
+                      "lon": "5.002355"
+                    }, 
+                    "label": "Daix (21121)", 
+                    "id": "admin:145165extern", 
+                    "zip_code": "21121"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:CR1:SA:1"
               }, 
-              "name": "Arret 1", 
+              "name": "Arret 1 (Daix)", 
               "id": "stop_area:CR1:SA:1"
             }, 
             "links": [], 
             "arrival_date_time": "20041210T150000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T150000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "47.357874", 
                   "lon": "5.001213"
                 }, 
+                "label": "Arret 1 (Daix)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21223", 
+                    "name": "Daix", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.353649", 
+                      "lon": "5.002355"
+                    }, 
+                    "label": "Daix (21121)", 
+                    "id": "admin:145165extern", 
+                    "zip_code": "21121"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav1", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.357874", 
                     "lon": "5.001213"
                   }, 
+                  "label": "Arret 1 (Daix)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "21223", 
+                      "name": "Daix", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "47.353649", 
+                        "lon": "5.002355"
+                      }, 
+                      "label": "Daix (21121)", 
+                      "id": "admin:145165extern", 
+                      "zip_code": "21121"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:1"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav1", 
-              "name": "Arret 1"
+              "name": "Arret 1 (Daix)"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  5.001213, 
-                  47.357874
-                ], 
-                [
-                  5.001213, 
-                  47.357874
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_0_0"
@@ -402,34 +462,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "47.357874", 
                   "lon": "5.001213"
                 }, 
+                "label": "Arret 1 (Daix)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21223", 
+                    "name": "Daix", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.353649", 
+                      "lon": "5.002355"
+                    }, 
+                    "label": "Daix (21121)", 
+                    "id": "admin:145165extern", 
+                    "zip_code": "21121"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav1", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.357874", 
                     "lon": "5.001213"
                   }, 
+                  "label": "Arret 1 (Daix)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:1"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav1", 
-              "name": "Arret 1"
+              "name": "Arret 1 (Daix)"
             }, 
             "links": [
               {
@@ -465,14 +545,13 @@
               }
             ], 
             "arrival_date_time": "20041210T151000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T150000", 
             "display_informations": {
-              "direction": "Arret 2", 
+              "direction": "Arret 2 (Longvic)", 
               "code": "A", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "CR1:1-191", 
@@ -486,34 +565,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 2", 
+                "links": [], 
                 "coord": {
                   "lat": "47.292708", 
                   "lon": "5.073294"
                 }, 
+                "label": "Arret 2 (Longvic)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21355", 
+                    "name": "Longvic", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.2841", 
+                      "lon": "5.057479"
+                    }, 
+                    "label": "Longvic (21600)", 
+                    "id": "admin:153092extern", 
+                    "zip_code": "21600"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav2", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.292708", 
                     "lon": "5.073294"
                   }, 
+                  "label": "Arret 2 (Longvic)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:2"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav2", 
-              "name": "Arret 2"
+              "name": "Arret 2 (Longvic)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -540,12 +639,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.357874", 
                     "lon": "5.001213"
                   }, 
+                  "label": "Arret 1 (Daix)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav1"
                 }, 
                 "arrival_date_time": "20041210T150000", 
@@ -556,12 +657,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.292708", 
                     "lon": "5.073294"
                   }, 
+                  "label": "Arret 2 (Longvic)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav2"
                 }, 
                 "arrival_date_time": "20041210T151000", 
@@ -573,12 +676,10 @@
           }, 
           {
             "links": [], 
-            "arrival_date_time": "20041210T152800", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "arrival_date_time": "20041210T151600", 
+            "additional_informations": [], 
             "departure_date_time": "20041210T151000", 
-            "duration": 1080, 
+            "duration": 360, 
             "type": "waiting", 
             "id": "section_2_0"
           }, 
@@ -588,39 +689,59 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 2", 
+                "links": [], 
                 "coord": {
                   "lat": "47.292708", 
                   "lon": "5.073294"
                 }, 
+                "label": "Arret 2 (Longvic)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21355", 
+                    "name": "Longvic", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.2841", 
+                      "lon": "5.057479"
+                    }, 
+                    "label": "Longvic (21600)", 
+                    "id": "admin:153092extern", 
+                    "zip_code": "21600"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav2", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.292708", 
                     "lon": "5.073294"
                   }, 
+                  "label": "Arret 2 (Longvic)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:2"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav2", 
-              "name": "Arret 2"
+              "name": "Arret 2 (Longvic)"
             }, 
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:CR1:2-2368"
+                "id": "vehicle_journey:CR1:2-2054"
               }, 
               {
                 "type": "line", 
@@ -650,18 +771,17 @@
                 "templated": false
               }
             ], 
-            "arrival_date_time": "20041210T153600", 
-            "additional_informations": [
-              "regular"
-            ], 
-            "departure_date_time": "20041210T152800", 
+            "arrival_date_time": "20041210T152400", 
+            "additional_informations": [], 
+            "departure_date_time": "20041210T151600", 
             "display_informations": {
-              "direction": "Arret 3", 
+              "direction": "Arret 3 (Daix)", 
               "code": "B", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
-              "headsign": "CR1:2-2368", 
+              "headsign": "CR1:2-2054", 
               "commercial_mode": "BUS", 
               "equipments": [], 
               "label": "B", 
@@ -672,34 +792,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 3", 
+                "links": [], 
                 "coord": {
                   "lat": "47.353146", 
                   "lon": "5.000143"
                 }, 
+                "label": "Arret 3 (Daix)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21223", 
+                    "name": "Daix", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.353649", 
+                      "lon": "5.002355"
+                    }, 
+                    "label": "Daix (21121)", 
+                    "id": "admin:145165extern", 
+                    "zip_code": "21121"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav3", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.353146", 
                     "lon": "5.000143"
                   }, 
+                  "label": "Arret 3 (Daix)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:3"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav3", 
-              "name": "Arret 3"
+              "name": "Arret 3 (Daix)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -726,33 +866,37 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.292708", 
                     "lon": "5.073294"
                   }, 
+                  "label": "Arret 2 (Longvic)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav2"
                 }, 
-                "arrival_date_time": "20041210T152800", 
+                "arrival_date_time": "20041210T151600", 
                 "additional_informations": [], 
-                "departure_date_time": "20041210T152800", 
+                "departure_date_time": "20041210T151600", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.353146", 
                     "lon": "5.000143"
                   }, 
+                  "label": "Arret 3 (Daix)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav3"
                 }, 
-                "arrival_date_time": "20041210T153600", 
+                "arrival_date_time": "20041210T152400", 
                 "additional_informations": [], 
-                "departure_date_time": "20041210T153600", 
+                "departure_date_time": "20041210T152400", 
                 "links": []
               }
             ]
@@ -760,11 +904,9 @@
           {
             "links": [], 
             "arrival_date_time": "20041210T154000", 
-            "additional_informations": [
-              "regular"
-            ], 
-            "departure_date_time": "20041210T153600", 
-            "duration": 240, 
+            "additional_informations": [], 
+            "departure_date_time": "20041210T152400", 
+            "duration": 960, 
             "type": "waiting", 
             "id": "section_4_0"
           }, 
@@ -774,34 +916,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 3", 
+                "links": [], 
                 "coord": {
                   "lat": "47.353146", 
                   "lon": "5.000143"
                 }, 
+                "label": "Arret 3 (Daix)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21223", 
+                    "name": "Daix", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.353649", 
+                      "lon": "5.002355"
+                    }, 
+                    "label": "Daix (21121)", 
+                    "id": "admin:145165extern", 
+                    "zip_code": "21121"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav3", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.353146", 
                     "lon": "5.000143"
                   }, 
+                  "label": "Arret 3 (Daix)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:3"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav3", 
-              "name": "Arret 3"
+              "name": "Arret 3 (Daix)"
             }, 
             "links": [
               {
@@ -837,14 +999,13 @@
               }
             ], 
             "arrival_date_time": "20041210T155000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T154000", 
             "display_informations": {
-              "direction": "Arret 4", 
+              "direction": "Arret 4 (Longvic)", 
               "code": "C", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "CR1:3-16", 
@@ -858,34 +1019,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "47.292178", 
                   "lon": "5.04231"
                 }, 
+                "label": "Arret 4 (Longvic)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21355", 
+                    "name": "Longvic", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.2841", 
+                      "lon": "5.057479"
+                    }, 
+                    "label": "Longvic (21600)", 
+                    "id": "admin:153092extern", 
+                    "zip_code": "21600"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav4", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.292178", 
                     "lon": "5.04231"
                   }, 
+                  "label": "Arret 4 (Longvic)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:4"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav4", 
-              "name": "Arret 4"
+              "name": "Arret 4 (Longvic)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -912,12 +1093,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.353146", 
                     "lon": "5.000143"
                   }, 
+                  "label": "Arret 3 (Daix)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav3"
                 }, 
                 "arrival_date_time": "20041210T154000", 
@@ -928,12 +1111,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.292178", 
                     "lon": "5.04231"
                   }, 
+                  "label": "Arret 4 (Longvic)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav4"
                 }, 
                 "arrival_date_time": "20041210T155000", 
@@ -946,9 +1131,7 @@
           {
             "links": [], 
             "arrival_date_time": "20041210T160000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T155000", 
             "duration": 600, 
             "type": "waiting", 
@@ -960,34 +1143,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "47.292178", 
                   "lon": "5.04231"
                 }, 
+                "label": "Arret 4 (Longvic)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21355", 
+                    "name": "Longvic", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.2841", 
+                      "lon": "5.057479"
+                    }, 
+                    "label": "Longvic (21600)", 
+                    "id": "admin:153092extern", 
+                    "zip_code": "21600"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav4", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.292178", 
                     "lon": "5.04231"
                   }, 
+                  "label": "Arret 4 (Longvic)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:4"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav4", 
-              "name": "Arret 4"
+              "name": "Arret 4 (Longvic)"
             }, 
             "links": [
               {
@@ -1023,14 +1226,13 @@
               }
             ], 
             "arrival_date_time": "20041210T161000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T160000", 
             "display_informations": {
-              "direction": "Arret 5", 
+              "direction": "Arret 5 (Fontaine-l\u00e8s-Dijon)", 
               "code": "D", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "CR1:13-194", 
@@ -1044,34 +1246,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 5", 
+                "links": [], 
                 "coord": {
                   "lat": "47.333501", 
                   "lon": "5.027244"
                 }, 
+                "label": "Arret 5 (Fontaine-l\u00e8s-Dijon)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21278", 
+                    "name": "Fontaine-l\u00e8s-Dijon", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.342743", 
+                      "lon": "5.021231"
+                    }, 
+                    "label": "Fontaine-l\u00e8s-Dijon (21121)", 
+                    "id": "admin:145168extern", 
+                    "zip_code": "21121"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav5", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 5", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.333501", 
                     "lon": "5.027244"
                   }, 
+                  "label": "Arret 5 (Fontaine-l\u00e8s-Dijon)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:5"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav5", 
-              "name": "Arret 5"
+              "name": "Arret 5 (Fontaine-l\u00e8s-Dijon)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -1098,12 +1320,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.292178", 
                     "lon": "5.04231"
                   }, 
+                  "label": "Arret 4 (Longvic)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav4"
                 }, 
                 "arrival_date_time": "20041210T160000", 
@@ -1114,12 +1338,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 5", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.333501", 
                     "lon": "5.027244"
                   }, 
+                  "label": "Arret 5 (Fontaine-l\u00e8s-Dijon)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav5"
                 }, 
                 "arrival_date_time": "20041210T161000", 
@@ -1132,9 +1358,7 @@
           {
             "links": [], 
             "arrival_date_time": "20041210T162000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T161000", 
             "duration": 600, 
             "type": "waiting", 
@@ -1146,34 +1370,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 5", 
+                "links": [], 
                 "coord": {
                   "lat": "47.333501", 
                   "lon": "5.027244"
                 }, 
+                "label": "Arret 5 (Fontaine-l\u00e8s-Dijon)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21278", 
+                    "name": "Fontaine-l\u00e8s-Dijon", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.342743", 
+                      "lon": "5.021231"
+                    }, 
+                    "label": "Fontaine-l\u00e8s-Dijon (21121)", 
+                    "id": "admin:145168extern", 
+                    "zip_code": "21121"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav5", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 5", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.333501", 
                     "lon": "5.027244"
                   }, 
+                  "label": "Arret 5 (Fontaine-l\u00e8s-Dijon)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:5"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav5", 
-              "name": "Arret 5"
+              "name": "Arret 5 (Fontaine-l\u00e8s-Dijon)"
             }, 
             "links": [
               {
@@ -1209,14 +1453,13 @@
               }
             ], 
             "arrival_date_time": "20041210T163000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T162000", 
             "display_informations": {
-              "direction": "Arret 6", 
+              "direction": "Arret 6 (Dijon)", 
               "code": "E", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "CR1:5-193", 
@@ -1230,34 +1473,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 6", 
+                "links": [], 
                 "coord": {
                   "lat": "47.335062", 
                   "lon": "5.051698"
                 }, 
+                "label": "Arret 6 (Dijon)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21231", 
+                    "name": "Dijon", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.321579", 
+                      "lon": "5.04147"
+                    }, 
+                    "label": "Dijon (21000)", 
+                    "id": "admin:74090extern", 
+                    "zip_code": "21000"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav6", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 6", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.335062", 
                     "lon": "5.051698"
                   }, 
+                  "label": "Arret 6 (Dijon)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:6"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav6", 
-              "name": "Arret 6"
+              "name": "Arret 6 (Dijon)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -1284,12 +1547,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 5", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.333501", 
                     "lon": "5.027244"
                   }, 
+                  "label": "Arret 5 (Fontaine-l\u00e8s-Dijon)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav5"
                 }, 
                 "arrival_date_time": "20041210T162000", 
@@ -1300,12 +1565,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 6", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.335062", 
                     "lon": "5.051698"
                   }, 
+                  "label": "Arret 6 (Dijon)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav6"
                 }, 
                 "arrival_date_time": "20041210T163000", 
@@ -1318,9 +1585,7 @@
           {
             "links": [], 
             "arrival_date_time": "20041210T164000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T163000", 
             "duration": 600, 
             "type": "waiting", 
@@ -1332,34 +1597,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 6", 
+                "links": [], 
                 "coord": {
                   "lat": "47.335062", 
                   "lon": "5.051698"
                 }, 
+                "label": "Arret 6 (Dijon)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21231", 
+                    "name": "Dijon", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.321579", 
+                      "lon": "5.04147"
+                    }, 
+                    "label": "Dijon (21000)", 
+                    "id": "admin:74090extern", 
+                    "zip_code": "21000"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav6", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 6", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.335062", 
                     "lon": "5.051698"
                   }, 
+                  "label": "Arret 6 (Dijon)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:6"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav6", 
-              "name": "Arret 6"
+              "name": "Arret 6 (Dijon)"
             }, 
             "links": [
               {
@@ -1395,14 +1680,13 @@
               }
             ], 
             "arrival_date_time": "20041210T165000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T164000", 
             "display_informations": {
-              "direction": "Arret 7", 
+              "direction": "Arret 7 (Dijon)", 
               "code": "F", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "CR1:6-192", 
@@ -1416,34 +1700,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 7", 
+                "links": [], 
                 "coord": {
                   "lat": "47.331494", 
                   "lon": "5.043427"
                 }, 
+                "label": "Arret 7 (Dijon)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21231", 
+                    "name": "Dijon", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.321579", 
+                      "lon": "5.04147"
+                    }, 
+                    "label": "Dijon (21000)", 
+                    "id": "admin:74090extern", 
+                    "zip_code": "21000"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav7", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 7", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.331494", 
                     "lon": "5.043427"
                   }, 
+                  "label": "Arret 7 (Dijon)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:7"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav7", 
-              "name": "Arret 7"
+              "name": "Arret 7 (Dijon)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -1470,12 +1774,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 6", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.335062", 
                     "lon": "5.051698"
                   }, 
+                  "label": "Arret 6 (Dijon)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav6"
                 }, 
                 "arrival_date_time": "20041210T164000", 
@@ -1486,12 +1792,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 7", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.331494", 
                     "lon": "5.043427"
                   }, 
+                  "label": "Arret 7 (Dijon)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav7"
                 }, 
                 "arrival_date_time": "20041210T165000", 
@@ -1504,9 +1812,7 @@
           {
             "links": [], 
             "arrival_date_time": "20041210T170000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T165000", 
             "duration": 600, 
             "type": "waiting", 
@@ -1518,34 +1824,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 7", 
+                "links": [], 
                 "coord": {
                   "lat": "47.331494", 
                   "lon": "5.043427"
                 }, 
+                "label": "Arret 7 (Dijon)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21231", 
+                    "name": "Dijon", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.321579", 
+                      "lon": "5.04147"
+                    }, 
+                    "label": "Dijon (21000)", 
+                    "id": "admin:74090extern", 
+                    "zip_code": "21000"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav7", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 7", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.331494", 
                     "lon": "5.043427"
                   }, 
+                  "label": "Arret 7 (Dijon)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:7"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav7", 
-              "name": "Arret 7"
+              "name": "Arret 7 (Dijon)"
             }, 
             "links": [
               {
@@ -1581,14 +1907,13 @@
               }
             ], 
             "arrival_date_time": "20041210T171000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T170000", 
             "display_informations": {
-              "direction": "Arret 8", 
+              "direction": "Arret 8 (Saint-Apollinaire)", 
               "code": "G", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "CR1:7-12", 
@@ -1602,34 +1927,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 8", 
+                "links": [], 
                 "coord": {
                   "lat": "47.351874", 
                   "lon": "5.098894"
                 }, 
+                "label": "Arret 8 (Saint-Apollinaire)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21540", 
+                    "name": "Saint-Apollinaire", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.334068", 
+                      "lon": "5.082162"
+                    }, 
+                    "label": "Saint-Apollinaire (21850)", 
+                    "id": "admin:152125extern", 
+                    "zip_code": "21850"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav8", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 8", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.351874", 
                     "lon": "5.098894"
                   }, 
+                  "label": "Arret 8 (Saint-Apollinaire)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:8"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav8", 
-              "name": "Arret 8"
+              "name": "Arret 8 (Saint-Apollinaire)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -1656,12 +2001,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 7", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.331494", 
                     "lon": "5.043427"
                   }, 
+                  "label": "Arret 7 (Dijon)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav7"
                 }, 
                 "arrival_date_time": "20041210T170000", 
@@ -1672,12 +2019,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 8", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.351874", 
                     "lon": "5.098894"
                   }, 
+                  "label": "Arret 8 (Saint-Apollinaire)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav8"
                 }, 
                 "arrival_date_time": "20041210T171000", 
@@ -1690,9 +2039,7 @@
           {
             "links": [], 
             "arrival_date_time": "20041210T172000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T171000", 
             "duration": 600, 
             "type": "waiting", 
@@ -1704,34 +2051,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 8", 
+                "links": [], 
                 "coord": {
                   "lat": "47.351874", 
                   "lon": "5.098894"
                 }, 
+                "label": "Arret 8 (Saint-Apollinaire)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21540", 
+                    "name": "Saint-Apollinaire", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.334068", 
+                      "lon": "5.082162"
+                    }, 
+                    "label": "Saint-Apollinaire (21850)", 
+                    "id": "admin:152125extern", 
+                    "zip_code": "21850"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav8", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 8", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.351874", 
                     "lon": "5.098894"
                   }, 
+                  "label": "Arret 8 (Saint-Apollinaire)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:8"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav8", 
-              "name": "Arret 8"
+              "name": "Arret 8 (Saint-Apollinaire)"
             }, 
             "links": [
               {
@@ -1767,14 +2134,13 @@
               }
             ], 
             "arrival_date_time": "20041210T173000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T172000", 
             "display_informations": {
-              "direction": "Arret 9", 
+              "direction": "Arret 9 (Daix)", 
               "code": "H", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "CR1:8-11", 
@@ -1788,34 +2154,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 9", 
+                "links": [], 
                 "coord": {
                   "lat": "47.354183", 
                   "lon": "4.99144"
                 }, 
+                "label": "Arret 9 (Daix)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21223", 
+                    "name": "Daix", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.353649", 
+                      "lon": "5.002355"
+                    }, 
+                    "label": "Daix (21121)", 
+                    "id": "admin:145165extern", 
+                    "zip_code": "21121"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav9", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 9", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.354183", 
                     "lon": "4.99144"
                   }, 
+                  "label": "Arret 9 (Daix)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:9"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav9", 
-              "name": "Arret 9"
+              "name": "Arret 9 (Daix)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -1842,12 +2228,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 8", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.351874", 
                     "lon": "5.098894"
                   }, 
+                  "label": "Arret 8 (Saint-Apollinaire)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav8"
                 }, 
                 "arrival_date_time": "20041210T172000", 
@@ -1858,12 +2246,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 9", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.354183", 
                     "lon": "4.99144"
                   }, 
+                  "label": "Arret 9 (Daix)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav9"
                 }, 
                 "arrival_date_time": "20041210T173000", 
@@ -1876,9 +2266,7 @@
           {
             "links": [], 
             "arrival_date_time": "20041210T174000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T173000", 
             "duration": 600, 
             "type": "waiting", 
@@ -1890,34 +2278,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 9", 
+                "links": [], 
                 "coord": {
                   "lat": "47.354183", 
                   "lon": "4.99144"
                 }, 
+                "label": "Arret 9 (Daix)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21223", 
+                    "name": "Daix", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.353649", 
+                      "lon": "5.002355"
+                    }, 
+                    "label": "Daix (21121)", 
+                    "id": "admin:145165extern", 
+                    "zip_code": "21121"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav9", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 9", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.354183", 
                     "lon": "4.99144"
                   }, 
+                  "label": "Arret 9 (Daix)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:9"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav9", 
-              "name": "Arret 9"
+              "name": "Arret 9 (Daix)"
             }, 
             "links": [
               {
@@ -1953,14 +2361,13 @@
               }
             ], 
             "arrival_date_time": "20041210T175000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T174000", 
             "display_informations": {
-              "direction": "Arret 10", 
+              "direction": "Arret 10 (Dijon)", 
               "code": "I", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "CR1:9-10", 
@@ -1974,34 +2381,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 10", 
+                "links": [], 
                 "coord": {
                   "lat": "47.346955", 
                   "lon": "5.057295"
                 }, 
+                "label": "Arret 10 (Dijon)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21231", 
+                    "name": "Dijon", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.321579", 
+                      "lon": "5.04147"
+                    }, 
+                    "label": "Dijon (21000)", 
+                    "id": "admin:74090extern", 
+                    "zip_code": "21000"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav10", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 10", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.346955", 
                     "lon": "5.057295"
                   }, 
+                  "label": "Arret 10 (Dijon)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:10"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav10", 
-              "name": "Arret 10"
+              "name": "Arret 10 (Dijon)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -2028,12 +2455,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 9", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.354183", 
                     "lon": "4.99144"
                   }, 
+                  "label": "Arret 9 (Daix)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav9"
                 }, 
                 "arrival_date_time": "20041210T174000", 
@@ -2044,12 +2473,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 10", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.346955", 
                     "lon": "5.057295"
                   }, 
+                  "label": "Arret 10 (Dijon)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav10"
                 }, 
                 "arrival_date_time": "20041210T175000", 
@@ -2062,9 +2493,7 @@
           {
             "links": [], 
             "arrival_date_time": "20041210T180000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T175000", 
             "duration": 600, 
             "type": "waiting", 
@@ -2076,34 +2505,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 10", 
+                "links": [], 
                 "coord": {
                   "lat": "47.346955", 
                   "lon": "5.057295"
                 }, 
+                "label": "Arret 10 (Dijon)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21231", 
+                    "name": "Dijon", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.321579", 
+                      "lon": "5.04147"
+                    }, 
+                    "label": "Dijon (21000)", 
+                    "id": "admin:74090extern", 
+                    "zip_code": "21000"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav10", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 10", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.346955", 
                     "lon": "5.057295"
                   }, 
+                  "label": "Arret 10 (Dijon)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:10"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav10", 
-              "name": "Arret 10"
+              "name": "Arret 10 (Dijon)"
             }, 
             "links": [
               {
@@ -2139,14 +2588,13 @@
               }
             ], 
             "arrival_date_time": "20041210T181000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T180000", 
             "display_informations": {
-              "direction": "Arret 11", 
+              "direction": "Arret 11 (Dijon)", 
               "code": "J", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "CR1:10-15", 
@@ -2160,34 +2608,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 11", 
+                "links": [], 
                 "coord": {
                   "lat": "47.329428", 
                   "lon": "5.018924"
                 }, 
+                "label": "Arret 11 (Dijon)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21231", 
+                    "name": "Dijon", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.321579", 
+                      "lon": "5.04147"
+                    }, 
+                    "label": "Dijon (21000)", 
+                    "id": "admin:74090extern", 
+                    "zip_code": "21000"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav11", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 11", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.329428", 
                     "lon": "5.018924"
                   }, 
+                  "label": "Arret 11 (Dijon)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:11"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav11", 
-              "name": "Arret 11"
+              "name": "Arret 11 (Dijon)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -2214,12 +2682,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 10", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.346955", 
                     "lon": "5.057295"
                   }, 
+                  "label": "Arret 10 (Dijon)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav10"
                 }, 
                 "arrival_date_time": "20041210T180000", 
@@ -2230,12 +2700,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 11", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.329428", 
                     "lon": "5.018924"
                   }, 
+                  "label": "Arret 11 (Dijon)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav11"
                 }, 
                 "arrival_date_time": "20041210T181000", 
@@ -2248,9 +2720,7 @@
           {
             "links": [], 
             "arrival_date_time": "20041210T182000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T181000", 
             "duration": 600, 
             "type": "waiting", 
@@ -2262,34 +2732,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 11", 
+                "links": [], 
                 "coord": {
                   "lat": "47.329428", 
                   "lon": "5.018924"
                 }, 
+                "label": "Arret 11 (Dijon)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21231", 
+                    "name": "Dijon", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.321579", 
+                      "lon": "5.04147"
+                    }, 
+                    "label": "Dijon (21000)", 
+                    "id": "admin:74090extern", 
+                    "zip_code": "21000"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav11", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 11", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.329428", 
                     "lon": "5.018924"
                   }, 
+                  "label": "Arret 11 (Dijon)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:11"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav11", 
-              "name": "Arret 11"
+              "name": "Arret 11 (Dijon)"
             }, 
             "links": [
               {
@@ -2325,14 +2815,13 @@
               }
             ], 
             "arrival_date_time": "20041210T183000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T182000", 
             "display_informations": {
-              "direction": "Arret 12", 
+              "direction": "Arret 12 (Dijon)", 
               "code": "K", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "CR1:11-14", 
@@ -2346,34 +2835,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 12", 
+                "links": [], 
                 "coord": {
                   "lat": "47.344771", 
                   "lon": "5.055647"
                 }, 
+                "label": "Arret 12 (Dijon)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21231", 
+                    "name": "Dijon", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.321579", 
+                      "lon": "5.04147"
+                    }, 
+                    "label": "Dijon (21000)", 
+                    "id": "admin:74090extern", 
+                    "zip_code": "21000"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav12", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 12", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.344771", 
                     "lon": "5.055647"
                   }, 
+                  "label": "Arret 12 (Dijon)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:12"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav12", 
-              "name": "Arret 12"
+              "name": "Arret 12 (Dijon)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -2400,12 +2909,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 11", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.329428", 
                     "lon": "5.018924"
                   }, 
+                  "label": "Arret 11 (Dijon)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav11"
                 }, 
                 "arrival_date_time": "20041210T182000", 
@@ -2416,12 +2927,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 12", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.344771", 
                     "lon": "5.055647"
                   }, 
+                  "label": "Arret 12 (Dijon)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav12"
                 }, 
                 "arrival_date_time": "20041210T183000", 
@@ -2434,9 +2947,7 @@
           {
             "links": [], 
             "arrival_date_time": "20041210T184000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T183000", 
             "duration": 600, 
             "type": "waiting", 
@@ -2448,34 +2959,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 12", 
+                "links": [], 
                 "coord": {
                   "lat": "47.344771", 
                   "lon": "5.055647"
                 }, 
+                "label": "Arret 12 (Dijon)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21231", 
+                    "name": "Dijon", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.321579", 
+                      "lon": "5.04147"
+                    }, 
+                    "label": "Dijon (21000)", 
+                    "id": "admin:74090extern", 
+                    "zip_code": "21000"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav12", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 12", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.344771", 
                     "lon": "5.055647"
                   }, 
+                  "label": "Arret 12 (Dijon)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:12"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav12", 
-              "name": "Arret 12"
+              "name": "Arret 12 (Dijon)"
             }, 
             "links": [
               {
@@ -2511,14 +3042,13 @@
               }
             ], 
             "arrival_date_time": "20041210T185000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T184000", 
             "display_informations": {
-              "direction": "Arret 13", 
+              "direction": "Arret 13 (Talant)", 
               "code": "L", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "CR1:12-13", 
@@ -2532,34 +3062,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 13", 
+                "links": [], 
                 "coord": {
                   "lat": "47.337833", 
                   "lon": "5.003021"
                 }, 
+                "label": "Arret 13 (Talant)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21617", 
+                    "name": "Talant", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.33596", 
+                      "lon": "5.004764"
+                    }, 
+                    "label": "Talant (21240)", 
+                    "id": "admin:138337extern", 
+                    "zip_code": "21240"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav13", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 13", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.337833", 
                     "lon": "5.003021"
                   }, 
+                  "label": "Arret 13 (Talant)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:13"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav13", 
-              "name": "Arret 13"
+              "name": "Arret 13 (Talant)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -2586,12 +3136,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 12", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.344771", 
                     "lon": "5.055647"
                   }, 
+                  "label": "Arret 12 (Dijon)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav12"
                 }, 
                 "arrival_date_time": "20041210T184000", 
@@ -2602,12 +3154,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 13", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.337833", 
                     "lon": "5.003021"
                   }, 
+                  "label": "Arret 13 (Talant)", 
+                  "equipments": [], 
                   "id": "stop_point:CR1:SP:Nav13"
                 }, 
                 "arrival_date_time": "20041210T185000", 
@@ -2623,40 +3177,72 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 13", 
+                "links": [], 
                 "coord": {
                   "lat": "47.337833", 
                   "lon": "5.003021"
                 }, 
+                "label": "Arret 13 (Talant)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "21617", 
+                    "name": "Talant", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.33596", 
+                      "lon": "5.004764"
+                    }, 
+                    "label": "Talant (21240)", 
+                    "id": "admin:138337extern", 
+                    "zip_code": "21240"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:CR1:SP:Nav13", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 13", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.337833", 
                     "lon": "5.003021"
                   }, 
+                  "label": "Arret 13 (Talant)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "21617", 
+                      "name": "Talant", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "47.33596", 
+                        "lon": "5.004764"
+                      }, 
+                      "label": "Talant (21240)", 
+                      "id": "admin:138337extern", 
+                      "zip_code": "21240"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:CR1:SA:13"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:CR1:SP:Nav13", 
-              "name": "Arret 13"
+              "name": "Arret 13 (Talant)"
             }, 
             "links": [], 
             "arrival_date_time": "20041210T185000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T185000", 
             "to": {
               "embedded_type": "stop_area", 
@@ -2664,39 +3250,42 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 13", 
+                "links": [], 
                 "coord": {
                   "lat": "47.337833", 
                   "lon": "5.003021"
                 }, 
+                "label": "Arret 13 (Talant)", 
+                "administrative_regions": [
+                  {
+                    "insee": "21617", 
+                    "name": "Talant", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.33596", 
+                      "lon": "5.004764"
+                    }, 
+                    "label": "Talant (21240)", 
+                    "id": "admin:138337extern", 
+                    "zip_code": "21240"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:CR1:SA:13"
               }, 
-              "name": "Arret 13", 
+              "name": "Arret 13 (Talant)", 
               "id": "stop_area:CR1:SA:13"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  5.003021, 
-                  47.337833
-                ], 
-                [
-                  5.003021, 
-                  47.337833
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_24_0"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }
