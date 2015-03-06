@@ -4,8 +4,7 @@ xfail = pytest.mark.xfail
 
 @dataset([DataSet("sherbrooke")])
 class TestSherbrooke(ArtemisTestFixture):
-    """
-    """
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVP-144", raises=AssertionError)
     def test_sherbrooke_01(self):
         self.journey(_from="stop_area:STS:SA:387",
                      to="poi:3815 - ADDRESS370 - ADDRESS1126", datetime="20111116T070000",
@@ -75,6 +74,7 @@ class TestSherbrooke(ArtemisTestFixture):
                      to="stop_area:STS:SA:2079", datetime="20111114T091500",
                      datetime_represents="arrival", walking_speed="0.83", max_duration_to_pt="720")
 
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVP-144", raises=AssertionError)
     def test_sherbrooke_14(self):
         self.journey(_from="stop_area:STS:SA:298",
                      to="poi:3815 - ADDRESS370 - ADDRESS1126", datetime="20111114T070000",
