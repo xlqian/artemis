@@ -128,7 +128,7 @@ def launch_exec(cmd, additional_env=None):
     the process can be used for example to kill the process later
     """
     logger = logging.getLogger(__name__)
-    logger.info('Launching ' + cmd)
+    logger.debug('Launching ' + cmd)
 
     fdr, fdw = os.pipe()
     new_env = os.environ.copy()

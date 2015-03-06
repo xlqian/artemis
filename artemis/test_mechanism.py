@@ -71,7 +71,6 @@ class ArtemisTestFixture:
         Note: py.test does not want to collect class with custom constructor,
         so we init the class in the setup
         """
-        logging.getLogger(__name__).warn("setup before function")
         self.api_call_by_params = {}  # key is md5 of url, val is the number of call
 
     @classmethod
@@ -81,8 +80,7 @@ class ArtemisTestFixture:
 
         Launch all necessary services to have a running navitia solution
         """
-        logging.getLogger(__name__).warn("Initing the tests {}, let's deploy!"
-                                         .format(cls.__name__))
+        logging.getLogger(__name__).info("Starting to test {}".format(cls.__name__))
 
         cls.run_additional_service()
 
@@ -110,7 +108,7 @@ class ArtemisTestFixture:
             if not os.path.exists(fusio_databases_file):
                 continue
 
-            logging.getLogger(__name__).info("updating data for {}".format(data_set.name))
+            logging.getLogger(__name__).debug("updating data for {}".format(data_set.name))
 
             #we copy the file to update the reference data
             shutil.move(fusio_databases_file, os.path.join(dir_path(data_set.name), 'fusio/databases.zip'))
@@ -120,7 +118,7 @@ class ArtemisTestFixture:
         """
         Method called once after running the tests of the fixture.
         """
-        logging.getLogger(__name__).info("Tearing down the tests {}, time to clean up"
+        logging.getLogger(__name__).debug("Tearing down the tests {}, time to clean up"
                                          .format(cls.__name__))
         cls.kill_the_krakens()
         cls.kill_jormungandr()
@@ -143,7 +141,7 @@ class ArtemisTestFixture:
         #clean jormungandr database
         cls.clean_jormun_db()
         for data_set in cls.data_sets:
-            logging.getLogger(__name__).info("reading data for {}".format(data_set.name))
+            logging.getLogger(__name__).debug("reading data for {}".format(data_set.name))
             # we'll read all subdir
             data_path = dir_path(data_set.name)
 
@@ -151,7 +149,7 @@ class ArtemisTestFixture:
                          for sub_dir_name in os.listdir(data_path)
                          if os.path.isdir(os.path.join(data_path, sub_dir_name))]
 
-            logging.getLogger(__name__).info("loading {}".format(data_dirs))
+            logging.getLogger(__name__).debug("loading {}".format(data_dirs))
             utils.launch_exec("{tyr} load_data {data_set} {data_set_dir}"
                               .format(tyr=_tyr,
                                       data_set=data_set.name,
@@ -160,13 +158,13 @@ class ArtemisTestFixture:
 
     @classmethod
     def clean_jormun_db(cls):
-        logging.getLogger(__name__).info("cleaning jomrungandr database")
+        logging.getLogger(__name__).debug("cleaning jomrungandr database")
         conn = psycopg2.connect(config['JORMUNGANDR_DB'])
         try:
             cur = conn.cursor()
             tables = ['data_set', 'instance', 'job']
 
-            logging.getLogger(__name__).info("query: TRUNCATE {} CASCADE ;".format(', '.join(tables)))
+            logging.getLogger(__name__).debug("query: TRUNCATE {} CASCADE ;".format(', '.join(tables)))
             cur.execute("TRUNCATE {} CASCADE ;".format(', '.join(tables)))
 
             #we add the instances in the table
@@ -174,7 +172,7 @@ class ArtemisTestFixture:
                 cur.execute("INSERT INTO instance (name, is_free, scenario) VALUES ('{}', true, '{}');".format(data_set.name, data_set.scenario))
 
             conn.commit()
-            logging.getLogger(__name__).info("query done")
+            logging.getLogger(__name__).debug("query done")
         except:
             logging.getLogger(__name__).exception("problem with jormun db")
             conn.close()
@@ -187,7 +185,7 @@ class ArtemisTestFixture:
         launch all the kraken services
         """
         for data_set in cls.data_sets:
-            logging.getLogger(__name__).info("launching the kraken {}".format(data_set.name))
+            logging.getLogger(__name__).debug("launching the kraken {}".format(data_set.name))
             return_code, _ = utils.launch_exec('sudo {service} {kraken} start'.format(service=_kraken_wrapper, kraken=data_set.name))
 
             assert return_code == 0, "command failed"
@@ -195,7 +193,7 @@ class ArtemisTestFixture:
     @classmethod
     def kill_the_krakens(cls):
         for data_set in cls.data_sets:
-            logging.getLogger(__name__).info("killing the kraken {}".format(data_set.name))
+            logging.getLogger(__name__).debug("killing the kraken {}".format(data_set.name))
             return_code, _ = utils.launch_exec('sudo {service} {kraken} stop'.format(service=_kraken_wrapper, kraken=data_set.name))
 
             assert return_code == 0, "command failed"
@@ -205,7 +203,7 @@ class ArtemisTestFixture:
         """
         launch the front end
         """
-        logging.getLogger(__name__).info("running jormungandr")
+        logging.getLogger(__name__).debug("running jormungandr")
         # jormungandr is launched with apache
         ret, _ = utils.launch_exec('sudo service apache2 start')
 
@@ -230,17 +228,19 @@ class ArtemisTestFixture:
                     status not in  ('loading_data', 'no_data'):  #should be corrected in kraken, status should only be loading_data
                     break
 
-                logging.getLogger(__name__).info("{} still loading data, waiting a bit".format(current_region['id']))
+                logging.getLogger(__name__).debug("{} still loading data, waiting a bit".format(current_region['id']))
 
                 time.sleep(5)
 
             #and it should be running
-            assert current_region['status'] == 'running', "region {r} KO, status={s}, \n full response={resp}".\
-                format(r=data_set.name, s=current_region['status'], resp=response)
+            if current_region['status'] != 'running':
+                logging.getLogger(__name__).error("region {r} KO, status={s}".format(r=data_set.name, s=current_region['status']))
+                logging.getLogger(__name__).warn("full response={}".format(response))
+                assert False, "kraken not started"
 
     @classmethod
     def kill_jormungandr(cls):
-        logging.getLogger(__name__).info("killing jormungandr")
+        logging.getLogger(__name__).debug("killing jormungandr")
         ret, _ = utils.launch_exec('sudo service apache2 stop')
 
         assert ret == 0, "cannot stop apache"
@@ -248,7 +248,7 @@ class ArtemisTestFixture:
     @classmethod
     def remove_data(cls):
         for data_set in cls.data_sets:
-            logging.getLogger(__name__).info("deleting data for {}".format(data_set.name))
+            logging.getLogger(__name__).debug("deleting data for {}".format(data_set.name))
             try:
                 os.remove(nav_path(data_set.name))
             except:
