@@ -15,13 +15,123 @@
             "departure_date_time": "20111114T080000"
           }
         ]
+      }, 
+      {
+        "nb_transfers": 0, 
+        "arrival_date_time": "20111114T082700", 
+        "departure_date_time": "20111114T082207", 
+        "type": "best", 
+        "duration": 293, 
+        "sections": [
+          {
+            "duration": 152, 
+            "arrival_date_time": "20111114T082439", 
+            "departure_date_time": "20111114T082207"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20111114T082400", 
+            "departure_date_time": "20111114T082400"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20111114T082400", 
+            "departure_date_time": "20111114T082400"
+          }, 
+          {
+            "duration": 120, 
+            "arrival_date_time": "20111114T082600", 
+            "departure_date_time": "20111114T082400"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20111114T082600", 
+            "departure_date_time": "20111114T082600"
+          }, 
+          {
+            "duration": 60, 
+            "arrival_date_time": "20111114T082700", 
+            "departure_date_time": "20111114T082600"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20111114T082700", 
+            "departure_date_time": "20111114T082700"
+          }
+        ]
       }
     ]
   }, 
   "full_response": {
-    "exceptions": [], 
-    "notes": [], 
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unknown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_3_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_6_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_8_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_10_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_13_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
     "links": [
+      {
+        "href": "http://localhost/v1/coverage/sherbrooke/journeys?to=stop_area%3ASTS%3ASA%3A2007&datetime_represents=arrival&from=stop_area%3ASTS%3ASA%3A2346&max_duration_to_pt=720&walking_speed=0.83&datetime=20111114T082600", 
+        "type": "prev", 
+        "rel": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/sherbrooke/journeys?to=stop_area%3ASTS%3ASA%3A2007&datetime_represents=departure&from=stop_area%3ASTS%3ASA%3A2346&max_duration_to_pt=720&walking_speed=0.83&datetime=20111114T082307", 
+        "type": "next", 
+        "rel": "next", 
+        "templated": false
+      }, 
       {
         "href": "http://localhost/v1/coverage/sherbrooke/journeys?to=stop_area%3ASTS%3ASA%3A2007&datetime_represents=departure&from=stop_area%3ASTS%3ASA%3A2346&max_duration_to_pt=720&walking_speed=0.83&datetime=20111114T000000", 
         "type": "first", 
@@ -35,39 +145,51 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/poi_types/{poi_type.id}?collection=poi_types", 
+        "href": "http://localhost/v1/coverage/sherbrooke/poi_types/{poi_type.id}", 
         "type": "poi_type", 
         "rel": "poi_types", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/pois/{poi.id}?collection=pois", 
+        "href": "http://localhost/v1/coverage/sherbrooke/pois/{poi.id}", 
         "type": "poi", 
         "rel": "pois", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -81,9 +203,7 @@
           }, 
           "links": []
         }, 
-        "tags": [
-          "standard"
-        ], 
+        "tags": [], 
         "nb_transfers": 0, 
         "arrival_date_time": "20111114T081816", 
         "departure_date_time": "20111114T080000", 
@@ -98,6 +218,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "CHUS H\u00f4tel-Dieu (Entr\u00e9e princ.)", 
+                "links": [], 
                 "coord": {
                   "lat": "45.398725", 
                   "lon": "-71.879134"
@@ -105,6 +226,7 @@
                 "label": "CHUS H\u00f4tel-Dieu (Entr\u00e9e princ.) (Sherbrooke)", 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -132,6 +254,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Marie-Reine / Bowen", 
+                "links": [], 
                 "coord": {
                   "lat": "45.389578", 
                   "lon": "-71.870378"
@@ -139,6 +262,7 @@
                 "label": "Marie-Reine / Bowen (Sherbrooke)", 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -250,11 +374,1351 @@
               }
             ], 
             "type": "street_network", 
-            "id": "section_0_0", 
+            "id": "section_15_0", 
             "mode": "walking"
           }
         ]
+      }, 
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": []
+        }, 
+        "tags": [
+          "standard"
+        ], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20111114T082700", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20111031", 
+                "end": "20111224"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
+        "departure_date_time": "20111114T082207", 
+        "requested_date_time": "20111114T080000", 
+        "type": "best", 
+        "duration": 293, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "stop_area": {
+                "comment": "", 
+                "name": "CHUS H\u00f4tel-Dieu (Entr\u00e9e princ.)", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.398725", 
+                  "lon": "-71.879134"
+                }, 
+                "label": "CHUS H\u00f4tel-Dieu (Entr\u00e9e princ.) (Sherbrooke)", 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
+                "id": "stop_area:STS:SA:2346"
+              }, 
+              "address": {
+                "name": "rue BOWEN S,", 
+                "house_number": 589, 
+                "coord": {
+                  "lat": "45.3981592696926", 
+                  "lon": "-71.87976138414595"
+                }, 
+                "label": "589 rue BOWEN S, (Sherbrooke)", 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "-71.87976138414595;45.3981592696926"
+              }, 
+              "quality": 0, 
+              "id": "stop_area:STS:SA:2346", 
+              "name": "CHUS H\u00f4tel-Dieu (Entr\u00e9e princ.) (Sherbrooke)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20111114T082439", 
+            "additional_informations": [], 
+            "departure_date_time": "20111114T082207", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.39882", 
+                  "lon": "-71.88047"
+                }, 
+                "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "address": {
+                  "name": "rue BOWEN S,", 
+                  "house_number": 555, 
+                  "coord": {
+                    "lat": "45.39882", 
+                    "lon": "-71.88047"
+                  }, 
+                  "label": "555 rue BOWEN S, (Sherbrooke)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "43027", 
+                      "name": "Sherbrooke", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "0.0", 
+                        "lon": "-73.23728992"
+                      }, 
+                      "label": "Sherbrooke", 
+                      "id": "admin:43027", 
+                      "zip_code": ""
+                    }
+                  ], 
+                  "id": "-71.88047;45.39882"
+                }, 
+                "id": "stop_point:STS:SP:6", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.398577", 
+                    "lon": "-71.88004"
+                  }, 
+                  "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "43027", 
+                      "name": "Sherbrooke", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "0.0", 
+                        "lon": "-73.23728992"
+                      }, 
+                      "label": "Sherbrooke", 
+                      "id": "admin:43027", 
+                      "zip_code": ""
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:25"
+                }
+              }, 
+              "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+              "address": {
+                "name": "rue BOWEN S,", 
+                "house_number": 555, 
+                "coord": {
+                  "lat": "45.39882", 
+                  "lon": "-71.88047"
+                }, 
+                "label": "555 rue BOWEN S, (Sherbrooke)", 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "-71.88047;45.39882"
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:6"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 126
+                }
+              ], 
+              "coordinates": [
+                [
+                  -71.87976138414595, 
+                  45.3981592696926
+                ], 
+                [
+                  -71.87976138414595, 
+                  45.3981592696926
+                ], 
+                [
+                  -71.88032868, 
+                  45.39878839
+                ], 
+                [
+                  -71.88041025065087, 
+                  45.39887577426601
+                ], 
+                [
+                  -71.88047, 
+                  45.39882
+                ]
+              ]
+            }, 
+            "duration": 152, 
+            "path": [
+              {
+                "duration": 152, 
+                "length": 126, 
+                "direction": 0, 
+                "name": "rue BOWEN S,"
+              }
+            ], 
+            "type": "street_network", 
+            "id": "section_5_0", 
+            "mode": "walking"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.39882", 
+                  "lon": "-71.88047"
+                }, 
+                "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "address": {
+                  "house_number": 555, 
+                  "id": "-71.88047;45.39882", 
+                  "name": "rue BOWEN S,", 
+                  "coord": {
+                    "lat": "45.39882", 
+                    "lon": "-71.88047"
+                  }, 
+                  "label": "555 rue BOWEN S, (Sherbrooke)"
+                }, 
+                "id": "stop_point:STS:SP:6", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.398577", 
+                    "lon": "-71.88004"
+                  }, 
+                  "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:25"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:6", 
+              "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:STS:4949634_dst_2"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:STS:1_1A"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:STS:1_1A"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:Bus"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:STS"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20111114T082400", 
+            "additional_informations": [
+              "stay_in"
+            ], 
+            "departure_date_time": "20111114T082400", 
+            "display_informations": {
+              "direction": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+              "code": "1", 
+              "description": "", 
+              "links": [], 
+              "color": "A6D514", 
+              "physical_mode": "Bus", 
+              "headsign": "Bowen - Talbot", 
+              "commercial_mode": "Bus", 
+              "equipments": [], 
+              "label": "1", 
+              "network": "Soci\u00e9t\u00e9 de Transport de Sherbrooke"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.39882", 
+                  "lon": "-71.88047"
+                }, 
+                "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "address": {
+                  "house_number": 555, 
+                  "id": "-71.88047;45.39882", 
+                  "name": "rue BOWEN S,", 
+                  "coord": {
+                    "lat": "45.39882", 
+                    "lon": "-71.88047"
+                  }, 
+                  "label": "555 rue BOWEN S, (Sherbrooke)"
+                }, 
+                "id": "stop_point:STS:SP:6", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.398577", 
+                    "lon": "-71.88004"
+                  }, 
+                  "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:25"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:6", 
+              "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": []
+            }, 
+            "duration": 0, 
+            "type": "public_transport", 
+            "id": "section_6_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.39882", 
+                    "lon": "-71.88047"
+                  }, 
+                  "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:6"
+                }, 
+                "arrival_date_time": "20111114T082400", 
+                "additional_informations": [], 
+                "departure_date_time": "20111114T082400", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.39882", 
+                  "lon": "-71.88047"
+                }, 
+                "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "address": {
+                  "house_number": 555, 
+                  "id": "-71.88047;45.39882", 
+                  "name": "rue BOWEN S,", 
+                  "coord": {
+                    "lat": "45.39882", 
+                    "lon": "-71.88047"
+                  }, 
+                  "label": "555 rue BOWEN S, (Sherbrooke)"
+                }, 
+                "id": "stop_point:STS:SP:6", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.398577", 
+                    "lon": "-71.88004"
+                  }, 
+                  "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:25"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:6", 
+              "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20111114T082400", 
+            "additional_informations": [], 
+            "departure_date_time": "20111114T082400", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.39882", 
+                  "lon": "-71.88047"
+                }, 
+                "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "address": {
+                  "house_number": 555, 
+                  "id": "-71.88047;45.39882", 
+                  "name": "rue BOWEN S,", 
+                  "coord": {
+                    "lat": "45.39882", 
+                    "lon": "-71.88047"
+                  }, 
+                  "label": "555 rue BOWEN S, (Sherbrooke)"
+                }, 
+                "id": "stop_point:STS:SP:6", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.398577", 
+                    "lon": "-71.88004"
+                  }, 
+                  "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:25"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:6", 
+              "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  -71.88047, 
+                  45.39882
+                ], 
+                [
+                  -71.88047, 
+                  45.39882
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "transfer_type": "stay_in", 
+            "type": "transfer", 
+            "id": "section_7_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.39882", 
+                  "lon": "-71.88047"
+                }, 
+                "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "address": {
+                  "house_number": 555, 
+                  "id": "-71.88047;45.39882", 
+                  "name": "rue BOWEN S,", 
+                  "coord": {
+                    "lat": "45.39882", 
+                    "lon": "-71.88047"
+                  }, 
+                  "label": "555 rue BOWEN S, (Sherbrooke)"
+                }, 
+                "id": "stop_point:STS:SP:6", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.398577", 
+                    "lon": "-71.88004"
+                  }, 
+                  "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:25"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:6", 
+              "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:STS:494972827_dst_2"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:STS:HLP_1_170"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:STS:HLP_6_2009"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:Bus"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:STS"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20111114T082600", 
+            "additional_informations": [
+              "stay_in"
+            ], 
+            "departure_date_time": "20111114T082400", 
+            "display_informations": {
+              "direction": "Talbot / Bowen Sud (Sherbrooke)", 
+              "code": "HLP", 
+              "description": "", 
+              "links": [], 
+              "color": "000000", 
+              "physical_mode": "Bus", 
+              "headsign": "Bowen - Talbot", 
+              "commercial_mode": "Bus", 
+              "equipments": [], 
+              "label": "HLP", 
+              "network": "Soci\u00e9t\u00e9 de Transport de Sherbrooke"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Talbot / Bowen Sud", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.392291", 
+                  "lon": "-71.874936"
+                }, 
+                "label": "Talbot / Bowen Sud (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "address": {
+                  "house_number": 1057, 
+                  "id": "-71.874936;45.392291", 
+                  "name": "rue TALBOT", 
+                  "coord": {
+                    "lat": "45.392291", 
+                    "lon": "-71.874936"
+                  }, 
+                  "label": "1057 rue TALBOT (Sherbrooke)"
+                }, 
+                "id": "stop_point:STS:SP:2009", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Talbot / Bowen Sud", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.392291", 
+                    "lon": "-71.874936"
+                  }, 
+                  "label": "Talbot / Bowen Sud (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:2009"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:2009", 
+              "name": "Talbot / Bowen Sud (Sherbrooke)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 845
+                }
+              ], 
+              "coordinates": [
+                [
+                  -71.88047, 
+                  45.39882
+                ], 
+                [
+                  -71.88042, 
+                  45.39885
+                ], 
+                [
+                  -71.87926, 
+                  45.39762
+                ], 
+                [
+                  -71.87666, 
+                  45.39427
+                ], 
+                [
+                  -71.87485, 
+                  45.39247
+                ], 
+                [
+                  -71.874936, 
+                  45.392291
+                ]
+              ]
+            }, 
+            "duration": 120, 
+            "type": "public_transport", 
+            "id": "section_8_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.39882", 
+                    "lon": "-71.88047"
+                  }, 
+                  "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:6"
+                }, 
+                "arrival_date_time": "20111114T082400", 
+                "additional_informations": [
+                  "drop_off_only"
+                ], 
+                "departure_date_time": "20111114T082400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Talbot / Bowen Sud", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.392291", 
+                    "lon": "-71.874936"
+                  }, 
+                  "label": "Talbot / Bowen Sud (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:2009"
+                }, 
+                "arrival_date_time": "20111114T082600", 
+                "additional_informations": [], 
+                "departure_date_time": "20111114T082600", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Talbot / Bowen Sud", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.392291", 
+                  "lon": "-71.874936"
+                }, 
+                "label": "Talbot / Bowen Sud (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "address": {
+                  "house_number": 1057, 
+                  "id": "-71.874936;45.392291", 
+                  "name": "rue TALBOT", 
+                  "coord": {
+                    "lat": "45.392291", 
+                    "lon": "-71.874936"
+                  }, 
+                  "label": "1057 rue TALBOT (Sherbrooke)"
+                }, 
+                "id": "stop_point:STS:SP:2009", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Talbot / Bowen Sud", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.392291", 
+                    "lon": "-71.874936"
+                  }, 
+                  "label": "Talbot / Bowen Sud (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:2009"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:2009", 
+              "name": "Talbot / Bowen Sud (Sherbrooke)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20111114T082600", 
+            "additional_informations": [], 
+            "departure_date_time": "20111114T082600", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Talbot / Bowen Sud", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.392291", 
+                  "lon": "-71.874936"
+                }, 
+                "label": "Talbot / Bowen Sud (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "address": {
+                  "house_number": 1057, 
+                  "id": "-71.874936;45.392291", 
+                  "name": "rue TALBOT", 
+                  "coord": {
+                    "lat": "45.392291", 
+                    "lon": "-71.874936"
+                  }, 
+                  "label": "1057 rue TALBOT (Sherbrooke)"
+                }, 
+                "id": "stop_point:STS:SP:2009", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Talbot / Bowen Sud", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.392291", 
+                    "lon": "-71.874936"
+                  }, 
+                  "label": "Talbot / Bowen Sud (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:2009"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:2009", 
+              "name": "Talbot / Bowen Sud (Sherbrooke)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  -71.874936, 
+                  45.392291
+                ], 
+                [
+                  -71.874936, 
+                  45.392291
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "transfer_type": "stay_in", 
+            "type": "transfer", 
+            "id": "section_9_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Talbot / Bowen Sud", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.392291", 
+                  "lon": "-71.874936"
+                }, 
+                "label": "Talbot / Bowen Sud (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "address": {
+                  "house_number": 1057, 
+                  "id": "-71.874936;45.392291", 
+                  "name": "rue TALBOT", 
+                  "coord": {
+                    "lat": "45.392291", 
+                    "lon": "-71.874936"
+                  }, 
+                  "label": "1057 rue TALBOT (Sherbrooke)"
+                }, 
+                "id": "stop_point:STS:SP:2009", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Talbot / Bowen Sud", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.392291", 
+                    "lon": "-71.874936"
+                  }, 
+                  "label": "Talbot / Bowen Sud (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:2009"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:2009", 
+              "name": "Talbot / Bowen Sud (Sherbrooke)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:STS:4949881_dst_2"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:STS:1_1A"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:STS:1_1R_R"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:Bus"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:STS"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20111114T082700", 
+            "additional_informations": [], 
+            "departure_date_time": "20111114T082600", 
+            "display_informations": {
+              "direction": "Station du C\u00e9gep - quai A (Sherbrooke)", 
+              "code": "1", 
+              "description": "", 
+              "links": [], 
+              "color": "A6D514", 
+              "physical_mode": "Bus", 
+              "headsign": "Station du C\u00e9gep", 
+              "commercial_mode": "Bus", 
+              "equipments": [], 
+              "label": "1", 
+              "network": "Soci\u00e9t\u00e9 de Transport de Sherbrooke"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Marie-Reine / Bowen", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.389471", 
+                  "lon": "-71.869919"
+                }, 
+                "label": "Marie-Reine / Bowen (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "address": {
+                  "house_number": 839, 
+                  "id": "-71.869919;45.389471", 
+                  "name": "rue MARIE-REINE", 
+                  "coord": {
+                    "lat": "45.389471", 
+                    "lon": "-71.869919"
+                  }, 
+                  "label": "839 rue MARIE-REINE (Sherbrooke)"
+                }, 
+                "id": "stop_point:STS:SP:2011", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Marie-Reine / Bowen", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.389578", 
+                    "lon": "-71.870378"
+                  }, 
+                  "label": "Marie-Reine / Bowen (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:2007"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:2011", 
+              "name": "Marie-Reine / Bowen (Sherbrooke)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 502
+                }
+              ], 
+              "coordinates": [
+                [
+                  -71.874936, 
+                  45.392291
+                ], 
+                [
+                  -71.87481, 
+                  45.39248
+                ], 
+                [
+                  -71.87174, 
+                  45.39037
+                ], 
+                [
+                  -71.871799, 
+                  45.390325
+                ], 
+                [
+                  -71.87174, 
+                  45.39037
+                ], 
+                [
+                  -71.87039, 
+                  45.3895
+                ], 
+                [
+                  -71.86993, 
+                  45.38952
+                ], 
+                [
+                  -71.869919, 
+                  45.389471
+                ]
+              ]
+            }, 
+            "duration": 60, 
+            "type": "public_transport", 
+            "id": "section_10_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Talbot / Bowen Sud", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.392291", 
+                    "lon": "-71.874936"
+                  }, 
+                  "label": "Talbot / Bowen Sud (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:2009"
+                }, 
+                "arrival_date_time": "20111114T082600", 
+                "additional_informations": [], 
+                "departure_date_time": "20111114T082600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Bowen Sud / de Caen", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.390325", 
+                    "lon": "-71.871799"
+                  }, 
+                  "label": "Bowen Sud / de Caen (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:2010"
+                }, 
+                "arrival_date_time": "20111114T082600", 
+                "additional_informations": [], 
+                "departure_date_time": "20111114T082600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Marie-Reine / Bowen", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.389471", 
+                    "lon": "-71.869919"
+                  }, 
+                  "label": "Marie-Reine / Bowen (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:2011"
+                }, 
+                "arrival_date_time": "20111114T082700", 
+                "additional_informations": [], 
+                "departure_date_time": "20111114T082700", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Marie-Reine / Bowen", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.389471", 
+                  "lon": "-71.869919"
+                }, 
+                "label": "Marie-Reine / Bowen (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "address": {
+                  "name": "rue MARIE-REINE", 
+                  "house_number": 839, 
+                  "coord": {
+                    "lat": "45.389471", 
+                    "lon": "-71.869919"
+                  }, 
+                  "label": "839 rue MARIE-REINE (Sherbrooke)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "43027", 
+                      "name": "Sherbrooke", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "0.0", 
+                        "lon": "-73.23728992"
+                      }, 
+                      "label": "Sherbrooke", 
+                      "id": "admin:43027", 
+                      "zip_code": ""
+                    }
+                  ], 
+                  "id": "-71.869919;45.389471"
+                }, 
+                "id": "stop_point:STS:SP:2011", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Marie-Reine / Bowen", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.389578", 
+                    "lon": "-71.870378"
+                  }, 
+                  "label": "Marie-Reine / Bowen (Sherbrooke)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "43027", 
+                      "name": "Sherbrooke", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "0.0", 
+                        "lon": "-73.23728992"
+                      }, 
+                      "label": "Sherbrooke", 
+                      "id": "admin:43027", 
+                      "zip_code": ""
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:2007"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:2011", 
+              "name": "Marie-Reine / Bowen (Sherbrooke)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20111114T082700", 
+            "additional_informations": [], 
+            "departure_date_time": "20111114T082700", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Marie-Reine / Bowen", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.389578", 
+                  "lon": "-71.870378"
+                }, 
+                "label": "Marie-Reine / Bowen (Sherbrooke)", 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
+                "id": "stop_area:STS:SA:2007"
+              }, 
+              "name": "Marie-Reine / Bowen (Sherbrooke)", 
+              "id": "stop_area:STS:SA:2007"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_11_0"
+          }
+        ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }
