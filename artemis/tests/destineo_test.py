@@ -51,6 +51,7 @@ class TestDestineo(ArtemisTestFixture):
                      last_section_mode=['walking', 'bss'],
                      min_nb_journeys=3)
 
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVP-146", raises=AssertionError)
     def test_destineo_05(self):
         """
         we go from "rue JEAN GORIN (Nantes)" to "15 rue ADOLPHE MOITIE (Nantes)"
