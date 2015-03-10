@@ -10,29 +10,44 @@
         "duration": 2520, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Kervenal (Plougastel-Daoulas)", 
             "arrival_date_time": "20041215T142000", 
-            "departure_date_time": "20041215T142000"
-          }, 
-          {
-            "duration": 1260, 
-            "arrival_date_time": "20041215T144100", 
-            "departure_date_time": "20041215T142000"
-          }, 
-          {
-            "duration": 180, 
-            "arrival_date_time": "20041215T144400", 
-            "departure_date_time": "20041215T144100"
-          }, 
-          {
-            "duration": 1080, 
-            "arrival_date_time": "20041215T150200", 
-            "departure_date_time": "20041215T144400"
-          }, 
-          {
+            "departure_date_time": "20041215T142000", 
+            "to": "Kervenal (Plougastel-Daoulas)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Kervenal (Plougastel-Daoulas)", 
+            "arrival_date_time": "20041215T144100", 
+            "departure_date_time": "20041215T142000", 
+            "to": "Strasbourg (Brest)", 
+            "duration": 1260, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": null, 
+            "arrival_date_time": "20041215T144400", 
+            "departure_date_time": "20041215T144100", 
+            "to": null, 
+            "duration": 180, 
+            "type": "waiting"
+          }, 
+          {
+            "from": "Strasbourg (Brest)", 
             "arrival_date_time": "20041215T150200", 
-            "departure_date_time": "20041215T150200"
+            "departure_date_time": "20041215T144400", 
+            "to": "Prat Ledan (Brest)", 
+            "duration": 1080, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Prat Ledan (Brest)", 
+            "arrival_date_time": "20041215T150200", 
+            "departure_date_time": "20041215T150200", 
+            "to": "Prat Ledan (Brest)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -42,7 +57,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -67,57 +82,65 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A363&datetime_represents=arrival&from=stop_area%3ABIB%3ASA%3A512&max_duration_to_pt=1200&walking_speed=0.83&datetime=20041215T150100", 
         "type": "prev", 
+        "rel": "prev", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A363&datetime_represents=departure&from=stop_area%3ABIB%3ASA%3A512&max_duration_to_pt=1200&walking_speed=0.83&datetime=20041215T142100", 
         "type": "next", 
+        "rel": "next", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A363&datetime_represents=departure&from=stop_area%3ABIB%3ASA%3A512&max_duration_to_pt=1200&walking_speed=0.83&datetime=20041215T000000", 
         "type": "first", 
+        "rel": "first", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A363&datetime_represents=arrival&from=stop_area%3ABIB%3ASA%3A512&max_duration_to_pt=1200&walking_speed=0.83&datetime=20041215T235900", 
         "type": "last", 
+        "rel": "last", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -144,6 +167,43 @@
         ], 
         "nb_transfers": 1, 
         "arrival_date_time": "20041215T150200", 
+        "calendars": [
+          {
+            "exceptions": [
+              {
+                "type": "remove", 
+                "datetime": "20041111"
+              }, 
+              {
+                "type": "remove", 
+                "datetime": "20041217"
+              }
+            ], 
+            "active_periods": [
+              {
+                "begin": "20041104", 
+                "end": "20041220"
+              }, 
+              {
+                "begin": "20050103", 
+                "end": "20050214"
+              }, 
+              {
+                "begin": "20050228", 
+                "end": "20050326"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041215T142000", 
         "requested_date_time": "20041215T140000", 
         "type": "best", 
@@ -156,20 +216,24 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Kervenal", 
+                "links": [], 
                 "coord": {
                   "lat": "48.381878", 
                   "lon": "-4.349735"
                 }, 
+                "label": "Kervenal (Plougastel-Daoulas)", 
                 "administrative_regions": [
                   {
+                    "insee": "29189", 
+                    "name": "Plougastel-Daoulas", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.37396942", 
                       "lon": "-4.368687411"
                     }, 
-                    "zip_code": "29470", 
+                    "label": "Plougastel-Daoulas (29470)", 
                     "id": "admin:29189", 
-                    "name": "Plougastel-Daoulas", 
-                    "level": 8
+                    "zip_code": "29470"
                   }
                 ], 
                 "timezone": "Europe/Paris", 
@@ -180,70 +244,79 @@
             }, 
             "links": [], 
             "arrival_date_time": "20041215T142000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041215T142000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
                 "name": "Kervenal", 
+                "links": [], 
                 "coord": {
                   "lat": "48.382053", 
                   "lon": "-4.349758"
                 }, 
+                "label": "Kervenal (Plougastel-Daoulas)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29189", 
+                    "name": "Plougastel-Daoulas", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.37396942", 
                       "lon": "-4.368687411"
                     }, 
-                    "zip_code": "29470", 
+                    "label": "Plougastel-Daoulas (29470)", 
                     "id": "admin:29189", 
-                    "name": "Plougastel-Daoulas", 
-                    "level": 8
+                    "zip_code": "29470"
                   }
                 ], 
                 "address": {
+                  "name": "Route de Loperhet", 
                   "house_number": 20, 
                   "coord": {
                     "lat": "48.382053", 
                     "lon": "-4.349758"
                   }, 
-                  "id": "-4.349758;48.382053", 
+                  "label": "20 Route de Loperhet (Plougastel-Daoulas)", 
                   "administrative_regions": [
                     {
+                      "insee": "29189", 
+                      "name": "Plougastel-Daoulas", 
+                      "level": 8, 
                       "coord": {
                         "lat": "48.37396942", 
                         "lon": "-4.368687411"
                       }, 
-                      "zip_code": "29470", 
+                      "label": "Plougastel-Daoulas (29470)", 
                       "id": "admin:29189", 
-                      "name": "Plougastel-Daoulas", 
-                      "level": 8
+                      "zip_code": "29470"
                     }
                   ], 
-                  "name": "Route de Loperhet"
+                  "id": "-4.349758;48.382053"
                 }, 
                 "id": "stop_point:BIB:SP:Nav2220", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Kervenal", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.381878", 
                     "lon": "-4.349735"
                   }, 
+                  "label": "Kervenal (Plougastel-Daoulas)", 
                   "administrative_regions": [
                     {
+                      "insee": "29189", 
                       "name": "Plougastel-Daoulas", 
                       "level": 8, 
-                      "id": "admin:29189", 
                       "coord": {
                         "lat": "48.37396942", 
                         "lon": "-4.368687411"
                       }, 
+                      "label": "Plougastel-Daoulas (29470)", 
+                      "id": "admin:29189", 
                       "zip_code": "29470"
                     }
                   ], 
@@ -253,7 +326,7 @@
               }, 
               "quality": 0, 
               "id": "stop_point:BIB:SP:Nav2220", 
-              "name": "Kervenal"
+              "name": "Kervenal (Plougastel-Daoulas)"
             }, 
             "mode": "walking", 
             "duration": 0, 
@@ -266,47 +339,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Kervenal", 
+                "links": [], 
                 "coord": {
                   "lat": "48.382053", 
                   "lon": "-4.349758"
                 }, 
+                "label": "Kervenal (Plougastel-Daoulas)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29189", 
+                    "name": "Plougastel-Daoulas", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.37396942", 
                       "lon": "-4.368687411"
                     }, 
-                    "zip_code": "29470", 
+                    "label": "Plougastel-Daoulas (29470)", 
                     "id": "admin:29189", 
-                    "name": "Plougastel-Daoulas", 
-                    "level": 8
+                    "zip_code": "29470"
                   }
                 ], 
                 "address": {
                   "house_number": 20, 
                   "id": "-4.349758;48.382053", 
+                  "name": "Route de Loperhet", 
                   "coord": {
                     "lat": "48.382053", 
                     "lon": "-4.349758"
                   }, 
-                  "name": "Route de Loperhet"
+                  "label": "20 Route de Loperhet (Plougastel-Daoulas)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav2220", 
                 "stop_area": {
                   "comment": "", 
-                  "timezone": "Europe/Paris", 
                   "name": "Kervenal", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.381878", 
                     "lon": "-4.349735"
                   }, 
+                  "label": "Kervenal (Plougastel-Daoulas)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:BIB:SA:512"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:BIB:SP:Nav2220", 
-              "name": "Kervenal"
+              "name": "Kervenal (Plougastel-Daoulas)"
             }, 
             "links": [
               {
@@ -342,15 +422,14 @@
               }
             ], 
             "arrival_date_time": "20041215T144100", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041215T142000", 
             "display_informations": {
               "direction": "Libert\u00e9 (Brest)", 
               "code": "25", 
               "description": "", 
-              "color": "", 
+              "links": [], 
+              "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "BIB:2184-186591_dst_1", 
               "commercial_mode": "Bus", 
@@ -363,47 +442,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Strasbourg", 
+                "links": [], 
                 "coord": {
                   "lat": "48.40223", 
                   "lon": "-4.467843"
                 }, 
+                "label": "Strasbourg (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
+                    "name": "Brest", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.38987538", 
                       "lon": "-4.487201604"
                     }, 
-                    "zip_code": "29200", 
+                    "label": "Brest (29200)", 
                     "id": "admin:29019", 
-                    "name": "Brest", 
-                    "level": 8
+                    "zip_code": "29200"
                   }
                 ], 
                 "address": {
                   "house_number": 260, 
                   "id": "-4.467843;48.40223", 
+                  "name": "Rue Jean Jaur\u00e8s", 
                   "coord": {
                     "lat": "48.40223", 
                     "lon": "-4.467843"
                   }, 
-                  "name": "Rue Jean Jaur\u00e8s"
+                  "label": "260 Rue Jean Jaur\u00e8s (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav306", 
                 "stop_area": {
                   "comment": "", 
-                  "timezone": "Europe/Paris", 
                   "name": "Strasbourg", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.402163", 
                     "lon": "-4.467097"
                   }, 
+                  "label": "Strasbourg (Brest)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:BIB:SA:337"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:BIB:SP:Nav306", 
-              "name": "Strasbourg"
+              "name": "Strasbourg (Brest)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -494,12 +580,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Kervenal", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.382053", 
                     "lon": "-4.349758"
                   }, 
+                  "label": "Kervenal (Plougastel-Daoulas)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav2220"
                 }, 
                 "arrival_date_time": "20041215T142000", 
@@ -510,12 +598,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Croas - Ar - Bis", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.381673", 
                     "lon": "-4.35724"
                   }, 
+                  "label": "Croas - Ar - Bis (Plougastel-Daoulas)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav2221"
                 }, 
                 "arrival_date_time": "20041215T142100", 
@@ -526,12 +616,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Guivarch", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.377617", 
                     "lon": "-4.364441"
                   }, 
+                  "label": "Guivarch (Plougastel-Daoulas)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav2222"
                 }, 
                 "arrival_date_time": "20041215T142300", 
@@ -542,12 +634,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Calvaire", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.374346", 
                     "lon": "-4.368802"
                   }, 
+                  "label": "Calvaire (Plougastel-Daoulas)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav2224"
                 }, 
                 "arrival_date_time": "20041215T142400", 
@@ -558,12 +652,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Kerdangui", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.375867", 
                     "lon": "-4.366654"
                   }, 
+                  "label": "Kerdangui (Plougastel-Daoulas)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav2223"
                 }, 
                 "arrival_date_time": "20041215T142400", 
@@ -574,12 +670,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Keravel", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.377832", 
                     "lon": "-4.371756"
                   }, 
+                  "label": "Keravel (Plougastel-Daoulas)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav2225"
                 }, 
                 "arrival_date_time": "20041215T142500", 
@@ -590,12 +688,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Botrel", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.379796", 
                     "lon": "-4.375299"
                   }, 
+                  "label": "Botrel (Plougastel-Daoulas)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav2226"
                 }, 
                 "arrival_date_time": "20041215T142600", 
@@ -606,12 +706,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "roc'h-kerezen", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.382532", 
                     "lon": "-4.37748"
                   }, 
+                  "label": "roc'h-kerezen (Plougastel-Daoulas)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav2227"
                 }, 
                 "arrival_date_time": "20041215T142700", 
@@ -622,12 +724,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Kap Huella", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.384151", 
                     "lon": "-4.390367"
                   }, 
+                  "label": "Kap Huella (Plougastel-Daoulas)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav2229"
                 }, 
                 "arrival_date_time": "20041215T142900", 
@@ -638,12 +742,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Ty - Armor", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.383577", 
                     "lon": "-4.393626"
                   }, 
+                  "label": "Ty - Armor (Plougastel-Daoulas)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav2228"
                 }, 
                 "arrival_date_time": "20041215T142900", 
@@ -654,12 +760,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Rody", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.398147", 
                     "lon": "-4.432389"
                   }, 
+                  "label": "Rody (Guipavas)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav2230"
                 }, 
                 "arrival_date_time": "20041215T143500", 
@@ -670,12 +778,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Palaren", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.396741", 
                     "lon": "-4.436123"
                   }, 
+                  "label": "Palaren (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav280"
                 }, 
                 "arrival_date_time": "20041215T143600", 
@@ -686,12 +796,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Route De Quimper", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.401418", 
                     "lon": "-4.449875"
                   }, 
+                  "label": "Route De Quimper (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1168"
                 }, 
                 "arrival_date_time": "20041215T143800", 
@@ -702,12 +814,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Vallon", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.400528", 
                     "lon": "-4.444949"
                   }, 
+                  "label": "Vallon (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1167"
                 }, 
                 "arrival_date_time": "20041215T143800", 
@@ -718,12 +832,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Floch", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.401231", 
                     "lon": "-4.454513"
                   }, 
+                  "label": "Floch (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1169"
                 }, 
                 "arrival_date_time": "20041215T143900", 
@@ -734,12 +850,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Stade F. Le Bl\u00e9", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.402324", 
                     "lon": "-4.462638"
                   }, 
+                  "label": "Stade F. Le Bl\u00e9 (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1171"
                 }, 
                 "arrival_date_time": "20041215T144000", 
@@ -750,12 +868,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Le Bot Haut", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.401635", 
                     "lon": "-4.457222"
                   }, 
+                  "label": "Le Bot Haut (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav1170"
                 }, 
                 "arrival_date_time": "20041215T144000", 
@@ -766,12 +886,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Strasbourg", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.40223", 
                     "lon": "-4.467843"
                   }, 
+                  "label": "Strasbourg (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav306"
                 }, 
                 "arrival_date_time": "20041215T144100", 
@@ -784,9 +906,7 @@
           {
             "links": [], 
             "arrival_date_time": "20041215T144400", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041215T144100", 
             "duration": 180, 
             "type": "waiting", 
@@ -798,47 +918,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Strasbourg", 
+                "links": [], 
                 "coord": {
                   "lat": "48.40223", 
                   "lon": "-4.467843"
                 }, 
+                "label": "Strasbourg (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
+                    "name": "Brest", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.38987538", 
                       "lon": "-4.487201604"
                     }, 
-                    "zip_code": "29200", 
+                    "label": "Brest (29200)", 
                     "id": "admin:29019", 
-                    "name": "Brest", 
-                    "level": 8
+                    "zip_code": "29200"
                   }
                 ], 
                 "address": {
                   "house_number": 260, 
                   "id": "-4.467843;48.40223", 
+                  "name": "Rue Jean Jaur\u00e8s", 
                   "coord": {
                     "lat": "48.40223", 
                     "lon": "-4.467843"
                   }, 
-                  "name": "Rue Jean Jaur\u00e8s"
+                  "label": "260 Rue Jean Jaur\u00e8s (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav306", 
                 "stop_area": {
                   "comment": "", 
-                  "timezone": "Europe/Paris", 
                   "name": "Strasbourg", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.402163", 
                     "lon": "-4.467097"
                   }, 
+                  "label": "Strasbourg (Brest)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:BIB:SA:337"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:BIB:SP:Nav306", 
-              "name": "Strasbourg"
+              "name": "Strasbourg (Brest)"
             }, 
             "links": [
               {
@@ -874,15 +1001,14 @@
               }
             ], 
             "arrival_date_time": "20041215T150200", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041215T144400", 
             "display_informations": {
               "direction": "Route Du Conquet (Brest)", 
               "code": "04", 
               "description": "", 
-              "color": "", 
+              "links": [], 
+              "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "BIB:2094-652568_dst_1", 
               "commercial_mode": "Bus", 
@@ -895,47 +1021,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Prat Ledan", 
+                "links": [], 
                 "coord": {
                   "lat": "48.384163", 
                   "lon": "-4.504751"
                 }, 
+                "label": "Prat Ledan (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
+                    "name": "Brest", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.38987538", 
                       "lon": "-4.487201604"
                     }, 
-                    "zip_code": "29200", 
+                    "label": "Brest (29200)", 
                     "id": "admin:29019", 
-                    "name": "Brest", 
-                    "level": 8
+                    "zip_code": "29200"
                   }
                 ], 
                 "address": {
-                  "house_number": 57, 
+                  "house_number": 70, 
                   "id": "-4.504751;48.384163", 
+                  "name": "Rue d'Armorique", 
                   "coord": {
                     "lat": "48.384163", 
                     "lon": "-4.504751"
                   }, 
-                  "name": "Rue d'Armorique"
+                  "label": "70 Rue d'Armorique (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav182", 
                 "stop_area": {
                   "comment": "", 
-                  "timezone": "Europe/Paris", 
                   "name": "Prat Ledan", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.383979", 
                     "lon": "-4.505002"
                   }, 
+                  "label": "Prat Ledan (Brest)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:BIB:SA:363"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:BIB:SP:Nav182", 
-              "name": "Prat Ledan"
+              "name": "Prat Ledan (Brest)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -1006,12 +1139,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Strasbourg", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.40223", 
                     "lon": "-4.467843"
                   }, 
+                  "label": "Strasbourg (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav306"
                 }, 
                 "arrival_date_time": "20041215T144400", 
@@ -1022,12 +1157,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Inkermann", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.400609", 
                     "lon": "-4.470288"
                   }, 
+                  "label": "Inkermann (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav307"
                 }, 
                 "arrival_date_time": "20041215T144500", 
@@ -1038,12 +1175,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Ferry", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.398065", 
                     "lon": "-4.474184"
                   }, 
+                  "label": "Ferry (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav308"
                 }, 
                 "arrival_date_time": "20041215T144800", 
@@ -1054,12 +1193,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Octroi", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.39654", 
                     "lon": "-4.476519"
                   }, 
+                  "label": "Octroi (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav309"
                 }, 
                 "arrival_date_time": "20041215T144900", 
@@ -1070,12 +1211,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Saint Martin", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.394372", 
                     "lon": "-4.479828"
                   }, 
+                  "label": "Saint Martin (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav310"
                 }, 
                 "arrival_date_time": "20041215T145100", 
@@ -1086,12 +1229,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Coat-ar-gueven", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.393136", 
                     "lon": "-4.481834"
                   }, 
+                  "label": "Coat-ar-gueven (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav311"
                 }, 
                 "arrival_date_time": "20041215T145200", 
@@ -1102,12 +1247,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "H\u00f4tel De Ville (Jaur\u00e8s)", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.39159", 
                     "lon": "-4.483922"
                   }, 
+                  "label": "H\u00f4tel De Ville (Jaur\u00e8s) (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav312"
                 }, 
                 "arrival_date_time": "20041215T145300", 
@@ -1118,12 +1265,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Libert\u00e9", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.390026", 
                     "lon": "-4.485046"
                   }, 
+                  "label": "Libert\u00e9 (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav333"
                 }, 
                 "arrival_date_time": "20041215T145500", 
@@ -1134,12 +1283,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Lyon", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.389031", 
                     "lon": "-4.488208"
                   }, 
+                  "label": "Lyon (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav178"
                 }, 
                 "arrival_date_time": "20041215T145600", 
@@ -1150,12 +1301,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Aiguillon", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.386488", 
                     "lon": "-4.491128"
                   }, 
+                  "label": "Aiguillon (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav179"
                 }, 
                 "arrival_date_time": "20041215T145700", 
@@ -1166,12 +1319,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Fran\u00e7ais Libres", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.385056", 
                     "lon": "-4.49342"
                   }, 
+                  "label": "Fran\u00e7ais Libres (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav334"
                 }, 
                 "arrival_date_time": "20041215T145800", 
@@ -1182,12 +1337,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Recouvrance", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.384233", 
                     "lon": "-4.498881"
                   }, 
+                  "label": "Recouvrance (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav181"
                 }, 
                 "arrival_date_time": "20041215T150000", 
@@ -1198,12 +1355,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Prat Ledan", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.384163", 
                     "lon": "-4.504751"
                   }, 
+                  "label": "Prat Ledan (Brest)", 
+                  "equipments": [], 
                   "id": "stop_point:BIB:SP:Nav182"
                 }, 
                 "arrival_date_time": "20041215T150200", 
@@ -1219,61 +1378,72 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Prat Ledan", 
+                "links": [], 
                 "coord": {
                   "lat": "48.384163", 
                   "lon": "-4.504751"
                 }, 
+                "label": "Prat Ledan (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
+                    "name": "Brest", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.38987538", 
                       "lon": "-4.487201604"
                     }, 
-                    "zip_code": "29200", 
+                    "label": "Brest (29200)", 
                     "id": "admin:29019", 
-                    "name": "Brest", 
-                    "level": 8
+                    "zip_code": "29200"
                   }
                 ], 
                 "address": {
-                  "house_number": 57, 
+                  "name": "Rue d'Armorique", 
+                  "house_number": 70, 
                   "coord": {
                     "lat": "48.384163", 
                     "lon": "-4.504751"
                   }, 
-                  "id": "-4.504751;48.384163", 
+                  "label": "70 Rue d'Armorique (Brest)", 
                   "administrative_regions": [
                     {
+                      "insee": "29019", 
+                      "name": "Brest", 
+                      "level": 8, 
                       "coord": {
                         "lat": "48.38987538", 
                         "lon": "-4.487201604"
                       }, 
-                      "zip_code": "29200", 
+                      "label": "Brest (29200)", 
                       "id": "admin:29019", 
-                      "name": "Brest", 
-                      "level": 8
+                      "zip_code": "29200"
                     }
                   ], 
-                  "name": "Rue d'Armorique"
+                  "id": "-4.504751;48.384163"
                 }, 
                 "id": "stop_point:BIB:SP:Nav182", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Prat Ledan", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.383979", 
                     "lon": "-4.505002"
                   }, 
+                  "label": "Prat Ledan (Brest)", 
                   "administrative_regions": [
                     {
+                      "insee": "29019", 
                       "name": "Brest", 
                       "level": 8, 
-                      "id": "admin:29019", 
                       "coord": {
                         "lat": "48.38987538", 
                         "lon": "-4.487201604"
                       }, 
+                      "label": "Brest (29200)", 
+                      "id": "admin:29019", 
                       "zip_code": "29200"
                     }
                   ], 
@@ -1283,13 +1453,11 @@
               }, 
               "quality": 0, 
               "id": "stop_point:BIB:SP:Nav182", 
-              "name": "Prat Ledan"
+              "name": "Prat Ledan (Brest)"
             }, 
             "links": [], 
             "arrival_date_time": "20041215T150200", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041215T150200", 
             "to": {
               "embedded_type": "stop_area", 
@@ -1297,20 +1465,24 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Prat Ledan", 
+                "links": [], 
                 "coord": {
                   "lat": "48.383979", 
                   "lon": "-4.505002"
                 }, 
+                "label": "Prat Ledan (Brest)", 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
+                    "name": "Brest", 
+                    "level": 8, 
                     "coord": {
                       "lat": "48.38987538", 
                       "lon": "-4.487201604"
                     }, 
-                    "zip_code": "29200", 
+                    "label": "Brest (29200)", 
                     "id": "admin:29019", 
-                    "name": "Brest", 
-                    "level": 8
+                    "zip_code": "29200"
                   }
                 ], 
                 "timezone": "Europe/Paris", 
@@ -1326,6 +1498,9 @@
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

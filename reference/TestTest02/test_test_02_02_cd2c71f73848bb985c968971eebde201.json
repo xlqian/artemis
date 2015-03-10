@@ -3,7 +3,6 @@
   "response": {
     "journeys": [
       {
-        "tags": [], 
         "nb_transfers": 0, 
         "arrival_date_time": "20041215T103100", 
         "departure_date_time": "20041215T100100", 
@@ -11,19 +10,28 @@
         "duration": 1800, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Arret 1", 
             "arrival_date_time": "20041215T100100", 
-            "departure_date_time": "20041215T100100"
-          }, 
-          {
-            "duration": 1800, 
-            "arrival_date_time": "20041215T103100", 
-            "departure_date_time": "20041215T100100"
-          }, 
-          {
+            "departure_date_time": "20041215T100100", 
+            "to": "Arret 1", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Arret 1", 
             "arrival_date_time": "20041215T103100", 
-            "departure_date_time": "20041215T103100"
+            "departure_date_time": "20041215T100100", 
+            "to": "Arret 3", 
+            "duration": 1800, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Arret 3", 
+            "arrival_date_time": "20041215T103100", 
+            "departure_date_time": "20041215T103100", 
+            "to": "Arret 3", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -33,7 +41,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -51,57 +59,65 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/test-02/journeys?to=stop_area%3ATS2%3ASA%3A3&from=stop_area%3ATS2%3ASA%3A1&datetime_represents=arrival&datetime=20041215T103000", 
         "type": "prev", 
+        "rel": "prev", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/test-02/journeys?to=stop_area%3ATS2%3ASA%3A3&from=stop_area%3ATS2%3ASA%3A1&datetime_represents=departure&datetime=20041215T100200", 
         "type": "next", 
+        "rel": "next", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/test-02/journeys?to=stop_area%3ATS2%3ASA%3A3&from=stop_area%3ATS2%3ASA%3A1&datetime_represents=departure&datetime=20041215T000000", 
         "type": "first", 
+        "rel": "first", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/test-02/journeys?to=stop_area%3ATS2%3ASA%3A3&from=stop_area%3ATS2%3ASA%3A1&datetime_represents=arrival&datetime=20041215T235900", 
         "type": "last", 
+        "rel": "last", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/test-02/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/test-02/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/test-02/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/test-02/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/test-02/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/test-02/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -123,9 +139,30 @@
             }
           ]
         }, 
-        "tags": [], 
+        "tags": [
+          "standard"
+        ], 
         "nb_transfers": 0, 
         "arrival_date_time": "20041215T103100", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20040101", 
+                "end": "20041231"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041215T100100", 
         "requested_date_time": "20041214T110500", 
         "type": "best", 
@@ -138,10 +175,13 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "43.188432", 
                   "lon": "5.490391"
                 }, 
+                "label": "Arret 1", 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:TS2:SA:1"
               }, 
               "name": "Arret 1", 
@@ -149,37 +189,41 @@
             }, 
             "links": [], 
             "arrival_date_time": "20041215T100100", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041215T100100", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "27.149438", 
                   "lon": "-3.395018"
                 }, 
+                "label": "Arret 1", 
                 "equipments": [], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:TS2:SP:Nav1", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.188432", 
                     "lon": "5.490391"
                   }, 
+                  "label": "Arret 1", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:TS2:SA:1"
                 }
               }, 
@@ -187,24 +231,7 @@
               "id": "stop_point:TS2:SP:Nav1", 
               "name": "Arret 1"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  5.490391, 
-                  43.188432
-                ], 
-                [
-                  -3.395018, 
-                  27.149438
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_0_0"
@@ -215,28 +242,34 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "27.149438", 
                   "lon": "-3.395018"
                 }, 
+                "label": "Arret 1", 
                 "equipments": [], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:TS2:SP:Nav1", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.188432", 
                     "lon": "5.490391"
                   }, 
+                  "label": "Arret 1", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:TS2:SA:1"
                 }
               }, 
@@ -278,14 +311,13 @@
               }
             ], 
             "arrival_date_time": "20041215T103100", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041215T100100", 
             "display_informations": {
               "direction": "Arret 3", 
               "code": "SOIR", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Train", 
               "headsign": "TS2:2-10", 
@@ -299,28 +331,34 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 3", 
+                "links": [], 
                 "coord": {
                   "lat": "27.158592", 
                   "lon": "-3.386178"
                 }, 
+                "label": "Arret 3", 
                 "equipments": [], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:TS2:SP:Nav4", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.171626", 
                     "lon": "5.328589"
                   }, 
+                  "label": "Arret 3", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:TS2:SA:3"
                 }
               }, 
@@ -357,12 +395,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "27.149438", 
                     "lon": "-3.395018"
                   }, 
+                  "label": "Arret 1", 
+                  "equipments": [], 
                   "id": "stop_point:TS2:SP:Nav1"
                 }, 
                 "arrival_date_time": "20041215T100100", 
@@ -373,12 +413,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "27.154327", 
                     "lon": "-3.38583"
                   }, 
+                  "label": "Arret 2", 
+                  "equipments": [], 
                   "id": "stop_point:TS2:SP:Nav2"
                 }, 
                 "arrival_date_time": "20041215T102100", 
@@ -389,12 +431,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "27.158592", 
                     "lon": "-3.386178"
                   }, 
+                  "label": "Arret 3", 
+                  "equipments": [], 
                   "id": "stop_point:TS2:SP:Nav4"
                 }, 
                 "arrival_date_time": "20041215T103100", 
@@ -410,28 +454,34 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 3", 
+                "links": [], 
                 "coord": {
                   "lat": "27.158592", 
                   "lon": "-3.386178"
                 }, 
+                "label": "Arret 3", 
                 "equipments": [], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:TS2:SP:Nav4", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.171626", 
                     "lon": "5.328589"
                   }, 
+                  "label": "Arret 3", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:TS2:SA:3"
                 }
               }, 
@@ -441,9 +491,7 @@
             }, 
             "links": [], 
             "arrival_date_time": "20041215T103100", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041215T103100", 
             "to": {
               "embedded_type": "stop_area", 
@@ -451,39 +499,28 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 3", 
+                "links": [], 
                 "coord": {
                   "lat": "43.171626", 
                   "lon": "5.328589"
                 }, 
+                "label": "Arret 3", 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:TS2:SA:3"
               }, 
               "name": "Arret 3", 
               "id": "stop_area:TS2:SA:3"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  -3.386178, 
-                  27.158592
-                ], 
-                [
-                  5.328589, 
-                  43.171626
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_2_0"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

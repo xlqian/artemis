@@ -10,19 +10,28 @@
         "duration": 1560, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Gare SNCF (Poitiers)", 
             "arrival_date_time": "20090906T090300", 
-            "departure_date_time": "20090906T090300"
-          }, 
-          {
-            "duration": 1560, 
-            "arrival_date_time": "20090906T092900", 
-            "departure_date_time": "20090906T090300"
-          }, 
-          {
+            "departure_date_time": "20090906T090300", 
+            "to": "Gare SNCF (Poitiers)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Gare SNCF (Poitiers)", 
             "arrival_date_time": "20090906T092900", 
-            "departure_date_time": "20090906T092900"
+            "departure_date_time": "20090906T090300", 
+            "to": "Parcobus Champlain (Poitiers)", 
+            "duration": 1560, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Parcobus Champlain (Poitiers)", 
+            "arrival_date_time": "20090906T092900", 
+            "departure_date_time": "20090906T092900", 
+            "to": "Parcobus Champlain (Poitiers)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -32,7 +41,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -50,8 +59,6 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/poitiers/journeys?to=stop_area%3APOI%3ASA%3A10114&datetime_represents=arrival&from=stop_area%3APOI%3ASA%3A10001&max_duration_to_pt=240&walking_speed=0.83&datetime=20090906T092800", 
@@ -78,37 +85,37 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/poitiers/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/poitiers/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/poitiers/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/poitiers/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/poitiers/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/poitiers/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/poitiers/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/poitiers/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/poitiers/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/poitiers/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/poitiers/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/poitiers/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
@@ -137,6 +144,25 @@
         ], 
         "nb_transfers": 0, 
         "arrival_date_time": "20090906T092900", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20090906", 
+                "end": "20091019"
+              }
+            ], 
+            "week_pattern": {
+              "monday": false, 
+              "tuesday": false, 
+              "friday": false, 
+              "wednesday": false, 
+              "thursday": false, 
+              "sunday": true, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20090906T090300", 
         "requested_date_time": "20090906T070000", 
         "type": "best", 
@@ -149,6 +175,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Gare SNCF", 
+                "links": [], 
                 "coord": {
                   "lat": "46.581815", 
                   "lon": "0.333659"
@@ -156,14 +183,15 @@
                 "label": "Gare SNCF (Poitiers)", 
                 "administrative_regions": [
                   {
+                    "insee": "86194", 
                     "name": "Poitiers", 
                     "level": 8, 
                     "coord": {
-                      "lat": "46.580259", 
-                      "lon": "0.340196"
+                      "lat": "46.58698872", 
+                      "lon": "0.3426561942"
                     }, 
                     "label": "Poitiers (86000)", 
-                    "id": "132348", 
+                    "id": "admin:86194", 
                     "zip_code": "86000"
                   }
                 ], 
@@ -182,6 +210,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Gare SNCF", 
+                "links": [], 
                 "coord": {
                   "lat": "46.582346", 
                   "lon": "0.334187"
@@ -190,35 +219,37 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "86194", 
                     "name": "Poitiers", 
                     "level": 8, 
                     "coord": {
-                      "lat": "46.580259", 
-                      "lon": "0.340196"
+                      "lat": "46.58698872", 
+                      "lon": "0.3426561942"
                     }, 
                     "label": "Poitiers (86000)", 
-                    "id": "132348", 
+                    "id": "admin:86194", 
                     "zip_code": "86000"
                   }
                 ], 
                 "address": {
                   "name": "Boulevard du Grand Cerf", 
-                  "house_number": 133, 
+                  "house_number": 153, 
                   "coord": {
                     "lat": "46.582346", 
                     "lon": "0.334187"
                   }, 
-                  "label": "133 Boulevard du Grand Cerf (Poitiers)", 
+                  "label": "153 Boulevard du Grand Cerf (Poitiers)", 
                   "administrative_regions": [
                     {
+                      "insee": "86194", 
                       "name": "Poitiers", 
                       "level": 8, 
                       "coord": {
-                        "lat": "46.580259", 
-                        "lon": "0.340196"
+                        "lat": "46.58698872", 
+                        "lon": "0.3426561942"
                       }, 
                       "label": "Poitiers (86000)", 
-                      "id": "132348", 
+                      "id": "admin:86194", 
                       "zip_code": "86000"
                     }
                   ], 
@@ -228,6 +259,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Gare SNCF", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.581815", 
                     "lon": "0.333659"
@@ -235,14 +267,15 @@
                   "label": "Gare SNCF (Poitiers)", 
                   "administrative_regions": [
                     {
+                      "insee": "86194", 
                       "name": "Poitiers", 
                       "level": 8, 
                       "coord": {
-                        "lat": "46.580259", 
-                        "lon": "0.340196"
+                        "lat": "46.58698872", 
+                        "lon": "0.3426561942"
                       }, 
                       "label": "Poitiers (86000)", 
-                      "id": "132348", 
+                      "id": "admin:86194", 
                       "zip_code": "86000"
                     }
                   ], 
@@ -265,6 +298,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Gare SNCF", 
+                "links": [], 
                 "coord": {
                   "lat": "46.582346", 
                   "lon": "0.334187"
@@ -273,31 +307,33 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "86194", 
                     "name": "Poitiers", 
                     "level": 8, 
                     "coord": {
-                      "lat": "46.580259", 
-                      "lon": "0.340196"
+                      "lat": "46.58698872", 
+                      "lon": "0.3426561942"
                     }, 
                     "label": "Poitiers (86000)", 
-                    "id": "132348", 
+                    "id": "admin:86194", 
                     "zip_code": "86000"
                   }
                 ], 
                 "address": {
-                  "house_number": 133, 
+                  "house_number": 153, 
                   "id": "0.334187;46.582346", 
                   "name": "Boulevard du Grand Cerf", 
                   "coord": {
                     "lat": "46.582346", 
                     "lon": "0.334187"
                   }, 
-                  "label": "133 Boulevard du Grand Cerf (Poitiers)"
+                  "label": "153 Boulevard du Grand Cerf (Poitiers)"
                 }, 
                 "id": "stop_point:POI:SP:20001", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Gare SNCF", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.581815", 
                     "lon": "0.333659"
@@ -337,6 +373,7 @@
                 "id": "network:POI:1"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -350,6 +387,7 @@
               "direction": "H. de Ville Claveurier (Poitiers)", 
               "code": "A", 
               "description": "", 
+              "links": [], 
               "color": "048800", 
               "physical_mode": "Bus", 
               "headsign": "H. de Ville Claveurier", 
@@ -363,6 +401,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Parcobus Champlain", 
+                "links": [], 
                 "coord": {
                   "lat": "46.568226", 
                   "lon": "0.388197"
@@ -371,31 +410,33 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "86194", 
                     "name": "Poitiers", 
                     "level": 8, 
                     "coord": {
-                      "lat": "46.580259", 
-                      "lon": "0.340196"
+                      "lat": "46.58698872", 
+                      "lon": "0.3426561942"
                     }, 
                     "label": "Poitiers (86000)", 
-                    "id": "132348", 
+                    "id": "admin:86194", 
                     "zip_code": "86000"
                   }
                 ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.388197;46.568226", 
-                  "name": "Rue Marcel Dor\u00e9", 
+                  "name": "Cit\u00e9 Universitaire Descartes", 
                   "coord": {
                     "lat": "46.568226", 
                     "lon": "0.388197"
                   }, 
-                  "label": "Rue Marcel Dor\u00e9 (Poitiers)"
+                  "label": "Cit\u00e9 Universitaire Descartes (Poitiers)"
                 }, 
                 "id": "stop_point:POI:SP:20090", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Parcobus Champlain", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.56818", 
                     "lon": "0.388616"
@@ -527,6 +568,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Gare SNCF", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.582346", 
                     "lon": "0.334187"
@@ -544,6 +586,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "La Chauss\u00e9e", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.587823", 
                     "lon": "0.34012"
@@ -561,6 +604,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Pont le Nain", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.591941", 
                     "lon": "0.340412"
@@ -578,6 +622,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Mozart", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.59214", 
                     "lon": "0.347141"
@@ -595,6 +640,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Europe", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.591515", 
                     "lon": "0.351054"
@@ -612,6 +658,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Le Mail", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.589594", 
                     "lon": "0.356529"
@@ -629,6 +676,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Marbourg", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.589035", 
                     "lon": "0.360596"
@@ -646,6 +694,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Rondy", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.586632", 
                     "lon": "0.365253"
@@ -663,6 +712,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Nelson Mandela", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.588775", 
                     "lon": "0.371062"
@@ -680,6 +730,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Le Peletier", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.587533", 
                     "lon": "0.37317"
@@ -697,6 +748,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Hoche", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.587194", 
                     "lon": "0.376967"
@@ -714,6 +766,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Marat", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.58613", 
                     "lon": "0.37946"
@@ -731,6 +784,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "St-Jacques de Compostelle", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.585276", 
                     "lon": "0.381605"
@@ -748,6 +802,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Ch\u00e2lons", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.582891", 
                     "lon": "0.380595"
@@ -765,6 +820,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Northampton", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.579732", 
                     "lon": "0.378973"
@@ -782,6 +838,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Bois Dousset", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.577201", 
                     "lon": "0.378347"
@@ -799,6 +856,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Beaulieu", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.576368", 
                     "lon": "0.376459"
@@ -816,6 +874,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Foyer Soleil", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.573526", 
                     "lon": "0.378154"
@@ -833,6 +892,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Jean le Bon", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.573106", 
                     "lon": "0.382005"
@@ -850,6 +910,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "La R\u00e9au", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.573586", 
                     "lon": "0.384259"
@@ -867,6 +928,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Iaroslav", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.573371", 
                     "lon": "0.386981"
@@ -884,6 +946,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Montpensier", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.573724", 
                     "lon": "0.3892"
@@ -901,6 +964,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Mari\u00e9ville", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.573763", 
                     "lon": "0.391469"
@@ -918,6 +982,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Iassy", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.570633", 
                     "lon": "0.390538"
@@ -935,6 +1000,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Parcobus Champlain", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.568226", 
                     "lon": "0.388197"
@@ -956,6 +1022,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Parcobus Champlain", 
+                "links": [], 
                 "coord": {
                   "lat": "46.568226", 
                   "lon": "0.388197"
@@ -964,35 +1031,37 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "86194", 
                     "name": "Poitiers", 
                     "level": 8, 
                     "coord": {
-                      "lat": "46.580259", 
-                      "lon": "0.340196"
+                      "lat": "46.58698872", 
+                      "lon": "0.3426561942"
                     }, 
                     "label": "Poitiers (86000)", 
-                    "id": "132348", 
+                    "id": "admin:86194", 
                     "zip_code": "86000"
                   }
                 ], 
                 "address": {
-                  "name": "Rue Marcel Dor\u00e9", 
+                  "name": "Cit\u00e9 Universitaire Descartes", 
                   "house_number": 0, 
                   "coord": {
                     "lat": "46.568226", 
                     "lon": "0.388197"
                   }, 
-                  "label": "Rue Marcel Dor\u00e9 (Poitiers)", 
+                  "label": "Cit\u00e9 Universitaire Descartes (Poitiers)", 
                   "administrative_regions": [
                     {
+                      "insee": "86194", 
                       "name": "Poitiers", 
                       "level": 8, 
                       "coord": {
-                        "lat": "46.580259", 
-                        "lon": "0.340196"
+                        "lat": "46.58698872", 
+                        "lon": "0.3426561942"
                       }, 
                       "label": "Poitiers (86000)", 
-                      "id": "132348", 
+                      "id": "admin:86194", 
                       "zip_code": "86000"
                     }
                   ], 
@@ -1002,6 +1071,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Parcobus Champlain", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.56818", 
                     "lon": "0.388616"
@@ -1009,14 +1079,15 @@
                   "label": "Parcobus Champlain (Poitiers)", 
                   "administrative_regions": [
                     {
+                      "insee": "86194", 
                       "name": "Poitiers", 
                       "level": 8, 
                       "coord": {
-                        "lat": "46.580259", 
-                        "lon": "0.340196"
+                        "lat": "46.58698872", 
+                        "lon": "0.3426561942"
                       }, 
                       "label": "Poitiers (86000)", 
-                      "id": "132348", 
+                      "id": "admin:86194", 
                       "zip_code": "86000"
                     }
                   ], 
@@ -1038,6 +1109,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Parcobus Champlain", 
+                "links": [], 
                 "coord": {
                   "lat": "46.56818", 
                   "lon": "0.388616"
@@ -1045,14 +1117,15 @@
                 "label": "Parcobus Champlain (Poitiers)", 
                 "administrative_regions": [
                   {
+                    "insee": "86194", 
                     "name": "Poitiers", 
                     "level": 8, 
                     "coord": {
-                      "lat": "46.580259", 
-                      "lon": "0.340196"
+                      "lat": "46.58698872", 
+                      "lon": "0.3426561942"
                     }, 
                     "label": "Poitiers (86000)", 
-                    "id": "132348", 
+                    "id": "admin:86194", 
                     "zip_code": "86000"
                   }
                 ], 
@@ -1069,6 +1142,9 @@
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

@@ -3,7 +3,6 @@
   "response": {
     "journeys": [
       {
-        "tags": [], 
         "nb_transfers": 0, 
         "arrival_date_time": "20120820T170700", 
         "departure_date_time": "20120820T170100", 
@@ -11,19 +10,28 @@
         "duration": 360, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Borderouge (Toulouse)", 
             "arrival_date_time": "20120820T170100", 
-            "departure_date_time": "20120820T170100"
-          }, 
-          {
-            "duration": 360, 
-            "arrival_date_time": "20120820T170700", 
-            "departure_date_time": "20120820T170100"
-          }, 
-          {
+            "departure_date_time": "20120820T170100", 
+            "to": "Borderouge (Toulouse)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Borderouge (Toulouse)", 
             "arrival_date_time": "20120820T170700", 
-            "departure_date_time": "20120820T170700"
+            "departure_date_time": "20120820T170100", 
+            "to": "La Vache (Toulouse)", 
+            "duration": 360, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "La Vache (Toulouse)", 
+            "arrival_date_time": "20120820T170700", 
+            "departure_date_time": "20120820T170700", 
+            "to": "La Vache (Toulouse)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -33,7 +41,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -51,57 +59,65 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A1344488&from=stop_area%3AFQT%3ASA%3A527405&datetime_represents=arrival&datetime=20120820T170600", 
         "type": "prev", 
+        "rel": "prev", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A1344488&from=stop_area%3AFQT%3ASA%3A527405&datetime_represents=departure&datetime=20120820T170200", 
         "type": "next", 
+        "rel": "next", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A1344488&from=stop_area%3AFQT%3ASA%3A527405&datetime_represents=departure&datetime=20120820T000000", 
         "type": "first", 
+        "rel": "first", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A1344488&from=stop_area%3AFQT%3ASA%3A527405&datetime_represents=arrival&datetime=20120820T235900", 
         "type": "last", 
+        "rel": "last", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -123,9 +139,34 @@
             }
           ]
         }, 
-        "tags": [], 
+        "tags": [
+          "standard"
+        ], 
         "nb_transfers": 0, 
         "arrival_date_time": "20120820T170700", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20120723", 
+                "end": "20120730"
+              }, 
+              {
+                "begin": "20120820", 
+                "end": "20120824"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": false, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20120820T170100", 
         "requested_date_time": "20120820T170000", 
         "type": "best", 
@@ -138,73 +179,105 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Borderouge", 
+                "links": [], 
                 "coord": {
                   "lat": "43.390506", 
                   "lon": "-5.067816"
                 }, 
+                "label": "Borderouge (Toulouse)", 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
                 "id": "stop_area:FQT:SA:527405"
               }, 
-              "name": "Borderouge", 
+              "name": "Borderouge (Toulouse)", 
               "id": "stop_area:FQT:SA:527405"
             }, 
             "links": [], 
             "arrival_date_time": "20120820T170100", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20120820T170100", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
                 "name": "Borderouge", 
+                "links": [], 
                 "coord": {
                   "lat": "43.6407", 
                   "lon": "1.45272"
                 }, 
+                "label": "Borderouge (Toulouse)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:FQT:SP:1344487", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Borderouge", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.390506", 
                     "lon": "-5.067816"
                   }, 
+                  "label": "Borderouge (Toulouse)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "31555", 
+                      "name": "Toulouse", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "43.604462", 
+                        "lon": "1.444246"
+                      }, 
+                      "label": "Toulouse (31000-31500)", 
+                      "id": "admin:35738extern", 
+                      "zip_code": "31000-31500"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:FQT:SA:527405"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:FQT:SP:1344487", 
-              "name": "Borderouge"
+              "name": "Borderouge (Toulouse)"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  -5.067816, 
-                  43.390506
-                ], 
-                [
-                  1.45272, 
-                  43.6407
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_0_0"
@@ -215,39 +288,59 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Borderouge", 
+                "links": [], 
                 "coord": {
                   "lat": "43.6407", 
                   "lon": "1.45272"
                 }, 
+                "label": "Borderouge (Toulouse)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:FQT:SP:1344487", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Borderouge", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.390506", 
                     "lon": "-5.067816"
                   }, 
+                  "label": "Borderouge (Toulouse)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:FQT:SA:527405"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:FQT:SP:1344487", 
-              "name": "Borderouge"
+              "name": "Borderouge (Toulouse)"
             }, 
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:FQT:4298545012A3266245644"
+                "id": "vehicle_journey:FQT:4298545012A3266245716"
               }, 
               {
                 "type": "line", 
@@ -270,6 +363,10 @@
                 "id": "network:FQT:43019"
               }, 
               {
+                "type": "notes", 
+                "id": "note:817465718901251579"
+              }, 
+              {
                 "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
@@ -278,14 +375,13 @@
               }
             ], 
             "arrival_date_time": "20120820T170700", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20120820T170100", 
             "display_informations": {
-              "direction": "Ramonville", 
+              "direction": "Ramonville (Ramonville-Saint-Agne)", 
               "code": "B", 
               "description": "", 
+              "links": [], 
               "color": "ffff00", 
               "physical_mode": "M\u00e9tro", 
               "headsign": "MP/TLS/B/2", 
@@ -299,34 +395,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "La Vache", 
+                "links": [], 
                 "coord": {
                   "lat": "43.6337", 
                   "lon": "1.43343"
                 }, 
+                "label": "La Vache (Toulouse)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:FQT:SP:1344490", 
                 "stop_area": {
                   "comment": "", 
                   "name": "La Vache", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.6335", 
                     "lon": "1.43432"
                   }, 
+                  "label": "La Vache (Toulouse)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:FQT:SA:1344488"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:FQT:SP:1344490", 
-              "name": "La Vache"
+              "name": "La Vache (Toulouse)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -357,12 +473,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Borderouge", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.6407", 
                     "lon": "1.45272"
                   }, 
+                  "label": "Borderouge (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1344487"
                 }, 
                 "arrival_date_time": "20120820T170100", 
@@ -373,12 +491,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Trois Cocus", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.6386", 
                     "lon": "1.44362"
                   }, 
+                  "label": "Trois Cocus (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1344291"
                 }, 
                 "arrival_date_time": "20120820T170500", 
@@ -389,12 +509,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "La Vache", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.6337", 
                     "lon": "1.43343"
                   }, 
+                  "label": "La Vache (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1344490"
                 }, 
                 "arrival_date_time": "20120820T170700", 
@@ -410,40 +532,72 @@
               "stop_point": {
                 "comment": "", 
                 "name": "La Vache", 
+                "links": [], 
                 "coord": {
                   "lat": "43.6337", 
                   "lon": "1.43343"
                 }, 
+                "label": "La Vache (Toulouse)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:FQT:SP:1344490", 
                 "stop_area": {
                   "comment": "", 
                   "name": "La Vache", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.6335", 
                     "lon": "1.43432"
                   }, 
+                  "label": "La Vache (Toulouse)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "31555", 
+                      "name": "Toulouse", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "43.604462", 
+                        "lon": "1.444246"
+                      }, 
+                      "label": "Toulouse (31000-31500)", 
+                      "id": "admin:35738extern", 
+                      "zip_code": "31000-31500"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:FQT:SA:1344488"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:FQT:SP:1344490", 
-              "name": "La Vache"
+              "name": "La Vache (Toulouse)"
             }, 
             "links": [], 
             "arrival_date_time": "20120820T170700", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20120820T170700", 
             "to": {
               "embedded_type": "stop_area", 
@@ -451,39 +605,48 @@
               "stop_area": {
                 "comment": "", 
                 "name": "La Vache", 
+                "links": [], 
                 "coord": {
                   "lat": "43.6335", 
                   "lon": "1.43432"
                 }, 
+                "label": "La Vache (Toulouse)", 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
                 "id": "stop_area:FQT:SA:1344488"
               }, 
-              "name": "La Vache", 
+              "name": "La Vache (Toulouse)", 
               "id": "stop_area:FQT:SA:1344488"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  1.43343, 
-                  43.6337
-                ], 
-                [
-                  1.43432, 
-                  43.6335
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_2_0"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [
+      {
+        "type": "notes", 
+        "id": "note:817465718901251579", 
+        "value": "Ligne Borderouge / Ramonville"
+      }
+    ], 
+    "exceptions": []
   }
 }

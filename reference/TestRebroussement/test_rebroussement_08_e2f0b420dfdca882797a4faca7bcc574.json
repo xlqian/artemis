@@ -10,29 +10,44 @@
         "duration": 1620, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Centre Commercial Kerdrezec (Pau)", 
             "arrival_date_time": "20041213T090900", 
-            "departure_date_time": "20041213T090900"
-          }, 
-          {
-            "duration": 120, 
-            "arrival_date_time": "20041213T091100", 
-            "departure_date_time": "20041213T090900"
-          }, 
-          {
-            "duration": 960, 
-            "arrival_date_time": "20041213T092700", 
-            "departure_date_time": "20041213T091100"
-          }, 
-          {
-            "duration": 540, 
-            "arrival_date_time": "20041213T093600", 
-            "departure_date_time": "20041213T092700"
-          }, 
-          {
+            "departure_date_time": "20041213T090900", 
+            "to": "Centre Commercial Kerdrezec (Pau)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Centre Commercial Kerdrezec (Pau)", 
+            "arrival_date_time": "20041213T091100", 
+            "departure_date_time": "20041213T090900", 
+            "to": "Prat Maria (Lons)", 
+            "duration": 120, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": null, 
+            "arrival_date_time": "20041213T092700", 
+            "departure_date_time": "20041213T091100", 
+            "to": null, 
+            "duration": 960, 
+            "type": "waiting"
+          }, 
+          {
+            "from": "Prat Maria (Lons)", 
             "arrival_date_time": "20041213T093600", 
-            "departure_date_time": "20041213T093600"
+            "departure_date_time": "20041213T092700", 
+            "to": "Aquarive (Idron)", 
+            "duration": 540, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Aquarive (Idron)", 
+            "arrival_date_time": "20041213T093600", 
+            "departure_date_time": "20041213T093600", 
+            "to": "Aquarive (Idron)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -42,7 +57,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -67,8 +82,6 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/rebroussement/journeys?to=stop_area%3ARBR%3ASA%3A7&from=stop_area%3ARBR%3ASA%3A4&datetime_represents=arrival&datetime=20041213T093500", 
@@ -95,37 +108,37 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/rebroussement/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/rebroussement/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/rebroussement/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/rebroussement/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
@@ -154,6 +167,25 @@
         ], 
         "nb_transfers": 1, 
         "arrival_date_time": "20041213T093600", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20040101", 
+                "end": "20041231"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041213T090900", 
         "requested_date_time": "20041213T090000", 
         "type": "best", 
@@ -166,6 +198,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Centre Commercial Kerdrezec", 
+                "links": [], 
                 "coord": {
                   "lat": "43.307893", 
                   "lon": "-0.357136"
@@ -173,6 +206,7 @@
                 "label": "Centre Commercial Kerdrezec (Pau)", 
                 "administrative_regions": [
                   {
+                    "insee": "64445", 
                     "name": "Pau", 
                     "level": 8, 
                     "coord": {
@@ -199,6 +233,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Centre Commercial Kerdrezec", 
+                "links": [], 
                 "coord": {
                   "lat": "43.307893", 
                   "lon": "-0.357136"
@@ -207,6 +242,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "64445", 
                     "name": "Pau", 
                     "level": 8, 
                     "coord": {
@@ -232,6 +268,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Centre Commercial Kerdrezec", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.307893", 
                     "lon": "-0.357136"
@@ -239,6 +276,7 @@
                   "label": "Centre Commercial Kerdrezec (Pau)", 
                   "administrative_regions": [
                     {
+                      "insee": "64445", 
                       "name": "Pau", 
                       "level": 8, 
                       "coord": {
@@ -269,6 +307,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Centre Commercial Kerdrezec", 
+                "links": [], 
                 "coord": {
                   "lat": "43.307893", 
                   "lon": "-0.357136"
@@ -277,6 +316,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "64445", 
                     "name": "Pau", 
                     "level": 8, 
                     "coord": {
@@ -302,6 +342,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Centre Commercial Kerdrezec", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.307893", 
                     "lon": "-0.357136"
@@ -341,6 +382,7 @@
                 "id": "network:default_network"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -354,6 +396,7 @@
               "direction": "Centre Ville (Morla\u00e0s)", 
               "code": "5", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Train", 
               "headsign": "RBR:1-132", 
@@ -367,6 +410,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Prat Maria", 
+                "links": [], 
                 "coord": {
                   "lat": "43.322267", 
                   "lon": "-0.381937"
@@ -375,6 +419,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "64348", 
                     "name": "Lons", 
                     "level": 8, 
                     "coord": {
@@ -400,6 +445,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Prat Maria", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.322267", 
                     "lon": "-0.381937"
@@ -439,6 +485,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Centre Commercial Kerdrezec", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.307893", 
                     "lon": "-0.357136"
@@ -456,6 +503,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Prat Maria", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.322267", 
                     "lon": "-0.381937"
@@ -486,6 +534,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Prat Maria", 
+                "links": [], 
                 "coord": {
                   "lat": "43.322267", 
                   "lon": "-0.381937"
@@ -494,6 +543,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "64348", 
                     "name": "Lons", 
                     "level": 8, 
                     "coord": {
@@ -519,6 +569,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Prat Maria", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.322267", 
                     "lon": "-0.381937"
@@ -558,6 +609,7 @@
                 "id": "network:default_network"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -571,6 +623,7 @@
               "direction": "Aquarive (Idron)", 
               "code": "1", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Train", 
               "headsign": "RBR:2-109", 
@@ -584,6 +637,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Aquarive", 
+                "links": [], 
                 "coord": {
                   "lat": "43.295999", 
                   "lon": "-0.320586"
@@ -592,6 +646,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "64269", 
                     "name": "Idron", 
                     "level": 8, 
                     "coord": {
@@ -617,6 +672,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Aquarive", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.295999", 
                     "lon": "-0.320586"
@@ -656,6 +712,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Prat Maria", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.322267", 
                     "lon": "-0.381937"
@@ -673,6 +730,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Aquarive", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.295999", 
                     "lon": "-0.320586"
@@ -694,6 +752,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Aquarive", 
+                "links": [], 
                 "coord": {
                   "lat": "43.295999", 
                   "lon": "-0.320586"
@@ -702,6 +761,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "64269", 
                     "name": "Idron", 
                     "level": 8, 
                     "coord": {
@@ -727,6 +787,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Aquarive", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.295999", 
                     "lon": "-0.320586"
@@ -734,6 +795,7 @@
                   "label": "Aquarive (Idron)", 
                   "administrative_regions": [
                     {
+                      "insee": "64269", 
                       "name": "Idron", 
                       "level": 8, 
                       "coord": {
@@ -763,6 +825,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Aquarive", 
+                "links": [], 
                 "coord": {
                   "lat": "43.295999", 
                   "lon": "-0.320586"
@@ -770,6 +833,7 @@
                 "label": "Aquarive (Idron)", 
                 "administrative_regions": [
                   {
+                    "insee": "64269", 
                     "name": "Idron", 
                     "level": 8, 
                     "coord": {
@@ -794,6 +858,9 @@
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

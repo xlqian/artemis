@@ -3,7 +3,6 @@
   "response": {
     "journeys": [
       {
-        "tags": [], 
         "nb_transfers": 1, 
         "arrival_date_time": "20041210T153000", 
         "departure_date_time": "20041210T150000", 
@@ -11,34 +10,52 @@
         "duration": 1800, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Arret 2 (Saint-Martin-le-Vinoux)", 
             "arrival_date_time": "20041210T150000", 
-            "departure_date_time": "20041210T150000"
-          }, 
-          {
-            "duration": 600, 
-            "arrival_date_time": "20041210T151000", 
-            "departure_date_time": "20041210T150000"
-          }, 
-          {
-            "duration": 300, 
-            "arrival_date_time": "20041210T151500", 
-            "departure_date_time": "20041210T151000"
-          }, 
-          {
-            "duration": 300, 
-            "arrival_date_time": "20041210T152000", 
-            "departure_date_time": "20041210T151500"
-          }, 
-          {
-            "duration": 600, 
-            "arrival_date_time": "20041210T153000", 
-            "departure_date_time": "20041210T152000"
-          }, 
-          {
+            "departure_date_time": "20041210T150000", 
+            "to": "Arret 2 (Saint-Martin-le-Vinoux)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Arret 2 (Saint-Martin-le-Vinoux)", 
+            "arrival_date_time": "20041210T151000", 
+            "departure_date_time": "20041210T150000", 
+            "to": "Arret 3 (Eybens)", 
+            "duration": 600, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Arret 3 (Eybens)", 
+            "arrival_date_time": "20041210T151500", 
+            "departure_date_time": "20041210T151000", 
+            "to": "Arret 4 (Seyssinet-Pariset)", 
+            "duration": 300, 
+            "type": "transfer"
+          }, 
+          {
+            "from": null, 
+            "arrival_date_time": "20041210T152000", 
+            "departure_date_time": "20041210T151500", 
+            "to": null, 
+            "duration": 300, 
+            "type": "waiting"
+          }, 
+          {
+            "from": "Arret 4 (Seyssinet-Pariset)", 
             "arrival_date_time": "20041210T153000", 
-            "departure_date_time": "20041210T153000"
+            "departure_date_time": "20041210T152000", 
+            "to": "Arret 5 (Grenoble)", 
+            "duration": 600, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Arret 5 (Grenoble)", 
+            "arrival_date_time": "20041210T153000", 
+            "departure_date_time": "20041210T153000", 
+            "to": "Arret 5 (Grenoble)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -48,7 +65,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -73,57 +90,65 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/map/journeys?to=stop_area%3AMAP%3ASA%3A5&from=stop_area%3AMAP%3ASA%3A2&datetime_represents=arrival&datetime=20041210T152900", 
         "type": "prev", 
+        "rel": "prev", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/map/journeys?to=stop_area%3AMAP%3ASA%3A5&from=stop_area%3AMAP%3ASA%3A2&datetime_represents=departure&datetime=20041210T150100", 
         "type": "next", 
+        "rel": "next", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/map/journeys?to=stop_area%3AMAP%3ASA%3A5&from=stop_area%3AMAP%3ASA%3A2&datetime_represents=departure&datetime=20041210T000000", 
         "type": "first", 
+        "rel": "first", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/map/journeys?to=stop_area%3AMAP%3ASA%3A5&from=stop_area%3AMAP%3ASA%3A2&datetime_represents=arrival&datetime=20041210T235900", 
         "type": "last", 
+        "rel": "last", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/map/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/map/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/map/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/map/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/map/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/map/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -145,9 +170,30 @@
             }
           ]
         }, 
-        "tags": [], 
+        "tags": [
+          "standard"
+        ], 
         "nb_transfers": 1, 
         "arrival_date_time": "20041210T153000", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20040101", 
+                "end": "20041231"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041210T150000", 
         "requested_date_time": "20041210T070000", 
         "type": "best", 
@@ -160,73 +206,105 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 2", 
+                "links": [], 
                 "coord": {
                   "lat": "45.213525", 
                   "lon": "5.696112"
                 }, 
+                "label": "Arret 2 (Saint-Martin-le-Vinoux)", 
+                "administrative_regions": [
+                  {
+                    "insee": "38423", 
+                    "name": "Saint-Martin-le-Vinoux", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.20887", 
+                      "lon": "5.705599"
+                    }, 
+                    "label": "Saint-Martin-le-Vinoux (38950)", 
+                    "id": "admin:85939extern", 
+                    "zip_code": "38950"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:MAP:SA:2"
               }, 
-              "name": "Arret 2", 
+              "name": "Arret 2 (Saint-Martin-le-Vinoux)", 
               "id": "stop_area:MAP:SA:2"
             }, 
             "links": [], 
             "arrival_date_time": "20041210T150000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T150000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 2", 
+                "links": [], 
                 "coord": {
                   "lat": "45.213525", 
                   "lon": "5.696112"
                 }, 
+                "label": "Arret 2 (Saint-Martin-le-Vinoux)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "38423", 
+                    "name": "Saint-Martin-le-Vinoux", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.20887", 
+                      "lon": "5.705599"
+                    }, 
+                    "label": "Saint-Martin-le-Vinoux (38950)", 
+                    "id": "admin:85939extern", 
+                    "zip_code": "38950"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:MAP:SP:Nav1", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.213525", 
                     "lon": "5.696112"
                   }, 
+                  "label": "Arret 2 (Saint-Martin-le-Vinoux)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "38423", 
+                      "name": "Saint-Martin-le-Vinoux", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "45.20887", 
+                        "lon": "5.705599"
+                      }, 
+                      "label": "Saint-Martin-le-Vinoux (38950)", 
+                      "id": "admin:85939extern", 
+                      "zip_code": "38950"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:MAP:SA:2"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:MAP:SP:Nav1", 
-              "name": "Arret 2"
+              "name": "Arret 2 (Saint-Martin-le-Vinoux)"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  5.696112, 
-                  45.213525
-                ], 
-                [
-                  5.696112, 
-                  45.213525
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_0_0"
@@ -237,34 +315,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 2", 
+                "links": [], 
                 "coord": {
                   "lat": "45.213525", 
                   "lon": "5.696112"
                 }, 
+                "label": "Arret 2 (Saint-Martin-le-Vinoux)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "38423", 
+                    "name": "Saint-Martin-le-Vinoux", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.20887", 
+                      "lon": "5.705599"
+                    }, 
+                    "label": "Saint-Martin-le-Vinoux (38950)", 
+                    "id": "admin:85939extern", 
+                    "zip_code": "38950"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:MAP:SP:Nav1", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.213525", 
                     "lon": "5.696112"
                   }, 
+                  "label": "Arret 2 (Saint-Martin-le-Vinoux)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:MAP:SA:2"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:MAP:SP:Nav1", 
-              "name": "Arret 2"
+              "name": "Arret 2 (Saint-Martin-le-Vinoux)"
             }, 
             "links": [
               {
@@ -300,14 +398,13 @@
               }
             ], 
             "arrival_date_time": "20041210T151000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T150000", 
             "display_informations": {
-              "direction": "Arret 3", 
+              "direction": "Arret 3 (Eybens)", 
               "code": "A", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "MAP:1-12", 
@@ -321,34 +418,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 3", 
+                "links": [], 
                 "coord": {
                   "lat": "45.163646", 
                   "lon": "5.743013"
                 }, 
+                "label": "Arret 3 (Eybens)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "38158", 
+                    "name": "Eybens", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.152401", 
+                      "lon": "5.748119"
+                    }, 
+                    "label": "Eybens (38320)", 
+                    "id": "admin:102786extern", 
+                    "zip_code": "38320"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:MAP:SP:Nav2", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.163646", 
                     "lon": "5.743013"
                   }, 
+                  "label": "Arret 3 (Eybens)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:MAP:SA:3"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:MAP:SP:Nav2", 
-              "name": "Arret 3"
+              "name": "Arret 3 (Eybens)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -375,12 +492,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.213525", 
                     "lon": "5.696112"
                   }, 
+                  "label": "Arret 2 (Saint-Martin-le-Vinoux)", 
+                  "equipments": [], 
                   "id": "stop_point:MAP:SP:Nav1"
                 }, 
                 "arrival_date_time": "20041210T150000", 
@@ -391,12 +510,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.163646", 
                     "lon": "5.743013"
                   }, 
+                  "label": "Arret 3 (Eybens)", 
+                  "equipments": [], 
                   "id": "stop_point:MAP:SP:Nav2"
                 }, 
                 "arrival_date_time": "20041210T151000", 
@@ -412,74 +533,112 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 3", 
+                "links": [], 
                 "coord": {
                   "lat": "45.163646", 
                   "lon": "5.743013"
                 }, 
+                "label": "Arret 3 (Eybens)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "38158", 
+                    "name": "Eybens", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.152401", 
+                      "lon": "5.748119"
+                    }, 
+                    "label": "Eybens (38320)", 
+                    "id": "admin:102786extern", 
+                    "zip_code": "38320"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:MAP:SP:Nav2", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.163646", 
                     "lon": "5.743013"
                   }, 
+                  "label": "Arret 3 (Eybens)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:MAP:SA:3"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:MAP:SP:Nav2", 
-              "name": "Arret 3"
+              "name": "Arret 3 (Eybens)"
             }, 
             "links": [], 
             "arrival_date_time": "20041210T151500", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T151000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "45.174752", 
                   "lon": "5.69709"
                 }, 
+                "label": "Arret 4 (Seyssinet-Pariset)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "38485", 
+                    "name": "Seyssinet-Pariset", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.178154", 
+                      "lon": "5.696463"
+                    }, 
+                    "label": "Seyssinet-Pariset (38170)", 
+                    "id": "admin:191039extern", 
+                    "zip_code": "38170"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:MAP:SP:Nav3", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.174752", 
                     "lon": "5.69709"
                   }, 
+                  "label": "Arret 4 (Seyssinet-Pariset)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:MAP:SA:4"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:MAP:SP:Nav3", 
-              "name": "Arret 4"
+              "name": "Arret 4 (Seyssinet-Pariset)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -507,9 +666,7 @@
           {
             "links": [], 
             "arrival_date_time": "20041210T152000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T151500", 
             "duration": 300, 
             "type": "waiting", 
@@ -521,34 +678,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "45.174752", 
                   "lon": "5.69709"
                 }, 
+                "label": "Arret 4 (Seyssinet-Pariset)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "38485", 
+                    "name": "Seyssinet-Pariset", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.178154", 
+                      "lon": "5.696463"
+                    }, 
+                    "label": "Seyssinet-Pariset (38170)", 
+                    "id": "admin:191039extern", 
+                    "zip_code": "38170"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:MAP:SP:Nav3", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.174752", 
                     "lon": "5.69709"
                   }, 
+                  "label": "Arret 4 (Seyssinet-Pariset)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:MAP:SA:4"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:MAP:SP:Nav3", 
-              "name": "Arret 4"
+              "name": "Arret 4 (Seyssinet-Pariset)"
             }, 
             "links": [
               {
@@ -584,14 +761,13 @@
               }
             ], 
             "arrival_date_time": "20041210T153000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T152000", 
             "display_informations": {
-              "direction": "Arret 5", 
+              "direction": "Arret 5 (Grenoble)", 
               "code": "B", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "MAP:2-11", 
@@ -605,34 +781,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 5", 
+                "links": [], 
                 "coord": {
                   "lat": "45.168294", 
                   "lon": "5.72796"
                 }, 
+                "label": "Arret 5 (Grenoble)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "38185", 
+                    "name": "Grenoble", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.18248", 
+                      "lon": "5.721077"
+                    }, 
+                    "label": "Grenoble (38000-38100)", 
+                    "id": "admin:80348extern", 
+                    "zip_code": "38000-38100"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:MAP:SP:Nav4", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 5", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.168294", 
                     "lon": "5.72796"
                   }, 
+                  "label": "Arret 5 (Grenoble)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:MAP:SA:5"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:MAP:SP:Nav4", 
-              "name": "Arret 5"
+              "name": "Arret 5 (Grenoble)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -659,12 +855,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.174752", 
                     "lon": "5.69709"
                   }, 
+                  "label": "Arret 4 (Seyssinet-Pariset)", 
+                  "equipments": [], 
                   "id": "stop_point:MAP:SP:Nav3"
                 }, 
                 "arrival_date_time": "20041210T152000", 
@@ -675,12 +873,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 5", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.168294", 
                     "lon": "5.72796"
                   }, 
+                  "label": "Arret 5 (Grenoble)", 
+                  "equipments": [], 
                   "id": "stop_point:MAP:SP:Nav4"
                 }, 
                 "arrival_date_time": "20041210T153000", 
@@ -696,40 +896,72 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 5", 
+                "links": [], 
                 "coord": {
                   "lat": "45.168294", 
                   "lon": "5.72796"
                 }, 
+                "label": "Arret 5 (Grenoble)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "38185", 
+                    "name": "Grenoble", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.18248", 
+                      "lon": "5.721077"
+                    }, 
+                    "label": "Grenoble (38000-38100)", 
+                    "id": "admin:80348extern", 
+                    "zip_code": "38000-38100"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:MAP:SP:Nav4", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 5", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.168294", 
                     "lon": "5.72796"
                   }, 
+                  "label": "Arret 5 (Grenoble)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "38185", 
+                      "name": "Grenoble", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "45.18248", 
+                        "lon": "5.721077"
+                      }, 
+                      "label": "Grenoble (38000-38100)", 
+                      "id": "admin:80348extern", 
+                      "zip_code": "38000-38100"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:MAP:SA:5"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:MAP:SP:Nav4", 
-              "name": "Arret 5"
+              "name": "Arret 5 (Grenoble)"
             }, 
             "links": [], 
             "arrival_date_time": "20041210T153000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041210T153000", 
             "to": {
               "embedded_type": "stop_area", 
@@ -737,39 +969,42 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 5", 
+                "links": [], 
                 "coord": {
                   "lat": "45.168294", 
                   "lon": "5.72796"
                 }, 
+                "label": "Arret 5 (Grenoble)", 
+                "administrative_regions": [
+                  {
+                    "insee": "38185", 
+                    "name": "Grenoble", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.18248", 
+                      "lon": "5.721077"
+                    }, 
+                    "label": "Grenoble (38000-38100)", 
+                    "id": "admin:80348extern", 
+                    "zip_code": "38000-38100"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:MAP:SA:5"
               }, 
-              "name": "Arret 5", 
+              "name": "Arret 5 (Grenoble)", 
               "id": "stop_area:MAP:SA:5"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  5.72796, 
-                  45.168294
-                ], 
-                [
-                  5.72796, 
-                  45.168294
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_5_0"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

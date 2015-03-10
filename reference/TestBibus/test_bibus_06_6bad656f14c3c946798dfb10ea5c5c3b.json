@@ -10,19 +10,28 @@
         "duration": 945, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Libert\u00e9 (Brest)", 
             "arrival_date_time": "20041217T071000", 
-            "departure_date_time": "20041217T071000"
+            "departure_date_time": "20041217T071000", 
+            "to": "Libert\u00e9 (Brest)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }, 
           {
-            "duration": 780, 
+            "from": "Libert\u00e9 (Brest)", 
             "arrival_date_time": "20041217T072300", 
-            "departure_date_time": "20041217T071000"
+            "departure_date_time": "20041217T071000", 
+            "to": "Didailler (Brest)", 
+            "duration": 780, 
+            "type": "public_transport"
           }, 
           {
-            "duration": 222, 
+            "from": "Didailler (Brest)", 
             "arrival_date_time": "20041217T072642", 
-            "departure_date_time": "20041217T072300"
+            "departure_date_time": "20041217T072300", 
+            "to": "Villeneuve (Brest)", 
+            "duration": 222, 
+            "type": "street_network"
           }
         ]
       }
@@ -32,12 +41,33 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
             "type": "section", 
             "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_3_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_6_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_9_0", 
             "rel": "sections", 
             "templated": false
           }
@@ -50,8 +80,6 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A470&datetime_represents=arrival&from=stop_area%3ABIB%3ASA%3A313&max_duration_to_pt=1200&walking_speed=0.83&datetime=20041217T072445", 
@@ -78,37 +106,37 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
@@ -122,21 +150,46 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
         "tags": [
           "standard"
         ], 
         "nb_transfers": 0, 
         "arrival_date_time": "20041217T072545", 
+        "calendars": [
+          {
+            "exceptions": [
+              {
+                "type": "remove", 
+                "datetime": "20041111"
+              }
+            ], 
+            "active_periods": [
+              {
+                "begin": "20041104", 
+                "end": "20041220"
+              }, 
+              {
+                "begin": "20050103", 
+                "end": "20050214"
+              }, 
+              {
+                "begin": "20050228", 
+                "end": "20050326"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041217T071000", 
         "requested_date_time": "20041217T070000", 
         "type": "best", 
@@ -149,6 +202,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Libert\u00e9", 
+                "links": [], 
                 "coord": {
                   "lat": "48.390572", 
                   "lon": "-4.485996"
@@ -156,6 +210,7 @@
                 "label": "Libert\u00e9 (Brest)", 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -182,6 +237,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Libert\u00e9", 
+                "links": [], 
                 "coord": {
                   "lat": "48.390026", 
                   "lon": "-4.485046"
@@ -190,6 +246,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -211,6 +268,7 @@
                   "label": "5 Place de la Libert\u00e9 (Brest)", 
                   "administrative_regions": [
                     {
+                      "insee": "29019", 
                       "name": "Brest", 
                       "level": 8, 
                       "coord": {
@@ -228,6 +286,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Libert\u00e9", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.390572", 
                     "lon": "-4.485996"
@@ -235,6 +294,7 @@
                   "label": "Libert\u00e9 (Brest)", 
                   "administrative_regions": [
                     {
+                      "insee": "29019", 
                       "name": "Brest", 
                       "level": 8, 
                       "coord": {
@@ -257,7 +317,7 @@
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
-            "id": "section_0_0"
+            "id": "section_5_0"
           }, 
           {
             "from": {
@@ -265,6 +325,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Libert\u00e9", 
+                "links": [], 
                 "coord": {
                   "lat": "48.390026", 
                   "lon": "-4.485046"
@@ -273,6 +334,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -298,6 +360,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Libert\u00e9", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.390572", 
                     "lon": "-4.485996"
@@ -337,6 +400,7 @@
                 "id": "network:BIB:1001"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -350,6 +414,7 @@
               "direction": "Lantel (Gouesnou)", 
               "code": "22", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "BIB:2114-225857_dst_1", 
@@ -363,6 +428,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Didailler", 
+                "links": [], 
                 "coord": {
                   "lat": "48.409656", 
                   "lon": "-4.467863"
@@ -371,6 +437,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -396,6 +463,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Didailler", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.40964", 
                     "lon": "-4.468152"
@@ -465,12 +533,13 @@
             }, 
             "duration": 780, 
             "type": "public_transport", 
-            "id": "section_1_0", 
+            "id": "section_6_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
                   "name": "Libert\u00e9", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.390026", 
                     "lon": "-4.485046"
@@ -488,6 +557,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "H\u00f4tel De Ville (Glasgow)", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.392477", 
                     "lon": "-4.484336"
@@ -505,6 +575,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Malakoff", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.395806", 
                     "lon": "-4.483741"
@@ -522,6 +593,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Albert 1er", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.397534", 
                     "lon": "-4.488182"
@@ -539,6 +611,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Montaigne", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.403364", 
                     "lon": "-4.480541"
@@ -556,6 +629,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Hoche", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.404022", 
                     "lon": "-4.475409"
@@ -573,6 +647,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Braille", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.403447", 
                     "lon": "-4.471783"
@@ -590,6 +665,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Strasbourg", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.402262", 
                     "lon": "-4.467305"
@@ -607,6 +683,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Vercors", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.403972", 
                     "lon": "-4.467216"
@@ -624,6 +701,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Menez Paul", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.407322", 
                     "lon": "-4.467653"
@@ -641,6 +719,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Didailler", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.409656", 
                     "lon": "-4.467863"
@@ -662,6 +741,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Didailler", 
+                "links": [], 
                 "coord": {
                   "lat": "48.409656", 
                   "lon": "-4.467863"
@@ -670,6 +750,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -681,6 +762,7 @@
                     "zip_code": "29200"
                   }, 
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -702,6 +784,7 @@
                   "label": "53 Route de Gouesnou (Brest)", 
                   "administrative_regions": [
                     {
+                      "insee": "29019", 
                       "name": "Brest", 
                       "level": 8, 
                       "coord": {
@@ -719,6 +802,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Didailler", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.40964", 
                     "lon": "-4.468152"
@@ -726,6 +810,7 @@
                   "label": "Didailler (Brest)", 
                   "administrative_regions": [
                     {
+                      "insee": "29019", 
                       "name": "Brest", 
                       "level": 8, 
                       "coord": {
@@ -754,6 +839,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Villeneuve", 
+                "links": [], 
                 "coord": {
                   "lat": "48.408964", 
                   "lon": "-4.46681"
@@ -761,6 +847,7 @@
                 "label": "Villeneuve (Brest)", 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -785,6 +872,7 @@
                 "label": "2 Rue de Villeneuve (Brest)", 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -870,11 +958,14 @@
               }
             ], 
             "type": "street_network", 
-            "id": "section_2_0", 
+            "id": "section_7_0", 
             "mode": "walking"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

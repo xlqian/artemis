@@ -1,1461 +1,1017 @@
 {
-
-    "query": "http://localhost/v1/coverage/prolong-auto/journeys?from=stop_area:PRA:SA:1&to=stop_area:PRA:SA:9&datetime=20041213T0700&datetime_represents=departure",
-    "response": 
-
-{
-
-    "journeys": 
-
-[
-
-{
-
-    "nb_transfers": 0,
-    "arrival_date_time": "20041213T100000",
-    "departure_date_time": "20041213T070000",
-    "type": "best",
-    "duration": 10800,
-    "sections": 
-
-[
-
-{
-
-    "duration": 0,
-    "arrival_date_time": "20041213T070000",
-    "departure_date_time": "20041213T070000"
-
-},
-{
-
-    "duration": 3600,
-    "arrival_date_time": "20041213T080000",
-    "departure_date_time": "20041213T070000"
-
-},
-{
-
-    "duration": 0,
-    "arrival_date_time": "20041213T080000",
-    "departure_date_time": "20041213T080000"
-
-},
-{
-
-    "duration": 7200,
-    "arrival_date_time": "20041213T100000",
-    "departure_date_time": "20041213T080000"
-
-},
-
-                {
-                    "duration": 0,
-                    "arrival_date_time": "20041213T100000",
-                    "departure_date_time": "20041213T100000"
-                }
-            ]
-        }
+  "query": "http://localhost/v1/coverage/prolong-auto/journeys?from=stop_area:PRA:SA:1&to=stop_area:PRA:SA:9&datetime=20041213T0700&datetime_represents=departure", 
+  "response": {
+    "journeys": [
+      {
+        "nb_transfers": 0, 
+        "arrival_date_time": "20041213T100000", 
+        "departure_date_time": "20041213T070000", 
+        "type": "best", 
+        "duration": 10800, 
+        "sections": [
+          {
+            "from": "Arret 1 (Saint-Andr\u00e9-lez-Lille)", 
+            "arrival_date_time": "20041213T070000", 
+            "departure_date_time": "20041213T070000", 
+            "to": "Arret 1 (Saint-Andr\u00e9-lez-Lille)", 
+            "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Arret 1 (Saint-Andr\u00e9-lez-Lille)", 
+            "arrival_date_time": "20041213T080000", 
+            "departure_date_time": "20041213T070000", 
+            "to": "Arret 3 (Loos)", 
+            "duration": 3600, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Arret 3 (Loos)", 
+            "arrival_date_time": "20041213T080000", 
+            "departure_date_time": "20041213T080000", 
+            "to": "Arret 3 (Loos)", 
+            "duration": 0, 
+            "type": "transfer"
+          }, 
+          {
+            "from": "Arret 3 (Loos)", 
+            "arrival_date_time": "20041213T100000", 
+            "departure_date_time": "20041213T080000", 
+            "to": "Arret 6 (Lille)", 
+            "duration": 7200, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Arret 6 (Lille)", 
+            "arrival_date_time": "20041213T100000", 
+            "departure_date_time": "20041213T100000", 
+            "to": "Arret 6 (Lille)", 
+            "duration": 0, 
+            "type": "crow_fly"
+          }
+        ]
+      }
     ]
-
-},
-"full_response":
-{
-
-    "tickets": 
-
-[
-
-{
-
-    "comment": "unknown ticket",
-    "name": "unknown_ticket",
-    "links": 
-
-[
-
-{
-
-    "internal": true,
-    "type": "section",
-    "id": "section_1_0",
-    "rel": "sections",
-    "templated": false
-
-},
-
-    {
-        "internal": true,
-        "type": "section",
-        "id": "section_3_0",
-        "rel": "sections",
-        "templated": false
-    }
-
-],
-"cost":
-
-        {
-            "currency": "",
-            "value": "0.0"
-        },
-        "found": false,
-        "id": "unknown_ticket_0"
-    }
-
-],
-"links":
-[
-
-{
-
-    "href": "http://localhost/v1/coverage/prolong-auto/journeys?to=stop_area%3APRA%3ASA%3A9&from=stop_area%3APRA%3ASA%3A1&datetime_represents=arrival&datetime=20041213T095900",
-    "type": "prev",
-    "rel": "prev",
-    "templated": false
-
-},
-{
-
-    "href": "http://localhost/v1/coverage/prolong-auto/journeys?to=stop_area%3APRA%3ASA%3A9&from=stop_area%3APRA%3ASA%3A1&datetime_represents=departure&datetime=20041213T070100",
-    "type": "next",
-    "rel": "next",
-    "templated": false
-
-},
-{
-
-    "href": "http://localhost/v1/coverage/prolong-auto/journeys?to=stop_area%3APRA%3ASA%3A9&from=stop_area%3APRA%3ASA%3A1&datetime_represents=departure&datetime=20041213T000000",
-    "type": "first",
-    "rel": "first",
-    "templated": false
-
-},
-{
-
-    "href": "http://localhost/v1/coverage/prolong-auto/journeys?to=stop_area%3APRA%3ASA%3A9&from=stop_area%3APRA%3ASA%3A1&datetime_represents=arrival&datetime=20041213T235900",
-    "type": "last",
-    "rel": "last",
-    "templated": false
-
-},
-{
-
-    "href": "http://localhost/v1/coverage/prolong-auto/stop_points/{stop_point.id}",
-    "type": "stop_point",
-    "rel": "stop_points",
-    "templated": true
-
-},
-{
-
-    "href": "http://localhost/v1/coverage/prolong-auto/stop_areas/{stop_area.id}",
-    "type": "stop_area",
-    "rel": "stop_areas",
-    "templated": true
-
-},
-{
-
-    "href": "http://localhost/v1/coverage/prolong-auto/addresses/{address.id}",
-    "type": "address",
-    "rel": "addresses",
-    "templated": true
-
-},
-{
-
-    "href": "http://localhost/v1/coverage/prolong-auto/stop_points/{stop_point.id}",
-    "type": "stop_point",
-    "rel": "stop_points",
-    "templated": true
-
-},
-{
-
-    "href": "http://localhost/v1/coverage/prolong-auto/stop_areas/{stop_area.id}",
-    "type": "stop_area",
-    "rel": "stop_areas",
-    "templated": true
-
-},
-
-    {
-        "href": "http://localhost/v1/coverage/prolong-auto/addresses/{address.id}",
-        "type": "address",
-        "rel": "addresses",
-        "templated": true
-    }
-
-],
-"journeys":
-[
-
-{
-
-    "fare": 
-
-{
-
-    "found": false,
-    "total": 
-
-{
-
-    "currency": "",
-    "value": "0.0"
-
-},
-"links":
-[
-
-        {
-            "internal": true,
-            "type": "ticket",
-            "id": "unknown_ticket_0",
-            "rel": "tickets",
+  }, 
+  "full_response": {
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unknown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
             "templated": false
-        }
-    ]
-
-},
-"tags":
-[
-
-    "standard"
-
-],
-"nb_transfers": 0,
-"arrival_date_time": "20041213T100000",
-"calendars":
-[
-
-{
-
-    "active_periods": 
-
-[
-
-    {
-        "begin": "20040101",
-        "end": "20041231"
-    }
-
-],
-"week_pattern":
-
-        {
-            "monday": true,
-            "tuesday": true,
-            "friday": true,
-            "wednesday": true,
-            "thursday": true,
-            "sunday": false,
-            "saturday": false
-        }
-    }
-
-],
-"departure_date_time": "20041213T070000",
-"requested_date_time": "20041213T070000",
-"type": "best",
-"duration": 10800,
-"sections":
-[
-
-{
-
-    "from": 
-
-{
-
-    "embedded_type": "stop_area",
-    "quality": 0,
-    "stop_area": 
-
-{
-
-    "comment": "",
-    "name": "Arret 1",
-    "links": [ ],
-    "coord": 
-
-{
-
-    "lat": "50.654045",
-    "lon": "3.043897"
-
-},
-"label": "Arret 1 (Saint-André-lez-Lille)",
-"administrative_regions":
-[
-
-{
-
-    "insee": "59527",
-    "name": "Saint-André-lez-Lille",
-    "level": 8,
-    "coord": 
-
-                {
-                    "lat": "50.660801",
-                    "lon": "3.044679"
-                },
-                "label": "Saint-André-lez-Lille (59350)",
-                "id": "admin:59063extern",
-                "zip_code": "59350"
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_3_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/prolong-auto/journeys?to=stop_area%3APRA%3ASA%3A9&from=stop_area%3APRA%3ASA%3A1&datetime_represents=arrival&datetime=20041213T095900", 
+        "type": "prev", 
+        "rel": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/prolong-auto/journeys?to=stop_area%3APRA%3ASA%3A9&from=stop_area%3APRA%3ASA%3A1&datetime_represents=departure&datetime=20041213T070100", 
+        "type": "next", 
+        "rel": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/prolong-auto/journeys?to=stop_area%3APRA%3ASA%3A9&from=stop_area%3APRA%3ASA%3A1&datetime_represents=departure&datetime=20041213T000000", 
+        "type": "first", 
+        "rel": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/prolong-auto/journeys?to=stop_area%3APRA%3ASA%3A9&from=stop_area%3APRA%3ASA%3A1&datetime_represents=arrival&datetime=20041213T235900", 
+        "type": "last", 
+        "rel": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/prolong-auto/stop_points/{stop_point.id}", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/prolong-auto/stop_areas/{stop_area.id}", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/prolong-auto/addresses/{address.id}", 
+        "type": "address", 
+        "rel": "addresses", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/prolong-auto/stop_points/{stop_point.id}", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/prolong-auto/stop_areas/{stop_area.id}", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/prolong-auto/addresses/{address.id}", 
+        "type": "address", 
+        "rel": "addresses", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
             }
-        ],
-        "timezone": "Africa/Abidjan",
-        "id": "stop_area:PRA:SA:1"
-    },
-    "name": "Arret 1 (Saint-André-lez-Lille)",
-    "id": "stop_area:PRA:SA:1"
-
-},
-"links": [ ],
-"arrival_date_time": "20041213T070000",
-"additional_informations": [ ],
-"departure_date_time": "20041213T070000",
-"to":
-{
-
-    "embedded_type": "stop_point",
-    "stop_point": 
-
-{
-
-    "comment": "",
-    "name": "Arret 1",
-    "links": [ ],
-    "coord": 
-
-{
-
-    "lat": "50.654045",
-    "lon": "3.043897"
-
-},
-"label": "Arret 1 (Saint-André-lez-Lille)",
-"equipments": [ ],
-"administrative_regions":
-[
-
-{
-
-    "insee": "59527",
-    "name": "Saint-André-lez-Lille",
-    "level": 8,
-    "coord": 
-
-        {
-            "lat": "50.660801",
-            "lon": "3.044679"
-        },
-        "label": "Saint-André-lez-Lille (59350)",
-        "id": "admin:59063extern",
-        "zip_code": "59350"
-    }
-
-],
-"address":
-{
-
-    "house_number": 0,
-    "id": "0.0;0.0",
-    "name": "",
-    "coord": 
-
-    {
-        "lat": "0.0",
-        "lon": "0.0"
-    },
-    "label": ""
-
-},
-"id": "stop_point:PRA:SP:Nav1",
-"stop_area":
-{
-
-    "comment": "",
-    "name": "Arret 1",
-    "links": [ ],
-    "coord": 
-
-{
-
-    "lat": "50.654045",
-    "lon": "3.043897"
-
-},
-"label": "Arret 1 (Saint-André-lez-Lille)",
-"administrative_regions":
-[
-
-{
-
-    "insee": "59527",
-    "name": "Saint-André-lez-Lille",
-    "level": 8,
-    "coord": 
-
-                        {
-                            "lat": "50.660801",
-                            "lon": "3.044679"
-                        },
-                        "label": "Saint-André-lez-Lille (59350)",
-                        "id": "admin:59063extern",
-                        "zip_code": "59350"
-                    }
-                ],
-                "timezone": "Africa/Abidjan",
+          ]
+        }, 
+        "tags": [
+          "standard"
+        ], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20041213T100000", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20040101", 
+                "end": "20041231"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
+        "departure_date_time": "20041213T070000", 
+        "requested_date_time": "20041213T070000", 
+        "type": "best", 
+        "duration": 10800, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Arret 1", 
+                "links": [], 
+                "coord": {
+                  "lat": "50.654045", 
+                  "lon": "3.043897"
+                }, 
+                "label": "Arret 1 (Saint-Andr\u00e9-lez-Lille)", 
+                "administrative_regions": [
+                  {
+                    "insee": "59527", 
+                    "name": "Saint-Andr\u00e9-lez-Lille", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.660801", 
+                      "lon": "3.044679"
+                    }, 
+                    "label": "Saint-Andr\u00e9-lez-Lille (59350)", 
+                    "id": "admin:59063extern", 
+                    "zip_code": "59350"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:PRA:SA:1"
-            }
-        },
-        "quality": 0,
-        "id": "stop_point:PRA:SP:Nav1",
-        "name": "Arret 1 (Saint-André-lez-Lille)"
-    },
-    "mode": "walking",
-    "duration": 0,
-    "type": "crow_fly",
-    "id": "section_0_0"
-
-},
-{
-
-    "from": 
-
-{
-
-    "embedded_type": "stop_point",
-    "stop_point": 
-
-{
-
-    "comment": "",
-    "name": "Arret 1",
-    "links": [ ],
-    "coord": 
-
-{
-
-    "lat": "50.654045",
-    "lon": "3.043897"
-
-},
-"label": "Arret 1 (Saint-André-lez-Lille)",
-"equipments": [ ],
-"administrative_regions":
-[
-
-{
-
-    "insee": "59527",
-    "name": "Saint-André-lez-Lille",
-    "level": 8,
-    "coord": 
-
-        {
-            "lat": "50.660801",
-            "lon": "3.044679"
-        },
-        "label": "Saint-André-lez-Lille (59350)",
-        "id": "admin:59063extern",
-        "zip_code": "59350"
-    }
-
-],
-"address":
-{
-
-    "house_number": 0,
-    "id": "0.0;0.0",
-    "name": "",
-    "coord": 
-
-    {
-        "lat": "0.0",
-        "lon": "0.0"
-    },
-    "label": ""
-
-},
-"id": "stop_point:PRA:SP:Nav1",
-"stop_area":
-{
-
-    "comment": "",
-    "name": "Arret 1",
-    "links": [ ],
-    "coord": 
-
-            {
-                "lat": "50.654045",
-                "lon": "3.043897"
-            },
-            "label": "Arret 1 (Saint-André-lez-Lille)",
-            "timezone": "Africa/Abidjan",
-            "id": "stop_area:PRA:SA:1"
-        }
-    },
-    "quality": 0,
-    "id": "stop_point:PRA:SP:Nav1",
-    "name": "Arret 1 (Saint-André-lez-Lille)"
-
-},
-"links":
-[
-
-{
-
-    "type": "vehicle_journey",
-    "id": "vehicle_journey:PRA:1-512"
-
-},
-{
-
-    "type": "line",
-    "id": "line:PRA:Nav1"
-
-},
-{
-
-    "type": "route",
-    "id": "route:PRA:Nav1"
-
-},
-{
-
-    "type": "commercial_mode",
-    "id": "commercial_mode:BUS"
-
-},
-{
-
-    "type": "physical_mode",
-    "id": "physical_mode:Bus"
-
-},
-{
-
-    "type": "network",
-    "id": "network:default_network"
-
-},
-
-    {
-        "internal": true,
-        "type": "ticket",
-        "id": "unknown_ticket_0",
-        "rel": "tickets",
-        "templated": false
-    }
-
-],
-"arrival_date_time": "20041213T080000",
-"additional_informations":
-[
-
-    "stay_in"
-
-],
-"departure_date_time": "20041213T070000",
-"display_informations":
-{
-
-    "direction": "Arret 3 (Loos)",
-    "code": "1",
-    "description": "",
-    "links": [ ],
-    "color": "000000",
-    "physical_mode": "Bus",
-    "headsign": "PRA:1-512",
-    "commercial_mode": "BUS",
-    "equipments": [ ],
-    "label": "1",
-    "network": "default network"
-
-},
-"to":
-{
-
-    "embedded_type": "stop_point",
-    "stop_point": 
-
-{
-
-    "comment": "",
-    "name": "Arret 3",
-    "links": [ ],
-    "coord": 
-
-{
-
-    "lat": "50.621395",
-    "lon": "3.007971"
-
-},
-"label": "Arret 3 (Loos)",
-"equipments": [ ],
-"administrative_regions":
-[
-
-{
-
-    "insee": "59360",
-    "name": "Loos",
-    "level": 8,
-    "coord": 
-
-        {
-            "lat": "50.609207",
-            "lon": "3.016252"
-        },
-        "label": "Loos (59120)",
-        "id": "admin:58402extern",
-        "zip_code": "59120"
-    }
-
-],
-"address":
-{
-
-    "house_number": 0,
-    "id": "0.0;0.0",
-    "name": "",
-    "coord": 
-
-    {
-        "lat": "0.0",
-        "lon": "0.0"
-    },
-    "label": ""
-
-},
-"id": "stop_point:PRA:SP:Nav4",
-"stop_area":
-{
-
-    "comment": "",
-    "name": "Arret 3",
-    "links": [ ],
-    "coord": 
-
-            {
-                "lat": "50.621395",
-                "lon": "3.007971"
-            },
-            "label": "Arret 3 (Loos)",
-            "timezone": "Africa/Abidjan",
-            "id": "stop_area:PRA:SA:3"
-        }
-    },
-    "quality": 0,
-    "id": "stop_point:PRA:SP:Nav4",
-    "name": "Arret 3 (Loos)"
-
-},
-"geojson":
-{
-
-    "type": "LineString",
-    "properties": 
-
-[
-
-    {
-        "length": 4428
-    }
-
-],
-"coordinates":
-[
-
-[
-
-    3.043897,
-    50.654045
-
-],
-
-        [
-            3.007971,
-            50.621395
-        ]
-    ]
-
-},
-"duration": 3600,
-"type": "public_transport",
-"id": "section_1_0",
-"stop_date_times":
-[
-
-{
-
-    "stop_point": 
-
-{
-
-    "comment": "",
-    "name": "Arret 1",
-    "links": [ ],
-    "coord": 
-
-        {
-            "lat": "50.654045",
-            "lon": "3.043897"
-        },
-        "label": "Arret 1 (Saint-André-lez-Lille)",
-        "equipments": [ ],
-        "id": "stop_point:PRA:SP:Nav1"
-    },
-    "arrival_date_time": "20041213T070000",
-    "additional_informations": [ ],
-    "departure_date_time": "20041213T070000",
-    "links": [ ]
-
-},
-{
-
-    "stop_point": 
-
-{
-
-    "comment": "",
-    "name": "Arret 3",
-    "links": [ ],
-    "coord": 
-
-                {
-                    "lat": "50.621395",
-                    "lon": "3.007971"
-                },
-                "label": "Arret 3 (Loos)",
-                "equipments": [ ],
-                "id": "stop_point:PRA:SP:Nav4"
-            },
-            "arrival_date_time": "20041213T080000",
-            "additional_informations": [ ],
-            "departure_date_time": "20041213T080000",
-            "links": [ ]
-        }
-    ]
-
-},
-{
-
-    "from": 
-
-{
-
-    "embedded_type": "stop_point",
-    "stop_point": 
-
-{
-
-    "comment": "",
-    "name": "Arret 3",
-    "links": [ ],
-    "coord": 
-
-{
-
-    "lat": "50.621395",
-    "lon": "3.007971"
-
-},
-"label": "Arret 3 (Loos)",
-"equipments": [ ],
-"administrative_regions":
-[
-
-{
-
-    "insee": "59360",
-    "name": "Loos",
-    "level": 8,
-    "coord": 
-
-        {
-            "lat": "50.609207",
-            "lon": "3.016252"
-        },
-        "label": "Loos (59120)",
-        "id": "admin:58402extern",
-        "zip_code": "59120"
-    }
-
-],
-"address":
-{
-
-    "house_number": 0,
-    "id": "0.0;0.0",
-    "name": "",
-    "coord": 
-
-    {
-        "lat": "0.0",
-        "lon": "0.0"
-    },
-    "label": ""
-
-},
-"id": "stop_point:PRA:SP:Nav4",
-"stop_area":
-{
-
-    "comment": "",
-    "name": "Arret 3",
-    "links": [ ],
-    "coord": 
-
-            {
-                "lat": "50.621395",
-                "lon": "3.007971"
-            },
-            "label": "Arret 3 (Loos)",
-            "timezone": "Africa/Abidjan",
-            "id": "stop_area:PRA:SA:3"
-        }
-    },
-    "quality": 0,
-    "id": "stop_point:PRA:SP:Nav4",
-    "name": "Arret 3 (Loos)"
-
-},
-"links": [ ],
-"arrival_date_time": "20041213T080000",
-"additional_informations": [ ],
-"departure_date_time": "20041213T080000",
-"to":
-{
-
-    "embedded_type": "stop_point",
-    "stop_point": 
-
-{
-
-    "comment": "",
-    "name": "Arret 3",
-    "links": [ ],
-    "coord": 
-
-{
-
-    "lat": "50.621395",
-    "lon": "3.007971"
-
-},
-"label": "Arret 3 (Loos)",
-"equipments": [ ],
-"administrative_regions":
-[
-
-{
-
-    "insee": "59360",
-    "name": "Loos",
-    "level": 8,
-    "coord": 
-
-        {
-            "lat": "50.609207",
-            "lon": "3.016252"
-        },
-        "label": "Loos (59120)",
-        "id": "admin:58402extern",
-        "zip_code": "59120"
-    }
-
-],
-"address":
-{
-
-    "house_number": 0,
-    "id": "0.0;0.0",
-    "name": "",
-    "coord": 
-
-    {
-        "lat": "0.0",
-        "lon": "0.0"
-    },
-    "label": ""
-
-},
-"id": "stop_point:PRA:SP:Nav4",
-"stop_area":
-{
-
-    "comment": "",
-    "name": "Arret 3",
-    "links": [ ],
-    "coord": 
-
-            {
-                "lat": "50.621395",
-                "lon": "3.007971"
-            },
-            "label": "Arret 3 (Loos)",
-            "timezone": "Africa/Abidjan",
-            "id": "stop_area:PRA:SA:3"
-        }
-    },
-    "quality": 0,
-    "id": "stop_point:PRA:SP:Nav4",
-    "name": "Arret 3 (Loos)"
-
-},
-"geojson":
-{
-
-    "type": "LineString",
-    "properties": 
-
-[
-
-    {
-        "length": 0
-    }
-
-],
-"coordinates":
-[
-
-[
-
-    3.007971,
-    50.621395
-
-],
-
-            [
-                3.007971,
-                50.621395
-            ]
-        ]
-    },
-    "duration": 0,
-    "transfer_type": "stay_in",
-    "type": "transfer",
-    "id": "section_2_0"
-
-},
-{
-
-    "from": 
-
-{
-
-    "embedded_type": "stop_point",
-    "stop_point": 
-
-{
-
-    "comment": "",
-    "name": "Arret 3",
-    "links": [ ],
-    "coord": 
-
-{
-
-    "lat": "50.621395",
-    "lon": "3.007971"
-
-},
-"label": "Arret 3 (Loos)",
-"equipments": [ ],
-"administrative_regions":
-[
-
-{
-
-    "insee": "59360",
-    "name": "Loos",
-    "level": 8,
-    "coord": 
-
-        {
-            "lat": "50.609207",
-            "lon": "3.016252"
-        },
-        "label": "Loos (59120)",
-        "id": "admin:58402extern",
-        "zip_code": "59120"
-    }
-
-],
-"address":
-{
-
-    "house_number": 0,
-    "id": "0.0;0.0",
-    "name": "",
-    "coord": 
-
-    {
-        "lat": "0.0",
-        "lon": "0.0"
-    },
-    "label": ""
-
-},
-"id": "stop_point:PRA:SP:Nav4",
-"stop_area":
-{
-
-    "comment": "",
-    "name": "Arret 3",
-    "links": [ ],
-    "coord": 
-
-            {
-                "lat": "50.621395",
-                "lon": "3.007971"
-            },
-            "label": "Arret 3 (Loos)",
-            "timezone": "Africa/Abidjan",
-            "id": "stop_area:PRA:SA:3"
-        }
-    },
-    "quality": 0,
-    "id": "stop_point:PRA:SP:Nav4",
-    "name": "Arret 3 (Loos)"
-
-},
-"links":
-[
-
-{
-
-    "type": "vehicle_journey",
-    "id": "vehicle_journey:PRA:2-32"
-
-},
-{
-
-    "type": "line",
-    "id": "line:PRA:Nav2"
-
-},
-{
-
-    "type": "route",
-    "id": "route:PRA:Nav2"
-
-},
-{
-
-    "type": "commercial_mode",
-    "id": "commercial_mode:BUS"
-
-},
-{
-
-    "type": "physical_mode",
-    "id": "physical_mode:Bus"
-
-},
-{
-
-    "type": "network",
-    "id": "network:default_network"
-
-},
-
-    {
-        "internal": true,
-        "type": "ticket",
-        "id": "unknown_ticket_0",
-        "rel": "tickets",
-        "templated": false
-    }
-
-],
-"arrival_date_time": "20041213T100000",
-"additional_informations": [ ],
-"departure_date_time": "20041213T080000",
-"display_informations":
-{
-
-    "direction": "Arret 6 (Lille)",
-    "code": "2",
-    "description": "",
-    "links": [ ],
-    "color": "000000",
-    "physical_mode": "Bus",
-    "headsign": "PRA:2-32",
-    "commercial_mode": "BUS",
-    "equipments": [ ],
-    "label": "2",
-    "network": "default network"
-
-},
-"to":
-{
-
-    "embedded_type": "stop_point",
-    "stop_point": 
-
-{
-
-    "comment": "",
-    "name": "Arret 6",
-    "links": [ ],
-    "coord": 
-
-{
-
-    "lat": "50.648762",
-    "lon": "2.993369"
-
-},
-"label": "Arret 6 (Lille)",
-"equipments": [ ],
-"administrative_regions":
-[
-
-{
-
-    "insee": "59350",
-    "name": "Lille",
-    "level": 8,
-    "coord": 
-
-        {
-            "lat": "50.630508",
-            "lon": "3.070641"
-        },
-        "label": "Lille (59000-59800)",
-        "id": "admin:58404extern",
-        "zip_code": "59000-59800"
-    }
-
-],
-"address":
-{
-
-    "house_number": 0,
-    "id": "0.0;0.0",
-    "name": "",
-    "coord": 
-
-    {
-        "lat": "0.0",
-        "lon": "0.0"
-    },
-    "label": ""
-
-},
-"id": "stop_point:PRA:SP:Nav8",
-"stop_area":
-{
-
-    "comment": "",
-    "name": "Arret 6",
-    "links": [ ],
-    "coord": 
-
-            {
-                "lat": "50.648762",
-                "lon": "2.993369"
-            },
-            "label": "Arret 6 (Lille)",
-            "timezone": "Africa/Abidjan",
-            "id": "stop_area:PRA:SA:9"
-        }
-    },
-    "quality": 0,
-    "id": "stop_point:PRA:SP:Nav8",
-    "name": "Arret 6 (Lille)"
-
-},
-"geojson":
-{
-
-    "type": "LineString",
-    "properties": 
-
-[
-
-    {
-        "length": 4895
-    }
-
-],
-"coordinates":
-[
-
-[
-
-    3.007971,
-    50.621395
-
-],
-[
-
-    3.000439,
-    50.656313
-
-],
-
-        [
-            2.993369,
-            50.648762
-        ]
-    ]
-
-},
-"duration": 7200,
-"type": "public_transport",
-"id": "section_3_0",
-"stop_date_times":
-[
-
-{
-
-    "stop_point": 
-
-{
-
-    "comment": "",
-    "name": "Arret 3",
-    "links": [ ],
-    "coord": 
-
-        {
-            "lat": "50.621395",
-            "lon": "3.007971"
-        },
-        "label": "Arret 3 (Loos)",
-        "equipments": [ ],
-        "id": "stop_point:PRA:SP:Nav4"
-    },
-    "arrival_date_time": "20041213T080000",
-    "additional_informations": [ ],
-    "departure_date_time": "20041213T080000",
-    "links": [ ]
-
-},
-{
-
-    "stop_point": 
-
-{
-
-    "comment": "",
-    "name": "Arret 5",
-    "links": [ ],
-    "coord": 
-
-        {
-            "lat": "50.656313",
-            "lon": "3.000439"
-        },
-        "label": "Arret 5 (Lompret)",
-        "equipments": [ ],
-        "id": "stop_point:PRA:SP:Nav7"
-    },
-    "arrival_date_time": "20041213T090000",
-    "additional_informations": [ ],
-    "departure_date_time": "20041213T090000",
-    "links": [ ]
-
-},
-{
-
-    "stop_point": 
-
-{
-
-    "comment": "",
-    "name": "Arret 6",
-    "links": [ ],
-    "coord": 
-
-                {
-                    "lat": "50.648762",
-                    "lon": "2.993369"
-                },
-                "label": "Arret 6 (Lille)",
-                "equipments": [ ],
-                "id": "stop_point:PRA:SP:Nav8"
-            },
-            "arrival_date_time": "20041213T100000",
-            "additional_informations": [ ],
-            "departure_date_time": "20041213T100000",
-            "links": [ ]
-        }
-    ]
-
-},
-{
-
-    "from": 
-
-{
-
-    "embedded_type": "stop_point",
-    "stop_point": 
-
-{
-
-    "comment": "",
-    "name": "Arret 6",
-    "links": [ ],
-    "coord": 
-
-{
-
-    "lat": "50.648762",
-    "lon": "2.993369"
-
-},
-"label": "Arret 6 (Lille)",
-"equipments": [ ],
-"administrative_regions":
-[
-
-{
-
-    "insee": "59350",
-    "name": "Lille",
-    "level": 8,
-    "coord": 
-
-        {
-            "lat": "50.630508",
-            "lon": "3.070641"
-        },
-        "label": "Lille (59000-59800)",
-        "id": "admin:58404extern",
-        "zip_code": "59000-59800"
-    }
-
-],
-"address":
-{
-
-    "house_number": 0,
-    "id": "0.0;0.0",
-    "name": "",
-    "coord": 
-
-    {
-        "lat": "0.0",
-        "lon": "0.0"
-    },
-    "label": ""
-
-},
-"id": "stop_point:PRA:SP:Nav8",
-"stop_area":
-{
-
-    "comment": "",
-    "name": "Arret 6",
-    "links": [ ],
-    "coord": 
-
-{
-
-    "lat": "50.648762",
-    "lon": "2.993369"
-
-},
-"label": "Arret 6 (Lille)",
-"administrative_regions":
-[
-
-{
-
-    "insee": "59350",
-    "name": "Lille",
-    "level": 8,
-    "coord": 
-
+              }, 
+              "name": "Arret 1 (Saint-Andr\u00e9-lez-Lille)", 
+              "id": "stop_area:PRA:SA:1"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041213T070000", 
+            "additional_informations": [], 
+            "departure_date_time": "20041213T070000", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret 1", 
+                "links": [], 
+                "coord": {
+                  "lat": "50.654045", 
+                  "lon": "3.043897"
+                }, 
+                "label": "Arret 1 (Saint-Andr\u00e9-lez-Lille)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "59527", 
+                    "name": "Saint-Andr\u00e9-lez-Lille", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.660801", 
+                      "lon": "3.044679"
+                    }, 
+                    "label": "Saint-Andr\u00e9-lez-Lille (59350)", 
+                    "id": "admin:59063extern", 
+                    "zip_code": "59350"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:PRA:SP:Nav1", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret 1", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "50.654045", 
+                    "lon": "3.043897"
+                  }, 
+                  "label": "Arret 1 (Saint-Andr\u00e9-lez-Lille)", 
+                  "administrative_regions": [
                     {
-                        "lat": "50.630508",
-                        "lon": "3.070641"
-                    },
-                    "label": "Lille (59000-59800)",
-                    "id": "admin:58404extern",
-                    "zip_code": "59000-59800"
-                }
-            ],
-            "timezone": "Africa/Abidjan",
-            "id": "stop_area:PRA:SA:9"
-        }
-    },
-    "quality": 0,
-    "id": "stop_point:PRA:SP:Nav8",
-    "name": "Arret 6 (Lille)"
-
-},
-"links": [ ],
-"arrival_date_time": "20041213T100000",
-"additional_informations": [ ],
-"departure_date_time": "20041213T100000",
-"to":
-{
-
-    "embedded_type": "stop_area",
-    "quality": 0,
-    "stop_area": 
-
-{
-
-    "comment": "",
-    "name": "Arret 6",
-    "links": [ ],
-    "coord": 
-
-{
-
-    "lat": "50.648762",
-    "lon": "2.993369"
-
-},
-"label": "Arret 6 (Lille)",
-"administrative_regions":
-[
-
-{
-
-    "insee": "59350",
-    "name": "Lille",
-    "level": 8,
-    "coord": 
-
-                                        {
-                                            "lat": "50.630508",
-                                            "lon": "3.070641"
-                                        },
-                                        "label": "Lille (59000-59800)",
-                                        "id": "admin:58404extern",
-                                        "zip_code": "59000-59800"
-                                    }
-                                ],
-                                "timezone": "Africa/Abidjan",
-                                "id": "stop_area:PRA:SA:9"
-                            },
-                            "name": "Arret 6 (Lille)",
-                            "id": "stop_area:PRA:SA:9"
-                        },
-                        "mode": "walking",
-                        "duration": 0,
-                        "type": "crow_fly",
-                        "id": "section_4_0"
+                      "insee": "59527", 
+                      "name": "Saint-Andr\u00e9-lez-Lille", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "50.660801", 
+                        "lon": "3.044679"
+                      }, 
+                      "label": "Saint-Andr\u00e9-lez-Lille (59350)", 
+                      "id": "admin:59063extern", 
+                      "zip_code": "59350"
                     }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:PRA:SA:1"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:PRA:SP:Nav1", 
+              "name": "Arret 1 (Saint-Andr\u00e9-lez-Lille)"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret 1", 
+                "links": [], 
+                "coord": {
+                  "lat": "50.654045", 
+                  "lon": "3.043897"
+                }, 
+                "label": "Arret 1 (Saint-Andr\u00e9-lez-Lille)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "59527", 
+                    "name": "Saint-Andr\u00e9-lez-Lille", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.660801", 
+                      "lon": "3.044679"
+                    }, 
+                    "label": "Saint-Andr\u00e9-lez-Lille (59350)", 
+                    "id": "admin:59063extern", 
+                    "zip_code": "59350"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:PRA:SP:Nav1", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret 1", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "50.654045", 
+                    "lon": "3.043897"
+                  }, 
+                  "label": "Arret 1 (Saint-Andr\u00e9-lez-Lille)", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:PRA:SA:1"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:PRA:SP:Nav1", 
+              "name": "Arret 1 (Saint-Andr\u00e9-lez-Lille)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:PRA:1-512"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:PRA:Nav1"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:PRA:Nav1"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:BUS"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:default_network"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20041213T080000", 
+            "additional_informations": [
+              "stay_in"
+            ], 
+            "departure_date_time": "20041213T070000", 
+            "display_informations": {
+              "direction": "Arret 3 (Loos)", 
+              "code": "1", 
+              "description": "", 
+              "links": [], 
+              "color": "000000", 
+              "physical_mode": "Bus", 
+              "headsign": "PRA:1-512", 
+              "commercial_mode": "BUS", 
+              "equipments": [], 
+              "label": "1", 
+              "network": "default network"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret 3", 
+                "links": [], 
+                "coord": {
+                  "lat": "50.621395", 
+                  "lon": "3.007971"
+                }, 
+                "label": "Arret 3 (Loos)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "59360", 
+                    "name": "Loos", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.609207", 
+                      "lon": "3.016252"
+                    }, 
+                    "label": "Loos (59120)", 
+                    "id": "admin:58402extern", 
+                    "zip_code": "59120"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:PRA:SP:Nav4", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret 3", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "50.621395", 
+                    "lon": "3.007971"
+                  }, 
+                  "label": "Arret 3 (Loos)", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:PRA:SA:3"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:PRA:SP:Nav4", 
+              "name": "Arret 3 (Loos)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 4428
+                }
+              ], 
+              "coordinates": [
+                [
+                  3.043897, 
+                  50.654045
+                ], 
+                [
+                  3.007971, 
+                  50.621395
                 ]
-            }
-        ],
-        "disruptions": [ ],
-        "notes": [ ],
-        "exceptions": [ ]
-    }
-
+              ]
+            }, 
+            "duration": 3600, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Arret 1", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "50.654045", 
+                    "lon": "3.043897"
+                  }, 
+                  "label": "Arret 1 (Saint-Andr\u00e9-lez-Lille)", 
+                  "equipments": [], 
+                  "id": "stop_point:PRA:SP:Nav1"
+                }, 
+                "arrival_date_time": "20041213T070000", 
+                "additional_informations": [], 
+                "departure_date_time": "20041213T070000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Arret 3", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "50.621395", 
+                    "lon": "3.007971"
+                  }, 
+                  "label": "Arret 3 (Loos)", 
+                  "equipments": [], 
+                  "id": "stop_point:PRA:SP:Nav4"
+                }, 
+                "arrival_date_time": "20041213T080000", 
+                "additional_informations": [], 
+                "departure_date_time": "20041213T080000", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret 3", 
+                "links": [], 
+                "coord": {
+                  "lat": "50.621395", 
+                  "lon": "3.007971"
+                }, 
+                "label": "Arret 3 (Loos)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "59360", 
+                    "name": "Loos", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.609207", 
+                      "lon": "3.016252"
+                    }, 
+                    "label": "Loos (59120)", 
+                    "id": "admin:58402extern", 
+                    "zip_code": "59120"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:PRA:SP:Nav4", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret 3", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "50.621395", 
+                    "lon": "3.007971"
+                  }, 
+                  "label": "Arret 3 (Loos)", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:PRA:SA:3"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:PRA:SP:Nav4", 
+              "name": "Arret 3 (Loos)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041213T080000", 
+            "additional_informations": [], 
+            "departure_date_time": "20041213T080000", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret 3", 
+                "links": [], 
+                "coord": {
+                  "lat": "50.621395", 
+                  "lon": "3.007971"
+                }, 
+                "label": "Arret 3 (Loos)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "59360", 
+                    "name": "Loos", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.609207", 
+                      "lon": "3.016252"
+                    }, 
+                    "label": "Loos (59120)", 
+                    "id": "admin:58402extern", 
+                    "zip_code": "59120"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:PRA:SP:Nav4", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret 3", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "50.621395", 
+                    "lon": "3.007971"
+                  }, 
+                  "label": "Arret 3 (Loos)", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:PRA:SA:3"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:PRA:SP:Nav4", 
+              "name": "Arret 3 (Loos)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  3.007971, 
+                  50.621395
+                ], 
+                [
+                  3.007971, 
+                  50.621395
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "transfer_type": "stay_in", 
+            "type": "transfer", 
+            "id": "section_2_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret 3", 
+                "links": [], 
+                "coord": {
+                  "lat": "50.621395", 
+                  "lon": "3.007971"
+                }, 
+                "label": "Arret 3 (Loos)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "59360", 
+                    "name": "Loos", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.609207", 
+                      "lon": "3.016252"
+                    }, 
+                    "label": "Loos (59120)", 
+                    "id": "admin:58402extern", 
+                    "zip_code": "59120"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:PRA:SP:Nav4", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret 3", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "50.621395", 
+                    "lon": "3.007971"
+                  }, 
+                  "label": "Arret 3 (Loos)", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:PRA:SA:3"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:PRA:SP:Nav4", 
+              "name": "Arret 3 (Loos)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:PRA:2-32"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:PRA:Nav2"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:PRA:Nav2"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:BUS"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:default_network"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20041213T100000", 
+            "additional_informations": [], 
+            "departure_date_time": "20041213T080000", 
+            "display_informations": {
+              "direction": "Arret 6 (Lille)", 
+              "code": "2", 
+              "description": "", 
+              "links": [], 
+              "color": "000000", 
+              "physical_mode": "Bus", 
+              "headsign": "PRA:2-32", 
+              "commercial_mode": "BUS", 
+              "equipments": [], 
+              "label": "2", 
+              "network": "default network"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret 6", 
+                "links": [], 
+                "coord": {
+                  "lat": "50.648762", 
+                  "lon": "2.993369"
+                }, 
+                "label": "Arret 6 (Lille)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "59350", 
+                    "name": "Lille", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.630508", 
+                      "lon": "3.070641"
+                    }, 
+                    "label": "Lille (59000-59800)", 
+                    "id": "admin:58404extern", 
+                    "zip_code": "59000-59800"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:PRA:SP:Nav8", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret 6", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "50.648762", 
+                    "lon": "2.993369"
+                  }, 
+                  "label": "Arret 6 (Lille)", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:PRA:SA:9"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:PRA:SP:Nav8", 
+              "name": "Arret 6 (Lille)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 4895
+                }
+              ], 
+              "coordinates": [
+                [
+                  3.007971, 
+                  50.621395
+                ], 
+                [
+                  3.000439, 
+                  50.656313
+                ], 
+                [
+                  2.993369, 
+                  50.648762
+                ]
+              ]
+            }, 
+            "duration": 7200, 
+            "type": "public_transport", 
+            "id": "section_3_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Arret 3", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "50.621395", 
+                    "lon": "3.007971"
+                  }, 
+                  "label": "Arret 3 (Loos)", 
+                  "equipments": [], 
+                  "id": "stop_point:PRA:SP:Nav4"
+                }, 
+                "arrival_date_time": "20041213T080000", 
+                "additional_informations": [], 
+                "departure_date_time": "20041213T080000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Arret 5", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "50.656313", 
+                    "lon": "3.000439"
+                  }, 
+                  "label": "Arret 5 (Lompret)", 
+                  "equipments": [], 
+                  "id": "stop_point:PRA:SP:Nav7"
+                }, 
+                "arrival_date_time": "20041213T090000", 
+                "additional_informations": [], 
+                "departure_date_time": "20041213T090000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Arret 6", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "50.648762", 
+                    "lon": "2.993369"
+                  }, 
+                  "label": "Arret 6 (Lille)", 
+                  "equipments": [], 
+                  "id": "stop_point:PRA:SP:Nav8"
+                }, 
+                "arrival_date_time": "20041213T100000", 
+                "additional_informations": [], 
+                "departure_date_time": "20041213T100000", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Arret 6", 
+                "links": [], 
+                "coord": {
+                  "lat": "50.648762", 
+                  "lon": "2.993369"
+                }, 
+                "label": "Arret 6 (Lille)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "59350", 
+                    "name": "Lille", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.630508", 
+                      "lon": "3.070641"
+                    }, 
+                    "label": "Lille (59000-59800)", 
+                    "id": "admin:58404extern", 
+                    "zip_code": "59000-59800"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:PRA:SP:Nav8", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Arret 6", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "50.648762", 
+                    "lon": "2.993369"
+                  }, 
+                  "label": "Arret 6 (Lille)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "59350", 
+                      "name": "Lille", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "50.630508", 
+                        "lon": "3.070641"
+                      }, 
+                      "label": "Lille (59000-59800)", 
+                      "id": "admin:58404extern", 
+                      "zip_code": "59000-59800"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:PRA:SA:9"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:PRA:SP:Nav8", 
+              "name": "Arret 6 (Lille)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041213T100000", 
+            "additional_informations": [], 
+            "departure_date_time": "20041213T100000", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "Arret 6", 
+                "links": [], 
+                "coord": {
+                  "lat": "50.648762", 
+                  "lon": "2.993369"
+                }, 
+                "label": "Arret 6 (Lille)", 
+                "administrative_regions": [
+                  {
+                    "insee": "59350", 
+                    "name": "Lille", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.630508", 
+                      "lon": "3.070641"
+                    }, 
+                    "label": "Lille (59000-59800)", 
+                    "id": "admin:58404extern", 
+                    "zip_code": "59000-59800"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
+                "id": "stop_area:PRA:SA:9"
+              }, 
+              "name": "Arret 6 (Lille)", 
+              "id": "stop_area:PRA:SA:9"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_4_0"
+          }
+        ]
+      }
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
+  }
 }

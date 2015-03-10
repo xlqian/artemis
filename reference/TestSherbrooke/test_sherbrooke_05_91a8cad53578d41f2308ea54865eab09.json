@@ -5,52 +5,113 @@
       {
         "nb_transfers": 1, 
         "arrival_date_time": "20111112T150228", 
-        "departure_date_time": "20111112T135130", 
+        "departure_date_time": "20111112T135500", 
         "type": "best", 
-        "duration": 4258, 
+        "duration": 4048, 
         "sections": [
           {
-            "duration": 283, 
-            "arrival_date_time": "20111112T135613", 
-            "departure_date_time": "20111112T135130"
-          }, 
-          {
-            "duration": 300, 
-            "arrival_date_time": "20111112T140000", 
-            "departure_date_time": "20111112T135500"
-          }, 
-          {
+            "from": "Station du C\u00e9gep (Sherbrooke)", 
+            "arrival_date_time": "20111112T135500", 
+            "departure_date_time": "20111112T135500", 
+            "to": "Station du C\u00e9gep - quai F (Sherbrooke)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Station du C\u00e9gep - quai F (Sherbrooke)", 
             "arrival_date_time": "20111112T140000", 
-            "departure_date_time": "20111112T140000"
+            "departure_date_time": "20111112T135500", 
+            "to": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+            "duration": 300, 
+            "type": "public_transport"
           }, 
           {
-            "duration": 120, 
+            "from": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+            "arrival_date_time": "20111112T140000", 
+            "departure_date_time": "20111112T140000", 
+            "to": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+            "duration": 0, 
+            "type": "transfer"
+          }, 
+          {
+            "from": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
             "arrival_date_time": "20111112T140200", 
-            "departure_date_time": "20111112T140000"
-          }, 
-          {
-            "duration": 3420, 
-            "arrival_date_time": "20111112T145900", 
-            "departure_date_time": "20111112T140200"
-          }, 
-          {
+            "departure_date_time": "20111112T140000", 
+            "to": "Talbot / Bowen Sud (Sherbrooke)", 
             "duration": 120, 
-            "arrival_date_time": "20111112T150100", 
-            "departure_date_time": "20111112T145900"
+            "type": "public_transport"
           }, 
           {
-            "duration": 118, 
+            "from": null, 
+            "arrival_date_time": "20111112T145900", 
+            "departure_date_time": "20111112T140200", 
+            "to": null, 
+            "duration": 3420, 
+            "type": "waiting"
+          }, 
+          {
+            "from": "Talbot / Bowen Sud (Sherbrooke)", 
+            "arrival_date_time": "20111112T150100", 
+            "departure_date_time": "20111112T145900", 
+            "to": "boul. Lavigerie / Dagenais (Sherbrooke)", 
+            "duration": 120, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "boul. Lavigerie / Dagenais (Sherbrooke)", 
             "arrival_date_time": "20111112T150258", 
-            "departure_date_time": "20111112T150100"
+            "departure_date_time": "20111112T150100", 
+            "to": "boul. Lavigerie / Bowen Sud (Sherbrooke)", 
+            "duration": 118, 
+            "type": "street_network"
           }
         ]
       }
     ]
   }, 
   "full_response": {
-    "exceptions": [], 
-    "notes": [], 
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unknown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_3_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_5_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_8_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/sherbrooke/journeys?to=stop_area%3ASTS%3ASA%3A16&datetime_represents=arrival&from=stop_area%3ASTS%3ASA%3A501&max_duration_to_pt=720&walking_speed=0.83&datetime=20111112T150128", 
@@ -59,7 +120,7 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/journeys?to=stop_area%3ASTS%3ASA%3A16&datetime_represents=departure&from=stop_area%3ASTS%3ASA%3A501&max_duration_to_pt=720&walking_speed=0.83&datetime=20111112T135230", 
+        "href": "http://localhost/v1/coverage/sherbrooke/journeys?to=stop_area%3ASTS%3ASA%3A16&datetime_represents=departure&from=stop_area%3ASTS%3ASA%3A501&max_duration_to_pt=720&walking_speed=0.83&datetime=20111112T135600", 
         "type": "next", 
         "rel": "next", 
         "templated": false
@@ -77,49 +138,49 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/poi_types/{poi_type.id}?collection=poi_types", 
+        "href": "http://localhost/v1/coverage/sherbrooke/poi_types/{poi_type.id}", 
         "type": "poi_type", 
         "rel": "poi_types", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/pois/{poi.id}?collection=pois", 
+        "href": "http://localhost/v1/coverage/sherbrooke/pois/{poi.id}", 
         "type": "poi", 
         "rel": "pois", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
@@ -133,24 +194,53 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": []
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
         }, 
         "tags": [
           "standard"
         ], 
         "nb_transfers": 1, 
         "arrival_date_time": "20111112T150228", 
-        "departure_date_time": "20111112T135130", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20111105", 
+                "end": "20111225"
+              }
+            ], 
+            "week_pattern": {
+              "monday": false, 
+              "tuesday": false, 
+              "friday": false, 
+              "wednesday": false, 
+              "thursday": false, 
+              "sunday": false, 
+              "saturday": true
+            }
+          }
+        ], 
+        "departure_date_time": "20111112T135500", 
         "requested_date_time": "20111112T135000", 
         "type": "best", 
-        "duration": 4258, 
+        "duration": 4048, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "quality": 0, 
               "stop_area": {
                 "comment": "", 
                 "name": "Station du C\u00e9gep", 
+                "links": [], 
                 "coord": {
                   "lat": "45.411529", 
                   "lon": "-71.88485"
@@ -158,6 +248,7 @@
                 "label": "Station du C\u00e9gep (Sherbrooke)", 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -172,50 +263,28 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:STS:SA:501"
               }, 
-              "address": {
-                "name": "rue DU CEGEP", 
-                "house_number": 475, 
-                "coord": {
-                  "lat": "45.41110448592712", 
-                  "lon": "-71.8852450224882"
-                }, 
-                "label": "475 rue DU CEGEP (Sherbrooke)", 
-                "administrative_regions": [
-                  {
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "-71.8852450224882;45.41110448592712"
-              }, 
-              "quality": 0, 
-              "id": "stop_area:STS:SA:501", 
-              "name": "Station du C\u00e9gep (Sherbrooke)"
+              "name": "Station du C\u00e9gep (Sherbrooke)", 
+              "id": "stop_area:STS:SA:501"
             }, 
             "links": [], 
-            "arrival_date_time": "20111112T135613", 
+            "arrival_date_time": "20111112T135500", 
             "additional_informations": [], 
-            "departure_date_time": "20111112T135130", 
+            "departure_date_time": "20111112T135500", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
-                "name": "Entr\u00e9e Station du C\u00e9gep (\u00e9difice Expo-Sherbrooke)", 
+                "name": "Station du C\u00e9gep - quai F", 
+                "links": [], 
                 "coord": {
-                  "lat": "45.409568", 
-                  "lon": "-71.883378"
+                  "lat": "45.411529", 
+                  "lon": "-71.88485"
                 }, 
-                "label": "Entr\u00e9e Station du C\u00e9gep (\u00e9difice Expo-Sherbrooke) (Sherbrooke)", 
+                "label": "Station du C\u00e9gep - quai F (Sherbrooke)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -229,14 +298,15 @@
                 ], 
                 "address": {
                   "name": "rue DU CEGEP", 
-                  "house_number": 265, 
+                  "house_number": 431, 
                   "coord": {
-                    "lat": "45.409568", 
-                    "lon": "-71.883378"
+                    "lat": "45.411529", 
+                    "lon": "-71.88485"
                   }, 
-                  "label": "265 rue DU CEGEP (Sherbrooke)", 
+                  "label": "431 rue DU CEGEP (Sherbrooke)", 
                   "administrative_regions": [
                     {
+                      "insee": "43027", 
                       "name": "Sherbrooke", 
                       "level": 8, 
                       "coord": {
@@ -248,19 +318,21 @@
                       "zip_code": ""
                     }
                   ], 
-                  "id": "-71.883378;45.409568"
+                  "id": "-71.88485;45.411529"
                 }, 
-                "id": "stop_point:STS:SP:640", 
+                "id": "stop_point:STS:SP:501F", 
                 "stop_area": {
                   "comment": "", 
-                  "name": "Entr\u00e9e Station du C\u00e9gep (\u00e9difice Expo-Sherbrooke)", 
+                  "name": "Station du C\u00e9gep", 
+                  "links": [], 
                   "coord": {
-                    "lat": "45.409568", 
-                    "lon": "-71.883378"
+                    "lat": "45.411529", 
+                    "lon": "-71.88485"
                   }, 
-                  "label": "Entr\u00e9e Station du C\u00e9gep (\u00e9difice Expo-Sherbrooke) (Sherbrooke)", 
+                  "label": "Station du C\u00e9gep (Sherbrooke)", 
                   "administrative_regions": [
                     {
+                      "insee": "43027", 
                       "name": "Sherbrooke", 
                       "level": 8, 
                       "coord": {
@@ -273,99 +345,34 @@
                     }
                   ], 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:640"
+                  "id": "stop_area:STS:SA:501"
                 }
-              }, 
-              "name": "Entr\u00e9e Station du C\u00e9gep (\u00e9difice Expo-Sherbrooke) (Sherbrooke)", 
-              "address": {
-                "name": "ENTREE PRIVEE", 
-                "house_number": 0, 
-                "coord": {
-                  "lat": "45.409568", 
-                  "lon": "-71.883378"
-                }, 
-                "label": "ENTREE PRIVEE (Sherbrooke)", 
-                "administrative_regions": [
-                  {
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "-71.883378;45.409568"
               }, 
               "quality": 0, 
-              "id": "stop_point:STS:SP:640"
+              "id": "stop_point:STS:SP:501F", 
+              "name": "Station du C\u00e9gep - quai F (Sherbrooke)"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 235
-                }
-              ], 
-              "coordinates": [
-                [
-                  -71.8852450224882, 
-                  45.41110448592712
-                ], 
-                [
-                  -71.8852450224882, 
-                  45.41110448592712
-                ], 
-                [
-                  -71.88349284, 
-                  45.40947403
-                ], 
-                [
-                  -71.88349212049006, 
-                  45.409568865820816
-                ], 
-                [
-                  -71.883378, 
-                  45.409568
-                ]
-              ]
-            }, 
-            "duration": 283, 
-            "path": [
-              {
-                "duration": 267, 
-                "length": 221, 
-                "direction": 0, 
-                "name": "rue DU CEGEP"
-              }, 
-              {
-                "duration": 16, 
-                "length": 13, 
-                "direction": 0, 
-                "name": "ENTREE PRIVEE"
-              }
-            ], 
-            "type": "street_network", 
-            "id": "section_3_0", 
-            "mode": "walking"
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
           }, 
           {
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
-                "name": "Entr\u00e9e Station du C\u00e9gep (\u00e9difice Expo-Sherbrooke)", 
+                "name": "Station du C\u00e9gep - quai F", 
+                "links": [], 
                 "coord": {
-                  "lat": "45.409568", 
-                  "lon": "-71.883378"
+                  "lat": "45.411529", 
+                  "lon": "-71.88485"
                 }, 
-                "label": "Entr\u00e9e Station du C\u00e9gep (\u00e9difice Expo-Sherbrooke) (Sherbrooke)", 
+                "label": "Station du C\u00e9gep - quai F (Sherbrooke)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -378,31 +385,32 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 265, 
-                  "id": "-71.883378;45.409568", 
+                  "house_number": 431, 
+                  "id": "-71.88485;45.411529", 
                   "name": "rue DU CEGEP", 
                   "coord": {
-                    "lat": "45.409568", 
-                    "lon": "-71.883378"
+                    "lat": "45.411529", 
+                    "lon": "-71.88485"
                   }, 
-                  "label": "265 rue DU CEGEP (Sherbrooke)"
+                  "label": "431 rue DU CEGEP (Sherbrooke)"
                 }, 
-                "id": "stop_point:STS:SP:640", 
+                "id": "stop_point:STS:SP:501F", 
                 "stop_area": {
                   "comment": "", 
-                  "name": "Entr\u00e9e Station du C\u00e9gep (\u00e9difice Expo-Sherbrooke)", 
+                  "name": "Station du C\u00e9gep", 
+                  "links": [], 
                   "coord": {
-                    "lat": "45.409568", 
-                    "lon": "-71.883378"
+                    "lat": "45.411529", 
+                    "lon": "-71.88485"
                   }, 
-                  "label": "Entr\u00e9e Station du C\u00e9gep (\u00e9difice Expo-Sherbrooke) (Sherbrooke)", 
+                  "label": "Station du C\u00e9gep (Sherbrooke)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:640"
+                  "id": "stop_area:STS:SA:501"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:STS:SP:640", 
-              "name": "Entr\u00e9e Station du C\u00e9gep (\u00e9difice Expo-Sherbrooke) (Sherbrooke)"
+              "id": "stop_point:STS:SP:501F", 
+              "name": "Station du C\u00e9gep - quai F (Sherbrooke)"
             }, 
             "links": [
               {
@@ -428,6 +436,13 @@
               {
                 "type": "network", 
                 "id": "network:STS"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
               }
             ], 
             "arrival_date_time": "20111112T140000", 
@@ -439,6 +454,7 @@
               "direction": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
               "code": "1", 
               "description": "", 
+              "links": [], 
               "color": "A6D514", 
               "physical_mode": "Bus", 
               "headsign": "Bowen - Talbot", 
@@ -452,6 +468,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                "links": [], 
                 "coord": {
                   "lat": "45.39882", 
                   "lon": "-71.88047"
@@ -460,6 +477,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -472,26 +490,27 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 63, 
+                  "house_number": 555, 
                   "id": "-71.88047;45.39882", 
-                  "name": "rue JEAN-MAURICE", 
+                  "name": "rue BOWEN S,", 
                   "coord": {
                     "lat": "45.39882", 
                     "lon": "-71.88047"
                   }, 
-                  "label": "63 rue JEAN-MAURICE (Sherbrooke)"
+                  "label": "555 rue BOWEN S, (Sherbrooke)"
                 }, 
                 "id": "stop_point:STS:SP:6", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                  "links": [], 
                   "coord": {
-                    "lat": "45.39882", 
-                    "lon": "-71.88047"
+                    "lat": "45.398577", 
+                    "lon": "-71.88004"
                   }, 
                   "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:6"
+                  "id": "stop_area:STS:SA:25"
                 }
               }, 
               "quality": 0, 
@@ -502,10 +521,42 @@
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 1882
+                  "length": 2128
                 }
               ], 
               "coordinates": [
+                [
+                  -71.88485, 
+                  45.411529
+                ], 
+                [
+                  -71.8847, 
+                  45.41162
+                ], 
+                [
+                  -71.88448, 
+                  45.41146
+                ], 
+                [
+                  -71.88351, 
+                  45.41159
+                ], 
+                [
+                  -71.88322, 
+                  45.41085
+                ], 
+                [
+                  -71.88261, 
+                  45.41019
+                ], 
+                [
+                  -71.88245, 
+                  45.4098
+                ], 
+                [
+                  -71.88336, 
+                  45.40953
+                ], 
                 [
                   -71.883378, 
                   45.409568
@@ -674,12 +725,31 @@
             }, 
             "duration": 300, 
             "type": "public_transport", 
-            "id": "section_4_0", 
+            "id": "section_1_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
+                  "name": "Station du C\u00e9gep - quai F", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.411529", 
+                    "lon": "-71.88485"
+                  }, 
+                  "label": "Station du C\u00e9gep - quai F (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:501F"
+                }, 
+                "arrival_date_time": "20111112T135500", 
+                "additional_informations": [], 
+                "departure_date_time": "20111112T135500", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
                   "name": "Entr\u00e9e Station du C\u00e9gep (\u00e9difice Expo-Sherbrooke)", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.409568", 
                     "lon": "-71.883378"
@@ -697,6 +767,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "du C\u00e9gep  / Mont-Plaisant", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.407803", 
                     "lon": "-71.883273"
@@ -714,6 +785,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "King Est / du C\u00e9gep", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.406696", 
                     "lon": "-71.882082"
@@ -731,6 +803,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "King Est / Murray", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.407834", 
                     "lon": "-71.880332"
@@ -748,6 +821,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Murray (no.162)", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.405549", 
                     "lon": "-71.880108"
@@ -765,6 +839,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Murray / du Conseil", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.403058", 
                     "lon": "-71.879601"
@@ -782,6 +857,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Murray / Chalifoux", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.401285", 
                     "lon": "-71.878339"
@@ -799,6 +875,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Chalifoux / Bowen", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.401215", 
                     "lon": "-71.88213"
@@ -816,6 +893,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Bowen Sud / Johnson", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.400024", 
                     "lon": "-71.881555"
@@ -833,6 +911,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.39882", 
                     "lon": "-71.88047"
@@ -854,6 +933,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                "links": [], 
                 "coord": {
                   "lat": "45.39882", 
                   "lon": "-71.88047"
@@ -862,6 +942,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -874,26 +955,27 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 63, 
+                  "house_number": 555, 
                   "id": "-71.88047;45.39882", 
-                  "name": "rue JEAN-MAURICE", 
+                  "name": "rue BOWEN S,", 
                   "coord": {
                     "lat": "45.39882", 
                     "lon": "-71.88047"
                   }, 
-                  "label": "63 rue JEAN-MAURICE (Sherbrooke)"
+                  "label": "555 rue BOWEN S, (Sherbrooke)"
                 }, 
                 "id": "stop_point:STS:SP:6", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                  "links": [], 
                   "coord": {
-                    "lat": "45.39882", 
-                    "lon": "-71.88047"
+                    "lat": "45.398577", 
+                    "lon": "-71.88004"
                   }, 
                   "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:6"
+                  "id": "stop_area:STS:SA:25"
                 }
               }, 
               "quality": 0, 
@@ -909,6 +991,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                "links": [], 
                 "coord": {
                   "lat": "45.39882", 
                   "lon": "-71.88047"
@@ -917,6 +1000,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -929,26 +1013,27 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 63, 
+                  "house_number": 555, 
                   "id": "-71.88047;45.39882", 
-                  "name": "rue JEAN-MAURICE", 
+                  "name": "rue BOWEN S,", 
                   "coord": {
                     "lat": "45.39882", 
                     "lon": "-71.88047"
                   }, 
-                  "label": "63 rue JEAN-MAURICE (Sherbrooke)"
+                  "label": "555 rue BOWEN S, (Sherbrooke)"
                 }, 
                 "id": "stop_point:STS:SP:6", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                  "links": [], 
                   "coord": {
-                    "lat": "45.39882", 
-                    "lon": "-71.88047"
+                    "lat": "45.398577", 
+                    "lon": "-71.88004"
                   }, 
                   "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:6"
+                  "id": "stop_area:STS:SA:25"
                 }
               }, 
               "quality": 0, 
@@ -976,7 +1061,7 @@
             "duration": 0, 
             "transfer_type": "stay_in", 
             "type": "transfer", 
-            "id": "section_5_0"
+            "id": "section_2_0"
           }, 
           {
             "from": {
@@ -984,6 +1069,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                "links": [], 
                 "coord": {
                   "lat": "45.39882", 
                   "lon": "-71.88047"
@@ -992,6 +1078,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -1004,26 +1091,27 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 63, 
+                  "house_number": 555, 
                   "id": "-71.88047;45.39882", 
-                  "name": "rue JEAN-MAURICE", 
+                  "name": "rue BOWEN S,", 
                   "coord": {
                     "lat": "45.39882", 
                     "lon": "-71.88047"
                   }, 
-                  "label": "63 rue JEAN-MAURICE (Sherbrooke)"
+                  "label": "555 rue BOWEN S, (Sherbrooke)"
                 }, 
                 "id": "stop_point:STS:SP:6", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                  "links": [], 
                   "coord": {
-                    "lat": "45.39882", 
-                    "lon": "-71.88047"
+                    "lat": "45.398577", 
+                    "lon": "-71.88004"
                   }, 
                   "label": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:6"
+                  "id": "stop_area:STS:SA:25"
                 }
               }, 
               "quality": 0, 
@@ -1054,6 +1142,13 @@
               {
                 "type": "network", 
                 "id": "network:STS"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
               }
             ], 
             "arrival_date_time": "20111112T140200", 
@@ -1063,6 +1158,7 @@
               "direction": "Talbot / Bowen Sud (Sherbrooke)", 
               "code": "HLP", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "Bowen - Talbot", 
@@ -1076,6 +1172,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Talbot / Bowen Sud", 
+                "links": [], 
                 "coord": {
                   "lat": "45.392291", 
                   "lon": "-71.874936"
@@ -1084,6 +1181,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -1096,19 +1194,20 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 983, 
+                  "house_number": 1057, 
                   "id": "-71.874936;45.392291", 
-                  "name": "rue BOWEN S,", 
+                  "name": "rue TALBOT", 
                   "coord": {
                     "lat": "45.392291", 
                     "lon": "-71.874936"
                   }, 
-                  "label": "983 rue BOWEN S, (Sherbrooke)"
+                  "label": "1057 rue TALBOT (Sherbrooke)"
                 }, 
                 "id": "stop_point:STS:SP:2009", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Talbot / Bowen Sud", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.392291", 
                     "lon": "-71.874936"
@@ -1158,12 +1257,13 @@
             }, 
             "duration": 120, 
             "type": "public_transport", 
-            "id": "section_6_0", 
+            "id": "section_3_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
                   "name": "Bowen Sud (CHUS - H\u00f4tel-Dieu)", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.39882", 
                     "lon": "-71.88047"
@@ -1183,6 +1283,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Talbot / Bowen Sud", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.392291", 
                     "lon": "-71.874936"
@@ -1205,7 +1306,7 @@
             "departure_date_time": "20111112T140200", 
             "duration": 3420, 
             "type": "waiting", 
-            "id": "section_7_0"
+            "id": "section_4_0"
           }, 
           {
             "from": {
@@ -1213,6 +1314,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Talbot / Bowen Sud", 
+                "links": [], 
                 "coord": {
                   "lat": "45.392291", 
                   "lon": "-71.874936"
@@ -1221,6 +1323,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -1233,19 +1336,20 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 983, 
+                  "house_number": 1057, 
                   "id": "-71.874936;45.392291", 
-                  "name": "rue BOWEN S,", 
+                  "name": "rue TALBOT", 
                   "coord": {
                     "lat": "45.392291", 
                     "lon": "-71.874936"
                   }, 
-                  "label": "983 rue BOWEN S, (Sherbrooke)"
+                  "label": "1057 rue TALBOT (Sherbrooke)"
                 }, 
                 "id": "stop_point:STS:SP:2009", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Talbot / Bowen Sud", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.392291", 
                     "lon": "-71.874936"
@@ -1283,6 +1387,13 @@
               {
                 "type": "network", 
                 "id": "network:STS"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
               }
             ], 
             "arrival_date_time": "20111112T150100", 
@@ -1292,6 +1403,7 @@
               "direction": "Station du C\u00e9gep - quai A (Sherbrooke)", 
               "code": "1", 
               "description": "", 
+              "links": [], 
               "color": "A6D514", 
               "physical_mode": "Bus", 
               "headsign": "Station du C\u00e9gep", 
@@ -1305,6 +1417,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "boul. Lavigerie / Dagenais", 
+                "links": [], 
                 "coord": {
                   "lat": "45.388446", 
                   "lon": "-71.859136"
@@ -1313,6 +1426,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -1338,6 +1452,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "boul. Lavigerie / Dagenais", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.388446", 
                     "lon": "-71.859136"
@@ -1471,12 +1586,13 @@
             }, 
             "duration": 120, 
             "type": "public_transport", 
-            "id": "section_8_0", 
+            "id": "section_5_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
                   "name": "Talbot / Bowen Sud", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.392291", 
                     "lon": "-71.874936"
@@ -1494,6 +1610,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Bowen Sud / de Caen", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.390325", 
                     "lon": "-71.871799"
@@ -1511,6 +1628,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Marie-Reine / Bowen", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.389471", 
                     "lon": "-71.869919"
@@ -1528,6 +1646,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Walsh / de Caen", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.390285", 
                     "lon": "-71.868991"
@@ -1545,6 +1664,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "de Caen / Aubry", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.390383", 
                     "lon": "-71.865086"
@@ -1562,6 +1682,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Aubry / Bowen", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.387919", 
                     "lon": "-71.864845"
@@ -1579,6 +1700,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "boul. Lavigerie / Dagenais", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.388446", 
                     "lon": "-71.859136"
@@ -1600,6 +1722,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "boul. Lavigerie / Dagenais", 
+                "links": [], 
                 "coord": {
                   "lat": "45.388446", 
                   "lon": "-71.859136"
@@ -1608,6 +1731,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -1619,6 +1743,7 @@
                     "zip_code": ""
                   }, 
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -1640,6 +1765,7 @@
                   "label": "1551 rue DAGENAIS (Sherbrooke)", 
                   "administrative_regions": [
                     {
+                      "insee": "43027", 
                       "name": "Sherbrooke", 
                       "level": 8, 
                       "coord": {
@@ -1657,6 +1783,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "boul. Lavigerie / Dagenais", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.388446", 
                     "lon": "-71.859136"
@@ -1664,6 +1791,7 @@
                   "label": "boul. Lavigerie / Dagenais (Sherbrooke)", 
                   "administrative_regions": [
                     {
+                      "insee": "43027", 
                       "name": "Sherbrooke", 
                       "level": 8, 
                       "coord": {
@@ -1692,6 +1820,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "boul. Lavigerie / Bowen Sud", 
+                "links": [], 
                 "coord": {
                   "lat": "45.387921", 
                   "lon": "-71.859305"
@@ -1699,6 +1828,7 @@
                 "label": "boul. Lavigerie / Bowen Sud (Sherbrooke)", 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -1715,14 +1845,15 @@
               }, 
               "address": {
                 "name": "rue BOWEN S,", 
-                "house_number": 1455, 
+                "house_number": 1558, 
                 "coord": {
                   "lat": "45.38785927008107", 
                   "lon": "-71.85930164850174"
                 }, 
-                "label": "1455 rue BOWEN S, (Sherbrooke)", 
+                "label": "1558 rue BOWEN S, (Sherbrooke)", 
                 "administrative_regions": [
                   {
+                    "insee": "43027", 
                     "name": "Sherbrooke", 
                     "level": 8, 
                     "coord": {
@@ -1786,11 +1917,14 @@
               }
             ], 
             "type": "street_network", 
-            "id": "section_9_0", 
+            "id": "section_6_0", 
             "mode": "walking"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

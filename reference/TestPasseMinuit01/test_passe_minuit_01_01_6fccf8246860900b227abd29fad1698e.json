@@ -10,29 +10,44 @@
         "duration": 6660, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Arret1 (Tours)", 
             "arrival_date_time": "20051123T230100", 
-            "departure_date_time": "20051123T230100"
-          }, 
-          {
-            "duration": 4200, 
-            "arrival_date_time": "20051124T001100", 
-            "departure_date_time": "20051123T230100"
-          }, 
-          {
-            "duration": 660, 
-            "arrival_date_time": "20051124T002200", 
-            "departure_date_time": "20051124T001100"
-          }, 
-          {
-            "duration": 1800, 
-            "arrival_date_time": "20051124T005200", 
-            "departure_date_time": "20051124T002200"
-          }, 
-          {
+            "departure_date_time": "20051123T230100", 
+            "to": "Arret1 (Tours)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Arret1 (Tours)", 
+            "arrival_date_time": "20051124T001100", 
+            "departure_date_time": "20051123T230100", 
+            "to": "Arret2 (Tours)", 
+            "duration": 4200, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": null, 
+            "arrival_date_time": "20051124T002200", 
+            "departure_date_time": "20051124T001100", 
+            "to": null, 
+            "duration": 660, 
+            "type": "waiting"
+          }, 
+          {
+            "from": "Arret2 (Tours)", 
             "arrival_date_time": "20051124T005200", 
-            "departure_date_time": "20051124T005200"
+            "departure_date_time": "20051124T002200", 
+            "to": "Arret3 (Saint-Avertin)", 
+            "duration": 1800, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Arret3 (Saint-Avertin)", 
+            "arrival_date_time": "20051124T005200", 
+            "departure_date_time": "20051124T005200", 
+            "to": "Arret3 (Saint-Avertin)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -42,7 +57,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -67,8 +82,6 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/passe-minuit-01/journeys?to=stop_area%3APM1%3ASA%3A3&from=stop_area%3APM1%3ASA%3A1&datetime_represents=arrival&datetime=20051124T005100", 
@@ -95,37 +108,37 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/passe-minuit-01/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/passe-minuit-01/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/passe-minuit-01/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/passe-minuit-01/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/passe-minuit-01/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/passe-minuit-01/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/passe-minuit-01/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/passe-minuit-01/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/passe-minuit-01/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/passe-minuit-01/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/passe-minuit-01/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/passe-minuit-01/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
@@ -154,6 +167,25 @@
         ], 
         "nb_transfers": 1, 
         "arrival_date_time": "20051124T005200", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20051123", 
+                "end": "20051203"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20051123T230100", 
         "requested_date_time": "20051123T230000", 
         "type": "best", 
@@ -166,6 +198,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret1", 
+                "links": [], 
                 "coord": {
                   "lat": "47.429181", 
                   "lon": "0.694363"
@@ -173,6 +206,7 @@
                 "label": "Arret1 (Tours)", 
                 "administrative_regions": [
                   {
+                    "insee": "37261", 
                     "name": "Tours", 
                     "level": 8, 
                     "coord": {
@@ -199,6 +233,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret1", 
+                "links": [], 
                 "coord": {
                   "lat": "47.429181", 
                   "lon": "0.694363"
@@ -207,6 +242,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "37261", 
                     "name": "Tours", 
                     "level": 8, 
                     "coord": {
@@ -232,6 +268,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret1", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.429181", 
                     "lon": "0.694363"
@@ -239,6 +276,7 @@
                   "label": "Arret1 (Tours)", 
                   "administrative_regions": [
                     {
+                      "insee": "37261", 
                       "name": "Tours", 
                       "level": 8, 
                       "coord": {
@@ -269,6 +307,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret1", 
+                "links": [], 
                 "coord": {
                   "lat": "47.429181", 
                   "lon": "0.694363"
@@ -277,6 +316,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "37261", 
                     "name": "Tours", 
                     "level": 8, 
                     "coord": {
@@ -302,6 +342,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret1", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.429181", 
                     "lon": "0.694363"
@@ -341,6 +382,7 @@
                 "id": "network:default_network"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -354,6 +396,7 @@
               "direction": "Arret2 (Tours)", 
               "code": "12", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Train", 
               "headsign": "PM1:1-13", 
@@ -367,6 +410,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret2", 
+                "links": [], 
                 "coord": {
                   "lat": "47.384506", 
                   "lon": "0.676463"
@@ -375,6 +419,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "37261", 
                     "name": "Tours", 
                     "level": 8, 
                     "coord": {
@@ -400,6 +445,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret2", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.384506", 
                     "lon": "0.676463"
@@ -439,6 +485,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret1", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.429181", 
                     "lon": "0.694363"
@@ -456,6 +503,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret2", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.384506", 
                     "lon": "0.676463"
@@ -486,6 +534,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret2", 
+                "links": [], 
                 "coord": {
                   "lat": "47.384506", 
                   "lon": "0.676463"
@@ -494,6 +543,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "37261", 
                     "name": "Tours", 
                     "level": 8, 
                     "coord": {
@@ -519,6 +569,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret2", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.384506", 
                     "lon": "0.676463"
@@ -558,6 +609,7 @@
                 "id": "network:default_network"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -571,6 +623,7 @@
               "direction": "Arret3 (Saint-Avertin)", 
               "code": "23", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Train", 
               "headsign": "PM1:2-11", 
@@ -584,6 +637,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret3", 
+                "links": [], 
                 "coord": {
                   "lat": "47.354249", 
                   "lon": "0.737114"
@@ -592,6 +646,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "37208", 
                     "name": "Saint-Avertin", 
                     "level": 8, 
                     "coord": {
@@ -617,6 +672,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret3", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.354249", 
                     "lon": "0.737114"
@@ -656,6 +712,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret2", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.384506", 
                     "lon": "0.676463"
@@ -673,6 +730,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret3", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.354249", 
                     "lon": "0.737114"
@@ -694,6 +752,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret3", 
+                "links": [], 
                 "coord": {
                   "lat": "47.354249", 
                   "lon": "0.737114"
@@ -702,6 +761,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "37208", 
                     "name": "Saint-Avertin", 
                     "level": 8, 
                     "coord": {
@@ -727,6 +787,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret3", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.354249", 
                     "lon": "0.737114"
@@ -734,6 +795,7 @@
                   "label": "Arret3 (Saint-Avertin)", 
                   "administrative_regions": [
                     {
+                      "insee": "37208", 
                       "name": "Saint-Avertin", 
                       "level": 8, 
                       "coord": {
@@ -763,6 +825,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret3", 
+                "links": [], 
                 "coord": {
                   "lat": "47.354249", 
                   "lon": "0.737114"
@@ -770,6 +833,7 @@
                 "label": "Arret3 (Saint-Avertin)", 
                 "administrative_regions": [
                   {
+                    "insee": "37208", 
                     "name": "Saint-Avertin", 
                     "level": 8, 
                     "coord": {
@@ -794,6 +858,9 @@
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

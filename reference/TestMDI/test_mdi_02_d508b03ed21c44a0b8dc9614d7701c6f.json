@@ -3,7 +3,6 @@
   "response": {
     "journeys": [
       {
-        "tags": [], 
         "nb_transfers": 1, 
         "arrival_date_time": "20070308T100000", 
         "departure_date_time": "20070308T070000", 
@@ -11,29 +10,44 @@
         "duration": 10800, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Arret 1 (Limoges)", 
             "arrival_date_time": "20070308T070000", 
-            "departure_date_time": "20070308T070000"
-          }, 
-          {
-            "duration": 7200, 
-            "arrival_date_time": "20070308T090000", 
-            "departure_date_time": "20070308T070000"
-          }, 
-          {
-            "duration": 1800, 
-            "arrival_date_time": "20070308T093000", 
-            "departure_date_time": "20070308T090000"
-          }, 
-          {
-            "duration": 1800, 
-            "arrival_date_time": "20070308T100000", 
-            "departure_date_time": "20070308T093000"
-          }, 
-          {
+            "departure_date_time": "20070308T070000", 
+            "to": "Arret 1 (Limoges)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Arret 1 (Limoges)", 
+            "arrival_date_time": "20070308T090000", 
+            "departure_date_time": "20070308T070000", 
+            "to": "Arret 3 (Isle)", 
+            "duration": 7200, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": null, 
+            "arrival_date_time": "20070308T093000", 
+            "departure_date_time": "20070308T090000", 
+            "to": null, 
+            "duration": 1800, 
+            "type": "waiting"
+          }, 
+          {
+            "from": "Arret 3 (Isle)", 
             "arrival_date_time": "20070308T100000", 
-            "departure_date_time": "20070308T100000"
+            "departure_date_time": "20070308T093000", 
+            "to": "Arret 4 (Verneuil-sur-Vienne)", 
+            "duration": 1800, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Arret 4 (Verneuil-sur-Vienne)", 
+            "arrival_date_time": "20070308T100000", 
+            "departure_date_time": "20070308T100000", 
+            "to": "Arret 4 (Verneuil-sur-Vienne)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -43,7 +57,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -68,57 +82,65 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/mdi/journeys?to=stop_area%3AMDI%3ASA%3A4&from=stop_area%3AMDI%3ASA%3A1&datetime_represents=arrival&datetime=20070308T095900", 
         "type": "prev", 
+        "rel": "prev", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/mdi/journeys?to=stop_area%3AMDI%3ASA%3A4&from=stop_area%3AMDI%3ASA%3A1&datetime_represents=departure&datetime=20070308T070100", 
         "type": "next", 
+        "rel": "next", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/mdi/journeys?to=stop_area%3AMDI%3ASA%3A4&from=stop_area%3AMDI%3ASA%3A1&datetime_represents=departure&datetime=20070308T000000", 
         "type": "first", 
+        "rel": "first", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/mdi/journeys?to=stop_area%3AMDI%3ASA%3A4&from=stop_area%3AMDI%3ASA%3A1&datetime_represents=arrival&datetime=20070308T235900", 
         "type": "last", 
+        "rel": "last", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/mdi/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/mdi/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/mdi/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/mdi/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/mdi/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/mdi/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -140,9 +162,30 @@
             }
           ]
         }, 
-        "tags": [], 
+        "tags": [
+          "standard"
+        ], 
         "nb_transfers": 1, 
         "arrival_date_time": "20070308T100000", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20070101", 
+                "end": "20080101"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20070308T070000", 
         "requested_date_time": "20070308T070000", 
         "type": "best", 
@@ -155,73 +198,105 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "45.855431", 
                   "lon": "1.247971"
                 }, 
+                "label": "Arret 1 (Limoges)", 
+                "administrative_regions": [
+                  {
+                    "insee": "87085", 
+                    "name": "Limoges", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.835423", 
+                      "lon": "1.264484"
+                    }, 
+                    "label": "Limoges (87000-87280)", 
+                    "id": "admin:114172extern", 
+                    "zip_code": "87000-87280"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:MDI:SA:1"
               }, 
-              "name": "Arret 1", 
+              "name": "Arret 1 (Limoges)", 
               "id": "stop_area:MDI:SA:1"
             }, 
             "links": [], 
             "arrival_date_time": "20070308T070000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20070308T070000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "45.855431", 
                   "lon": "1.247971"
                 }, 
+                "label": "Arret 1 (Limoges)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "87085", 
+                    "name": "Limoges", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.835423", 
+                      "lon": "1.264484"
+                    }, 
+                    "label": "Limoges (87000-87280)", 
+                    "id": "admin:114172extern", 
+                    "zip_code": "87000-87280"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:MDI:SP:Nav1", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.855431", 
                     "lon": "1.247971"
                   }, 
+                  "label": "Arret 1 (Limoges)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "87085", 
+                      "name": "Limoges", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "45.835423", 
+                        "lon": "1.264484"
+                      }, 
+                      "label": "Limoges (87000-87280)", 
+                      "id": "admin:114172extern", 
+                      "zip_code": "87000-87280"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:MDI:SA:1"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:MDI:SP:Nav1", 
-              "name": "Arret 1"
+              "name": "Arret 1 (Limoges)"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  1.247971, 
-                  45.855431
-                ], 
-                [
-                  1.247971, 
-                  45.855431
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_0_0"
@@ -232,34 +307,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "45.855431", 
                   "lon": "1.247971"
                 }, 
+                "label": "Arret 1 (Limoges)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "87085", 
+                    "name": "Limoges", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.835423", 
+                      "lon": "1.264484"
+                    }, 
+                    "label": "Limoges (87000-87280)", 
+                    "id": "admin:114172extern", 
+                    "zip_code": "87000-87280"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:MDI:SP:Nav1", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.855431", 
                     "lon": "1.247971"
                   }, 
+                  "label": "Arret 1 (Limoges)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:MDI:SA:1"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:MDI:SP:Nav1", 
-              "name": "Arret 1"
+              "name": "Arret 1 (Limoges)"
             }, 
             "links": [
               {
@@ -295,14 +390,13 @@
               }
             ], 
             "arrival_date_time": "20070308T090000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20070308T070000", 
             "display_informations": {
-              "direction": "Arret 3", 
+              "direction": "Arret 3 (Isle)", 
               "code": "1", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "MDI:1-11", 
@@ -316,34 +410,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 3", 
+                "links": [], 
                 "coord": {
                   "lat": "45.806695", 
                   "lon": "1.22538"
                 }, 
+                "label": "Arret 3 (Isle)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "87075", 
+                    "name": "Isle", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.805557", 
+                      "lon": "1.223825"
+                    }, 
+                    "label": "Isle (87170)", 
+                    "id": "admin:114175extern", 
+                    "zip_code": "87170"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:MDI:SP:Nav3", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.806695", 
                     "lon": "1.22538"
                   }, 
+                  "label": "Arret 3 (Isle)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:MDI:SA:3"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:MDI:SP:Nav3", 
-              "name": "Arret 3"
+              "name": "Arret 3 (Isle)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -374,12 +488,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.855431", 
                     "lon": "1.247971"
                   }, 
+                  "label": "Arret 1 (Limoges)", 
+                  "equipments": [], 
                   "id": "stop_point:MDI:SP:Nav1"
                 }, 
                 "arrival_date_time": "20070308T070000", 
@@ -390,12 +506,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.925843", 
                     "lon": "1.30182"
                   }, 
+                  "label": "Arret 2 (Limoges)", 
+                  "equipments": [], 
                   "id": "stop_point:MDI:SP:Nav2"
                 }, 
                 "arrival_date_time": "20070308T080000", 
@@ -408,12 +526,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.806695", 
                     "lon": "1.22538"
                   }, 
+                  "label": "Arret 3 (Isle)", 
+                  "equipments": [], 
                   "id": "stop_point:MDI:SP:Nav3"
                 }, 
                 "arrival_date_time": "20070308T090000", 
@@ -426,9 +546,7 @@
           {
             "links": [], 
             "arrival_date_time": "20070308T093000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20070308T090000", 
             "duration": 1800, 
             "type": "waiting", 
@@ -440,34 +558,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 3", 
+                "links": [], 
                 "coord": {
                   "lat": "45.806695", 
                   "lon": "1.22538"
                 }, 
+                "label": "Arret 3 (Isle)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "87075", 
+                    "name": "Isle", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.805557", 
+                      "lon": "1.223825"
+                    }, 
+                    "label": "Isle (87170)", 
+                    "id": "admin:114175extern", 
+                    "zip_code": "87170"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:MDI:SP:Nav3", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.806695", 
                     "lon": "1.22538"
                   }, 
+                  "label": "Arret 3 (Isle)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:MDI:SA:3"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:MDI:SP:Nav3", 
-              "name": "Arret 3"
+              "name": "Arret 3 (Isle)"
             }, 
             "links": [
               {
@@ -503,14 +641,13 @@
               }
             ], 
             "arrival_date_time": "20070308T100000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20070308T093000", 
             "display_informations": {
-              "direction": "Arret 4", 
+              "direction": "Arret 4 (Verneuil-sur-Vienne)", 
               "code": "3", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "MDI:3-13", 
@@ -524,34 +661,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "45.849931", 
                   "lon": "1.164504"
                 }, 
+                "label": "Arret 4 (Verneuil-sur-Vienne)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "87201", 
+                    "name": "Verneuil-sur-Vienne", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.849319", 
+                      "lon": "1.127349"
+                    }, 
+                    "label": "Verneuil-sur-Vienne (87430)", 
+                    "id": "admin:114170extern", 
+                    "zip_code": "87430"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:MDI:SP:Nav4", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.849931", 
                     "lon": "1.164504"
                   }, 
+                  "label": "Arret 4 (Verneuil-sur-Vienne)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:MDI:SA:4"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:MDI:SP:Nav4", 
-              "name": "Arret 4"
+              "name": "Arret 4 (Verneuil-sur-Vienne)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -578,12 +735,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.806695", 
                     "lon": "1.22538"
                   }, 
+                  "label": "Arret 3 (Isle)", 
+                  "equipments": [], 
                   "id": "stop_point:MDI:SP:Nav3"
                 }, 
                 "arrival_date_time": "20070308T093000", 
@@ -594,12 +753,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.849931", 
                     "lon": "1.164504"
                   }, 
+                  "label": "Arret 4 (Verneuil-sur-Vienne)", 
+                  "equipments": [], 
                   "id": "stop_point:MDI:SP:Nav4"
                 }, 
                 "arrival_date_time": "20070308T100000", 
@@ -615,40 +776,72 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "45.849931", 
                   "lon": "1.164504"
                 }, 
+                "label": "Arret 4 (Verneuil-sur-Vienne)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "87201", 
+                    "name": "Verneuil-sur-Vienne", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.849319", 
+                      "lon": "1.127349"
+                    }, 
+                    "label": "Verneuil-sur-Vienne (87430)", 
+                    "id": "admin:114170extern", 
+                    "zip_code": "87430"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:MDI:SP:Nav4", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "45.849931", 
                     "lon": "1.164504"
                   }, 
+                  "label": "Arret 4 (Verneuil-sur-Vienne)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "87201", 
+                      "name": "Verneuil-sur-Vienne", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "45.849319", 
+                        "lon": "1.127349"
+                      }, 
+                      "label": "Verneuil-sur-Vienne (87430)", 
+                      "id": "admin:114170extern", 
+                      "zip_code": "87430"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:MDI:SA:4"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:MDI:SP:Nav4", 
-              "name": "Arret 4"
+              "name": "Arret 4 (Verneuil-sur-Vienne)"
             }, 
             "links": [], 
             "arrival_date_time": "20070308T100000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20070308T100000", 
             "to": {
               "embedded_type": "stop_area", 
@@ -656,39 +849,42 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "45.849931", 
                   "lon": "1.164504"
                 }, 
+                "label": "Arret 4 (Verneuil-sur-Vienne)", 
+                "administrative_regions": [
+                  {
+                    "insee": "87201", 
+                    "name": "Verneuil-sur-Vienne", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.849319", 
+                      "lon": "1.127349"
+                    }, 
+                    "label": "Verneuil-sur-Vienne (87430)", 
+                    "id": "admin:114170extern", 
+                    "zip_code": "87430"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:MDI:SA:4"
               }, 
-              "name": "Arret 4", 
+              "name": "Arret 4 (Verneuil-sur-Vienne)", 
               "id": "stop_area:MDI:SA:4"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  1.164504, 
-                  45.849931
-                ], 
-                [
-                  1.164504, 
-                  45.849931
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_4_0"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

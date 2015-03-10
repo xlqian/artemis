@@ -10,19 +10,28 @@
         "duration": 600, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Gare 6", 
             "arrival_date_time": "20041210T101100", 
-            "departure_date_time": "20041210T101100"
-          }, 
-          {
-            "duration": 600, 
-            "arrival_date_time": "20041210T102100", 
-            "departure_date_time": "20041210T101100"
-          }, 
-          {
+            "departure_date_time": "20041210T101100", 
+            "to": "Gare 6", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Gare 6", 
             "arrival_date_time": "20041210T102100", 
-            "departure_date_time": "20041210T102100"
+            "departure_date_time": "20041210T101100", 
+            "to": "Gare 9", 
+            "duration": 600, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Gare 9", 
+            "arrival_date_time": "20041210T102100", 
+            "departure_date_time": "20041210T102100", 
+            "to": "Gare 9", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -32,7 +41,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -50,8 +59,6 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/mission/journeys?to=stop_area%3AMIS%3ASA%3A9&from=stop_area%3AMIS%3ASA%3A6&datetime_represents=arrival&datetime=20041210T102000", 
@@ -78,37 +85,37 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/mission/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/mission/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/mission/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/mission/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/mission/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/mission/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/mission/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/mission/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/mission/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/mission/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/mission/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/mission/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
@@ -137,6 +144,25 @@
         ], 
         "nb_transfers": 0, 
         "arrival_date_time": "20041210T102100", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20040101", 
+                "end": "20041231"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041210T101100", 
         "requested_date_time": "20041210T090000", 
         "type": "best", 
@@ -149,6 +175,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Gare 6", 
+                "links": [], 
                 "coord": {
                   "lat": "0.0", 
                   "lon": "0.0"
@@ -169,6 +196,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Gare 6", 
+                "links": [], 
                 "coord": {
                   "lat": "0.0", 
                   "lon": "0.0"
@@ -189,6 +217,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Gare 6", 
+                  "links": [], 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
@@ -213,6 +242,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Gare 6", 
+                "links": [], 
                 "coord": {
                   "lat": "0.0", 
                   "lon": "0.0"
@@ -233,6 +263,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Gare 6", 
+                  "links": [], 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
@@ -272,6 +303,7 @@
                 "id": "network:default_network"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -285,6 +317,7 @@
               "direction": "Gare 12", 
               "code": "A", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Train de banlieue / RER", 
               "headsign": "omnibus", 
@@ -298,6 +331,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Gare 9", 
+                "links": [], 
                 "coord": {
                   "lat": "0.0", 
                   "lon": "0.0"
@@ -318,6 +352,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Gare 9", 
+                  "links": [], 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
@@ -348,6 +383,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Gare 6", 
+                  "links": [], 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
@@ -365,6 +401,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Gare 7", 
+                  "links": [], 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
@@ -382,6 +419,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Gare 8", 
+                  "links": [], 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
@@ -399,6 +437,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Gare 9", 
+                  "links": [], 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
@@ -420,6 +459,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Gare 9", 
+                "links": [], 
                 "coord": {
                   "lat": "0.0", 
                   "lon": "0.0"
@@ -440,6 +480,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Gare 9", 
+                  "links": [], 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
@@ -463,6 +504,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Gare 9", 
+                "links": [], 
                 "coord": {
                   "lat": "0.0", 
                   "lon": "0.0"
@@ -481,6 +523,9 @@
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

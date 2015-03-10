@@ -10,9 +10,12 @@
         "duration": 1200, 
         "sections": [
           {
-            "duration": 1200, 
+            "from": "Gare (Saint-Omer)", 
             "arrival_date_time": "20121206T155500", 
-            "departure_date_time": "20121206T153500"
+            "departure_date_time": "20121206T153500", 
+            "to": "Moulle (62910)", 
+            "duration": 1200, 
+            "type": "on_demand_transport"
           }
         ]
       }
@@ -22,7 +25,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -66,43 +69,43 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/saintomer/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/poi_types/{poi_type.id}?collection=poi_types", 
+        "href": "http://localhost/v1/coverage/saintomer/poi_types/{poi_type.id}", 
         "type": "poi_type", 
         "rel": "poi_types", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/saintomer/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/saintomer/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/pois/{poi.id}?collection=pois", 
+        "href": "http://localhost/v1/coverage/saintomer/pois/{poi.id}", 
         "type": "poi", 
         "rel": "pois", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/saintomer/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/saintomer/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
@@ -180,6 +183,7 @@
                 "label": "Gare (Saint-Omer)", 
                 "administrative_regions": [
                   {
+                    "insee": "62765", 
                     "name": "Saint-Omer", 
                     "level": 8, 
                     "coord": {
@@ -252,6 +256,7 @@
               "embedded_type": "administrative_region", 
               "quality": 0, 
               "administrative_region": {
+                "insee": "62595", 
                 "name": "Moulle", 
                 "level": 8, 
                 "coord": {
@@ -324,7 +329,7 @@
                 "additional_informations": [
                   "on_demand_transport"
                 ], 
-                "departure_date_time": "20121206T161500", 
+                "departure_date_time": "20121206T155500", 
                 "links": []
               }
             ]

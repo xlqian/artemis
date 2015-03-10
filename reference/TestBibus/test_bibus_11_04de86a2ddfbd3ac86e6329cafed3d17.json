@@ -10,19 +10,28 @@
         "duration": 1680, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Libert\u00e9 (Brest)", 
             "arrival_date_time": "20050607T111300", 
-            "departure_date_time": "20050607T111300"
-          }, 
-          {
-            "duration": 1680, 
-            "arrival_date_time": "20050607T114100", 
-            "departure_date_time": "20050607T111300"
-          }, 
-          {
+            "departure_date_time": "20050607T111300", 
+            "to": "Libert\u00e9 (Brest)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Libert\u00e9 (Brest)", 
             "arrival_date_time": "20050607T114100", 
-            "departure_date_time": "20050607T114100"
+            "departure_date_time": "20050607T111300", 
+            "to": "Keraudren (Brest)", 
+            "duration": 1680, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Keraudren (Brest)", 
+            "arrival_date_time": "20050607T114100", 
+            "departure_date_time": "20050607T114100", 
+            "to": "Keraudren (Brest)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -32,7 +41,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -50,8 +59,6 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A170&datetime_represents=arrival&from=stop_area%3ABIB%3ASA%3A313&max_duration_to_pt=1200&walking_speed=0.83&datetime=20050607T114000", 
@@ -78,37 +85,37 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
@@ -137,6 +144,29 @@
         ], 
         "nb_transfers": 0, 
         "arrival_date_time": "20050607T114100", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20050328", 
+                "end": "20050418"
+              }, 
+              {
+                "begin": "20050502", 
+                "end": "20050701"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20050607T111300", 
         "requested_date_time": "20050607T114200", 
         "type": "best", 
@@ -149,6 +179,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Libert\u00e9", 
+                "links": [], 
                 "coord": {
                   "lat": "48.390572", 
                   "lon": "-4.485996"
@@ -156,6 +187,7 @@
                 "label": "Libert\u00e9 (Brest)", 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -182,6 +214,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Libert\u00e9", 
+                "links": [], 
                 "coord": {
                   "lat": "48.390968", 
                   "lon": "-4.486239"
@@ -190,6 +223,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -203,14 +237,15 @@
                 ], 
                 "address": {
                   "name": "Place de la Libert\u00e9", 
-                  "house_number": 8, 
+                  "house_number": 2, 
                   "coord": {
                     "lat": "48.390968", 
                     "lon": "-4.486239"
                   }, 
-                  "label": "8 Place de la Libert\u00e9 (Brest)", 
+                  "label": "2 Place de la Libert\u00e9 (Brest)", 
                   "administrative_regions": [
                     {
+                      "insee": "29019", 
                       "name": "Brest", 
                       "level": 8, 
                       "coord": {
@@ -228,6 +263,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Libert\u00e9", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.390572", 
                     "lon": "-4.485996"
@@ -235,6 +271,7 @@
                   "label": "Libert\u00e9 (Brest)", 
                   "administrative_regions": [
                     {
+                      "insee": "29019", 
                       "name": "Brest", 
                       "level": 8, 
                       "coord": {
@@ -265,6 +302,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Libert\u00e9", 
+                "links": [], 
                 "coord": {
                   "lat": "48.390968", 
                   "lon": "-4.486239"
@@ -273,6 +311,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -285,19 +324,20 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 8, 
+                  "house_number": 2, 
                   "id": "-4.486239;48.390968", 
                   "name": "Place de la Libert\u00e9", 
                   "coord": {
                     "lat": "48.390968", 
                     "lon": "-4.486239"
                   }, 
-                  "label": "8 Place de la Libert\u00e9 (Brest)"
+                  "label": "2 Place de la Libert\u00e9 (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav3583", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Libert\u00e9", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.390572", 
                     "lon": "-4.485996"
@@ -337,6 +377,7 @@
                 "id": "network:BIB:1001"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -350,6 +391,7 @@
               "direction": "Kerguen (Brest)", 
               "code": "11", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "BIB:2117-3424725_dst_2", 
@@ -363,6 +405,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Keraudren", 
+                "links": [], 
                 "coord": {
                   "lat": "48.426983", 
                   "lon": "-4.475817"
@@ -371,6 +414,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -396,6 +440,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Keraudren", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.426844", 
                     "lon": "-4.476511"
@@ -531,6 +576,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Libert\u00e9", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.390968", 
                     "lon": "-4.486239"
@@ -548,6 +594,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "H\u00f4tel De Ville (Glasgow)", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.392477", 
                     "lon": "-4.484336"
@@ -565,6 +612,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Malakoff", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.395806", 
                     "lon": "-4.483741"
@@ -582,6 +630,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Kerigonan", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.397831", 
                     "lon": "-4.482122"
@@ -599,6 +648,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Saint Pol Roux", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.399921", 
                     "lon": "-4.481081"
@@ -616,6 +666,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Messidou", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.400659", 
                     "lon": "-4.482681"
@@ -633,6 +684,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Saint Luc", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.402602", 
                     "lon": "-4.48387"
@@ -650,6 +702,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Kerichen Lyc\u00e9e", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.405165", 
                     "lon": "-4.484815"
@@ -667,6 +720,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Blum", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.407756", 
                     "lon": "-4.484801"
@@ -684,6 +738,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Mirabeau", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.409421", 
                     "lon": "-4.485182"
@@ -701,6 +756,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Saint Christophe", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.411706", 
                     "lon": "-4.48624"
@@ -718,6 +774,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Bd Europe", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.413267", 
                     "lon": "-4.487799"
@@ -735,6 +792,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Lambezellec FFI", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.415412", 
                     "lon": "-4.491591"
@@ -752,6 +810,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Chapalain", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.415458", 
                     "lon": "-4.488777"
@@ -769,6 +828,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Coat Bian", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.417103", 
                     "lon": "-4.48685"
@@ -786,6 +846,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Giloux", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.41587", 
                     "lon": "-4.486648"
@@ -803,6 +864,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Saint Vincent De Paul", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.418855", 
                     "lon": "-4.487771"
@@ -820,6 +882,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Lanroze", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.420213", 
                     "lon": "-4.491121"
@@ -837,6 +900,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Dunant", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.42087", 
                     "lon": "-4.493322"
@@ -854,6 +918,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Broussais", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.42187", 
                     "lon": "-4.503784"
@@ -871,6 +936,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Perros", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.42426", 
                     "lon": "-4.493847"
@@ -888,6 +954,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Restic", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.426973", 
                     "lon": "-4.493755"
@@ -905,6 +972,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Poul Ar Feunteun", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.423843", 
                     "lon": "-4.486254"
@@ -922,6 +990,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Heroult", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.424139", 
                     "lon": "-4.488774"
@@ -939,6 +1008,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Niepce", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.424853", 
                     "lon": "-4.481912"
@@ -956,6 +1026,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Keraudren", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.426983", 
                     "lon": "-4.475817"
@@ -977,6 +1048,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Keraudren", 
+                "links": [], 
                 "coord": {
                   "lat": "48.426983", 
                   "lon": "-4.475817"
@@ -985,6 +1057,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -1006,6 +1079,7 @@
                   "label": "39 Rue de l'Amiral Romain Desfoss\u00e9s (Brest)", 
                   "administrative_regions": [
                     {
+                      "insee": "29019", 
                       "name": "Brest", 
                       "level": 8, 
                       "coord": {
@@ -1023,6 +1097,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Keraudren", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.426844", 
                     "lon": "-4.476511"
@@ -1030,6 +1105,7 @@
                   "label": "Keraudren (Brest)", 
                   "administrative_regions": [
                     {
+                      "insee": "29019", 
                       "name": "Brest", 
                       "level": 8, 
                       "coord": {
@@ -1059,6 +1135,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Keraudren", 
+                "links": [], 
                 "coord": {
                   "lat": "48.426844", 
                   "lon": "-4.476511"
@@ -1066,6 +1143,7 @@
                 "label": "Keraudren (Brest)", 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -1090,6 +1168,9 @@
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

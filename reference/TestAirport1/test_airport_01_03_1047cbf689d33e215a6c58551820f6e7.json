@@ -1,31 +1,1069 @@
 {
   "query": "http://localhost/v1/coverage/airport-01/journeys?from=stop_area:AI1:SA:AIRPORTAIRPORT&to=stop_area:AI1:SA:AIRPORTCLY&datetime=20120908T1000&datetime_represents=departure", 
   "response": {
-    "journeys": null
+    "journeys": [
+      {
+        "nb_transfers": 1, 
+        "arrival_date_time": "20120908T163000", 
+        "departure_date_time": "20120908T100000", 
+        "type": "best", 
+        "duration": 23400, 
+        "sections": [
+          {
+            "from": "A\u00e9roport Caen-Carpiquet (Carpiquet)", 
+            "arrival_date_time": "20120908T100000", 
+            "departure_date_time": "20120908T100000", 
+            "to": "A\u00e9roport Caen-Carpiquet (Carpiquet)", 
+            "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "A\u00e9roport Caen-Carpiquet (Carpiquet)", 
+            "arrival_date_time": "20120908T110000", 
+            "departure_date_time": "20120908T100000", 
+            "to": "Caen BOARDING - LANDING (Toulouse)", 
+            "duration": 3600, 
+            "type": "boarding"
+          }, 
+          {
+            "from": null, 
+            "arrival_date_time": "20120908T110000", 
+            "departure_date_time": "20120908T110000", 
+            "to": null, 
+            "duration": 0, 
+            "type": "waiting"
+          }, 
+          {
+            "from": "Caen BOARDING - LANDING (Toulouse)", 
+            "arrival_date_time": "20120908T153000", 
+            "departure_date_time": "20120908T110000", 
+            "to": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)", 
+            "duration": 16200, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)", 
+            "arrival_date_time": "20120908T153000", 
+            "departure_date_time": "20120908T153000", 
+            "to": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)", 
+            "duration": 0, 
+            "type": "transfer"
+          }, 
+          {
+            "from": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)", 
+            "arrival_date_time": "20120908T163000", 
+            "departure_date_time": "20120908T153000", 
+            "to": "A\u00e9roport de CALVI (Toulouse)", 
+            "duration": 3600, 
+            "type": "landing"
+          }, 
+          {
+            "from": "A\u00e9roport de CALVI (Toulouse)", 
+            "arrival_date_time": "20120908T163000", 
+            "departure_date_time": "20120908T163000", 
+            "to": "A\u00e9roport de CALVI (Toulouse)", 
+            "duration": 0, 
+            "type": "crow_fly"
+          }
+        ]
+      }
+    ]
   }, 
   "full_response": {
-    "exceptions": [], 
-    "notes": [], 
+    "tickets": [
+      {
+        "comment": "unknown ticket", 
+        "name": "unknown_ticket", 
+        "links": [
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_3_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_5_0", 
+            "rel": "sections", 
+            "templated": false
+          }
+        ], 
+        "cost": {
+          "currency": "", 
+          "value": "0.0"
+        }, 
+        "found": false, 
+        "id": "unknown_ticket_0"
+      }
+    ], 
     "links": [
       {
+        "href": "http://localhost/v1/coverage/airport-01/journeys?to=stop_area%3AAI1%3ASA%3AAIRPORTCLY&from=stop_area%3AAI1%3ASA%3AAIRPORTAIRPORT&datetime_represents=arrival&datetime=20120908T162900", 
+        "type": "prev", 
+        "rel": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport-01/journeys?to=stop_area%3AAI1%3ASA%3AAIRPORTCLY&from=stop_area%3AAI1%3ASA%3AAIRPORTAIRPORT&datetime_represents=departure&datetime=20120908T100100", 
+        "type": "next", 
+        "rel": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport-01/journeys?to=stop_area%3AAI1%3ASA%3AAIRPORTCLY&from=stop_area%3AAI1%3ASA%3AAIRPORTAIRPORT&datetime_represents=departure&datetime=20120908T000000", 
+        "type": "first", 
+        "rel": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport-01/journeys?to=stop_area%3AAI1%3ASA%3AAIRPORTCLY&from=stop_area%3AAI1%3ASA%3AAIRPORTAIRPORT&datetime_represents=arrival&datetime=20120908T235900", 
+        "type": "last", 
+        "rel": "last", 
+        "templated": false
+      }, 
+      {
         "href": "http://localhost/v1/coverage/airport-01/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/airport-01/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/airport-01/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport-01/stop_points/{stop_point.id}", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport-01/stop_areas/{stop_area.id}", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport-01/addresses/{address.id}", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
-    "error": {
-      "message": "no solution found for this journey", 
-      "id": "no_solution"
-    }
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
+        }, 
+        "tags": [
+          "standard"
+        ], 
+        "nb_transfers": 1, 
+        "arrival_date_time": "20120908T163000", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20120526", 
+                "end": "20120909"
+              }
+            ], 
+            "week_pattern": {
+              "monday": false, 
+              "tuesday": false, 
+              "friday": false, 
+              "wednesday": false, 
+              "thursday": false, 
+              "sunday": false, 
+              "saturday": true
+            }
+          }
+        ], 
+        "departure_date_time": "20120908T100000", 
+        "requested_date_time": "20120908T100000", 
+        "type": "best", 
+        "duration": 23400, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "A\u00e9roport Caen-Carpiquet", 
+                "links": [], 
+                "coord": {
+                  "lat": "43.643867", 
+                  "lon": "1.389274"
+                }, 
+                "label": "A\u00e9roport Caen-Carpiquet (Carpiquet)", 
+                "administrative_regions": [
+                  {
+                    "insee": "14137", 
+                    "name": "Carpiquet", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.186203", 
+                      "lon": "-0.442506"
+                    }, 
+                    "label": "Carpiquet (14650)", 
+                    "id": "admin:152430extern", 
+                    "zip_code": "14650"
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
+                "id": "stop_area:AI1:SA:AIRPORTAIRPORT"
+              }, 
+              "name": "A\u00e9roport Caen-Carpiquet (Carpiquet)", 
+              "id": "stop_area:AI1:SA:AIRPORTAIRPORT"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20120908T100000", 
+            "additional_informations": [], 
+            "departure_date_time": "20120908T100000", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "A\u00e9roport Caen-Carpiquet", 
+                "links": [], 
+                "coord": {
+                  "lat": "49.183563", 
+                  "lon": "-0.458405"
+                }, 
+                "label": "A\u00e9roport Caen-Carpiquet (Carpiquet)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "14137", 
+                    "name": "Carpiquet", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.186203", 
+                      "lon": "-0.442506"
+                    }, 
+                    "label": "Carpiquet (14650)", 
+                    "id": "admin:152430extern", 
+                    "zip_code": "14650"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:AI1:SP:AIRPORTAIRPORT", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "A\u00e9roport Caen-Carpiquet", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.643867", 
+                    "lon": "1.389274"
+                  }, 
+                  "label": "A\u00e9roport Caen-Carpiquet (Carpiquet)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "14137", 
+                      "name": "Carpiquet", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "49.186203", 
+                        "lon": "-0.442506"
+                      }, 
+                      "label": "Carpiquet (14650)", 
+                      "id": "admin:152430extern", 
+                      "zip_code": "14650"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:AI1:SA:AIRPORTAIRPORT"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AI1:SP:AIRPORTAIRPORT", 
+              "name": "A\u00e9roport Caen-Carpiquet (Carpiquet)"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "A\u00e9roport Caen-Carpiquet", 
+                "links": [], 
+                "coord": {
+                  "lat": "49.183563", 
+                  "lon": "-0.458405"
+                }, 
+                "label": "A\u00e9roport Caen-Carpiquet (Carpiquet)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "14137", 
+                    "name": "Carpiquet", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.186203", 
+                      "lon": "-0.442506"
+                    }, 
+                    "label": "Carpiquet (14650)", 
+                    "id": "admin:152430extern", 
+                    "zip_code": "14650"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:AI1:SP:AIRPORTAIRPORT", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "A\u00e9roport Caen-Carpiquet", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.643867", 
+                    "lon": "1.389274"
+                  }, 
+                  "label": "A\u00e9roport Caen-Carpiquet (Carpiquet)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:AI1:SA:AIRPORTAIRPORT"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AI1:SP:AIRPORTAIRPORT", 
+              "name": "A\u00e9roport Caen-Carpiquet (Carpiquet)"
+            }, 
+            "links": [
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20120908T110000", 
+            "additional_informations": [], 
+            "departure_date_time": "20120908T100000", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Caen BOARDING - LANDING", 
+                "links": [], 
+                "coord": {
+                  "lat": "43.639949", 
+                  "lon": "1.486783"
+                }, 
+                "label": "Caen BOARDING - LANDING (Toulouse)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:AI1:SP:BOARDING2", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Caen BOARDING - LANDING", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.639949", 
+                    "lon": "1.486783"
+                  }, 
+                  "label": "Caen BOARDING - LANDING (Toulouse)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:AI1:SA:BOARDING2"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AI1:SP:BOARDING2", 
+              "name": "Caen BOARDING - LANDING (Toulouse)"
+            }, 
+            "duration": 3600, 
+            "type": "boarding", 
+            "id": "section_1_0"
+          }, 
+          {
+            "links": [], 
+            "arrival_date_time": "20120908T110000", 
+            "additional_informations": [], 
+            "departure_date_time": "20120908T110000", 
+            "duration": 0, 
+            "type": "waiting", 
+            "id": "section_2_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Caen BOARDING - LANDING", 
+                "links": [], 
+                "coord": {
+                  "lat": "43.639949", 
+                  "lon": "1.486783"
+                }, 
+                "label": "Caen BOARDING - LANDING (Toulouse)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:AI1:SP:BOARDING2", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Caen BOARDING - LANDING", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.639949", 
+                    "lon": "1.486783"
+                  }, 
+                  "label": "Caen BOARDING - LANDING (Toulouse)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:AI1:SA:BOARDING2"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AI1:SP:BOARDING2", 
+              "name": "Caen BOARDING - LANDING (Toulouse)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:AI1:186349"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:AI1:CLY"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:AI1:D|CLY"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:AVION"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Air"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:AI1"
+              }, 
+              {
+                "type": "notes", 
+                "id": "note:14386580676995337247"
+              }, 
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20120908T153000", 
+            "additional_informations": [
+              "stay_in"
+            ], 
+            "departure_date_time": "20120908T110000", 
+            "display_informations": {
+              "direction": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)", 
+              "code": "CLY", 
+              "description": "", 
+              "links": [], 
+              "color": "000000", 
+              "physical_mode": "Avion", 
+              "headsign": "AF5748/AF4760", 
+              "commercial_mode": "AVION", 
+              "equipments": [], 
+              "label": "CLY", 
+              "network": "AIRPORT-01"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "A\u00e9roport de CALVI BOARDING - LANDING", 
+                "links": [], 
+                "coord": {
+                  "lat": "43.631427", 
+                  "lon": "1.418624"
+                }, 
+                "label": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:AI1:SP:LANDINGCLY", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "A\u00e9roport de CALVI BOARDING - LANDING", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.631427", 
+                    "lon": "1.418624"
+                  }, 
+                  "label": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:AI1:SA:LANDINGCLY"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AI1:SP:LANDINGCLY", 
+              "name": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 5568
+                }
+              ], 
+              "coordinates": [
+                [
+                  1.486783, 
+                  43.639949
+                ], 
+                [
+                  1.418624, 
+                  43.631427
+                ]
+              ]
+            }, 
+            "duration": 16200, 
+            "type": "public_transport", 
+            "id": "section_3_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Caen BOARDING - LANDING", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.639949", 
+                    "lon": "1.486783"
+                  }, 
+                  "label": "Caen BOARDING - LANDING (Toulouse)", 
+                  "equipments": [], 
+                  "id": "stop_point:AI1:SP:BOARDING2"
+                }, 
+                "arrival_date_time": "20120908T110000", 
+                "additional_informations": [], 
+                "departure_date_time": "20120908T110000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "A\u00e9roport de CALVI BOARDING - LANDING", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.631427", 
+                    "lon": "1.418624"
+                  }, 
+                  "label": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)", 
+                  "equipments": [], 
+                  "id": "stop_point:AI1:SP:LANDINGCLY"
+                }, 
+                "arrival_date_time": "20120908T153000", 
+                "additional_informations": [], 
+                "departure_date_time": "20120908T153000", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "A\u00e9roport de CALVI BOARDING - LANDING", 
+                "links": [], 
+                "coord": {
+                  "lat": "43.631427", 
+                  "lon": "1.418624"
+                }, 
+                "label": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:AI1:SP:LANDINGCLY", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "A\u00e9roport de CALVI BOARDING - LANDING", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.631427", 
+                    "lon": "1.418624"
+                  }, 
+                  "label": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:AI1:SA:LANDINGCLY"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AI1:SP:LANDINGCLY", 
+              "name": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20120908T153000", 
+            "additional_informations": [], 
+            "departure_date_time": "20120908T153000", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "A\u00e9roport de CALVI BOARDING - LANDING", 
+                "links": [], 
+                "coord": {
+                  "lat": "43.631427", 
+                  "lon": "1.418624"
+                }, 
+                "label": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:AI1:SP:LANDINGCLY", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "A\u00e9roport de CALVI BOARDING - LANDING", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.631427", 
+                    "lon": "1.418624"
+                  }, 
+                  "label": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:AI1:SA:LANDINGCLY"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AI1:SP:LANDINGCLY", 
+              "name": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  1.418624, 
+                  43.631427
+                ], 
+                [
+                  1.418624, 
+                  43.631427
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "transfer_type": "stay_in", 
+            "type": "transfer", 
+            "id": "section_4_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "A\u00e9roport de CALVI BOARDING - LANDING", 
+                "links": [], 
+                "coord": {
+                  "lat": "43.631427", 
+                  "lon": "1.418624"
+                }, 
+                "label": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:AI1:SP:LANDINGCLY", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "A\u00e9roport de CALVI BOARDING - LANDING", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.631427", 
+                    "lon": "1.418624"
+                  }, 
+                  "label": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:AI1:SA:LANDINGCLY"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AI1:SP:LANDINGCLY", 
+              "name": "A\u00e9roport de CALVI BOARDING - LANDING (Toulouse)"
+            }, 
+            "links": [
+              {
+                "internal": true, 
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20120908T163000", 
+            "additional_informations": [], 
+            "departure_date_time": "20120908T153000", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "A\u00e9roport de CALVI", 
+                "links": [], 
+                "coord": {
+                  "lat": "43.59491", 
+                  "lon": "1.410579"
+                }, 
+                "label": "A\u00e9roport de CALVI (Toulouse)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:AI1:SP:AIRPORTCLY", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "A\u00e9roport de CALVI", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.59491", 
+                    "lon": "1.410579"
+                  }, 
+                  "label": "A\u00e9roport de CALVI (Toulouse)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:AI1:SA:AIRPORTCLY"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AI1:SP:AIRPORTCLY", 
+              "name": "A\u00e9roport de CALVI (Toulouse)"
+            }, 
+            "duration": 3600, 
+            "type": "landing", 
+            "id": "section_5_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "A\u00e9roport de CALVI", 
+                "links": [], 
+                "coord": {
+                  "lat": "43.59491", 
+                  "lon": "1.410579"
+                }, 
+                "label": "A\u00e9roport de CALVI (Toulouse)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "0.0;0.0", 
+                  "name": "", 
+                  "coord": {
+                    "lat": "0.0", 
+                    "lon": "0.0"
+                  }, 
+                  "label": ""
+                }, 
+                "id": "stop_point:AI1:SP:AIRPORTCLY", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "A\u00e9roport de CALVI", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.59491", 
+                    "lon": "1.410579"
+                  }, 
+                  "label": "A\u00e9roport de CALVI (Toulouse)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "31555", 
+                      "name": "Toulouse", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "43.604462", 
+                        "lon": "1.444246"
+                      }, 
+                      "label": "Toulouse (31000-31500)", 
+                      "id": "admin:35738extern", 
+                      "zip_code": "31000-31500"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:AI1:SA:AIRPORTCLY"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:AI1:SP:AIRPORTCLY", 
+              "name": "A\u00e9roport de CALVI (Toulouse)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20120908T163000", 
+            "additional_informations": [], 
+            "departure_date_time": "20120908T163000", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "quality": 0, 
+              "stop_area": {
+                "comment": "", 
+                "name": "A\u00e9roport de CALVI", 
+                "links": [], 
+                "coord": {
+                  "lat": "43.59491", 
+                  "lon": "1.410579"
+                }, 
+                "label": "A\u00e9roport de CALVI (Toulouse)", 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
+                "id": "stop_area:AI1:SA:AIRPORTCLY"
+              }, 
+              "name": "A\u00e9roport de CALVI (Toulouse)", 
+              "id": "stop_area:AI1:SA:AIRPORTCLY"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_6_0"
+          }
+        ]
+      }
+    ], 
+    "disruptions": [], 
+    "notes": [
+      {
+        "type": "notes", 
+        "id": "note:14386580676995337247", 
+        "value": "VIA l'a\u00e9roport de NICE"
+      }
+    ], 
+    "exceptions": []
   }
 }
