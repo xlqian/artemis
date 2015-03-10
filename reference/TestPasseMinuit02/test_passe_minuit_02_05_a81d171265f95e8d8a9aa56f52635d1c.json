@@ -3,7 +3,6 @@
   "response": {
     "journeys": [
       {
-        "tags": [], 
         "nb_transfers": 0, 
         "arrival_date_time": "20080311T002500", 
         "departure_date_time": "20080311T000500", 
@@ -11,19 +10,28 @@
         "duration": 1200, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Bbb (Perpignan)", 
             "arrival_date_time": "20080311T000500", 
-            "departure_date_time": "20080311T000500"
-          }, 
-          {
-            "duration": 1200, 
-            "arrival_date_time": "20080311T002500", 
-            "departure_date_time": "20080311T000500"
-          }, 
-          {
+            "departure_date_time": "20080311T000500", 
+            "to": "Bbb (Perpignan)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Bbb (Perpignan)", 
             "arrival_date_time": "20080311T002500", 
-            "departure_date_time": "20080311T002500"
+            "departure_date_time": "20080311T000500", 
+            "to": "Ddd (Th\u00e9za)", 
+            "duration": 1200, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Ddd (Th\u00e9za)", 
+            "arrival_date_time": "20080311T002500", 
+            "departure_date_time": "20080311T002500", 
+            "to": "Ddd (Th\u00e9za)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -33,7 +41,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -51,57 +59,65 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/passe-minuit-02/journeys?to=stop_area%3APM2%3ASA%3A4&from=stop_area%3APM2%3ASA%3A2&datetime_represents=arrival&datetime=20080311T002400", 
         "type": "prev", 
+        "rel": "prev", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/passe-minuit-02/journeys?to=stop_area%3APM2%3ASA%3A4&from=stop_area%3APM2%3ASA%3A2&datetime_represents=departure&datetime=20080311T000600", 
         "type": "next", 
+        "rel": "next", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/passe-minuit-02/journeys?to=stop_area%3APM2%3ASA%3A4&from=stop_area%3APM2%3ASA%3A2&datetime_represents=departure&datetime=20080311T000000", 
         "type": "first", 
+        "rel": "first", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/passe-minuit-02/journeys?to=stop_area%3APM2%3ASA%3A4&from=stop_area%3APM2%3ASA%3A2&datetime_represents=arrival&datetime=20080311T235900", 
         "type": "last", 
+        "rel": "last", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/passe-minuit-02/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/passe-minuit-02/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/passe-minuit-02/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/passe-minuit-02/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/passe-minuit-02/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/passe-minuit-02/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -123,9 +139,30 @@
             }
           ]
         }, 
-        "tags": [], 
+        "tags": [
+          "standard"
+        ], 
         "nb_transfers": 0, 
         "arrival_date_time": "20080311T002500", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20080101", 
+                "end": "20081231"
+              }
+            ], 
+            "week_pattern": {
+              "monday": false, 
+              "tuesday": true, 
+              "friday": false, 
+              "wednesday": false, 
+              "thursday": false, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20080311T000500", 
         "requested_date_time": "20080310T235000", 
         "type": "best", 
@@ -138,73 +175,105 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Bbb", 
+                "links": [], 
                 "coord": {
                   "lat": "42.684527", 
                   "lon": "2.893785"
                 }, 
+                "label": "Bbb (Perpignan)", 
+                "administrative_regions": [
+                  {
+                    "insee": "66136", 
+                    "name": "Perpignan", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "42.695385", 
+                      "lon": "2.884471"
+                    }, 
+                    "label": "Perpignan (66000-66100)", 
+                    "id": "admin:18000extern", 
+                    "zip_code": "66000-66100"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:PM2:SA:2"
               }, 
-              "name": "Bbb", 
+              "name": "Bbb (Perpignan)", 
               "id": "stop_area:PM2:SA:2"
             }, 
             "links": [], 
             "arrival_date_time": "20080311T000500", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20080311T000500", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
                 "name": "Bbb", 
+                "links": [], 
                 "coord": {
                   "lat": "42.684527", 
                   "lon": "2.893785"
                 }, 
+                "label": "Bbb (Perpignan)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "66136", 
+                    "name": "Perpignan", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "42.695385", 
+                      "lon": "2.884471"
+                    }, 
+                    "label": "Perpignan (66000-66100)", 
+                    "id": "admin:18000extern", 
+                    "zip_code": "66000-66100"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:PM2:SP:Nav2", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Bbb", 
+                  "links": [], 
                   "coord": {
                     "lat": "42.684527", 
                     "lon": "2.893785"
                   }, 
+                  "label": "Bbb (Perpignan)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "66136", 
+                      "name": "Perpignan", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "42.695385", 
+                        "lon": "2.884471"
+                      }, 
+                      "label": "Perpignan (66000-66100)", 
+                      "id": "admin:18000extern", 
+                      "zip_code": "66000-66100"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:PM2:SA:2"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:PM2:SP:Nav2", 
-              "name": "Bbb"
+              "name": "Bbb (Perpignan)"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  2.893785, 
-                  42.684527
-                ], 
-                [
-                  2.893785, 
-                  42.684527
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_0_0"
@@ -215,34 +284,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Bbb", 
+                "links": [], 
                 "coord": {
                   "lat": "42.684527", 
                   "lon": "2.893785"
                 }, 
+                "label": "Bbb (Perpignan)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "66136", 
+                    "name": "Perpignan", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "42.695385", 
+                      "lon": "2.884471"
+                    }, 
+                    "label": "Perpignan (66000-66100)", 
+                    "id": "admin:18000extern", 
+                    "zip_code": "66000-66100"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:PM2:SP:Nav2", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Bbb", 
+                  "links": [], 
                   "coord": {
                     "lat": "42.684527", 
                     "lon": "2.893785"
                   }, 
+                  "label": "Bbb (Perpignan)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:PM2:SA:2"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:PM2:SP:Nav2", 
-              "name": "Bbb"
+              "name": "Bbb (Perpignan)"
             }, 
             "links": [
               {
@@ -278,14 +367,13 @@
               }
             ], 
             "arrival_date_time": "20080311T002500", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20080311T000500", 
             "display_informations": {
-              "direction": "Ddd", 
+              "direction": "Ddd (Th\u00e9za)", 
               "code": "3", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Train", 
               "headsign": "PM2:1-23", 
@@ -299,34 +387,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Ddd", 
+                "links": [], 
                 "coord": {
                   "lat": "42.651243", 
                   "lon": "2.935705"
                 }, 
+                "label": "Ddd (Th\u00e9za)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "66208", 
+                    "name": "Th\u00e9za", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "42.63834", 
+                      "lon": "2.951236"
+                    }, 
+                    "label": "Th\u00e9za (66200)", 
+                    "id": "admin:271495extern", 
+                    "zip_code": "66200"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:PM2:SP:Nav4", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Ddd", 
+                  "links": [], 
                   "coord": {
                     "lat": "42.651243", 
                     "lon": "2.935705"
                   }, 
+                  "label": "Ddd (Th\u00e9za)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:PM2:SA:4"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:PM2:SP:Nav4", 
-              "name": "Ddd"
+              "name": "Ddd (Th\u00e9za)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -357,12 +465,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Bbb", 
+                  "links": [], 
                   "coord": {
                     "lat": "42.684527", 
                     "lon": "2.893785"
                   }, 
+                  "label": "Bbb (Perpignan)", 
+                  "equipments": [], 
                   "id": "stop_point:PM2:SP:Nav2"
                 }, 
                 "arrival_date_time": "20080311T000500", 
@@ -373,12 +483,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Ccc", 
+                  "links": [], 
                   "coord": {
                     "lat": "42.66686", 
                     "lon": "2.929319"
                   }, 
+                  "label": "Ccc (Perpignan)", 
+                  "equipments": [], 
                   "id": "stop_point:PM2:SP:Nav3"
                 }, 
                 "arrival_date_time": "20080311T001500", 
@@ -389,12 +501,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Ddd", 
+                  "links": [], 
                   "coord": {
                     "lat": "42.651243", 
                     "lon": "2.935705"
                   }, 
+                  "label": "Ddd (Th\u00e9za)", 
+                  "equipments": [], 
                   "id": "stop_point:PM2:SP:Nav4"
                 }, 
                 "arrival_date_time": "20080311T002500", 
@@ -410,40 +524,72 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Ddd", 
+                "links": [], 
                 "coord": {
                   "lat": "42.651243", 
                   "lon": "2.935705"
                 }, 
+                "label": "Ddd (Th\u00e9za)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "66208", 
+                    "name": "Th\u00e9za", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "42.63834", 
+                      "lon": "2.951236"
+                    }, 
+                    "label": "Th\u00e9za (66200)", 
+                    "id": "admin:271495extern", 
+                    "zip_code": "66200"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:PM2:SP:Nav4", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Ddd", 
+                  "links": [], 
                   "coord": {
                     "lat": "42.651243", 
                     "lon": "2.935705"
                   }, 
+                  "label": "Ddd (Th\u00e9za)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "66208", 
+                      "name": "Th\u00e9za", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "42.63834", 
+                        "lon": "2.951236"
+                      }, 
+                      "label": "Th\u00e9za (66200)", 
+                      "id": "admin:271495extern", 
+                      "zip_code": "66200"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:PM2:SA:4"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:PM2:SP:Nav4", 
-              "name": "Ddd"
+              "name": "Ddd (Th\u00e9za)"
             }, 
             "links": [], 
             "arrival_date_time": "20080311T002500", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20080311T002500", 
             "to": {
               "embedded_type": "stop_area", 
@@ -451,39 +597,42 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Ddd", 
+                "links": [], 
                 "coord": {
                   "lat": "42.651243", 
                   "lon": "2.935705"
                 }, 
+                "label": "Ddd (Th\u00e9za)", 
+                "administrative_regions": [
+                  {
+                    "insee": "66208", 
+                    "name": "Th\u00e9za", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "42.63834", 
+                      "lon": "2.951236"
+                    }, 
+                    "label": "Th\u00e9za (66200)", 
+                    "id": "admin:271495extern", 
+                    "zip_code": "66200"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:PM2:SA:4"
               }, 
-              "name": "Ddd", 
+              "name": "Ddd (Th\u00e9za)", 
               "id": "stop_area:PM2:SA:4"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  2.935705, 
-                  42.651243
-                ], 
-                [
-                  2.935705, 
-                  42.651243
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_2_0"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

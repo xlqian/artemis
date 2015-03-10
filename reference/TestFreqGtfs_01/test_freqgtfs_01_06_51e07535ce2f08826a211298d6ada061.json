@@ -3,7 +3,6 @@
   "response": {
     "journeys": [
       {
-        "tags": [], 
         "nb_transfers": 0, 
         "arrival_date_time": "20120822T200100", 
         "departure_date_time": "20120822T193000", 
@@ -11,19 +10,28 @@
         "duration": 1860, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Borderouge (Toulouse)", 
             "arrival_date_time": "20120822T193000", 
-            "departure_date_time": "20120822T193000"
-          }, 
-          {
-            "duration": 1860, 
-            "arrival_date_time": "20120822T200100", 
-            "departure_date_time": "20120822T193000"
-          }, 
-          {
+            "departure_date_time": "20120822T193000", 
+            "to": "Borderouge (Toulouse)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Borderouge (Toulouse)", 
             "arrival_date_time": "20120822T200100", 
-            "departure_date_time": "20120822T200100"
+            "departure_date_time": "20120822T193000", 
+            "to": "Ramonville (Ramonville-Saint-Agne)", 
+            "duration": 1860, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Ramonville (Ramonville-Saint-Agne)", 
+            "arrival_date_time": "20120822T200100", 
+            "departure_date_time": "20120822T200100", 
+            "to": "Ramonville M\u00e9tro (Ramonville-Saint-Agne)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -33,7 +41,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -51,57 +59,65 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A1374208&from=stop_area%3AFQT%3ASA%3A527405&datetime_represents=arrival&datetime=20120822T200000", 
         "type": "prev", 
+        "rel": "prev", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A1374208&from=stop_area%3AFQT%3ASA%3A527405&datetime_represents=departure&datetime=20120822T193100", 
         "type": "next", 
+        "rel": "next", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A1374208&from=stop_area%3AFQT%3ASA%3A527405&datetime_represents=departure&datetime=20120822T000000", 
         "type": "first", 
+        "rel": "first", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A1374208&from=stop_area%3AFQT%3ASA%3A527405&datetime_represents=arrival&datetime=20120822T235900", 
         "type": "last", 
+        "rel": "last", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -123,9 +139,34 @@
             }
           ]
         }, 
-        "tags": [], 
+        "tags": [
+          "standard"
+        ], 
         "nb_transfers": 0, 
         "arrival_date_time": "20120822T200100", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20120723", 
+                "end": "20120730"
+              }, 
+              {
+                "begin": "20120820", 
+                "end": "20120824"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": false, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20120822T193000", 
         "requested_date_time": "20120822T192900", 
         "type": "best", 
@@ -138,73 +179,105 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Borderouge", 
+                "links": [], 
                 "coord": {
                   "lat": "43.390506", 
                   "lon": "-5.067816"
                 }, 
+                "label": "Borderouge (Toulouse)", 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
                 "id": "stop_area:FQT:SA:527405"
               }, 
-              "name": "Borderouge", 
+              "name": "Borderouge (Toulouse)", 
               "id": "stop_area:FQT:SA:527405"
             }, 
             "links": [], 
             "arrival_date_time": "20120822T193000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20120822T193000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
                 "name": "Borderouge", 
+                "links": [], 
                 "coord": {
                   "lat": "43.6407", 
                   "lon": "1.45272"
                 }, 
+                "label": "Borderouge (Toulouse)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:FQT:SP:1344487", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Borderouge", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.390506", 
                     "lon": "-5.067816"
                   }, 
+                  "label": "Borderouge (Toulouse)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "31555", 
+                      "name": "Toulouse", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "43.604462", 
+                        "lon": "1.444246"
+                      }, 
+                      "label": "Toulouse (31000-31500)", 
+                      "id": "admin:35738extern", 
+                      "zip_code": "31000-31500"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:FQT:SA:527405"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:FQT:SP:1344487", 
-              "name": "Borderouge"
+              "name": "Borderouge (Toulouse)"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  -5.067816, 
-                  43.390506
-                ], 
-                [
-                  1.45272, 
-                  43.6407
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_0_0"
@@ -215,39 +288,59 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Borderouge", 
+                "links": [], 
                 "coord": {
                   "lat": "43.6407", 
                   "lon": "1.45272"
                 }, 
+                "label": "Borderouge (Toulouse)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "31555", 
+                    "name": "Toulouse", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.604462", 
+                      "lon": "1.444246"
+                    }, 
+                    "label": "Toulouse (31000-31500)", 
+                    "id": "admin:35738extern", 
+                    "zip_code": "31000-31500"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:FQT:SP:1344487", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Borderouge", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.390506", 
                     "lon": "-5.067816"
                   }, 
+                  "label": "Borderouge (Toulouse)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:FQT:SA:527405"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:FQT:SP:1344487", 
-              "name": "Borderouge"
+              "name": "Borderouge (Toulouse)"
             }, 
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:FQT:4298545014A3271245843"
+                "id": "vehicle_journey:FQT:4298545014A3271245733"
               }, 
               {
                 "type": "line", 
@@ -270,6 +363,10 @@
                 "id": "network:FQT:43019"
               }, 
               {
+                "type": "notes", 
+                "id": "note:817465718901251579"
+              }, 
+              {
                 "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
@@ -278,14 +375,13 @@
               }
             ], 
             "arrival_date_time": "20120822T200100", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20120822T193000", 
             "display_informations": {
-              "direction": "Ramonville", 
+              "direction": "Ramonville (Ramonville-Saint-Agne)", 
               "code": "B", 
               "description": "", 
+              "links": [], 
               "color": "ffff00", 
               "physical_mode": "M\u00e9tro", 
               "headsign": "MP/TLS/B/2", 
@@ -299,34 +395,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Ramonville", 
+                "links": [], 
                 "coord": {
                   "lat": "43.555", 
                   "lon": "1.47594"
                 }, 
+                "label": "Ramonville (Ramonville-Saint-Agne)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "31446", 
+                    "name": "Ramonville-Saint-Agne", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.546055", 
+                      "lon": "1.47491"
+                    }, 
+                    "label": "Ramonville-Saint-Agne (31520)", 
+                    "id": "admin:158896extern", 
+                    "zip_code": "31520"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:FQT:SP:1374210", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Ramonville M\u00e9tro", 
+                  "links": [], 
                   "coord": {
                     "lat": "27.325355", 
                     "lon": "1.670417"
                   }, 
+                  "label": "Ramonville M\u00e9tro (Ramonville-Saint-Agne)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:FQT:SA:1374208"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:FQT:SP:1374210", 
-              "name": "Ramonville"
+              "name": "Ramonville (Ramonville-Saint-Agne)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -425,12 +541,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Borderouge", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.6407", 
                     "lon": "1.45272"
                   }, 
+                  "label": "Borderouge (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1344487"
                 }, 
                 "arrival_date_time": "20120822T193000", 
@@ -441,12 +559,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Trois Cocus", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.6386", 
                     "lon": "1.44362"
                   }, 
+                  "label": "Trois Cocus (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1344291"
                 }, 
                 "arrival_date_time": "20120822T193500", 
@@ -457,12 +577,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "La Vache", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.6337", 
                     "lon": "1.43343"
                   }, 
+                  "label": "La Vache (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1344490"
                 }, 
                 "arrival_date_time": "20120822T193700", 
@@ -473,12 +595,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Barri\u00e8re de Paris", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.6269", 
                     "lon": "1.43315"
                   }, 
+                  "label": "Barri\u00e8re de Paris (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1483153"
                 }, 
                 "arrival_date_time": "20120822T193800", 
@@ -489,12 +613,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Minimes - Cl. Nougaro", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.6199", 
                     "lon": "1.43598"
                   }, 
+                  "label": "Minimes - Cl. Nougaro (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1483159"
                 }, 
                 "arrival_date_time": "20120822T194000", 
@@ -505,12 +631,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Canal du Midi", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.6157", 
                     "lon": "1.43469"
                   }, 
+                  "label": "Canal du Midi (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1483162"
                 }, 
                 "arrival_date_time": "20120822T194100", 
@@ -521,12 +649,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Compans - Caffarelli", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.6112", 
                     "lon": "1.43591"
                   }, 
+                  "label": "Compans - Caffarelli (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1374195"
                 }, 
                 "arrival_date_time": "20120822T194200", 
@@ -537,12 +667,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Jeanne d'Arc", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.6085", 
                     "lon": "1.4457"
                   }, 
+                  "label": "Jeanne d'Arc (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1483168"
                 }, 
                 "arrival_date_time": "20120822T194400", 
@@ -553,12 +685,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Jean Jaur\u00e8s", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.606", 
                     "lon": "1.44832"
                   }, 
+                  "label": "Jean Jaur\u00e8s (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1353328"
                 }, 
                 "arrival_date_time": "20120822T194500", 
@@ -569,12 +703,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Fran\u00e7ois Verdier", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.6016", 
                     "lon": "1.45213"
                   }, 
+                  "label": "Fran\u00e7ois Verdier (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1374232"
                 }, 
                 "arrival_date_time": "20120822T194600", 
@@ -585,12 +721,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Carmes", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.5977", 
                     "lon": "1.44553"
                   }, 
+                  "label": "Carmes (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1483222"
                 }, 
                 "arrival_date_time": "20120822T194700", 
@@ -601,12 +739,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Palais de Justice", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.593", 
                     "lon": "1.44456"
                   }, 
+                  "label": "Palais de Justice (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1344393"
                 }, 
                 "arrival_date_time": "20120822T194900", 
@@ -617,12 +757,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "St Michel - Marcel Langer", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.5866", 
                     "lon": "1.44712"
                   }, 
+                  "label": "St Michel - Marcel Langer (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1483226"
                 }, 
                 "arrival_date_time": "20120822T195000", 
@@ -633,12 +775,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Empalot", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.5816", 
                     "lon": "1.44309"
                   }, 
+                  "label": "Empalot (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1344282"
                 }, 
                 "arrival_date_time": "20120822T195200", 
@@ -649,12 +793,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Saint Agne-SNCF", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.5801", 
                     "lon": "1.45016"
                   }, 
+                  "label": "Saint Agne-SNCF (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1483229"
                 }, 
                 "arrival_date_time": "20120822T195300", 
@@ -665,12 +811,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Saouzelong", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.5811", 
                     "lon": "1.45901"
                   }, 
+                  "label": "Saouzelong (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1344434"
                 }, 
                 "arrival_date_time": "20120822T195500", 
@@ -681,12 +829,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Rangueil", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.5752", 
                     "lon": "1.46265"
                   }, 
+                  "label": "Rangueil (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1344364"
                 }, 
                 "arrival_date_time": "20120822T195600", 
@@ -697,12 +847,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Facult\u00e9 de Pharmacie", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.568", 
                     "lon": "1.46338"
                   }, 
+                  "label": "Facult\u00e9 de Pharmacie (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1483231"
                 }, 
                 "arrival_date_time": "20120822T195700", 
@@ -713,12 +865,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Universit\u00e9 Paul Sabatier", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.5608", 
                     "lon": "1.46332"
                   }, 
+                  "label": "Universit\u00e9 Paul Sabatier (Toulouse)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1344385"
                 }, 
                 "arrival_date_time": "20120822T195900", 
@@ -729,12 +883,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Ramonville", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.555", 
                     "lon": "1.47594"
                   }, 
+                  "label": "Ramonville (Ramonville-Saint-Agne)", 
+                  "equipments": [], 
                   "id": "stop_point:FQT:SP:1374210"
                 }, 
                 "arrival_date_time": "20120822T200100", 
@@ -750,40 +906,72 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Ramonville", 
+                "links": [], 
                 "coord": {
                   "lat": "43.555", 
                   "lon": "1.47594"
                 }, 
+                "label": "Ramonville (Ramonville-Saint-Agne)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "31446", 
+                    "name": "Ramonville-Saint-Agne", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.546055", 
+                      "lon": "1.47491"
+                    }, 
+                    "label": "Ramonville-Saint-Agne (31520)", 
+                    "id": "admin:158896extern", 
+                    "zip_code": "31520"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:FQT:SP:1374210", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Ramonville M\u00e9tro", 
+                  "links": [], 
                   "coord": {
                     "lat": "27.325355", 
                     "lon": "1.670417"
                   }, 
+                  "label": "Ramonville M\u00e9tro (Ramonville-Saint-Agne)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "31446", 
+                      "name": "Ramonville-Saint-Agne", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "43.546055", 
+                        "lon": "1.47491"
+                      }, 
+                      "label": "Ramonville-Saint-Agne (31520)", 
+                      "id": "admin:158896extern", 
+                      "zip_code": "31520"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:FQT:SA:1374208"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:FQT:SP:1374210", 
-              "name": "Ramonville"
+              "name": "Ramonville (Ramonville-Saint-Agne)"
             }, 
             "links": [], 
             "arrival_date_time": "20120822T200100", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20120822T200100", 
             "to": {
               "embedded_type": "stop_area", 
@@ -791,39 +979,48 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Ramonville M\u00e9tro", 
+                "links": [], 
                 "coord": {
                   "lat": "27.325355", 
                   "lon": "1.670417"
                 }, 
+                "label": "Ramonville M\u00e9tro (Ramonville-Saint-Agne)", 
+                "administrative_regions": [
+                  {
+                    "insee": "31446", 
+                    "name": "Ramonville-Saint-Agne", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.546055", 
+                      "lon": "1.47491"
+                    }, 
+                    "label": "Ramonville-Saint-Agne (31520)", 
+                    "id": "admin:158896extern", 
+                    "zip_code": "31520"
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
                 "id": "stop_area:FQT:SA:1374208"
               }, 
-              "name": "Ramonville M\u00e9tro", 
+              "name": "Ramonville M\u00e9tro (Ramonville-Saint-Agne)", 
               "id": "stop_area:FQT:SA:1374208"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  1.47594, 
-                  43.555
-                ], 
-                [
-                  1.670417, 
-                  27.325355
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_2_0"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [
+      {
+        "type": "notes", 
+        "id": "note:817465718901251579", 
+        "value": "Ligne Borderouge / Ramonville"
+      }
+    ], 
+    "exceptions": []
   }
 }

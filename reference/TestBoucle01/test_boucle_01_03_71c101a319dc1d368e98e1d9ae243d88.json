@@ -10,29 +10,44 @@
         "duration": 900, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Arret 8 (Caen)", 
             "arrival_date_time": "20041213T073500", 
-            "departure_date_time": "20041213T073500"
-          }, 
-          {
-            "duration": 420, 
-            "arrival_date_time": "20041213T074200", 
-            "departure_date_time": "20041213T073500"
-          }, 
-          {
-            "duration": 360, 
-            "arrival_date_time": "20041213T074800", 
-            "departure_date_time": "20041213T074200"
-          }, 
-          {
-            "duration": 120, 
-            "arrival_date_time": "20041213T075000", 
-            "departure_date_time": "20041213T074800"
-          }, 
-          {
+            "departure_date_time": "20041213T073500", 
+            "to": "Arret 8 (Caen)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Arret 8 (Caen)", 
+            "arrival_date_time": "20041213T074200", 
+            "departure_date_time": "20041213T073500", 
+            "to": "Arret 4 (Caen)", 
+            "duration": 420, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": null, 
+            "arrival_date_time": "20041213T074800", 
+            "departure_date_time": "20041213T074200", 
+            "to": null, 
+            "duration": 360, 
+            "type": "waiting"
+          }, 
+          {
+            "from": "Arret 4 (Caen)", 
             "arrival_date_time": "20041213T075000", 
-            "departure_date_time": "20041213T075000"
+            "departure_date_time": "20041213T074800", 
+            "to": "Arret 5 (Ifs)", 
+            "duration": 120, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Arret 5 (Ifs)", 
+            "arrival_date_time": "20041213T075000", 
+            "departure_date_time": "20041213T075000", 
+            "to": "Arret 5 (Ifs)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -42,7 +57,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -67,8 +82,6 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/boucle-01/journeys?to=stop_area%3ABC1%3ASA%3A5&from=stop_area%3ABC1%3ASA%3A8&datetime_represents=arrival&datetime=20041213T074900", 
@@ -95,37 +108,37 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/boucle-01/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/boucle-01/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/boucle-01/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/boucle-01/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/boucle-01/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/boucle-01/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/boucle-01/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/boucle-01/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/boucle-01/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/boucle-01/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/boucle-01/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/boucle-01/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
@@ -154,6 +167,25 @@
         ], 
         "nb_transfers": 1, 
         "arrival_date_time": "20041213T075000", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20041101", 
+                "end": "20041231"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041213T073500", 
         "requested_date_time": "20041213T073000", 
         "type": "best", 
@@ -166,6 +198,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 8", 
+                "links": [], 
                 "coord": {
                   "lat": "49.178561", 
                   "lon": "-0.358479"
@@ -173,6 +206,7 @@
                 "label": "Arret 8 (Caen)", 
                 "administrative_regions": [
                   {
+                    "insee": "14118", 
                     "name": "Caen", 
                     "level": 8, 
                     "coord": {
@@ -199,6 +233,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 8", 
+                "links": [], 
                 "coord": {
                   "lat": "49.178561", 
                   "lon": "-0.358479"
@@ -207,6 +242,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "14118", 
                     "name": "Caen", 
                     "level": 8, 
                     "coord": {
@@ -232,6 +268,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 8", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.178561", 
                     "lon": "-0.358479"
@@ -239,6 +276,7 @@
                   "label": "Arret 8 (Caen)", 
                   "administrative_regions": [
                     {
+                      "insee": "14118", 
                       "name": "Caen", 
                       "level": 8, 
                       "coord": {
@@ -269,6 +307,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 8", 
+                "links": [], 
                 "coord": {
                   "lat": "49.178561", 
                   "lon": "-0.358479"
@@ -277,6 +316,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "14118", 
                     "name": "Caen", 
                     "level": 8, 
                     "coord": {
@@ -302,6 +342,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 8", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.178561", 
                     "lon": "-0.358479"
@@ -341,6 +382,7 @@
                 "id": "network:BC1"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -354,6 +396,7 @@
               "direction": "Arret 1 (Ifs)", 
               "code": "ACCW", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "BC1:2-35_dst_3", 
@@ -367,6 +410,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "49.183401", 
                   "lon": "-0.337434"
@@ -375,6 +419,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "14118", 
                     "name": "Caen", 
                     "level": 8, 
                     "coord": {
@@ -400,6 +445,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.183401", 
                     "lon": "-0.337434"
@@ -447,6 +493,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 8", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.178561", 
                     "lon": "-0.358479"
@@ -464,6 +511,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 7", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.193115", 
                     "lon": "-0.436537"
@@ -481,6 +529,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 6", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.190244", 
                     "lon": "-0.449482"
@@ -498,6 +547,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.183401", 
                     "lon": "-0.337434"
@@ -528,6 +578,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "49.183401", 
                   "lon": "-0.337434"
@@ -536,6 +587,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "14118", 
                     "name": "Caen", 
                     "level": 8, 
                     "coord": {
@@ -561,6 +613,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.183401", 
                     "lon": "-0.337434"
@@ -600,6 +653,7 @@
                 "id": "network:BC1"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -613,6 +667,7 @@
               "direction": "Arret 1 (Ifs)", 
               "code": "ACW", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "BC1:1-414_dst_3", 
@@ -626,6 +681,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 5", 
+                "links": [], 
                 "coord": {
                   "lat": "49.146421", 
                   "lon": "-0.355222"
@@ -634,6 +690,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "14341", 
                     "name": "Ifs", 
                     "level": 8, 
                     "coord": {
@@ -659,6 +716,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 5", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.146421", 
                     "lon": "-0.355222"
@@ -698,6 +756,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.183401", 
                     "lon": "-0.337434"
@@ -715,6 +774,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 5", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.146421", 
                     "lon": "-0.355222"
@@ -736,6 +796,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 5", 
+                "links": [], 
                 "coord": {
                   "lat": "49.146421", 
                   "lon": "-0.355222"
@@ -744,6 +805,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "14341", 
                     "name": "Ifs", 
                     "level": 8, 
                     "coord": {
@@ -769,6 +831,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 5", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.146421", 
                     "lon": "-0.355222"
@@ -776,6 +839,7 @@
                   "label": "Arret 5 (Ifs)", 
                   "administrative_regions": [
                     {
+                      "insee": "14341", 
                       "name": "Ifs", 
                       "level": 8, 
                       "coord": {
@@ -805,6 +869,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 5", 
+                "links": [], 
                 "coord": {
                   "lat": "49.146421", 
                   "lon": "-0.355222"
@@ -812,6 +877,7 @@
                 "label": "Arret 5 (Ifs)", 
                 "administrative_regions": [
                   {
+                    "insee": "14341", 
                     "name": "Ifs", 
                     "level": 8, 
                     "coord": {
@@ -836,6 +902,9 @@
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

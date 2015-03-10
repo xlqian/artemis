@@ -10,19 +10,28 @@
         "duration": 5400, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Paris (75001-75116)", 
             "arrival_date_time": "20121012T122000", 
-            "departure_date_time": "20121012T122000"
-          }, 
-          {
-            "duration": 5400, 
-            "arrival_date_time": "20121012T135000", 
-            "departure_date_time": "20121012T122000"
-          }, 
-          {
+            "departure_date_time": "20121012T122000", 
+            "to": "gare de Paris-St-Lazare (Paris)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "gare de Paris-St-Lazare (Paris)", 
             "arrival_date_time": "20121012T135000", 
-            "departure_date_time": "20121012T135000"
+            "departure_date_time": "20121012T122000", 
+            "to": "gare de Rouen-Rive-Droite (Rouen)", 
+            "duration": 5400, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "gare de Rouen-Rive-Droite (Rouen)", 
+            "arrival_date_time": "20121012T135000", 
+            "departure_date_time": "20121012T135000", 
+            "to": "Rouen (76000-76100)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -76,37 +85,37 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/guichet-unique/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/guichet-unique/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/guichet-unique/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/guichet-unique/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/guichet-unique/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/guichet-unique/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/guichet-unique/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/guichet-unique/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/guichet-unique/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/guichet-unique/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/guichet-unique/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/guichet-unique/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true

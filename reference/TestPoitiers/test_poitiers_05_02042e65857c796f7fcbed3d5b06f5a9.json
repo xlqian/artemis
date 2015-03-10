@@ -4,25 +4,34 @@
     "journeys": [
       {
         "nb_transfers": 0, 
-        "arrival_date_time": "20091117T053500", 
-        "departure_date_time": "20091117T045423", 
+        "arrival_date_time": "20091117T055300", 
+        "departure_date_time": "20091117T053700", 
         "type": "best", 
-        "duration": 2437, 
+        "duration": 960, 
         "sections": [
           {
-            "duration": 1021, 
-            "arrival_date_time": "20091117T051124", 
-            "departure_date_time": "20091117T045423"
-          }, 
-          {
-            "duration": 1680, 
-            "arrival_date_time": "20091117T053500", 
-            "departure_date_time": "20091117T050700"
-          }, 
-          {
+            "from": "Gare SNCF (Poitiers)", 
+            "arrival_date_time": "20091117T053700", 
+            "departure_date_time": "20091117T053700", 
+            "to": "Gare SNCF (Poitiers)", 
             "duration": 0, 
-            "arrival_date_time": "20091117T053500", 
-            "departure_date_time": "20091117T053500"
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Gare SNCF (Poitiers)", 
+            "arrival_date_time": "20091117T055300", 
+            "departure_date_time": "20091117T053700", 
+            "to": "Northampton (Poitiers)", 
+            "duration": 960, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Northampton (Poitiers)", 
+            "arrival_date_time": "20091117T055300", 
+            "departure_date_time": "20091117T055300", 
+            "to": "Northampton (Poitiers)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -32,7 +41,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -50,17 +59,15 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
-        "href": "http://localhost/v1/coverage/poitiers/journeys?to=stop_area%3APOI%3ASA%3A10046&datetime_represents=arrival&from=stop_area%3APOI%3ASA%3A10001&max_duration_to_pt=1800&walking_speed=0.83&datetime=20091117T053400", 
+        "href": "http://localhost/v1/coverage/poitiers/journeys?to=stop_area%3APOI%3ASA%3A10046&datetime_represents=arrival&from=stop_area%3APOI%3ASA%3A10001&max_duration_to_pt=1800&walking_speed=0.83&datetime=20091117T055200", 
         "type": "prev", 
         "rel": "prev", 
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/poitiers/journeys?to=stop_area%3APOI%3ASA%3A10046&datetime_represents=departure&from=stop_area%3APOI%3ASA%3A10001&max_duration_to_pt=1800&walking_speed=0.83&datetime=20091117T045523", 
+        "href": "http://localhost/v1/coverage/poitiers/journeys?to=stop_area%3APOI%3ASA%3A10046&datetime_represents=departure&from=stop_area%3APOI%3ASA%3A10001&max_duration_to_pt=1800&walking_speed=0.83&datetime=20091117T053800", 
         "type": "next", 
         "rel": "next", 
         "templated": false
@@ -78,37 +85,37 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/poitiers/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/poitiers/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/poitiers/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/poitiers/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/poitiers/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/poitiers/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/poitiers/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/poitiers/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/poitiers/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/poitiers/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/poitiers/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/poitiers/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
@@ -136,18 +143,45 @@
           "standard"
         ], 
         "nb_transfers": 0, 
-        "arrival_date_time": "20091117T053500", 
-        "departure_date_time": "20091117T045423", 
+        "arrival_date_time": "20091117T055300", 
+        "calendars": [
+          {
+            "exceptions": [
+              {
+                "type": "remove", 
+                "datetime": "20091111"
+              }
+            ], 
+            "active_periods": [
+              {
+                "begin": "20091104", 
+                "end": "20091219"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
+        "departure_date_time": "20091117T053700", 
         "requested_date_time": "20091117T002000", 
         "type": "best", 
-        "duration": 2437, 
+        "duration": 960, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "quality": 0, 
               "stop_area": {
                 "comment": "", 
                 "name": "Gare SNCF", 
+                "links": [], 
                 "coord": {
                   "lat": "46.581815", 
                   "lon": "0.333659"
@@ -155,418 +189,182 @@
                 "label": "Gare SNCF (Poitiers)", 
                 "administrative_regions": [
                   {
+                    "insee": "86194", 
                     "name": "Poitiers", 
                     "level": 8, 
                     "coord": {
-                      "lat": "46.580259", 
-                      "lon": "0.340196"
+                      "lat": "46.58698872", 
+                      "lon": "0.3426561942"
                     }, 
                     "label": "Poitiers (86000)", 
-                    "id": "132348", 
+                    "id": "admin:86194", 
                     "zip_code": "86000"
                   }
                 ], 
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:POI:SA:10001"
               }, 
-              "address": {
-                "name": "", 
-                "house_number": 0, 
-                "coord": {
-                  "lat": "46.58183261814946", 
-                  "lon": "0.3336345619217085"
-                }, 
-                "label": " (Poitiers)", 
-                "administrative_regions": [
-                  {
-                    "name": "Poitiers", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "46.580259", 
-                      "lon": "0.340196"
-                    }, 
-                    "label": "Poitiers (86000)", 
-                    "id": "132348", 
-                    "zip_code": "86000"
-                  }
-                ], 
-                "id": "0.3336345619217085;46.58183261814946"
-              }, 
-              "quality": 0, 
-              "id": "stop_area:POI:SA:10001", 
-              "name": "Gare SNCF (Poitiers)"
+              "name": "Gare SNCF (Poitiers)", 
+              "id": "stop_area:POI:SA:10001"
             }, 
             "links": [], 
-            "arrival_date_time": "20091117T051124", 
+            "arrival_date_time": "20091117T053700", 
             "additional_informations": [], 
-            "departure_date_time": "20091117T045423", 
+            "departure_date_time": "20091117T053700", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
-                "name": "H. de Ville Lebascles", 
+                "name": "Gare SNCF", 
+                "links": [], 
                 "coord": {
-                  "lat": "46.579846", 
-                  "lon": "0.340453"
+                  "lat": "46.582346", 
+                  "lon": "0.334187"
                 }, 
-                "label": "H. de Ville Lebascles (Poitiers)", 
+                "label": "Gare SNCF (Poitiers)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "86194", 
                     "name": "Poitiers", 
                     "level": 8, 
                     "coord": {
-                      "lat": "46.580259", 
-                      "lon": "0.340196"
+                      "lat": "46.58698872", 
+                      "lon": "0.3426561942"
                     }, 
                     "label": "Poitiers (86000)", 
-                    "id": "132348", 
+                    "id": "admin:86194", 
                     "zip_code": "86000"
                   }
                 ], 
                 "address": {
-                  "name": "Place du Mar\u00e9chal Leclerc", 
-                  "house_number": 13, 
+                  "name": "Boulevard du Grand Cerf", 
+                  "house_number": 153, 
                   "coord": {
-                    "lat": "46.579846", 
-                    "lon": "0.340453"
+                    "lat": "46.582346", 
+                    "lon": "0.334187"
                   }, 
-                  "label": "13 Place du Mar\u00e9chal Leclerc (Poitiers)", 
+                  "label": "153 Boulevard du Grand Cerf (Poitiers)", 
                   "administrative_regions": [
                     {
+                      "insee": "86194", 
                       "name": "Poitiers", 
                       "level": 8, 
                       "coord": {
-                        "lat": "46.580259", 
-                        "lon": "0.340196"
+                        "lat": "46.58698872", 
+                        "lon": "0.3426561942"
                       }, 
                       "label": "Poitiers (86000)", 
-                      "id": "132348", 
+                      "id": "admin:86194", 
                       "zip_code": "86000"
                     }
                   ], 
-                  "id": "0.340453;46.579846"
+                  "id": "0.334187;46.582346"
                 }, 
-                "id": "stop_point:POI:SP:20369", 
+                "id": "stop_point:POI:SP:20001", 
                 "stop_area": {
                   "comment": "", 
-                  "name": "H. de Ville Lebascles", 
+                  "name": "Gare SNCF", 
+                  "links": [], 
                   "coord": {
-                    "lat": "46.579791", 
-                    "lon": "0.340912"
+                    "lat": "46.581815", 
+                    "lon": "0.333659"
                   }, 
-                  "label": "H. de Ville Lebascles (Poitiers)", 
+                  "label": "Gare SNCF (Poitiers)", 
                   "administrative_regions": [
                     {
+                      "insee": "86194", 
                       "name": "Poitiers", 
                       "level": 8, 
                       "coord": {
-                        "lat": "46.580259", 
-                        "lon": "0.340196"
+                        "lat": "46.58698872", 
+                        "lon": "0.3426561942"
                       }, 
                       "label": "Poitiers (86000)", 
-                      "id": "132348", 
+                      "id": "admin:86194", 
                       "zip_code": "86000"
                     }
                   ], 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:POI:SA:10005"
+                  "id": "stop_area:POI:SA:10001"
                 }
-              }, 
-              "name": "H. de Ville Lebascles (Poitiers)", 
-              "address": {
-                "name": "Place du Mar\u00e9chal Leclerc", 
-                "house_number": 13, 
-                "coord": {
-                  "lat": "46.579846", 
-                  "lon": "0.340453"
-                }, 
-                "label": "13 Place du Mar\u00e9chal Leclerc (Poitiers)", 
-                "administrative_regions": [
-                  {
-                    "name": "Poitiers", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "46.580259", 
-                      "lon": "0.340196"
-                    }, 
-                    "label": "Poitiers (86000)", 
-                    "id": "132348", 
-                    "zip_code": "86000"
-                  }
-                ], 
-                "id": "0.340453;46.579846"
               }, 
               "quality": 0, 
-              "id": "stop_point:POI:SP:20369"
+              "id": "stop_point:POI:SP:20001", 
+              "name": "Gare SNCF (Poitiers)"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 847
-                }
-              ], 
-              "coordinates": [
-                [
-                  0.3336345619217085, 
-                  46.58183261814946
-                ], 
-                [
-                  0.3336345619217085, 
-                  46.58183261814946
-                ], 
-                [
-                  0.333575, 
-                  46.58175
-                ], 
-                [
-                  0.333973, 
-                  46.581789
-                ], 
-                [
-                  0.334246, 
-                  46.581817
-                ], 
-                [
-                  0.334665, 
-                  46.582184
-                ], 
-                [
-                  0.334996, 
-                  46.582354
-                ], 
-                [
-                  0.335244, 
-                  46.582539
-                ], 
-                [
-                  0.336034, 
-                  46.582801
-                ], 
-                [
-                  0.336272, 
-                  46.582873
-                ], 
-                [
-                  0.336235, 
-                  46.582745
-                ], 
-                [
-                  0.337595, 
-                  46.582299
-                ], 
-                [
-                  0.338178, 
-                  46.582041
-                ], 
-                [
-                  0.338503, 
-                  46.581701
-                ], 
-                [
-                  0.338575, 
-                  46.581623
-                ], 
-                [
-                  0.338969, 
-                  46.581205
-                ], 
-                [
-                  0.339006, 
-                  46.581176
-                ], 
-                [
-                  0.339315, 
-                  46.580893
-                ], 
-                [
-                  0.339341, 
-                  46.58084
-                ], 
-                [
-                  0.339388, 
-                  46.580693
-                ], 
-                [
-                  0.339527, 
-                  46.580593
-                ], 
-                [
-                  0.339452, 
-                  46.580351
-                ], 
-                [
-                  0.339461, 
-                  46.580117
-                ], 
-                [
-                  0.339448, 
-                  46.580036
-                ], 
-                [
-                  0.340204, 
-                  46.579902
-                ], 
-                [
-                  0.34045157768526213, 
-                  46.57990770657785
-                ], 
-                [
-                  0.340453, 
-                  46.579846
-                ]
-              ]
-            }, 
-            "duration": 1021, 
-            "path": [
-              {
-                "duration": 16, 
-                "length": 13, 
-                "direction": 0, 
-                "name": ""
-              }, 
-              {
-                "duration": 43, 
-                "length": 35, 
-                "direction": 0, 
-                "name": ""
-              }, 
-              {
-                "duration": 93, 
-                "length": 77, 
-                "direction": 0, 
-                "name": "Boulevard Solf\u00e9rino"
-              }, 
-              {
-                "duration": 194, 
-                "length": 161, 
-                "direction": 15, 
-                "name": "Escaliers de la Gare"
-              }, 
-              {
-                "duration": 29, 
-                "length": 24, 
-                "direction": 2, 
-                "name": "Rue Thibaudeau"
-              }, 
-              {
-                "duration": 26, 
-                "length": 22, 
-                "direction": 125, 
-                "name": "Boulevard de Verdun"
-              }, 
-              {
-                "duration": 203, 
-                "length": 169, 
-                "direction": -76, 
-                "name": "Rue Arthur Ranc"
-              }, 
-              {
-                "duration": 132, 
-                "length": 109, 
-                "direction": 24, 
-                "name": "Rue de la Marne"
-              }, 
-              {
-                "duration": 66, 
-                "length": 54, 
-                "direction": -8, 
-                "name": ""
-              }, 
-              {
-                "duration": 32, 
-                "length": 26, 
-                "direction": 6, 
-                "name": ""
-              }, 
-              {
-                "duration": 28, 
-                "length": 23, 
-                "direction": 56, 
-                "name": "Rue de la Marne"
-              }, 
-              {
-                "duration": 51, 
-                "length": 42, 
-                "direction": -14, 
-                "name": "Rue Sadi-Carnot"
-              }, 
-              {
-                "duration": 103, 
-                "length": 86, 
-                "direction": -82, 
-                "name": "Place du Mar\u00e9chal Leclerc"
-              }
-            ], 
-            "type": "street_network", 
-            "id": "section_0_0", 
-            "mode": "walking"
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
           }, 
           {
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
-                "name": "H. de Ville Lebascles", 
+                "name": "Gare SNCF", 
+                "links": [], 
                 "coord": {
-                  "lat": "46.579846", 
-                  "lon": "0.340453"
+                  "lat": "46.582346", 
+                  "lon": "0.334187"
                 }, 
-                "label": "H. de Ville Lebascles (Poitiers)", 
+                "label": "Gare SNCF (Poitiers)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "86194", 
                     "name": "Poitiers", 
                     "level": 8, 
                     "coord": {
-                      "lat": "46.580259", 
-                      "lon": "0.340196"
+                      "lat": "46.58698872", 
+                      "lon": "0.3426561942"
                     }, 
                     "label": "Poitiers (86000)", 
-                    "id": "132348", 
+                    "id": "admin:86194", 
                     "zip_code": "86000"
                   }
                 ], 
                 "address": {
-                  "house_number": 13, 
-                  "id": "0.340453;46.579846", 
-                  "name": "Place du Mar\u00e9chal Leclerc", 
+                  "house_number": 153, 
+                  "id": "0.334187;46.582346", 
+                  "name": "Boulevard du Grand Cerf", 
                   "coord": {
-                    "lat": "46.579846", 
-                    "lon": "0.340453"
+                    "lat": "46.582346", 
+                    "lon": "0.334187"
                   }, 
-                  "label": "13 Place du Mar\u00e9chal Leclerc (Poitiers)"
+                  "label": "153 Boulevard du Grand Cerf (Poitiers)"
                 }, 
-                "id": "stop_point:POI:SP:20369", 
+                "id": "stop_point:POI:SP:20001", 
                 "stop_area": {
                   "comment": "", 
-                  "name": "H. de Ville Lebascles", 
+                  "name": "Gare SNCF", 
+                  "links": [], 
                   "coord": {
-                    "lat": "46.579791", 
-                    "lon": "0.340912"
+                    "lat": "46.581815", 
+                    "lon": "0.333659"
                   }, 
-                  "label": "H. de Ville Lebascles (Poitiers)", 
+                  "label": "Gare SNCF (Poitiers)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:POI:SA:10005"
+                  "id": "stop_area:POI:SA:10001"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:POI:SP:20369", 
-              "name": "H. de Ville Lebascles (Poitiers)"
+              "id": "stop_point:POI:SP:20001", 
+              "name": "Gare SNCF (Poitiers)"
             }, 
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:POI:411450073994_dst_2"
+                "id": "vehicle_journey:POI:421450033958_dst_2"
               }, 
               {
                 "type": "line", 
-                "id": "line:POI:41"
+                "id": "line:POI:42"
               }, 
               {
                 "type": "route", 
-                "id": "route:POI:41"
+                "id": "route:POI:42"
               }, 
               {
                 "type": "commercial_mode", 
@@ -581,25 +379,27 @@
                 "id": "network:POI:1"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
                 "templated": false
               }
             ], 
-            "arrival_date_time": "20091117T053500", 
+            "arrival_date_time": "20091117T055300", 
             "additional_informations": [], 
-            "departure_date_time": "20091117T050700", 
+            "departure_date_time": "20091117T053700", 
             "display_informations": {
-              "direction": "H. de Ville Lebascles (Poitiers)", 
-              "code": "N2B", 
+              "direction": "H. de Ville Claveurier (Poitiers)", 
+              "code": "N2A", 
               "description": "", 
-              "color": "AEAEAE", 
+              "links": [], 
+              "color": "00E8AE", 
               "physical_mode": "Bus", 
-              "headsign": "H. de Ville Lebascles", 
+              "headsign": "H. de Ville Claveurier", 
               "commercial_mode": "Bus", 
               "equipments": [], 
-              "label": "N2B", 
+              "label": "N2A", 
               "network": "VITALIS"
             }, 
             "to": {
@@ -607,39 +407,42 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Northampton", 
+                "links": [], 
                 "coord": {
-                  "lat": "46.579682", 
-                  "lon": "0.37921"
+                  "lat": "46.579732", 
+                  "lon": "0.378973"
                 }, 
                 "label": "Northampton (Poitiers)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "86194", 
                     "name": "Poitiers", 
                     "level": 8, 
                     "coord": {
-                      "lat": "46.580259", 
-                      "lon": "0.340196"
+                      "lat": "46.58698872", 
+                      "lon": "0.3426561942"
                     }, 
                     "label": "Poitiers (86000)", 
-                    "id": "132348", 
+                    "id": "admin:86194", 
                     "zip_code": "86000"
                   }
                 ], 
                 "address": {
-                  "house_number": 0, 
-                  "id": "0.37921;46.579682", 
-                  "name": "Avenue de Northampton", 
+                  "house_number": 32, 
+                  "id": "0.378973;46.579732", 
+                  "name": "Rue Salvador Allende", 
                   "coord": {
-                    "lat": "46.579682", 
-                    "lon": "0.37921"
+                    "lat": "46.579732", 
+                    "lon": "0.378973"
                   }, 
-                  "label": "Avenue de Northampton (Poitiers)"
+                  "label": "32 Rue Salvador Allende (Poitiers)"
                 }, 
-                "id": "stop_point:POI:SP:20082", 
+                "id": "stop_point:POI:SP:20081", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Northampton", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.579707", 
                     "lon": "0.379092"
@@ -650,840 +453,351 @@
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:POI:SP:20082", 
+              "id": "stop_point:POI:SP:20081", 
               "name": "Northampton (Poitiers)"
             }, 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 10198
+                  "length": 5337
                 }
               ], 
               "coordinates": [
                 [
-                  0.340453, 
-                  46.579846
+                  0.334187, 
+                  46.582346
                 ], 
                 [
-                  0.342097, 
-                  46.581297
+                  0.34012, 
+                  46.587823
                 ], 
                 [
-                  0.349229, 
-                  46.579352
+                  0.340412, 
+                  46.591941
                 ], 
                 [
-                  0.350129, 
-                  46.577936
+                  0.347141, 
+                  46.59214
                 ], 
                 [
-                  0.346569, 
-                  46.576812
+                  0.351054, 
+                  46.591515
                 ], 
                 [
-                  0.344604, 
-                  46.574168
+                  0.356529, 
+                  46.589594
                 ], 
                 [
-                  0.338838, 
-                  46.57269
+                  0.360596, 
+                  46.589035
                 ], 
                 [
-                  0.340752, 
-                  46.569259
+                  0.365253, 
+                  46.586632
                 ], 
                 [
-                  0.340969, 
-                  46.568318
+                  0.371062, 
+                  46.588775
                 ], 
                 [
-                  0.341208, 
-                  46.565379
+                  0.37317, 
+                  46.587533
                 ], 
                 [
-                  0.342957, 
-                  46.566067
+                  0.376967, 
+                  46.587194
                 ], 
                 [
-                  0.345164, 
-                  46.566726
+                  0.37946, 
+                  46.58613
                 ], 
                 [
-                  0.34879, 
-                  46.56535
+                  0.381605, 
+                  46.585276
                 ], 
                 [
-                  0.352982, 
-                  46.566674
+                  0.380595, 
+                  46.582891
                 ], 
                 [
-                  0.350703, 
-                  46.569766
-                ], 
-                [
-                  0.351389, 
-                  46.570264
-                ], 
-                [
-                  0.354933, 
-                  46.568282
-                ], 
-                [
-                  0.359105, 
-                  46.567311
-                ], 
-                [
-                  0.363954, 
-                  46.566387
-                ], 
-                [
-                  0.367118, 
-                  46.567648
-                ], 
-                [
-                  0.369825, 
-                  46.56999
-                ], 
-                [
-                  0.370752, 
-                  46.570339
-                ], 
-                [
-                  0.373129, 
-                  46.568859
-                ], 
-                [
-                  0.375745, 
-                  46.567239
-                ], 
-                [
-                  0.377961, 
-                  46.565855
-                ], 
-                [
-                  0.380992, 
-                  46.563936
-                ], 
-                [
-                  0.383446, 
-                  46.564644
-                ], 
-                [
-                  0.38699, 
-                  46.566244
-                ], 
-                [
-                  0.388496, 
-                  46.568249
-                ], 
-                [
-                  0.391125, 
-                  46.570634
-                ], 
-                [
-                  0.393062, 
-                  46.571918
-                ], 
-                [
-                  0.391743, 
-                  46.573777
-                ], 
-                [
-                  0.389106, 
-                  46.574155
-                ], 
-                [
-                  0.386475, 
-                  46.573651
-                ], 
-                [
-                  0.38398, 
-                  46.575525
-                ], 
-                [
-                  0.381553, 
-                  46.57587
-                ], 
-                [
-                  0.379035, 
-                  46.576214
-                ], 
-                [
-                  0.378642, 
-                  46.57735
-                ], 
-                [
-                  0.37921, 
-                  46.579682
+                  0.378973, 
+                  46.579732
                 ]
               ]
             }, 
-            "duration": 1680, 
+            "duration": 960, 
             "type": "public_transport", 
             "id": "section_1_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
-                  "name": "H. de Ville Lebascles", 
+                  "name": "Gare SNCF", 
+                  "links": [], 
                   "coord": {
-                    "lat": "46.579846", 
-                    "lon": "0.340453"
+                    "lat": "46.582346", 
+                    "lon": "0.334187"
                   }, 
-                  "label": "H. de Ville Lebascles (Poitiers)", 
+                  "label": "Gare SNCF (Poitiers)", 
                   "equipments": [], 
-                  "id": "stop_point:POI:SP:20369"
+                  "id": "stop_point:POI:SP:20001"
                 }, 
-                "arrival_date_time": "20091117T050700", 
+                "arrival_date_time": "20091117T053700", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T050700", 
+                "departure_date_time": "20091117T053700", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "name": "Henri Oudin", 
+                  "name": "La Chauss\u00e9e", 
+                  "links": [], 
                   "coord": {
-                    "lat": "46.581297", 
-                    "lon": "0.342097"
+                    "lat": "46.587823", 
+                    "lon": "0.34012"
                   }, 
-                  "label": "Henri Oudin (Poitiers)", 
+                  "label": "La Chauss\u00e9e (Poitiers)", 
                   "equipments": [], 
-                  "id": "stop_point:POI:SP:20391"
+                  "id": "stop_point:POI:SP:20039"
                 }, 
-                "arrival_date_time": "20091117T050700", 
+                "arrival_date_time": "20091117T053900", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T050700", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "abribus", 
-                  "name": "Bapt. St-Jean - Ste Croix", 
-                  "coord": {
-                    "lat": "46.579352", 
-                    "lon": "0.349229"
-                  }, 
-                  "label": "Bapt. St-Jean - Ste Croix (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20290"
-                }, 
-                "arrival_date_time": "20091117T050900", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T050900", 
+                "departure_date_time": "20091117T053900", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "name": "Pont Neuf", 
+                  "name": "Pont le Nain", 
+                  "links": [], 
                   "coord": {
-                    "lat": "46.577936", 
-                    "lon": "0.350129"
+                    "lat": "46.591941", 
+                    "lon": "0.340412"
                   }, 
-                  "label": "Pont Neuf (Poitiers)", 
+                  "label": "Pont le Nain (Poitiers)", 
                   "equipments": [], 
-                  "id": "stop_point:POI:SP:20959"
+                  "id": "stop_point:POI:SP:20013"
                 }, 
-                "arrival_date_time": "20091117T050900", 
+                "arrival_date_time": "20091117T054100", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T050900", 
+                "departure_date_time": "20091117T054100", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "name": "Anatole France", 
+                  "name": "Mozart", 
+                  "links": [], 
                   "coord": {
-                    "lat": "46.576812", 
-                    "lon": "0.346569"
+                    "lat": "46.59214", 
+                    "lon": "0.347141"
                   }, 
-                  "label": "Anatole France (Poitiers)", 
+                  "label": "Mozart (Poitiers)", 
                   "equipments": [], 
-                  "id": "stop_point:POI:SP:20706"
+                  "id": "stop_point:POI:SP:20042"
                 }, 
-                "arrival_date_time": "20091117T051000", 
+                "arrival_date_time": "20091117T054200", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051000", 
+                "departure_date_time": "20091117T054200", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "name": "Pont St-Cyprien", 
+                  "name": "Europe", 
+                  "links": [], 
                   "coord": {
-                    "lat": "46.574168", 
-                    "lon": "0.344604"
+                    "lat": "46.591515", 
+                    "lon": "0.351054"
                   }, 
-                  "label": "Pont St-Cyprien (Poitiers)", 
+                  "label": "Europe (Poitiers)", 
                   "equipments": [], 
-                  "id": "stop_point:POI:SP:20120"
+                  "id": "stop_point:POI:SP:20046"
                 }, 
-                "arrival_date_time": "20091117T051200", 
+                "arrival_date_time": "20091117T054300", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051200", 
+                "departure_date_time": "20091117T054300", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "name": "Les Cours", 
+                  "name": "Le Mail", 
+                  "links": [], 
                   "coord": {
-                    "lat": "46.57269", 
-                    "lon": "0.338838"
+                    "lat": "46.589594", 
+                    "lon": "0.356529"
                   }, 
-                  "label": "Les Cours (Poitiers)", 
+                  "label": "Le Mail (Poitiers)", 
                   "equipments": [], 
-                  "id": "stop_point:POI:SP:20118"
+                  "id": "stop_point:POI:SP:20069"
                 }, 
-                "arrival_date_time": "20091117T051200", 
+                "arrival_date_time": "20091117T054400", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051200", 
+                "departure_date_time": "20091117T054400", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "name": "Fief de Grimoire", 
+                  "name": "Marbourg", 
+                  "links": [], 
                   "coord": {
-                    "lat": "46.569259", 
-                    "lon": "0.340752"
+                    "lat": "46.589035", 
+                    "lon": "0.360596"
                   }, 
-                  "label": "Fief de Grimoire (Poitiers)", 
+                  "label": "Marbourg (Poitiers)", 
                   "equipments": [], 
-                  "id": "stop_point:POI:SP:20116"
+                  "id": "stop_point:POI:SP:20071"
                 }, 
-                "arrival_date_time": "20091117T051300", 
+                "arrival_date_time": "20091117T054500", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051300", 
+                "departure_date_time": "20091117T054500", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "name": "Rhin-Danube", 
+                  "name": "Rondy", 
+                  "links": [], 
                   "coord": {
-                    "lat": "46.568318", 
-                    "lon": "0.340969"
+                    "lat": "46.586632", 
+                    "lon": "0.365253"
                   }, 
-                  "label": "Rhin-Danube (Poitiers)", 
+                  "label": "Rondy (Poitiers)", 
                   "equipments": [], 
-                  "id": "stop_point:POI:SP:20114"
+                  "id": "stop_point:POI:SP:20073"
                 }, 
-                "arrival_date_time": "20091117T051400", 
+                "arrival_date_time": "20091117T054600", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051400", 
+                "departure_date_time": "20091117T054600", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "name": "Les Sables", 
+                  "name": "Nelson Mandela", 
+                  "links": [], 
                   "coord": {
-                    "lat": "46.565379", 
-                    "lon": "0.341208"
+                    "lat": "46.588775", 
+                    "lon": "0.371062"
                   }, 
-                  "label": "Les Sables (Poitiers)", 
+                  "label": "Nelson Mandela (Poitiers)", 
                   "equipments": [], 
-                  "id": "stop_point:POI:SP:20112"
+                  "id": "stop_point:POI:SP:20704"
                 }, 
-                "arrival_date_time": "20091117T051500", 
+                "arrival_date_time": "20091117T054800", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051500", 
+                "departure_date_time": "20091117T054800", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "name": "Clos Gaultier", 
+                  "name": "Le Peletier", 
+                  "links": [], 
                   "coord": {
-                    "lat": "46.566067", 
-                    "lon": "0.342957"
+                    "lat": "46.587533", 
+                    "lon": "0.37317"
                   }, 
-                  "label": "Clos Gaultier (Poitiers)", 
+                  "label": "Le Peletier (Poitiers)", 
                   "equipments": [], 
-                  "id": "stop_point:POI:SP:20110"
+                  "id": "stop_point:POI:SP:20260"
                 }, 
-                "arrival_date_time": "20091117T051500", 
+                "arrival_date_time": "20091117T054900", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051500", 
+                "departure_date_time": "20091117T054900", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "name": "Moli\u00e8re", 
+                  "name": "Hoche", 
+                  "links": [], 
                   "coord": {
-                    "lat": "46.566726", 
-                    "lon": "0.345164"
+                    "lat": "46.587194", 
+                    "lon": "0.376967"
                   }, 
-                  "label": "Moli\u00e8re (Poitiers)", 
+                  "label": "Hoche (Poitiers)", 
                   "equipments": [], 
-                  "id": "stop_point:POI:SP:20108"
+                  "id": "stop_point:POI:SP:20258"
                 }, 
-                "arrival_date_time": "20091117T051600", 
+                "arrival_date_time": "20091117T054900", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051600", 
+                "departure_date_time": "20091117T054900", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "name": "St-Cyprien", 
+                  "name": "Marat", 
+                  "links": [], 
                   "coord": {
-                    "lat": "46.56535", 
-                    "lon": "0.34879"
+                    "lat": "46.58613", 
+                    "lon": "0.37946"
                   }, 
-                  "label": "St-Cyprien (Poitiers)", 
+                  "label": "Marat (Poitiers)", 
                   "equipments": [], 
-                  "id": "stop_point:POI:SP:20106"
+                  "id": "stop_point:POI:SP:20520"
                 }, 
-                "arrival_date_time": "20091117T051600", 
+                "arrival_date_time": "20091117T055000", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051600", 
+                "departure_date_time": "20091117T055000", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "name": "Grand-Maison", 
+                  "name": "St-Jacques de Compostelle", 
+                  "links": [], 
                   "coord": {
-                    "lat": "46.566674", 
-                    "lon": "0.352982"
+                    "lat": "46.585276", 
+                    "lon": "0.381605"
                   }, 
-                  "label": "Grand-Maison (Poitiers)", 
+                  "label": "St-Jacques de Compostelle (Poitiers)", 
                   "equipments": [], 
-                  "id": "stop_point:POI:SP:20104"
+                  "id": "stop_point:POI:SP:20522"
                 }, 
-                "arrival_date_time": "20091117T051700", 
+                "arrival_date_time": "20091117T055100", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051700", 
+                "departure_date_time": "20091117T055100", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
-                  "name": "Ronsard", 
+                  "name": "Ch\u00e2lons", 
+                  "links": [], 
                   "coord": {
-                    "lat": "46.569766", 
-                    "lon": "0.350703"
+                    "lat": "46.582891", 
+                    "lon": "0.380595"
                   }, 
-                  "label": "Ronsard (Poitiers)", 
+                  "label": "Ch\u00e2lons (Poitiers)", 
                   "equipments": [], 
-                  "id": "stop_point:POI:SP:20540"
+                  "id": "stop_point:POI:SP:20881"
                 }, 
-                "arrival_date_time": "20091117T051800", 
+                "arrival_date_time": "20091117T055100", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051800", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Acadie", 
-                  "coord": {
-                    "lat": "46.570264", 
-                    "lon": "0.351389"
-                  }, 
-                  "label": "Acadie (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20917"
-                }, 
-                "arrival_date_time": "20091117T051900", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T051900", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Pontreau", 
-                  "coord": {
-                    "lat": "46.568282", 
-                    "lon": "0.354933"
-                  }, 
-                  "label": "Pontreau (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20102"
-                }, 
-                "arrival_date_time": "20091117T052000", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T052000", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Paul Verlaine", 
-                  "coord": {
-                    "lat": "46.567311", 
-                    "lon": "0.359105"
-                  }, 
-                  "label": "Paul Verlaine (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20100"
-                }, 
-                "arrival_date_time": "20091117T052100", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T052100", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Les Landes", 
-                  "coord": {
-                    "lat": "46.566387", 
-                    "lon": "0.363954"
-                  }, 
-                  "label": "Les Landes (Poitiers) (Saint-Beno\u00eet)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20098"
-                }, 
-                "arrival_date_time": "20091117T052200", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T052200", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Camille Gu\u00e9rin", 
-                  "coord": {
-                    "lat": "46.567648", 
-                    "lon": "0.367118"
-                  }, 
-                  "label": "Camille Gu\u00e9rin (Poitiers) (Saint-Beno\u00eet)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20096"
-                }, 
-                "arrival_date_time": "20091117T052200", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T052200", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Patinoire", 
-                  "coord": {
-                    "lat": "46.56999", 
-                    "lon": "0.369825"
-                  }, 
-                  "label": "Patinoire (Poitiers) (Saint-Beno\u00eet)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20094"
-                }, 
-                "arrival_date_time": "20091117T052300", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T052300", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Stade", 
-                  "coord": {
-                    "lat": "46.570339", 
-                    "lon": "0.370752"
-                  }, 
-                  "label": "Stade (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20477"
-                }, 
-                "arrival_date_time": "20091117T052400", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T052400", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Bosquets", 
-                  "coord": {
-                    "lat": "46.568859", 
-                    "lon": "0.373129"
-                  }, 
-                  "label": "Bosquets (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20460"
-                }, 
-                "arrival_date_time": "20091117T052400", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T052400", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Gymnase", 
-                  "coord": {
-                    "lat": "46.567239", 
-                    "lon": "0.375745"
-                  }, 
-                  "label": "Gymnase (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20458"
-                }, 
-                "arrival_date_time": "20091117T052500", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T052500", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Aub\u00e9pines", 
-                  "coord": {
-                    "lat": "46.565855", 
-                    "lon": "0.377961"
-                  }, 
-                  "label": "Aub\u00e9pines (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20456"
-                }, 
-                "arrival_date_time": "20091117T052500", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T052500", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Petits Champs", 
-                  "coord": {
-                    "lat": "46.563936", 
-                    "lon": "0.380992"
-                  }, 
-                  "label": "Petits Champs (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20454"
-                }, 
-                "arrival_date_time": "20091117T052600", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T052600", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "P\u00f4le Technologique", 
-                  "coord": {
-                    "lat": "46.564644", 
-                    "lon": "0.383446"
-                  }, 
-                  "label": "P\u00f4le Technologique (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20552"
-                }, 
-                "arrival_date_time": "20091117T052700", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T052700", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Descartes", 
-                  "coord": {
-                    "lat": "46.566244", 
-                    "lon": "0.38699"
-                  }, 
-                  "label": "Descartes (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20550"
-                }, 
-                "arrival_date_time": "20091117T052800", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T052800", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Parcobus Champlain", 
-                  "coord": {
-                    "lat": "46.568249", 
-                    "lon": "0.388496"
-                  }, 
-                  "label": "Parcobus Champlain (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20123"
-                }, 
-                "arrival_date_time": "20091117T052900", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T052900", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Iassy", 
-                  "coord": {
-                    "lat": "46.570634", 
-                    "lon": "0.391125"
-                  }, 
-                  "label": "Iassy (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20129"
-                }, 
-                "arrival_date_time": "20091117T052900", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T052900", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Hauts Martins", 
-                  "coord": {
-                    "lat": "46.571918", 
-                    "lon": "0.393062"
-                  }, 
-                  "label": "Hauts Martins (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20131"
-                }, 
-                "arrival_date_time": "20091117T053000", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T053000", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Mari\u00e9ville", 
-                  "coord": {
-                    "lat": "46.573777", 
-                    "lon": "0.391743"
-                  }, 
-                  "label": "Mari\u00e9ville (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20211"
-                }, 
-                "arrival_date_time": "20091117T053000", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T053000", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Montpensier", 
-                  "coord": {
-                    "lat": "46.574155", 
-                    "lon": "0.389106"
-                  }, 
-                  "label": "Montpensier (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20213"
-                }, 
-                "arrival_date_time": "20091117T053100", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T053100", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Iaroslav", 
-                  "coord": {
-                    "lat": "46.573651", 
-                    "lon": "0.386475"
-                  }, 
-                  "label": "Iaroslav (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20215"
-                }, 
-                "arrival_date_time": "20091117T053100", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T053100", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Centre Culturel", 
-                  "coord": {
-                    "lat": "46.575525", 
-                    "lon": "0.38398"
-                  }, 
-                  "label": "Centre Culturel (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20217"
-                }, 
-                "arrival_date_time": "20091117T053200", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T053200", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Vayres", 
-                  "coord": {
-                    "lat": "46.57587", 
-                    "lon": "0.381553"
-                  }, 
-                  "label": "Vayres (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20219"
-                }, 
-                "arrival_date_time": "20091117T053200", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T053200", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Templiers", 
-                  "coord": {
-                    "lat": "46.576214", 
-                    "lon": "0.379035"
-                  }, 
-                  "label": "Templiers (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20221"
-                }, 
-                "arrival_date_time": "20091117T053300", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T053300", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Bois Dousset", 
-                  "coord": {
-                    "lat": "46.57735", 
-                    "lon": "0.378642"
-                  }, 
-                  "label": "Bois Dousset (Poitiers)", 
-                  "equipments": [], 
-                  "id": "stop_point:POI:SP:20084"
-                }, 
-                "arrival_date_time": "20091117T053300", 
-                "additional_informations": [], 
-                "departure_date_time": "20091117T053300", 
+                "departure_date_time": "20091117T055100", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
                   "name": "Northampton", 
+                  "links": [], 
                   "coord": {
-                    "lat": "46.579682", 
-                    "lon": "0.37921"
+                    "lat": "46.579732", 
+                    "lon": "0.378973"
                   }, 
                   "label": "Northampton (Poitiers)", 
                   "equipments": [], 
-                  "id": "stop_point:POI:SP:20082"
+                  "id": "stop_point:POI:SP:20081"
                 }, 
-                "arrival_date_time": "20091117T053500", 
+                "arrival_date_time": "20091117T055300", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T053500", 
+                "departure_date_time": "20091117T055300", 
                 "links": []
               }
             ]
@@ -1494,52 +808,56 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Northampton", 
+                "links": [], 
                 "coord": {
-                  "lat": "46.579682", 
-                  "lon": "0.37921"
+                  "lat": "46.579732", 
+                  "lon": "0.378973"
                 }, 
                 "label": "Northampton (Poitiers)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "86194", 
                     "name": "Poitiers", 
                     "level": 8, 
                     "coord": {
-                      "lat": "46.580259", 
-                      "lon": "0.340196"
+                      "lat": "46.58698872", 
+                      "lon": "0.3426561942"
                     }, 
                     "label": "Poitiers (86000)", 
-                    "id": "132348", 
+                    "id": "admin:86194", 
                     "zip_code": "86000"
                   }
                 ], 
                 "address": {
-                  "name": "Avenue de Northampton", 
-                  "house_number": 0, 
+                  "name": "Rue Salvador Allende", 
+                  "house_number": 32, 
                   "coord": {
-                    "lat": "46.579682", 
-                    "lon": "0.37921"
+                    "lat": "46.579732", 
+                    "lon": "0.378973"
                   }, 
-                  "label": "Avenue de Northampton (Poitiers)", 
+                  "label": "32 Rue Salvador Allende (Poitiers)", 
                   "administrative_regions": [
                     {
+                      "insee": "86194", 
                       "name": "Poitiers", 
                       "level": 8, 
                       "coord": {
-                        "lat": "46.580259", 
-                        "lon": "0.340196"
+                        "lat": "46.58698872", 
+                        "lon": "0.3426561942"
                       }, 
                       "label": "Poitiers (86000)", 
-                      "id": "132348", 
+                      "id": "admin:86194", 
                       "zip_code": "86000"
                     }
                   ], 
-                  "id": "0.37921;46.579682"
+                  "id": "0.378973;46.579732"
                 }, 
-                "id": "stop_point:POI:SP:20082", 
+                "id": "stop_point:POI:SP:20081", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Northampton", 
+                  "links": [], 
                   "coord": {
                     "lat": "46.579707", 
                     "lon": "0.379092"
@@ -1547,14 +865,15 @@
                   "label": "Northampton (Poitiers)", 
                   "administrative_regions": [
                     {
+                      "insee": "86194", 
                       "name": "Poitiers", 
                       "level": 8, 
                       "coord": {
-                        "lat": "46.580259", 
-                        "lon": "0.340196"
+                        "lat": "46.58698872", 
+                        "lon": "0.3426561942"
                       }, 
                       "label": "Poitiers (86000)", 
-                      "id": "132348", 
+                      "id": "admin:86194", 
                       "zip_code": "86000"
                     }
                   ], 
@@ -1563,19 +882,20 @@
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:POI:SP:20082", 
+              "id": "stop_point:POI:SP:20081", 
               "name": "Northampton (Poitiers)"
             }, 
             "links": [], 
-            "arrival_date_time": "20091117T053500", 
+            "arrival_date_time": "20091117T055300", 
             "additional_informations": [], 
-            "departure_date_time": "20091117T053500", 
+            "departure_date_time": "20091117T055300", 
             "to": {
               "embedded_type": "stop_area", 
               "quality": 0, 
               "stop_area": {
                 "comment": "", 
                 "name": "Northampton", 
+                "links": [], 
                 "coord": {
                   "lat": "46.579707", 
                   "lon": "0.379092"
@@ -1583,14 +903,15 @@
                 "label": "Northampton (Poitiers)", 
                 "administrative_regions": [
                   {
+                    "insee": "86194", 
                     "name": "Poitiers", 
                     "level": 8, 
                     "coord": {
-                      "lat": "46.580259", 
-                      "lon": "0.340196"
+                      "lat": "46.58698872", 
+                      "lon": "0.3426561942"
                     }, 
                     "label": "Poitiers (86000)", 
-                    "id": "132348", 
+                    "id": "admin:86194", 
                     "zip_code": "86000"
                   }
                 ], 
@@ -1607,6 +928,9 @@
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

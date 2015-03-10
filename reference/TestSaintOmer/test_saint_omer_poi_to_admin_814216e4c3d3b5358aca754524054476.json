@@ -4,25 +4,18 @@
     "journeys": [
       {
         "nb_transfers": 0, 
-        "arrival_date_time": "20121206T155900", 
-        "departure_date_time": "20121206T153532", 
+        "arrival_date_time": "20121206T155500", 
+        "departure_date_time": "20121206T153500", 
         "type": "best", 
-        "duration": 1408, 
+        "duration": 1200, 
         "sections": [
           {
-            "duration": 232, 
-            "arrival_date_time": "20121206T153924", 
-            "departure_date_time": "20121206T153532"
-          }, 
-          {
+            "from": "P\u00f4le Emploi (ANPE) (Saint-Omer)", 
+            "arrival_date_time": "20121206T155500", 
+            "departure_date_time": "20121206T153500", 
+            "to": "Moulle (62910)", 
             "duration": 1200, 
-            "arrival_date_time": "20121206T155900", 
-            "departure_date_time": "20121206T153900"
-          }, 
-          {
-            "duration": 0, 
-            "arrival_date_time": "20121206T161900", 
-            "departure_date_time": "20121206T161900"
+            "type": "on_demand_transport"
           }
         ]
       }
@@ -32,12 +25,12 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
             "type": "section", 
-            "id": "section_1_0", 
+            "id": "section_0_0", 
             "rel": "sections", 
             "templated": false
           }
@@ -50,17 +43,15 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
-        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62595&datetime_represents=arrival&from=poi%3Aadm117&max_duration_to_pt=1000&walking_speed=1&datetime=20121206T155800", 
+        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62595&datetime_represents=arrival&from=poi%3Aadm117&max_duration_to_pt=1000&walking_speed=1&datetime=20121206T155400", 
         "type": "prev", 
         "rel": "prev", 
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62595&datetime_represents=departure&from=poi%3Aadm117&max_duration_to_pt=1000&walking_speed=1&datetime=20121206T153632", 
+        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62595&datetime_represents=departure&from=poi%3Aadm117&max_duration_to_pt=1000&walking_speed=1&datetime=20121206T153600", 
         "type": "next", 
         "rel": "next", 
         "templated": false
@@ -78,63 +69,51 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/saintomer/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/poi_types/{poi_type.id}?collection=poi_types", 
+        "href": "http://localhost/v1/coverage/saintomer/poi_types/{poi_type.id}", 
         "type": "poi_type", 
         "rel": "poi_types", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/stop_areas/{stop_area.id}?collection=stop_areas", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/saintomer/pois/{poi.id}?collection=pois", 
-        "type": "poi", 
-        "rel": "pois", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/saintomer/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/saintomer/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/saintomer/pois/{poi.id}", 
+        "type": "poi", 
+        "rel": "pois", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/poi_types/{poi_type.id}?collection=poi_types", 
+        "href": "http://localhost/v1/coverage/saintomer/poi_types/{poi_type.id}", 
         "type": "poi_type", 
         "rel": "poi_types", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/stop_areas/{stop_area.id}?collection=stop_areas", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/saintomer/pois/{poi.id}?collection=pois", 
-        "type": "poi", 
-        "rel": "pois", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/saintomer/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/saintomer/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/pois/{poi.id}", 
+        "type": "poi", 
+        "rel": "pois", 
         "templated": true
       }
     ], 
@@ -160,39 +139,47 @@
           "standard"
         ], 
         "nb_transfers": 0, 
-        "arrival_date_time": "20121206T155900", 
-        "departure_date_time": "20121206T153532", 
+        "arrival_date_time": "20121206T155500", 
+        "calendars": [
+          {
+            "exceptions": [
+              {
+                "type": "remove", 
+                "datetime": "20121225"
+              }, 
+              {
+                "type": "remove", 
+                "datetime": "20130101"
+              }
+            ], 
+            "active_periods": [
+              {
+                "begin": "20121102", 
+                "end": "20130331"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": true
+            }
+          }
+        ], 
+        "departure_date_time": "20121206T153500", 
         "requested_date_time": "20121206T153500", 
         "type": "best", 
-        "duration": 1408, 
+        "duration": 1200, 
         "sections": [
           {
             "from": {
               "embedded_type": "poi", 
+              "quality": 0, 
+              "id": "poi:adm117", 
               "name": "P\u00f4le Emploi (ANPE) (Saint-Omer)", 
-              "address": {
-                "name": "rue de l'Ancien Rivage", 
-                "house_number": 0, 
-                "coord": {
-                  "lat": "50.751954923328846", 
-                  "lon": "2.2657372276200283"
-                }, 
-                "label": "rue de l'Ancien Rivage (Saint-Omer)", 
-                "administrative_regions": [
-                  {
-                    "name": "Saint-Omer", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "50.75004624", 
-                      "lon": "2.260695471"
-                    }, 
-                    "label": "Saint-Omer (62500)", 
-                    "id": "admin:62765", 
-                    "zip_code": "62500"
-                  }
-                ], 
-                "id": "2.2657372276200283;50.751954923328846"
-              }, 
               "poi": {
                 "poi_type": {
                   "name": "ADMI", 
@@ -206,6 +193,7 @@
                 "label": "P\u00f4le Emploi (ANPE) (Saint-Omer)", 
                 "administrative_regions": [
                   {
+                    "insee": "62765", 
                     "name": "Saint-Omer", 
                     "level": 8, 
                     "coord": {
@@ -227,6 +215,7 @@
                   "label": "P\u00f4le Emploi (ANPE) (Saint-Omer)", 
                   "administrative_regions": [
                     {
+                      "insee": "62765", 
                       "name": "Saint-Omer", 
                       "level": 8, 
                       "coord": {
@@ -242,256 +231,7 @@
                 }, 
                 "id": "poi:adm117", 
                 "properties": {}
-              }, 
-              "quality": 0, 
-              "id": "poi:adm117"
-            }, 
-            "links": [], 
-            "arrival_date_time": "20121206T153924", 
-            "additional_informations": [], 
-            "departure_date_time": "20121206T153532", 
-            "to": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "comment": "", 
-                "name": "Gare SNCF", 
-                "coord": {
-                  "lat": "50.753575", 
-                  "lon": "2.266693"
-                }, 
-                "label": "Gare SNCF (Saint-Omer)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "name": "Saint-Omer", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "50.75004624", 
-                      "lon": "2.260695471"
-                    }, 
-                    "label": "Saint-Omer (62500)", 
-                    "id": "admin:62765", 
-                    "zip_code": "62500"
-                  }
-                ], 
-                "address": {
-                  "name": "place du 8 Mai 1945", 
-                  "house_number": 0, 
-                  "coord": {
-                    "lat": "50.753575", 
-                    "lon": "2.266693"
-                  }, 
-                  "label": "place du 8 Mai 1945 (Saint-Omer)", 
-                  "administrative_regions": [
-                    {
-                      "name": "Saint-Omer", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "50.75004624", 
-                        "lon": "2.260695471"
-                      }, 
-                      "label": "Saint-Omer (62500)", 
-                      "id": "admin:62765", 
-                      "zip_code": "62500"
-                    }
-                  ], 
-                  "id": "2.266693;50.753575"
-                }, 
-                "id": "stop_point:CTD:SP:ASO1", 
-                "stop_area": {
-                  "comment": "", 
-                  "name": "Gare SNCF", 
-                  "coord": {
-                    "lat": "50.753575", 
-                    "lon": "2.266693"
-                  }, 
-                  "label": "Gare SNCF (Saint-Omer)", 
-                  "administrative_regions": [
-                    {
-                      "name": "Saint-Omer", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "50.75004624", 
-                        "lon": "2.260695471"
-                      }, 
-                      "label": "Saint-Omer (62500)", 
-                      "id": "admin:62765", 
-                      "zip_code": "62500"
-                    }
-                  ], 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:CTD:SA:ASO1"
-                }
-              }, 
-              "name": "Gare SNCF (Saint-Omer)", 
-              "address": {
-                "name": "place du 8 Mai 1945", 
-                "house_number": 0, 
-                "coord": {
-                  "lat": "50.753575", 
-                  "lon": "2.266693"
-                }, 
-                "label": "place du 8 Mai 1945 (Saint-Omer)", 
-                "administrative_regions": [
-                  {
-                    "name": "Saint-Omer", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "50.75004624", 
-                      "lon": "2.260695471"
-                    }, 
-                    "label": "Saint-Omer (62500)", 
-                    "id": "admin:62765", 
-                    "zip_code": "62500"
-                  }
-                ], 
-                "id": "2.266693;50.753575"
-              }, 
-              "quality": 0, 
-              "id": "stop_point:CTD:SP:ASO1"
-            }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 232
-                }
-              ], 
-              "coordinates": [
-                [
-                  2.2657372276200283, 
-                  50.751954923328846
-                ], 
-                [
-                  2.2657372276200283, 
-                  50.751954923328846
-                ], 
-                [
-                  2.265436285, 
-                  50.75215541
-                ], 
-                [
-                  2.264969481, 
-                  50.7523442
-                ], 
-                [
-                  2.265544204, 
-                  50.75251305
-                ], 
-                [
-                  2.265782053, 
-                  50.75266933
-                ], 
-                [
-                  2.265841905, 
-                  50.75273313
-                ], 
-                [
-                  2.265992377, 
-                  50.75289653
-                ], 
-                [
-                  2.266150919, 
-                  50.75305177
-                ], 
-                [
-                  2.266511492, 
-                  50.75340444
-                ], 
-                [
-                  2.266693, 
-                  50.753575
-                ]
-              ]
-            }, 
-            "duration": 232, 
-            "path": [
-              {
-                "duration": 33, 
-                "length": 33, 
-                "direction": 0, 
-                "name": "rue de l'Ancien Rivage"
-              }, 
-              {
-                "duration": 38, 
-                "length": 38, 
-                "direction": 0, 
-                "name": "rue de l'Arsenal"
-              }, 
-              {
-                "duration": 43, 
-                "length": 43, 
-                "direction": 123, 
-                "name": "place du 11 Novembre 1918"
-              }, 
-              {
-                "duration": 71, 
-                "length": 71, 
-                "direction": -21, 
-                "name": "D209"
-              }, 
-              {
-                "duration": 45, 
-                "length": 45, 
-                "direction": 0, 
-                "name": "place du 8 Mai 1945"
               }
-            ], 
-            "type": "street_network", 
-            "id": "section_0_0", 
-            "mode": "walking"
-          }, 
-          {
-            "from": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "comment": "", 
-                "name": "Gare SNCF", 
-                "coord": {
-                  "lat": "50.753575", 
-                  "lon": "2.266693"
-                }, 
-                "label": "Gare SNCF (Saint-Omer)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "name": "Saint-Omer", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "50.75004624", 
-                      "lon": "2.260695471"
-                    }, 
-                    "label": "Saint-Omer (62500)", 
-                    "id": "admin:62765", 
-                    "zip_code": "62500"
-                  }
-                ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "2.266693;50.753575", 
-                  "name": "place du 8 Mai 1945", 
-                  "coord": {
-                    "lat": "50.753575", 
-                    "lon": "2.266693"
-                  }, 
-                  "label": "place du 8 Mai 1945 (Saint-Omer)"
-                }, 
-                "id": "stop_point:CTD:SP:ASO1", 
-                "stop_area": {
-                  "comment": "", 
-                  "name": "Gare SNCF", 
-                  "coord": {
-                    "lat": "50.753575", 
-                    "lon": "2.266693"
-                  }, 
-                  "label": "Gare SNCF (Saint-Omer)", 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:CTD:SA:ASO1"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:CTD:SP:ASO1", 
-              "name": "Gare SNCF (Saint-Omer)"
             }, 
             "links": [
               {
@@ -519,21 +259,23 @@
                 "id": "network:CASO"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
                 "templated": false
               }
             ], 
-            "arrival_date_time": "20121206T155900", 
+            "arrival_date_time": "20121206T155500", 
             "additional_informations": [
               "odt_with_zone"
             ], 
-            "departure_date_time": "20121206T153900", 
+            "departure_date_time": "20121206T153500", 
             "display_informations": {
               "direction": "Moulle (Moulle)", 
               "code": "", 
               "description": "Circule du lundi au samedi de 7h \u00e0 19h. R\u00e9servation n\u00e9cessaire la veille avant 12h00 au plus tard au 0 800 510 232. Ce service est r\u00e9serv\u00e9 aux habitants des communes situ\u00e9es sur le P\u00e9rim\u00e8tre de Transport Urbain de la CASO", 
+              "links": [], 
               "color": "", 
               "physical_mode": "Autocar", 
               "headsign": "CASO TAD", 
@@ -543,55 +285,22 @@
               "network": "CASO Bus"
             }, 
             "to": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "comment": "", 
-                "name": "Moulle", 
-                "coord": {
-                  "lat": "50.789851", 
-                  "lon": "2.176055"
-                }, 
-                "label": "Moulle (Moulle)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "name": "Moulle", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "50.78984005", 
-                      "lon": "2.176029818"
-                    }, 
-                    "label": "Moulle (62910)", 
-                    "id": "admin:62595", 
-                    "zip_code": "62910"
-                  }
-                ], 
-                "address": {
-                  "house_number": 9, 
-                  "id": "2.176055;50.789851", 
-                  "name": "rue des Arts", 
-                  "coord": {
-                    "lat": "50.789851", 
-                    "lon": "2.176055"
-                  }, 
-                  "label": "9 rue des Arts (Moulle)"
-                }, 
-                "id": "stop_point:CTD:SP:62595", 
-                "stop_area": {
-                  "comment": "", 
-                  "name": "Moulle", 
-                  "coord": {
-                    "lat": "50.789851", 
-                    "lon": "2.176055"
-                  }, 
-                  "label": "Moulle (Moulle)", 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:CTD:SA:62595"
-                }
-              }, 
+              "embedded_type": "administrative_region", 
               "quality": 0, 
-              "id": "stop_point:CTD:SP:62595", 
-              "name": "Moulle (Moulle)"
+              "administrative_region": {
+                "insee": "62595", 
+                "name": "Moulle", 
+                "level": 8, 
+                "coord": {
+                  "lat": "50.78984005", 
+                  "lon": "2.176029818"
+                }, 
+                "label": "Moulle (62910)", 
+                "id": "admin:62595", 
+                "zip_code": "62910"
+              }, 
+              "id": "admin:62595", 
+              "name": "Moulle (62910)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -613,12 +322,13 @@
             }, 
             "duration": 1200, 
             "type": "on_demand_transport", 
-            "id": "section_1_0", 
+            "id": "section_0_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
                   "name": "Gare SNCF", 
+                  "links": [], 
                   "coord": {
                     "lat": "50.753575", 
                     "lon": "2.266693"
@@ -627,17 +337,18 @@
                   "equipments": [], 
                   "id": "stop_point:CTD:SP:ASO1"
                 }, 
-                "arrival_date_time": "20121206T153900", 
+                "arrival_date_time": "20121206T153500", 
                 "additional_informations": [
                   "on_demand_transport"
                 ], 
-                "departure_date_time": "20121206T153900", 
+                "departure_date_time": "20121206T153500", 
                 "links": []
               }, 
               {
                 "stop_point": {
                   "comment": "", 
                   "name": "Moulle", 
+                  "links": [], 
                   "coord": {
                     "lat": "50.789851", 
                     "lon": "2.176055"
@@ -646,121 +357,20 @@
                   "equipments": [], 
                   "id": "stop_point:CTD:SP:62595"
                 }, 
-                "arrival_date_time": "20121206T155900", 
+                "arrival_date_time": "20121206T155500", 
                 "additional_informations": [
                   "on_demand_transport"
                 ], 
-                "departure_date_time": "20121206T161900", 
+                "departure_date_time": "20121206T155500", 
                 "links": []
               }
             ]
-          }, 
-          {
-            "from": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "comment": "", 
-                "name": "Moulle", 
-                "coord": {
-                  "lat": "50.789851", 
-                  "lon": "2.176055"
-                }, 
-                "label": "Moulle (Moulle)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "name": "Moulle", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "50.78984005", 
-                      "lon": "2.176029818"
-                    }, 
-                    "label": "Moulle (62910)", 
-                    "id": "admin:62595", 
-                    "zip_code": "62910"
-                  }
-                ], 
-                "address": {
-                  "name": "rue des Arts", 
-                  "house_number": 9, 
-                  "coord": {
-                    "lat": "50.789851", 
-                    "lon": "2.176055"
-                  }, 
-                  "label": "9 rue des Arts (Moulle)", 
-                  "administrative_regions": [
-                    {
-                      "name": "Moulle", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "50.78984005", 
-                        "lon": "2.176029818"
-                      }, 
-                      "label": "Moulle (62910)", 
-                      "id": "admin:62595", 
-                      "zip_code": "62910"
-                    }
-                  ], 
-                  "id": "2.176055;50.789851"
-                }, 
-                "id": "stop_point:CTD:SP:62595", 
-                "stop_area": {
-                  "comment": "", 
-                  "name": "Moulle", 
-                  "coord": {
-                    "lat": "50.789851", 
-                    "lon": "2.176055"
-                  }, 
-                  "label": "Moulle (Moulle)", 
-                  "administrative_regions": [
-                    {
-                      "name": "Moulle", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "50.78984005", 
-                        "lon": "2.176029818"
-                      }, 
-                      "label": "Moulle (62910)", 
-                      "id": "admin:62595", 
-                      "zip_code": "62910"
-                    }
-                  ], 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:CTD:SA:62595"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:CTD:SP:62595", 
-              "name": "Moulle (Moulle)"
-            }, 
-            "links": [], 
-            "arrival_date_time": "20121206T161900", 
-            "additional_informations": [], 
-            "departure_date_time": "20121206T161900", 
-            "to": {
-              "embedded_type": "administrative_region", 
-              "quality": 0, 
-              "administrative_region": {
-                "name": "Moulle", 
-                "level": 8, 
-                "coord": {
-                  "lat": "50.78984005", 
-                  "lon": "2.176029818"
-                }, 
-                "label": "Moulle (62910)", 
-                "id": "admin:62595", 
-                "zip_code": "62910"
-              }, 
-              "id": "admin:62595", 
-              "name": "Moulle (62910)"
-            }, 
-            "mode": "walking", 
-            "duration": 0, 
-            "type": "crow_fly", 
-            "id": "section_2_0"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

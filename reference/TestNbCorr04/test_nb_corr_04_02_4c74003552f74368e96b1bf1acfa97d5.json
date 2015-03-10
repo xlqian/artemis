@@ -10,29 +10,44 @@
         "duration": 10500, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Arret 1 (Orl\u00e9ans)", 
             "arrival_date_time": "20041213T070000", 
-            "departure_date_time": "20041213T070000"
-          }, 
-          {
-            "duration": 3600, 
-            "arrival_date_time": "20041213T080000", 
-            "departure_date_time": "20041213T070000"
-          }, 
-          {
-            "duration": 4200, 
-            "arrival_date_time": "20041213T091000", 
-            "departure_date_time": "20041213T080000"
-          }, 
-          {
-            "duration": 2700, 
-            "arrival_date_time": "20041213T095500", 
-            "departure_date_time": "20041213T091000"
-          }, 
-          {
+            "departure_date_time": "20041213T070000", 
+            "to": "Arret 1 (Orl\u00e9ans)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Arret 1 (Orl\u00e9ans)", 
+            "arrival_date_time": "20041213T080000", 
+            "departure_date_time": "20041213T070000", 
+            "to": "Arret 2 (Olivet)", 
+            "duration": 3600, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": null, 
+            "arrival_date_time": "20041213T091000", 
+            "departure_date_time": "20041213T080000", 
+            "to": null, 
+            "duration": 4200, 
+            "type": "waiting"
+          }, 
+          {
+            "from": "Arret 2 (Olivet)", 
             "arrival_date_time": "20041213T095500", 
-            "departure_date_time": "20041213T095500"
+            "departure_date_time": "20041213T091000", 
+            "to": "Arret 4 (Fleury-les-Aubrais)", 
+            "duration": 2700, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Arret 4 (Fleury-les-Aubrais)", 
+            "arrival_date_time": "20041213T095500", 
+            "departure_date_time": "20041213T095500", 
+            "to": "Arret 4 (Fleury-les-Aubrais)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }, 
@@ -44,19 +59,28 @@
         "duration": 10800, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Arret 1 (Orl\u00e9ans)", 
             "arrival_date_time": "20041213T070000", 
-            "departure_date_time": "20041213T070000"
-          }, 
-          {
-            "duration": 10800, 
-            "arrival_date_time": "20041213T100000", 
-            "departure_date_time": "20041213T070000"
-          }, 
-          {
+            "departure_date_time": "20041213T070000", 
+            "to": "Arret 1 (Orl\u00e9ans)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Arret 1 (Orl\u00e9ans)", 
             "arrival_date_time": "20041213T100000", 
-            "departure_date_time": "20041213T100000"
+            "departure_date_time": "20041213T070000", 
+            "to": "Arret 4 (Fleury-les-Aubrais)", 
+            "duration": 10800, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Arret 4 (Fleury-les-Aubrais)", 
+            "arrival_date_time": "20041213T100000", 
+            "departure_date_time": "20041213T100000", 
+            "to": "Arret 4 (Fleury-les-Aubrais)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -66,7 +90,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -78,7 +102,7 @@
           {
             "internal": true, 
             "type": "section", 
-            "id": "section_4_0", 
+            "id": "section_3_0", 
             "rel": "sections", 
             "templated": false
           }, 
@@ -98,8 +122,6 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/nb-corr-04/journeys?to=stop_area%3ANC4%3ASA%3A4&from=stop_area%3ANC4%3ASA%3A1&datetime_represents=arrival&datetime=20041213T095400", 
@@ -126,37 +148,37 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/nb-corr-04/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/nb-corr-04/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/nb-corr-04/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/nb-corr-04/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/nb-corr-04/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/nb-corr-04/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/nb-corr-04/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/nb-corr-04/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/nb-corr-04/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/nb-corr-04/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/nb-corr-04/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/nb-corr-04/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
@@ -170,13 +192,40 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": []
+          "links": [
+            {
+              "internal": true, 
+              "type": "ticket", 
+              "id": "unknown_ticket_0", 
+              "rel": "tickets", 
+              "templated": false
+            }
+          ]
         }, 
         "tags": [
           "standard"
         ], 
         "nb_transfers": 1, 
         "arrival_date_time": "20041213T095500", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20040101", 
+                "end": "20041231"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041213T070000", 
         "requested_date_time": "20041213T070000", 
         "type": "fastest", 
@@ -189,6 +238,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "47.850252", 
                   "lon": "1.931581"
@@ -196,6 +246,7 @@
                 "label": "Arret 1 (Orl\u00e9ans)", 
                 "administrative_regions": [
                   {
+                    "insee": "45234", 
                     "name": "Orl\u00e9ans", 
                     "level": 8, 
                     "coord": {
@@ -222,6 +273,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "47.850252", 
                   "lon": "1.931581"
@@ -230,6 +282,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "45234", 
                     "name": "Orl\u00e9ans", 
                     "level": 8, 
                     "coord": {
@@ -255,6 +308,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.850252", 
                     "lon": "1.931581"
@@ -262,6 +316,7 @@
                   "label": "Arret 1 (Orl\u00e9ans)", 
                   "administrative_regions": [
                     {
+                      "insee": "45234", 
                       "name": "Orl\u00e9ans", 
                       "level": 8, 
                       "coord": {
@@ -284,7 +339,7 @@
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
-            "id": "section_3_0"
+            "id": "section_0_0"
           }, 
           {
             "from": {
@@ -292,6 +347,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "47.850252", 
                   "lon": "1.931581"
@@ -300,6 +356,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "45234", 
                     "name": "Orl\u00e9ans", 
                     "level": 8, 
                     "coord": {
@@ -325,6 +382,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.850252", 
                     "lon": "1.931581"
@@ -364,6 +422,7 @@
                 "id": "network:default_network"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -377,6 +436,7 @@
               "direction": "Arret 4 (Fleury-les-Aubrais)", 
               "code": "T1", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Tramway", 
               "headsign": "NC4:1-13", 
@@ -390,6 +450,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 2", 
+                "links": [], 
                 "coord": {
                   "lat": "47.872149", 
                   "lon": "1.905776"
@@ -398,6 +459,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "45232", 
                     "name": "Olivet", 
                     "level": 8, 
                     "coord": {
@@ -423,6 +485,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.872149", 
                     "lon": "1.905776"
@@ -456,12 +519,13 @@
             }, 
             "duration": 3600, 
             "type": "public_transport", 
-            "id": "section_4_0", 
+            "id": "section_1_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.850252", 
                     "lon": "1.931581"
@@ -479,6 +543,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.872149", 
                     "lon": "1.905776"
@@ -501,7 +566,7 @@
             "departure_date_time": "20041213T080000", 
             "duration": 4200, 
             "type": "waiting", 
-            "id": "section_5_0"
+            "id": "section_2_0"
           }, 
           {
             "from": {
@@ -509,6 +574,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 2", 
+                "links": [], 
                 "coord": {
                   "lat": "47.872149", 
                   "lon": "1.905776"
@@ -517,6 +583,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "45232", 
                     "name": "Olivet", 
                     "level": 8, 
                     "coord": {
@@ -542,6 +609,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.872149", 
                     "lon": "1.905776"
@@ -581,6 +649,7 @@
                 "id": "network:default_network"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -594,6 +663,7 @@
               "direction": "Arret 4 (Fleury-les-Aubrais)", 
               "code": "T1", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Tramway", 
               "headsign": "NC4:1-41", 
@@ -607,6 +677,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "47.925171", 
                   "lon": "1.919968"
@@ -615,6 +686,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "45147", 
                     "name": "Fleury-les-Aubrais", 
                     "level": 8, 
                     "coord": {
@@ -640,6 +712,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.925171", 
                     "lon": "1.919968"
@@ -673,12 +746,13 @@
             }, 
             "duration": 2700, 
             "type": "public_transport", 
-            "id": "section_6_0", 
+            "id": "section_3_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.872149", 
                     "lon": "1.905776"
@@ -696,6 +770,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.925171", 
                     "lon": "1.919968"
@@ -717,6 +792,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "47.925171", 
                   "lon": "1.919968"
@@ -725,6 +801,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "45147", 
                     "name": "Fleury-les-Aubrais", 
                     "level": 8, 
                     "coord": {
@@ -750,6 +827,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.925171", 
                     "lon": "1.919968"
@@ -757,6 +835,7 @@
                   "label": "Arret 4 (Fleury-les-Aubrais)", 
                   "administrative_regions": [
                     {
+                      "insee": "45147", 
                       "name": "Fleury-les-Aubrais", 
                       "level": 8, 
                       "coord": {
@@ -786,6 +865,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "47.925171", 
                   "lon": "1.919968"
@@ -793,6 +873,7 @@
                 "label": "Arret 4 (Fleury-les-Aubrais)", 
                 "administrative_regions": [
                   {
+                    "insee": "45147", 
                     "name": "Fleury-les-Aubrais", 
                     "level": 8, 
                     "coord": {
@@ -813,7 +894,7 @@
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
-            "id": "section_7_0"
+            "id": "section_4_0"
           }
         ]
       }, 
@@ -824,19 +905,30 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
         "tags": [], 
         "nb_transfers": 0, 
         "arrival_date_time": "20041213T100000", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20040101", 
+                "end": "20041231"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041213T070000", 
         "requested_date_time": "20041213T070000", 
         "type": "best", 
@@ -849,6 +941,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "47.850252", 
                   "lon": "1.931581"
@@ -856,6 +949,7 @@
                 "label": "Arret 1 (Orl\u00e9ans)", 
                 "administrative_regions": [
                   {
+                    "insee": "45234", 
                     "name": "Orl\u00e9ans", 
                     "level": 8, 
                     "coord": {
@@ -882,6 +976,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "47.850252", 
                   "lon": "1.931581"
@@ -890,6 +985,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "45234", 
                     "name": "Orl\u00e9ans", 
                     "level": 8, 
                     "coord": {
@@ -915,6 +1011,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.850252", 
                     "lon": "1.931581"
@@ -922,6 +1019,7 @@
                   "label": "Arret 1 (Orl\u00e9ans)", 
                   "administrative_regions": [
                     {
+                      "insee": "45234", 
                       "name": "Orl\u00e9ans", 
                       "level": 8, 
                       "coord": {
@@ -944,7 +1042,7 @@
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
-            "id": "section_0_0"
+            "id": "section_5_0"
           }, 
           {
             "from": {
@@ -952,6 +1050,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "47.850252", 
                   "lon": "1.931581"
@@ -960,6 +1059,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "45234", 
                     "name": "Orl\u00e9ans", 
                     "level": 8, 
                     "coord": {
@@ -985,6 +1085,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.850252", 
                     "lon": "1.931581"
@@ -1024,6 +1125,7 @@
                 "id": "network:default_network"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -1037,6 +1139,7 @@
               "direction": "Arret 4 (Fleury-les-Aubrais)", 
               "code": "T1", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Tramway", 
               "headsign": "NC4:1-13", 
@@ -1050,6 +1153,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "47.925171", 
                   "lon": "1.919968"
@@ -1058,6 +1162,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "45147", 
                     "name": "Fleury-les-Aubrais", 
                     "level": 8, 
                     "coord": {
@@ -1083,6 +1188,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.925171", 
                     "lon": "1.919968"
@@ -1124,12 +1230,13 @@
             }, 
             "duration": 10800, 
             "type": "public_transport", 
-            "id": "section_1_0", 
+            "id": "section_6_0", 
             "stop_date_times": [
               {
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.850252", 
                     "lon": "1.931581"
@@ -1147,6 +1254,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.872149", 
                     "lon": "1.905776"
@@ -1164,6 +1272,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.92706", 
                     "lon": "1.881697"
@@ -1181,6 +1290,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.925171", 
                     "lon": "1.919968"
@@ -1202,6 +1312,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "47.925171", 
                   "lon": "1.919968"
@@ -1210,6 +1321,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "45147", 
                     "name": "Fleury-les-Aubrais", 
                     "level": 8, 
                     "coord": {
@@ -1235,6 +1347,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "47.925171", 
                     "lon": "1.919968"
@@ -1242,6 +1355,7 @@
                   "label": "Arret 4 (Fleury-les-Aubrais)", 
                   "administrative_regions": [
                     {
+                      "insee": "45147", 
                       "name": "Fleury-les-Aubrais", 
                       "level": 8, 
                       "coord": {
@@ -1271,6 +1385,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "47.925171", 
                   "lon": "1.919968"
@@ -1278,6 +1393,7 @@
                 "label": "Arret 4 (Fleury-les-Aubrais)", 
                 "administrative_regions": [
                   {
+                    "insee": "45147", 
                     "name": "Fleury-les-Aubrais", 
                     "level": 8, 
                     "coord": {
@@ -1298,10 +1414,13 @@
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
-            "id": "section_2_0"
+            "id": "section_7_0"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

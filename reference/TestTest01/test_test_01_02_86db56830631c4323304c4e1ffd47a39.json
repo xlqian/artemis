@@ -3,7 +3,6 @@
   "response": {
     "journeys": [
       {
-        "tags": [], 
         "nb_transfers": 0, 
         "arrival_date_time": "20041214T074600", 
         "departure_date_time": "20041214T071100", 
@@ -11,19 +10,28 @@
         "duration": 2100, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Arret 10", 
             "arrival_date_time": "20041214T071100", 
-            "departure_date_time": "20041214T071100"
-          }, 
-          {
-            "duration": 2100, 
-            "arrival_date_time": "20041214T074600", 
-            "departure_date_time": "20041214T071100"
-          }, 
-          {
+            "departure_date_time": "20041214T071100", 
+            "to": "Arret 10", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Arret 10", 
             "arrival_date_time": "20041214T074600", 
-            "departure_date_time": "20041214T074600"
+            "departure_date_time": "20041214T071100", 
+            "to": "Arret 12 (Antibes)", 
+            "duration": 2100, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Arret 12 (Antibes)", 
+            "arrival_date_time": "20041214T074600", 
+            "departure_date_time": "20041214T074600", 
+            "to": "Arret 12 (Antibes)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -33,7 +41,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -51,57 +59,65 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/test-01/journeys?to=stop_area%3ATS1%3ASA%3A12&from=stop_area%3ATS1%3ASA%3A10&datetime_represents=arrival&datetime=20041214T074500", 
         "type": "prev", 
+        "rel": "prev", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/test-01/journeys?to=stop_area%3ATS1%3ASA%3A12&from=stop_area%3ATS1%3ASA%3A10&datetime_represents=departure&datetime=20041214T071200", 
         "type": "next", 
+        "rel": "next", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/test-01/journeys?to=stop_area%3ATS1%3ASA%3A12&from=stop_area%3ATS1%3ASA%3A10&datetime_represents=departure&datetime=20041214T000000", 
         "type": "first", 
+        "rel": "first", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/test-01/journeys?to=stop_area%3ATS1%3ASA%3A12&from=stop_area%3ATS1%3ASA%3A10&datetime_represents=arrival&datetime=20041214T235900", 
         "type": "last", 
+        "rel": "last", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/test-01/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/test-01/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/test-01/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/test-01/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/test-01/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/test-01/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -123,9 +139,30 @@
             }
           ]
         }, 
-        "tags": [], 
+        "tags": [
+          "standard"
+        ], 
         "nb_transfers": 0, 
         "arrival_date_time": "20041214T074600", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20040101", 
+                "end": "20041231"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041214T071100", 
         "requested_date_time": "20041214T070000", 
         "type": "best", 
@@ -138,10 +175,13 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 10", 
+                "links": [], 
                 "coord": {
                   "lat": "43.557916", 
                   "lon": "7.075019"
                 }, 
+                "label": "Arret 10", 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:TS1:SA:10"
               }, 
               "name": "Arret 10", 
@@ -149,37 +189,41 @@
             }, 
             "links": [], 
             "arrival_date_time": "20041214T071100", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041214T071100", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 10", 
+                "links": [], 
                 "coord": {
                   "lat": "43.557916", 
                   "lon": "7.075019"
                 }, 
+                "label": "Arret 10", 
                 "equipments": [], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:TS1:SP:Nav10", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 10", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.557916", 
                     "lon": "7.075019"
                   }, 
+                  "label": "Arret 10", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:TS1:SA:10"
                 }
               }, 
@@ -187,24 +231,7 @@
               "id": "stop_point:TS1:SP:Nav10", 
               "name": "Arret 10"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  7.075019, 
-                  43.557916
-                ], 
-                [
-                  7.075019, 
-                  43.557916
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_0_0"
@@ -215,28 +242,34 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 10", 
+                "links": [], 
                 "coord": {
                   "lat": "43.557916", 
                   "lon": "7.075019"
                 }, 
+                "label": "Arret 10", 
                 "equipments": [], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:TS1:SP:Nav10", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 10", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.557916", 
                     "lon": "7.075019"
                   }, 
+                  "label": "Arret 10", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:TS1:SA:10"
                 }
               }, 
@@ -278,14 +311,13 @@
               }
             ], 
             "arrival_date_time": "20041214T074600", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041214T071100", 
             "display_informations": {
               "direction": "Arret 9", 
               "code": "DROITE", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Train", 
               "headsign": "TS1:3-13", 
@@ -299,34 +331,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 12", 
+                "links": [], 
                 "coord": {
                   "lat": "43.606657", 
                   "lon": "7.09219"
                 }, 
+                "label": "Arret 12 (Antibes)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "06004", 
+                    "name": "Antibes", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.583599", 
+                      "lon": "7.109049"
+                    }, 
+                    "label": "Antibes (06160-06600)", 
+                    "id": "admin:74687extern", 
+                    "zip_code": "06160-06600"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:TS1:SP:Nav12", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 12", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.606657", 
                     "lon": "7.09219"
                   }, 
+                  "label": "Arret 12 (Antibes)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:TS1:SA:12"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:TS1:SP:Nav12", 
-              "name": "Arret 12"
+              "name": "Arret 12 (Antibes)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -357,12 +409,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 10", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.557916", 
                     "lon": "7.075019"
                   }, 
+                  "label": "Arret 10", 
+                  "equipments": [], 
                   "id": "stop_point:TS1:SP:Nav10"
                 }, 
                 "arrival_date_time": "20041214T071100", 
@@ -373,12 +427,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 11", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.558616", 
                     "lon": "7.080203"
                   }, 
+                  "label": "Arret 11", 
+                  "equipments": [], 
                   "id": "stop_point:TS1:SP:Nav11"
                 }, 
                 "arrival_date_time": "20041214T072600", 
@@ -389,12 +445,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 12", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.606657", 
                     "lon": "7.09219"
                   }, 
+                  "label": "Arret 12 (Antibes)", 
+                  "equipments": [], 
                   "id": "stop_point:TS1:SP:Nav12"
                 }, 
                 "arrival_date_time": "20041214T074600", 
@@ -410,40 +468,72 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 12", 
+                "links": [], 
                 "coord": {
                   "lat": "43.606657", 
                   "lon": "7.09219"
                 }, 
+                "label": "Arret 12 (Antibes)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "06004", 
+                    "name": "Antibes", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.583599", 
+                      "lon": "7.109049"
+                    }, 
+                    "label": "Antibes (06160-06600)", 
+                    "id": "admin:74687extern", 
+                    "zip_code": "06160-06600"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:TS1:SP:Nav12", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 12", 
+                  "links": [], 
                   "coord": {
                     "lat": "43.606657", 
                     "lon": "7.09219"
                   }, 
+                  "label": "Arret 12 (Antibes)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "06004", 
+                      "name": "Antibes", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "43.583599", 
+                        "lon": "7.109049"
+                      }, 
+                      "label": "Antibes (06160-06600)", 
+                      "id": "admin:74687extern", 
+                      "zip_code": "06160-06600"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:TS1:SA:12"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:TS1:SP:Nav12", 
-              "name": "Arret 12"
+              "name": "Arret 12 (Antibes)"
             }, 
             "links": [], 
             "arrival_date_time": "20041214T074600", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041214T074600", 
             "to": {
               "embedded_type": "stop_area", 
@@ -451,39 +541,42 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 12", 
+                "links": [], 
                 "coord": {
                   "lat": "43.606657", 
                   "lon": "7.09219"
                 }, 
+                "label": "Arret 12 (Antibes)", 
+                "administrative_regions": [
+                  {
+                    "insee": "06004", 
+                    "name": "Antibes", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.583599", 
+                      "lon": "7.109049"
+                    }, 
+                    "label": "Antibes (06160-06600)", 
+                    "id": "admin:74687extern", 
+                    "zip_code": "06160-06600"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:TS1:SA:12"
               }, 
-              "name": "Arret 12", 
+              "name": "Arret 12 (Antibes)", 
               "id": "stop_area:TS1:SA:12"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  7.09219, 
-                  43.606657
-                ], 
-                [
-                  7.09219, 
-                  43.606657
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_2_0"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

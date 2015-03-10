@@ -10,29 +10,44 @@
         "duration": 513, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Station du C\u00e9gep (Sherbrooke)", 
             "arrival_date_time": "20111105T135500", 
-            "departure_date_time": "20111105T135500"
-          }, 
-          {
-            "duration": 300, 
-            "arrival_date_time": "20111105T140000", 
-            "departure_date_time": "20111105T135500"
-          }, 
-          {
+            "departure_date_time": "20111105T135500", 
+            "to": "Station du C\u00e9gep - quai F (Sherbrooke)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Station du C\u00e9gep - quai F (Sherbrooke)", 
             "arrival_date_time": "20111105T140000", 
-            "departure_date_time": "20111105T140000"
+            "departure_date_time": "20111105T135500", 
+            "to": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+            "duration": 300, 
+            "type": "public_transport"
           }, 
           {
-            "duration": 120, 
+            "from": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+            "arrival_date_time": "20111105T140000", 
+            "departure_date_time": "20111105T140000", 
+            "to": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+            "duration": 0, 
+            "type": "transfer"
+          }, 
+          {
+            "from": "Bowen Sud (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
             "arrival_date_time": "20111105T140200", 
-            "departure_date_time": "20111105T140000"
+            "departure_date_time": "20111105T140000", 
+            "to": "Talbot / Bowen Sud (Sherbrooke)", 
+            "duration": 120, 
+            "type": "public_transport"
           }, 
           {
-            "duration": 125, 
+            "from": "Talbot / Bowen Sud (Sherbrooke)", 
             "arrival_date_time": "20111105T140405", 
-            "departure_date_time": "20111105T140200"
+            "departure_date_time": "20111105T140200", 
+            "to": "Bowen Sud / Lasalle (Sherbrooke)", 
+            "duration": 125, 
+            "type": "street_network"
           }
         ]
       }
@@ -55,6 +70,13 @@
             "internal": true, 
             "type": "section", 
             "id": "section_3_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_6_0", 
             "rel": "sections", 
             "templated": false
           }
@@ -93,49 +115,49 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/poi_types/{poi_type.id}?collection=poi_types", 
+        "href": "http://localhost/v1/coverage/sherbrooke/poi_types/{poi_type.id}", 
         "type": "poi_type", 
         "rel": "poi_types", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/pois/{poi.id}?collection=pois", 
+        "href": "http://localhost/v1/coverage/sherbrooke/pois/{poi.id}", 
         "type": "poi", 
         "rel": "pois", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true

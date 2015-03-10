@@ -3,7 +3,6 @@
   "response": {
     "journeys": [
       {
-        "tags": [], 
         "nb_transfers": 1, 
         "arrival_date_time": "20041213T110000", 
         "departure_date_time": "20041213T070000", 
@@ -11,29 +10,44 @@
         "duration": 14400, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Arret 1 (Max\u00e9ville)", 
             "arrival_date_time": "20041213T070000", 
-            "departure_date_time": "20041213T070000"
-          }, 
-          {
-            "duration": 9780, 
-            "arrival_date_time": "20041213T094300", 
-            "departure_date_time": "20041213T070000"
-          }, 
-          {
-            "duration": 1020, 
-            "arrival_date_time": "20041213T100000", 
-            "departure_date_time": "20041213T094300"
-          }, 
-          {
-            "duration": 3600, 
-            "arrival_date_time": "20041213T110000", 
-            "departure_date_time": "20041213T100000"
-          }, 
-          {
+            "departure_date_time": "20041213T070000", 
+            "to": "Arret 1 (Max\u00e9ville)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Arret 1 (Max\u00e9ville)", 
+            "arrival_date_time": "20041213T094300", 
+            "departure_date_time": "20041213T070000", 
+            "to": "Arret 3 (Tomblaine)", 
+            "duration": 9780, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": null, 
+            "arrival_date_time": "20041213T100000", 
+            "departure_date_time": "20041213T094300", 
+            "to": null, 
+            "duration": 1020, 
+            "type": "waiting"
+          }, 
+          {
+            "from": "Arret 3 (Tomblaine)", 
             "arrival_date_time": "20041213T110000", 
-            "departure_date_time": "20041213T110000"
+            "departure_date_time": "20041213T100000", 
+            "to": "Arret 4 (Nancy)", 
+            "duration": 3600, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Arret 4 (Nancy)", 
+            "arrival_date_time": "20041213T110000", 
+            "departure_date_time": "20041213T110000", 
+            "to": "Arret 4 (Nancy)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -43,7 +57,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -68,57 +82,65 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/nb-corr-02/journeys?to=stop_area%3ANC2%3ASA%3A4&from=stop_area%3ANC2%3ASA%3A1&datetime_represents=arrival&datetime=20041213T105900", 
         "type": "prev", 
+        "rel": "prev", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-02/journeys?to=stop_area%3ANC2%3ASA%3A4&from=stop_area%3ANC2%3ASA%3A1&datetime_represents=departure&datetime=20041213T070100", 
         "type": "next", 
+        "rel": "next", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-02/journeys?to=stop_area%3ANC2%3ASA%3A4&from=stop_area%3ANC2%3ASA%3A1&datetime_represents=departure&datetime=20041213T000000", 
         "type": "first", 
+        "rel": "first", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-02/journeys?to=stop_area%3ANC2%3ASA%3A4&from=stop_area%3ANC2%3ASA%3A1&datetime_represents=arrival&datetime=20041213T235900", 
         "type": "last", 
+        "rel": "last", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-02/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-02/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-02/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-02/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-02/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-02/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -140,9 +162,30 @@
             }
           ]
         }, 
-        "tags": [], 
+        "tags": [
+          "standard"
+        ], 
         "nb_transfers": 1, 
         "arrival_date_time": "20041213T110000", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20040101", 
+                "end": "20041231"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041213T070000", 
         "requested_date_time": "20041213T070000", 
         "type": "best", 
@@ -155,73 +198,105 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "48.709439", 
                   "lon": "6.141033"
                 }, 
+                "label": "Arret 1 (Max\u00e9ville)", 
+                "administrative_regions": [
+                  {
+                    "insee": "54357", 
+                    "name": "Max\u00e9ville", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.711903", 
+                      "lon": "6.164131"
+                    }, 
+                    "label": "Max\u00e9ville (54320)", 
+                    "id": "admin:52400extern", 
+                    "zip_code": "54320"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:NC2:SA:1"
               }, 
-              "name": "Arret 1", 
+              "name": "Arret 1 (Max\u00e9ville)", 
               "id": "stop_area:NC2:SA:1"
             }, 
             "links": [], 
             "arrival_date_time": "20041213T070000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T070000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "48.709439", 
                   "lon": "6.141033"
                 }, 
+                "label": "Arret 1 (Max\u00e9ville)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "54357", 
+                    "name": "Max\u00e9ville", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.711903", 
+                      "lon": "6.164131"
+                    }, 
+                    "label": "Max\u00e9ville (54320)", 
+                    "id": "admin:52400extern", 
+                    "zip_code": "54320"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:NC2:SP:Nav1", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.709439", 
                     "lon": "6.141033"
                   }, 
+                  "label": "Arret 1 (Max\u00e9ville)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "54357", 
+                      "name": "Max\u00e9ville", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "48.711903", 
+                        "lon": "6.164131"
+                      }, 
+                      "label": "Max\u00e9ville (54320)", 
+                      "id": "admin:52400extern", 
+                      "zip_code": "54320"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:NC2:SA:1"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:NC2:SP:Nav1", 
-              "name": "Arret 1"
+              "name": "Arret 1 (Max\u00e9ville)"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  6.141033, 
-                  48.709439
-                ], 
-                [
-                  6.141033, 
-                  48.709439
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_0_0"
@@ -232,34 +307,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "48.709439", 
                   "lon": "6.141033"
                 }, 
+                "label": "Arret 1 (Max\u00e9ville)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "54357", 
+                    "name": "Max\u00e9ville", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.711903", 
+                      "lon": "6.164131"
+                    }, 
+                    "label": "Max\u00e9ville (54320)", 
+                    "id": "admin:52400extern", 
+                    "zip_code": "54320"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:NC2:SP:Nav1", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.709439", 
                     "lon": "6.141033"
                   }, 
+                  "label": "Arret 1 (Max\u00e9ville)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:NC2:SA:1"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:NC2:SP:Nav1", 
-              "name": "Arret 1"
+              "name": "Arret 1 (Max\u00e9ville)"
             }, 
             "links": [
               {
@@ -295,14 +390,13 @@
               }
             ], 
             "arrival_date_time": "20041213T094300", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T070000", 
             "display_informations": {
-              "direction": "Arret 3", 
+              "direction": "Arret 3 (Tomblaine)", 
               "code": "T1", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Tramway", 
               "headsign": "NC2:1-12", 
@@ -316,34 +410,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 3", 
+                "links": [], 
                 "coord": {
                   "lat": "48.693855", 
                   "lon": "6.206909"
                 }, 
+                "label": "Arret 3 (Tomblaine)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "54526", 
+                    "name": "Tomblaine", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.68644", 
+                      "lon": "6.21067"
+                    }, 
+                    "label": "Tomblaine (54510)", 
+                    "id": "admin:52373extern", 
+                    "zip_code": "54510"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:NC2:SP:Nav3", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.693855", 
                     "lon": "6.206909"
                   }, 
+                  "label": "Arret 3 (Tomblaine)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:NC2:SA:3"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:NC2:SP:Nav3", 
-              "name": "Arret 3"
+              "name": "Arret 3 (Tomblaine)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -374,12 +488,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.709439", 
                     "lon": "6.141033"
                   }, 
+                  "label": "Arret 1 (Max\u00e9ville)", 
+                  "equipments": [], 
                   "id": "stop_point:NC2:SP:Nav1"
                 }, 
                 "arrival_date_time": "20041213T070000", 
@@ -390,12 +506,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.702766", 
                     "lon": "6.169137"
                   }, 
+                  "label": "Arret 2 (Nancy)", 
+                  "equipments": [], 
                   "id": "stop_point:NC2:SP:Nav2"
                 }, 
                 "arrival_date_time": "20041213T080000", 
@@ -406,12 +524,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.693855", 
                     "lon": "6.206909"
                   }, 
+                  "label": "Arret 3 (Tomblaine)", 
+                  "equipments": [], 
                   "id": "stop_point:NC2:SP:Nav3"
                 }, 
                 "arrival_date_time": "20041213T094300", 
@@ -424,9 +544,7 @@
           {
             "links": [], 
             "arrival_date_time": "20041213T100000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T094300", 
             "duration": 1020, 
             "type": "waiting", 
@@ -438,34 +556,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 3", 
+                "links": [], 
                 "coord": {
                   "lat": "48.693855", 
                   "lon": "6.206909"
                 }, 
+                "label": "Arret 3 (Tomblaine)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "54526", 
+                    "name": "Tomblaine", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.68644", 
+                      "lon": "6.21067"
+                    }, 
+                    "label": "Tomblaine (54510)", 
+                    "id": "admin:52373extern", 
+                    "zip_code": "54510"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:NC2:SP:Nav3", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.693855", 
                     "lon": "6.206909"
                   }, 
+                  "label": "Arret 3 (Tomblaine)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:NC2:SA:3"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:NC2:SP:Nav3", 
-              "name": "Arret 3"
+              "name": "Arret 3 (Tomblaine)"
             }, 
             "links": [
               {
@@ -501,14 +639,13 @@
               }
             ], 
             "arrival_date_time": "20041213T110000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T100000", 
             "display_informations": {
-              "direction": "Arret 4", 
+              "direction": "Arret 4 (Nancy)", 
               "code": "T3", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Tramway", 
               "headsign": "NC2:3-10", 
@@ -522,34 +659,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "48.696341", 
                   "lon": "6.138634"
                 }, 
+                "label": "Arret 4 (Nancy)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "54395", 
+                    "name": "Nancy", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.692802", 
+                      "lon": "6.183812"
+                    }, 
+                    "label": "Nancy (54000)", 
+                    "id": "admin:52399extern", 
+                    "zip_code": "54000"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:NC2:SP:Nav4", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.696341", 
                     "lon": "6.138634"
                   }, 
+                  "label": "Arret 4 (Nancy)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:NC2:SA:4"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:NC2:SP:Nav4", 
-              "name": "Arret 4"
+              "name": "Arret 4 (Nancy)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -576,12 +733,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.693855", 
                     "lon": "6.206909"
                   }, 
+                  "label": "Arret 3 (Tomblaine)", 
+                  "equipments": [], 
                   "id": "stop_point:NC2:SP:Nav3"
                 }, 
                 "arrival_date_time": "20041213T100000", 
@@ -592,12 +751,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.696341", 
                     "lon": "6.138634"
                   }, 
+                  "label": "Arret 4 (Nancy)", 
+                  "equipments": [], 
                   "id": "stop_point:NC2:SP:Nav4"
                 }, 
                 "arrival_date_time": "20041213T110000", 
@@ -613,40 +774,72 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "48.696341", 
                   "lon": "6.138634"
                 }, 
+                "label": "Arret 4 (Nancy)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "54395", 
+                    "name": "Nancy", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.692802", 
+                      "lon": "6.183812"
+                    }, 
+                    "label": "Nancy (54000)", 
+                    "id": "admin:52399extern", 
+                    "zip_code": "54000"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:NC2:SP:Nav4", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.696341", 
                     "lon": "6.138634"
                   }, 
+                  "label": "Arret 4 (Nancy)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "54395", 
+                      "name": "Nancy", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "48.692802", 
+                        "lon": "6.183812"
+                      }, 
+                      "label": "Nancy (54000)", 
+                      "id": "admin:52399extern", 
+                      "zip_code": "54000"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:NC2:SA:4"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:NC2:SP:Nav4", 
-              "name": "Arret 4"
+              "name": "Arret 4 (Nancy)"
             }, 
             "links": [], 
             "arrival_date_time": "20041213T110000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T110000", 
             "to": {
               "embedded_type": "stop_area", 
@@ -654,39 +847,42 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "48.696341", 
                   "lon": "6.138634"
                 }, 
+                "label": "Arret 4 (Nancy)", 
+                "administrative_regions": [
+                  {
+                    "insee": "54395", 
+                    "name": "Nancy", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.692802", 
+                      "lon": "6.183812"
+                    }, 
+                    "label": "Nancy (54000)", 
+                    "id": "admin:52399extern", 
+                    "zip_code": "54000"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:NC2:SA:4"
               }, 
-              "name": "Arret 4", 
+              "name": "Arret 4 (Nancy)", 
               "id": "stop_area:NC2:SA:4"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  6.138634, 
-                  48.696341
-                ], 
-                [
-                  6.138634, 
-                  48.696341
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_4_0"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

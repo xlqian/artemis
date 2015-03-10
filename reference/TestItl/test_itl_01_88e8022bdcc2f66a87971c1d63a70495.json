@@ -10,19 +10,28 @@
         "duration": 12600, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Arret 1 (Metz)", 
             "arrival_date_time": "20041213T070000", 
-            "departure_date_time": "20041213T070000"
-          }, 
-          {
-            "duration": 12600, 
-            "arrival_date_time": "20041213T103000", 
-            "departure_date_time": "20041213T070000"
-          }, 
-          {
+            "departure_date_time": "20041213T070000", 
+            "to": "Arret 1 (Metz)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Arret 1 (Metz)", 
             "arrival_date_time": "20041213T103000", 
-            "departure_date_time": "20041213T103000"
+            "departure_date_time": "20041213T070000", 
+            "to": "Arret 7 (Marly)", 
+            "duration": 12600, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Arret 7 (Marly)", 
+            "arrival_date_time": "20041213T103000", 
+            "departure_date_time": "20041213T103000", 
+            "to": "Arret 7 (Marly)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -76,37 +85,37 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/itl/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/itl/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/itl/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/itl/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/itl/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/itl/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/itl/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/itl/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/itl/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/itl/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/itl/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/itl/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true

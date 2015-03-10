@@ -3,7 +3,6 @@
   "response": {
     "journeys": [
       {
-        "tags": [], 
         "nb_transfers": 2, 
         "arrival_date_time": "20041213T110000", 
         "departure_date_time": "20041213T071000", 
@@ -11,39 +10,60 @@
         "duration": 13800, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Arret 1 (Saleux)", 
             "arrival_date_time": "20041213T071000", 
-            "departure_date_time": "20041213T071000"
-          }, 
-          {
-            "duration": 3600, 
-            "arrival_date_time": "20041213T081000", 
-            "departure_date_time": "20041213T071000"
-          }, 
-          {
-            "duration": 3000, 
-            "arrival_date_time": "20041213T090000", 
-            "departure_date_time": "20041213T081000"
-          }, 
-          {
-            "duration": 3600, 
-            "arrival_date_time": "20041213T100000", 
-            "departure_date_time": "20041213T090000"
-          }, 
-          {
-            "duration": 1800, 
-            "arrival_date_time": "20041213T103000", 
-            "departure_date_time": "20041213T100000"
-          }, 
-          {
-            "duration": 1800, 
-            "arrival_date_time": "20041213T110000", 
-            "departure_date_time": "20041213T103000"
-          }, 
-          {
+            "departure_date_time": "20041213T071000", 
+            "to": "Arret 1 (Saleux)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Arret 1 (Saleux)", 
+            "arrival_date_time": "20041213T081000", 
+            "departure_date_time": "20041213T071000", 
+            "to": "Arret 2 (Arg\u0153uves)", 
+            "duration": 3600, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": null, 
+            "arrival_date_time": "20041213T090000", 
+            "departure_date_time": "20041213T081000", 
+            "to": null, 
+            "duration": 3000, 
+            "type": "waiting"
+          }, 
+          {
+            "from": "Arret 2 (Arg\u0153uves)", 
+            "arrival_date_time": "20041213T100000", 
+            "departure_date_time": "20041213T090000", 
+            "to": "Arret 3 (Saleux)", 
+            "duration": 3600, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": null, 
+            "arrival_date_time": "20041213T103000", 
+            "departure_date_time": "20041213T100000", 
+            "to": null, 
+            "duration": 1800, 
+            "type": "waiting"
+          }, 
+          {
+            "from": "Arret 3 (Saleux)", 
             "arrival_date_time": "20041213T110000", 
-            "departure_date_time": "20041213T110000"
+            "departure_date_time": "20041213T103000", 
+            "to": "Arret 4 (Amiens)", 
+            "duration": 1800, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Arret 4 (Amiens)", 
+            "arrival_date_time": "20041213T110000", 
+            "departure_date_time": "20041213T110000", 
+            "to": "Arret 4 (Amiens)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -53,7 +73,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -85,57 +105,65 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/nb-corr-05/journeys?to=stop_area%3ANC5%3ASA%3A4&from=stop_area%3ANC5%3ASA%3A1&datetime_represents=arrival&datetime=20041213T105900", 
         "type": "prev", 
+        "rel": "prev", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-05/journeys?to=stop_area%3ANC5%3ASA%3A4&from=stop_area%3ANC5%3ASA%3A1&datetime_represents=departure&datetime=20041213T071100", 
         "type": "next", 
+        "rel": "next", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-05/journeys?to=stop_area%3ANC5%3ASA%3A4&from=stop_area%3ANC5%3ASA%3A1&datetime_represents=departure&datetime=20041213T000000", 
         "type": "first", 
+        "rel": "first", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-05/journeys?to=stop_area%3ANC5%3ASA%3A4&from=stop_area%3ANC5%3ASA%3A1&datetime_represents=arrival&datetime=20041213T235900", 
         "type": "last", 
+        "rel": "last", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-05/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-05/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-05/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-05/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-05/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/nb-corr-05/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -157,9 +185,30 @@
             }
           ]
         }, 
-        "tags": [], 
+        "tags": [
+          "standard"
+        ], 
         "nb_transfers": 2, 
         "arrival_date_time": "20041213T110000", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20040101", 
+                "end": "20041231"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041213T071000", 
         "requested_date_time": "20041213T070000", 
         "type": "best", 
@@ -172,73 +221,105 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "49.860099", 
                   "lon": "2.242386"
                 }, 
+                "label": "Arret 1 (Saleux)", 
+                "administrative_regions": [
+                  {
+                    "insee": "80724", 
+                    "name": "Saleux", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.860264", 
+                      "lon": "2.23881"
+                    }, 
+                    "label": "Saleux (80480)", 
+                    "id": "admin:114380extern", 
+                    "zip_code": "80480"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:NC5:SA:1"
               }, 
-              "name": "Arret 1", 
+              "name": "Arret 1 (Saleux)", 
               "id": "stop_area:NC5:SA:1"
             }, 
             "links": [], 
             "arrival_date_time": "20041213T071000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T071000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "49.860099", 
                   "lon": "2.242386"
                 }, 
+                "label": "Arret 1 (Saleux)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "80724", 
+                    "name": "Saleux", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.860264", 
+                      "lon": "2.23881"
+                    }, 
+                    "label": "Saleux (80480)", 
+                    "id": "admin:114380extern", 
+                    "zip_code": "80480"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:NC5:SP:Nav1", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.860099", 
                     "lon": "2.242386"
                   }, 
+                  "label": "Arret 1 (Saleux)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "80724", 
+                      "name": "Saleux", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "49.860264", 
+                        "lon": "2.23881"
+                      }, 
+                      "label": "Saleux (80480)", 
+                      "id": "admin:114380extern", 
+                      "zip_code": "80480"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:NC5:SA:1"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:NC5:SP:Nav1", 
-              "name": "Arret 1"
+              "name": "Arret 1 (Saleux)"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  2.242386, 
-                  49.860099
-                ], 
-                [
-                  2.242386, 
-                  49.860099
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_0_0"
@@ -249,34 +330,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "49.860099", 
                   "lon": "2.242386"
                 }, 
+                "label": "Arret 1 (Saleux)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "80724", 
+                    "name": "Saleux", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.860264", 
+                      "lon": "2.23881"
+                    }, 
+                    "label": "Saleux (80480)", 
+                    "id": "admin:114380extern", 
+                    "zip_code": "80480"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:NC5:SP:Nav1", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.860099", 
                     "lon": "2.242386"
                   }, 
+                  "label": "Arret 1 (Saleux)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:NC5:SA:1"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:NC5:SP:Nav1", 
-              "name": "Arret 1"
+              "name": "Arret 1 (Saleux)"
             }, 
             "links": [
               {
@@ -312,14 +413,13 @@
               }
             ], 
             "arrival_date_time": "20041213T081000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T071000", 
             "display_informations": {
-              "direction": "Arret 2", 
+              "direction": "Arret 2 (Arg\u0153uves)", 
               "code": "T1", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Tramway", 
               "headsign": "NC5:1-25", 
@@ -333,34 +433,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 2", 
+                "links": [], 
                 "coord": {
                   "lat": "49.933005", 
                   "lon": "2.25712"
                 }, 
+                "label": "Arret 2 (Arg\u0153uves)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "80024", 
+                    "name": "Arg\u0153uves", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.929699", 
+                      "lon": "2.225423"
+                    }, 
+                    "label": "Arg\u0153uves (80470)", 
+                    "id": "admin:1318214extern", 
+                    "zip_code": "80470"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:NC5:SP:Nav2", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.933005", 
                     "lon": "2.25712"
                   }, 
+                  "label": "Arret 2 (Arg\u0153uves)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:NC5:SA:2"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:NC5:SP:Nav2", 
-              "name": "Arret 2"
+              "name": "Arret 2 (Arg\u0153uves)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -387,12 +507,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.860099", 
                     "lon": "2.242386"
                   }, 
+                  "label": "Arret 1 (Saleux)", 
+                  "equipments": [], 
                   "id": "stop_point:NC5:SP:Nav1"
                 }, 
                 "arrival_date_time": "20041213T071000", 
@@ -403,12 +525,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.933005", 
                     "lon": "2.25712"
                   }, 
+                  "label": "Arret 2 (Arg\u0153uves)", 
+                  "equipments": [], 
                   "id": "stop_point:NC5:SP:Nav2"
                 }, 
                 "arrival_date_time": "20041213T081000", 
@@ -421,9 +545,7 @@
           {
             "links": [], 
             "arrival_date_time": "20041213T090000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T081000", 
             "duration": 3000, 
             "type": "waiting", 
@@ -435,34 +557,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 2", 
+                "links": [], 
                 "coord": {
                   "lat": "49.933005", 
                   "lon": "2.25712"
                 }, 
+                "label": "Arret 2 (Arg\u0153uves)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "80024", 
+                    "name": "Arg\u0153uves", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.929699", 
+                      "lon": "2.225423"
+                    }, 
+                    "label": "Arg\u0153uves (80470)", 
+                    "id": "admin:1318214extern", 
+                    "zip_code": "80470"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:NC5:SP:Nav2", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.933005", 
                     "lon": "2.25712"
                   }, 
+                  "label": "Arret 2 (Arg\u0153uves)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:NC5:SA:2"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:NC5:SP:Nav2", 
-              "name": "Arret 2"
+              "name": "Arret 2 (Arg\u0153uves)"
             }, 
             "links": [
               {
@@ -498,14 +640,13 @@
               }
             ], 
             "arrival_date_time": "20041213T100000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T090000", 
             "display_informations": {
-              "direction": "Arret 3", 
+              "direction": "Arret 3 (Saleux)", 
               "code": "T2", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Tramway", 
               "headsign": "NC5:2-13", 
@@ -519,34 +660,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 3", 
+                "links": [], 
                 "coord": {
                   "lat": "49.858695", 
                   "lon": "2.250583"
                 }, 
+                "label": "Arret 3 (Saleux)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "80724", 
+                    "name": "Saleux", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.860264", 
+                      "lon": "2.23881"
+                    }, 
+                    "label": "Saleux (80480)", 
+                    "id": "admin:114380extern", 
+                    "zip_code": "80480"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:NC5:SP:Nav3", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.858695", 
                     "lon": "2.250583"
                   }, 
+                  "label": "Arret 3 (Saleux)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:NC5:SA:3"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:NC5:SP:Nav3", 
-              "name": "Arret 3"
+              "name": "Arret 3 (Saleux)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -561,7 +722,7 @@
                   49.933005
                 ], 
                 [
-                  2.250583, 
+                  2.2505830000000002, 
                   49.858695
                 ]
               ]
@@ -573,12 +734,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 2", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.933005", 
                     "lon": "2.25712"
                   }, 
+                  "label": "Arret 2 (Arg\u0153uves)", 
+                  "equipments": [], 
                   "id": "stop_point:NC5:SP:Nav2"
                 }, 
                 "arrival_date_time": "20041213T090000", 
@@ -589,12 +752,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.858695", 
                     "lon": "2.250583"
                   }, 
+                  "label": "Arret 3 (Saleux)", 
+                  "equipments": [], 
                   "id": "stop_point:NC5:SP:Nav3"
                 }, 
                 "arrival_date_time": "20041213T100000", 
@@ -607,9 +772,7 @@
           {
             "links": [], 
             "arrival_date_time": "20041213T103000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T100000", 
             "duration": 1800, 
             "type": "waiting", 
@@ -621,34 +784,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 3", 
+                "links": [], 
                 "coord": {
                   "lat": "49.858695", 
                   "lon": "2.250583"
                 }, 
+                "label": "Arret 3 (Saleux)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "80724", 
+                    "name": "Saleux", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.860264", 
+                      "lon": "2.23881"
+                    }, 
+                    "label": "Saleux (80480)", 
+                    "id": "admin:114380extern", 
+                    "zip_code": "80480"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:NC5:SP:Nav3", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.858695", 
                     "lon": "2.250583"
                   }, 
+                  "label": "Arret 3 (Saleux)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:NC5:SA:3"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:NC5:SP:Nav3", 
-              "name": "Arret 3"
+              "name": "Arret 3 (Saleux)"
             }, 
             "links": [
               {
@@ -684,14 +867,13 @@
               }
             ], 
             "arrival_date_time": "20041213T110000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T103000", 
             "display_informations": {
-              "direction": "Arret 4", 
+              "direction": "Arret 4 (Amiens)", 
               "code": "T3", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Tramway", 
               "headsign": "NC5:3-10", 
@@ -705,34 +887,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "49.864596", 
                   "lon": "2.28398"
                 }, 
+                "label": "Arret 4 (Amiens)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "80021", 
+                    "name": "Amiens", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.894169", 
+                      "lon": "2.295695"
+                    }, 
+                    "label": "Amiens (80000)", 
+                    "id": "admin:114347extern", 
+                    "zip_code": "80000"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:NC5:SP:Nav4", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.864596", 
                     "lon": "2.28398"
                   }, 
+                  "label": "Arret 4 (Amiens)", 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:NC5:SA:4"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:NC5:SP:Nav4", 
-              "name": "Arret 4"
+              "name": "Arret 4 (Amiens)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -743,7 +945,7 @@
               ], 
               "coordinates": [
                 [
-                  2.250583, 
+                  2.2505830000000002, 
                   49.858695
                 ], 
                 [
@@ -759,12 +961,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 3", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.858695", 
                     "lon": "2.250583"
                   }, 
+                  "label": "Arret 3 (Saleux)", 
+                  "equipments": [], 
                   "id": "stop_point:NC5:SP:Nav3"
                 }, 
                 "arrival_date_time": "20041213T103000", 
@@ -775,12 +979,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.864596", 
                     "lon": "2.28398"
                   }, 
+                  "label": "Arret 4 (Amiens)", 
+                  "equipments": [], 
                   "id": "stop_point:NC5:SP:Nav4"
                 }, 
                 "arrival_date_time": "20041213T110000", 
@@ -796,40 +1002,72 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "49.864596", 
                   "lon": "2.28398"
                 }, 
+                "label": "Arret 4 (Amiens)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "80021", 
+                    "name": "Amiens", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.894169", 
+                      "lon": "2.295695"
+                    }, 
+                    "label": "Amiens (80000)", 
+                    "id": "admin:114347extern", 
+                    "zip_code": "80000"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:NC5:SP:Nav4", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 4", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.864596", 
                     "lon": "2.28398"
                   }, 
+                  "label": "Arret 4 (Amiens)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "80021", 
+                      "name": "Amiens", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "49.894169", 
+                        "lon": "2.295695"
+                      }, 
+                      "label": "Amiens (80000)", 
+                      "id": "admin:114347extern", 
+                      "zip_code": "80000"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
                   "id": "stop_area:NC5:SA:4"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:NC5:SP:Nav4", 
-              "name": "Arret 4"
+              "name": "Arret 4 (Amiens)"
             }, 
             "links": [], 
             "arrival_date_time": "20041213T110000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T110000", 
             "to": {
               "embedded_type": "stop_area", 
@@ -837,39 +1075,42 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 4", 
+                "links": [], 
                 "coord": {
                   "lat": "49.864596", 
                   "lon": "2.28398"
                 }, 
+                "label": "Arret 4 (Amiens)", 
+                "administrative_regions": [
+                  {
+                    "insee": "80021", 
+                    "name": "Amiens", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.894169", 
+                      "lon": "2.295695"
+                    }, 
+                    "label": "Amiens (80000)", 
+                    "id": "admin:114347extern", 
+                    "zip_code": "80000"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
                 "id": "stop_area:NC5:SA:4"
               }, 
-              "name": "Arret 4", 
+              "name": "Arret 4 (Amiens)", 
               "id": "stop_area:NC5:SA:4"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  2.28398, 
-                  49.864596
-                ], 
-                [
-                  2.28398, 
-                  49.864596
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_6_0"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

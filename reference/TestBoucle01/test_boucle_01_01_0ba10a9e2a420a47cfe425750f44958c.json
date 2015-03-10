@@ -3,7 +3,6 @@
   "response": {
     "journeys": [
       {
-        "tags": [], 
         "nb_transfers": 0, 
         "arrival_date_time": "20041213T074000", 
         "departure_date_time": "20041213T073000", 
@@ -11,19 +10,28 @@
         "duration": 600, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Arret 1 (Ifs)", 
             "arrival_date_time": "20041213T073000", 
-            "departure_date_time": "20041213T073000"
-          }, 
-          {
-            "duration": 600, 
-            "arrival_date_time": "20041213T074000", 
-            "departure_date_time": "20041213T073000"
-          }, 
-          {
+            "departure_date_time": "20041213T073000", 
+            "to": "Arret 1 (Ifs)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Arret 1 (Ifs)", 
             "arrival_date_time": "20041213T074000", 
-            "departure_date_time": "20041213T074000"
+            "departure_date_time": "20041213T073000", 
+            "to": "Arret 6 (Carpiquet)", 
+            "duration": 600, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Arret 6 (Carpiquet)", 
+            "arrival_date_time": "20041213T074000", 
+            "departure_date_time": "20041213T074000", 
+            "to": "Arret 6 (Carpiquet)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -33,7 +41,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -51,57 +59,65 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/boucle-01/journeys?to=stop_area%3ABC1%3ASA%3A6&from=stop_area%3ABC1%3ASA%3A1&datetime_represents=arrival&datetime=20041213T073900", 
         "type": "prev", 
+        "rel": "prev", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/boucle-01/journeys?to=stop_area%3ABC1%3ASA%3A6&from=stop_area%3ABC1%3ASA%3A1&datetime_represents=departure&datetime=20041213T073100", 
         "type": "next", 
+        "rel": "next", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/boucle-01/journeys?to=stop_area%3ABC1%3ASA%3A6&from=stop_area%3ABC1%3ASA%3A1&datetime_represents=departure&datetime=20041213T000000", 
         "type": "first", 
+        "rel": "first", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/boucle-01/journeys?to=stop_area%3ABC1%3ASA%3A6&from=stop_area%3ABC1%3ASA%3A1&datetime_represents=arrival&datetime=20041213T235900", 
         "type": "last", 
+        "rel": "last", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/boucle-01/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/boucle-01/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/boucle-01/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/boucle-01/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/boucle-01/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/boucle-01/addresses/{address.id}", 
-        "rel": "address", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -123,9 +139,30 @@
             }
           ]
         }, 
-        "tags": [], 
+        "tags": [
+          "standard"
+        ], 
         "nb_transfers": 0, 
         "arrival_date_time": "20041213T074000", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20041101", 
+                "end": "20041231"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041213T073000", 
         "requested_date_time": "20041213T073000", 
         "type": "best", 
@@ -138,73 +175,105 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "49.160791", 
                   "lon": "-0.347771"
                 }, 
+                "label": "Arret 1 (Ifs)", 
+                "administrative_regions": [
+                  {
+                    "insee": "14341", 
+                    "name": "Ifs", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.141239", 
+                      "lon": "-0.350696"
+                    }, 
+                    "label": "Ifs (14123)", 
+                    "id": "admin:172647extern", 
+                    "zip_code": "14123"
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
                 "id": "stop_area:BC1:SA:1"
               }, 
-              "name": "Arret 1", 
+              "name": "Arret 1 (Ifs)", 
               "id": "stop_area:BC1:SA:1"
             }, 
             "links": [], 
             "arrival_date_time": "20041213T073000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T073000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "49.160791", 
                   "lon": "-0.347771"
                 }, 
+                "label": "Arret 1 (Ifs)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "14341", 
+                    "name": "Ifs", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.141239", 
+                      "lon": "-0.350696"
+                    }, 
+                    "label": "Ifs (14123)", 
+                    "id": "admin:172647extern", 
+                    "zip_code": "14123"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:BC1:SP:Nav1", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.160791", 
                     "lon": "-0.347771"
                   }, 
+                  "label": "Arret 1 (Ifs)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "14341", 
+                      "name": "Ifs", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "49.141239", 
+                        "lon": "-0.350696"
+                      }, 
+                      "label": "Ifs (14123)", 
+                      "id": "admin:172647extern", 
+                      "zip_code": "14123"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:BC1:SA:1"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:BC1:SP:Nav1", 
-              "name": "Arret 1"
+              "name": "Arret 1 (Ifs)"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  -0.347771, 
-                  49.160791
-                ], 
-                [
-                  -0.347771, 
-                  49.160791
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_0_0"
@@ -215,39 +284,59 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 1", 
+                "links": [], 
                 "coord": {
                   "lat": "49.160791", 
                   "lon": "-0.347771"
                 }, 
+                "label": "Arret 1 (Ifs)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "14341", 
+                    "name": "Ifs", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.141239", 
+                      "lon": "-0.350696"
+                    }, 
+                    "label": "Ifs (14123)", 
+                    "id": "admin:172647extern", 
+                    "zip_code": "14123"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:BC1:SP:Nav1", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.160791", 
                     "lon": "-0.347771"
                   }, 
+                  "label": "Arret 1 (Ifs)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:BC1:SA:1"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:BC1:SP:Nav1", 
-              "name": "Arret 1"
+              "name": "Arret 1 (Ifs)"
             }, 
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:BC1:2-35"
+                "id": "vehicle_journey:BC1:2-35_dst_3"
               }, 
               {
                 "type": "line", 
@@ -278,17 +367,16 @@
               }
             ], 
             "arrival_date_time": "20041213T074000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T073000", 
             "display_informations": {
-              "direction": "Arret 1", 
+              "direction": "Arret 1 (Ifs)", 
               "code": "ACCW", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
-              "headsign": "BC1:2-35", 
+              "headsign": "BC1:2-35_dst_3", 
               "commercial_mode": "BUS", 
               "equipments": [], 
               "label": "ACCW", 
@@ -299,34 +387,54 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 6", 
+                "links": [], 
                 "coord": {
                   "lat": "49.190244", 
                   "lon": "-0.449482"
                 }, 
+                "label": "Arret 6 (Carpiquet)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "14137", 
+                    "name": "Carpiquet", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.186203", 
+                      "lon": "-0.442506"
+                    }, 
+                    "label": "Carpiquet (14650)", 
+                    "id": "admin:152430extern", 
+                    "zip_code": "14650"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:BC1:SP:Nav6", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 6", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.190244", 
                     "lon": "-0.449482"
                   }, 
+                  "label": "Arret 6 (Carpiquet)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:BC1:SA:6"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:BC1:SP:Nav6", 
-              "name": "Arret 6"
+              "name": "Arret 6 (Carpiquet)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -361,12 +469,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 1", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.160791", 
                     "lon": "-0.347771"
                   }, 
+                  "label": "Arret 1 (Ifs)", 
+                  "equipments": [], 
                   "id": "stop_point:BC1:SP:Nav1"
                 }, 
                 "arrival_date_time": "20041213T073000", 
@@ -377,12 +487,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 8", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.178561", 
                     "lon": "-0.358479"
                   }, 
+                  "label": "Arret 8 (Caen)", 
+                  "equipments": [], 
                   "id": "stop_point:BC1:SP:Nav8"
                 }, 
                 "arrival_date_time": "20041213T073500", 
@@ -393,12 +505,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 7", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.193115", 
                     "lon": "-0.436537"
                   }, 
+                  "label": "Arret 7 (Saint-Germain-la-Blanche-Herbe)", 
+                  "equipments": [], 
                   "id": "stop_point:BC1:SP:Nav7"
                 }, 
                 "arrival_date_time": "20041213T073600", 
@@ -409,12 +523,14 @@
               {
                 "stop_point": {
                   "comment": "", 
-                  "equipments": [], 
                   "name": "Arret 6", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.190244", 
                     "lon": "-0.449482"
                   }, 
+                  "label": "Arret 6 (Carpiquet)", 
+                  "equipments": [], 
                   "id": "stop_point:BC1:SP:Nav6"
                 }, 
                 "arrival_date_time": "20041213T074000", 
@@ -430,40 +546,72 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Arret 6", 
+                "links": [], 
                 "coord": {
                   "lat": "49.190244", 
                   "lon": "-0.449482"
                 }, 
+                "label": "Arret 6 (Carpiquet)", 
                 "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "14137", 
+                    "name": "Carpiquet", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.186203", 
+                      "lon": "-0.442506"
+                    }, 
+                    "label": "Carpiquet (14650)", 
+                    "id": "admin:152430extern", 
+                    "zip_code": "14650"
+                  }
+                ], 
                 "address": {
                   "house_number": 0, 
                   "id": "0.0;0.0", 
+                  "name": "", 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
                   }, 
-                  "name": ""
+                  "label": ""
                 }, 
                 "id": "stop_point:BC1:SP:Nav6", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Arret 6", 
+                  "links": [], 
                   "coord": {
                     "lat": "49.190244", 
                     "lon": "-0.449482"
                   }, 
+                  "label": "Arret 6 (Carpiquet)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "14137", 
+                      "name": "Carpiquet", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "49.186203", 
+                        "lon": "-0.442506"
+                      }, 
+                      "label": "Carpiquet (14650)", 
+                      "id": "admin:152430extern", 
+                      "zip_code": "14650"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:BC1:SA:6"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:BC1:SP:Nav6", 
-              "name": "Arret 6"
+              "name": "Arret 6 (Carpiquet)"
             }, 
             "links": [], 
             "arrival_date_time": "20041213T074000", 
-            "additional_informations": [
-              "regular"
-            ], 
+            "additional_informations": [], 
             "departure_date_time": "20041213T074000", 
             "to": {
               "embedded_type": "stop_area", 
@@ -471,39 +619,42 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Arret 6", 
+                "links": [], 
                 "coord": {
                   "lat": "49.190244", 
                   "lon": "-0.449482"
                 }, 
+                "label": "Arret 6 (Carpiquet)", 
+                "administrative_regions": [
+                  {
+                    "insee": "14137", 
+                    "name": "Carpiquet", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.186203", 
+                      "lon": "-0.442506"
+                    }, 
+                    "label": "Carpiquet (14650)", 
+                    "id": "admin:152430extern", 
+                    "zip_code": "14650"
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
                 "id": "stop_area:BC1:SA:6"
               }, 
-              "name": "Arret 6", 
+              "name": "Arret 6 (Carpiquet)", 
               "id": "stop_area:BC1:SA:6"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  -0.449482, 
-                  49.190244
-                ], 
-                [
-                  -0.449482, 
-                  49.190244
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_2_0"
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }
