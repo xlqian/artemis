@@ -10,6 +10,9 @@ section = {
     "duration": fields.Raw,
     "departure_date_time": fields.Raw,
     "arrival_date_time": fields.Raw,
+    'from': fields.Raw(attribute='from.name'),
+    'to': fields.Raw(attribute='to.name'),
+    'type': fields.Raw,
 }
 
 journey = {
@@ -18,10 +21,7 @@ journey = {
     'departure_date_time': fields.Raw,
     'arrival_date_time': fields.Raw,
     'sections': fields.List(fields.Nested(section)),
-    #'from': fields.Raw,  #TODO, those field are more complicated
-    #'to': fields.Raw,
     'type': fields.Raw,
-    #'tags': fields.List(fields.Raw),
 }
 
 default_journey_mask = {
