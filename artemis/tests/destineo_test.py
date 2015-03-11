@@ -79,7 +79,7 @@ class TestDestineo(ArtemisTestFixture):
         We don't want to take the same vjs but at different stop points, they should be filtered
         """
         self.journey(_from='stop_area:NAN:SA:COMM',
-                     to='admin:44066', datetime='datetime=20150124T200000',
+                     to='admin:44066', datetime='20150124T200000',
                      first_section_mode=['walking', 'bike', 'bss', 'car'],
                      last_section_mode=['walking', 'bss'],
                      min_nb_journeys=3)
