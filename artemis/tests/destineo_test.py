@@ -89,7 +89,7 @@ class TestDestineo(ArtemisTestFixture):
         we go from "Pompidou (Nantes)" to "Mairie (Laval)"
         """
         self.journey(_from='stop_area:NAN:SA:PPDO',
-                     to='stop_area:LAV:SA:245', datetime='2014112T111000',
+                     to='stop_area:LAV:SA:245', datetime='20141112T111000',
                      first_section_mode=['walking', 'bike', 'bss', 'car'],
                      last_section_mode=['walking', 'bss'],
                      min_nb_journeys=3, datetime_represents='arrival')
