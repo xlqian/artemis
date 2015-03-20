@@ -10,28 +10,19 @@
         "duration": 960, 
         "sections": [
           {
-            "from": "Gare Part-Dieu Vivier Merle (Lyon)", 
+            "duration": 0, 
             "arrival_date_time": "20090722T070600", 
-            "departure_date_time": "20090722T070600", 
-            "to": "Gare Part-Dieu Vivier Merle (Lyon)", 
-            "duration": 0, 
-            "type": "crow_fly"
+            "departure_date_time": "20090722T070600"
           }, 
           {
-            "from": "Gare Part-Dieu Vivier Merle (Lyon)", 
-            "arrival_date_time": "20090722T072200", 
-            "departure_date_time": "20090722T070600", 
-            "to": "Perrache (Lyon)", 
             "duration": 960, 
-            "type": "public_transport"
+            "arrival_date_time": "20090722T072200", 
+            "departure_date_time": "20090722T070600"
           }, 
           {
-            "from": "Perrache (Lyon)", 
-            "arrival_date_time": "20090722T072200", 
-            "departure_date_time": "20090722T072200", 
-            "to": "Perrache (Lyon)", 
             "duration": 0, 
-            "type": "crow_fly"
+            "arrival_date_time": "20090722T072200", 
+            "departure_date_time": "20090722T072200"
           }
         ]
       }
@@ -41,7 +32,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
+        "name": "unkown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -59,6 +50,8 @@
         "id": "unknown_ticket_0"
       }
     ], 
+    "exceptions": [], 
+    "notes": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/tcl/journeys?to=stop_area%3ATCL%3ASA%3A5085&datetime_represents=arrival&from=stop_area%3ATCL%3ASA%3A5520&max_duration_to_pt=240&walking_speed=0.83&datetime=20090722T072100", 
@@ -85,37 +78,37 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/tcl/stop_points/{stop_point.id}", 
+        "href": "http://localhost/v1/coverage/tcl/stop_points/{stop_point.id}?collection=stop_points", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/tcl/stop_areas/{stop_area.id}", 
+        "href": "http://localhost/v1/coverage/tcl/stop_areas/{stop_area.id}?collection=stop_areas", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/tcl/addresses/{address.id}", 
+        "href": "http://localhost/v1/coverage/tcl/addresses/{address.id}?collection=addresses", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/tcl/stop_points/{stop_point.id}", 
+        "href": "http://localhost/v1/coverage/tcl/stop_points/{stop_point.id}?collection=stop_points", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/tcl/stop_areas/{stop_area.id}", 
+        "href": "http://localhost/v1/coverage/tcl/stop_areas/{stop_area.id}?collection=stop_areas", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/tcl/addresses/{address.id}", 
+        "href": "http://localhost/v1/coverage/tcl/addresses/{address.id}?collection=addresses", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
@@ -144,29 +137,6 @@
         ], 
         "nb_transfers": 0, 
         "arrival_date_time": "20090722T072200", 
-        "calendars": [
-          {
-            "active_periods": [
-              {
-                "begin": "20090720", 
-                "end": "20090727"
-              }, 
-              {
-                "begin": "20090824", 
-                "end": "20090829"
-              }
-            ], 
-            "week_pattern": {
-              "monday": true, 
-              "tuesday": true, 
-              "friday": true, 
-              "wednesday": true, 
-              "thursday": true, 
-              "sunday": false, 
-              "saturday": false
-            }
-          }
-        ], 
         "departure_date_time": "20090722T070600", 
         "requested_date_time": "20090722T070000", 
         "type": "best", 
@@ -179,7 +149,6 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Gare Part-Dieu Vivier Merle", 
-                "links": [], 
                 "coord": {
                   "lat": "45.761367", 
                   "lon": "4.857862"
@@ -187,7 +156,6 @@
                 "label": "Gare Part-Dieu Vivier Merle (Lyon)", 
                 "administrative_regions": [
                   {
-                    "insee": "69383", 
                     "name": "Lyon 3e Arrondissement", 
                     "level": 9, 
                     "coord": {
@@ -199,7 +167,6 @@
                     "zip_code": "69003"
                   }, 
                   {
-                    "insee": "69123", 
                     "name": "Lyon", 
                     "level": 8, 
                     "coord": {
@@ -226,7 +193,6 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Gare Part-Dieu Vivier Merle", 
-                "links": [], 
                 "coord": {
                   "lat": "45.761877", 
                   "lon": "4.8578"
@@ -235,7 +201,6 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
-                    "insee": "69383", 
                     "name": "Lyon 3e Arrondissement", 
                     "level": 9, 
                     "coord": {
@@ -247,7 +212,6 @@
                     "zip_code": "69003"
                   }, 
                   {
-                    "insee": "69123", 
                     "name": "Lyon", 
                     "level": 8, 
                     "coord": {
@@ -261,19 +225,18 @@
                 ], 
                 "address": {
                   "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
+                  "id": "4.8578;45.761877", 
+                  "name": "Boulevard Vivier-Merle", 
                   "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
+                    "lat": "45.761877", 
+                    "lon": "4.8578"
                   }, 
-                  "label": ""
+                  "label": "Boulevard Vivier-Merle"
                 }, 
                 "id": "stop_point:TCL:SP:32120", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Gare Part-Dieu Vivier Merle", 
-                  "links": [], 
                   "coord": {
                     "lat": "45.761367", 
                     "lon": "4.857862"
@@ -281,7 +244,6 @@
                   "label": "Gare Part-Dieu Vivier Merle (Lyon)", 
                   "administrative_regions": [
                     {
-                      "insee": "69383", 
                       "name": "Lyon 3e Arrondissement", 
                       "level": 9, 
                       "coord": {
@@ -293,7 +255,6 @@
                       "zip_code": "69003"
                     }, 
                     {
-                      "insee": "69123", 
                       "name": "Lyon", 
                       "level": 8, 
                       "coord": {
@@ -324,7 +285,6 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Gare Part-Dieu Vivier Merle", 
-                "links": [], 
                 "coord": {
                   "lat": "45.761877", 
                   "lon": "4.8578"
@@ -333,7 +293,6 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
-                    "insee": "69383", 
                     "name": "Lyon 3e Arrondissement", 
                     "level": 9, 
                     "coord": {
@@ -345,7 +304,6 @@
                     "zip_code": "69003"
                   }, 
                   {
-                    "insee": "69123", 
                     "name": "Lyon", 
                     "level": 8, 
                     "coord": {
@@ -359,19 +317,18 @@
                 ], 
                 "address": {
                   "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
+                  "id": "4.8578;45.761877", 
+                  "name": "Boulevard Vivier-Merle", 
                   "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
+                    "lat": "45.761877", 
+                    "lon": "4.8578"
                   }, 
-                  "label": ""
+                  "label": "Boulevard Vivier-Merle"
                 }, 
                 "id": "stop_point:TCL:SP:32120", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Gare Part-Dieu Vivier Merle", 
-                  "links": [], 
                   "coord": {
                     "lat": "45.761367", 
                     "lon": "4.857862"
@@ -411,7 +368,6 @@
                 "id": "network:TCL:"
               }, 
               {
-                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -425,7 +381,6 @@
               "direction": "Montrochet (Lyon)", 
               "code": "T1", 
               "description": "", 
-              "links": [], 
               "color": "000000", 
               "physical_mode": "Tramway", 
               "headsign": "135AS", 
@@ -439,7 +394,6 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Perrache", 
-                "links": [], 
                 "coord": {
                   "lat": "45.749762", 
                   "lon": "4.827159"
@@ -448,45 +402,42 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
-                    "insee": "69123", 
-                    "name": "Lyon", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "45.757591", 
-                      "lon": "4.832323"
-                    }, 
-                    "label": "Lyon (69001-69009)", 
-                    "id": "admin:120965extern", 
-                    "zip_code": "69001-69009"
-                  }, 
-                  {
-                    "insee": "69382", 
                     "name": "Lyon 2e Arrondissement", 
                     "level": 9, 
                     "coord": {
-                      "lat": "45.75111", 
+                      "lat": "45.751111", 
                       "lon": "4.827373"
                     }, 
                     "label": "Lyon 2e Arrondissement (69002)", 
-                    "id": "admin:10680extern", 
+                    "id": "10680", 
                     "zip_code": "69002"
+                  }, 
+                  {
+                    "name": "Lyon", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.757595", 
+                      "lon": "4.832323"
+                    }, 
+                    "label": "Lyon (69001-69009)", 
+                    "id": "120965", 
+                    "zip_code": "69001;69002;69003;69004;69005;69006;69007;69008;69009"
                   }
                 ], 
                 "address": {
                   "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
+                  "id": "4.827159;45.749762", 
+                  "name": "Tr\u00e9mie n\u00b0 1", 
                   "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
+                    "lat": "45.749762", 
+                    "lon": "4.827159"
                   }, 
-                  "label": ""
+                  "label": "Tr\u00e9mie n\u00b0 1 (Lyon)"
                 }, 
                 "id": "stop_point:TCL:SP:32102", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Perrache", 
-                  "links": [], 
                   "coord": {
                     "lat": "45.749749", 
                     "lon": "4.826615"
@@ -558,7 +509,6 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Gare Part-Dieu Vivier Merle", 
-                  "links": [], 
                   "coord": {
                     "lat": "45.761877", 
                     "lon": "4.8578"
@@ -576,7 +526,6 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Part-Dieu - Servient", 
-                  "links": [], 
                   "coord": {
                     "lat": "45.760694", 
                     "lon": "4.853965"
@@ -594,7 +543,6 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Palais Justice - Mairie 3e", 
-                  "links": [], 
                   "coord": {
                     "lat": "45.760334", 
                     "lon": "4.847943"
@@ -612,7 +560,6 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Saxe - Pr\u00e9fecture", 
-                  "links": [], 
                   "coord": {
                     "lat": "45.760141", 
                     "lon": "4.844912"
@@ -630,7 +577,6 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Libert\u00e9", 
-                  "links": [], 
                   "coord": {
                     "lat": "45.758757", 
                     "lon": "4.842406"
@@ -648,7 +594,6 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Guilloti\u00e8re - Gabriel P\u00e9ri", 
-                  "links": [], 
                   "coord": {
                     "lat": "45.75414", 
                     "lon": "4.841964"
@@ -666,7 +611,6 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Saint-Andr\u00e9", 
-                  "links": [], 
                   "coord": {
                     "lat": "45.752846", 
                     "lon": "4.841044"
@@ -684,7 +628,6 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Rue de l'Universit\u00e9", 
-                  "links": [], 
                   "coord": {
                     "lat": "45.751246", 
                     "lon": "4.838914"
@@ -702,7 +645,6 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Quai Claude Bernard", 
-                  "links": [], 
                   "coord": {
                     "lat": "45.750996", 
                     "lon": "4.836408"
@@ -720,7 +662,6 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Perrache", 
-                  "links": [], 
                   "coord": {
                     "lat": "45.749762", 
                     "lon": "4.827159"
@@ -742,7 +683,6 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Perrache", 
-                "links": [], 
                 "coord": {
                   "lat": "45.749762", 
                   "lon": "4.827159"
@@ -751,45 +691,66 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
-                    "insee": "69123", 
-                    "name": "Lyon", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "45.757591", 
-                      "lon": "4.832323"
-                    }, 
-                    "label": "Lyon (69001-69009)", 
-                    "id": "admin:120965extern", 
-                    "zip_code": "69001-69009"
-                  }, 
-                  {
-                    "insee": "69382", 
                     "name": "Lyon 2e Arrondissement", 
                     "level": 9, 
                     "coord": {
-                      "lat": "45.75111", 
+                      "lat": "45.751111", 
                       "lon": "4.827373"
                     }, 
                     "label": "Lyon 2e Arrondissement (69002)", 
-                    "id": "admin:10680extern", 
+                    "id": "10680", 
                     "zip_code": "69002"
+                  }, 
+                  {
+                    "name": "Lyon", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.757595", 
+                      "lon": "4.832323"
+                    }, 
+                    "label": "Lyon (69001-69009)", 
+                    "id": "120965", 
+                    "zip_code": "69001;69002;69003;69004;69005;69006;69007;69008;69009"
                   }
                 ], 
                 "address": {
+                  "name": "Tr\u00e9mie n\u00b0 1", 
                   "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
                   "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
+                    "lat": "45.749762", 
+                    "lon": "4.827159"
                   }, 
-                  "label": ""
+                  "label": "Tr\u00e9mie n\u00b0 1 (Lyon)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Lyon 2e Arrondissement", 
+                      "level": 9, 
+                      "coord": {
+                        "lat": "45.751111", 
+                        "lon": "4.827373"
+                      }, 
+                      "label": "Lyon 2e Arrondissement (69002)", 
+                      "id": "10680", 
+                      "zip_code": "69002"
+                    }, 
+                    {
+                      "name": "Lyon", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "45.757595", 
+                        "lon": "4.832323"
+                      }, 
+                      "label": "Lyon (69001-69009)", 
+                      "id": "120965", 
+                      "zip_code": "69001;69002;69003;69004;69005;69006;69007;69008;69009"
+                    }
+                  ], 
+                  "id": "4.827159;45.749762"
                 }, 
                 "id": "stop_point:TCL:SP:32102", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Perrache", 
-                  "links": [], 
                   "coord": {
                     "lat": "45.749749", 
                     "lon": "4.826615"
@@ -797,28 +758,26 @@
                   "label": "Perrache (Lyon)", 
                   "administrative_regions": [
                     {
-                      "insee": "69123", 
-                      "name": "Lyon", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "45.757591", 
-                        "lon": "4.832323"
-                      }, 
-                      "label": "Lyon (69001-69009)", 
-                      "id": "admin:120965extern", 
-                      "zip_code": "69001-69009"
-                    }, 
-                    {
-                      "insee": "69382", 
                       "name": "Lyon 2e Arrondissement", 
                       "level": 9, 
                       "coord": {
-                        "lat": "45.75111", 
+                        "lat": "45.751111", 
                         "lon": "4.827373"
                       }, 
                       "label": "Lyon 2e Arrondissement (69002)", 
-                      "id": "admin:10680extern", 
+                      "id": "10680", 
                       "zip_code": "69002"
+                    }, 
+                    {
+                      "name": "Lyon", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "45.757595", 
+                        "lon": "4.832323"
+                      }, 
+                      "label": "Lyon (69001-69009)", 
+                      "id": "120965", 
+                      "zip_code": "69001;69002;69003;69004;69005;69006;69007;69008;69009"
                     }
                   ], 
                   "timezone": "Europe/Paris", 
@@ -839,7 +798,6 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Perrache", 
-                "links": [], 
                 "coord": {
                   "lat": "45.749749", 
                   "lon": "4.826615"
@@ -847,28 +805,26 @@
                 "label": "Perrache (Lyon)", 
                 "administrative_regions": [
                   {
-                    "insee": "69123", 
-                    "name": "Lyon", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "45.757591", 
-                      "lon": "4.832323"
-                    }, 
-                    "label": "Lyon (69001-69009)", 
-                    "id": "admin:120965extern", 
-                    "zip_code": "69001-69009"
-                  }, 
-                  {
-                    "insee": "69382", 
                     "name": "Lyon 2e Arrondissement", 
                     "level": 9, 
                     "coord": {
-                      "lat": "45.75111", 
+                      "lat": "45.751111", 
                       "lon": "4.827373"
                     }, 
                     "label": "Lyon 2e Arrondissement (69002)", 
-                    "id": "admin:10680extern", 
+                    "id": "10680", 
                     "zip_code": "69002"
+                  }, 
+                  {
+                    "name": "Lyon", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "45.757595", 
+                      "lon": "4.832323"
+                    }, 
+                    "label": "Lyon (69001-69009)", 
+                    "id": "120965", 
+                    "zip_code": "69001;69002;69003;69004;69005;69006;69007;69008;69009"
                   }
                 ], 
                 "timezone": "Europe/Paris", 
@@ -884,9 +840,6 @@
           }
         ]
       }
-    ], 
-    "disruptions": [], 
-    "notes": [], 
-    "exceptions": []
+    ]
   }
 }

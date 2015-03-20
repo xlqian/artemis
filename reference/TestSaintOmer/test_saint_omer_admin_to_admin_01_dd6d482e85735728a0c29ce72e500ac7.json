@@ -3,19 +3,95 @@
   "response": {
     "journeys": [
       {
-        "nb_transfers": 0, 
-        "arrival_date_time": "20121120T103500", 
-        "departure_date_time": "20121120T101500", 
+        "nb_transfers": 1, 
+        "arrival_date_time": "20121120T162600", 
+        "departure_date_time": "20121120T151100", 
         "type": "best", 
-        "duration": 1200, 
+        "duration": 4500, 
         "sections": [
           {
-            "from": "Saint-Omer (62500)", 
-            "arrival_date_time": "20121120T103500", 
-            "departure_date_time": "20121120T101500", 
-            "to": "Houlle (62910)", 
-            "duration": 1200, 
-            "type": "on_demand_transport"
+            "duration": 0, 
+            "arrival_date_time": "20121120T151100", 
+            "departure_date_time": "20121120T151100"
+          }, 
+          {
+            "duration": 1080, 
+            "arrival_date_time": "20121120T152900", 
+            "departure_date_time": "20121120T151100"
+          }, 
+          {
+            "duration": 60, 
+            "arrival_date_time": "20121120T153000", 
+            "departure_date_time": "20121120T152900"
+          }, 
+          {
+            "duration": 2400, 
+            "arrival_date_time": "20121120T161000", 
+            "departure_date_time": "20121120T153000"
+          }, 
+          {
+            "duration": 960, 
+            "arrival_date_time": "20121120T162600", 
+            "departure_date_time": "20121120T161000"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20121120T162600", 
+            "departure_date_time": "20121120T162600"
+          }
+        ]
+      }, 
+      {
+        "nb_transfers": 2, 
+        "arrival_date_time": "20121120T162600", 
+        "departure_date_time": "20121120T151600", 
+        "type": "fastest", 
+        "duration": 4200, 
+        "sections": [
+          {
+            "duration": 0, 
+            "arrival_date_time": "20121120T151600", 
+            "departure_date_time": "20121120T151600"
+          }, 
+          {
+            "duration": 120, 
+            "arrival_date_time": "20121120T151800", 
+            "departure_date_time": "20121120T151600"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20121120T151800", 
+            "departure_date_time": "20121120T151800"
+          }, 
+          {
+            "duration": 120, 
+            "arrival_date_time": "20121120T152000", 
+            "departure_date_time": "20121120T151800"
+          }, 
+          {
+            "duration": 540, 
+            "arrival_date_time": "20121120T152900", 
+            "departure_date_time": "20121120T152000"
+          }, 
+          {
+            "duration": 60, 
+            "arrival_date_time": "20121120T153000", 
+            "departure_date_time": "20121120T152900"
+          }, 
+          {
+            "duration": 2400, 
+            "arrival_date_time": "20121120T161000", 
+            "departure_date_time": "20121120T153000"
+          }, 
+          {
+            "duration": 960, 
+            "arrival_date_time": "20121120T162600", 
+            "departure_date_time": "20121120T161000"
+          }, 
+          {
+            "duration": 0, 
+            "arrival_date_time": "20121120T162600", 
+            "departure_date_time": "20121120T162600"
           }
         ]
       }
@@ -25,12 +101,40 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
+        "name": "unkown_ticket", 
         "links": [
           {
             "internal": true, 
             "type": "section", 
-            "id": "section_0_0", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_4_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_7_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_10_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_13_0", 
             "rel": "sections", 
             "templated": false
           }
@@ -43,15 +147,17 @@
         "id": "unknown_ticket_0"
       }
     ], 
+    "exceptions": [], 
+    "notes": [], 
     "links": [
       {
-        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62458&datetime_represents=arrival&from=admin%3A62765&max_duration_to_pt=1000&walking_speed=1&datetime=20121120T103400", 
+        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62458&datetime_represents=arrival&from=admin%3A62765&max_duration_to_pt=1000&walking_speed=1&datetime=20121120T162500", 
         "type": "prev", 
         "rel": "prev", 
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62458&datetime_represents=departure&from=admin%3A62765&max_duration_to_pt=1000&walking_speed=1&datetime=20121120T101600", 
+        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62458&datetime_represents=departure&from=admin%3A62765&max_duration_to_pt=1000&walking_speed=1&datetime=20121120T151700", 
         "type": "next", 
         "rel": "next", 
         "templated": false
@@ -69,43 +175,1026 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/stop_points/{stop_point.id}", 
+        "href": "http://localhost/v1/coverage/saintomer/stop_points/{stop_point.id}?collection=stop_points", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/poi_types/{poi_type.id}", 
+        "href": "http://localhost/v1/coverage/saintomer/poi_types/{poi_type.id}?collection=poi_types", 
         "type": "poi_type", 
         "rel": "poi_types", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/stop_areas/{stop_area.id}", 
+        "href": "http://localhost/v1/coverage/saintomer/stop_areas/{stop_area.id}?collection=stop_areas", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/saintomer/pois/{poi.id}", 
+        "href": "http://localhost/v1/coverage/saintomer/pois/{poi.id}?collection=pois", 
         "type": "poi", 
         "rel": "pois", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/stop_points/{stop_point.id}", 
+        "href": "http://localhost/v1/coverage/saintomer/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/stop_points/{stop_point.id}?collection=stop_points", 
         "type": "stop_point", 
         "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/saintomer/addresses/{address.id}?collection=addresses", 
+        "type": "address", 
+        "rel": "addresses", 
         "templated": true
       }
     ], 
     "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": []
+        }, 
+        "tags": [], 
+        "nb_transfers": 1, 
+        "arrival_date_time": "20121120T162600", 
+        "departure_date_time": "20121120T151100", 
+        "requested_date_time": "20121120T101500", 
+        "type": "best", 
+        "duration": 4500, 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "administrative_region", 
+              "quality": 0, 
+              "administrative_region": {
+                "name": "Saint-Omer", 
+                "level": 8, 
+                "coord": {
+                  "lat": "50.75004624", 
+                  "lon": "2.260695471"
+                }, 
+                "label": "Saint-Omer (62500)", 
+                "id": "admin:62765", 
+                "zip_code": "62500"
+              }, 
+              "id": "admin:62765", 
+              "name": "Saint-Omer (62500)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20121120T151100", 
+            "additional_informations": [], 
+            "departure_date_time": "20121120T151100", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Gare", 
+                "coord": {
+                  "lat": "50.753575", 
+                  "lon": "2.266693"
+                }, 
+                "label": "Gare (Saint-Omer)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Omer", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.75004624", 
+                      "lon": "2.260695471"
+                    }, 
+                    "label": "Saint-Omer (62500)", 
+                    "id": "admin:62765", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "name": "place du 8 Mai 1945", 
+                  "house_number": 0, 
+                  "coord": {
+                    "lat": "50.753575", 
+                    "lon": "2.266693"
+                  }, 
+                  "label": "place du 8 Mai 1945 (Saint-Omer)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Saint-Omer", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "50.75004624", 
+                        "lon": "2.260695471"
+                      }, 
+                      "label": "Saint-Omer (62500)", 
+                      "id": "admin:62765", 
+                      "zip_code": "62500"
+                    }
+                  ], 
+                  "id": "2.266693;50.753575"
+                }, 
+                "id": "stop_point:ASO:SP:Nav49", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Gare", 
+                  "coord": {
+                    "lat": "50.753574", 
+                    "lon": "2.266498"
+                  }, 
+                  "label": "Gare (Saint-Omer)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Saint-Omer", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "50.75004624", 
+                        "lon": "2.260695471"
+                      }, 
+                      "label": "Saint-Omer (62500)", 
+                      "id": "admin:62765", 
+                      "zip_code": "62500"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:ASO:SA:1"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:ASO:SP:Nav49", 
+              "name": "Gare (Saint-Omer)"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_9_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Gare", 
+                "coord": {
+                  "lat": "50.753575", 
+                  "lon": "2.266693"
+                }, 
+                "label": "Gare (Saint-Omer)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Omer", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.75004624", 
+                      "lon": "2.260695471"
+                    }, 
+                    "label": "Saint-Omer (62500)", 
+                    "id": "admin:62765", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "2.266693;50.753575", 
+                  "name": "place du 8 Mai 1945", 
+                  "coord": {
+                    "lat": "50.753575", 
+                    "lon": "2.266693"
+                  }, 
+                  "label": "place du 8 Mai 1945 (Saint-Omer)"
+                }, 
+                "id": "stop_point:ASO:SP:Nav49", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Gare", 
+                  "coord": {
+                    "lat": "50.753574", 
+                    "lon": "2.266498"
+                  }, 
+                  "label": "Gare (Saint-Omer)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:ASO:SA:1"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:ASO:SP:Nav49", 
+              "name": "Gare (Saint-Omer)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:ASO:84-737_dst_2"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:ASO:Nav53"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:ASO:Nav84"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:Bus"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:CASO"
+              }, 
+              {
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20121120T152900", 
+            "additional_informations": [], 
+            "departure_date_time": "20121120T151100", 
+            "display_informations": {
+              "direction": "Noir Cornet (Saint-Martin-au-La\u00ebrt)", 
+              "code": "4", 
+              "description": "", 
+              "color": "000000", 
+              "physical_mode": "Bus", 
+              "headsign": "ASO:84-737_dst_2", 
+              "commercial_mode": "Bus", 
+              "equipments": [], 
+              "label": "4", 
+              "network": "CASO Bus"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Croix P\u00e8lerine", 
+                "coord": {
+                  "lat": "50.758618", 
+                  "lon": "2.230315"
+                }, 
+                "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Martin-au-La\u00ebrt", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.7548421", 
+                      "lon": "2.23571463"
+                    }, 
+                    "label": "Saint-Martin-au-La\u00ebrt (62500)", 
+                    "id": "admin:62757", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 1, 
+                  "id": "2.230315;50.758618", 
+                  "name": "rue de la Croix de Gr\u00e8s", 
+                  "coord": {
+                    "lat": "50.758618", 
+                    "lon": "2.230315"
+                  }, 
+                  "label": "1 rue de la Croix de Gr\u00e8s (Saint-Martin-au-La\u00ebrt)"
+                }, 
+                "id": "stop_point:ASO:SP:Nav95", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Croix P\u00e8lerine", 
+                  "coord": {
+                    "lat": "50.758501", 
+                    "lon": "2.230385"
+                  }, 
+                  "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:SC1:SA:39"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:ASO:SP:Nav95", 
+              "name": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 3592
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.266693, 
+                  50.753575
+                ], 
+                [
+                  2.260012, 
+                  50.755393
+                ], 
+                [
+                  2.249111, 
+                  50.75519
+                ], 
+                [
+                  2.250036, 
+                  50.750378
+                ], 
+                [
+                  2.243384, 
+                  50.75029
+                ], 
+                [
+                  2.237799, 
+                  50.75442
+                ], 
+                [
+                  2.230315, 
+                  50.758618
+                ]
+              ]
+            }, 
+            "duration": 1080, 
+            "type": "public_transport", 
+            "id": "section_10_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Gare", 
+                  "coord": {
+                    "lat": "50.753575", 
+                    "lon": "2.266693"
+                  }, 
+                  "label": "Gare (Saint-Omer)", 
+                  "equipments": [], 
+                  "id": "stop_point:ASO:SP:Nav49"
+                }, 
+                "arrival_date_time": "20121120T151100", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T151100", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Mathurin", 
+                  "coord": {
+                    "lat": "50.755393", 
+                    "lon": "2.260012"
+                  }, 
+                  "label": "Mathurin (Saint-Omer)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:ASO:SP:Nav68"
+                }, 
+                "arrival_date_time": "20121120T151400", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T151400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Port Au Lait Battu", 
+                  "coord": {
+                    "lat": "50.75519", 
+                    "lon": "2.249111"
+                  }, 
+                  "label": "Port Au Lait Battu (Saint-Omer)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:ASO:SP:Nav67"
+                }, 
+                "arrival_date_time": "20121120T151700", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T151700", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Place Painlev\u00e9", 
+                  "coord": {
+                    "lat": "50.750378", 
+                    "lon": "2.250036"
+                  }, 
+                  "label": "Place Painlev\u00e9 (Saint-Omer)", 
+                  "equipments": [], 
+                  "id": "stop_point:ASO:SP:Nav287"
+                }, 
+                "arrival_date_time": "20121120T152000", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T152000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Revel / Artois", 
+                  "coord": {
+                    "lat": "50.75029", 
+                    "lon": "2.243384"
+                  }, 
+                  "label": "Revel / Artois (Saint-Martin-au-La\u00ebrt)", 
+                  "equipments": [], 
+                  "id": "stop_point:ASO:SP:Nav65"
+                }, 
+                "arrival_date_time": "20121120T152300", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T152300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "H\u00f4tel De Ville", 
+                  "coord": {
+                    "lat": "50.75442", 
+                    "lon": "2.237799"
+                  }, 
+                  "label": "H\u00f4tel De Ville (Saint-Martin-au-La\u00ebrt)", 
+                  "equipments": [
+                    "has_wheelchair_boarding", 
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:ASO:SP:Nav66"
+                }, 
+                "arrival_date_time": "20121120T152600", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T152600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Croix P\u00e8lerine", 
+                  "coord": {
+                    "lat": "50.758618", 
+                    "lon": "2.230315"
+                  }, 
+                  "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                  "equipments": [], 
+                  "id": "stop_point:ASO:SP:Nav95"
+                }, 
+                "arrival_date_time": "20121120T152900", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T152900", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Croix P\u00e8lerine", 
+                "coord": {
+                  "lat": "50.758618", 
+                  "lon": "2.230315"
+                }, 
+                "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Martin-au-La\u00ebrt", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.7548421", 
+                      "lon": "2.23571463"
+                    }, 
+                    "label": "Saint-Martin-au-La\u00ebrt (62500)", 
+                    "id": "admin:62757", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 1, 
+                  "id": "2.230315;50.758618", 
+                  "name": "rue de la Croix de Gr\u00e8s", 
+                  "coord": {
+                    "lat": "50.758618", 
+                    "lon": "2.230315"
+                  }, 
+                  "label": "1 rue de la Croix de Gr\u00e8s (Saint-Martin-au-La\u00ebrt)"
+                }, 
+                "id": "stop_point:ASO:SP:Nav95", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Croix P\u00e8lerine", 
+                  "coord": {
+                    "lat": "50.758501", 
+                    "lon": "2.230385"
+                  }, 
+                  "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:SC1:SA:39"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:ASO:SP:Nav95", 
+              "name": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20121120T153000", 
+            "additional_informations": [], 
+            "departure_date_time": "20121120T152900", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Croix P\u00e8lerine", 
+                "coord": {
+                  "lat": "50.758501", 
+                  "lon": "2.230385"
+                }, 
+                "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Martin-au-La\u00ebrt", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.7548421", 
+                      "lon": "2.23571463"
+                    }, 
+                    "label": "Saint-Martin-au-La\u00ebrt (62500)", 
+                    "id": "admin:62757", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 1, 
+                  "id": "2.230385;50.758501", 
+                  "name": "rue de la Croix de Gr\u00e8s", 
+                  "coord": {
+                    "lat": "50.758501", 
+                    "lon": "2.230385"
+                  }, 
+                  "label": "1 rue de la Croix de Gr\u00e8s (Saint-Martin-au-La\u00ebrt)"
+                }, 
+                "id": "stop_point:SC1:SP:Nav95", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Croix P\u00e8lerine", 
+                  "coord": {
+                    "lat": "50.758501", 
+                    "lon": "2.230385"
+                  }, 
+                  "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:SC1:SA:39"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:SC1:SP:Nav95", 
+              "name": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 13
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.230315, 
+                  50.758618
+                ], 
+                [
+                  2.230385, 
+                  50.758501
+                ]
+              ]
+            }, 
+            "duration": 60, 
+            "transfer_type": "walking", 
+            "type": "transfer", 
+            "id": "section_11_0"
+          }, 
+          {
+            "links": [], 
+            "arrival_date_time": "20121120T161000", 
+            "additional_informations": [], 
+            "departure_date_time": "20121120T153000", 
+            "duration": 2400, 
+            "type": "waiting", 
+            "id": "section_12_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Croix P\u00e8lerine", 
+                "coord": {
+                  "lat": "50.758501", 
+                  "lon": "2.230385"
+                }, 
+                "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Martin-au-La\u00ebrt", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.7548421", 
+                      "lon": "2.23571463"
+                    }, 
+                    "label": "Saint-Martin-au-La\u00ebrt (62500)", 
+                    "id": "admin:62757", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 1, 
+                  "id": "2.230385;50.758501", 
+                  "name": "rue de la Croix de Gr\u00e8s", 
+                  "coord": {
+                    "lat": "50.758501", 
+                    "lon": "2.230385"
+                  }, 
+                  "label": "1 rue de la Croix de Gr\u00e8s (Saint-Martin-au-La\u00ebrt)"
+                }, 
+                "id": "stop_point:SC1:SP:Nav95", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Croix P\u00e8lerine", 
+                  "coord": {
+                    "lat": "50.758501", 
+                    "lon": "2.230385"
+                  }, 
+                  "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:SC1:SA:39"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:SC1:SP:Nav95", 
+              "name": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:SC1:42-12109_dst_2"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:SC1:Nav25"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:SC1:Nav42"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:Bus"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:CASO"
+              }, 
+              {
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20121120T162600", 
+            "additional_informations": [], 
+            "departure_date_time": "20121120T161000", 
+            "display_informations": {
+              "direction": "Place (Houlle)", 
+              "code": "CS 4200", 
+              "description": "", 
+              "color": "000000", 
+              "physical_mode": "Bus", 
+              "headsign": "SC1:42-12109_dst_2", 
+              "commercial_mode": "Bus", 
+              "equipments": [
+                "has_school_vehicle"
+              ], 
+              "label": "CS 4200", 
+              "network": "CASO Bus"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Place", 
+                "coord": {
+                  "lat": "50.796578", 
+                  "lon": "2.174108"
+                }, 
+                "label": "Place (Houlle)", 
+                "equipments": [
+                  "has_sheltered"
+                ], 
+                "administrative_regions": [
+                  {
+                    "name": "Houlle", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.79670402", 
+                      "lon": "2.174242109"
+                    }, 
+                    "label": "Houlle (62910)", 
+                    "id": "admin:62458", 
+                    "zip_code": "62910"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "2.174108;50.796578", 
+                  "name": "impasse du Br\u00fbl\u00e9", 
+                  "coord": {
+                    "lat": "50.796578", 
+                    "lon": "2.174108"
+                  }, 
+                  "label": "impasse du Br\u00fbl\u00e9 (Houlle)"
+                }, 
+                "id": "stop_point:SC1:SP:Nav177", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Place", 
+                  "coord": {
+                    "lat": "50.796415", 
+                    "lon": "2.174152"
+                  }, 
+                  "label": "Place (Houlle)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:SC1:SA:98"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:SC1:SP:Nav177", 
+              "name": "Place (Houlle)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 6290
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.230385, 
+                  50.758501
+                ], 
+                [
+                  2.185118, 
+                  50.792004
+                ], 
+                [
+                  2.176112, 
+                  50.790259
+                ], 
+                [
+                  2.17434, 
+                  50.792949
+                ], 
+                [
+                  2.174108, 
+                  50.796578
+                ]
+              ]
+            }, 
+            "duration": 960, 
+            "type": "public_transport", 
+            "id": "section_13_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Croix P\u00e8lerine", 
+                  "coord": {
+                    "lat": "50.758501", 
+                    "lon": "2.230385"
+                  }, 
+                  "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                  "equipments": [], 
+                  "id": "stop_point:SC1:SP:Nav95"
+                }, 
+                "arrival_date_time": "20121120T161000", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T161000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "La Sabli\u00e8re", 
+                  "coord": {
+                    "lat": "50.792004", 
+                    "lon": "2.185118"
+                  }, 
+                  "label": "La Sabli\u00e8re (Moulle)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav226"
+                }, 
+                "arrival_date_time": "20121120T162000", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T162000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "La Poste", 
+                  "coord": {
+                    "lat": "50.790259", 
+                    "lon": "2.176112"
+                  }, 
+                  "label": "La Poste (Moulle)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav227"
+                }, 
+                "arrival_date_time": "20121120T162300", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T162300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Les Marronniers", 
+                  "coord": {
+                    "lat": "50.792949", 
+                    "lon": "2.17434"
+                  }, 
+                  "label": "Les Marronniers (Moulle)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav228"
+                }, 
+                "arrival_date_time": "20121120T162400", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T162400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Place", 
+                  "coord": {
+                    "lat": "50.796578", 
+                    "lon": "2.174108"
+                  }, 
+                  "label": "Place (Houlle)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav177"
+                }, 
+                "arrival_date_time": "20121120T162600", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T162600", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Place", 
+                "coord": {
+                  "lat": "50.796578", 
+                  "lon": "2.174108"
+                }, 
+                "label": "Place (Houlle)", 
+                "equipments": [
+                  "has_sheltered"
+                ], 
+                "administrative_regions": [
+                  {
+                    "name": "Houlle", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.79670402", 
+                      "lon": "2.174242109"
+                    }, 
+                    "label": "Houlle (62910)", 
+                    "id": "admin:62458", 
+                    "zip_code": "62910"
+                  }
+                ], 
+                "address": {
+                  "name": "impasse du Br\u00fbl\u00e9", 
+                  "house_number": 0, 
+                  "coord": {
+                    "lat": "50.796578", 
+                    "lon": "2.174108"
+                  }, 
+                  "label": "impasse du Br\u00fbl\u00e9 (Houlle)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Houlle", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "50.79670402", 
+                        "lon": "2.174242109"
+                      }, 
+                      "label": "Houlle (62910)", 
+                      "id": "admin:62458", 
+                      "zip_code": "62910"
+                    }
+                  ], 
+                  "id": "2.174108;50.796578"
+                }, 
+                "id": "stop_point:SC1:SP:Nav177", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Place", 
+                  "coord": {
+                    "lat": "50.796415", 
+                    "lon": "2.174152"
+                  }, 
+                  "label": "Place (Houlle)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Houlle", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "50.79670402", 
+                        "lon": "2.174242109"
+                      }, 
+                      "label": "Houlle (62910)", 
+                      "id": "admin:62458", 
+                      "zip_code": "62910"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:SC1:SA:98"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:SC1:SP:Nav177", 
+              "name": "Place (Houlle)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20121120T162600", 
+            "additional_informations": [], 
+            "departure_date_time": "20121120T162600", 
+            "to": {
+              "embedded_type": "administrative_region", 
+              "quality": 0, 
+              "administrative_region": {
+                "name": "Houlle", 
+                "level": 8, 
+                "coord": {
+                  "lat": "50.79670402", 
+                  "lon": "2.174242109"
+                }, 
+                "label": "Houlle (62910)", 
+                "id": "admin:62458", 
+                "zip_code": "62910"
+              }, 
+              "id": "admin:62458", 
+              "name": "Houlle (62910)"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_14_0"
+          }
+        ]
+      }, 
       {
         "fare": {
           "found": false, 
@@ -126,48 +1215,18 @@
         "tags": [
           "standard"
         ], 
-        "nb_transfers": 0, 
-        "arrival_date_time": "20121120T103500", 
-        "calendars": [
-          {
-            "exceptions": [
-              {
-                "type": "remove", 
-                "datetime": "20121225"
-              }, 
-              {
-                "type": "remove", 
-                "datetime": "20130101"
-              }
-            ], 
-            "active_periods": [
-              {
-                "begin": "20121102", 
-                "end": "20130331"
-              }
-            ], 
-            "week_pattern": {
-              "monday": true, 
-              "tuesday": true, 
-              "friday": true, 
-              "wednesday": true, 
-              "thursday": true, 
-              "sunday": false, 
-              "saturday": true
-            }
-          }
-        ], 
-        "departure_date_time": "20121120T101500", 
+        "nb_transfers": 2, 
+        "arrival_date_time": "20121120T162600", 
+        "departure_date_time": "20121120T151600", 
         "requested_date_time": "20121120T101500", 
-        "type": "best", 
-        "duration": 1200, 
+        "type": "fastest", 
+        "duration": 4200, 
         "sections": [
           {
             "from": {
               "embedded_type": "administrative_region", 
               "quality": 0, 
               "administrative_region": {
-                "insee": "62765", 
                 "name": "Saint-Omer", 
                 "level": 8, 
                 "coord": {
@@ -181,62 +1240,1202 @@
               "id": "admin:62765", 
               "name": "Saint-Omer (62500)"
             }, 
+            "links": [], 
+            "arrival_date_time": "20121120T151600", 
+            "additional_informations": [], 
+            "departure_date_time": "20121120T151600", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Place Foch", 
+                "coord": {
+                  "lat": "50.749818", 
+                  "lon": "2.252599"
+                }, 
+                "label": "Place Foch (Saint-Omer)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Omer", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.75004624", 
+                      "lon": "2.260695471"
+                    }, 
+                    "label": "Saint-Omer (62500)", 
+                    "id": "admin:62765", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "name": "rue des Clouteries", 
+                  "house_number": 1, 
+                  "coord": {
+                    "lat": "50.749818", 
+                    "lon": "2.252599"
+                  }, 
+                  "label": "1 rue des Clouteries (Saint-Omer)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Saint-Omer", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "50.75004624", 
+                        "lon": "2.260695471"
+                      }, 
+                      "label": "Saint-Omer (62500)", 
+                      "id": "admin:62765", 
+                      "zip_code": "62500"
+                    }
+                  ], 
+                  "id": "2.252599;50.749818"
+                }, 
+                "id": "stop_point:ASO:SP:Nav274", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Place Foch", 
+                  "coord": {
+                    "lat": "50.749818", 
+                    "lon": "2.252599"
+                  }, 
+                  "label": "Place Foch (Saint-Omer)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Saint-Omer", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "50.75004624", 
+                        "lon": "2.260695471"
+                      }, 
+                      "label": "Saint-Omer (62500)", 
+                      "id": "admin:62765", 
+                      "zip_code": "62500"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:ASO:SA:142"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:ASO:SP:Nav274", 
+              "name": "Place Foch (Saint-Omer)"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Place Foch", 
+                "coord": {
+                  "lat": "50.749818", 
+                  "lon": "2.252599"
+                }, 
+                "label": "Place Foch (Saint-Omer)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Omer", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.75004624", 
+                      "lon": "2.260695471"
+                    }, 
+                    "label": "Saint-Omer (62500)", 
+                    "id": "admin:62765", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 1, 
+                  "id": "2.252599;50.749818", 
+                  "name": "rue des Clouteries", 
+                  "coord": {
+                    "lat": "50.749818", 
+                    "lon": "2.252599"
+                  }, 
+                  "label": "1 rue des Clouteries (Saint-Omer)"
+                }, 
+                "id": "stop_point:ASO:SP:Nav274", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Place Foch", 
+                  "coord": {
+                    "lat": "50.749818", 
+                    "lon": "2.252599"
+                  }, 
+                  "label": "Place Foch (Saint-Omer)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:ASO:SA:142"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:ASO:SP:Nav274", 
+              "name": "Place Foch (Saint-Omer)"
+            }, 
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:8-CTD:ASO1062458"
+                "id": "vehicle_journey:ASO:76-29123_dst_2"
               }, 
               {
                 "type": "line", 
-                "id": "line:CTD:2_2012-11-15"
+                "id": "line:ASO:Nav46"
               }, 
               {
                 "type": "route", 
-                "id": "route:CTD:ASO1CTD:2_2012-11-15"
+                "id": "route:ASO:Nav76"
               }, 
               {
                 "type": "commercial_mode", 
-                "id": "commercial_mode:Coach"
+                "id": "commercial_mode:Bus"
               }, 
               {
                 "type": "physical_mode", 
-                "id": "physical_mode:Coach"
+                "id": "physical_mode:Bus"
               }, 
               {
                 "type": "network", 
                 "id": "network:CASO"
               }, 
               {
-                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
                 "templated": false
               }
             ], 
-            "arrival_date_time": "20121120T103500", 
-            "additional_informations": [
-              "odt_with_zone"
-            ], 
-            "departure_date_time": "20121120T101500", 
+            "arrival_date_time": "20121120T151800", 
+            "additional_informations": [], 
+            "departure_date_time": "20121120T151600", 
             "display_informations": {
-              "direction": "Houlle (Houlle)", 
-              "code": "", 
-              "description": "Circule du lundi au samedi de 7h \u00e0 19h. R\u00e9servation n\u00e9cessaire la veille avant 12h00 au plus tard au 0 800 510 232. Ce service est r\u00e9serv\u00e9 aux habitants des communes situ\u00e9es sur le P\u00e9rim\u00e8tre de Transport Urbain de la CASO", 
-              "links": [], 
-              "color": "", 
-              "physical_mode": "Autocar", 
-              "headsign": "CASO TAD", 
-              "commercial_mode": "Autocar", 
+              "direction": "Campus (Longuenesse)", 
+              "code": "ligne 1", 
+              "description": "", 
+              "color": "000000", 
+              "physical_mode": "Bus", 
+              "headsign": "ASO:76-29123_dst_2", 
+              "commercial_mode": "Bus", 
               "equipments": [], 
-              "label": "CASO TAD", 
+              "label": "ligne 1", 
               "network": "CASO Bus"
             }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Place Painlev\u00e9", 
+                "coord": {
+                  "lat": "50.750378", 
+                  "lon": "2.250036"
+                }, 
+                "label": "Place Painlev\u00e9 (Saint-Omer)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Omer", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.75004624", 
+                      "lon": "2.260695471"
+                    }, 
+                    "label": "Saint-Omer (62500)", 
+                    "id": "admin:62765", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "2.250036;50.750378", 
+                  "name": "place Paul Painlev\u00e9", 
+                  "coord": {
+                    "lat": "50.750378", 
+                    "lon": "2.250036"
+                  }, 
+                  "label": "place Paul Painlev\u00e9 (Saint-Omer)"
+                }, 
+                "id": "stop_point:ASO:SP:Nav8", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Place Painlev\u00e9", 
+                  "coord": {
+                    "lat": "50.750378", 
+                    "lon": "2.250036"
+                  }, 
+                  "label": "Place Painlev\u00e9 (Saint-Omer)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:ASO:SA:6"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:ASO:SP:Nav8", 
+              "name": "Place Painlev\u00e9 (Saint-Omer)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 190
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.252599, 
+                  50.749818
+                ], 
+                [
+                  2.250036, 
+                  50.750378
+                ]
+              ]
+            }, 
+            "duration": 120, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Place Foch", 
+                  "coord": {
+                    "lat": "50.749818", 
+                    "lon": "2.252599"
+                  }, 
+                  "label": "Place Foch (Saint-Omer)", 
+                  "equipments": [], 
+                  "id": "stop_point:ASO:SP:Nav274"
+                }, 
+                "arrival_date_time": "20121120T151600", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T151600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Place Painlev\u00e9", 
+                  "coord": {
+                    "lat": "50.750378", 
+                    "lon": "2.250036"
+                  }, 
+                  "label": "Place Painlev\u00e9 (Saint-Omer)", 
+                  "equipments": [], 
+                  "id": "stop_point:ASO:SP:Nav8"
+                }, 
+                "arrival_date_time": "20121120T151800", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T151800", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Place Painlev\u00e9", 
+                "coord": {
+                  "lat": "50.750378", 
+                  "lon": "2.250036"
+                }, 
+                "label": "Place Painlev\u00e9 (Saint-Omer)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Omer", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.75004624", 
+                      "lon": "2.260695471"
+                    }, 
+                    "label": "Saint-Omer (62500)", 
+                    "id": "admin:62765", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "2.250036;50.750378", 
+                  "name": "place Paul Painlev\u00e9", 
+                  "coord": {
+                    "lat": "50.750378", 
+                    "lon": "2.250036"
+                  }, 
+                  "label": "place Paul Painlev\u00e9 (Saint-Omer)"
+                }, 
+                "id": "stop_point:ASO:SP:Nav8", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Place Painlev\u00e9", 
+                  "coord": {
+                    "lat": "50.750378", 
+                    "lon": "2.250036"
+                  }, 
+                  "label": "Place Painlev\u00e9 (Saint-Omer)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:ASO:SA:6"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:ASO:SP:Nav8", 
+              "name": "Place Painlev\u00e9 (Saint-Omer)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20121120T151800", 
+            "additional_informations": [], 
+            "departure_date_time": "20121120T151800", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Place Painlev\u00e9", 
+                "coord": {
+                  "lat": "50.750378", 
+                  "lon": "2.250036"
+                }, 
+                "label": "Place Painlev\u00e9 (Saint-Omer)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Omer", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.75004624", 
+                      "lon": "2.260695471"
+                    }, 
+                    "label": "Saint-Omer (62500)", 
+                    "id": "admin:62765", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "2.250036;50.750378", 
+                  "name": "place Paul Painlev\u00e9", 
+                  "coord": {
+                    "lat": "50.750378", 
+                    "lon": "2.250036"
+                  }, 
+                  "label": "place Paul Painlev\u00e9 (Saint-Omer)"
+                }, 
+                "id": "stop_point:ASO:SP:Nav287", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Place Painlev\u00e9", 
+                  "coord": {
+                    "lat": "50.750378", 
+                    "lon": "2.250036"
+                  }, 
+                  "label": "Place Painlev\u00e9 (Saint-Omer)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:ASO:SA:6"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:ASO:SP:Nav287", 
+              "name": "Place Painlev\u00e9 (Saint-Omer)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.250036, 
+                  50.750378
+                ], 
+                [
+                  2.250036, 
+                  50.750378
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "transfer_type": "walking", 
+            "type": "transfer", 
+            "id": "section_2_0"
+          }, 
+          {
+            "links": [], 
+            "arrival_date_time": "20121120T152000", 
+            "additional_informations": [], 
+            "departure_date_time": "20121120T151800", 
+            "duration": 120, 
+            "type": "waiting", 
+            "id": "section_3_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Place Painlev\u00e9", 
+                "coord": {
+                  "lat": "50.750378", 
+                  "lon": "2.250036"
+                }, 
+                "label": "Place Painlev\u00e9 (Saint-Omer)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Omer", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.75004624", 
+                      "lon": "2.260695471"
+                    }, 
+                    "label": "Saint-Omer (62500)", 
+                    "id": "admin:62765", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "2.250036;50.750378", 
+                  "name": "place Paul Painlev\u00e9", 
+                  "coord": {
+                    "lat": "50.750378", 
+                    "lon": "2.250036"
+                  }, 
+                  "label": "place Paul Painlev\u00e9 (Saint-Omer)"
+                }, 
+                "id": "stop_point:ASO:SP:Nav287", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Place Painlev\u00e9", 
+                  "coord": {
+                    "lat": "50.750378", 
+                    "lon": "2.250036"
+                  }, 
+                  "label": "Place Painlev\u00e9 (Saint-Omer)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:ASO:SA:6"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:ASO:SP:Nav287", 
+              "name": "Place Painlev\u00e9 (Saint-Omer)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:ASO:84-737_dst_2"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:ASO:Nav53"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:ASO:Nav84"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:Bus"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:CASO"
+              }, 
+              {
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20121120T152900", 
+            "additional_informations": [], 
+            "departure_date_time": "20121120T152000", 
+            "display_informations": {
+              "direction": "Noir Cornet (Saint-Martin-au-La\u00ebrt)", 
+              "code": "4", 
+              "description": "", 
+              "color": "000000", 
+              "physical_mode": "Bus", 
+              "headsign": "ASO:84-737_dst_2", 
+              "commercial_mode": "Bus", 
+              "equipments": [], 
+              "label": "4", 
+              "network": "CASO Bus"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Croix P\u00e8lerine", 
+                "coord": {
+                  "lat": "50.758618", 
+                  "lon": "2.230315"
+                }, 
+                "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Martin-au-La\u00ebrt", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.7548421", 
+                      "lon": "2.23571463"
+                    }, 
+                    "label": "Saint-Martin-au-La\u00ebrt (62500)", 
+                    "id": "admin:62757", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 1, 
+                  "id": "2.230315;50.758618", 
+                  "name": "rue de la Croix de Gr\u00e8s", 
+                  "coord": {
+                    "lat": "50.758618", 
+                    "lon": "2.230315"
+                  }, 
+                  "label": "1 rue de la Croix de Gr\u00e8s (Saint-Martin-au-La\u00ebrt)"
+                }, 
+                "id": "stop_point:ASO:SP:Nav95", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Croix P\u00e8lerine", 
+                  "coord": {
+                    "lat": "50.758501", 
+                    "lon": "2.230385"
+                  }, 
+                  "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:SC1:SA:39"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:ASO:SP:Nav95", 
+              "name": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 1775
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.250036, 
+                  50.750378
+                ], 
+                [
+                  2.243384, 
+                  50.75029
+                ], 
+                [
+                  2.237799, 
+                  50.75442
+                ], 
+                [
+                  2.230315, 
+                  50.758618
+                ]
+              ]
+            }, 
+            "duration": 540, 
+            "type": "public_transport", 
+            "id": "section_4_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Place Painlev\u00e9", 
+                  "coord": {
+                    "lat": "50.750378", 
+                    "lon": "2.250036"
+                  }, 
+                  "label": "Place Painlev\u00e9 (Saint-Omer)", 
+                  "equipments": [], 
+                  "id": "stop_point:ASO:SP:Nav287"
+                }, 
+                "arrival_date_time": "20121120T152000", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T152000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Revel / Artois", 
+                  "coord": {
+                    "lat": "50.75029", 
+                    "lon": "2.243384"
+                  }, 
+                  "label": "Revel / Artois (Saint-Martin-au-La\u00ebrt)", 
+                  "equipments": [], 
+                  "id": "stop_point:ASO:SP:Nav65"
+                }, 
+                "arrival_date_time": "20121120T152300", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T152300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "H\u00f4tel De Ville", 
+                  "coord": {
+                    "lat": "50.75442", 
+                    "lon": "2.237799"
+                  }, 
+                  "label": "H\u00f4tel De Ville (Saint-Martin-au-La\u00ebrt)", 
+                  "equipments": [
+                    "has_wheelchair_boarding", 
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:ASO:SP:Nav66"
+                }, 
+                "arrival_date_time": "20121120T152600", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T152600", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Croix P\u00e8lerine", 
+                  "coord": {
+                    "lat": "50.758618", 
+                    "lon": "2.230315"
+                  }, 
+                  "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                  "equipments": [], 
+                  "id": "stop_point:ASO:SP:Nav95"
+                }, 
+                "arrival_date_time": "20121120T152900", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T152900", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Croix P\u00e8lerine", 
+                "coord": {
+                  "lat": "50.758618", 
+                  "lon": "2.230315"
+                }, 
+                "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Martin-au-La\u00ebrt", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.7548421", 
+                      "lon": "2.23571463"
+                    }, 
+                    "label": "Saint-Martin-au-La\u00ebrt (62500)", 
+                    "id": "admin:62757", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 1, 
+                  "id": "2.230315;50.758618", 
+                  "name": "rue de la Croix de Gr\u00e8s", 
+                  "coord": {
+                    "lat": "50.758618", 
+                    "lon": "2.230315"
+                  }, 
+                  "label": "1 rue de la Croix de Gr\u00e8s (Saint-Martin-au-La\u00ebrt)"
+                }, 
+                "id": "stop_point:ASO:SP:Nav95", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Croix P\u00e8lerine", 
+                  "coord": {
+                    "lat": "50.758501", 
+                    "lon": "2.230385"
+                  }, 
+                  "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:SC1:SA:39"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:ASO:SP:Nav95", 
+              "name": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20121120T153000", 
+            "additional_informations": [], 
+            "departure_date_time": "20121120T152900", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Croix P\u00e8lerine", 
+                "coord": {
+                  "lat": "50.758501", 
+                  "lon": "2.230385"
+                }, 
+                "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Martin-au-La\u00ebrt", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.7548421", 
+                      "lon": "2.23571463"
+                    }, 
+                    "label": "Saint-Martin-au-La\u00ebrt (62500)", 
+                    "id": "admin:62757", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 1, 
+                  "id": "2.230385;50.758501", 
+                  "name": "rue de la Croix de Gr\u00e8s", 
+                  "coord": {
+                    "lat": "50.758501", 
+                    "lon": "2.230385"
+                  }, 
+                  "label": "1 rue de la Croix de Gr\u00e8s (Saint-Martin-au-La\u00ebrt)"
+                }, 
+                "id": "stop_point:SC1:SP:Nav95", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Croix P\u00e8lerine", 
+                  "coord": {
+                    "lat": "50.758501", 
+                    "lon": "2.230385"
+                  }, 
+                  "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:SC1:SA:39"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:SC1:SP:Nav95", 
+              "name": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 13
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.230315, 
+                  50.758618
+                ], 
+                [
+                  2.230385, 
+                  50.758501
+                ]
+              ]
+            }, 
+            "duration": 60, 
+            "transfer_type": "walking", 
+            "type": "transfer", 
+            "id": "section_5_0"
+          }, 
+          {
+            "links": [], 
+            "arrival_date_time": "20121120T161000", 
+            "additional_informations": [], 
+            "departure_date_time": "20121120T153000", 
+            "duration": 2400, 
+            "type": "waiting", 
+            "id": "section_6_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Croix P\u00e8lerine", 
+                "coord": {
+                  "lat": "50.758501", 
+                  "lon": "2.230385"
+                }, 
+                "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "name": "Saint-Martin-au-La\u00ebrt", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.7548421", 
+                      "lon": "2.23571463"
+                    }, 
+                    "label": "Saint-Martin-au-La\u00ebrt (62500)", 
+                    "id": "admin:62757", 
+                    "zip_code": "62500"
+                  }
+                ], 
+                "address": {
+                  "house_number": 1, 
+                  "id": "2.230385;50.758501", 
+                  "name": "rue de la Croix de Gr\u00e8s", 
+                  "coord": {
+                    "lat": "50.758501", 
+                    "lon": "2.230385"
+                  }, 
+                  "label": "1 rue de la Croix de Gr\u00e8s (Saint-Martin-au-La\u00ebrt)"
+                }, 
+                "id": "stop_point:SC1:SP:Nav95", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Croix P\u00e8lerine", 
+                  "coord": {
+                    "lat": "50.758501", 
+                    "lon": "2.230385"
+                  }, 
+                  "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:SC1:SA:39"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:SC1:SP:Nav95", 
+              "name": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:SC1:42-12109_dst_2"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:SC1:Nav25"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:SC1:Nav42"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:Bus"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:CASO"
+              }, 
+              {
+                "type": "ticket", 
+                "id": "unknown_ticket_0", 
+                "rel": "tickets", 
+                "templated": false
+              }
+            ], 
+            "arrival_date_time": "20121120T162600", 
+            "additional_informations": [], 
+            "departure_date_time": "20121120T161000", 
+            "display_informations": {
+              "direction": "Place (Houlle)", 
+              "code": "CS 4200", 
+              "description": "", 
+              "color": "000000", 
+              "physical_mode": "Bus", 
+              "headsign": "SC1:42-12109_dst_2", 
+              "commercial_mode": "Bus", 
+              "equipments": [
+                "has_school_vehicle"
+              ], 
+              "label": "CS 4200", 
+              "network": "CASO Bus"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Place", 
+                "coord": {
+                  "lat": "50.796578", 
+                  "lon": "2.174108"
+                }, 
+                "label": "Place (Houlle)", 
+                "equipments": [
+                  "has_sheltered"
+                ], 
+                "administrative_regions": [
+                  {
+                    "name": "Houlle", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.79670402", 
+                      "lon": "2.174242109"
+                    }, 
+                    "label": "Houlle (62910)", 
+                    "id": "admin:62458", 
+                    "zip_code": "62910"
+                  }
+                ], 
+                "address": {
+                  "house_number": 0, 
+                  "id": "2.174108;50.796578", 
+                  "name": "impasse du Br\u00fbl\u00e9", 
+                  "coord": {
+                    "lat": "50.796578", 
+                    "lon": "2.174108"
+                  }, 
+                  "label": "impasse du Br\u00fbl\u00e9 (Houlle)"
+                }, 
+                "id": "stop_point:SC1:SP:Nav177", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Place", 
+                  "coord": {
+                    "lat": "50.796415", 
+                    "lon": "2.174152"
+                  }, 
+                  "label": "Place (Houlle)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:SC1:SA:98"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:SC1:SP:Nav177", 
+              "name": "Place (Houlle)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 6290
+                }
+              ], 
+              "coordinates": [
+                [
+                  2.230385, 
+                  50.758501
+                ], 
+                [
+                  2.185118, 
+                  50.792004
+                ], 
+                [
+                  2.176112, 
+                  50.790259
+                ], 
+                [
+                  2.17434, 
+                  50.792949
+                ], 
+                [
+                  2.174108, 
+                  50.796578
+                ]
+              ]
+            }, 
+            "duration": 960, 
+            "type": "public_transport", 
+            "id": "section_7_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Croix P\u00e8lerine", 
+                  "coord": {
+                    "lat": "50.758501", 
+                    "lon": "2.230385"
+                  }, 
+                  "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                  "equipments": [], 
+                  "id": "stop_point:SC1:SP:Nav95"
+                }, 
+                "arrival_date_time": "20121120T161000", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T161000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "La Sabli\u00e8re", 
+                  "coord": {
+                    "lat": "50.792004", 
+                    "lon": "2.185118"
+                  }, 
+                  "label": "La Sabli\u00e8re (Moulle)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav226"
+                }, 
+                "arrival_date_time": "20121120T162000", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T162000", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "La Poste", 
+                  "coord": {
+                    "lat": "50.790259", 
+                    "lon": "2.176112"
+                  }, 
+                  "label": "La Poste (Moulle)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav227"
+                }, 
+                "arrival_date_time": "20121120T162300", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T162300", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Les Marronniers", 
+                  "coord": {
+                    "lat": "50.792949", 
+                    "lon": "2.17434"
+                  }, 
+                  "label": "Les Marronniers (Moulle)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav228"
+                }, 
+                "arrival_date_time": "20121120T162400", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T162400", 
+                "links": []
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Place", 
+                  "coord": {
+                    "lat": "50.796578", 
+                    "lon": "2.174108"
+                  }, 
+                  "label": "Place (Houlle)", 
+                  "equipments": [
+                    "has_sheltered"
+                  ], 
+                  "id": "stop_point:SC1:SP:Nav177"
+                }, 
+                "arrival_date_time": "20121120T162600", 
+                "additional_informations": [], 
+                "departure_date_time": "20121120T162600", 
+                "links": []
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Place", 
+                "coord": {
+                  "lat": "50.796578", 
+                  "lon": "2.174108"
+                }, 
+                "label": "Place (Houlle)", 
+                "equipments": [
+                  "has_sheltered"
+                ], 
+                "administrative_regions": [
+                  {
+                    "name": "Houlle", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "50.79670402", 
+                      "lon": "2.174242109"
+                    }, 
+                    "label": "Houlle (62910)", 
+                    "id": "admin:62458", 
+                    "zip_code": "62910"
+                  }
+                ], 
+                "address": {
+                  "name": "impasse du Br\u00fbl\u00e9", 
+                  "house_number": 0, 
+                  "coord": {
+                    "lat": "50.796578", 
+                    "lon": "2.174108"
+                  }, 
+                  "label": "impasse du Br\u00fbl\u00e9 (Houlle)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Houlle", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "50.79670402", 
+                        "lon": "2.174242109"
+                      }, 
+                      "label": "Houlle (62910)", 
+                      "id": "admin:62458", 
+                      "zip_code": "62910"
+                    }
+                  ], 
+                  "id": "2.174108;50.796578"
+                }, 
+                "id": "stop_point:SC1:SP:Nav177", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Place", 
+                  "coord": {
+                    "lat": "50.796415", 
+                    "lon": "2.174152"
+                  }, 
+                  "label": "Place (Houlle)", 
+                  "administrative_regions": [
+                    {
+                      "name": "Houlle", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "50.79670402", 
+                        "lon": "2.174242109"
+                      }, 
+                      "label": "Houlle (62910)", 
+                      "id": "admin:62458", 
+                      "zip_code": "62910"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:SC1:SA:98"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:SC1:SP:Nav177", 
+              "name": "Place (Houlle)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20121120T162600", 
+            "additional_informations": [], 
+            "departure_date_time": "20121120T162600", 
             "to": {
               "embedded_type": "administrative_region", 
               "quality": 0, 
               "administrative_region": {
-                "insee": "62458", 
                 "name": "Houlle", 
                 "level": 8, 
                 "coord": {
@@ -250,75 +2449,13 @@
               "id": "admin:62458", 
               "name": "Houlle (62910)"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 8079
-                }
-              ], 
-              "coordinates": [
-                [
-                  2.266693, 
-                  50.753575
-                ], 
-                [
-                  2.174267, 
-                  50.796715
-                ]
-              ]
-            }, 
-            "duration": 1200, 
-            "type": "on_demand_transport", 
-            "id": "section_0_0", 
-            "stop_date_times": [
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Gare SNCF", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "50.753575", 
-                    "lon": "2.266693"
-                  }, 
-                  "label": "Gare SNCF (Saint-Omer)", 
-                  "equipments": [], 
-                  "id": "stop_point:CTD:SP:ASO1"
-                }, 
-                "arrival_date_time": "20121120T101500", 
-                "additional_informations": [
-                  "on_demand_transport"
-                ], 
-                "departure_date_time": "20121120T101500", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Houlle", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "50.796715", 
-                    "lon": "2.174267"
-                  }, 
-                  "label": "Houlle (Houlle)", 
-                  "equipments": [], 
-                  "id": "stop_point:CTD:SP:62458"
-                }, 
-                "arrival_date_time": "20121120T103500", 
-                "additional_informations": [
-                  "on_demand_transport"
-                ], 
-                "departure_date_time": "20121120T103500", 
-                "links": []
-              }
-            ]
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_8_0"
           }
         ]
       }
-    ], 
-    "disruptions": [], 
-    "notes": [], 
-    "exceptions": []
+    ]
   }
 }
