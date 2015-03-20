@@ -4,52 +4,15 @@
     "journeys": [
       {
         "nb_transfers": 0, 
-        "arrival_date_time": "20141204T101500", 
-        "departure_date_time": "20141204T101500", 
-        "type": "best", 
-        "duration": 0, 
-        "sections": [
-          {
-            "from": "gare de Ste-Pazanne (Sainte-Pazanne)", 
-            "arrival_date_time": "20141204T101500", 
-            "departure_date_time": "20141204T101500", 
-            "to": "Pazanne-Mairie-(Ste) (Sainte-Pazanne)", 
-            "duration": 0, 
-            "type": "on_demand_transport"
-          }
-        ]
-      }, 
-      {
-        "nb_transfers": 0, 
-        "arrival_date_time": "20141204T101600", 
-        "departure_date_time": "20141204T101600", 
-        "type": "rapid", 
-        "duration": 0, 
-        "sections": [
-          {
-            "from": "gare de Ste-Pazanne (Sainte-Pazanne)", 
-            "arrival_date_time": "20141204T101600", 
-            "departure_date_time": "20141204T101600", 
-            "to": "Pazanne-Mairie-(Ste) (Sainte-Pazanne)", 
-            "duration": 0, 
-            "type": "on_demand_transport"
-          }
-        ]
-      }, 
-      {
-        "nb_transfers": 0, 
         "arrival_date_time": "20141204T102023", 
         "departure_date_time": "20141204T101500", 
         "type": "non_pt_walk", 
         "duration": 323, 
         "sections": [
           {
-            "from": "gare de Ste-Pazanne (Sainte-Pazanne)", 
-            "arrival_date_time": "20141204T102023", 
-            "departure_date_time": "20141204T101500", 
-            "to": "Pazanne-Mairie-(Ste) (Sainte-Pazanne)", 
             "duration": 323, 
-            "type": "street_network"
+            "arrival_date_time": "20141204T102023", 
+            "departure_date_time": "20141204T101500"
           }
         ]
       }, 
@@ -61,12 +24,9 @@
         "duration": 86, 
         "sections": [
           {
-            "from": "gare de Ste-Pazanne (Sainte-Pazanne)", 
-            "arrival_date_time": "20141204T101626", 
-            "departure_date_time": "20141204T101500", 
-            "to": "Pazanne-Mairie-(Ste) (Sainte-Pazanne)", 
             "duration": 86, 
-            "type": "street_network"
+            "arrival_date_time": "20141204T101626", 
+            "departure_date_time": "20141204T101500"
           }
         ]
       }
@@ -76,12 +36,19 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
+        "name": "unkown_ticket", 
         "links": [
           {
             "internal": true, 
             "type": "section", 
-            "id": "section_0_0", 
+            "id": "section_1_0", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_3_0", 
             "rel": "sections", 
             "templated": false
           }
@@ -95,12 +62,19 @@
       }, 
       {
         "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
+        "name": "unkown_ticket", 
         "links": [
           {
             "internal": true, 
             "type": "section", 
-            "id": "section_0_2", 
+            "id": "section_1_2", 
+            "rel": "sections", 
+            "templated": false
+          }, 
+          {
+            "internal": true, 
+            "type": "section", 
+            "id": "section_4_2", 
             "rel": "sections", 
             "templated": false
           }
@@ -113,19 +87,9 @@
         "id": "unknown_ticket_2"
       }
     ], 
+    "exceptions": [], 
+    "notes": [], 
     "links": [
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/journeys?from=stop_area%3ASNC%3ASA%3ASAOCE87481226&last_section_mode%5B%5D=walking&last_section_mode%5B%5D=bss&min_nb_journeys=3&datetime=20141204T101400&to=stop_area%3ASNC%3ASA%3ASAOCE87328625&datetime_represents=arrival&first_section_mode%5B%5D=walking&first_section_mode%5B%5D=bike&first_section_mode%5B%5D=bss&first_section_mode%5B%5D=car", 
-        "type": "prev", 
-        "rel": "prev", 
-        "templated": false
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/journeys?from=stop_area%3ASNC%3ASA%3ASAOCE87481226&last_section_mode%5B%5D=walking&last_section_mode%5B%5D=bss&min_nb_journeys=3&datetime=20141204T101700&to=stop_area%3ASNC%3ASA%3ASAOCE87328625&datetime_represents=departure&first_section_mode%5B%5D=walking&first_section_mode%5B%5D=bike&first_section_mode%5B%5D=bss&first_section_mode%5B%5D=car", 
-        "type": "next", 
-        "rel": "next", 
-        "templated": false
-      }, 
       {
         "href": "http://localhost/v1/coverage/fr-pdl/journeys?from=stop_area%3ASNC%3ASA%3ASAOCE87481226&last_section_mode%5B%5D=walking&last_section_mode%5B%5D=bss&min_nb_journeys=3&datetime=20141204T000000&to=stop_area%3ASNC%3ASA%3ASAOCE87328625&datetime_represents=departure&first_section_mode%5B%5D=walking&first_section_mode%5B%5D=bike&first_section_mode%5B%5D=bss&first_section_mode%5B%5D=car", 
         "type": "first", 
@@ -139,532 +103,43 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/fr-pdl/stop_points/{stop_point.id}", 
+        "href": "http://localhost/v1/coverage/fr-pdl/stop_points/{stop_point.id}?collection=stop_points", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/fr-pdl/poi_types/{poi_type.id}", 
+        "href": "http://localhost/v1/coverage/fr-pdl/poi_types/{poi_type.id}?collection=poi_types", 
         "type": "poi_type", 
         "rel": "poi_types", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/fr-pdl/stop_areas/{stop_area.id}", 
+        "href": "http://localhost/v1/coverage/fr-pdl/stop_areas/{stop_area.id}?collection=stop_areas", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/fr-pdl/addresses/{address.id}", 
+        "href": "http://localhost/v1/coverage/fr-pdl/addresses/{address.id}?collection=addresses", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/fr-pdl/pois/{poi.id}", 
+        "href": "http://localhost/v1/coverage/fr-pdl/pois/{poi.id}?collection=pois", 
         "type": "poi", 
         "rel": "pois", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/fr-pdl/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/stop_areas/{stop_area.id}", 
+        "href": "http://localhost/v1/coverage/fr-pdl/stop_areas/{stop_area.id}?collection=stop_areas", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }
     ], 
     "journeys": [
-      {
-        "fare": {
-          "found": false, 
-          "total": {
-            "currency": "", 
-            "value": "0.0"
-          }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
-        }, 
-        "tags": [
-          "standard", 
-          "is_pure_tc"
-        ], 
-        "nb_transfers": 0, 
-        "arrival_date_time": "20141204T101500", 
-        "calendars": [
-          {
-            "exceptions": [
-              {
-                "type": "remove", 
-                "datetime": "20141111"
-              }, 
-              {
-                "type": "remove", 
-                "datetime": "20141225"
-              }
-            ], 
-            "active_periods": [
-              {
-                "begin": "20141028", 
-                "end": "20150101"
-              }
-            ], 
-            "week_pattern": {
-              "monday": false, 
-              "tuesday": true, 
-              "friday": true, 
-              "wednesday": true, 
-              "thursday": true, 
-              "sunday": false, 
-              "saturday": false
-            }
-          }
-        ], 
-        "departure_date_time": "20141204T101500", 
-        "requested_date_time": "20141204T101500", 
-        "type": "best", 
-        "duration": 0, 
-        "sections": [
-          {
-            "from": {
-              "embedded_type": "stop_area", 
-              "quality": 0, 
-              "stop_area": {
-                "comment": "", 
-                "name": "gare de Ste-Pazanne", 
-                "links": [], 
-                "coord": {
-                  "lat": "47.105436", 
-                  "lon": "-1.813729"
-                }, 
-                "label": "gare de Ste-Pazanne (Sainte-Pazanne)", 
-                "administrative_regions": [
-                  {
-                    "insee": "44186", 
-                    "name": "Sainte-Pazanne", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "47.08448986", 
-                      "lon": "-1.817823783"
-                    }, 
-                    "label": "Sainte-Pazanne (44680)", 
-                    "id": "admin:44186", 
-                    "zip_code": "44680"
-                  }
-                ], 
-                "timezone": "Europe/Paris", 
-                "id": "stop_area:SNC:SA:SAOCE87481226"
-              }, 
-              "name": "gare de Ste-Pazanne (Sainte-Pazanne)", 
-              "id": "stop_area:SNC:SA:SAOCE87481226"
-            }, 
-            "links": [
-              {
-                "type": "vehicle_journey", 
-                "id": "vehicle_journey:TAD:441864944186_dst_2"
-              }, 
-              {
-                "type": "line", 
-                "id": "line:TAD:1_LilaalademandedeGrandlieuMachecoulLogne"
-              }, 
-              {
-                "type": "route", 
-                "id": "route:TAD:1_LilaalademandedeGrandlieuMachecoulLogne_R"
-              }, 
-              {
-                "type": "commercial_mode", 
-                "id": "commercial_mode:Taxi"
-              }, 
-              {
-                "type": "physical_mode", 
-                "id": "physical_mode:Taxi"
-              }, 
-              {
-                "type": "network", 
-                "id": "network:lilaalademande"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
-              }
-            ], 
-            "arrival_date_time": "20141204T101500", 
-            "additional_informations": [
-              "has_date_time_estimated", 
-              "odt_with_zone"
-            ], 
-            "departure_date_time": "20141204T101500", 
-            "display_informations": {
-              "direction": "Sainte-Pazanne (Sainte-Pazanne)", 
-              "code": "", 
-              "description": "au plus tard la veille de votre d\u00e9placement du lundi au vendredi avant 16h30.", 
-              "links": [], 
-              "color": "", 
-              "physical_mode": "Taxi", 
-              "headsign": "Lila \u00e0 la demande de Grandlieu, Machecoul, Logne", 
-              "commercial_mode": "Taxi", 
-              "equipments": [], 
-              "label": "Lila \u00e0 la demande de Grandlieu, Machecoul, Logne", 
-              "network": "Lila a la demande"
-            }, 
-            "to": {
-              "embedded_type": "stop_area", 
-              "quality": 0, 
-              "stop_area": {
-                "comment": "", 
-                "name": "Pazanne-Mairie-(Ste)", 
-                "links": [], 
-                "coord": {
-                  "lat": "47.103048", 
-                  "lon": "-1.811114"
-                }, 
-                "label": "Pazanne-Mairie-(Ste) (Sainte-Pazanne)", 
-                "administrative_regions": [
-                  {
-                    "insee": "44186", 
-                    "name": "Sainte-Pazanne", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "47.08448986", 
-                      "lon": "-1.817823783"
-                    }, 
-                    "label": "Sainte-Pazanne (44680)", 
-                    "id": "admin:44186", 
-                    "zip_code": "44680"
-                  }
-                ], 
-                "timezone": "Europe/Paris", 
-                "id": "stop_area:SNC:SA:SAOCE87328625"
-              }, 
-              "name": "Pazanne-Mairie-(Ste) (Sainte-Pazanne)", 
-              "id": "stop_area:SNC:SA:SAOCE87328625"
-            }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  -1.817848, 
-                  47.084501
-                ], 
-                [
-                  -1.817848, 
-                  47.084501
-                ]
-              ]
-            }, 
-            "duration": 0, 
-            "type": "on_demand_transport", 
-            "id": "section_0_0", 
-            "stop_date_times": [
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Sainte-Pazanne", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "47.084501", 
-                    "lon": "-1.817848"
-                  }, 
-                  "label": "Sainte-Pazanne (Sainte-Pazanne)", 
-                  "equipments": [], 
-                  "id": "stop_point:TAD:SP:44186"
-                }, 
-                "arrival_date_time": "20141204T101500", 
-                "additional_informations": [
-                  "on_demand_transport", 
-                  "date_time_estimated"
-                ], 
-                "departure_date_time": "20141204T101500", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Sainte-Pazanne", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "47.084501", 
-                    "lon": "-1.817848"
-                  }, 
-                  "label": "Sainte-Pazanne (Sainte-Pazanne)", 
-                  "equipments": [], 
-                  "id": "stop_point:TAD:SP:44186"
-                }, 
-                "arrival_date_time": "20141204T101500", 
-                "additional_informations": [
-                  "on_demand_transport"
-                ], 
-                "departure_date_time": "20141204T101500", 
-                "links": []
-              }
-            ]
-          }
-        ]
-      }, 
-      {
-        "fare": {
-          "found": false, 
-          "total": {
-            "currency": "", 
-            "value": "0.0"
-          }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_2", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
-        }, 
-        "tags": [
-          "standard", 
-          "next", 
-          "is_pure_tc"
-        ], 
-        "nb_transfers": 0, 
-        "arrival_date_time": "20141204T101600", 
-        "calendars": [
-          {
-            "exceptions": [
-              {
-                "type": "remove", 
-                "datetime": "20141111"
-              }, 
-              {
-                "type": "remove", 
-                "datetime": "20141225"
-              }
-            ], 
-            "active_periods": [
-              {
-                "begin": "20141028", 
-                "end": "20150101"
-              }
-            ], 
-            "week_pattern": {
-              "monday": false, 
-              "tuesday": true, 
-              "friday": true, 
-              "wednesday": true, 
-              "thursday": true, 
-              "sunday": false, 
-              "saturday": false
-            }
-          }
-        ], 
-        "departure_date_time": "20141204T101600", 
-        "requested_date_time": "20141204T101600", 
-        "type": "rapid", 
-        "duration": 0, 
-        "sections": [
-          {
-            "from": {
-              "embedded_type": "stop_area", 
-              "quality": 0, 
-              "stop_area": {
-                "comment": "", 
-                "name": "gare de Ste-Pazanne", 
-                "links": [], 
-                "coord": {
-                  "lat": "47.105436", 
-                  "lon": "-1.813729"
-                }, 
-                "label": "gare de Ste-Pazanne (Sainte-Pazanne)", 
-                "administrative_regions": [
-                  {
-                    "insee": "44186", 
-                    "name": "Sainte-Pazanne", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "47.08448986", 
-                      "lon": "-1.817823783"
-                    }, 
-                    "label": "Sainte-Pazanne (44680)", 
-                    "id": "admin:44186", 
-                    "zip_code": "44680"
-                  }
-                ], 
-                "timezone": "Europe/Paris", 
-                "id": "stop_area:SNC:SA:SAOCE87481226"
-              }, 
-              "name": "gare de Ste-Pazanne (Sainte-Pazanne)", 
-              "id": "stop_area:SNC:SA:SAOCE87481226"
-            }, 
-            "links": [
-              {
-                "type": "vehicle_journey", 
-                "id": "vehicle_journey:TAD:441864944186_dst_2"
-              }, 
-              {
-                "type": "line", 
-                "id": "line:TAD:1_LilaalademandedeGrandlieuMachecoulLogne"
-              }, 
-              {
-                "type": "route", 
-                "id": "route:TAD:1_LilaalademandedeGrandlieuMachecoulLogne_R"
-              }, 
-              {
-                "type": "commercial_mode", 
-                "id": "commercial_mode:Taxi"
-              }, 
-              {
-                "type": "physical_mode", 
-                "id": "physical_mode:Taxi"
-              }, 
-              {
-                "type": "network", 
-                "id": "network:lilaalademande"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_2", 
-                "rel": "tickets", 
-                "templated": false
-              }
-            ], 
-            "arrival_date_time": "20141204T101600", 
-            "additional_informations": [
-              "has_date_time_estimated", 
-              "odt_with_zone"
-            ], 
-            "departure_date_time": "20141204T101600", 
-            "display_informations": {
-              "direction": "Sainte-Pazanne (Sainte-Pazanne)", 
-              "code": "", 
-              "description": "au plus tard la veille de votre d\u00e9placement du lundi au vendredi avant 16h30.", 
-              "links": [], 
-              "color": "", 
-              "physical_mode": "Taxi", 
-              "headsign": "Lila \u00e0 la demande de Grandlieu, Machecoul, Logne", 
-              "commercial_mode": "Taxi", 
-              "equipments": [], 
-              "label": "Lila \u00e0 la demande de Grandlieu, Machecoul, Logne", 
-              "network": "Lila a la demande"
-            }, 
-            "to": {
-              "embedded_type": "stop_area", 
-              "quality": 0, 
-              "stop_area": {
-                "comment": "", 
-                "name": "Pazanne-Mairie-(Ste)", 
-                "links": [], 
-                "coord": {
-                  "lat": "47.103048", 
-                  "lon": "-1.811114"
-                }, 
-                "label": "Pazanne-Mairie-(Ste) (Sainte-Pazanne)", 
-                "administrative_regions": [
-                  {
-                    "insee": "44186", 
-                    "name": "Sainte-Pazanne", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "47.08448986", 
-                      "lon": "-1.817823783"
-                    }, 
-                    "label": "Sainte-Pazanne (44680)", 
-                    "id": "admin:44186", 
-                    "zip_code": "44680"
-                  }
-                ], 
-                "timezone": "Europe/Paris", 
-                "id": "stop_area:SNC:SA:SAOCE87328625"
-              }, 
-              "name": "Pazanne-Mairie-(Ste) (Sainte-Pazanne)", 
-              "id": "stop_area:SNC:SA:SAOCE87328625"
-            }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  -1.817848, 
-                  47.084501
-                ], 
-                [
-                  -1.817848, 
-                  47.084501
-                ]
-              ]
-            }, 
-            "duration": 0, 
-            "type": "on_demand_transport", 
-            "id": "section_0_2", 
-            "stop_date_times": [
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Sainte-Pazanne", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "47.084501", 
-                    "lon": "-1.817848"
-                  }, 
-                  "label": "Sainte-Pazanne (Sainte-Pazanne)", 
-                  "equipments": [], 
-                  "id": "stop_point:TAD:SP:44186"
-                }, 
-                "arrival_date_time": "20141204T101600", 
-                "additional_informations": [
-                  "on_demand_transport", 
-                  "date_time_estimated"
-                ], 
-                "departure_date_time": "20141204T101600", 
-                "links": []
-              }, 
-              {
-                "stop_point": {
-                  "comment": "", 
-                  "name": "Sainte-Pazanne", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "47.084501", 
-                    "lon": "-1.817848"
-                  }, 
-                  "label": "Sainte-Pazanne (Sainte-Pazanne)", 
-                  "equipments": [], 
-                  "id": "stop_point:TAD:SP:44186"
-                }, 
-                "arrival_date_time": "20141204T101600", 
-                "additional_informations": [
-                  "on_demand_transport"
-                ], 
-                "departure_date_time": "20141204T101600", 
-                "links": []
-              }
-            ]
-          }
-        ]
-      }, 
       {
         "fare": {
           "found": false, 
@@ -691,7 +166,6 @@
               "stop_area": {
                 "comment": "", 
                 "name": "gare de Ste-Pazanne", 
-                "links": [], 
                 "coord": {
                   "lat": "47.105436", 
                   "lon": "-1.813729"
@@ -699,7 +173,6 @@
                 "label": "gare de Ste-Pazanne (Sainte-Pazanne)", 
                 "administrative_regions": [
                   {
-                    "insee": "44186", 
                     "name": "Sainte-Pazanne", 
                     "level": 8, 
                     "coord": {
@@ -727,7 +200,6 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Pazanne-Mairie-(Ste)", 
-                "links": [], 
                 "coord": {
                   "lat": "47.103048", 
                   "lon": "-1.811114"
@@ -735,7 +207,6 @@
                 "label": "Pazanne-Mairie-(Ste) (Sainte-Pazanne)", 
                 "administrative_regions": [
                   {
-                    "insee": "44186", 
                     "name": "Sainte-Pazanne", 
                     "level": 8, 
                     "coord": {
@@ -813,7 +284,7 @@
               }
             ], 
             "type": "street_network", 
-            "id": "section_1_0", 
+            "id": "section_5_0", 
             "mode": "walking"
           }
         ]
@@ -828,6 +299,7 @@
           "links": []
         }, 
         "tags": [
+          "standard", 
           "alternative"
         ], 
         "nb_transfers": 0, 
@@ -844,7 +316,6 @@
               "stop_area": {
                 "comment": "", 
                 "name": "gare de Ste-Pazanne", 
-                "links": [], 
                 "coord": {
                   "lat": "47.105436", 
                   "lon": "-1.813729"
@@ -852,7 +323,6 @@
                 "label": "gare de Ste-Pazanne (Sainte-Pazanne)", 
                 "administrative_regions": [
                   {
-                    "insee": "44186", 
                     "name": "Sainte-Pazanne", 
                     "level": 8, 
                     "coord": {
@@ -880,7 +350,6 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Pazanne-Mairie-(Ste)", 
-                "links": [], 
                 "coord": {
                   "lat": "47.103048", 
                   "lon": "-1.811114"
@@ -888,7 +357,6 @@
                 "label": "Pazanne-Mairie-(Ste) (Sainte-Pazanne)", 
                 "administrative_regions": [
                   {
-                    "insee": "44186", 
                     "name": "Sainte-Pazanne", 
                     "level": 8, 
                     "coord": {
@@ -966,14 +434,11 @@
               }
             ], 
             "type": "street_network", 
-            "id": "section_1_0_3", 
+            "id": "section_0_0_1", 
             "mode": "bike"
           }
         ]
       }
-    ], 
-    "disruptions": [], 
-    "notes": [], 
-    "exceptions": []
+    ]
   }
 }
