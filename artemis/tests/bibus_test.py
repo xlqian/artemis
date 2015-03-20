@@ -40,7 +40,6 @@ class TestBibus(ArtemisTestFixture):
                      to="stop_area:BIB:SA:470", datetime="20041217T070000",
                      walking_speed="0.83", max_duration_to_pt="1200")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1573", raises=AssertionError)
     def test_bibus_07(self):
         self.journey(_from="stop_area:BIB:SA:1204",
                      to="stop_area:BIB:SA:236", datetime="20041214T080000",

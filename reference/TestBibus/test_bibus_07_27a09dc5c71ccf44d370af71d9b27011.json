@@ -10,44 +10,68 @@
         "duration": 2520, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Gare SNCF", 
             "arrival_date_time": "20041214T071000", 
-            "departure_date_time": "20041214T071000"
+            "departure_date_time": "20041214T071000", 
+            "to": "Gare SNCF", 
+            "duration": 0, 
+            "type": "crow_fly"
           }, 
           {
+            "from": "Gare SNCF", 
+            "arrival_date_time": "20041214T072200", 
+            "departure_date_time": "20041214T071000", 
+            "to": "Gare SNCF (Brest)", 
             "duration": 720, 
-            "arrival_date_time": "20041214T072200", 
-            "departure_date_time": "20041214T071000"
+            "type": "public_transport"
           }, 
           {
+            "from": "Gare SNCF (Brest)", 
+            "arrival_date_time": "20041214T072200", 
+            "departure_date_time": "20041214T072200", 
+            "to": "Gare SNCF (Brest)", 
             "duration": 0, 
-            "arrival_date_time": "20041214T072200", 
-            "departure_date_time": "20041214T072200"
+            "type": "transfer"
           }, 
           {
-            "duration": 600, 
+            "from": null, 
             "arrival_date_time": "20041214T073200", 
-            "departure_date_time": "20041214T072200"
+            "departure_date_time": "20041214T072200", 
+            "to": null, 
+            "duration": 600, 
+            "type": "waiting"
           }, 
           {
-            "duration": 240, 
+            "from": "Gare SNCF (Brest)", 
             "arrival_date_time": "20041214T073600", 
-            "departure_date_time": "20041214T073200"
+            "departure_date_time": "20041214T073200", 
+            "to": "H\u00f4tel De Ville (Glasgow) (Brest)", 
+            "duration": 240, 
+            "type": "public_transport"
           }, 
           {
-            "duration": 300, 
+            "from": null, 
             "arrival_date_time": "20041214T074100", 
-            "departure_date_time": "20041214T073600"
+            "departure_date_time": "20041214T073600", 
+            "to": null, 
+            "duration": 300, 
+            "type": "waiting"
           }, 
           {
+            "from": "H\u00f4tel De Ville (Glasgow) (Brest)", 
+            "arrival_date_time": "20041214T075200", 
+            "departure_date_time": "20041214T074100", 
+            "to": "Le Bot Haut (Brest)", 
             "duration": 660, 
-            "arrival_date_time": "20041214T075200", 
-            "departure_date_time": "20041214T074100"
+            "type": "public_transport"
           }, 
           {
-            "duration": 0, 
+            "from": "Le Bot Haut (Brest)", 
             "arrival_date_time": "20041214T075200", 
-            "departure_date_time": "20041214T075200"
+            "departure_date_time": "20041214T075200", 
+            "to": "Le Bot Haut (Brest)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
@@ -57,7 +81,7 @@
     "tickets": [
       {
         "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
+        "name": "unknown_ticket", 
         "links": [
           {
             "internal": true, 
@@ -89,14 +113,6 @@
         "id": "unknown_ticket_0"
       }
     ], 
-    "exceptions": [], 
-    "notes": [
-      {
-        "type": "notes", 
-        "id": "note:7266306883303732017", 
-        "value": "S'arr\u00eate \u00e0 l'arr\u00eat Provence"
-      }
-    ], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A236&datetime_represents=arrival&from=stop_area%3ABIB%3ASA%3A1204&max_duration_to_pt=1200&walking_speed=0.83&datetime=20041214T075100", 
@@ -123,37 +139,37 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}?collection=addresses", 
+        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
@@ -182,6 +198,43 @@
         ], 
         "nb_transfers": 2, 
         "arrival_date_time": "20041214T075200", 
+        "calendars": [
+          {
+            "exceptions": [
+              {
+                "type": "remove", 
+                "datetime": "20041111"
+              }, 
+              {
+                "type": "remove", 
+                "datetime": "20041217"
+              }
+            ], 
+            "active_periods": [
+              {
+                "begin": "20041108", 
+                "end": "20041220"
+              }, 
+              {
+                "begin": "20050103", 
+                "end": "20050214"
+              }, 
+              {
+                "begin": "20050228", 
+                "end": "20050326"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
         "departure_date_time": "20041214T071000", 
         "requested_date_time": "20041214T080000", 
         "type": "best", 
@@ -194,6 +247,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Gare SNCF", 
+                "links": [], 
                 "coord": {
                   "lat": "0.0", 
                   "lon": "0.0"
@@ -214,6 +268,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Gare SNCF", 
+                "links": [], 
                 "coord": {
                   "lat": "0.0", 
                   "lon": "0.0"
@@ -234,6 +289,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Gare SNCF", 
+                  "links": [], 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
@@ -258,6 +314,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Gare SNCF", 
+                "links": [], 
                 "coord": {
                   "lat": "0.0", 
                   "lon": "0.0"
@@ -278,6 +335,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Gare SNCF", 
+                  "links": [], 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
@@ -317,6 +375,7 @@
                 "id": "network:BIB:1008"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -330,6 +389,7 @@
               "direction": "Gare SNCF (Brest)", 
               "code": "", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "TER", 
               "headsign": "55503", 
@@ -343,6 +403,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Gare SNCF", 
+                "links": [], 
                 "coord": {
                   "lat": "48.388069", 
                   "lon": "-4.480522"
@@ -351,6 +412,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -363,19 +425,20 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 1, 
+                  "house_number": 24, 
                   "id": "-4.480522;48.388069", 
-                  "name": "Rue de Kerros", 
+                  "name": "Boulevard Gambetta", 
                   "coord": {
                     "lat": "48.388069", 
                     "lon": "-4.480522"
                   }, 
-                  "label": "1 Rue de Kerros (Brest)"
+                  "label": "24 Boulevard Gambetta (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav660", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Gare SNCF", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.388069", 
                     "lon": "-4.480522"
@@ -411,6 +474,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Gare SNCF", 
+                  "links": [], 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
@@ -428,6 +492,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Gare SNCF", 
+                  "links": [], 
                   "coord": {
                     "lat": "0.0", 
                     "lon": "0.0"
@@ -445,6 +510,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Gare SNCF", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.388069", 
                     "lon": "-4.480522"
@@ -466,6 +532,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Gare SNCF", 
+                "links": [], 
                 "coord": {
                   "lat": "48.388069", 
                   "lon": "-4.480522"
@@ -474,6 +541,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -486,19 +554,20 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 1, 
+                  "house_number": 24, 
                   "id": "-4.480522;48.388069", 
-                  "name": "Rue de Kerros", 
+                  "name": "Boulevard Gambetta", 
                   "coord": {
                     "lat": "48.388069", 
                     "lon": "-4.480522"
                   }, 
-                  "label": "1 Rue de Kerros (Brest)"
+                  "label": "24 Boulevard Gambetta (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav660", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Gare SNCF", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.388069", 
                     "lon": "-4.480522"
@@ -521,6 +590,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Gare SNCF", 
+                "links": [], 
                 "coord": {
                   "lat": "48.388069", 
                   "lon": "-4.480522"
@@ -529,6 +599,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -541,19 +612,20 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 1, 
+                  "house_number": 24, 
                   "id": "-4.480522;48.388069", 
-                  "name": "Rue de Kerros", 
+                  "name": "Boulevard Gambetta", 
                   "coord": {
                     "lat": "48.388069", 
                     "lon": "-4.480522"
                   }, 
-                  "label": "1 Rue de Kerros (Brest)"
+                  "label": "24 Boulevard Gambetta (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav661", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Gare SNCF", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.388069", 
                     "lon": "-4.480522"
@@ -605,6 +677,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Gare SNCF", 
+                "links": [], 
                 "coord": {
                   "lat": "48.388069", 
                   "lon": "-4.480522"
@@ -613,6 +686,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -625,19 +699,20 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 1, 
+                  "house_number": 24, 
                   "id": "-4.480522;48.388069", 
-                  "name": "Rue de Kerros", 
+                  "name": "Boulevard Gambetta", 
                   "coord": {
                     "lat": "48.388069", 
                     "lon": "-4.480522"
                   }, 
-                  "label": "1 Rue de Kerros (Brest)"
+                  "label": "24 Boulevard Gambetta (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav661", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Gare SNCF", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.388069", 
                     "lon": "-4.480522"
@@ -677,6 +752,7 @@
                 "id": "network:BIB:1001"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -690,6 +766,7 @@
               "direction": "Provence (Brest)", 
               "code": "05", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "BIB:2109-563917_dst_2", 
@@ -703,6 +780,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "H\u00f4tel De Ville (Glasgow)", 
+                "links": [], 
                 "coord": {
                   "lat": "48.392477", 
                   "lon": "-4.484336"
@@ -711,6 +789,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -723,19 +802,20 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 7, 
+                  "house_number": 5, 
                   "id": "-4.484336;48.392477", 
                   "name": "Rue de Glasgow", 
                   "coord": {
                     "lat": "48.392477", 
                     "lon": "-4.484336"
                   }, 
-                  "label": "7 Rue de Glasgow (Brest)"
+                  "label": "5 Rue de Glasgow (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav426", 
                 "stop_area": {
                   "comment": "", 
                   "name": "H\u00f4tel De Ville (Glasgow)", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.392377", 
                     "lon": "-4.484499"
@@ -779,6 +859,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Gare SNCF", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.388069", 
                     "lon": "-4.480522"
@@ -792,6 +873,7 @@
                 "departure_date_time": "20041214T073200", 
                 "links": [
                   {
+                    "internal": true, 
                     "type": "notes", 
                     "id": "note:7266306883303732017"
                   }
@@ -801,6 +883,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Libert\u00e9", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.390968", 
                     "lon": "-4.486239"
@@ -814,6 +897,7 @@
                 "departure_date_time": "20041214T073500", 
                 "links": [
                   {
+                    "internal": true, 
                     "type": "notes", 
                     "id": "note:7266306883303732017"
                   }
@@ -823,6 +907,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "H\u00f4tel De Ville (Glasgow)", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.392477", 
                     "lon": "-4.484336"
@@ -836,6 +921,7 @@
                 "departure_date_time": "20041214T073600", 
                 "links": [
                   {
+                    "internal": true, 
                     "type": "notes", 
                     "id": "note:7266306883303732017"
                   }
@@ -858,6 +944,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "H\u00f4tel De Ville (Glasgow)", 
+                "links": [], 
                 "coord": {
                   "lat": "48.392477", 
                   "lon": "-4.484336"
@@ -866,6 +953,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -878,19 +966,20 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 7, 
+                  "house_number": 5, 
                   "id": "-4.484336;48.392477", 
                   "name": "Rue de Glasgow", 
                   "coord": {
                     "lat": "48.392477", 
                     "lon": "-4.484336"
                   }, 
-                  "label": "7 Rue de Glasgow (Brest)"
+                  "label": "5 Rue de Glasgow (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav426", 
                 "stop_area": {
                   "comment": "", 
                   "name": "H\u00f4tel De Ville (Glasgow)", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.392377", 
                     "lon": "-4.484499"
@@ -930,6 +1019,7 @@
                 "id": "network:BIB:1001"
               }, 
               {
+                "internal": true, 
                 "type": "ticket", 
                 "id": "unknown_ticket_0", 
                 "rel": "tickets", 
@@ -943,6 +1033,7 @@
               "direction": "Kervenal (Plougastel-Daoulas)", 
               "code": "25", 
               "description": "", 
+              "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
               "headsign": "BIB:2185-226653_dst_1", 
@@ -956,6 +1047,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Le Bot Haut", 
+                "links": [], 
                 "coord": {
                   "lat": "48.401762", 
                   "lon": "-4.459705"
@@ -964,6 +1056,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -976,19 +1069,20 @@
                   }
                 ], 
                 "address": {
-                  "house_number": 43, 
+                  "house_number": 47, 
                   "id": "-4.459705;48.401762", 
                   "name": "Rue de Quimper", 
                   "coord": {
                     "lat": "48.401762", 
                     "lon": "-4.459705"
                   }, 
-                  "label": "43 Rue de Quimper (Brest)"
+                  "label": "47 Rue de Quimper (Brest)"
                 }, 
                 "id": "stop_point:BIB:SP:Nav1225", 
                 "stop_area": {
                   "comment": "", 
                   "name": "Le Bot Haut", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.401698", 
                     "lon": "-4.458463"
@@ -1052,6 +1146,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "H\u00f4tel De Ville (Glasgow)", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.392477", 
                     "lon": "-4.484336"
@@ -1069,6 +1164,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Malakoff", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.395806", 
                     "lon": "-4.483741"
@@ -1086,6 +1182,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Albert 1er", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.397534", 
                     "lon": "-4.488182"
@@ -1103,6 +1200,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Montaigne", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.403364", 
                     "lon": "-4.480541"
@@ -1120,6 +1218,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Hoche", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.404022", 
                     "lon": "-4.475409"
@@ -1137,6 +1236,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Braille", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.403598", 
                     "lon": "-4.471816"
@@ -1154,6 +1254,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Strasbourg", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.402262", 
                     "lon": "-4.467305"
@@ -1171,6 +1272,7 @@
                 "stop_point": {
                   "comment": "", 
                   "name": "Le Bot Haut", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.401762", 
                     "lon": "-4.459705"
@@ -1192,6 +1294,7 @@
               "stop_point": {
                 "comment": "", 
                 "name": "Le Bot Haut", 
+                "links": [], 
                 "coord": {
                   "lat": "48.401762", 
                   "lon": "-4.459705"
@@ -1200,6 +1303,7 @@
                 "equipments": [], 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -1213,14 +1317,15 @@
                 ], 
                 "address": {
                   "name": "Rue de Quimper", 
-                  "house_number": 43, 
+                  "house_number": 47, 
                   "coord": {
                     "lat": "48.401762", 
                     "lon": "-4.459705"
                   }, 
-                  "label": "43 Rue de Quimper (Brest)", 
+                  "label": "47 Rue de Quimper (Brest)", 
                   "administrative_regions": [
                     {
+                      "insee": "29019", 
                       "name": "Brest", 
                       "level": 8, 
                       "coord": {
@@ -1238,6 +1343,7 @@
                 "stop_area": {
                   "comment": "", 
                   "name": "Le Bot Haut", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.401698", 
                     "lon": "-4.458463"
@@ -1245,6 +1351,7 @@
                   "label": "Le Bot Haut (Brest)", 
                   "administrative_regions": [
                     {
+                      "insee": "29019", 
                       "name": "Brest", 
                       "level": 8, 
                       "coord": {
@@ -1274,6 +1381,7 @@
               "stop_area": {
                 "comment": "", 
                 "name": "Le Bot Haut", 
+                "links": [], 
                 "coord": {
                   "lat": "48.401698", 
                   "lon": "-4.458463"
@@ -1281,6 +1389,7 @@
                 "label": "Le Bot Haut (Brest)", 
                 "administrative_regions": [
                   {
+                    "insee": "29019", 
                     "name": "Brest", 
                     "level": 8, 
                     "coord": {
@@ -1305,6 +1414,15 @@
           }
         ]
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [
+      {
+        "type": "notes", 
+        "id": "note:7266306883303732017", 
+        "value": "S'arr\u00eate \u00e0 l'arr\u00eat Provence"
+      }
+    ], 
+    "exceptions": []
   }
 }
