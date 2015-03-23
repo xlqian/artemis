@@ -6,7 +6,6 @@ xfail = pytest.mark.xfail
 class TestBibus(ArtemisTestFixture):
     """
     """
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1572", raises=AssertionError)
     def test_bibus_01(self):
         self.journey(_from="stop_area:BIB:SA:527",
                      to="stop_area:BIB:SA:9", datetime="20041214T070000",
