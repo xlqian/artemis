@@ -4,25 +4,34 @@
     "journeys": [
       {
         "nb_transfers": 0, 
-        "arrival_date_time": "20070417T055508", 
-        "departure_date_time": "20070417T053300", 
+        "arrival_date_time": "20070417T053708", 
+        "departure_date_time": "20070417T051500", 
         "type": "best", 
         "duration": 1328, 
         "sections": [
           {
+            "from": "BASSO-CAMBO (Toulouse)", 
+            "arrival_date_time": "20070417T051500", 
+            "departure_date_time": "20070417T051500", 
+            "to": "BASSO-CAMBO (Toulouse)", 
             "duration": 0, 
-            "arrival_date_time": "20070417T053300", 
-            "departure_date_time": "20070417T053300"
+            "type": "crow_fly"
           }, 
           {
+            "from": "BASSO-CAMBO (Toulouse)", 
+            "arrival_date_time": "20070417T053708", 
+            "departure_date_time": "20070417T051500", 
+            "to": "BALMA-GRAMONT", 
             "duration": 1328, 
-            "arrival_date_time": "20070417T055508", 
-            "departure_date_time": "20070417T053300"
+            "type": "public_transport"
           }, 
           {
+            "from": "BALMA-GRAMONT", 
+            "arrival_date_time": "20070417T053708", 
+            "departure_date_time": "20070417T053708", 
+            "to": "BALMA-GRAMONT", 
             "duration": 0, 
-            "arrival_date_time": "20070417T055508", 
-            "departure_date_time": "20070417T055508"
+            "type": "crow_fly"
           }
         ]
       }
@@ -52,13 +61,13 @@
     ], 
     "links": [
       {
-        "href": "http://localhost/v1/coverage/freqsimple/journeys?to=stop_area%3AFQS%3ASA%3AGRA&from=stop_area%3AFQS%3ASA%3AMBC&datetime_represents=arrival&datetime=20070417T055408", 
+        "href": "http://localhost/v1/coverage/freqsimple/journeys?to=stop_area%3AFQS%3ASA%3AGRA&from=stop_area%3AFQS%3ASA%3AMBC&datetime_represents=arrival&datetime=20070417T053608", 
         "type": "prev", 
         "rel": "prev", 
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqsimple/journeys?to=stop_area%3AFQS%3ASA%3AGRA&from=stop_area%3AFQS%3ASA%3AMBC&datetime_represents=departure&datetime=20070417T053400", 
+        "href": "http://localhost/v1/coverage/freqsimple/journeys?to=stop_area%3AFQS%3ASA%3AGRA&from=stop_area%3AFQS%3ASA%3AMBC&datetime_represents=departure&datetime=20070417T051600", 
         "type": "next", 
         "rel": "next", 
         "templated": false
@@ -76,39 +85,51 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqsimple/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/freqsimple/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqsimple/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/freqsimple/commercial_modes/{commercial_modes.id}", 
+        "type": "commercial_modes", 
+        "rel": "commercial_modes", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqsimple/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqsimple/addresses/{address.id}?collection=addresses", 
-        "type": "address", 
-        "rel": "addresses", 
+        "href": "http://localhost/v1/coverage/freqsimple/physical_modes/{physical_modes.id}", 
+        "type": "physical_modes", 
+        "rel": "physical_modes", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqsimple/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/freqsimple/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqsimple/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/freqsimple/commercial_modes/{commercial_modes.id}", 
+        "type": "commercial_modes", 
+        "rel": "commercial_modes", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/freqsimple/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqsimple/addresses/{address.id}?collection=addresses", 
-        "type": "address", 
-        "rel": "addresses", 
+        "href": "http://localhost/v1/coverage/freqsimple/physical_modes/{physical_modes.id}", 
+        "type": "physical_modes", 
+        "rel": "physical_modes", 
         "templated": true
       }
     ], 
@@ -134,7 +155,7 @@
           "standard"
         ], 
         "nb_transfers": 0, 
-        "arrival_date_time": "20070417T055508", 
+        "arrival_date_time": "20070417T053708", 
         "calendars": [
           {
             "active_periods": [
@@ -154,7 +175,7 @@
             }
           }
         ], 
-        "departure_date_time": "20070417T053300", 
+        "departure_date_time": "20070417T051500", 
         "requested_date_time": "20070417T010000", 
         "type": "best", 
         "duration": 1328, 
@@ -165,8 +186,20 @@
               "quality": 0, 
               "stop_area": {
                 "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "METRO", 
+                    "id": "commercial_mode:METRO"
+                  }
+                ], 
                 "name": "BASSO-CAMBO", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "M\u00e9tro", 
+                    "id": "physical_mode:Metro"
+                  }
+                ], 
                 "coord": {
                   "lat": "48.830492", 
                   "lon": "2.390951"
@@ -193,9 +226,9 @@
               "id": "stop_area:FQS:SA:MBC"
             }, 
             "links": [], 
-            "arrival_date_time": "20070417T053300", 
+            "arrival_date_time": "20070417T051500", 
             "additional_informations": [], 
-            "departure_date_time": "20070417T053300", 
+            "departure_date_time": "20070417T051500", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
@@ -222,16 +255,6 @@
                     "zip_code": "31000-31500"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:FQS:SP:MBC", 
                 "stop_area": {
                   "comment": "", 
@@ -296,16 +319,6 @@
                     "zip_code": "31000-31500"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:FQS:SP:MBC", 
                 "stop_area": {
                   "comment": "", 
@@ -327,7 +340,7 @@
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:FQS:A3677"
+                "id": "vehicle_journey:FQS:A1679"
               }, 
               {
                 "type": "line", 
@@ -357,9 +370,9 @@
                 "templated": false
               }
             ], 
-            "arrival_date_time": "20070417T055508", 
+            "arrival_date_time": "20070417T053708", 
             "additional_informations": [], 
-            "departure_date_time": "20070417T053300", 
+            "departure_date_time": "20070417T051500", 
             "display_informations": {
               "direction": "BALMA-GRAMONT", 
               "code": "", 
@@ -367,7 +380,7 @@
               "links": [], 
               "color": "000000", 
               "physical_mode": "M\u00e9tro", 
-              "headsign": "FQS:A3677", 
+              "headsign": "FQS:A1679", 
               "commercial_mode": "METRO", 
               "equipments": [], 
               "label": "Ligne 1", 
@@ -385,16 +398,6 @@
                 }, 
                 "label": "BALMA-GRAMONT", 
                 "equipments": [], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:FQS:SP:GRA", 
                 "stop_area": {
                   "comment": "", 
@@ -512,9 +515,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:MBC"
                 }, 
-                "arrival_date_time": "20070417T053300", 
+                "arrival_date_time": "20070417T051500", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T053300", 
+                "departure_date_time": "20070417T051500", 
                 "links": []
               }, 
               {
@@ -530,9 +533,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:BEL"
                 }, 
-                "arrival_date_time": "20070417T053401", 
+                "arrival_date_time": "20070417T051601", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T053401", 
+                "departure_date_time": "20070417T051601", 
                 "links": []
               }, 
               {
@@ -548,9 +551,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:REY"
                 }, 
-                "arrival_date_time": "20070417T053517", 
+                "arrival_date_time": "20070417T051717", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T053517", 
+                "departure_date_time": "20070417T051717", 
                 "links": []
               }, 
               {
@@ -566,9 +569,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:MUN"
                 }, 
-                "arrival_date_time": "20070417T053621", 
+                "arrival_date_time": "20070417T051821", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T053621", 
+                "departure_date_time": "20070417T051821", 
                 "links": []
               }, 
               {
@@ -584,9 +587,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:BAG"
                 }, 
-                "arrival_date_time": "20070417T053804", 
+                "arrival_date_time": "20070417T052004", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T053804", 
+                "departure_date_time": "20070417T052004", 
                 "links": []
               }, 
               {
@@ -602,9 +605,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:MER"
                 }, 
-                "arrival_date_time": "20070417T053908", 
+                "arrival_date_time": "20070417T052108", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T053908", 
+                "departure_date_time": "20070417T052108", 
                 "links": []
               }, 
               {
@@ -620,9 +623,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:FLE"
                 }, 
-                "arrival_date_time": "20070417T054015", 
+                "arrival_date_time": "20070417T052215", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T054015", 
+                "departure_date_time": "20070417T052215", 
                 "links": []
               }, 
               {
@@ -638,9 +641,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:ARE"
                 }, 
-                "arrival_date_time": "20070417T054131", 
+                "arrival_date_time": "20070417T052331", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T054131", 
+                "departure_date_time": "20070417T052331", 
                 "links": []
               }, 
               {
@@ -656,9 +659,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:PAT"
                 }, 
-                "arrival_date_time": "20070417T054245", 
+                "arrival_date_time": "20070417T052445", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T054245", 
+                "departure_date_time": "20070417T052445", 
                 "links": []
               }, 
               {
@@ -674,9 +677,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:SCY"
                 }, 
-                "arrival_date_time": "20070417T054402", 
+                "arrival_date_time": "20070417T052602", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T054402", 
+                "departure_date_time": "20070417T052602", 
                 "links": []
               }, 
               {
@@ -692,9 +695,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:ESQ"
                 }, 
-                "arrival_date_time": "20070417T054546", 
+                "arrival_date_time": "20070417T052746", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T054546", 
+                "departure_date_time": "20070417T052746", 
                 "links": []
               }, 
               {
@@ -710,9 +713,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:CAP"
                 }, 
-                "arrival_date_time": "20070417T054657", 
+                "arrival_date_time": "20070417T052857", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T054657", 
+                "departure_date_time": "20070417T052857", 
                 "links": []
               }, 
               {
@@ -728,9 +731,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:JAU"
                 }, 
-                "arrival_date_time": "20070417T054802", 
+                "arrival_date_time": "20070417T053002", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T054802", 
+                "departure_date_time": "20070417T053002", 
                 "links": []
               }, 
               {
@@ -746,9 +749,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:MAR"
                 }, 
-                "arrival_date_time": "20070417T054921", 
+                "arrival_date_time": "20070417T053121", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T054921", 
+                "departure_date_time": "20070417T053121", 
                 "links": []
               }, 
               {
@@ -764,9 +767,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:JOL"
                 }, 
-                "arrival_date_time": "20070417T055054", 
+                "arrival_date_time": "20070417T053254", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T055054", 
+                "departure_date_time": "20070417T053254", 
                 "links": []
               }, 
               {
@@ -782,9 +785,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:ROS"
                 }, 
-                "arrival_date_time": "20070417T055216", 
+                "arrival_date_time": "20070417T053416", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T055216", 
+                "departure_date_time": "20070417T053416", 
                 "links": []
               }, 
               {
@@ -800,9 +803,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:ARG"
                 }, 
-                "arrival_date_time": "20070417T055336", 
+                "arrival_date_time": "20070417T053536", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T055336", 
+                "departure_date_time": "20070417T053536", 
                 "links": []
               }, 
               {
@@ -818,9 +821,9 @@
                   "equipments": [], 
                   "id": "stop_point:FQS:SP:GRA"
                 }, 
-                "arrival_date_time": "20070417T055508", 
+                "arrival_date_time": "20070417T053708", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T055508", 
+                "departure_date_time": "20070417T053708", 
                 "links": []
               }
             ]
@@ -838,16 +841,6 @@
                 }, 
                 "label": "BALMA-GRAMONT", 
                 "equipments": [], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:FQS:SP:GRA", 
                 "stop_area": {
                   "comment": "", 
@@ -867,16 +860,28 @@
               "name": "BALMA-GRAMONT"
             }, 
             "links": [], 
-            "arrival_date_time": "20070417T055508", 
+            "arrival_date_time": "20070417T053708", 
             "additional_informations": [], 
-            "departure_date_time": "20070417T055508", 
+            "departure_date_time": "20070417T053708", 
             "to": {
               "embedded_type": "stop_area", 
               "quality": 0, 
               "stop_area": {
                 "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "METRO", 
+                    "id": "commercial_mode:METRO"
+                  }
+                ], 
                 "name": "BALMA-GRAMONT", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "M\u00e9tro", 
+                    "id": "physical_mode:Metro"
+                  }
+                ], 
                 "coord": {
                   "lat": "48.843979", 
                   "lon": "2.379063"
