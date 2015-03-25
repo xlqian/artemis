@@ -16,7 +16,6 @@ class TestFreqParis(ArtemisTestFixture):
         self.journey(_from="stop_area:FQP:SA:defen",
                      to="stop_area:FQP:SA:grest", datetime="20090922T2330")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1578", raises=AssertionError)
     def test_freqparis_03(self):
         self.journey(_from="stop_area:FQP:SA:defen",
                      to="stop_area:FQP:SA:grest", datetime="20090922T2200")
@@ -35,7 +34,6 @@ class TestFreqParis(ArtemisTestFixture):
         self.journey(_from="stop_area:FQP:SA:defen",
                      to="stop_area:FQP:SA:grest", datetime="20090922T2350")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1581", raises=AssertionError)
     def test_freqparis_07(self):
         self.journey(_from="stop_area:FQP:SA:defen",
                      to="stop_area:FQP:SA:grest", datetime="20090922T2355")
