@@ -28,7 +28,6 @@ class TestDestineo(ArtemisTestFixture):
                      last_section_mode=['bss'],
                      min_nb_journeys=3)
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVP-152", raises=AssertionError)
     def test_destineo_03(self):
         """
         we go to "Nantes" from "Treillieres"
@@ -40,7 +39,6 @@ class TestDestineo(ArtemisTestFixture):
                      first_section_mode=['walking', 'car'],
                      min_nb_journeys=3)
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1525", raises=AssertionError)
     def test_destineo_04(self):
         """
         we go to "Pazanne-Mairie-(Ste) (Sainte-Pazanne)" from "gare de Ste-Pazanne (Sainte-Pazanne)"
@@ -52,7 +50,6 @@ class TestDestineo(ArtemisTestFixture):
                      last_section_mode=['walking', 'bss'],
                      min_nb_journeys=3)
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVP-146", raises=AssertionError)
     def test_destineo_05(self):
         """
         we go from "rue JEAN GORIN (Nantes)" to "15 rue ADOLPHE MOITIE (Nantes)"
