@@ -19,34 +19,34 @@
           }, 
           {
             "from": "Palaren (Brest)", 
-            "arrival_date_time": "20041214T061100", 
+            "arrival_date_time": "20041214T061200", 
             "departure_date_time": "20041214T060000", 
-            "to": "Ferry (Brest)", 
-            "duration": 660, 
+            "to": "Octroi (Brest)", 
+            "duration": 720, 
             "type": "public_transport"
           }, 
           {
-            "from": "Ferry (Brest)", 
-            "arrival_date_time": "20041214T061315", 
-            "departure_date_time": "20041214T061100", 
-            "to": "Ferry (Brest)", 
-            "duration": 135, 
+            "from": "Octroi (Brest)", 
+            "arrival_date_time": "20041214T061316", 
+            "departure_date_time": "20041214T061200", 
+            "to": "Octroi (Brest)", 
+            "duration": 76, 
             "type": "transfer"
           }, 
           {
             "from": null, 
-            "arrival_date_time": "20041214T062100", 
-            "departure_date_time": "20041214T061315", 
+            "arrival_date_time": "20041214T062000", 
+            "departure_date_time": "20041214T061316", 
             "to": null, 
-            "duration": 465, 
+            "duration": 404, 
             "type": "waiting"
           }, 
           {
-            "from": "Ferry (Brest)", 
+            "from": "Octroi (Brest)", 
             "arrival_date_time": "20041214T063000", 
-            "departure_date_time": "20041214T062100", 
+            "departure_date_time": "20041214T062000", 
             "to": "Coat-ar-piquet (Brest)", 
-            "duration": 540, 
+            "duration": 600, 
             "type": "public_transport"
           }, 
           {
@@ -62,34 +62,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_4_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A180&datetime_represents=arrival&from=stop_area%3ABIB%3ASA%3A288&max_duration_to_pt=1200&walking_speed=0.83&datetime=20041214T064211", 
@@ -122,27 +95,21 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/bibus/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/bibus/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
+        "href": "http://localhost/v1/coverage/bibus/commercial_modes/{commercial_modes.id}", 
+        "type": "commercial_modes", 
+        "rel": "commercial_modes", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/bibus/physical_modes/{physical_modes.id}", 
+        "type": "physical_modes", 
+        "rel": "physical_modes", 
         "templated": true
       }, 
       {
@@ -160,16 +127,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -214,17 +174,28 @@
         ], 
         "departure_date_time": "20041214T060000", 
         "requested_date_time": "20041214T070000", 
-        "type": "best", 
-        "duration": 2591, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:BIB:SA:288", 
               "quality": 0, 
               "stop_area": {
                 "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "commercial_mode:bus"
+                  }
+                ], 
                 "name": "Palaren", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "physical_mode:Bus"
+                  }
+                ], 
                 "coord": {
                   "lat": "48.396951", 
                   "lon": "-4.436042"
@@ -259,8 +230,7 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:BIB:SA:288"
               }, 
-              "name": "Palaren (Brest) (Guipavas)", 
-              "id": "stop_area:BIB:SA:288"
+              "name": "Palaren (Brest) (Guipavas)"
             }, 
             "links": [], 
             "arrival_date_time": "20041214T060000", 
@@ -292,30 +262,6 @@
                     "zip_code": "29200"
                   }
                 ], 
-                "address": {
-                  "name": "Rue de Verdun", 
-                  "house_number": 308, 
-                  "coord": {
-                    "lat": "48.396741", 
-                    "lon": "-4.436123"
-                  }, 
-                  "label": "308 Rue de Verdun (Brest)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "29019", 
-                      "name": "Brest", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "48.38987538", 
-                        "lon": "-4.487201604"
-                      }, 
-                      "label": "Brest (29200)", 
-                      "id": "admin:29019", 
-                      "zip_code": "29200"
-                    }
-                  ], 
-                  "id": "-4.436123;48.396741"
-                }, 
                 "id": "stop_point:BIB:SP:Nav280", 
                 "stop_area": {
                   "comment": "", 
@@ -363,7 +309,7 @@
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
-            "id": "section_0_0"
+            "id": "section_6_0"
           }, 
           {
             "from": {
@@ -392,16 +338,6 @@
                     "zip_code": "29200"
                   }
                 ], 
-                "address": {
-                  "house_number": 308, 
-                  "id": "-4.436123;48.396741", 
-                  "name": "Rue de Verdun", 
-                  "coord": {
-                    "lat": "48.396741", 
-                    "lon": "-4.436123"
-                  }, 
-                  "label": "308 Rue de Verdun (Brest)"
-                }, 
                 "id": "stop_point:BIB:SP:Nav280", 
                 "stop_area": {
                   "comment": "", 
@@ -444,18 +380,14 @@
               {
                 "type": "network", 
                 "id": "network:BIB:1001"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
-            "arrival_date_time": "20041214T061100", 
+            "arrival_date_time": "20041214T061200", 
             "additional_informations": [], 
-            "departure_date_time": "20041214T060000", 
+            "co2_emission": {
+              "value": 463.8072, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Provence (Brest)", 
               "code": "03", 
@@ -473,13 +405,13 @@
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
-                "name": "Ferry", 
+                "name": "Octroi", 
                 "links": [], 
                 "coord": {
-                  "lat": "48.398065", 
-                  "lon": "-4.474184"
+                  "lat": "48.39654", 
+                  "lon": "-4.476519"
                 }, 
-                "label": "Ferry (Brest)", 
+                "label": "Octroi (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
@@ -495,39 +427,30 @@
                     "zip_code": "29200"
                   }
                 ], 
-                "address": {
-                  "house_number": 184, 
-                  "id": "-4.474184;48.398065", 
-                  "name": "Rue Jean Jaur\u00e8s", 
-                  "coord": {
-                    "lat": "48.398065", 
-                    "lon": "-4.474184"
-                  }, 
-                  "label": "184 Rue Jean Jaur\u00e8s (Brest)"
-                }, 
-                "id": "stop_point:BIB:SP:Nav308", 
+                "id": "stop_point:BIB:SP:Nav309", 
                 "stop_area": {
                   "comment": "", 
-                  "name": "Ferry", 
+                  "name": "Octroi", 
                   "links": [], 
                   "coord": {
-                    "lat": "48.398223", 
-                    "lon": "-4.473704"
+                    "lat": "48.396548", 
+                    "lon": "-4.476216"
                   }, 
-                  "label": "Ferry (Brest)", 
+                  "label": "Octroi (Brest)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:BIB:SA:156"
+                  "id": "stop_area:BIB:SA:287"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:BIB:SP:Nav308", 
-              "name": "Ferry (Brest)"
+              "id": "stop_point:BIB:SP:Nav309", 
+              "name": "Octroi (Brest)"
             }, 
+            "departure_date_time": "20041214T060000", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 3335
+                  "length": 3576
                 }
               ], 
               "coordinates": [
@@ -586,12 +509,16 @@
                 [
                   -4.474184, 
                   48.398065
+                ], 
+                [
+                  -4.476519, 
+                  48.39654
                 ]
               ]
             }, 
-            "duration": 660, 
+            "duration": 720, 
             "type": "public_transport", 
-            "id": "section_1_0", 
+            "id": "section_7_0", 
             "stop_date_times": [
               {
                 "stop_point": {
@@ -608,8 +535,8 @@
                 }, 
                 "arrival_date_time": "20041214T060000", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T060000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T060000"
               }, 
               {
                 "stop_point": {
@@ -626,8 +553,8 @@
                 }, 
                 "arrival_date_time": "20041214T060100", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T060100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T060100"
               }, 
               {
                 "stop_point": {
@@ -644,8 +571,8 @@
                 }, 
                 "arrival_date_time": "20041214T060200", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T060200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T060200"
               }, 
               {
                 "stop_point": {
@@ -662,8 +589,8 @@
                 }, 
                 "arrival_date_time": "20041214T060200", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T060200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T060200"
               }, 
               {
                 "stop_point": {
@@ -680,8 +607,8 @@
                 }, 
                 "arrival_date_time": "20041214T060300", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T060300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T060300"
               }, 
               {
                 "stop_point": {
@@ -698,8 +625,8 @@
                 }, 
                 "arrival_date_time": "20041214T060400", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T060400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T060400"
               }, 
               {
                 "stop_point": {
@@ -716,8 +643,8 @@
                 }, 
                 "arrival_date_time": "20041214T060500", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T060500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T060500"
               }, 
               {
                 "stop_point": {
@@ -734,8 +661,8 @@
                 }, 
                 "arrival_date_time": "20041214T060600", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T060600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T060600"
               }, 
               {
                 "stop_point": {
@@ -752,8 +679,8 @@
                 }, 
                 "arrival_date_time": "20041214T060600", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T060600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T060600"
               }, 
               {
                 "stop_point": {
@@ -770,8 +697,8 @@
                 }, 
                 "arrival_date_time": "20041214T060700", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T060700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T060700"
               }, 
               {
                 "stop_point": {
@@ -788,8 +715,8 @@
                 }, 
                 "arrival_date_time": "20041214T060800", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T060800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T060800"
               }, 
               {
                 "stop_point": {
@@ -806,8 +733,8 @@
                 }, 
                 "arrival_date_time": "20041214T060900", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T060900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T060900"
               }, 
               {
                 "stop_point": {
@@ -824,8 +751,8 @@
                 }, 
                 "arrival_date_time": "20041214T061000", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T061000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T061000"
               }, 
               {
                 "stop_point": {
@@ -842,8 +769,26 @@
                 }, 
                 "arrival_date_time": "20041214T061100", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T061100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T061100"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Octroi", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "48.39654", 
+                    "lon": "-4.476519"
+                  }, 
+                  "label": "Octroi (Brest)", 
+                  "equipments": [], 
+                  "id": "stop_point:BIB:SP:Nav309"
+                }, 
+                "arrival_date_time": "20041214T061200", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20041214T061200"
               }
             ]
           }, 
@@ -852,13 +797,13 @@
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
-                "name": "Ferry", 
+                "name": "Octroi", 
                 "links": [], 
                 "coord": {
-                  "lat": "48.398065", 
-                  "lon": "-4.474184"
+                  "lat": "48.39654", 
+                  "lon": "-4.476519"
                 }, 
-                "label": "Ferry (Brest)", 
+                "label": "Octroi (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
@@ -874,49 +819,39 @@
                     "zip_code": "29200"
                   }
                 ], 
-                "address": {
-                  "house_number": 184, 
-                  "id": "-4.474184;48.398065", 
-                  "name": "Rue Jean Jaur\u00e8s", 
-                  "coord": {
-                    "lat": "48.398065", 
-                    "lon": "-4.474184"
-                  }, 
-                  "label": "184 Rue Jean Jaur\u00e8s (Brest)"
-                }, 
-                "id": "stop_point:BIB:SP:Nav308", 
+                "id": "stop_point:BIB:SP:Nav309", 
                 "stop_area": {
                   "comment": "", 
-                  "name": "Ferry", 
+                  "name": "Octroi", 
                   "links": [], 
                   "coord": {
-                    "lat": "48.398223", 
-                    "lon": "-4.473704"
+                    "lat": "48.396548", 
+                    "lon": "-4.476216"
                   }, 
-                  "label": "Ferry (Brest)", 
+                  "label": "Octroi (Brest)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:BIB:SA:156"
+                  "id": "stop_area:BIB:SA:287"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:BIB:SP:Nav308", 
-              "name": "Ferry (Brest)"
+              "id": "stop_point:BIB:SP:Nav309", 
+              "name": "Octroi (Brest)"
             }, 
             "links": [], 
-            "arrival_date_time": "20041214T061315", 
+            "arrival_date_time": "20041214T061316", 
             "additional_informations": [], 
-            "departure_date_time": "20041214T061100", 
+            "departure_date_time": "20041214T061200", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
-                "name": "Ferry", 
+                "name": "Octroi", 
                 "links": [], 
                 "coord": {
-                  "lat": "48.398382", 
-                  "lon": "-4.473223"
+                  "lat": "48.396557", 
+                  "lon": "-4.475912"
                 }, 
-                "label": "Ferry (Brest)", 
+                "label": "Octroi (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
@@ -932,78 +867,68 @@
                     "zip_code": "29200"
                   }
                 ], 
-                "address": {
-                  "house_number": 195, 
-                  "id": "-4.473223;48.398382", 
-                  "name": "Rue Jean Jaur\u00e8s", 
-                  "coord": {
-                    "lat": "48.398382", 
-                    "lon": "-4.473223"
-                  }, 
-                  "label": "195 Rue Jean Jaur\u00e8s (Brest)"
-                }, 
-                "id": "stop_point:BIB:SP:Nav358", 
+                "id": "stop_point:BIB:SP:Nav357", 
                 "stop_area": {
                   "comment": "", 
-                  "name": "Ferry", 
+                  "name": "Octroi", 
                   "links": [], 
                   "coord": {
-                    "lat": "48.398223", 
-                    "lon": "-4.473704"
+                    "lat": "48.396548", 
+                    "lon": "-4.476216"
                   }, 
-                  "label": "Ferry (Brest)", 
+                  "label": "Octroi (Brest)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:BIB:SA:156"
+                  "id": "stop_area:BIB:SA:287"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:BIB:SP:Nav358", 
-              "name": "Ferry (Brest)"
+              "id": "stop_point:BIB:SP:Nav357", 
+              "name": "Octroi (Brest)"
             }, 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 79
+                  "length": 44
                 }
               ], 
               "coordinates": [
                 [
-                  -4.474184, 
-                  48.398065
+                  -4.476519, 
+                  48.39654
                 ], 
                 [
-                  -4.473223, 
-                  48.398382
+                  -4.475912, 
+                  48.396557
                 ]
               ]
             }, 
-            "duration": 135, 
+            "duration": 76, 
             "transfer_type": "walking", 
             "type": "transfer", 
-            "id": "section_2_0"
+            "id": "section_8_0"
           }, 
           {
             "links": [], 
-            "arrival_date_time": "20041214T062100", 
+            "arrival_date_time": "20041214T062000", 
             "additional_informations": [], 
-            "departure_date_time": "20041214T061315", 
-            "duration": 465, 
+            "departure_date_time": "20041214T061316", 
+            "duration": 404, 
             "type": "waiting", 
-            "id": "section_3_0"
+            "id": "section_9_0"
           }, 
           {
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
                 "comment": "", 
-                "name": "Ferry", 
+                "name": "Octroi", 
                 "links": [], 
                 "coord": {
-                  "lat": "48.398382", 
-                  "lon": "-4.473223"
+                  "lat": "48.396557", 
+                  "lon": "-4.475912"
                 }, 
-                "label": "Ferry (Brest)", 
+                "label": "Octroi (Brest)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
@@ -1019,33 +944,23 @@
                     "zip_code": "29200"
                   }
                 ], 
-                "address": {
-                  "house_number": 195, 
-                  "id": "-4.473223;48.398382", 
-                  "name": "Rue Jean Jaur\u00e8s", 
-                  "coord": {
-                    "lat": "48.398382", 
-                    "lon": "-4.473223"
-                  }, 
-                  "label": "195 Rue Jean Jaur\u00e8s (Brest)"
-                }, 
-                "id": "stop_point:BIB:SP:Nav358", 
+                "id": "stop_point:BIB:SP:Nav357", 
                 "stop_area": {
                   "comment": "", 
-                  "name": "Ferry", 
+                  "name": "Octroi", 
                   "links": [], 
                   "coord": {
-                    "lat": "48.398223", 
-                    "lon": "-4.473704"
+                    "lat": "48.396548", 
+                    "lon": "-4.476216"
                   }, 
-                  "label": "Ferry (Brest)", 
+                  "label": "Octroi (Brest)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:BIB:SA:156"
+                  "id": "stop_area:BIB:SA:287"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:BIB:SP:Nav358", 
-              "name": "Ferry (Brest)"
+              "id": "stop_point:BIB:SP:Nav357", 
+              "name": "Octroi (Brest)"
             }, 
             "links": [
               {
@@ -1071,18 +986,14 @@
               {
                 "type": "network", 
                 "id": "network:BIB:1001"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20041214T063000", 
             "additional_informations": [], 
-            "departure_date_time": "20041214T062100", 
+            "co2_emission": {
+              "value": 515.2981, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Villeneuve (Brest)", 
               "code": "04", 
@@ -1122,16 +1033,6 @@
                     "zip_code": "29200"
                   }
                 ], 
-                "address": {
-                  "house_number": 180, 
-                  "id": "-4.46733;48.420128", 
-                  "name": "Route de Gouesnou", 
-                  "coord": {
-                    "lat": "48.420128", 
-                    "lon": "-4.46733"
-                  }, 
-                  "label": "180 Route de Gouesnou (Brest)"
-                }, 
                 "id": "stop_point:BIB:SP:Nav601", 
                 "stop_area": {
                   "comment": "", 
@@ -1150,14 +1051,19 @@
               "id": "stop_point:BIB:SP:Nav601", 
               "name": "Coat-ar-piquet (Brest)"
             }, 
+            "departure_date_time": "20041214T062000", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 3690
+                  "length": 3973
                 }
               ], 
               "coordinates": [
+                [
+                  -4.475912, 
+                  48.396557
+                ], 
                 [
                   -4.473223, 
                   48.398382
@@ -1212,10 +1118,28 @@
                 ]
               ]
             }, 
-            "duration": 540, 
+            "duration": 600, 
             "type": "public_transport", 
-            "id": "section_4_0", 
+            "id": "section_10_0", 
             "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Octroi", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "48.396557", 
+                    "lon": "-4.475912"
+                  }, 
+                  "label": "Octroi (Brest)", 
+                  "equipments": [], 
+                  "id": "stop_point:BIB:SP:Nav357"
+                }, 
+                "arrival_date_time": "20041214T062000", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20041214T062000"
+              }, 
               {
                 "stop_point": {
                   "comment": "", 
@@ -1231,8 +1155,8 @@
                 }, 
                 "arrival_date_time": "20041214T062100", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T062100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T062100"
               }, 
               {
                 "stop_point": {
@@ -1249,8 +1173,8 @@
                 }, 
                 "arrival_date_time": "20041214T062200", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T062200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T062200"
               }, 
               {
                 "stop_point": {
@@ -1267,8 +1191,8 @@
                 }, 
                 "arrival_date_time": "20041214T062300", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T062300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T062300"
               }, 
               {
                 "stop_point": {
@@ -1285,8 +1209,8 @@
                 }, 
                 "arrival_date_time": "20041214T062400", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T062400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T062400"
               }, 
               {
                 "stop_point": {
@@ -1303,8 +1227,8 @@
                 }, 
                 "arrival_date_time": "20041214T062500", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T062500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T062500"
               }, 
               {
                 "stop_point": {
@@ -1321,8 +1245,8 @@
                 }, 
                 "arrival_date_time": "20041214T062500", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T062500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T062500"
               }, 
               {
                 "stop_point": {
@@ -1339,8 +1263,8 @@
                 }, 
                 "arrival_date_time": "20041214T062600", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T062600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T062600"
               }, 
               {
                 "stop_point": {
@@ -1357,8 +1281,8 @@
                 }, 
                 "arrival_date_time": "20041214T062700", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T062700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T062700"
               }, 
               {
                 "stop_point": {
@@ -1375,8 +1299,8 @@
                 }, 
                 "arrival_date_time": "20041214T062800", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T062800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T062800"
               }, 
               {
                 "stop_point": {
@@ -1393,8 +1317,8 @@
                 }, 
                 "arrival_date_time": "20041214T062800", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T062800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T062800"
               }, 
               {
                 "stop_point": {
@@ -1411,8 +1335,8 @@
                 }, 
                 "arrival_date_time": "20041214T062900", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T062900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T062900"
               }, 
               {
                 "stop_point": {
@@ -1429,8 +1353,8 @@
                 }, 
                 "arrival_date_time": "20041214T062900", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T062900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T062900"
               }, 
               {
                 "stop_point": {
@@ -1447,8 +1371,8 @@
                 }, 
                 "arrival_date_time": "20041214T063000", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T063000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T063000"
               }
             ]
           }, 
@@ -1491,30 +1415,6 @@
                     "zip_code": "29200"
                   }
                 ], 
-                "address": {
-                  "name": "Route de Gouesnou", 
-                  "house_number": 180, 
-                  "coord": {
-                    "lat": "48.420128", 
-                    "lon": "-4.46733"
-                  }, 
-                  "label": "180 Route de Gouesnou (Brest)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "29019", 
-                      "name": "Brest", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "48.38987538", 
-                        "lon": "-4.487201604"
-                      }, 
-                      "label": "Brest (29200)", 
-                      "id": "admin:29019", 
-                      "zip_code": "29200"
-                    }
-                  ], 
-                  "id": "-4.46733;48.420128"
-                }, 
                 "id": "stop_point:BIB:SP:Nav601", 
                 "stop_area": {
                   "comment": "", 
@@ -1555,8 +1455,20 @@
               "embedded_type": "stop_area", 
               "stop_area": {
                 "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "commercial_mode:bus"
+                  }
+                ], 
                 "name": "Kerguen", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "physical_mode:Bus"
+                  }
+                ], 
                 "coord": {
                   "lat": "48.424201", 
                   "lon": "-4.460086"
@@ -1620,8 +1532,8 @@
                   48.420128
                 ], 
                 [
-                  -4.4674193012341465, 
-                  48.42013666488583
+                  -4.4674193012, 
+                  48.4201366649
                 ], 
                 [
                   -4.46741596, 
@@ -1668,12 +1580,12 @@
                   48.42379945
                 ], 
                 [
-                  -4.460257615120766, 
-                  48.42422480394026
+                  -4.4602576151, 
+                  48.4242248039
                 ], 
                 [
-                  -4.460257615120766, 
-                  48.42422480394026
+                  -4.4602576151, 
+                  48.4242248039
                 ]
               ]
             }, 
@@ -1711,10 +1623,16 @@
               }
             ], 
             "type": "street_network", 
-            "id": "section_5_0", 
+            "id": "section_11_0", 
             "mode": "walking"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 979.1053, 
+          "unit": "gEC"
+        }, 
+        "duration": 2591, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 
