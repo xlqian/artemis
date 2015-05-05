@@ -35,7 +35,7 @@ class TestDestineo(ArtemisTestFixture):
         and we also check the sort by departure date (and not time), since normaly pure pt journey must be before journey with an alternative fallback
         """
         self.journey(_from="-1.585760091193374;47.29129921981793",
-                     to="-1.544638559;47.21411767", datetime="20141201T090000",
+                     to="-1.544888102;47.21403406", datetime="20141201T090000",
                      first_section_mode=['walking', 'car'],
                      min_nb_journeys=3)
 
