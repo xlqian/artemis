@@ -1,16 +1,16 @@
 {
-  "query": "http://localhost/v1/coverage/fr-pdl/journeys?from=-1.585760091193374%3B47.29129921981793&to=-1.544638559%3B47.21411767&datetime=20141201T090000&datetime_represents=departure&first_section_mode%5B%5D=walking&first_section_mode%5B%5D=car&min_nb_journeys=3", 
+  "query": "http://localhost/v1/coverage/fr-pdl/journeys?from=-1.585760091193374%3B47.29129921981793&to=-1.544888102%3B47.21403406&datetime=20141201T090000&datetime_represents=departure&first_section_mode%5B%5D=walking&first_section_mode%5B%5D=car&min_nb_journeys=3", 
   "response": {
     "journeys": [
       {
-        "nb_transfers": 1, 
-        "arrival_date_time": "20141201T145651", 
+        "nb_transfers": 2, 
+        "arrival_date_time": "20141201T150103", 
         "departure_date_time": "20141201T130705", 
-        "type": "best", 
-        "duration": 6586, 
+        "type": "less_fallback_walk", 
+        "duration": 6838, 
         "sections": [
           {
-            "from": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
+            "from": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)", 
             "arrival_date_time": "20141201T131900", 
             "departure_date_time": "20141201T130705", 
             "to": "Le Gray (Treilli\u00e8res)", 
@@ -51,23 +51,104 @@
           }, 
           {
             "from": "SNCF sud (Nantes)", 
-            "arrival_date_time": "20141201T145651", 
+            "arrival_date_time": "20141201T145125", 
+            "departure_date_time": "20141201T145000", 
+            "to": "Gare SNCF Sud (Nantes)", 
+            "duration": 85, 
+            "type": "transfer"
+          }, 
+          {
+            "from": null, 
+            "arrival_date_time": "20141201T145600", 
+            "departure_date_time": "20141201T145125", 
+            "to": null, 
+            "duration": 275, 
+            "type": "waiting"
+          }, 
+          {
+            "from": "Gare SNCF Sud (Nantes)", 
+            "arrival_date_time": "20141201T145700", 
+            "departure_date_time": "20141201T145600", 
+            "to": "Lieu Unique (Nantes)", 
+            "duration": 60, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Lieu Unique (Nantes)", 
+            "arrival_date_time": "20141201T150103", 
+            "departure_date_time": "20141201T145700", 
+            "to": "2 rue LEFEVRE UTILE (Nantes)", 
+            "duration": 243, 
+            "type": "street_network"
+          }
+        ]
+      }, 
+      {
+        "nb_transfers": 1, 
+        "arrival_date_time": "20141201T145642", 
+        "departure_date_time": "20141201T130705", 
+        "type": "best", 
+        "duration": 6577, 
+        "sections": [
+          {
+            "from": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)", 
+            "arrival_date_time": "20141201T131900", 
+            "departure_date_time": "20141201T130705", 
+            "to": "Le Gray (Treilli\u00e8res)", 
+            "duration": 715, 
+            "type": "street_network"
+          }, 
+          {
+            "from": "Le Gray (Treilli\u00e8res)", 
+            "arrival_date_time": "20141201T132900", 
+            "departure_date_time": "20141201T131900", 
+            "to": "M\u00e9nardais (Treilli\u00e8res)", 
+            "duration": 600, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "M\u00e9nardais (Treilli\u00e8res)", 
+            "arrival_date_time": "20141201T132900", 
+            "departure_date_time": "20141201T132900", 
+            "to": "M\u00e9nardais (Treilli\u00e8res)", 
+            "duration": 0, 
+            "type": "transfer"
+          }, 
+          {
+            "from": null, 
+            "arrival_date_time": "20141201T141900", 
+            "departure_date_time": "20141201T132900", 
+            "to": null, 
+            "duration": 3000, 
+            "type": "waiting"
+          }, 
+          {
+            "from": "M\u00e9nardais (Treilli\u00e8res)", 
+            "arrival_date_time": "20141201T145000", 
+            "departure_date_time": "20141201T141900", 
+            "to": "SNCF sud (Nantes)", 
+            "duration": 1860, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "SNCF sud (Nantes)", 
+            "arrival_date_time": "20141201T145642", 
             "departure_date_time": "20141201T145000", 
             "to": "2 rue LEFEVRE UTILE (Nantes)", 
-            "duration": 411, 
+            "duration": 402, 
             "type": "street_network"
           }
         ]
       }, 
       {
         "nb_transfers": 0, 
-        "arrival_date_time": "20141201T093810", 
+        "arrival_date_time": "20141201T093751", 
         "departure_date_time": "20141201T090352", 
         "type": "car", 
-        "duration": 2058, 
+        "duration": 2039, 
         "sections": [
           {
-            "from": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
+            "from": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)", 
             "arrival_date_time": "20141201T092310", 
             "departure_date_time": "20141201T090352", 
             "to": "Parc-relais Bourdonni\u00e8res 1 (Nantes)", 
@@ -92,23 +173,23 @@
           }, 
           {
             "from": "Cit\u00e9 Internationale des Congr\u00e8s (Nantes)", 
-            "arrival_date_time": "20141201T093810", 
+            "arrival_date_time": "20141201T093751", 
             "departure_date_time": "20141201T093700", 
             "to": "2 rue LEFEVRE UTILE (Nantes)", 
-            "duration": 70, 
+            "duration": 51, 
             "type": "street_network"
           }
         ]
       }, 
       {
         "nb_transfers": 1, 
-        "arrival_date_time": "20141202T083513", 
+        "arrival_date_time": "20141202T083500", 
         "departure_date_time": "20141202T071505", 
         "type": "comfort", 
-        "duration": 4808, 
+        "duration": 4795, 
         "sections": [
           {
-            "from": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
+            "from": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)", 
             "arrival_date_time": "20141202T072700", 
             "departure_date_time": "20141202T071505", 
             "to": "Le Gray (Treilli\u00e8res)", 
@@ -149,23 +230,23 @@
           }, 
           {
             "from": "Gare SNCF Nord (Nantes)", 
-            "arrival_date_time": "20141202T083513", 
+            "arrival_date_time": "20141202T083500", 
             "departure_date_time": "20141202T082500", 
             "to": "2 rue LEFEVRE UTILE (Nantes)", 
-            "duration": 613, 
+            "duration": 600, 
             "type": "street_network"
           }
         ]
       }, 
       {
         "nb_transfers": 1, 
-        "arrival_date_time": "20141202T082240", 
+        "arrival_date_time": "20141202T082221", 
         "departure_date_time": "20141202T071505", 
         "type": "rapid", 
-        "duration": 4055, 
+        "duration": 4036, 
         "sections": [
           {
-            "from": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
+            "from": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)", 
             "arrival_date_time": "20141202T072700", 
             "departure_date_time": "20141202T071505", 
             "to": "Le Gray (Treilli\u00e8res)", 
@@ -206,23 +287,23 @@
           }, 
           {
             "from": "H\u00f4tel Dieu (Nantes)", 
-            "arrival_date_time": "20141202T082240", 
+            "arrival_date_time": "20141202T082221", 
             "departure_date_time": "20141202T080800", 
             "to": "2 rue LEFEVRE UTILE (Nantes)", 
-            "duration": 880, 
+            "duration": 861, 
             "type": "street_network"
           }
         ]
       }, 
       {
         "nb_transfers": 3, 
-        "arrival_date_time": "20141202T081813", 
+        "arrival_date_time": "20141202T081754", 
         "departure_date_time": "20141202T071505", 
         "type": "less_fallback_walk", 
-        "duration": 3788, 
+        "duration": 3769, 
         "sections": [
           {
-            "from": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
+            "from": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)", 
             "arrival_date_time": "20141202T072700", 
             "departure_date_time": "20141202T071505", 
             "to": "Le Gray (Treilli\u00e8res)", 
@@ -311,23 +392,23 @@
           }, 
           {
             "from": "Cit\u00e9 Internationale des Congr\u00e8s (Nantes)", 
-            "arrival_date_time": "20141202T081813", 
+            "arrival_date_time": "20141202T081754", 
             "departure_date_time": "20141202T081700", 
             "to": "2 rue LEFEVRE UTILE (Nantes)", 
-            "duration": 73, 
+            "duration": 54, 
             "type": "street_network"
           }
         ]
       }, 
       {
         "nb_transfers": 2, 
-        "arrival_date_time": "20141202T081657", 
+        "arrival_date_time": "20141202T081716", 
         "departure_date_time": "20141202T071505", 
         "type": "fastest", 
-        "duration": 3712, 
+        "duration": 3731, 
         "sections": [
           {
-            "from": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
+            "from": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)", 
             "arrival_date_time": "20141202T072700", 
             "departure_date_time": "20141202T071505", 
             "to": "Le Gray (Treilli\u00e8res)", 
@@ -392,10 +473,10 @@
           }, 
           {
             "from": "Lieu Unique (Nantes)", 
-            "arrival_date_time": "20141202T081657", 
+            "arrival_date_time": "20141202T081716", 
             "departure_date_time": "20141202T081300", 
             "to": "2 rue LEFEVRE UTILE (Nantes)", 
-            "duration": 237, 
+            "duration": 256, 
             "type": "street_network"
           }
         ]
@@ -406,58 +487,28 @@
     "tickets": [], 
     "links": [
       {
-        "href": "http://localhost/v1/coverage/fr-pdl/journeys?to=-1.544638559;47.21411767&datetime_represents=arrival&first_section_mode%5B%5D=walking&first_section_mode%5B%5D=car&from=-1.585760091193374;47.29129921981793&min_nb_journeys=3&datetime=20141201T145551", 
+        "href": "http://localhost/v1/coverage/fr-pdl/journeys?to=-1.544888102;47.21403406&datetime_represents=arrival&first_section_mode%5B%5D=walking&first_section_mode%5B%5D=car&from=-1.585760091193374;47.29129921981793&min_nb_journeys=3&datetime=20141201T145542", 
         "type": "prev", 
         "rel": "prev", 
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/fr-pdl/journeys?to=-1.544638559;47.21411767&datetime_represents=departure&first_section_mode%5B%5D=walking&first_section_mode%5B%5D=car&from=-1.585760091193374;47.29129921981793&min_nb_journeys=3&datetime=20141202T071605", 
+        "href": "http://localhost/v1/coverage/fr-pdl/journeys?to=-1.544888102;47.21403406&datetime_represents=departure&first_section_mode%5B%5D=walking&first_section_mode%5B%5D=car&from=-1.585760091193374;47.29129921981793&min_nb_journeys=3&datetime=20141202T071605", 
         "type": "next", 
         "rel": "next", 
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/fr-pdl/journeys?to=-1.544638559;47.21411767&datetime_represents=departure&first_section_mode%5B%5D=walking&first_section_mode%5B%5D=car&from=-1.585760091193374;47.29129921981793&min_nb_journeys=3&datetime=20141201T000000", 
+        "href": "http://localhost/v1/coverage/fr-pdl/journeys?to=-1.544888102;47.21403406&datetime_represents=departure&first_section_mode%5B%5D=walking&first_section_mode%5B%5D=car&from=-1.585760091193374;47.29129921981793&min_nb_journeys=3&datetime=20141201T000000", 
         "type": "first", 
         "rel": "first", 
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/fr-pdl/journeys?to=-1.544638559;47.21411767&datetime_represents=arrival&first_section_mode%5B%5D=walking&first_section_mode%5B%5D=car&from=-1.585760091193374;47.29129921981793&min_nb_journeys=3&datetime=20141202T235900", 
+        "href": "http://localhost/v1/coverage/fr-pdl/journeys?to=-1.544888102;47.21403406&datetime_represents=arrival&first_section_mode%5B%5D=walking&first_section_mode%5B%5D=car&from=-1.585760091193374;47.29129921981793&min_nb_journeys=3&datetime=20141202T235900", 
         "type": "last", 
         "rel": "last", 
         "templated": false
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/poi_types/{poi_type.id}", 
-        "type": "poi_type", 
-        "rel": "poi_types", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/pois/{poi.id}", 
-        "type": "poi", 
-        "rel": "pois", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/fr-pdl/stop_points/{stop_point.id}", 
@@ -500,15 +551,19 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [
-          "standard", 
           "is_pure_tc"
         ], 
-        "nb_transfers": 1, 
-        "arrival_date_time": "20141201T145651", 
+        "nb_transfers": 2, 
+        "arrival_date_time": "20141201T150103", 
         "calendars": [
           {
             "exceptions": [
+              {
+                "type": "remove", 
+                "datetime": "20141110"
+              }, 
               {
                 "type": "remove", 
                 "datetime": "20141111"
@@ -537,15 +592,10 @@
         ], 
         "departure_date_time": "20141201T130705", 
         "requested_date_time": "20141201T090000", 
-        "type": "best", 
-        "duration": 6586, 
         "sections": [
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.585760091193374;47.29129921981793", 
-              "name": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
               "address": {
                 "name": "route DE LA GERGAUDIERE", 
                 "house_number": 15, 
@@ -553,7 +603,7 @@
                   "lat": "47.29129921981793", 
                   "lon": "-1.585760091193374"
                 }, 
-                "label": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
+                "label": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)", 
                 "administrative_regions": [
                   {
                     "insee": "44209", 
@@ -568,24 +618,26 @@
                     "zip_code": "44119"
                   }, 
                   {
-                    "insee": "44209", 
-                    "name": "Treilli\u00e8res", 
+                    "insee": "44035", 
+                    "name": "La Chapelle-sur-Erdre", 
                     "level": 8, 
                     "coord": {
-                      "lat": "47.31846093", 
-                      "lon": "-1.626072142"
+                      "lat": "47.30308095", 
+                      "lon": "-1.560410958"
                     }, 
-                    "label": "Treilli\u00e8res (44119)", 
-                    "id": "admin:44209", 
-                    "zip_code": "44119"
+                    "label": "La Chapelle-sur-Erdre (44240)", 
+                    "id": "admin:44035", 
+                    "zip_code": "44240"
                   }
                 ], 
                 "id": "-1.585760091193374;47.29129921981793"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.585760091193374;47.29129921981793", 
+              "name": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)"
             }, 
             "links": [], 
             "arrival_date_time": "20141201T131900", 
-            "additional_informations": [], 
             "departure_date_time": "20141201T130705", 
             "to": {
               "embedded_type": "stop_point", 
@@ -654,12 +706,12 @@
               ], 
               "coordinates": [
                 [
-                  -1.5855541133331463, 
-                  47.29117015523175
+                  -1.5855541133, 
+                  47.2911701552
                 ], 
                 [
-                  -1.5855541133331463, 
-                  47.29117015523175
+                  -1.5855541133, 
+                  47.2911701552
                 ], 
                 [
                   -1.585556529, 
@@ -690,8 +742,1625 @@
                   47.28703361
                 ], 
                 [
-                  -1.5866828663957666, 
-                  47.2841020347407
+                  -1.5866828664, 
+                  47.2841020347
+                ], 
+                [
+                  -1.586714, 
+                  47.284099
+                ]
+              ]
+            }, 
+            "duration": 715, 
+            "path": [
+              {
+                "duration": 132, 
+                "length": 147, 
+                "direction": 0, 
+                "name": "route DE LA GERGAUDIERE"
+              }, 
+              {
+                "duration": 278, 
+                "length": 311, 
+                "direction": 7, 
+                "name": "route DE LA GERGAUDIERE"
+              }, 
+              {
+                "duration": 305, 
+                "length": 341, 
+                "direction": -15, 
+                "name": "route DE LA GERGAUDIERE"
+              }
+            ], 
+            "type": "street_network", 
+            "id": "section_12_0", 
+            "mode": "walking"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Le Gray", 
+                "links": [], 
+                "coord": {
+                  "lat": "47.284099", 
+                  "lon": "-1.586714"
+                }, 
+                "label": "Le Gray (Treilli\u00e8res)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "44209", 
+                    "name": "Treilli\u00e8res", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.31846093", 
+                      "lon": "-1.626072142"
+                    }, 
+                    "label": "Treilli\u00e8res (44119)", 
+                    "id": "admin:44209", 
+                    "zip_code": "44119"
+                  }
+                ], 
+                "id": "stop_point:C44:SP:Nav2434", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Le Gray", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.284099", 
+                    "lon": "-1.586714"
+                  }, 
+                  "label": "Le Gray (Treilli\u00e8res)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:C44:SA:1294"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:C44:SP:Nav2434", 
+              "name": "Le Gray (Treilli\u00e8res)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:C44:42-7103583"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:C44:22"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:C44:Nav42"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:Coach"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Coach"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:LILA"
+              }
+            ], 
+            "arrival_date_time": "20141201T132900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 855.936, 
+              "unit": "gEC"
+            }, 
+            "display_informations": {
+              "direction": "ZA de l'\u00e9rette (H\u00e9ric)", 
+              "code": "22", 
+              "description": "", 
+              "links": [], 
+              "color": "FFB200", 
+              "physical_mode": "Autocar", 
+              "headsign": "K\u00e9olis Atlantique Nantes", 
+              "commercial_mode": "Autocar", 
+              "equipments": [], 
+              "label": "22", 
+              "network": "Lila"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "M\u00e9nardais", 
+                "links": [], 
+                "coord": {
+                  "lat": "47.314919", 
+                  "lon": "-1.618333"
+                }, 
+                "label": "M\u00e9nardais (Treilli\u00e8res)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "44209", 
+                    "name": "Treilli\u00e8res", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.31846093", 
+                      "lon": "-1.626072142"
+                    }, 
+                    "label": "Treilli\u00e8res (44119)", 
+                    "id": "admin:44209", 
+                    "zip_code": "44119"
+                  }
+                ], 
+                "id": "stop_point:C44:SP:12206N", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "M\u00e9nardais", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.314919", 
+                    "lon": "-1.618333"
+                  }, 
+                  "label": "M\u00e9nardais (Treilli\u00e8res)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:C44:SA:260"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:C44:SP:12206N", 
+              "name": "M\u00e9nardais (Treilli\u00e8res)"
+            }, 
+            "departure_date_time": "20141201T131900", 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 5944
+                }
+              ], 
+              "coordinates": [
+                [
+                  -1.586714, 
+                  47.284099
+                ], 
+                [
+                  -1.596554, 
+                  47.289453
+                ], 
+                [
+                  -1.593547, 
+                  47.301669
+                ], 
+                [
+                  -1.611641, 
+                  47.296343
+                ], 
+                [
+                  -1.618333, 
+                  47.314919
+                ]
+              ]
+            }, 
+            "duration": 600, 
+            "type": "public_transport", 
+            "id": "section_13_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Le Gray", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.284099", 
+                    "lon": "-1.586714"
+                  }, 
+                  "label": "Le Gray (Treilli\u00e8res)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:Nav2434"
+                }, 
+                "arrival_date_time": "20141201T131900", 
+                "additional_informations": [
+                  "pick_up_only"
+                ], 
+                "links": [], 
+                "departure_date_time": "20141201T131900"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Gergaudi\u00e8re", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.289453", 
+                    "lon": "-1.596554"
+                  }, 
+                  "label": "Gergaudi\u00e8re (Treilli\u00e8res)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:12201N"
+                }, 
+                "arrival_date_time": "20141201T132000", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20141201T132000"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Noe Violin", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.301669", 
+                    "lon": "-1.593547"
+                  }, 
+                  "label": "Noe Violin (Treilli\u00e8res)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:12280N"
+                }, 
+                "arrival_date_time": "20141201T132200", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20141201T132200"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Pigeon Blanc", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.296343", 
+                    "lon": "-1.611641"
+                  }, 
+                  "label": "Pigeon Blanc (Treilli\u00e8res)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:12286N"
+                }, 
+                "arrival_date_time": "20141201T132700", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20141201T132700"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "M\u00e9nardais", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.314919", 
+                    "lon": "-1.618333"
+                  }, 
+                  "label": "M\u00e9nardais (Treilli\u00e8res)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:12206N"
+                }, 
+                "arrival_date_time": "20141201T132900", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20141201T132900"
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "M\u00e9nardais", 
+                "links": [], 
+                "coord": {
+                  "lat": "47.314919", 
+                  "lon": "-1.618333"
+                }, 
+                "label": "M\u00e9nardais (Treilli\u00e8res)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "44209", 
+                    "name": "Treilli\u00e8res", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.31846093", 
+                      "lon": "-1.626072142"
+                    }, 
+                    "label": "Treilli\u00e8res (44119)", 
+                    "id": "admin:44209", 
+                    "zip_code": "44119"
+                  }
+                ], 
+                "id": "stop_point:C44:SP:12206N", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "M\u00e9nardais", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.314919", 
+                    "lon": "-1.618333"
+                  }, 
+                  "label": "M\u00e9nardais (Treilli\u00e8res)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:C44:SA:260"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:C44:SP:12206N", 
+              "name": "M\u00e9nardais (Treilli\u00e8res)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20141201T132900", 
+            "departure_date_time": "20141201T132900", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "M\u00e9nardais", 
+                "links": [], 
+                "coord": {
+                  "lat": "47.314919", 
+                  "lon": "-1.618333"
+                }, 
+                "label": "M\u00e9nardais (Treilli\u00e8res)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "44209", 
+                    "name": "Treilli\u00e8res", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.31846093", 
+                      "lon": "-1.626072142"
+                    }, 
+                    "label": "Treilli\u00e8res (44119)", 
+                    "id": "admin:44209", 
+                    "zip_code": "44119"
+                  }
+                ], 
+                "id": "stop_point:C44:SP:12206O", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "M\u00e9nardais", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.314919", 
+                    "lon": "-1.618333"
+                  }, 
+                  "label": "M\u00e9nardais (Treilli\u00e8res)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:C44:SA:260"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:C44:SP:12206O", 
+              "name": "M\u00e9nardais (Treilli\u00e8res)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  -1.618333, 
+                  47.314919
+                ], 
+                [
+                  -1.618333, 
+                  47.314919
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "transfer_type": "walking", 
+            "type": "transfer", 
+            "id": "section_14_0"
+          }, 
+          {
+            "links": [], 
+            "arrival_date_time": "20141201T141900", 
+            "departure_date_time": "20141201T132900", 
+            "duration": 3000, 
+            "type": "waiting", 
+            "id": "section_15_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "M\u00e9nardais", 
+                "links": [], 
+                "coord": {
+                  "lat": "47.314919", 
+                  "lon": "-1.618333"
+                }, 
+                "label": "M\u00e9nardais (Treilli\u00e8res)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "44209", 
+                    "name": "Treilli\u00e8res", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.31846093", 
+                      "lon": "-1.626072142"
+                    }, 
+                    "label": "Treilli\u00e8res (44119)", 
+                    "id": "admin:44209", 
+                    "zip_code": "44119"
+                  }
+                ], 
+                "id": "stop_point:C44:SP:12206O", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "M\u00e9nardais", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.314919", 
+                    "lon": "-1.618333"
+                  }, 
+                  "label": "M\u00e9nardais (Treilli\u00e8res)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:C44:SA:260"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:C44:SP:12206O", 
+              "name": "M\u00e9nardais (Treilli\u00e8res)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:C44:192-64104533"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:C44:195"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:C44:ID192"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:Coach"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Coach"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:LILA"
+              }
+            ], 
+            "arrival_date_time": "20141201T145000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 2015.712, 
+              "unit": "gEC"
+            }, 
+            "display_informations": {
+              "direction": "SNCF sud (Nantes)", 
+              "code": "LILA 1E", 
+              "description": "", 
+              "links": [], 
+              "color": "004D4D", 
+              "physical_mode": "Autocar", 
+              "headsign": "K\u00e9olis Atlantique Nantes", 
+              "commercial_mode": "Autocar", 
+              "equipments": [], 
+              "label": "LILA 1E", 
+              "network": "Lila"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "SNCF sud", 
+                "links": [], 
+                "coord": {
+                  "lat": "47.216112", 
+                  "lon": "-1.543539"
+                }, 
+                "label": "SNCF sud (Nantes)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "44109", 
+                    "name": "Nantes", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.23201693", 
+                      "lon": "-1.548207683"
+                    }, 
+                    "label": "Nantes (44000)", 
+                    "id": "admin:44109", 
+                    "zip_code": "44000"
+                  }
+                ], 
+                "id": "stop_point:C44:SP:15767O", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "SNCF sud", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.216112", 
+                    "lon": "-1.543539"
+                  }, 
+                  "label": "SNCF sud (Nantes)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:C44:SA:322"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:C44:SP:15767O", 
+              "name": "SNCF sud (Nantes)"
+            }, 
+            "departure_date_time": "20141201T141900", 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 13998
+                }
+              ], 
+              "coordinates": [
+                [
+                  -1.618333, 
+                  47.314919
+                ], 
+                [
+                  -1.598338, 
+                  47.279282
+                ], 
+                [
+                  -1.584234, 
+                  47.261698
+                ], 
+                [
+                  -1.576785, 
+                  47.254656
+                ], 
+                [
+                  -1.572305, 
+                  47.240434
+                ], 
+                [
+                  -1.568261, 
+                  47.23612
+                ], 
+                [
+                  -1.570529, 
+                  47.238648
+                ], 
+                [
+                  -1.563912, 
+                  47.230894
+                ], 
+                [
+                  -1.559247, 
+                  47.225393
+                ], 
+                [
+                  -1.555885, 
+                  47.221499
+                ], 
+                [
+                  -1.556949, 
+                  47.217231
+                ], 
+                [
+                  -1.552091, 
+                  47.212757
+                ], 
+                [
+                  -1.543539, 
+                  47.216112
+                ]
+              ]
+            }, 
+            "duration": 1860, 
+            "type": "public_transport", 
+            "id": "section_16_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "M\u00e9nardais", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.314919", 
+                    "lon": "-1.618333"
+                  }, 
+                  "label": "M\u00e9nardais (Treilli\u00e8res)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:12206O"
+                }, 
+                "arrival_date_time": "20141201T141900", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20141201T141900"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Tourneuve", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.279282", 
+                    "lon": "-1.598338"
+                  }, 
+                  "label": "Tourneuve (Orvault)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:22501O"
+                }, 
+                "arrival_date_time": "20141201T142200", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20141201T142200"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Le Cardo", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.261698", 
+                    "lon": "-1.584234"
+                  }, 
+                  "label": "Le Cardo (Orvault)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:22395O"
+                }, 
+                "arrival_date_time": "20141201T142600", 
+                "additional_informations": [
+                  "drop_off_only"
+                ], 
+                "links": [], 
+                "departure_date_time": "20141201T142600"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Picabia", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.254656", 
+                    "lon": "-1.576785"
+                  }, 
+                  "label": "Picabia (Nantes)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:Nav2653"
+                }, 
+                "arrival_date_time": "20141201T143000", 
+                "additional_informations": [
+                  "drop_off_only"
+                ], 
+                "links": [], 
+                "departure_date_time": "20141201T143000"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Hector Berlioz", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.240434", 
+                    "lon": "-1.572305"
+                  }, 
+                  "label": "Hector Berlioz (Nantes)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:Nav1476"
+                }, 
+                "arrival_date_time": "20141201T143400", 
+                "additional_informations": [
+                  "drop_off_only"
+                ], 
+                "links": [], 
+                "departure_date_time": "20141201T143400"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Les Am\u00e9ricains", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.23612", 
+                    "lon": "-1.568261"
+                  }, 
+                  "label": "Les Am\u00e9ricains (Nantes)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:22167O"
+                }, 
+                "arrival_date_time": "20141201T143600", 
+                "additional_informations": [
+                  "drop_off_only"
+                ], 
+                "links": [], 
+                "departure_date_time": "20141201T143600"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Rond Point De Rennes", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.238648", 
+                    "lon": "-1.570529"
+                  }, 
+                  "label": "Rond Point De Rennes (Nantes)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:Nav2576"
+                }, 
+                "arrival_date_time": "20141201T143800", 
+                "additional_informations": [
+                  "drop_off_only"
+                ], 
+                "links": [], 
+                "departure_date_time": "20141201T143800"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Charles Le Goffic", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.230894", 
+                    "lon": "-1.563912"
+                  }, 
+                  "label": "Charles Le Goffic (Nantes)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:22186O"
+                }, 
+                "arrival_date_time": "20141201T143900", 
+                "additional_informations": [
+                  "drop_off_only"
+                ], 
+                "links": [], 
+                "departure_date_time": "20141201T143900"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Bel Air", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.225393", 
+                    "lon": "-1.559247"
+                  }, 
+                  "label": "Bel Air (Nantes)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:22188O"
+                }, 
+                "arrival_date_time": "20141201T144000", 
+                "additional_informations": [
+                  "drop_off_only"
+                ], 
+                "links": [], 
+                "departure_date_time": "20141201T144000"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Talensac", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.221499", 
+                    "lon": "-1.555885"
+                  }, 
+                  "label": "Talensac (Nantes)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:22189O"
+                }, 
+                "arrival_date_time": "20141201T144200", 
+                "additional_informations": [
+                  "drop_off_only"
+                ], 
+                "links": [], 
+                "departure_date_time": "20141201T144200"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Place Du Cirque", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.217231", 
+                    "lon": "-1.556949"
+                  }, 
+                  "label": "Place Du Cirque (Nantes)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:22190O"
+                }, 
+                "arrival_date_time": "20141201T144500", 
+                "additional_informations": [
+                  "drop_off_only"
+                ], 
+                "links": [], 
+                "departure_date_time": "20141201T144500"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Baco", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.212757", 
+                    "lon": "-1.552091"
+                  }, 
+                  "label": "Baco (Nantes)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:10096O"
+                }, 
+                "arrival_date_time": "20141201T144800", 
+                "additional_informations": [
+                  "drop_off_only"
+                ], 
+                "links": [], 
+                "departure_date_time": "20141201T144800"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "SNCF sud", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.216112", 
+                    "lon": "-1.543539"
+                  }, 
+                  "label": "SNCF sud (Nantes)", 
+                  "equipments": [], 
+                  "id": "stop_point:C44:SP:15767O"
+                }, 
+                "arrival_date_time": "20141201T145000", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20141201T145000"
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "SNCF sud", 
+                "links": [], 
+                "coord": {
+                  "lat": "47.216112", 
+                  "lon": "-1.543539"
+                }, 
+                "label": "SNCF sud (Nantes)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "44109", 
+                    "name": "Nantes", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.23201693", 
+                      "lon": "-1.548207683"
+                    }, 
+                    "label": "Nantes (44000)", 
+                    "id": "admin:44109", 
+                    "zip_code": "44000"
+                  }
+                ], 
+                "id": "stop_point:C44:SP:15767O", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "SNCF sud", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.216112", 
+                    "lon": "-1.543539"
+                  }, 
+                  "label": "SNCF sud (Nantes)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:C44:SA:322"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:C44:SP:15767O", 
+              "name": "SNCF sud (Nantes)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20141201T145125", 
+            "departure_date_time": "20141201T145000", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Gare SNCF Sud", 
+                "links": [], 
+                "coord": {
+                  "lat": "47.215921", 
+                  "lon": "-1.543212"
+                }, 
+                "label": "Gare SNCF Sud (Nantes)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "44109", 
+                    "name": "Nantes", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.23201693", 
+                      "lon": "-1.548207683"
+                    }, 
+                    "label": "Nantes (44000)", 
+                    "id": "admin:44109", 
+                    "zip_code": "44000"
+                  }
+                ], 
+                "id": "stop_point:NAN:SP:GSSU1", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Gare SNCF Sud", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.215921", 
+                    "lon": "-1.543212"
+                  }, 
+                  "label": "Gare SNCF Sud (Nantes)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:NAN:SA:GSSU"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:NAN:SP:GSSU1", 
+              "name": "Gare SNCF Sud (Nantes)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 32
+                }
+              ], 
+              "coordinates": [
+                [
+                  -1.543539, 
+                  47.216112
+                ], 
+                [
+                  -1.543212, 
+                  47.215921
+                ]
+              ]
+            }, 
+            "duration": 85, 
+            "transfer_type": "walking", 
+            "type": "transfer", 
+            "id": "section_17_0"
+          }, 
+          {
+            "links": [], 
+            "arrival_date_time": "20141201T145600", 
+            "departure_date_time": "20141201T145125", 
+            "duration": 275, 
+            "type": "waiting", 
+            "id": "section_18_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Gare SNCF Sud", 
+                "links": [], 
+                "coord": {
+                  "lat": "47.215921", 
+                  "lon": "-1.543212"
+                }, 
+                "label": "Gare SNCF Sud (Nantes)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "44109", 
+                    "name": "Nantes", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.23201693", 
+                      "lon": "-1.548207683"
+                    }, 
+                    "label": "Nantes (44000)", 
+                    "id": "admin:44109", 
+                    "zip_code": "44000"
+                  }
+                ], 
+                "id": "stop_point:NAN:SP:GSSU1", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Gare SNCF Sud", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.215921", 
+                    "lon": "-1.543212"
+                  }, 
+                  "label": "Gare SNCF Sud (Nantes)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:NAN:SA:GSSU"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:NAN:SP:GSSU1", 
+              "name": "Gare SNCF Sud (Nantes)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:NAN:8348580-HT15H101-00-ROSE44193_dst_2"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:NAN:NA-0"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:NAN:NA-0_R"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:Bus"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:TAN"
+              }, 
+              {
+                "type": "notes", 
+                "id": "note:11618078583472339488"
+              }
+            ], 
+            "arrival_date_time": "20141201T145700", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 25.8103, 
+              "unit": "gEC"
+            }, 
+            "display_informations": {
+              "direction": "Commerce (Nantes)", 
+              "code": "NA", 
+              "description": "", 
+              "links": [], 
+              "color": "51B5E0", 
+              "physical_mode": "Bus", 
+              "headsign": "Commerce", 
+              "commercial_mode": "Bus", 
+              "equipments": [], 
+              "label": "NA", 
+              "network": "TAN"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Lieu Unique", 
+                "links": [], 
+                "coord": {
+                  "lat": "47.215734", 
+                  "lon": "-1.545842"
+                }, 
+                "label": "Lieu Unique (Nantes)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "44109", 
+                    "name": "Nantes", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.23201693", 
+                      "lon": "-1.548207683"
+                    }, 
+                    "label": "Nantes (44000)", 
+                    "id": "admin:44109", 
+                    "zip_code": "44000"
+                  }
+                ], 
+                "id": "stop_point:NAN:SP:LUNI1", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Lieu Unique", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.215734", 
+                    "lon": "-1.545842"
+                  }, 
+                  "label": "Lieu Unique (Nantes)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:NAN:SA:LUNI"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:NAN:SP:LUNI1", 
+              "name": "Lieu Unique (Nantes)"
+            }, 
+            "departure_date_time": "20141201T145600", 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 199
+                }
+              ], 
+              "coordinates": [
+                [
+                  -1.543212, 
+                  47.215921
+                ], 
+                [
+                  -1.545842, 
+                  47.215734
+                ]
+              ]
+            }, 
+            "duration": 60, 
+            "type": "public_transport", 
+            "id": "section_19_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Gare SNCF Sud", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.215921", 
+                    "lon": "-1.543212"
+                  }, 
+                  "label": "Gare SNCF Sud (Nantes)", 
+                  "equipments": [], 
+                  "id": "stop_point:NAN:SP:GSSU1"
+                }, 
+                "arrival_date_time": "20141201T145600", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20141201T145600"
+              }, 
+              {
+                "stop_point": {
+                  "comment": "", 
+                  "name": "Lieu Unique", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.215734", 
+                    "lon": "-1.545842"
+                  }, 
+                  "label": "Lieu Unique (Nantes)", 
+                  "equipments": [], 
+                  "id": "stop_point:NAN:SP:LUNI1"
+                }, 
+                "arrival_date_time": "20141201T145700", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20141201T145700"
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Lieu Unique", 
+                "links": [], 
+                "coord": {
+                  "lat": "47.215734", 
+                  "lon": "-1.545842"
+                }, 
+                "label": "Lieu Unique (Nantes)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "44109", 
+                    "name": "Nantes", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.23201693", 
+                      "lon": "-1.548207683"
+                    }, 
+                    "label": "Nantes (44000)", 
+                    "id": "admin:44109", 
+                    "zip_code": "44000"
+                  }, 
+                  {
+                    "insee": "44109", 
+                    "name": "Nantes", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.23201693", 
+                      "lon": "-1.548207683"
+                    }, 
+                    "label": "Nantes (44000)", 
+                    "id": "admin:44109", 
+                    "zip_code": "44000"
+                  }
+                ], 
+                "id": "stop_point:NAN:SP:LUNI1", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Lieu Unique", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.215734", 
+                    "lon": "-1.545842"
+                  }, 
+                  "label": "Lieu Unique (Nantes)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "44109", 
+                      "name": "Nantes", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "47.23201693", 
+                        "lon": "-1.548207683"
+                      }, 
+                      "label": "Nantes (44000)", 
+                      "id": "admin:44109", 
+                      "zip_code": "44000"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:NAN:SA:LUNI"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:NAN:SP:LUNI1", 
+              "name": "Lieu Unique (Nantes)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20141201T150103", 
+            "departure_date_time": "20141201T145700", 
+            "to": {
+              "embedded_type": "address", 
+              "address": {
+                "name": "rue LEFEVRE UTILE", 
+                "house_number": 2, 
+                "coord": {
+                  "lat": "47.21403406", 
+                  "lon": "-1.544888102"
+                }, 
+                "label": "2 rue LEFEVRE UTILE (Nantes)", 
+                "administrative_regions": [
+                  {
+                    "insee": "44109", 
+                    "name": "Nantes", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.23201693", 
+                      "lon": "-1.548207683"
+                    }, 
+                    "label": "Nantes (44000)", 
+                    "id": "admin:44109", 
+                    "zip_code": "44000"
+                  }, 
+                  {
+                    "insee": "44109", 
+                    "name": "Nantes", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.23201693", 
+                      "lon": "-1.548207683"
+                    }, 
+                    "label": "Nantes (44000)", 
+                    "id": "admin:44109", 
+                    "zip_code": "44000"
+                  }
+                ], 
+                "id": "-1.544888102;47.21403406"
+              }, 
+              "quality": 0, 
+              "id": "-1.544888102;47.21403406", 
+              "name": "2 rue LEFEVRE UTILE (Nantes)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 272
+                }
+              ], 
+              "coordinates": [
+                [
+                  -1.545842, 
+                  47.215734
+                ], 
+                [
+                  -1.5458220144, 
+                  47.2156804963
+                ], 
+                [
+                  -1.546012722, 
+                  47.21560926
+                ], 
+                [
+                  -1.546093872, 
+                  47.21558176
+                ], 
+                [
+                  -1.546382139, 
+                  47.21548477
+                ], 
+                [
+                  -1.545891855, 
+                  47.21488362
+                ], 
+                [
+                  -1.545951115, 
+                  47.21486415
+                ], 
+                [
+                  -1.545145808, 
+                  47.2139345
+                ], 
+                [
+                  -1.545112223, 
+                  47.2138961
+                ], 
+                [
+                  -1.5448753903, 
+                  47.2140068853
+                ], 
+                [
+                  -1.5448753903, 
+                  47.2140068853
+                ]
+              ]
+            }, 
+            "duration": 243, 
+            "path": [
+              {
+                "duration": 41, 
+                "length": 45, 
+                "direction": 0, 
+                "name": "quai MALAKOFF"
+              }, 
+              {
+                "duration": 68, 
+                "length": 76, 
+                "direction": -93, 
+                "name": ""
+              }, 
+              {
+                "duration": 4, 
+                "length": 4, 
+                "direction": 93, 
+                "name": "rue DE LA BISCUITERIE"
+              }, 
+              {
+                "duration": 111, 
+                "length": 124, 
+                "direction": -95, 
+                "name": "avenue CARNOT"
+              }, 
+              {
+                "duration": 19, 
+                "length": 21, 
+                "direction": 0, 
+                "name": "rue LEFEVRE UTILE"
+              }
+            ], 
+            "type": "street_network", 
+            "id": "section_20_0", 
+            "mode": "walking"
+          }
+        ], 
+        "co2_emission": {
+          "value": 2897.4583, 
+          "unit": "gEC"
+        }, 
+        "duration": 6838, 
+        "type": "less_fallback_walk"
+      }, 
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": []
+        }, 
+        "status": "", 
+        "tags": [
+          "standard", 
+          "is_pure_tc"
+        ], 
+        "nb_transfers": 1, 
+        "arrival_date_time": "20141201T145642", 
+        "calendars": [
+          {
+            "exceptions": [
+              {
+                "type": "remove", 
+                "datetime": "20141111"
+              }
+            ], 
+            "active_periods": [
+              {
+                "begin": "20141103", 
+                "end": "20141222"
+              }, 
+              {
+                "begin": "20150105", 
+                "end": "20150131"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
+        "departure_date_time": "20141201T130705", 
+        "requested_date_time": "20141201T090000", 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "address", 
+              "address": {
+                "name": "route DE LA GERGAUDIERE", 
+                "house_number": 15, 
+                "coord": {
+                  "lat": "47.29129921981793", 
+                  "lon": "-1.585760091193374"
+                }, 
+                "label": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)", 
+                "administrative_regions": [
+                  {
+                    "insee": "44209", 
+                    "name": "Treilli\u00e8res", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.31846093", 
+                      "lon": "-1.626072142"
+                    }, 
+                    "label": "Treilli\u00e8res (44119)", 
+                    "id": "admin:44209", 
+                    "zip_code": "44119"
+                  }, 
+                  {
+                    "insee": "44035", 
+                    "name": "La Chapelle-sur-Erdre", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.30308095", 
+                      "lon": "-1.560410958"
+                    }, 
+                    "label": "La Chapelle-sur-Erdre (44240)", 
+                    "id": "admin:44035", 
+                    "zip_code": "44240"
+                  }
+                ], 
+                "id": "-1.585760091193374;47.29129921981793"
+              }, 
+              "quality": 0, 
+              "id": "-1.585760091193374;47.29129921981793", 
+              "name": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20141201T131900", 
+            "departure_date_time": "20141201T130705", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "comment": "", 
+                "name": "Le Gray", 
+                "links": [], 
+                "coord": {
+                  "lat": "47.284099", 
+                  "lon": "-1.586714"
+                }, 
+                "label": "Le Gray (Treilli\u00e8res)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "44209", 
+                    "name": "Treilli\u00e8res", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "47.31846093", 
+                      "lon": "-1.626072142"
+                    }, 
+                    "label": "Treilli\u00e8res (44119)", 
+                    "id": "admin:44209", 
+                    "zip_code": "44119"
+                  }
+                ], 
+                "id": "stop_point:C44:SP:Nav2434", 
+                "stop_area": {
+                  "comment": "", 
+                  "name": "Le Gray", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.284099", 
+                    "lon": "-1.586714"
+                  }, 
+                  "label": "Le Gray (Treilli\u00e8res)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "44209", 
+                      "name": "Treilli\u00e8res", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "47.31846093", 
+                        "lon": "-1.626072142"
+                      }, 
+                      "label": "Treilli\u00e8res (44119)", 
+                      "id": "admin:44209", 
+                      "zip_code": "44119"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:C44:SA:1294"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:C44:SP:Nav2434", 
+              "name": "Le Gray (Treilli\u00e8res)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 800
+                }
+              ], 
+              "coordinates": [
+                [
+                  -1.5855541133, 
+                  47.2911701552
+                ], 
+                [
+                  -1.5855541133, 
+                  47.2911701552
+                ], 
+                [
+                  -1.585556529, 
+                  47.2911663
+                ], 
+                [
+                  -1.585743958, 
+                  47.29086316
+                ], 
+                [
+                  -1.585789342, 
+                  47.28998302
+                ], 
+                [
+                  -1.585795941, 
+                  47.28984211
+                ], 
+                [
+                  -1.58618203, 
+                  47.28821896
+                ], 
+                [
+                  -1.586930284, 
+                  47.28717487
+                ], 
+                [
+                  -1.586968621, 
+                  47.28703361
+                ], 
+                [
+                  -1.5866828664, 
+                  47.2841020347
                 ], 
                 [
                   -1.586714, 
@@ -796,8 +2465,13 @@
               }
             ], 
             "arrival_date_time": "20141201T132900", 
-            "additional_informations": [], 
-            "departure_date_time": "20141201T131900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 855.936, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "ZA de l'\u00e9rette (H\u00e9ric)", 
               "code": "22", 
@@ -855,11 +2529,12 @@
               "id": "stop_point:C44:SP:12206N", 
               "name": "M\u00e9nardais (Treilli\u00e8res)"
             }, 
+            "departure_date_time": "20141201T131900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 5941
+                  "length": 5944
                 }
               ], 
               "coordinates": [
@@ -906,8 +2581,8 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20141201T131900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T131900"
               }, 
               {
                 "stop_point": {
@@ -924,8 +2599,8 @@
                 }, 
                 "arrival_date_time": "20141201T132000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141201T132000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T132000"
               }, 
               {
                 "stop_point": {
@@ -942,8 +2617,8 @@
                 }, 
                 "arrival_date_time": "20141201T132200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141201T132200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T132200"
               }, 
               {
                 "stop_point": {
@@ -960,8 +2635,8 @@
                 }, 
                 "arrival_date_time": "20141201T132700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141201T132700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T132700"
               }, 
               {
                 "stop_point": {
@@ -978,8 +2653,8 @@
                 }, 
                 "arrival_date_time": "20141201T132900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141201T132900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T132900"
               }
             ]
           }, 
@@ -1030,7 +2705,6 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141201T132900", 
-            "additional_informations": [], 
             "departure_date_time": "20141201T132900", 
             "to": {
               "embedded_type": "stop_point", 
@@ -1102,7 +2776,6 @@
           {
             "links": [], 
             "arrival_date_time": "20141201T141900", 
-            "additional_informations": [], 
             "departure_date_time": "20141201T132900", 
             "duration": 3000, 
             "type": "waiting", 
@@ -1180,8 +2853,13 @@
               }
             ], 
             "arrival_date_time": "20141201T145000", 
-            "additional_informations": [], 
-            "departure_date_time": "20141201T141900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 2015.712, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "SNCF sud (Nantes)", 
               "code": "LILA 1E", 
@@ -1239,11 +2917,12 @@
               "id": "stop_point:C44:SP:15767O", 
               "name": "SNCF sud (Nantes)"
             }, 
+            "departure_date_time": "20141201T141900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 13994
+                  "length": 13998
                 }
               ], 
               "coordinates": [
@@ -1320,8 +2999,8 @@
                 }, 
                 "arrival_date_time": "20141201T141900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141201T141900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T141900"
               }, 
               {
                 "stop_point": {
@@ -1338,8 +3017,8 @@
                 }, 
                 "arrival_date_time": "20141201T142200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141201T142200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T142200"
               }, 
               {
                 "stop_point": {
@@ -1358,8 +3037,8 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20141201T142600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T142600"
               }, 
               {
                 "stop_point": {
@@ -1378,8 +3057,8 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20141201T143000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T143000"
               }, 
               {
                 "stop_point": {
@@ -1398,8 +3077,8 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20141201T143400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T143400"
               }, 
               {
                 "stop_point": {
@@ -1418,8 +3097,8 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20141201T143600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T143600"
               }, 
               {
                 "stop_point": {
@@ -1438,8 +3117,8 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20141201T143800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T143800"
               }, 
               {
                 "stop_point": {
@@ -1458,8 +3137,8 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20141201T143900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T143900"
               }, 
               {
                 "stop_point": {
@@ -1478,8 +3157,8 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20141201T144000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T144000"
               }, 
               {
                 "stop_point": {
@@ -1498,8 +3177,8 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20141201T144200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T144200"
               }, 
               {
                 "stop_point": {
@@ -1518,8 +3197,8 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20141201T144500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T144500"
               }, 
               {
                 "stop_point": {
@@ -1538,8 +3217,8 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20141201T144800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T144800"
               }, 
               {
                 "stop_point": {
@@ -1556,8 +3235,8 @@
                 }, 
                 "arrival_date_time": "20141201T145000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141201T145000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T145000"
               }
             ]
           }, 
@@ -1633,20 +3312,16 @@
               "name": "SNCF sud (Nantes)"
             }, 
             "links": [], 
-            "arrival_date_time": "20141201T145651", 
-            "additional_informations": [], 
+            "arrival_date_time": "20141201T145642", 
             "departure_date_time": "20141201T145000", 
             "to": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.544638559;47.21411767", 
-              "name": "2 rue LEFEVRE UTILE (Nantes)", 
               "address": {
                 "name": "rue LEFEVRE UTILE", 
                 "house_number": 2, 
                 "coord": {
-                  "lat": "47.21411767", 
-                  "lon": "-1.544638559"
+                  "lat": "47.21403406", 
+                  "lon": "-1.544888102"
                 }, 
                 "label": "2 rue LEFEVRE UTILE (Nantes)", 
                 "administrative_regions": [
@@ -1675,14 +3350,17 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "id": "-1.544638559;47.21411767"
-              }
+                "id": "-1.544888102;47.21403406"
+              }, 
+              "quality": 0, 
+              "id": "-1.544888102;47.21403406", 
+              "name": "2 rue LEFEVRE UTILE (Nantes)"
             }, 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 460
+                  "length": 450
                 }
               ], 
               "coordinates": [
@@ -1691,8 +3369,8 @@
                   47.216112
                 ], 
                 [
-                  -1.543534250659712, 
-                  47.2159215181009
+                  -1.5435342507, 
+                  47.2159215181
                 ], 
                 [
                   -1.545273215, 
@@ -1719,24 +3397,28 @@
                   47.21488362
                 ], 
                 [
-                  -1.545416892, 
-                  47.21505822
+                  -1.545951115, 
+                  47.21486415
                 ], 
                 [
-                  -1.545074901, 
-                  47.21464427
+                  -1.545145808, 
+                  47.2139345
                 ], 
                 [
-                  -1.544638559, 
-                  47.21411767
+                  -1.545112223, 
+                  47.2138961
                 ], 
                 [
-                  -1.544638559, 
-                  47.21411767
+                  -1.5448753903, 
+                  47.2140068853
+                ], 
+                [
+                  -1.5448753903, 
+                  47.2140068853
                 ]
               ]
             }, 
-            "duration": 411, 
+            "duration": 402, 
             "path": [
               {
                 "duration": 200, 
@@ -1751,23 +3433,35 @@
                 "name": ""
               }, 
               {
-                "duration": 36, 
-                "length": 40, 
-                "direction": -89, 
+                "duration": 4, 
+                "length": 4, 
+                "direction": 93, 
                 "name": "rue DE LA BISCUITERIE"
               }, 
               {
-                "duration": 107, 
-                "length": 119, 
-                "direction": 89, 
-                "name": "cours DU CHAMP DE MARS"
+                "duration": 111, 
+                "length": 124, 
+                "direction": -95, 
+                "name": "avenue CARNOT"
+              }, 
+              {
+                "duration": 19, 
+                "length": 21, 
+                "direction": 0, 
+                "name": "rue LEFEVRE UTILE"
               }
             ], 
             "type": "street_network", 
             "id": "section_38_0", 
             "mode": "walking"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 2871.648, 
+          "unit": "gEC"
+        }, 
+        "duration": 6577, 
+        "type": "best"
       }, 
       {
         "fare": {
@@ -1778,9 +3472,10 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [], 
         "nb_transfers": 0, 
-        "arrival_date_time": "20141201T093810", 
+        "arrival_date_time": "20141201T093751", 
         "calendars": [
           {
             "exceptions": [
@@ -1816,15 +3511,10 @@
         ], 
         "departure_date_time": "20141201T090352", 
         "requested_date_time": "20141201T090000", 
-        "type": "car", 
-        "duration": 2058, 
         "sections": [
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.585760091193374;47.29129921981793", 
-              "name": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
               "address": {
                 "name": "route DE LA GERGAUDIERE", 
                 "house_number": 15, 
@@ -1832,7 +3522,7 @@
                   "lat": "47.29129921981793", 
                   "lon": "-1.585760091193374"
                 }, 
-                "label": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
+                "label": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)", 
                 "administrative_regions": [
                   {
                     "insee": "44209", 
@@ -1847,31 +3537,45 @@
                     "zip_code": "44119"
                   }, 
                   {
-                    "insee": "44209", 
-                    "name": "Treilli\u00e8res", 
+                    "insee": "44035", 
+                    "name": "La Chapelle-sur-Erdre", 
                     "level": 8, 
                     "coord": {
-                      "lat": "47.31846093", 
-                      "lon": "-1.626072142"
+                      "lat": "47.30308095", 
+                      "lon": "-1.560410958"
                     }, 
-                    "label": "Treilli\u00e8res (44119)", 
-                    "id": "admin:44209", 
-                    "zip_code": "44119"
+                    "label": "La Chapelle-sur-Erdre (44240)", 
+                    "id": "admin:44035", 
+                    "zip_code": "44240"
                   }
                 ], 
                 "id": "-1.585760091193374;47.29129921981793"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.585760091193374;47.29129921981793", 
+              "name": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)"
             }, 
             "links": [], 
             "arrival_date_time": "20141201T092310", 
-            "additional_informations": [], 
             "departure_date_time": "20141201T090352", 
             "to": {
               "embedded_type": "poi", 
-              "quality": 0, 
-              "id": "poi:TRANSP44_6258", 
-              "name": "Parc-relais Bourdonni\u00e8res 1 (Nantes)", 
               "poi": {
+                "properties": {
+                  "access_condition": "Contr\u00f4le en sortie par lecture du code barre du titre de transport, du lundi au samedi de 6h \u00e0 22h - Vid\u00e9osurveill\u00e9.", 
+                  "capacity": "246 places", 
+                  "addr:city": "Nantes", 
+                  "opening": "7 jours sur 7. 24 h sur 24.", 
+                  "addr:postcode": "44200", 
+                  "addr:full": "Boulevard de Vend\u00e9e", 
+                  "ref:PDL:IGN:subcategory": "Parking relais", 
+                  "creation_date": "2014-04-11", 
+                  "source": "Nantes M\u00e9tropole", 
+                  "ref:PDL:IGN:category": "Stationnement", 
+                  "ref:PDL:IGN:id": "TRANSP44_6258", 
+                  "ref:INSEE": "44109", 
+                  "park_ride": "no"
+                }, 
                 "poi_type": {
                   "name": "parking", 
                   "id": "poi_type:amenity:parking"
@@ -1920,23 +3624,15 @@
                   ], 
                   "id": "-1.521338;47.185974"
                 }, 
-                "id": "poi:TRANSP44_6258", 
-                "properties": {
-                  "access_condition": "Contr\u00f4le en sortie par lecture du code barre du titre de transport, du lundi au samedi de 6h \u00e0 22h - Vid\u00e9osurveill\u00e9.", 
-                  "capacity": "246 places", 
-                  "addr:city": "Nantes", 
-                  "opening": "7 jours sur 7. 24 h sur 24.", 
-                  "addr:postcode": "44200", 
-                  "addr:full": "Boulevard de Vend\u00e9e", 
-                  "ref:PDL:IGN:subcategory": "Parking relais", 
-                  "creation_date": "2014-04-11", 
-                  "source": "Nantes M\u00e9tropole", 
-                  "ref:PDL:IGN:category": "Stationnement", 
-                  "ref:PDL:IGN:id": "TRANSP44_6258", 
-                  "ref:INSEE": "44109", 
-                  "park_ride": "no"
-                }
-              }
+                "id": "poi:TRANSP44_6258"
+              }, 
+              "quality": 0, 
+              "id": "poi:TRANSP44_6258", 
+              "name": "Parc-relais Bourdonni\u00e8res 1 (Nantes)"
+            }, 
+            "co2_emission": {
+              "value": 2650.19, 
+              "unit": "gEC"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -1947,12 +3643,12 @@
               ], 
               "coordinates": [
                 [
-                  -1.5855541133331463, 
-                  47.29117015523175
+                  -1.5855541133, 
+                  47.2911701552
                 ], 
                 [
-                  -1.5855541133331463, 
-                  47.29117015523175
+                  -1.5855541133, 
+                  47.2911701552
                 ], 
                 [
                   -1.585556529, 
@@ -2747,16 +4443,12 @@
                   47.20016268
                 ], 
                 [
-                  -1.533229494, 
-                  47.19934276
+                  -1.533320643, 
+                  47.19930944
                 ], 
                 [
-                  -1.533083206, 
-                  47.19915998
-                ], 
-                [
-                  -1.533058198, 
-                  47.19913029
+                  -1.533173232, 
+                  47.1991294
                 ], 
                 [
                   -1.533149672, 
@@ -3213,13 +4905,13 @@
               {
                 "duration": 9, 
                 "length": 99, 
-                "direction": -5, 
+                "direction": -1, 
                 "name": ""
               }, 
               {
                 "duration": 2, 
                 "length": 22, 
-                "direction": 3, 
+                "direction": -1, 
                 "name": ""
               }, 
               {
@@ -3231,13 +4923,7 @@
               {
                 "duration": 0, 
                 "length": 0, 
-                "direction": 95, 
-                "name": ""
-              }, 
-              {
-                "duration": 0, 
-                "length": 0, 
-                "direction": -38, 
+                "direction": 57, 
                 "name": ""
               }, 
               {
@@ -3266,16 +4952,28 @@
               }
             ], 
             "type": "street_network", 
-            "id": "section_8_0_5", 
+            "id": "section_8_0_6", 
             "mode": "car"
           }, 
           {
             "from": {
               "embedded_type": "poi", 
-              "quality": 0, 
-              "id": "poi:TRANSP44_6258", 
-              "name": "Parc-relais Bourdonni\u00e8res 1 (Nantes)", 
               "poi": {
+                "properties": {
+                  "access_condition": "Contr\u00f4le en sortie par lecture du code barre du titre de transport, du lundi au samedi de 6h \u00e0 22h - Vid\u00e9osurveill\u00e9.", 
+                  "capacity": "246 places", 
+                  "addr:city": "Nantes", 
+                  "opening": "7 jours sur 7. 24 h sur 24.", 
+                  "addr:postcode": "44200", 
+                  "addr:full": "Boulevard de Vend\u00e9e", 
+                  "ref:PDL:IGN:subcategory": "Parking relais", 
+                  "creation_date": "2014-04-11", 
+                  "source": "Nantes M\u00e9tropole", 
+                  "ref:PDL:IGN:category": "Stationnement", 
+                  "ref:PDL:IGN:id": "TRANSP44_6258", 
+                  "ref:INSEE": "44109", 
+                  "park_ride": "no"
+                }, 
                 "poi_type": {
                   "name": "parking", 
                   "id": "poi_type:amenity:parking"
@@ -3324,27 +5022,14 @@
                   ], 
                   "id": "-1.521338;47.185974"
                 }, 
-                "id": "poi:TRANSP44_6258", 
-                "properties": {
-                  "access_condition": "Contr\u00f4le en sortie par lecture du code barre du titre de transport, du lundi au samedi de 6h \u00e0 22h - Vid\u00e9osurveill\u00e9.", 
-                  "capacity": "246 places", 
-                  "addr:city": "Nantes", 
-                  "opening": "7 jours sur 7. 24 h sur 24.", 
-                  "addr:postcode": "44200", 
-                  "addr:full": "Boulevard de Vend\u00e9e", 
-                  "ref:PDL:IGN:subcategory": "Parking relais", 
-                  "creation_date": "2014-04-11", 
-                  "source": "Nantes M\u00e9tropole", 
-                  "ref:PDL:IGN:category": "Stationnement", 
-                  "ref:PDL:IGN:id": "TRANSP44_6258", 
-                  "ref:INSEE": "44109", 
-                  "park_ride": "no"
-                }
-              }
+                "id": "poi:TRANSP44_6258"
+              }, 
+              "quality": 0, 
+              "id": "poi:TRANSP44_6258", 
+              "name": "Parc-relais Bourdonni\u00e8res 1 (Nantes)"
             }, 
             "links": [], 
             "arrival_date_time": "20141201T092900", 
-            "additional_informations": [], 
             "departure_date_time": "20141201T092310", 
             "to": {
               "embedded_type": "stop_point", 
@@ -3414,7 +5099,7 @@
               }
             ], 
             "type": "park", 
-            "id": "section_9_0_5"
+            "id": "section_9_0_6"
           }, 
           {
             "from": {
@@ -3488,8 +5173,13 @@
               }
             ], 
             "arrival_date_time": "20141201T093700", 
-            "additional_informations": [], 
-            "departure_date_time": "20141201T092900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 9.3651, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Foch-Cath\u00e9drale (Nantes)", 
               "code": "4", 
@@ -3547,11 +5237,12 @@
               "id": "stop_point:NAN:SP:CDCO1", 
               "name": "Cit\u00e9 Internationale des Congr\u00e8s (Nantes)"
             }, 
+            "departure_date_time": "20141201T092900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 3019
+                  "length": 3021
                 }
               ], 
               "coordinates": [
@@ -3591,7 +5282,7 @@
             }, 
             "duration": 480, 
             "type": "public_transport", 
-            "id": "section_10_0_5", 
+            "id": "section_10_0_6", 
             "stop_date_times": [
               {
                 "stop_point": {
@@ -3608,8 +5299,8 @@
                 }, 
                 "arrival_date_time": "20141201T092900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141201T092900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T092900"
               }, 
               {
                 "stop_point": {
@@ -3626,8 +5317,8 @@
                 }, 
                 "arrival_date_time": "20141201T093000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141201T093000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T093000"
               }, 
               {
                 "stop_point": {
@@ -3644,8 +5335,8 @@
                 }, 
                 "arrival_date_time": "20141201T093100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141201T093100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T093100"
               }, 
               {
                 "stop_point": {
@@ -3664,8 +5355,8 @@
                 }, 
                 "arrival_date_time": "20141201T093200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141201T093200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T093200"
               }, 
               {
                 "stop_point": {
@@ -3682,8 +5373,8 @@
                 }, 
                 "arrival_date_time": "20141201T093400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141201T093400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T093400"
               }, 
               {
                 "stop_point": {
@@ -3700,8 +5391,8 @@
                 }, 
                 "arrival_date_time": "20141201T093500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141201T093500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T093500"
               }, 
               {
                 "stop_point": {
@@ -3718,8 +5409,8 @@
                 }, 
                 "arrival_date_time": "20141201T093600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141201T093600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T093600"
               }, 
               {
                 "stop_point": {
@@ -3736,8 +5427,8 @@
                 }, 
                 "arrival_date_time": "20141201T093700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141201T093700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141201T093700"
               }
             ]
           }, 
@@ -3813,20 +5504,16 @@
               "name": "Cit\u00e9 Internationale des Congr\u00e8s (Nantes)"
             }, 
             "links": [], 
-            "arrival_date_time": "20141201T093810", 
-            "additional_informations": [], 
+            "arrival_date_time": "20141201T093751", 
             "departure_date_time": "20141201T093700", 
             "to": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.544638559;47.21411767", 
-              "name": "2 rue LEFEVRE UTILE (Nantes)", 
               "address": {
                 "name": "rue LEFEVRE UTILE", 
                 "house_number": 2, 
                 "coord": {
-                  "lat": "47.21411767", 
-                  "lon": "-1.544638559"
+                  "lat": "47.21403406", 
+                  "lon": "-1.544888102"
                 }, 
                 "label": "2 rue LEFEVRE UTILE (Nantes)", 
                 "administrative_regions": [
@@ -3855,14 +5542,17 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "id": "-1.544638559;47.21411767"
-              }
+                "id": "-1.544888102;47.21403406"
+              }, 
+              "quality": 0, 
+              "id": "-1.544888102;47.21403406", 
+              "name": "2 rue LEFEVRE UTILE (Nantes)"
             }, 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 78
+                  "length": 57
                 }
               ], 
               "coordinates": [
@@ -3871,8 +5561,8 @@
                   47.213705
                 ], 
                 [
-                  -1.5450336313726853, 
-                  47.21370199685435
+                  -1.5450336314, 
+                  47.2137019969
                 ], 
                 [
                   -1.545208958, 
@@ -3887,20 +5577,16 @@
                   47.2138961
                 ], 
                 [
-                  -1.544638559, 
-                  47.21411767
+                  -1.5448753903, 
+                  47.2140068853
                 ], 
                 [
-                  -1.544638559, 
-                  47.21411767
-                ], 
-                [
-                  -1.544638559, 
-                  47.21411767
+                  -1.5448753903, 
+                  47.2140068853
                 ]
               ]
             }, 
-            "duration": 70, 
+            "duration": 51, 
             "path": [
               {
                 "duration": 24, 
@@ -3915,23 +5601,23 @@
                 "name": "avenue CARNOT"
               }, 
               {
-                "duration": 38, 
-                "length": 42, 
-                "direction": -94, 
-                "name": "rue LEFEVRE UTILE"
-              }, 
-              {
-                "duration": 0, 
-                "length": 0, 
+                "duration": 19, 
+                "length": 21, 
                 "direction": 0, 
-                "name": "cours DU CHAMP DE MARS"
+                "name": "rue LEFEVRE UTILE"
               }
             ], 
             "type": "street_network", 
-            "id": "section_11_0_5", 
+            "id": "section_11_0_6", 
             "mode": "walking"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 2659.5551, 
+          "unit": "gEC"
+        }, 
+        "duration": 2039, 
+        "type": "car"
       }, 
       {
         "fare": {
@@ -3942,12 +5628,13 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [
           "next", 
           "is_pure_tc"
         ], 
         "nb_transfers": 1, 
-        "arrival_date_time": "20141202T083513", 
+        "arrival_date_time": "20141202T083500", 
         "calendars": [
           {
             "exceptions": [
@@ -3983,15 +5670,10 @@
         ], 
         "departure_date_time": "20141202T071505", 
         "requested_date_time": "20141201T181805", 
-        "type": "comfort", 
-        "duration": 4808, 
         "sections": [
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.585760091193374;47.29129921981793", 
-              "name": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
               "address": {
                 "name": "route DE LA GERGAUDIERE", 
                 "house_number": 15, 
@@ -3999,7 +5681,7 @@
                   "lat": "47.29129921981793", 
                   "lon": "-1.585760091193374"
                 }, 
-                "label": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
+                "label": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)", 
                 "administrative_regions": [
                   {
                     "insee": "44209", 
@@ -4014,24 +5696,26 @@
                     "zip_code": "44119"
                   }, 
                   {
-                    "insee": "44209", 
-                    "name": "Treilli\u00e8res", 
+                    "insee": "44035", 
+                    "name": "La Chapelle-sur-Erdre", 
                     "level": 8, 
                     "coord": {
-                      "lat": "47.31846093", 
-                      "lon": "-1.626072142"
+                      "lat": "47.30308095", 
+                      "lon": "-1.560410958"
                     }, 
-                    "label": "Treilli\u00e8res (44119)", 
-                    "id": "admin:44209", 
-                    "zip_code": "44119"
+                    "label": "La Chapelle-sur-Erdre (44240)", 
+                    "id": "admin:44035", 
+                    "zip_code": "44240"
                   }
                 ], 
                 "id": "-1.585760091193374;47.29129921981793"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.585760091193374;47.29129921981793", 
+              "name": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)"
             }, 
             "links": [], 
             "arrival_date_time": "20141202T072700", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T071505", 
             "to": {
               "embedded_type": "stop_point", 
@@ -4100,12 +5784,12 @@
               ], 
               "coordinates": [
                 [
-                  -1.5855541133331463, 
-                  47.29117015523175
+                  -1.5855541133, 
+                  47.2911701552
                 ], 
                 [
-                  -1.5855541133331463, 
-                  47.29117015523175
+                  -1.5855541133, 
+                  47.2911701552
                 ], 
                 [
                   -1.585556529, 
@@ -4136,8 +5820,8 @@
                   47.28703361
                 ], 
                 [
-                  -1.5866828663957666, 
-                  47.2841020347407
+                  -1.5866828664, 
+                  47.2841020347
                 ], 
                 [
                   -1.586714, 
@@ -4167,7 +5851,7 @@
               }
             ], 
             "type": "street_network", 
-            "id": "section_33_1", 
+            "id": "section_53_2", 
             "mode": "walking"
           }, 
           {
@@ -4242,8 +5926,13 @@
               }
             ], 
             "arrival_date_time": "20141202T075700", 
-            "additional_informations": [], 
-            "departure_date_time": "20141202T072700", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 1193.616, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Beaus\u00e9jour (Nantes)", 
               "code": "22", 
@@ -4301,11 +5990,12 @@
               "id": "stop_point:C44:SP:22211O", 
               "name": "Beaus\u00e9jour (Nantes)"
             }, 
+            "departure_date_time": "20141202T072700", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 8287
+                  "length": 8289
                 }
               ], 
               "coordinates": [
@@ -4337,7 +6027,7 @@
             }, 
             "duration": 1800, 
             "type": "public_transport", 
-            "id": "section_34_1", 
+            "id": "section_54_2", 
             "stop_date_times": [
               {
                 "stop_point": {
@@ -4354,8 +6044,8 @@
                 }, 
                 "arrival_date_time": "20141202T072700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T072700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T072700"
               }, 
               {
                 "stop_point": {
@@ -4374,8 +6064,8 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20141202T073500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T073500"
               }, 
               {
                 "stop_point": {
@@ -4394,8 +6084,8 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20141202T074500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074500"
               }, 
               {
                 "stop_point": {
@@ -4414,8 +6104,8 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20141202T075000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075000"
               }, 
               {
                 "stop_point": {
@@ -4434,8 +6124,8 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20141202T075500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075500"
               }, 
               {
                 "stop_point": {
@@ -4452,8 +6142,8 @@
                 }, 
                 "arrival_date_time": "20141202T075700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075700"
               }
             ]
           }, 
@@ -4504,7 +6194,6 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141202T080000", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T075700", 
             "to": {
               "embedded_type": "stop_point", 
@@ -4573,16 +6262,15 @@
             "duration": 180, 
             "transfer_type": "walking", 
             "type": "transfer", 
-            "id": "section_35_1"
+            "id": "section_55_2"
           }, 
           {
             "links": [], 
             "arrival_date_time": "20141202T080100", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T080000", 
             "duration": 60, 
             "type": "waiting", 
-            "id": "section_36_1"
+            "id": "section_56_2"
           }, 
           {
             "from": {
@@ -4658,8 +6346,13 @@
               }
             ], 
             "arrival_date_time": "20141202T082500", 
-            "additional_informations": [], 
-            "departure_date_time": "20141202T080100", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 683.3893, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Jules Verne (Nantes)", 
               "code": "12", 
@@ -4717,11 +6410,12 @@
               "id": "stop_point:NAN:SP:GSNO3", 
               "name": "Gare SNCF Nord (Nantes)"
             }, 
+            "departure_date_time": "20141202T080100", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 5261
+                  "length": 5269
                 }
               ], 
               "coordinates": [
@@ -4809,7 +6503,7 @@
             }, 
             "duration": 1440, 
             "type": "public_transport", 
-            "id": "section_37_1", 
+            "id": "section_57_2", 
             "stop_date_times": [
               {
                 "stop_point": {
@@ -4828,8 +6522,8 @@
                 }, 
                 "arrival_date_time": "20141202T080100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080100"
               }, 
               {
                 "stop_point": {
@@ -4848,8 +6542,8 @@
                 }, 
                 "arrival_date_time": "20141202T080100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080100"
               }, 
               {
                 "stop_point": {
@@ -4866,8 +6560,8 @@
                 }, 
                 "arrival_date_time": "20141202T080200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080200"
               }, 
               {
                 "stop_point": {
@@ -4884,8 +6578,8 @@
                 }, 
                 "arrival_date_time": "20141202T080400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080400"
               }, 
               {
                 "stop_point": {
@@ -4902,8 +6596,8 @@
                 }, 
                 "arrival_date_time": "20141202T080600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080600"
               }, 
               {
                 "stop_point": {
@@ -4920,8 +6614,8 @@
                 }, 
                 "arrival_date_time": "20141202T080600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080600"
               }, 
               {
                 "stop_point": {
@@ -4938,8 +6632,8 @@
                 }, 
                 "arrival_date_time": "20141202T080700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080700"
               }, 
               {
                 "stop_point": {
@@ -4956,8 +6650,8 @@
                 }, 
                 "arrival_date_time": "20141202T080900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080900"
               }, 
               {
                 "stop_point": {
@@ -4974,8 +6668,8 @@
                 }, 
                 "arrival_date_time": "20141202T081000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T081000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T081000"
               }, 
               {
                 "stop_point": {
@@ -4992,8 +6686,8 @@
                 }, 
                 "arrival_date_time": "20141202T081100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T081100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T081100"
               }, 
               {
                 "stop_point": {
@@ -5010,8 +6704,8 @@
                 }, 
                 "arrival_date_time": "20141202T081200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T081200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T081200"
               }, 
               {
                 "stop_point": {
@@ -5028,8 +6722,8 @@
                 }, 
                 "arrival_date_time": "20141202T081400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T081400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T081400"
               }, 
               {
                 "stop_point": {
@@ -5046,8 +6740,8 @@
                 }, 
                 "arrival_date_time": "20141202T081400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T081400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T081400"
               }, 
               {
                 "stop_point": {
@@ -5064,8 +6758,8 @@
                 }, 
                 "arrival_date_time": "20141202T081500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T081500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T081500"
               }, 
               {
                 "stop_point": {
@@ -5082,8 +6776,8 @@
                 }, 
                 "arrival_date_time": "20141202T081600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T081600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T081600"
               }, 
               {
                 "stop_point": {
@@ -5100,8 +6794,8 @@
                 }, 
                 "arrival_date_time": "20141202T081800", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T081800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T081800"
               }, 
               {
                 "stop_point": {
@@ -5118,8 +6812,8 @@
                 }, 
                 "arrival_date_time": "20141202T081900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T081900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T081900"
               }, 
               {
                 "stop_point": {
@@ -5136,8 +6830,8 @@
                 }, 
                 "arrival_date_time": "20141202T082000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T082000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T082000"
               }, 
               {
                 "stop_point": {
@@ -5154,8 +6848,8 @@
                 }, 
                 "arrival_date_time": "20141202T082200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T082200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T082200"
               }, 
               {
                 "stop_point": {
@@ -5172,8 +6866,8 @@
                 }, 
                 "arrival_date_time": "20141202T082500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T082500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T082500"
               }
             ]
           }, 
@@ -5249,20 +6943,16 @@
               "name": "Gare SNCF Nord (Nantes)"
             }, 
             "links": [], 
-            "arrival_date_time": "20141202T083513", 
-            "additional_informations": [], 
+            "arrival_date_time": "20141202T083500", 
             "departure_date_time": "20141202T082500", 
             "to": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.544638559;47.21411767", 
-              "name": "2 rue LEFEVRE UTILE (Nantes)", 
               "address": {
                 "name": "rue LEFEVRE UTILE", 
                 "house_number": 2, 
                 "coord": {
-                  "lat": "47.21411767", 
-                  "lon": "-1.544638559"
+                  "lat": "47.21403406", 
+                  "lon": "-1.544888102"
                 }, 
                 "label": "2 rue LEFEVRE UTILE (Nantes)", 
                 "administrative_regions": [
@@ -5291,14 +6981,17 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "id": "-1.544638559;47.21411767"
-              }
+                "id": "-1.544888102;47.21403406"
+              }, 
+              "quality": 0, 
+              "id": "-1.544888102;47.21403406", 
+              "name": "2 rue LEFEVRE UTILE (Nantes)"
             }, 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 686
+                  "length": 671
                 }
               ], 
               "coordinates": [
@@ -5307,8 +7000,8 @@
                   47.217697
                 ], 
                 [
-                  -1.5426256582297588, 
-                  47.21768987355627
+                  -1.5426256582, 
+                  47.2176898736
                 ], 
                 [
                   -1.542951627, 
@@ -5323,72 +7016,68 @@
                   47.21725006
                 ], 
                 [
-                  -1.545761585, 
-                  47.21639463
+                  -1.544370434, 
+                  47.21731495
                 ], 
                 [
-                  -1.545859608, 
-                  47.21626992
+                  -1.544654574, 
+                  47.21720099
                 ], 
                 [
-                  -1.546038414, 
-                  47.21608349
+                  -1.54593087, 
+                  47.21651781
                 ], 
                 [
-                  -1.546228257, 
-                  47.21593443
+                  -1.546052084, 
+                  47.2164959
                 ], 
                 [
-                  -1.54637759, 
-                  47.21585375
+                  -1.54613399, 
+                  47.21643144
                 ], 
                 [
-                  -1.546373975, 
-                  47.2157493
+                  -1.54628556, 
+                  47.21643985
                 ], 
                 [
-                  -1.546543923, 
-                  47.21567765
+                  -1.546300305, 
+                  47.21637891
                 ], 
                 [
-                  -1.546461984, 
-                  47.21552126
+                  -1.546758841, 
+                  47.21613632
                 ], 
                 [
-                  -1.546270748, 
-                  47.21559282
+                  -1.54671745, 
+                  47.21577186
                 ], 
                 [
-                  -1.546093872, 
-                  47.21558176
+                  -1.546108182, 
+                  47.21501575
                 ], 
                 [
-                  -1.546382139, 
-                  47.21548477
+                  -1.545951115, 
+                  47.21486415
                 ], 
                 [
-                  -1.545891855, 
-                  47.21488362
+                  -1.545145808, 
+                  47.2139345
                 ], 
                 [
-                  -1.545416892, 
-                  47.21505822
+                  -1.545112223, 
+                  47.2138961
                 ], 
                 [
-                  -1.545074901, 
-                  47.21464427
+                  -1.5448753903, 
+                  47.2140068853
                 ], 
                 [
-                  -1.544638559, 
-                  47.21411767
-                ], 
-                [
-                  -1.544638559, 
-                  47.21411767
+                  -1.5448753903, 
+                  47.2140068853
                 ]
               ]
             }, 
-            "duration": 613, 
+            "duration": 600, 
             "path": [
               {
                 "duration": 22, 
@@ -5397,71 +7086,77 @@
                 "name": "boulevard STALINGRAD"
               }, 
               {
-                "duration": 294, 
-                "length": 329, 
+                "duration": 101, 
+                "length": 113, 
                 "direction": 0, 
+                "name": "all\u00e9e DES GENERAUX PATTON ET WOOD"
+              }, 
+              {
+                "duration": 6, 
+                "length": 6, 
+                "direction": 113, 
+                "name": ""
+              }, 
+              {
+                "duration": 131, 
+                "length": 146, 
+                "direction": -120, 
+                "name": "cours JOHN KENNEDY"
+              }, 
+              {
+                "duration": 16, 
+                "length": 17, 
+                "direction": 23, 
                 "name": "all\u00e9e DES GENERAUX PATTON ET WOOD"
               }, 
               {
                 "duration": 10, 
                 "length": 11, 
-                "direction": -53, 
+                "direction": 54, 
+                "name": "place DE LA DUCHESSE ANNE"
+              }, 
+              {
+                "duration": 6, 
+                "length": 6, 
+                "direction": -85, 
                 "name": ""
               }, 
               {
-                "duration": 13, 
-                "length": 14, 
-                "direction": 60, 
-                "name": ""
+                "duration": 75, 
+                "length": 84, 
+                "direction": 43, 
+                "name": "place DE LA DUCHESSE ANNE"
               }, 
               {
-                "duration": 16, 
-                "length": 17, 
-                "direction": -78, 
-                "name": ""
+                "duration": 85, 
+                "length": 95, 
+                "direction": -24, 
+                "name": "pont DE LA ROTONDE"
               }, 
               {
-                "duration": 14, 
-                "length": 15, 
-                "direction": -99, 
-                "name": ""
+                "duration": 129, 
+                "length": 144, 
+                "direction": -6, 
+                "name": "avenue CARNOT"
               }, 
               {
-                "duration": 12, 
-                "length": 13, 
-                "direction": 34, 
-                "name": ""
-              }, 
-              {
-                "duration": 21, 
-                "length": 23, 
-                "direction": 148, 
-                "name": "quai MALAKOFF"
-              }, 
-              {
-                "duration": 68, 
-                "length": 76, 
-                "direction": -93, 
-                "name": ""
-              }, 
-              {
-                "duration": 36, 
-                "length": 40, 
-                "direction": -89, 
-                "name": "rue DE LA BISCUITERIE"
-              }, 
-              {
-                "duration": 107, 
-                "length": 119, 
-                "direction": 89, 
-                "name": "cours DU CHAMP DE MARS"
+                "duration": 19, 
+                "length": 21, 
+                "direction": 0, 
+                "name": "rue LEFEVRE UTILE"
               }
             ], 
             "type": "street_network", 
-            "id": "section_38_1", 
+            "id": "section_58_2", 
             "mode": "walking"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 1877.0053, 
+          "unit": "gEC"
+        }, 
+        "duration": 4795, 
+        "type": "comfort"
       }, 
       {
         "fare": {
@@ -5472,12 +7167,13 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [
           "next", 
           "is_pure_tc"
         ], 
         "nb_transfers": 1, 
-        "arrival_date_time": "20141202T082240", 
+        "arrival_date_time": "20141202T082221", 
         "calendars": [
           {
             "exceptions": [
@@ -5513,15 +7209,10 @@
         ], 
         "departure_date_time": "20141202T071505", 
         "requested_date_time": "20141201T181805", 
-        "type": "rapid", 
-        "duration": 4055, 
         "sections": [
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.585760091193374;47.29129921981793", 
-              "name": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
               "address": {
                 "name": "route DE LA GERGAUDIERE", 
                 "house_number": 15, 
@@ -5529,7 +7220,7 @@
                   "lat": "47.29129921981793", 
                   "lon": "-1.585760091193374"
                 }, 
-                "label": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
+                "label": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)", 
                 "administrative_regions": [
                   {
                     "insee": "44209", 
@@ -5544,24 +7235,26 @@
                     "zip_code": "44119"
                   }, 
                   {
-                    "insee": "44209", 
-                    "name": "Treilli\u00e8res", 
+                    "insee": "44035", 
+                    "name": "La Chapelle-sur-Erdre", 
                     "level": 8, 
                     "coord": {
-                      "lat": "47.31846093", 
-                      "lon": "-1.626072142"
+                      "lat": "47.30308095", 
+                      "lon": "-1.560410958"
                     }, 
-                    "label": "Treilli\u00e8res (44119)", 
-                    "id": "admin:44209", 
-                    "zip_code": "44119"
+                    "label": "La Chapelle-sur-Erdre (44240)", 
+                    "id": "admin:44035", 
+                    "zip_code": "44240"
                   }
                 ], 
                 "id": "-1.585760091193374;47.29129921981793"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.585760091193374;47.29129921981793", 
+              "name": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)"
             }, 
             "links": [], 
             "arrival_date_time": "20141202T072700", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T071505", 
             "to": {
               "embedded_type": "stop_point", 
@@ -5630,12 +7323,12 @@
               ], 
               "coordinates": [
                 [
-                  -1.5855541133331463, 
-                  47.29117015523175
+                  -1.5855541133, 
+                  47.2911701552
                 ], 
                 [
-                  -1.5855541133331463, 
-                  47.29117015523175
+                  -1.5855541133, 
+                  47.2911701552
                 ], 
                 [
                   -1.585556529, 
@@ -5666,8 +7359,8 @@
                   47.28703361
                 ], 
                 [
-                  -1.5866828663957666, 
-                  47.2841020347407
+                  -1.5866828664, 
+                  47.2841020347
                 ], 
                 [
                   -1.586714, 
@@ -5697,7 +7390,7 @@
               }
             ], 
             "type": "street_network", 
-            "id": "section_21_1", 
+            "id": "section_47_2", 
             "mode": "walking"
           }, 
           {
@@ -5772,8 +7465,13 @@
               }
             ], 
             "arrival_date_time": "20141202T073500", 
-            "additional_informations": [], 
-            "departure_date_time": "20141202T072700", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 359.712, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Beaus\u00e9jour (Nantes)", 
               "code": "22", 
@@ -5831,6 +7529,7 @@
               "id": "stop_point:C44:SP:22395O", 
               "name": "Le Cardo (Orvault)"
             }, 
+            "departure_date_time": "20141202T072700", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -5851,7 +7550,7 @@
             }, 
             "duration": 480, 
             "type": "public_transport", 
-            "id": "section_22_1", 
+            "id": "section_48_2", 
             "stop_date_times": [
               {
                 "stop_point": {
@@ -5868,8 +7567,8 @@
                 }, 
                 "arrival_date_time": "20141202T072700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T072700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T072700"
               }, 
               {
                 "stop_point": {
@@ -5888,8 +7587,8 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20141202T073500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T073500"
               }
             ]
           }, 
@@ -5940,7 +7639,6 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141202T073609", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T073500", 
             "to": {
               "embedded_type": "stop_point", 
@@ -6007,16 +7705,15 @@
             "duration": 69, 
             "transfer_type": "walking", 
             "type": "transfer", 
-            "id": "section_23_1"
+            "id": "section_49_2"
           }, 
           {
             "links": [], 
             "arrival_date_time": "20141202T074000", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T073609", 
             "duration": 231, 
             "type": "waiting", 
-            "id": "section_24_1"
+            "id": "section_50_2"
           }, 
           {
             "from": {
@@ -6090,8 +7787,13 @@
               }
             ], 
             "arrival_date_time": "20141202T080800", 
-            "additional_informations": [], 
-            "departure_date_time": "20141202T074000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 24.2823, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "H\u00f4tel Dieu (Nantes)", 
               "code": "2", 
@@ -6149,11 +7851,12 @@
               "id": "stop_point:NAN:SP:HODI2", 
               "name": "H\u00f4tel Dieu (Nantes)"
             }, 
+            "departure_date_time": "20141202T074000", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 7824
+                  "length": 7833
                 }
               ], 
               "coordinates": [
@@ -6233,7 +7936,7 @@
             }, 
             "duration": 1680, 
             "type": "public_transport", 
-            "id": "section_25_1", 
+            "id": "section_51_2", 
             "stop_date_times": [
               {
                 "stop_point": {
@@ -6250,8 +7953,8 @@
                 }, 
                 "arrival_date_time": "20141202T074000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074000"
               }, 
               {
                 "stop_point": {
@@ -6268,8 +7971,8 @@
                 }, 
                 "arrival_date_time": "20141202T074200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074200"
               }, 
               {
                 "stop_point": {
@@ -6286,8 +7989,8 @@
                 }, 
                 "arrival_date_time": "20141202T074300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074300"
               }, 
               {
                 "stop_point": {
@@ -6304,8 +8007,8 @@
                 }, 
                 "arrival_date_time": "20141202T074500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074500"
               }, 
               {
                 "stop_point": {
@@ -6322,8 +8025,8 @@
                 }, 
                 "arrival_date_time": "20141202T074600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074600"
               }, 
               {
                 "stop_point": {
@@ -6340,8 +8043,8 @@
                 }, 
                 "arrival_date_time": "20141202T074800", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074800"
               }, 
               {
                 "stop_point": {
@@ -6358,8 +8061,8 @@
                 }, 
                 "arrival_date_time": "20141202T074900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074900"
               }, 
               {
                 "stop_point": {
@@ -6376,8 +8079,8 @@
                 }, 
                 "arrival_date_time": "20141202T075100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075100"
               }, 
               {
                 "stop_point": {
@@ -6394,8 +8097,8 @@
                 }, 
                 "arrival_date_time": "20141202T075200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075200"
               }, 
               {
                 "stop_point": {
@@ -6412,8 +8115,8 @@
                 }, 
                 "arrival_date_time": "20141202T075400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075400"
               }, 
               {
                 "stop_point": {
@@ -6430,8 +8133,8 @@
                 }, 
                 "arrival_date_time": "20141202T075600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075600"
               }, 
               {
                 "stop_point": {
@@ -6448,8 +8151,8 @@
                 }, 
                 "arrival_date_time": "20141202T075700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075700"
               }, 
               {
                 "stop_point": {
@@ -6466,8 +8169,8 @@
                 }, 
                 "arrival_date_time": "20141202T075900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075900"
               }, 
               {
                 "stop_point": {
@@ -6484,8 +8187,8 @@
                 }, 
                 "arrival_date_time": "20141202T080100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080100"
               }, 
               {
                 "stop_point": {
@@ -6502,8 +8205,8 @@
                 }, 
                 "arrival_date_time": "20141202T080300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080300"
               }, 
               {
                 "stop_point": {
@@ -6520,8 +8223,8 @@
                 }, 
                 "arrival_date_time": "20141202T080400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080400"
               }, 
               {
                 "stop_point": {
@@ -6540,8 +8243,8 @@
                 }, 
                 "arrival_date_time": "20141202T080600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080600"
               }, 
               {
                 "stop_point": {
@@ -6558,8 +8261,8 @@
                 }, 
                 "arrival_date_time": "20141202T080800", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080800"
               }
             ]
           }, 
@@ -6635,20 +8338,16 @@
               "name": "H\u00f4tel Dieu (Nantes)"
             }, 
             "links": [], 
-            "arrival_date_time": "20141202T082240", 
-            "additional_informations": [], 
+            "arrival_date_time": "20141202T082221", 
             "departure_date_time": "20141202T080800", 
             "to": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.544638559;47.21411767", 
-              "name": "2 rue LEFEVRE UTILE (Nantes)", 
               "address": {
                 "name": "rue LEFEVRE UTILE", 
                 "house_number": 2, 
                 "coord": {
-                  "lat": "47.21411767", 
-                  "lon": "-1.544638559"
+                  "lat": "47.21403406", 
+                  "lon": "-1.544888102"
                 }, 
                 "label": "2 rue LEFEVRE UTILE (Nantes)", 
                 "administrative_regions": [
@@ -6677,14 +8376,17 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "id": "-1.544638559;47.21411767"
-              }
+                "id": "-1.544888102;47.21403406"
+              }, 
+              "quality": 0, 
+              "id": "-1.544888102;47.21403406", 
+              "name": "2 rue LEFEVRE UTILE (Nantes)"
             }, 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 985
+                  "length": 964
                 }
               ], 
               "coordinates": [
@@ -6693,8 +8395,8 @@
                   47.211857
                 ], 
                 [
-                  -1.553485808542272, 
-                  47.21161640968631
+                  -1.5534858085, 
+                  47.2116164097
                 ], 
                 [
                   -1.554301863, 
@@ -6805,20 +8507,16 @@
                   47.2138961
                 ], 
                 [
-                  -1.544638559, 
-                  47.21411767
+                  -1.5448753903, 
+                  47.2140068853
                 ], 
                 [
-                  -1.544638559, 
-                  47.21411767
-                ], 
-                [
-                  -1.544638559, 
-                  47.21411767
+                  -1.5448753903, 
+                  47.2140068853
                 ]
               ]
             }, 
-            "duration": 880, 
+            "duration": 861, 
             "path": [
               {
                 "duration": 80, 
@@ -6887,23 +8585,23 @@
                 "name": "avenue CARNOT"
               }, 
               {
-                "duration": 38, 
-                "length": 42, 
-                "direction": -94, 
-                "name": "rue LEFEVRE UTILE"
-              }, 
-              {
-                "duration": 0, 
-                "length": 0, 
+                "duration": 19, 
+                "length": 21, 
                 "direction": 0, 
-                "name": "cours DU CHAMP DE MARS"
+                "name": "rue LEFEVRE UTILE"
               }
             ], 
             "type": "street_network", 
-            "id": "section_26_1", 
+            "id": "section_52_2", 
             "mode": "walking"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 383.9943, 
+          "unit": "gEC"
+        }, 
+        "duration": 4036, 
+        "type": "rapid"
       }, 
       {
         "fare": {
@@ -6914,12 +8612,13 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [
           "next", 
           "is_pure_tc"
         ], 
         "nb_transfers": 3, 
-        "arrival_date_time": "20141202T081813", 
+        "arrival_date_time": "20141202T081754", 
         "calendars": [
           {
             "exceptions": [
@@ -6955,15 +8654,10 @@
         ], 
         "departure_date_time": "20141202T071505", 
         "requested_date_time": "20141201T181805", 
-        "type": "less_fallback_walk", 
-        "duration": 3788, 
         "sections": [
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.585760091193374;47.29129921981793", 
-              "name": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
               "address": {
                 "name": "route DE LA GERGAUDIERE", 
                 "house_number": 15, 
@@ -6971,7 +8665,7 @@
                   "lat": "47.29129921981793", 
                   "lon": "-1.585760091193374"
                 }, 
-                "label": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
+                "label": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)", 
                 "administrative_regions": [
                   {
                     "insee": "44209", 
@@ -6986,24 +8680,26 @@
                     "zip_code": "44119"
                   }, 
                   {
-                    "insee": "44209", 
-                    "name": "Treilli\u00e8res", 
+                    "insee": "44035", 
+                    "name": "La Chapelle-sur-Erdre", 
                     "level": 8, 
                     "coord": {
-                      "lat": "47.31846093", 
-                      "lon": "-1.626072142"
+                      "lat": "47.30308095", 
+                      "lon": "-1.560410958"
                     }, 
-                    "label": "Treilli\u00e8res (44119)", 
-                    "id": "admin:44209", 
-                    "zip_code": "44119"
+                    "label": "La Chapelle-sur-Erdre (44240)", 
+                    "id": "admin:44035", 
+                    "zip_code": "44240"
                   }
                 ], 
                 "id": "-1.585760091193374;47.29129921981793"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.585760091193374;47.29129921981793", 
+              "name": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)"
             }, 
             "links": [], 
             "arrival_date_time": "20141202T072700", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T071505", 
             "to": {
               "embedded_type": "stop_point", 
@@ -7072,12 +8768,12 @@
               ], 
               "coordinates": [
                 [
-                  -1.5855541133331463, 
-                  47.29117015523175
+                  -1.5855541133, 
+                  47.2911701552
                 ], 
                 [
-                  -1.5855541133331463, 
-                  47.29117015523175
+                  -1.5855541133, 
+                  47.2911701552
                 ], 
                 [
                   -1.585556529, 
@@ -7108,8 +8804,8 @@
                   47.28703361
                 ], 
                 [
-                  -1.5866828663957666, 
-                  47.2841020347407
+                  -1.5866828664, 
+                  47.2841020347
                 ], 
                 [
                   -1.586714, 
@@ -7139,7 +8835,7 @@
               }
             ], 
             "type": "street_network", 
-            "id": "section_0_1", 
+            "id": "section_0_2", 
             "mode": "walking"
           }, 
           {
@@ -7214,8 +8910,13 @@
               }
             ], 
             "arrival_date_time": "20141202T073500", 
-            "additional_informations": [], 
-            "departure_date_time": "20141202T072700", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 359.712, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Beaus\u00e9jour (Nantes)", 
               "code": "22", 
@@ -7273,6 +8974,7 @@
               "id": "stop_point:C44:SP:22395O", 
               "name": "Le Cardo (Orvault)"
             }, 
+            "departure_date_time": "20141202T072700", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -7293,7 +8995,7 @@
             }, 
             "duration": 480, 
             "type": "public_transport", 
-            "id": "section_1_1", 
+            "id": "section_1_2", 
             "stop_date_times": [
               {
                 "stop_point": {
@@ -7310,8 +9012,8 @@
                 }, 
                 "arrival_date_time": "20141202T072700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T072700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T072700"
               }, 
               {
                 "stop_point": {
@@ -7330,8 +9032,8 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20141202T073500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T073500"
               }
             ]
           }, 
@@ -7382,7 +9084,6 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141202T073609", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T073500", 
             "to": {
               "embedded_type": "stop_point", 
@@ -7449,16 +9150,15 @@
             "duration": 69, 
             "transfer_type": "walking", 
             "type": "transfer", 
-            "id": "section_2_1"
+            "id": "section_2_2"
           }, 
           {
             "links": [], 
             "arrival_date_time": "20141202T074000", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T073609", 
             "duration": 231, 
             "type": "waiting", 
-            "id": "section_3_1"
+            "id": "section_3_2"
           }, 
           {
             "from": {
@@ -7532,8 +9232,13 @@
               }
             ], 
             "arrival_date_time": "20141202T080400", 
-            "additional_informations": [], 
-            "departure_date_time": "20141202T074000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 22.2983, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "H\u00f4tel Dieu (Nantes)", 
               "code": "2", 
@@ -7591,11 +9296,12 @@
               "id": "stop_point:NAN:SP:CRQU2", 
               "name": "Place du Cirque (Nantes)"
             }, 
+            "departure_date_time": "20141202T074000", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 7185
+                  "length": 7193
                 }
               ], 
               "coordinates": [
@@ -7667,7 +9373,7 @@
             }, 
             "duration": 1440, 
             "type": "public_transport", 
-            "id": "section_4_1", 
+            "id": "section_4_2", 
             "stop_date_times": [
               {
                 "stop_point": {
@@ -7684,8 +9390,8 @@
                 }, 
                 "arrival_date_time": "20141202T074000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074000"
               }, 
               {
                 "stop_point": {
@@ -7702,8 +9408,8 @@
                 }, 
                 "arrival_date_time": "20141202T074200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074200"
               }, 
               {
                 "stop_point": {
@@ -7720,8 +9426,8 @@
                 }, 
                 "arrival_date_time": "20141202T074300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074300"
               }, 
               {
                 "stop_point": {
@@ -7738,8 +9444,8 @@
                 }, 
                 "arrival_date_time": "20141202T074500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074500"
               }, 
               {
                 "stop_point": {
@@ -7756,8 +9462,8 @@
                 }, 
                 "arrival_date_time": "20141202T074600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074600"
               }, 
               {
                 "stop_point": {
@@ -7774,8 +9480,8 @@
                 }, 
                 "arrival_date_time": "20141202T074800", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074800"
               }, 
               {
                 "stop_point": {
@@ -7792,8 +9498,8 @@
                 }, 
                 "arrival_date_time": "20141202T074900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074900"
               }, 
               {
                 "stop_point": {
@@ -7810,8 +9516,8 @@
                 }, 
                 "arrival_date_time": "20141202T075100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075100"
               }, 
               {
                 "stop_point": {
@@ -7828,8 +9534,8 @@
                 }, 
                 "arrival_date_time": "20141202T075200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075200"
               }, 
               {
                 "stop_point": {
@@ -7846,8 +9552,8 @@
                 }, 
                 "arrival_date_time": "20141202T075400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075400"
               }, 
               {
                 "stop_point": {
@@ -7864,8 +9570,8 @@
                 }, 
                 "arrival_date_time": "20141202T075600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075600"
               }, 
               {
                 "stop_point": {
@@ -7882,8 +9588,8 @@
                 }, 
                 "arrival_date_time": "20141202T075700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075700"
               }, 
               {
                 "stop_point": {
@@ -7900,8 +9606,8 @@
                 }, 
                 "arrival_date_time": "20141202T075900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075900"
               }, 
               {
                 "stop_point": {
@@ -7918,8 +9624,8 @@
                 }, 
                 "arrival_date_time": "20141202T080100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080100"
               }, 
               {
                 "stop_point": {
@@ -7936,8 +9642,8 @@
                 }, 
                 "arrival_date_time": "20141202T080300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080300"
               }, 
               {
                 "stop_point": {
@@ -7954,8 +9660,8 @@
                 }, 
                 "arrival_date_time": "20141202T080400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080400"
               }
             ]
           }, 
@@ -8006,7 +9712,6 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141202T080450", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T080400", 
             "to": {
               "embedded_type": "stop_point", 
@@ -8073,16 +9778,15 @@
             "duration": 50, 
             "transfer_type": "walking", 
             "type": "transfer", 
-            "id": "section_5_1"
+            "id": "section_5_2"
           }, 
           {
             "links": [], 
             "arrival_date_time": "20141202T080600", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T080450", 
             "duration": 70, 
             "type": "waiting", 
-            "id": "section_6_1"
+            "id": "section_6_2"
           }, 
           {
             "from": {
@@ -8132,15 +9836,15 @@
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:NAN:8339962-HS15H101-00-ROSE17942_dst_2"
+                "id": "vehicle_journey:NAN:8320725-HD15H101-00-ROSE41949_dst_2"
               }, 
               {
                 "type": "line", 
-                "id": "line:NAN:11-0"
+                "id": "line:NAN:C6-0"
               }, 
               {
                 "type": "route", 
-                "id": "route:NAN:11-0_R"
+                "id": "route:NAN:C6-0"
               }, 
               {
                 "type": "commercial_mode", 
@@ -8156,19 +9860,24 @@
               }
             ], 
             "arrival_date_time": "20141202T080900", 
-            "additional_informations": [], 
-            "departure_date_time": "20141202T080600", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 67.7034, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
-              "direction": "Perray (Nantes)", 
-              "code": "11", 
+              "direction": "Chantrerie Grandes Ecoles (Nantes)", 
+              "code": "C6", 
               "description": "", 
               "links": [], 
-              "color": "e9c389", 
+              "color": "beabd0", 
               "physical_mode": "Bus", 
-              "headsign": "Perray", 
+              "headsign": "Chantrerie Grandes Ecoles", 
               "commercial_mode": "Bus", 
               "equipments": [], 
-              "label": "11", 
+              "label": "C6", 
               "network": "TAN"
             }, 
             "to": {
@@ -8215,6 +9924,7 @@
               "id": "stop_point:NAN:SP:FOCH4", 
               "name": "Foch-Cath\u00e9drale (Nantes)"
             }, 
+            "departure_date_time": "20141202T080600", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -8243,7 +9953,7 @@
             }, 
             "duration": 180, 
             "type": "public_transport", 
-            "id": "section_7_1", 
+            "id": "section_7_2", 
             "stop_date_times": [
               {
                 "stop_point": {
@@ -8260,8 +9970,8 @@
                 }, 
                 "arrival_date_time": "20141202T080600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080600"
               }, 
               {
                 "stop_point": {
@@ -8276,10 +9986,10 @@
                   "equipments": [], 
                   "id": "stop_point:NAN:SP:HVNA2"
                 }, 
-                "arrival_date_time": "20141202T080800", 
+                "arrival_date_time": "20141202T080700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080700"
               }, 
               {
                 "stop_point": {
@@ -8296,8 +10006,8 @@
                 }, 
                 "arrival_date_time": "20141202T080800", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080800"
               }, 
               {
                 "stop_point": {
@@ -8314,8 +10024,8 @@
                 }, 
                 "arrival_date_time": "20141202T080900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080900"
               }
             ]
           }, 
@@ -8366,7 +10076,6 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141202T081039", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T080900", 
             "to": {
               "embedded_type": "stop_point", 
@@ -8433,16 +10142,15 @@
             "duration": 99, 
             "transfer_type": "walking", 
             "type": "transfer", 
-            "id": "section_8_1"
+            "id": "section_8_2"
           }, 
           {
             "links": [], 
             "arrival_date_time": "20141202T081400", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T081039", 
             "duration": 201, 
             "type": "waiting", 
-            "id": "section_9_1"
+            "id": "section_9_2"
           }, 
           {
             "from": {
@@ -8516,8 +10224,13 @@
               }
             ], 
             "arrival_date_time": "20141202T081700", 
-            "additional_informations": [], 
-            "departure_date_time": "20141202T081400", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 2.2971, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Porte de Vertou (Vertou)", 
               "code": "4", 
@@ -8575,11 +10288,12 @@
               "id": "stop_point:NAN:SP:CDCO2", 
               "name": "Cit\u00e9 Internationale des Congr\u00e8s (Nantes)"
             }, 
+            "departure_date_time": "20141202T081400", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 740
+                  "length": 741
                 }
               ], 
               "coordinates": [
@@ -8599,7 +10313,7 @@
             }, 
             "duration": 180, 
             "type": "public_transport", 
-            "id": "section_10_1", 
+            "id": "section_10_2", 
             "stop_date_times": [
               {
                 "stop_point": {
@@ -8616,8 +10330,8 @@
                 }, 
                 "arrival_date_time": "20141202T081400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T081400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T081400"
               }, 
               {
                 "stop_point": {
@@ -8634,8 +10348,8 @@
                 }, 
                 "arrival_date_time": "20141202T081600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T081600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T081600"
               }, 
               {
                 "stop_point": {
@@ -8652,8 +10366,8 @@
                 }, 
                 "arrival_date_time": "20141202T081700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T081700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T081700"
               }
             ]
           }, 
@@ -8729,20 +10443,16 @@
               "name": "Cit\u00e9 Internationale des Congr\u00e8s (Nantes)"
             }, 
             "links": [], 
-            "arrival_date_time": "20141202T081813", 
-            "additional_informations": [], 
+            "arrival_date_time": "20141202T081754", 
             "departure_date_time": "20141202T081700", 
             "to": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.544638559;47.21411767", 
-              "name": "2 rue LEFEVRE UTILE (Nantes)", 
               "address": {
                 "name": "rue LEFEVRE UTILE", 
                 "house_number": 2, 
                 "coord": {
-                  "lat": "47.21411767", 
-                  "lon": "-1.544638559"
+                  "lat": "47.21403406", 
+                  "lon": "-1.544888102"
                 }, 
                 "label": "2 rue LEFEVRE UTILE (Nantes)", 
                 "administrative_regions": [
@@ -8771,14 +10481,17 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "id": "-1.544638559;47.21411767"
-              }
+                "id": "-1.544888102;47.21403406"
+              }, 
+              "quality": 0, 
+              "id": "-1.544888102;47.21403406", 
+              "name": "2 rue LEFEVRE UTILE (Nantes)"
             }, 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 81
+                  "length": 60
                 }
               ], 
               "coordinates": [
@@ -8787,8 +10500,8 @@
                   47.213678
                 ], 
                 [
-                  -1.5450820616157463, 
-                  47.21368365493366
+                  -1.5450820616, 
+                  47.2136836549
                 ], 
                 [
                   -1.545255103, 
@@ -8807,20 +10520,16 @@
                   47.2138961
                 ], 
                 [
-                  -1.544638559, 
-                  47.21411767
+                  -1.5448753903, 
+                  47.2140068853
                 ], 
                 [
-                  -1.544638559, 
-                  47.21411767
-                ], 
-                [
-                  -1.544638559, 
-                  47.21411767
+                  -1.5448753903, 
+                  47.2140068853
                 ]
               ]
             }, 
-            "duration": 73, 
+            "duration": 54, 
             "path": [
               {
                 "duration": 24, 
@@ -8835,23 +10544,23 @@
                 "name": "avenue CARNOT"
               }, 
               {
-                "duration": 38, 
-                "length": 42, 
-                "direction": -94, 
-                "name": "rue LEFEVRE UTILE"
-              }, 
-              {
-                "duration": 0, 
-                "length": 0, 
+                "duration": 19, 
+                "length": 21, 
                 "direction": 0, 
-                "name": "cours DU CHAMP DE MARS"
+                "name": "rue LEFEVRE UTILE"
               }
             ], 
             "type": "street_network", 
-            "id": "section_11_1", 
+            "id": "section_11_2", 
             "mode": "walking"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 452.0108, 
+          "unit": "gEC"
+        }, 
+        "duration": 3769, 
+        "type": "less_fallback_walk"
       }, 
       {
         "fare": {
@@ -8862,13 +10571,14 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard", 
           "next", 
           "is_pure_tc"
         ], 
         "nb_transfers": 2, 
-        "arrival_date_time": "20141202T081657", 
+        "arrival_date_time": "20141202T081716", 
         "calendars": [
           {
             "exceptions": [
@@ -8904,15 +10614,10 @@
         ], 
         "departure_date_time": "20141202T071505", 
         "requested_date_time": "20141201T181805", 
-        "type": "fastest", 
-        "duration": 3712, 
         "sections": [
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.585760091193374;47.29129921981793", 
-              "name": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
               "address": {
                 "name": "route DE LA GERGAUDIERE", 
                 "house_number": 15, 
@@ -8920,7 +10625,7 @@
                   "lat": "47.29129921981793", 
                   "lon": "-1.585760091193374"
                 }, 
-                "label": "route DE LA GERGAUDIERE (Treilli\u00e8res)", 
+                "label": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)", 
                 "administrative_regions": [
                   {
                     "insee": "44209", 
@@ -8935,24 +10640,26 @@
                     "zip_code": "44119"
                   }, 
                   {
-                    "insee": "44209", 
-                    "name": "Treilli\u00e8res", 
+                    "insee": "44035", 
+                    "name": "La Chapelle-sur-Erdre", 
                     "level": 8, 
                     "coord": {
-                      "lat": "47.31846093", 
-                      "lon": "-1.626072142"
+                      "lat": "47.30308095", 
+                      "lon": "-1.560410958"
                     }, 
-                    "label": "Treilli\u00e8res (44119)", 
-                    "id": "admin:44209", 
-                    "zip_code": "44119"
+                    "label": "La Chapelle-sur-Erdre (44240)", 
+                    "id": "admin:44035", 
+                    "zip_code": "44240"
                   }
                 ], 
                 "id": "-1.585760091193374;47.29129921981793"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.585760091193374;47.29129921981793", 
+              "name": "route DE LA GERGAUDIERE (La Chapelle-sur-Erdre)"
             }, 
             "links": [], 
             "arrival_date_time": "20141202T072700", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T071505", 
             "to": {
               "embedded_type": "stop_point", 
@@ -9021,12 +10728,12 @@
               ], 
               "coordinates": [
                 [
-                  -1.5855541133331463, 
-                  47.29117015523175
+                  -1.5855541133, 
+                  47.2911701552
                 ], 
                 [
-                  -1.5855541133331463, 
-                  47.29117015523175
+                  -1.5855541133, 
+                  47.2911701552
                 ], 
                 [
                   -1.585556529, 
@@ -9057,8 +10764,8 @@
                   47.28703361
                 ], 
                 [
-                  -1.5866828663957666, 
-                  47.2841020347407
+                  -1.5866828664, 
+                  47.2841020347
                 ], 
                 [
                   -1.586714, 
@@ -9088,7 +10795,7 @@
               }
             ], 
             "type": "street_network", 
-            "id": "section_12_1", 
+            "id": "section_12_2", 
             "mode": "walking"
           }, 
           {
@@ -9163,8 +10870,13 @@
               }
             ], 
             "arrival_date_time": "20141202T073500", 
-            "additional_informations": [], 
-            "departure_date_time": "20141202T072700", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 359.712, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Beaus\u00e9jour (Nantes)", 
               "code": "22", 
@@ -9222,6 +10934,7 @@
               "id": "stop_point:C44:SP:22395O", 
               "name": "Le Cardo (Orvault)"
             }, 
+            "departure_date_time": "20141202T072700", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -9242,7 +10955,7 @@
             }, 
             "duration": 480, 
             "type": "public_transport", 
-            "id": "section_13_1", 
+            "id": "section_13_2", 
             "stop_date_times": [
               {
                 "stop_point": {
@@ -9259,8 +10972,8 @@
                 }, 
                 "arrival_date_time": "20141202T072700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T072700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T072700"
               }, 
               {
                 "stop_point": {
@@ -9279,8 +10992,8 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20141202T073500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T073500"
               }
             ]
           }, 
@@ -9331,7 +11044,6 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141202T073609", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T073500", 
             "to": {
               "embedded_type": "stop_point", 
@@ -9398,16 +11110,15 @@
             "duration": 69, 
             "transfer_type": "walking", 
             "type": "transfer", 
-            "id": "section_14_1"
+            "id": "section_14_2"
           }, 
           {
             "links": [], 
             "arrival_date_time": "20141202T074000", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T073609", 
             "duration": 231, 
             "type": "waiting", 
-            "id": "section_15_1"
+            "id": "section_15_2"
           }, 
           {
             "from": {
@@ -9481,8 +11192,13 @@
               }
             ], 
             "arrival_date_time": "20141202T080600", 
-            "additional_informations": [], 
-            "departure_date_time": "20141202T074000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 23.1694, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "H\u00f4tel Dieu (Nantes)", 
               "code": "2", 
@@ -9542,11 +11258,12 @@
               "id": "stop_point:NAN:SP:COME2", 
               "name": "Commerce (Nantes)"
             }, 
+            "departure_date_time": "20141202T074000", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 7466
+                  "length": 7474
                 }
               ], 
               "coordinates": [
@@ -9622,7 +11339,7 @@
             }, 
             "duration": 1560, 
             "type": "public_transport", 
-            "id": "section_16_1", 
+            "id": "section_16_2", 
             "stop_date_times": [
               {
                 "stop_point": {
@@ -9639,8 +11356,8 @@
                 }, 
                 "arrival_date_time": "20141202T074000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074000"
               }, 
               {
                 "stop_point": {
@@ -9657,8 +11374,8 @@
                 }, 
                 "arrival_date_time": "20141202T074200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074200"
               }, 
               {
                 "stop_point": {
@@ -9675,8 +11392,8 @@
                 }, 
                 "arrival_date_time": "20141202T074300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074300"
               }, 
               {
                 "stop_point": {
@@ -9693,8 +11410,8 @@
                 }, 
                 "arrival_date_time": "20141202T074500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074500"
               }, 
               {
                 "stop_point": {
@@ -9711,8 +11428,8 @@
                 }, 
                 "arrival_date_time": "20141202T074600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074600"
               }, 
               {
                 "stop_point": {
@@ -9729,8 +11446,8 @@
                 }, 
                 "arrival_date_time": "20141202T074800", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074800"
               }, 
               {
                 "stop_point": {
@@ -9747,8 +11464,8 @@
                 }, 
                 "arrival_date_time": "20141202T074900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T074900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T074900"
               }, 
               {
                 "stop_point": {
@@ -9765,8 +11482,8 @@
                 }, 
                 "arrival_date_time": "20141202T075100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075100"
               }, 
               {
                 "stop_point": {
@@ -9783,8 +11500,8 @@
                 }, 
                 "arrival_date_time": "20141202T075200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075200"
               }, 
               {
                 "stop_point": {
@@ -9801,8 +11518,8 @@
                 }, 
                 "arrival_date_time": "20141202T075400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075400"
               }, 
               {
                 "stop_point": {
@@ -9819,8 +11536,8 @@
                 }, 
                 "arrival_date_time": "20141202T075600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075600"
               }, 
               {
                 "stop_point": {
@@ -9837,8 +11554,8 @@
                 }, 
                 "arrival_date_time": "20141202T075700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075700"
               }, 
               {
                 "stop_point": {
@@ -9855,8 +11572,8 @@
                 }, 
                 "arrival_date_time": "20141202T075900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T075900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T075900"
               }, 
               {
                 "stop_point": {
@@ -9873,8 +11590,8 @@
                 }, 
                 "arrival_date_time": "20141202T080100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080100"
               }, 
               {
                 "stop_point": {
@@ -9891,8 +11608,8 @@
                 }, 
                 "arrival_date_time": "20141202T080300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080300"
               }, 
               {
                 "stop_point": {
@@ -9909,8 +11626,8 @@
                 }, 
                 "arrival_date_time": "20141202T080400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080400"
               }, 
               {
                 "stop_point": {
@@ -9929,8 +11646,8 @@
                 }, 
                 "arrival_date_time": "20141202T080600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080600"
               }
             ]
           }, 
@@ -9983,7 +11700,6 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141202T080622", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T080600", 
             "to": {
               "embedded_type": "stop_point", 
@@ -10052,16 +11768,15 @@
             "duration": 22, 
             "transfer_type": "walking", 
             "type": "transfer", 
-            "id": "section_17_1"
+            "id": "section_17_2"
           }, 
           {
             "links": [], 
             "arrival_date_time": "20141202T080900", 
-            "additional_informations": [], 
             "departure_date_time": "20141202T080622", 
             "duration": 158, 
             "type": "waiting", 
-            "id": "section_18_1"
+            "id": "section_18_2"
           }, 
           {
             "from": {
@@ -10137,8 +11852,13 @@
               }
             ], 
             "arrival_date_time": "20141202T081300", 
-            "additional_informations": [], 
-            "departure_date_time": "20141202T080900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 127.3654, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Bd de Doulon (Nantes)", 
               "code": "C3", 
@@ -10196,11 +11916,12 @@
               "id": "stop_point:NAN:SP:LUNI2", 
               "name": "Lieu Unique (Nantes)"
             }, 
+            "departure_date_time": "20141202T080900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 980
+                  "length": 982
                 }
               ], 
               "coordinates": [
@@ -10224,7 +11945,7 @@
             }, 
             "duration": 240, 
             "type": "public_transport", 
-            "id": "section_19_1", 
+            "id": "section_19_2", 
             "stop_date_times": [
               {
                 "stop_point": {
@@ -10243,8 +11964,8 @@
                 }, 
                 "arrival_date_time": "20141202T080900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T080900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T080900"
               }, 
               {
                 "stop_point": {
@@ -10261,8 +11982,8 @@
                 }, 
                 "arrival_date_time": "20141202T081100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T081100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T081100"
               }, 
               {
                 "stop_point": {
@@ -10279,8 +12000,8 @@
                 }, 
                 "arrival_date_time": "20141202T081200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T081200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T081200"
               }, 
               {
                 "stop_point": {
@@ -10297,8 +12018,8 @@
                 }, 
                 "arrival_date_time": "20141202T081300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141202T081300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141202T081300"
               }
             ]
           }, 
@@ -10374,20 +12095,16 @@
               "name": "Lieu Unique (Nantes)"
             }, 
             "links": [], 
-            "arrival_date_time": "20141202T081657", 
-            "additional_informations": [], 
+            "arrival_date_time": "20141202T081716", 
             "departure_date_time": "20141202T081300", 
             "to": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.544638559;47.21411767", 
-              "name": "2 rue LEFEVRE UTILE (Nantes)", 
               "address": {
                 "name": "rue LEFEVRE UTILE", 
                 "house_number": 2, 
                 "coord": {
-                  "lat": "47.21411767", 
-                  "lon": "-1.544638559"
+                  "lat": "47.21403406", 
+                  "lon": "-1.544888102"
                 }, 
                 "label": "2 rue LEFEVRE UTILE (Nantes)", 
                 "administrative_regions": [
@@ -10416,14 +12133,17 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "id": "-1.544638559;47.21411767"
-              }
+                "id": "-1.544888102;47.21403406"
+              }, 
+              "quality": 0, 
+              "id": "-1.544888102;47.21403406", 
+              "name": "2 rue LEFEVRE UTILE (Nantes)"
             }, 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 265
+                  "length": 286
                 }
               ], 
               "coordinates": [
@@ -10432,8 +12152,8 @@
                   47.215765
                 ], 
                 [
-                  -1.5457189130184614, 
-                  47.21578407909304
+                  -1.545718913, 
+                  47.2157840791
                 ], 
                 [
                   -1.545394097, 
@@ -10456,12 +12176,16 @@
                   47.21411767
                 ], 
                 [
-                  -1.544638559, 
-                  47.21411767
+                  -1.5448753903, 
+                  47.2140068853
+                ], 
+                [
+                  -1.5448753903, 
+                  47.2140068853
                 ]
               ]
             }, 
-            "duration": 237, 
+            "duration": 256, 
             "path": [
               {
                 "duration": 24, 
@@ -10486,17 +12210,35 @@
                 "length": 119, 
                 "direction": -91, 
                 "name": "cours DU CHAMP DE MARS"
+              }, 
+              {
+                "duration": 19, 
+                "length": 21, 
+                "direction": 0, 
+                "name": "rue LEFEVRE UTILE"
               }
             ], 
             "type": "street_network", 
-            "id": "section_20_1", 
+            "id": "section_20_2", 
             "mode": "walking"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 510.2468, 
+          "unit": "gEC"
+        }, 
+        "duration": 3731, 
+        "type": "fastest"
       }
     ], 
     "disruptions": [], 
-    "notes": [], 
+    "notes": [
+      {
+        "type": "notes", 
+        "id": "note:11618078583472339488", 
+        "value": "Attention ! Tarification particuli\u00e8re. Plus d'infos sur aeroport.tan.fr"
+      }
+    ], 
     "exceptions": []
   }
 }
