@@ -38,27 +38,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/guichet-unique/journeys?to=admin%3A102478extern&datetime_represents=arrival&from=admin%3A7444extern&max_duration_to_pt=240&walking_speed=0.83&datetime=20121121T151700", 
@@ -95,30 +75,6 @@
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/guichet-unique/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/guichet-unique/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/guichet-unique/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/guichet-unique/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
       }
     ], 
     "journeys": [
@@ -129,16 +85,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -165,13 +114,10 @@
         ], 
         "departure_date_time": "20121121T123700", 
         "requested_date_time": "20121121T120000", 
-        "type": "best", 
-        "duration": 9660, 
         "sections": [
           {
             "from": {
               "embedded_type": "administrative_region", 
-              "quality": 0, 
               "administrative_region": {
                 "insee": "75056", 
                 "name": "Paris", 
@@ -182,19 +128,18 @@
                 }, 
                 "label": "Paris (75001-75116)", 
                 "id": "admin:7444extern", 
-                "zip_code": "75001-75116"
+                "zip_code": "75001;75116"
               }, 
+              "quality": 0, 
               "id": "admin:7444extern", 
               "name": "Paris (75001-75116)"
             }, 
             "links": [], 
             "arrival_date_time": "20121121T123700", 
-            "additional_informations": [], 
             "departure_date_time": "20121121T123700", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Paris-Gare-de-Lyon", 
                 "links": [], 
                 "coord": {
@@ -214,7 +159,7 @@
                     }, 
                     "label": "Paris (75001-75116)", 
                     "id": "admin:7444extern", 
-                    "zip_code": "75001-75116"
+                    "zip_code": "75001;75116"
                   }, 
                   {
                     "insee": "75112", 
@@ -229,19 +174,8 @@
                     "zip_code": "75012"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:OCE:SP:TGV-87686006", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Paris-Gare-de-Lyon", 
                   "links": [], 
                   "coord": {
@@ -260,7 +194,7 @@
                       }, 
                       "label": "Paris (75001-75116)", 
                       "id": "admin:7444extern", 
-                      "zip_code": "75001-75116"
+                      "zip_code": "75001;75116"
                     }, 
                     {
                       "insee": "75112", 
@@ -292,7 +226,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Paris-Gare-de-Lyon", 
                 "links": [], 
                 "coord": {
@@ -312,7 +245,7 @@
                     }, 
                     "label": "Paris (75001-75116)", 
                     "id": "admin:7444extern", 
-                    "zip_code": "75001-75116"
+                    "zip_code": "75001;75116"
                   }, 
                   {
                     "insee": "75112", 
@@ -327,19 +260,8 @@
                     "zip_code": "75012"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:OCE:SP:TGV-87686006", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Paris-Gare-de-Lyon", 
                   "links": [], 
                   "coord": {
@@ -379,18 +301,16 @@
               {
                 "type": "network", 
                 "id": "network:SNC"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20121121T151800", 
-            "additional_informations": [], 
-            "departure_date_time": "20121121T123700", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 0.0, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "gare de Marseille-St-Charles (Marseille)", 
               "code": "", 
@@ -407,7 +327,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Avignon-TGV", 
                 "links": [], 
                 "coord": {
@@ -430,19 +349,8 @@
                     "zip_code": "84000"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:OCE:SP:TGV-87318964", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Avignon-TGV", 
                   "links": [], 
                   "coord": {
@@ -458,6 +366,7 @@
               "id": "stop_point:OCE:SP:TGV-87318964", 
               "name": "gare de Avignon-TGV (Avignon)"
             }, 
+            "departure_date_time": "20121121T123700", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -482,7 +391,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Paris-Gare-de-Lyon", 
                   "links": [], 
                   "coord": {
@@ -495,12 +403,11 @@
                 }, 
                 "arrival_date_time": "20121121T123700", 
                 "additional_informations": [], 
-                "departure_date_time": "20121121T123700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20121121T123700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Avignon-TGV", 
                   "links": [], 
                   "coord": {
@@ -513,8 +420,8 @@
                 }, 
                 "arrival_date_time": "20121121T151800", 
                 "additional_informations": [], 
-                "departure_date_time": "20121121T152100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20121121T152100"
               }
             ]
           }, 
@@ -522,7 +429,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Avignon-TGV", 
                 "links": [], 
                 "coord": {
@@ -545,19 +451,8 @@
                     "zip_code": "84000"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:OCE:SP:TGV-87318964", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Avignon-TGV", 
                   "links": [], 
                   "coord": {
@@ -589,11 +484,9 @@
             }, 
             "links": [], 
             "arrival_date_time": "20121121T152100", 
-            "additional_informations": [], 
             "departure_date_time": "20121121T152100", 
             "to": {
               "embedded_type": "administrative_region", 
-              "quality": 0, 
               "administrative_region": {
                 "insee": "84007", 
                 "name": "Avignon", 
@@ -606,6 +499,7 @@
                 "id": "admin:102478extern", 
                 "zip_code": "84000"
               }, 
+              "quality": 0, 
               "id": "admin:102478extern", 
               "name": "Avignon (84000)"
             }, 
@@ -614,7 +508,13 @@
             "type": "crow_fly", 
             "id": "section_2_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 0.0, 
+          "unit": "gEC"
+        }, 
+        "duration": 9660, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 

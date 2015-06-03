@@ -258,114 +258,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_4_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_7_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_10_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }, 
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_1", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_4_1", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_1"
-      }, 
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_2", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_3_2", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_6_2", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_9_2", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_2"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/fr-pdl/journeys?from=-1.587547422;47.20738048&last_section_mode%5B%5D=walking&last_section_mode%5B%5D=bss&min_nb_journeys=3&datetime=20141111T113800&to=stop_area%3ANAN%3ASA%3APPDO&datetime_represents=arrival&first_section_mode%5B%5D=walking&first_section_mode%5B%5D=bike&first_section_mode%5B%5D=bss&first_section_mode%5B%5D=car", 
@@ -398,9 +291,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/fr-pdl/poi_types/{poi_type.id}", 
-        "type": "poi_type", 
-        "rel": "poi_types", 
+        "href": "http://localhost/v1/coverage/fr-pdl/commercial_modes/{commercial_modes.id}", 
+        "type": "commercial_modes", 
+        "rel": "commercial_modes", 
         "templated": true
       }, 
       {
@@ -410,39 +303,21 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/fr-pdl/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
+        "href": "http://localhost/v1/coverage/fr-pdl/physical_modes/{physical_modes.id}", 
+        "type": "physical_modes", 
+        "rel": "physical_modes", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/fr-pdl/pois/{poi.id}", 
         "type": "poi", 
         "rel": "pois", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/fr-pdl/poi_types/{poi_type.id}", 
         "type": "poi_type", 
         "rel": "poi_types", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/pois/{poi.id}", 
-        "type": "poi", 
-        "rel": "pois", 
         "templated": true
       }, 
       {
@@ -460,16 +335,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard", 
           "is_pure_tc"
@@ -515,15 +383,10 @@
         ], 
         "departure_date_time": "20141111T111025", 
         "requested_date_time": "20141111T111000", 
-        "type": "best", 
-        "duration": 1715, 
         "sections": [
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.587547422;47.20738048", 
-              "name": "11 boulevard DE L'EGALITE (Nantes)", 
               "address": {
                 "name": "boulevard DE L'EGALITE", 
                 "house_number": 11, 
@@ -559,16 +422,17 @@
                   }
                 ], 
                 "id": "-1.587547422;47.20738048"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.587547422;47.20738048", 
+              "name": "11 boulevard DE L'EGALITE (Nantes)"
             }, 
             "links": [], 
             "arrival_date_time": "20141111T111200", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T111025", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Mairie de Chantenay", 
                 "links": [], 
                 "coord": {
@@ -591,33 +455,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "name": "boulevard DE L'EGALITE", 
-                  "house_number": 8, 
-                  "coord": {
-                    "lat": "47.207151", 
-                    "lon": "-1.587566"
-                  }, 
-                  "label": "8 boulevard DE L'EGALITE (Nantes)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "44109", 
-                      "name": "Nantes", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "47.23201693", 
-                        "lon": "-1.548207683"
-                      }, 
-                      "label": "Nantes (44000)", 
-                      "id": "admin:44109", 
-                      "zip_code": "44000"
-                    }
-                  ], 
-                  "id": "-1.587566;47.207151"
-                }, 
                 "id": "stop_point:NAN:SP:MCHA2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Mairie de Chantenay", 
                   "links": [], 
                   "coord": {
@@ -643,33 +482,9 @@
                   "id": "stop_area:NAN:SA:MCHA"
                 }
               }, 
-              "name": "Mairie de Chantenay (Nantes)", 
-              "address": {
-                "name": "boulevard DE L'EGALITE", 
-                "house_number": 8, 
-                "coord": {
-                  "lat": "47.207151", 
-                  "lon": "-1.587566"
-                }, 
-                "label": "8 boulevard DE L'EGALITE (Nantes)", 
-                "administrative_regions": [
-                  {
-                    "insee": "44109", 
-                    "name": "Nantes", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "47.23201693", 
-                      "lon": "-1.548207683"
-                    }, 
-                    "label": "Nantes (44000)", 
-                    "id": "admin:44109", 
-                    "zip_code": "44000"
-                  }
-                ], 
-                "id": "-1.587566;47.207151"
-              }, 
               "quality": 0, 
-              "id": "stop_point:NAN:SP:MCHA2"
+              "id": "stop_point:NAN:SP:MCHA2", 
+              "name": "Mairie de Chantenay (Nantes)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -680,20 +495,20 @@
               ], 
               "coordinates": [
                 [
-                  -1.5875182191384396, 
-                  47.207373616799146
+                  -1.5875182191, 
+                  47.2073736168
                 ], 
                 [
-                  -1.5875182191384396, 
-                  47.207373616799146
+                  -1.5875182191, 
+                  47.2073736168
                 ], 
                 [
                   -1.587656731, 
                   47.20678425
                 ], 
                 [
-                  -1.587570300578172, 
-                  47.207152010713685
+                  -1.5875703006, 
+                  47.2071520107
                 ], 
                 [
                   -1.587566, 
@@ -718,7 +533,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Mairie de Chantenay", 
                 "links": [], 
                 "coord": {
@@ -741,19 +555,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 8, 
-                  "id": "-1.587566;47.207151", 
-                  "name": "boulevard DE L'EGALITE", 
-                  "coord": {
-                    "lat": "47.207151", 
-                    "lon": "-1.587566"
-                  }, 
-                  "label": "8 boulevard DE L'EGALITE (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:MCHA2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Mairie de Chantenay", 
                   "links": [], 
                   "coord": {
@@ -793,18 +596,16 @@
               {
                 "type": "network", 
                 "id": "network:TAN"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20141111T112400", 
-            "additional_informations": [], 
-            "departure_date_time": "20141111T111200", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 419.1904, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Perray (Nantes)", 
               "code": "11", 
@@ -821,7 +622,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Commerce", 
                 "links": [], 
                 "coord": {
@@ -846,19 +646,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 16, 
-                  "id": "-1.555733;47.214688", 
-                  "name": "rue BEAUREGARD", 
-                  "coord": {
-                    "lat": "47.214688", 
-                    "lon": "-1.555733"
-                  }, 
-                  "label": "16 rue BEAUREGARD (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:COMF1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Commerce", 
                   "links": [], 
                   "coord": {
@@ -874,11 +663,12 @@
               "id": "stop_point:NAN:SP:COMF1", 
               "name": "Commerce (Nantes)"
             }, 
+            "departure_date_time": "20141111T111200", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 3227
+                  "length": 3232
                 }
               ], 
               "coordinates": [
@@ -942,7 +732,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Mairie de Chantenay", 
                   "links": [], 
                   "coord": {
@@ -955,12 +744,11 @@
                 }, 
                 "arrival_date_time": "20141111T111200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T111200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T111200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Egalit\u00e9", 
                   "links": [], 
                   "coord": {
@@ -973,12 +761,11 @@
                 }, 
                 "arrival_date_time": "20141111T111200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T111200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T111200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Convention", 
                   "links": [], 
                   "coord": {
@@ -991,12 +778,11 @@
                 }, 
                 "arrival_date_time": "20141111T111400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T111400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T111400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Zola", 
                   "links": [], 
                   "coord": {
@@ -1009,12 +795,11 @@
                 }, 
                 "arrival_date_time": "20141111T111500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T111500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T111500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Vaucanson", 
                   "links": [], 
                   "coord": {
@@ -1027,12 +812,11 @@
                 }, 
                 "arrival_date_time": "20141111T111600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T111600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T111600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Mellinet", 
                   "links": [], 
                   "coord": {
@@ -1045,12 +829,11 @@
                 }, 
                 "arrival_date_time": "20141111T111700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T111700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T111700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Cuvier", 
                   "links": [], 
                   "coord": {
@@ -1063,12 +846,11 @@
                 }, 
                 "arrival_date_time": "20141111T111800", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T111800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T111800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Ren\u00e9 Bouhier", 
                   "links": [], 
                   "coord": {
@@ -1081,12 +863,11 @@
                 }, 
                 "arrival_date_time": "20141111T111900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T111900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T111900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Sanitat", 
                   "links": [], 
                   "coord": {
@@ -1099,12 +880,11 @@
                 }, 
                 "arrival_date_time": "20141111T111900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T111900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T111900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Jean V", 
                   "links": [], 
                   "coord": {
@@ -1117,12 +897,11 @@
                 }, 
                 "arrival_date_time": "20141111T112100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T112100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T112100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Graslin", 
                   "links": [], 
                   "coord": {
@@ -1135,12 +914,11 @@
                 }, 
                 "arrival_date_time": "20141111T112100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T112100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T112100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Commerce", 
                   "links": [], 
                   "coord": {
@@ -1155,12 +933,11 @@
                 }, 
                 "arrival_date_time": "20141111T112300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T112300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T112300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Commerce", 
                   "links": [], 
                   "coord": {
@@ -1175,8 +952,8 @@
                 }, 
                 "arrival_date_time": "20141111T112400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T112400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T112400"
               }
             ]
           }, 
@@ -1184,7 +961,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Commerce", 
                 "links": [], 
                 "coord": {
@@ -1209,19 +985,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 16, 
-                  "id": "-1.555733;47.214688", 
-                  "name": "rue BEAUREGARD", 
-                  "coord": {
-                    "lat": "47.214688", 
-                    "lon": "-1.555733"
-                  }, 
-                  "label": "16 rue BEAUREGARD (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:COMF1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Commerce", 
                   "links": [], 
                   "coord": {
@@ -1239,12 +1004,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141111T112433", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T112400", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Commerce", 
                 "links": [], 
                 "coord": {
@@ -1269,19 +1032,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 3, 
-                  "id": "-1.555748;47.214535", 
-                  "name": "all\u00e9e JEAN BART", 
-                  "coord": {
-                    "lat": "47.214535", 
-                    "lon": "-1.555748"
-                  }, 
-                  "label": "3 all\u00e9e JEAN BART (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:COME3", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Commerce", 
                   "links": [], 
                   "coord": {
@@ -1323,7 +1075,6 @@
           {
             "links": [], 
             "arrival_date_time": "20141111T112600", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T112433", 
             "duration": 87, 
             "type": "waiting", 
@@ -1333,7 +1084,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Commerce", 
                 "links": [], 
                 "coord": {
@@ -1358,19 +1108,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 3, 
-                  "id": "-1.555748;47.214535", 
-                  "name": "all\u00e9e JEAN BART", 
-                  "coord": {
-                    "lat": "47.214535", 
-                    "lon": "-1.555748"
-                  }, 
-                  "label": "3 all\u00e9e JEAN BART (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:COME3", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Commerce", 
                   "links": [], 
                   "coord": {
@@ -1410,18 +1149,16 @@
               {
                 "type": "network", 
                 "id": "network:TAN"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20141111T113900", 
-            "additional_informations": [], 
-            "departure_date_time": "20141111T112600", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 547.4637, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "H\u00f4tel de R\u00e9gion (Nantes)", 
               "code": "26", 
@@ -1438,7 +1175,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Pompidou", 
                 "links": [], 
                 "coord": {
@@ -1461,19 +1197,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "-1.527537;47.209378", 
-                  "name": "boulevard GEORGES POMPIDOU", 
-                  "coord": {
-                    "lat": "47.209378", 
-                    "lon": "-1.527537"
-                  }, 
-                  "label": "boulevard GEORGES POMPIDOU (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:PPDO2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -1489,11 +1214,12 @@
               "id": "stop_point:NAN:SP:PPDO2", 
               "name": "Pompidou (Nantes)"
             }, 
+            "departure_date_time": "20141111T112600", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 4215
+                  "length": 4221
                 }
               ], 
               "coordinates": [
@@ -1569,7 +1295,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Commerce", 
                   "links": [], 
                   "coord": {
@@ -1584,12 +1309,11 @@
                 }, 
                 "arrival_date_time": "20141111T112600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T112600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T112600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Commerce", 
                   "links": [], 
                   "coord": {
@@ -1604,12 +1328,11 @@
                 }, 
                 "arrival_date_time": "20141111T112700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T112700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T112700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gaston Veil", 
                   "links": [], 
                   "coord": {
@@ -1622,12 +1345,11 @@
                 }, 
                 "arrival_date_time": "20141111T112800", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T112800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T112800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "R\u00e9publique", 
                   "links": [], 
                   "coord": {
@@ -1640,12 +1362,11 @@
                 }, 
                 "arrival_date_time": "20141111T113000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gustave Roch", 
                   "links": [], 
                   "coord": {
@@ -1658,12 +1379,11 @@
                 }, 
                 "arrival_date_time": "20141111T113100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "MIN", 
                   "links": [], 
                   "coord": {
@@ -1676,12 +1396,11 @@
                 }, 
                 "arrival_date_time": "20141111T113200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Mangin", 
                   "links": [], 
                   "coord": {
@@ -1694,12 +1413,11 @@
                 }, 
                 "arrival_date_time": "20141111T113300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Mangin", 
                   "links": [], 
                   "coord": {
@@ -1712,12 +1430,11 @@
                 }, 
                 "arrival_date_time": "20141111T113400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Leygues", 
                   "links": [], 
                   "coord": {
@@ -1730,12 +1447,11 @@
                 }, 
                 "arrival_date_time": "20141111T113500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Monzie", 
                   "links": [], 
                   "coord": {
@@ -1748,12 +1464,11 @@
                 }, 
                 "arrival_date_time": "20141111T113500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Mandel", 
                   "links": [], 
                   "coord": {
@@ -1766,12 +1481,11 @@
                 }, 
                 "arrival_date_time": "20141111T113500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Beaulieu", 
                   "links": [], 
                   "coord": {
@@ -1784,12 +1498,11 @@
                 }, 
                 "arrival_date_time": "20141111T113600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "S\u00e9billeau", 
                   "links": [], 
                   "coord": {
@@ -1802,12 +1515,11 @@
                 }, 
                 "arrival_date_time": "20141111T113700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Conservatoire", 
                   "links": [], 
                   "coord": {
@@ -1820,12 +1532,11 @@
                 }, 
                 "arrival_date_time": "20141111T113800", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Galarne", 
                   "links": [], 
                   "coord": {
@@ -1838,12 +1549,11 @@
                 }, 
                 "arrival_date_time": "20141111T113800", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -1856,8 +1566,8 @@
                 }, 
                 "arrival_date_time": "20141111T113900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113900"
               }
             ]
           }, 
@@ -1865,7 +1575,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Pompidou", 
                 "links": [], 
                 "coord": {
@@ -1888,33 +1597,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "name": "boulevard GEORGES POMPIDOU", 
-                  "house_number": 0, 
-                  "coord": {
-                    "lat": "47.209378", 
-                    "lon": "-1.527537"
-                  }, 
-                  "label": "boulevard GEORGES POMPIDOU (Nantes)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "44109", 
-                      "name": "Nantes", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "47.23201693", 
-                        "lon": "-1.548207683"
-                      }, 
-                      "label": "Nantes (44000)", 
-                      "id": "admin:44109", 
-                      "zip_code": "44000"
-                    }
-                  ], 
-                  "id": "-1.527537;47.209378"
-                }, 
                 "id": "stop_point:NAN:SP:PPDO2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -1946,15 +1630,26 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141111T113900", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T113900", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:NAN:SA:PPDO", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "commercial_mode:Bus"
+                  }
+                ], 
                 "name": "Pompidou", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "physical_mode:Bus"
+                  }
+                ], 
                 "coord": {
                   "lat": "47.209234", 
                   "lon": "-1.528234"
@@ -1977,15 +1672,20 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:NAN:SA:PPDO"
               }, 
-              "name": "Pompidou (Nantes)", 
-              "id": "stop_area:NAN:SA:PPDO"
+              "name": "Pompidou (Nantes)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_5_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 966.6541, 
+          "unit": "gEC"
+        }, 
+        "duration": 1715, 
+        "type": "best"
       }, 
       {
         "fare": {
@@ -1994,16 +1694,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_1", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard", 
           "next", 
@@ -2050,15 +1743,10 @@
         ], 
         "departure_date_time": "20141111T112212", 
         "requested_date_time": "20141111T111125", 
-        "type": "rapid", 
-        "duration": 1908, 
         "sections": [
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.587547422;47.20738048", 
-              "name": "11 boulevard DE L'EGALITE (Nantes)", 
               "address": {
                 "name": "boulevard DE L'EGALITE", 
                 "house_number": 11, 
@@ -2094,16 +1782,17 @@
                   }
                 ], 
                 "id": "-1.587547422;47.20738048"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.587547422;47.20738048", 
+              "name": "11 boulevard DE L'EGALITE (Nantes)"
             }, 
             "links": [], 
             "arrival_date_time": "20141111T112500", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T112212", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Egalit\u00e9", 
                 "links": [], 
                 "coord": {
@@ -2126,33 +1815,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "name": "rue DU BOIS HERCE", 
-                  "house_number": 17, 
-                  "coord": {
-                    "lat": "47.209331", 
-                    "lon": "-1.588614"
-                  }, 
-                  "label": "17 rue DU BOIS HERCE (Nantes)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "44109", 
-                      "name": "Nantes", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "47.23201693", 
-                        "lon": "-1.548207683"
-                      }, 
-                      "label": "Nantes (44000)", 
-                      "id": "admin:44109", 
-                      "zip_code": "44000"
-                    }
-                  ], 
-                  "id": "-1.588614;47.209331"
-                }, 
                 "id": "stop_point:NAN:SP:EGLI1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Egalit\u00e9", 
                   "links": [], 
                   "coord": {
@@ -2178,33 +1842,9 @@
                   "id": "stop_area:NAN:SA:EGLI"
                 }
               }, 
-              "name": "Egalit\u00e9 (Nantes)", 
-              "address": {
-                "name": "boulevard LEON JOUHAUX", 
-                "house_number": 3, 
-                "coord": {
-                  "lat": "47.209331", 
-                  "lon": "-1.588614"
-                }, 
-                "label": "3 boulevard LEON JOUHAUX (Nantes)", 
-                "administrative_regions": [
-                  {
-                    "insee": "44109", 
-                    "name": "Nantes", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "47.23201693", 
-                      "lon": "-1.548207683"
-                    }, 
-                    "label": "Nantes (44000)", 
-                    "id": "admin:44109", 
-                    "zip_code": "44000"
-                  }
-                ], 
-                "id": "-1.588614;47.209331"
-              }, 
               "quality": 0, 
-              "id": "stop_point:NAN:SP:EGLI1"
+              "id": "stop_point:NAN:SP:EGLI1", 
+              "name": "Egalit\u00e9 (Nantes)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -2215,12 +1855,12 @@
               ], 
               "coordinates": [
                 [
-                  -1.5875182191384396, 
-                  47.207373616799146
+                  -1.5875182191, 
+                  47.2073736168
                 ], 
                 [
-                  -1.5875182191384396, 
-                  47.207373616799146
+                  -1.5875182191, 
+                  47.2073736168
                 ], 
                 [
                   -1.587203414, 
@@ -2243,8 +1883,8 @@
                   47.20925411
                 ], 
                 [
-                  -1.5886391452866335, 
-                  47.20926234957674
+                  -1.5886391453, 
+                  47.2092623496
                 ], 
                 [
                   -1.588614, 
@@ -2287,7 +1927,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Egalit\u00e9", 
                 "links": [], 
                 "coord": {
@@ -2310,19 +1949,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 17, 
-                  "id": "-1.588614;47.209331", 
-                  "name": "rue DU BOIS HERCE", 
-                  "coord": {
-                    "lat": "47.209331", 
-                    "lon": "-1.588614"
-                  }, 
-                  "label": "17 rue DU BOIS HERCE (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:EGLI1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Egalit\u00e9", 
                   "links": [], 
                   "coord": {
@@ -2362,18 +1990,16 @@
               {
                 "type": "network", 
                 "id": "network:TAN"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_1", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20141111T113800", 
-            "additional_informations": [], 
-            "departure_date_time": "20141111T112500", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 11.8854, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Beaujoire (Nantes)", 
               "code": "1", 
@@ -2390,7 +2016,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF Nord", 
                 "links": [], 
                 "coord": {
@@ -2413,19 +2038,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 24, 
-                  "id": "-1.542363;47.217838", 
-                  "name": "boulevard STALINGRAD", 
-                  "coord": {
-                    "lat": "47.217838", 
-                    "lon": "-1.542363"
-                  }, 
-                  "label": "24 boulevard STALINGRAD (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:GSNO1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF Nord", 
                   "links": [], 
                   "coord": {
@@ -2441,11 +2055,12 @@
               "id": "stop_point:NAN:SP:GSNO1", 
               "name": "Gare SNCF Nord (Nantes)"
             }, 
+            "departure_date_time": "20141111T112500", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 3830
+                  "length": 3834
                 }
               ], 
               "coordinates": [
@@ -2493,7 +2108,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Egalit\u00e9", 
                   "links": [], 
                   "coord": {
@@ -2506,12 +2120,11 @@
                 }, 
                 "arrival_date_time": "20141111T112500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T112500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T112500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Du Chaffault", 
                   "links": [], 
                   "coord": {
@@ -2524,12 +2137,11 @@
                 }, 
                 "arrival_date_time": "20141111T112600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T112600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T112600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare Maritime", 
                   "links": [], 
                   "coord": {
@@ -2542,12 +2154,11 @@
                 }, 
                 "arrival_date_time": "20141111T112800", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T112800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T112800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Chantiers Navals", 
                   "links": [], 
                   "coord": {
@@ -2560,12 +2171,11 @@
                 }, 
                 "arrival_date_time": "20141111T112900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T112900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T112900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "M\u00e9diath\u00e8que", 
                   "links": [], 
                   "coord": {
@@ -2578,12 +2188,11 @@
                 }, 
                 "arrival_date_time": "20141111T113100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Commerce", 
                   "links": [], 
                   "coord": {
@@ -2598,12 +2207,11 @@
                 }, 
                 "arrival_date_time": "20141111T113300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bouffay", 
                   "links": [], 
                   "coord": {
@@ -2616,12 +2224,11 @@
                 }, 
                 "arrival_date_time": "20141111T113500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Duchesse Anne-Chateau", 
                   "links": [], 
                   "coord": {
@@ -2634,12 +2241,11 @@
                 }, 
                 "arrival_date_time": "20141111T113600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare SNCF Nord", 
                   "links": [], 
                   "coord": {
@@ -2652,8 +2258,8 @@
                 }, 
                 "arrival_date_time": "20141111T113800", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113800"
               }
             ]
           }, 
@@ -2661,7 +2267,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF Nord", 
                 "links": [], 
                 "coord": {
@@ -2684,19 +2289,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 24, 
-                  "id": "-1.542363;47.217838", 
-                  "name": "boulevard STALINGRAD", 
-                  "coord": {
-                    "lat": "47.217838", 
-                    "lon": "-1.542363"
-                  }, 
-                  "label": "24 boulevard STALINGRAD (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:GSNO1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF Nord", 
                   "links": [], 
                   "coord": {
@@ -2714,12 +2308,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141111T114600", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T113800", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF Sud", 
                 "links": [], 
                 "coord": {
@@ -2742,19 +2334,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 48, 
-                  "id": "-1.542245;47.21553", 
-                  "name": "quai MALAKOFF", 
-                  "coord": {
-                    "lat": "47.21553", 
-                    "lon": "-1.542245"
-                  }, 
-                  "label": "48 quai MALAKOFF (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:GSSU4", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF Sud", 
                   "links": [], 
                   "coord": {
@@ -2796,7 +2377,6 @@
           {
             "links": [], 
             "arrival_date_time": "20141111T115000", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T114600", 
             "duration": 240, 
             "type": "waiting", 
@@ -2806,7 +2386,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF Sud", 
                 "links": [], 
                 "coord": {
@@ -2829,19 +2408,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 48, 
-                  "id": "-1.542245;47.21553", 
-                  "name": "quai MALAKOFF", 
-                  "coord": {
-                    "lat": "47.21553", 
-                    "lon": "-1.542245"
-                  }, 
-                  "label": "48 quai MALAKOFF (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:GSSU4", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF Sud", 
                   "links": [], 
                   "coord": {
@@ -2881,18 +2449,16 @@
               {
                 "type": "network", 
                 "id": "network:TAN"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_1", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20141111T115400", 
-            "additional_informations": [], 
-            "departure_date_time": "20141111T115000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 216.9881, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Quai des Antilles (Nantes)", 
               "code": "C5", 
@@ -2909,7 +2475,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Pompidou", 
                 "links": [], 
                 "coord": {
@@ -2932,19 +2497,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 1, 
-                  "id": "-1.528251;47.209192", 
-                  "name": "rue JEAN GORIN", 
-                  "coord": {
-                    "lat": "47.209192", 
-                    "lon": "-1.528251"
-                  }, 
-                  "label": "1 rue JEAN GORIN (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:PPDO1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -2960,6 +2514,7 @@
               "id": "stop_point:NAN:SP:PPDO1", 
               "name": "Pompidou (Nantes)"
             }, 
+            "departure_date_time": "20141111T115000", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -2996,7 +2551,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare SNCF Sud", 
                   "links": [], 
                   "coord": {
@@ -3009,12 +2563,11 @@
                 }, 
                 "arrival_date_time": "20141111T115000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T115000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T115000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Saupin-Cr\u00e9dit Municipal", 
                   "links": [], 
                   "coord": {
@@ -3027,12 +2580,11 @@
                 }, 
                 "arrival_date_time": "20141111T115100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T115100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T115100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Picasso", 
                   "links": [], 
                   "coord": {
@@ -3045,12 +2597,11 @@
                 }, 
                 "arrival_date_time": "20141111T115200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T115200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T115200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Haubans", 
                   "links": [], 
                   "coord": {
@@ -3063,12 +2614,11 @@
                 }, 
                 "arrival_date_time": "20141111T115300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T115300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T115300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -3081,8 +2631,8 @@
                 }, 
                 "arrival_date_time": "20141111T115400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T115400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T115400"
               }
             ]
           }, 
@@ -3090,7 +2640,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Pompidou", 
                 "links": [], 
                 "coord": {
@@ -3113,33 +2662,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "name": "rue JEAN GORIN", 
-                  "house_number": 1, 
-                  "coord": {
-                    "lat": "47.209192", 
-                    "lon": "-1.528251"
-                  }, 
-                  "label": "1 rue JEAN GORIN (Nantes)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "44109", 
-                      "name": "Nantes", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "47.23201693", 
-                        "lon": "-1.548207683"
-                      }, 
-                      "label": "Nantes (44000)", 
-                      "id": "admin:44109", 
-                      "zip_code": "44000"
-                    }
-                  ], 
-                  "id": "-1.528251;47.209192"
-                }, 
                 "id": "stop_point:NAN:SP:PPDO1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -3171,15 +2695,26 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141111T115400", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T115400", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:NAN:SA:PPDO", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "commercial_mode:Bus"
+                  }
+                ], 
                 "name": "Pompidou", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "physical_mode:Bus"
+                  }
+                ], 
                 "coord": {
                   "lat": "47.209234", 
                   "lon": "-1.528234"
@@ -3202,15 +2737,20 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:NAN:SA:PPDO"
               }, 
-              "name": "Pompidou (Nantes)", 
-              "id": "stop_area:NAN:SA:PPDO"
+              "name": "Pompidou (Nantes)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_5_1"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 228.8735, 
+          "unit": "gEC"
+        }, 
+        "duration": 1908, 
+        "type": "rapid"
       }, 
       {
         "fare": {
@@ -3221,6 +2761,7 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [
           "next", 
           "is_pure_tc"
@@ -3266,15 +2807,10 @@
         ], 
         "departure_date_time": "20141111T114212", 
         "requested_date_time": "20141111T112312", 
-        "type": "rapid", 
-        "duration": 1908, 
         "sections": [
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.587547422;47.20738048", 
-              "name": "11 boulevard DE L'EGALITE (Nantes)", 
               "address": {
                 "name": "boulevard DE L'EGALITE", 
                 "house_number": 11, 
@@ -3310,16 +2846,17 @@
                   }
                 ], 
                 "id": "-1.587547422;47.20738048"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.587547422;47.20738048", 
+              "name": "11 boulevard DE L'EGALITE (Nantes)"
             }, 
             "links": [], 
             "arrival_date_time": "20141111T114500", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T114212", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Egalit\u00e9", 
                 "links": [], 
                 "coord": {
@@ -3342,33 +2879,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "name": "rue DU BOIS HERCE", 
-                  "house_number": 17, 
-                  "coord": {
-                    "lat": "47.209331", 
-                    "lon": "-1.588614"
-                  }, 
-                  "label": "17 rue DU BOIS HERCE (Nantes)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "44109", 
-                      "name": "Nantes", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "47.23201693", 
-                        "lon": "-1.548207683"
-                      }, 
-                      "label": "Nantes (44000)", 
-                      "id": "admin:44109", 
-                      "zip_code": "44000"
-                    }
-                  ], 
-                  "id": "-1.588614;47.209331"
-                }, 
                 "id": "stop_point:NAN:SP:EGLI1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Egalit\u00e9", 
                   "links": [], 
                   "coord": {
@@ -3394,33 +2906,9 @@
                   "id": "stop_area:NAN:SA:EGLI"
                 }
               }, 
-              "name": "Egalit\u00e9 (Nantes)", 
-              "address": {
-                "name": "boulevard LEON JOUHAUX", 
-                "house_number": 3, 
-                "coord": {
-                  "lat": "47.209331", 
-                  "lon": "-1.588614"
-                }, 
-                "label": "3 boulevard LEON JOUHAUX (Nantes)", 
-                "administrative_regions": [
-                  {
-                    "insee": "44109", 
-                    "name": "Nantes", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "47.23201693", 
-                      "lon": "-1.548207683"
-                    }, 
-                    "label": "Nantes (44000)", 
-                    "id": "admin:44109", 
-                    "zip_code": "44000"
-                  }
-                ], 
-                "id": "-1.588614;47.209331"
-              }, 
               "quality": 0, 
-              "id": "stop_point:NAN:SP:EGLI1"
+              "id": "stop_point:NAN:SP:EGLI1", 
+              "name": "Egalit\u00e9 (Nantes)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -3431,12 +2919,12 @@
               ], 
               "coordinates": [
                 [
-                  -1.5875182191384396, 
-                  47.207373616799146
+                  -1.5875182191, 
+                  47.2073736168
                 ], 
                 [
-                  -1.5875182191384396, 
-                  47.207373616799146
+                  -1.5875182191, 
+                  47.2073736168
                 ], 
                 [
                   -1.587203414, 
@@ -3459,8 +2947,8 @@
                   47.20925411
                 ], 
                 [
-                  -1.5886391452866335, 
-                  47.20926234957674
+                  -1.5886391453, 
+                  47.2092623496
                 ], 
                 [
                   -1.588614, 
@@ -3503,7 +2991,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Egalit\u00e9", 
                 "links": [], 
                 "coord": {
@@ -3526,19 +3013,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 17, 
-                  "id": "-1.588614;47.209331", 
-                  "name": "rue DU BOIS HERCE", 
-                  "coord": {
-                    "lat": "47.209331", 
-                    "lon": "-1.588614"
-                  }, 
-                  "label": "17 rue DU BOIS HERCE (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:EGLI1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Egalit\u00e9", 
                   "links": [], 
                   "coord": {
@@ -3578,18 +3054,16 @@
               {
                 "type": "network", 
                 "id": "network:TAN"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_2", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20141111T115800", 
-            "additional_informations": [], 
-            "departure_date_time": "20141111T114500", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 11.8854, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Beaujoire (Nantes)", 
               "code": "1", 
@@ -3606,7 +3080,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF Nord", 
                 "links": [], 
                 "coord": {
@@ -3629,19 +3102,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 24, 
-                  "id": "-1.542363;47.217838", 
-                  "name": "boulevard STALINGRAD", 
-                  "coord": {
-                    "lat": "47.217838", 
-                    "lon": "-1.542363"
-                  }, 
-                  "label": "24 boulevard STALINGRAD (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:GSNO1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF Nord", 
                   "links": [], 
                   "coord": {
@@ -3657,11 +3119,12 @@
               "id": "stop_point:NAN:SP:GSNO1", 
               "name": "Gare SNCF Nord (Nantes)"
             }, 
+            "departure_date_time": "20141111T114500", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 3830
+                  "length": 3834
                 }
               ], 
               "coordinates": [
@@ -3709,7 +3172,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Egalit\u00e9", 
                   "links": [], 
                   "coord": {
@@ -3722,12 +3184,11 @@
                 }, 
                 "arrival_date_time": "20141111T114500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T114500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T114500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Du Chaffault", 
                   "links": [], 
                   "coord": {
@@ -3740,12 +3201,11 @@
                 }, 
                 "arrival_date_time": "20141111T114600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T114600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T114600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare Maritime", 
                   "links": [], 
                   "coord": {
@@ -3758,12 +3218,11 @@
                 }, 
                 "arrival_date_time": "20141111T114800", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T114800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T114800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Chantiers Navals", 
                   "links": [], 
                   "coord": {
@@ -3776,12 +3235,11 @@
                 }, 
                 "arrival_date_time": "20141111T114900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T114900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T114900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "M\u00e9diath\u00e8que", 
                   "links": [], 
                   "coord": {
@@ -3794,12 +3252,11 @@
                 }, 
                 "arrival_date_time": "20141111T115100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T115100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T115100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Commerce", 
                   "links": [], 
                   "coord": {
@@ -3814,12 +3271,11 @@
                 }, 
                 "arrival_date_time": "20141111T115300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T115300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T115300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bouffay", 
                   "links": [], 
                   "coord": {
@@ -3832,12 +3288,11 @@
                 }, 
                 "arrival_date_time": "20141111T115500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T115500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T115500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Duchesse Anne-Chateau", 
                   "links": [], 
                   "coord": {
@@ -3850,12 +3305,11 @@
                 }, 
                 "arrival_date_time": "20141111T115600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T115600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T115600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare SNCF Nord", 
                   "links": [], 
                   "coord": {
@@ -3868,8 +3322,8 @@
                 }, 
                 "arrival_date_time": "20141111T115800", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T115800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T115800"
               }
             ]
           }, 
@@ -3877,7 +3331,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF Nord", 
                 "links": [], 
                 "coord": {
@@ -3900,19 +3353,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 24, 
-                  "id": "-1.542363;47.217838", 
-                  "name": "boulevard STALINGRAD", 
-                  "coord": {
-                    "lat": "47.217838", 
-                    "lon": "-1.542363"
-                  }, 
-                  "label": "24 boulevard STALINGRAD (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:GSNO1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF Nord", 
                   "links": [], 
                   "coord": {
@@ -3930,12 +3372,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141111T120600", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T115800", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF Sud", 
                 "links": [], 
                 "coord": {
@@ -3958,19 +3398,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 48, 
-                  "id": "-1.542245;47.21553", 
-                  "name": "quai MALAKOFF", 
-                  "coord": {
-                    "lat": "47.21553", 
-                    "lon": "-1.542245"
-                  }, 
-                  "label": "48 quai MALAKOFF (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:GSSU4", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF Sud", 
                   "links": [], 
                   "coord": {
@@ -4012,7 +3441,6 @@
           {
             "links": [], 
             "arrival_date_time": "20141111T121000", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T120600", 
             "duration": 240, 
             "type": "waiting", 
@@ -4022,7 +3450,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF Sud", 
                 "links": [], 
                 "coord": {
@@ -4045,19 +3472,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 48, 
-                  "id": "-1.542245;47.21553", 
-                  "name": "quai MALAKOFF", 
-                  "coord": {
-                    "lat": "47.21553", 
-                    "lon": "-1.542245"
-                  }, 
-                  "label": "48 quai MALAKOFF (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:GSSU4", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF Sud", 
                   "links": [], 
                   "coord": {
@@ -4097,18 +3513,16 @@
               {
                 "type": "network", 
                 "id": "network:TAN"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_2", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20141111T121400", 
-            "additional_informations": [], 
-            "departure_date_time": "20141111T121000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 216.9881, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Quai des Antilles (Nantes)", 
               "code": "C5", 
@@ -4125,7 +3539,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Pompidou", 
                 "links": [], 
                 "coord": {
@@ -4148,19 +3561,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 1, 
-                  "id": "-1.528251;47.209192", 
-                  "name": "rue JEAN GORIN", 
-                  "coord": {
-                    "lat": "47.209192", 
-                    "lon": "-1.528251"
-                  }, 
-                  "label": "1 rue JEAN GORIN (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:PPDO1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -4176,6 +3578,7 @@
               "id": "stop_point:NAN:SP:PPDO1", 
               "name": "Pompidou (Nantes)"
             }, 
+            "departure_date_time": "20141111T121000", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -4212,7 +3615,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare SNCF Sud", 
                   "links": [], 
                   "coord": {
@@ -4225,12 +3627,11 @@
                 }, 
                 "arrival_date_time": "20141111T121000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T121000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T121000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Saupin-Cr\u00e9dit Municipal", 
                   "links": [], 
                   "coord": {
@@ -4243,12 +3644,11 @@
                 }, 
                 "arrival_date_time": "20141111T121100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T121100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T121100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Picasso", 
                   "links": [], 
                   "coord": {
@@ -4261,12 +3661,11 @@
                 }, 
                 "arrival_date_time": "20141111T121200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T121200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T121200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Haubans", 
                   "links": [], 
                   "coord": {
@@ -4279,12 +3678,11 @@
                 }, 
                 "arrival_date_time": "20141111T121300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T121300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T121300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -4297,8 +3695,8 @@
                 }, 
                 "arrival_date_time": "20141111T121400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T121400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T121400"
               }
             ]
           }, 
@@ -4306,7 +3704,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Pompidou", 
                 "links": [], 
                 "coord": {
@@ -4329,33 +3726,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "name": "rue JEAN GORIN", 
-                  "house_number": 1, 
-                  "coord": {
-                    "lat": "47.209192", 
-                    "lon": "-1.528251"
-                  }, 
-                  "label": "1 rue JEAN GORIN (Nantes)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "44109", 
-                      "name": "Nantes", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "47.23201693", 
-                        "lon": "-1.548207683"
-                      }, 
-                      "label": "Nantes (44000)", 
-                      "id": "admin:44109", 
-                      "zip_code": "44000"
-                    }
-                  ], 
-                  "id": "-1.528251;47.209192"
-                }, 
                 "id": "stop_point:NAN:SP:PPDO1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -4387,15 +3759,26 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141111T121400", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T121400", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:NAN:SA:PPDO", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "commercial_mode:Bus"
+                  }
+                ], 
                 "name": "Pompidou", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "physical_mode:Bus"
+                  }
+                ], 
                 "coord": {
                   "lat": "47.209234", 
                   "lon": "-1.528234"
@@ -4418,15 +3801,20 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:NAN:SA:PPDO"
               }, 
-              "name": "Pompidou (Nantes)", 
-              "id": "stop_area:NAN:SA:PPDO"
+              "name": "Pompidou (Nantes)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_10_2"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 228.8735, 
+          "unit": "gEC"
+        }, 
+        "duration": 1908, 
+        "type": "rapid"
       }, 
       {
         "fare": {
@@ -4437,6 +3825,7 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [], 
         "nb_transfers": 0, 
         "arrival_date_time": "20141111T114422", 
@@ -4479,15 +3868,10 @@
         ], 
         "departure_date_time": "20141111T111712", 
         "requested_date_time": "20141111T111000", 
-        "type": "rapid", 
-        "duration": 1630, 
         "sections": [
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.587547422;47.20738048", 
-              "name": "11 boulevard DE L'EGALITE (Nantes)", 
               "address": {
                 "name": "boulevard DE L'EGALITE", 
                 "house_number": 11, 
@@ -4523,16 +3907,17 @@
                   }
                 ], 
                 "id": "-1.587547422;47.20738048"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.587547422;47.20738048", 
+              "name": "11 boulevard DE L'EGALITE (Nantes)"
             }, 
             "links": [], 
             "arrival_date_time": "20141111T112000", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T111712", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Egalit\u00e9", 
                 "links": [], 
                 "coord": {
@@ -4555,33 +3940,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "name": "rue DU BOIS HERCE", 
-                  "house_number": 17, 
-                  "coord": {
-                    "lat": "47.209331", 
-                    "lon": "-1.588614"
-                  }, 
-                  "label": "17 rue DU BOIS HERCE (Nantes)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "44109", 
-                      "name": "Nantes", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "47.23201693", 
-                        "lon": "-1.548207683"
-                      }, 
-                      "label": "Nantes (44000)", 
-                      "id": "admin:44109", 
-                      "zip_code": "44000"
-                    }
-                  ], 
-                  "id": "-1.588614;47.209331"
-                }, 
                 "id": "stop_point:NAN:SP:EGLI1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Egalit\u00e9", 
                   "links": [], 
                   "coord": {
@@ -4607,33 +3967,9 @@
                   "id": "stop_area:NAN:SA:EGLI"
                 }
               }, 
-              "name": "Egalit\u00e9 (Nantes)", 
-              "address": {
-                "name": "boulevard LEON JOUHAUX", 
-                "house_number": 3, 
-                "coord": {
-                  "lat": "47.209331", 
-                  "lon": "-1.588614"
-                }, 
-                "label": "3 boulevard LEON JOUHAUX (Nantes)", 
-                "administrative_regions": [
-                  {
-                    "insee": "44109", 
-                    "name": "Nantes", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "47.23201693", 
-                      "lon": "-1.548207683"
-                    }, 
-                    "label": "Nantes (44000)", 
-                    "id": "admin:44109", 
-                    "zip_code": "44000"
-                  }
-                ], 
-                "id": "-1.588614;47.209331"
-              }, 
               "quality": 0, 
-              "id": "stop_point:NAN:SP:EGLI1"
+              "id": "stop_point:NAN:SP:EGLI1", 
+              "name": "Egalit\u00e9 (Nantes)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -4644,12 +3980,12 @@
               ], 
               "coordinates": [
                 [
-                  -1.5875182191384396, 
-                  47.207373616799146
+                  -1.5875182191, 
+                  47.2073736168
                 ], 
                 [
-                  -1.5875182191384396, 
-                  47.207373616799146
+                  -1.5875182191, 
+                  47.2073736168
                 ], 
                 [
                   -1.587203414, 
@@ -4672,8 +4008,8 @@
                   47.20925411
                 ], 
                 [
-                  -1.5886391452866335, 
-                  47.20926234957674
+                  -1.5886391453, 
+                  47.2092623496
                 ], 
                 [
                   -1.588614, 
@@ -4716,7 +4052,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Egalit\u00e9", 
                 "links": [], 
                 "coord": {
@@ -4739,19 +4074,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 17, 
-                  "id": "-1.588614;47.209331", 
-                  "name": "rue DU BOIS HERCE", 
-                  "coord": {
-                    "lat": "47.209331", 
-                    "lon": "-1.588614"
-                  }, 
-                  "label": "17 rue DU BOIS HERCE (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:EGLI1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Egalit\u00e9", 
                   "links": [], 
                   "coord": {
@@ -4794,8 +4118,13 @@
               }
             ], 
             "arrival_date_time": "20141111T113100", 
-            "additional_informations": [], 
-            "departure_date_time": "20141111T112000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 10.6392, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Ranzay (Nantes)", 
               "code": "1", 
@@ -4812,7 +4141,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Duchesse Anne-Chateau", 
                 "links": [], 
                 "coord": {
@@ -4835,19 +4163,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "-1.54716;47.216282", 
-                  "name": "place DE LA DUCHESSE ANNE", 
-                  "coord": {
-                    "lat": "47.216282", 
-                    "lon": "-1.54716"
-                  }, 
-                  "label": "place DE LA DUCHESSE ANNE (Nantes)"
-                }, 
                 "id": "stop_point:NAN:SP:DCAN1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Duchesse Anne-Ch\u00e2teau", 
                   "links": [], 
                   "coord": {
@@ -4863,11 +4180,12 @@
               "id": "stop_point:NAN:SP:DCAN1", 
               "name": "Duchesse Anne-Chateau (Nantes)"
             }, 
+            "departure_date_time": "20141111T112000", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 3429
+                  "length": 3432
                 }
               ], 
               "coordinates": [
@@ -4911,7 +4229,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Egalit\u00e9", 
                   "links": [], 
                   "coord": {
@@ -4924,12 +4241,11 @@
                 }, 
                 "arrival_date_time": "20141111T112000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T112000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T112000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Du Chaffault", 
                   "links": [], 
                   "coord": {
@@ -4942,12 +4258,11 @@
                 }, 
                 "arrival_date_time": "20141111T112100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T112100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T112100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare Maritime", 
                   "links": [], 
                   "coord": {
@@ -4960,12 +4275,11 @@
                 }, 
                 "arrival_date_time": "20141111T112300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T112300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T112300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Chantiers Navals", 
                   "links": [], 
                   "coord": {
@@ -4978,12 +4292,11 @@
                 }, 
                 "arrival_date_time": "20141111T112400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T112400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T112400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "M\u00e9diath\u00e8que", 
                   "links": [], 
                   "coord": {
@@ -4996,12 +4309,11 @@
                 }, 
                 "arrival_date_time": "20141111T112600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T112600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T112600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Commerce", 
                   "links": [], 
                   "coord": {
@@ -5016,12 +4328,11 @@
                 }, 
                 "arrival_date_time": "20141111T112800", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T112800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T112800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bouffay", 
                   "links": [], 
                   "coord": {
@@ -5034,12 +4345,11 @@
                 }, 
                 "arrival_date_time": "20141111T113000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Duchesse Anne-Chateau", 
                   "links": [], 
                   "coord": {
@@ -5052,8 +4362,8 @@
                 }, 
                 "arrival_date_time": "20141111T113100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141111T113100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141111T113100"
               }
             ]
           }, 
@@ -5061,7 +4371,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Duchesse Anne-Chateau", 
                 "links": [], 
                 "coord": {
@@ -5096,33 +4405,8 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "address": {
-                  "name": "place DE LA DUCHESSE ANNE", 
-                  "house_number": 0, 
-                  "coord": {
-                    "lat": "47.216282", 
-                    "lon": "-1.54716"
-                  }, 
-                  "label": "place DE LA DUCHESSE ANNE (Nantes)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "44109", 
-                      "name": "Nantes", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "47.23201693", 
-                        "lon": "-1.548207683"
-                      }, 
-                      "label": "Nantes (44000)", 
-                      "id": "admin:44109", 
-                      "zip_code": "44000"
-                    }
-                  ], 
-                  "id": "-1.54716;47.216282"
-                }, 
                 "id": "stop_point:NAN:SP:DCAN1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Duchesse Anne-Ch\u00e2teau", 
                   "links": [], 
                   "coord": {
@@ -5154,23 +4438,22 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141111T113121", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T113100", 
             "to": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.5471970302003646;47.2163626888159", 
-              "name": "", 
               "address": {
                 "house_number": 0, 
-                "id": "-1.5471970302003646;47.2163626888159", 
-                "name": "", 
+                "label": "", 
+                "id": "-1.547197030200365;47.2163626888159", 
                 "coord": {
                   "lat": "47.2163626888159", 
                   "lon": "-1.5471970302003646"
                 }, 
-                "label": ""
-              }
+                "name": ""
+              }, 
+              "quality": 0, 
+              "id": "-1.547197030200365;47.2163626888159", 
+              "name": ""
             }, 
             "geojson": {
               "type": "LineString", 
@@ -5185,8 +4468,8 @@
                   47.216282
                 ], 
                 [
-                  -1.5471970302003646, 
-                  47.2163626888159
+                  -1.5471970302, 
+                  47.2163626888
                 ]
               ]
             }, 
@@ -5206,30 +4489,37 @@
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.5471970302003646;47.2163626888159", 
-              "name": "", 
               "address": {
                 "house_number": 0, 
-                "id": "-1.5471970302003646;47.2163626888159", 
-                "name": "", 
+                "label": "", 
+                "id": "-1.547197030200365;47.2163626888159", 
                 "coord": {
                   "lat": "47.2163626888159", 
                   "lon": "-1.5471970302003646"
                 }, 
-                "label": ""
-              }
+                "name": ""
+              }, 
+              "quality": 0, 
+              "id": "-1.547197030200365;47.2163626888159", 
+              "name": ""
             }, 
             "links": [], 
             "arrival_date_time": "20141111T113321", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T113121", 
             "to": {
               "embedded_type": "poi", 
-              "quality": 0, 
-              "id": "poi:TRANSP44_206", 
-              "name": "Duchesse Anne station bicloo n\u00b049 (Nantes)", 
               "poi": {
+                "properties": {
+                  "ref:PDL:IGN:id": "TRANSP44_206", 
+                  "addr:city": "Nantes", 
+                  "ref:PDL:IGN:category": "Equipement v\u00e9lo", 
+                  "addr:full": "2 place de la Duchesse Anne_44000", 
+                  "ref:PDL:IGN:subcategory": "V\u00e9lo en libre service", 
+                  "creation_date": "2014-02-07", 
+                  "source": "Nantes m\u00e9tropole", 
+                  "addr:postcode": "44000", 
+                  "ref:INSEE": "44109"
+                }, 
                 "poi_type": {
                   "name": "V\u00c3\u00a9lo en libre-service", 
                   "id": "poi_type:amenity:bicycle_rental"
@@ -5278,19 +4568,11 @@
                   ], 
                   "id": "-1.547044;47.216533"
                 }, 
-                "id": "poi:TRANSP44_206", 
-                "properties": {
-                  "ref:PDL:IGN:id": "TRANSP44_206", 
-                  "addr:city": "Nantes", 
-                  "ref:PDL:IGN:category": "Equipement v\u00e9lo", 
-                  "addr:full": "2 place de la Duchesse Anne_44000", 
-                  "ref:PDL:IGN:subcategory": "V\u00e9lo en libre service", 
-                  "creation_date": "2014-02-07", 
-                  "source": "Nantes m\u00e9tropole", 
-                  "addr:postcode": "44000", 
-                  "ref:INSEE": "44109"
-                }
-              }
+                "id": "poi:TRANSP44_206"
+              }, 
+              "quality": 0, 
+              "id": "poi:TRANSP44_206", 
+              "name": "Duchesse Anne station bicloo n\u00b049 (Nantes)"
             }, 
             "duration": 120, 
             "path": [
@@ -5307,10 +4589,18 @@
           {
             "from": {
               "embedded_type": "poi", 
-              "quality": 0, 
-              "id": "poi:TRANSP44_206", 
-              "name": "Duchesse Anne station bicloo n\u00b049 (Nantes)", 
               "poi": {
+                "properties": {
+                  "ref:PDL:IGN:id": "TRANSP44_206", 
+                  "addr:city": "Nantes", 
+                  "ref:PDL:IGN:category": "Equipement v\u00e9lo", 
+                  "addr:full": "2 place de la Duchesse Anne_44000", 
+                  "ref:PDL:IGN:subcategory": "V\u00e9lo en libre service", 
+                  "creation_date": "2014-02-07", 
+                  "source": "Nantes m\u00e9tropole", 
+                  "addr:postcode": "44000", 
+                  "ref:INSEE": "44109"
+                }, 
                 "poi_type": {
                   "name": "V\u00c3\u00a9lo en libre-service", 
                   "id": "poi_type:amenity:bicycle_rental"
@@ -5359,30 +4649,29 @@
                   ], 
                   "id": "-1.547044;47.216533"
                 }, 
-                "id": "poi:TRANSP44_206", 
+                "id": "poi:TRANSP44_206"
+              }, 
+              "quality": 0, 
+              "id": "poi:TRANSP44_206", 
+              "name": "Duchesse Anne station bicloo n\u00b049 (Nantes)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20141111T114016", 
+            "departure_date_time": "20141111T113321", 
+            "to": {
+              "embedded_type": "poi", 
+              "poi": {
                 "properties": {
-                  "ref:PDL:IGN:id": "TRANSP44_206", 
+                  "ref:PDL:IGN:id": "TRANSP44_358", 
                   "addr:city": "Nantes", 
                   "ref:PDL:IGN:category": "Equipement v\u00e9lo", 
-                  "addr:full": "2 place de la Duchesse Anne_44000", 
+                  "addr:full": "9 boulevard Alexandre Millerand_44200", 
                   "ref:PDL:IGN:subcategory": "V\u00e9lo en libre service", 
                   "creation_date": "2014-02-07", 
                   "source": "Nantes m\u00e9tropole", 
                   "addr:postcode": "44000", 
                   "ref:INSEE": "44109"
-                }
-              }
-            }, 
-            "links": [], 
-            "arrival_date_time": "20141111T114016", 
-            "additional_informations": [], 
-            "departure_date_time": "20141111T113321", 
-            "to": {
-              "embedded_type": "poi", 
-              "quality": 0, 
-              "id": "poi:TRANSP44_358", 
-              "name": "Millerand station bicloo n\u00b083 (Nantes)", 
-              "poi": {
+                }, 
                 "poi_type": {
                   "name": "V\u00c3\u00a9lo en libre-service", 
                   "id": "poi_type:amenity:bicycle_rental"
@@ -5431,19 +4720,15 @@
                   ], 
                   "id": "-1.530166;47.208215"
                 }, 
-                "id": "poi:TRANSP44_358", 
-                "properties": {
-                  "ref:PDL:IGN:id": "TRANSP44_358", 
-                  "addr:city": "Nantes", 
-                  "ref:PDL:IGN:category": "Equipement v\u00e9lo", 
-                  "addr:full": "9 boulevard Alexandre Millerand_44200", 
-                  "ref:PDL:IGN:subcategory": "V\u00e9lo en libre service", 
-                  "creation_date": "2014-02-07", 
-                  "source": "Nantes m\u00e9tropole", 
-                  "addr:postcode": "44000", 
-                  "ref:INSEE": "44109"
-                }
-              }
+                "id": "poi:TRANSP44_358"
+              }, 
+              "quality": 0, 
+              "id": "poi:TRANSP44_358", 
+              "name": "Millerand station bicloo n\u00b083 (Nantes)"
+            }, 
+            "co2_emission": {
+              "value": 0.0, 
+              "unit": "gEC"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -5677,10 +4962,18 @@
           {
             "from": {
               "embedded_type": "poi", 
-              "quality": 0, 
-              "id": "poi:TRANSP44_358", 
-              "name": "Millerand station bicloo n\u00b083 (Nantes)", 
               "poi": {
+                "properties": {
+                  "ref:PDL:IGN:id": "TRANSP44_358", 
+                  "addr:city": "Nantes", 
+                  "ref:PDL:IGN:category": "Equipement v\u00e9lo", 
+                  "addr:full": "9 boulevard Alexandre Millerand_44200", 
+                  "ref:PDL:IGN:subcategory": "V\u00e9lo en libre service", 
+                  "creation_date": "2014-02-07", 
+                  "source": "Nantes m\u00e9tropole", 
+                  "addr:postcode": "44000", 
+                  "ref:INSEE": "44109"
+                }, 
                 "poi_type": {
                   "name": "V\u00c3\u00a9lo en libre-service", 
                   "id": "poi_type:amenity:bicycle_rental"
@@ -5729,29 +5022,17 @@
                   ], 
                   "id": "-1.530166;47.208215"
                 }, 
-                "id": "poi:TRANSP44_358", 
-                "properties": {
-                  "ref:PDL:IGN:id": "TRANSP44_358", 
-                  "addr:city": "Nantes", 
-                  "ref:PDL:IGN:category": "Equipement v\u00e9lo", 
-                  "addr:full": "9 boulevard Alexandre Millerand_44200", 
-                  "ref:PDL:IGN:subcategory": "V\u00e9lo en libre service", 
-                  "creation_date": "2014-02-07", 
-                  "source": "Nantes m\u00e9tropole", 
-                  "addr:postcode": "44000", 
-                  "ref:INSEE": "44109"
-                }
-              }
+                "id": "poi:TRANSP44_358"
+              }, 
+              "quality": 0, 
+              "id": "poi:TRANSP44_358", 
+              "name": "Millerand station bicloo n\u00b083 (Nantes)"
             }, 
             "links": [], 
             "arrival_date_time": "20141111T114116", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T114016", 
             "to": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.530267353;47.20810194", 
-              "name": "11 boulevard ALEXANDRE MILLERAND (Nantes)", 
               "address": {
                 "name": "boulevard ALEXANDRE MILLERAND", 
                 "house_number": 11, 
@@ -5775,7 +5056,10 @@
                   }
                 ], 
                 "id": "-1.530267353;47.20810194"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.530267353;47.20810194", 
+              "name": "11 boulevard ALEXANDRE MILLERAND (Nantes)"
             }, 
             "duration": 60, 
             "path": [
@@ -5792,9 +5076,6 @@
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.530267353;47.20810194", 
-              "name": "11 boulevard ALEXANDRE MILLERAND (Nantes)", 
               "address": {
                 "name": "boulevard ALEXANDRE MILLERAND", 
                 "house_number": 11, 
@@ -5818,18 +5099,31 @@
                   }
                 ], 
                 "id": "-1.530267353;47.20810194"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.530267353;47.20810194", 
+              "name": "11 boulevard ALEXANDRE MILLERAND (Nantes)"
             }, 
             "links": [], 
             "arrival_date_time": "20141111T114422", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T114116", 
             "to": {
               "embedded_type": "stop_area", 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "commercial_mode:Bus"
+                  }
+                ], 
                 "name": "Pompidou", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "physical_mode:Bus"
+                  }
+                ], 
                 "coord": {
                   "lat": "47.209234", 
                   "lon": "-1.528234"
@@ -5874,7 +5168,7 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "id": "-1.5282361998190208;47.20923758136383"
+                "id": "-1.528236199819021;47.20923758136383"
               }, 
               "quality": 0, 
               "id": "stop_area:NAN:SA:PPDO", 
@@ -5917,12 +5211,12 @@
                   47.20918638
                 ], 
                 [
-                  -1.5282361998190208, 
-                  47.20923758136383
+                  -1.5282361998, 
+                  47.2092375814
                 ], 
                 [
-                  -1.5282361998190208, 
-                  47.20923758136383
+                  -1.5282361998, 
+                  47.2092375814
                 ]
               ]
             }, 
@@ -5945,7 +5239,13 @@
             "id": "section_18_16_0_3", 
             "mode": "walking"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 10.6392, 
+          "unit": "gEC"
+        }, 
+        "duration": 1630, 
+        "type": "rapid"
       }, 
       {
         "fare": {
@@ -5956,22 +5256,16 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [
           "alternative"
         ], 
         "nb_transfers": 0, 
         "arrival_date_time": "20141111T113018", 
-        "departure_date_time": "20141111T111000", 
-        "requested_date_time": "20141111T111000", 
-        "type": "non_pt_bike", 
-        "duration": 1218, 
         "sections": [
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.587547422;47.20738048", 
-              "name": "11 boulevard DE L'EGALITE (Nantes)", 
               "address": {
                 "name": "boulevard DE L'EGALITE", 
                 "house_number": 11, 
@@ -5995,19 +5289,33 @@
                   }
                 ], 
                 "id": "-1.587547422;47.20738048"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.587547422;47.20738048", 
+              "name": "11 boulevard DE L'EGALITE (Nantes)"
             }, 
             "links": [], 
             "arrival_date_time": "20141111T113018", 
-            "additional_informations": [], 
             "departure_date_time": "20141111T111000", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:NAN:SA:PPDO", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "commercial_mode:Bus"
+                  }
+                ], 
                 "name": "Pompidou", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "physical_mode:Bus"
+                  }
+                ], 
                 "coord": {
                   "lat": "47.209234", 
                   "lon": "-1.528234"
@@ -6030,8 +5338,11 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:NAN:SA:PPDO"
               }, 
-              "name": "Pompidou (Nantes)", 
-              "id": "stop_area:NAN:SA:PPDO"
+              "name": "Pompidou (Nantes)"
+            }, 
+            "co2_emission": {
+              "value": 0.0, 
+              "unit": "gEC"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -6042,8 +5353,8 @@
               ], 
               "coordinates": [
                 [
-                  -1.5875182191384396, 
-                  47.207373616799146
+                  -1.5875182191, 
+                  47.2073736168
                 ], 
                 [
                   -1.587656731, 
@@ -6386,8 +5697,8 @@
                   47.20918638
                 ], 
                 [
-                  -1.5282361998190208, 
-                  47.20923758136383
+                  -1.5282361998, 
+                  47.2092375814
                 ]
               ]
             }, 
@@ -6638,7 +5949,15 @@
             "id": "section_76_0_3", 
             "mode": "bike"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 0.0, 
+          "unit": "gEC"
+        }, 
+        "requested_date_time": "20141111T111000", 
+        "departure_date_time": "20141111T111000", 
+        "duration": 1218, 
+        "type": "non_pt_bike"
       }
     ], 
     "disruptions": [], 

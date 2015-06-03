@@ -10,46 +10,35 @@
         "duration": 2100, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "Avignon (84000)", 
             "arrival_date_time": "20120928T123900", 
-            "departure_date_time": "20120928T123900"
-          }, 
-          {
-            "duration": 2100, 
-            "arrival_date_time": "20120928T131400", 
-            "departure_date_time": "20120928T123900"
-          }, 
-          {
+            "departure_date_time": "20120928T123900", 
+            "to": "gare de Avignon-TGV (Avignon)", 
             "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "gare de Avignon-TGV (Avignon)", 
             "arrival_date_time": "20120928T131400", 
-            "departure_date_time": "20120928T131400"
+            "departure_date_time": "20120928T123900", 
+            "to": "gare de Marseille-St-Charles (Marseille)", 
+            "duration": 2100, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "gare de Marseille-St-Charles (Marseille)", 
+            "arrival_date_time": "20120928T131400", 
+            "departure_date_time": "20120928T131400", 
+            "to": "Marseille (13001-14005)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/guichet-unique/journeys?to=admin%3A76469extern&datetime_represents=arrival&from=admin%3A102478extern&max_duration_to_pt=240&walking_speed=0.83&datetime=20120928T131300", 
@@ -76,39 +65,15 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/guichet-unique/stop_points/{stop_point.id}?collection=stop_points", 
+        "href": "http://localhost/v1/coverage/guichet-unique/stop_points/{stop_point.id}", 
         "type": "stop_point", 
         "rel": "stop_points", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/guichet-unique/stop_areas/{stop_area.id}?collection=stop_areas", 
+        "href": "http://localhost/v1/coverage/guichet-unique/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/guichet-unique/addresses/{address.id}?collection=addresses", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/guichet-unique/stop_points/{stop_point.id}?collection=stop_points", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/guichet-unique/stop_areas/{stop_area.id}?collection=stop_areas", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/guichet-unique/addresses/{address.id}?collection=addresses", 
-        "type": "address", 
-        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -120,16 +85,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -194,13 +152,10 @@
         ], 
         "departure_date_time": "20120928T123900", 
         "requested_date_time": "20120928T120000", 
-        "type": "best", 
-        "duration": 2100, 
         "sections": [
           {
             "from": {
               "embedded_type": "administrative_region", 
-              "quality": 0, 
               "administrative_region": {
                 "insee": "84007", 
                 "name": "Avignon", 
@@ -213,17 +168,16 @@
                 "id": "admin:102478extern", 
                 "zip_code": "84000"
               }, 
+              "quality": 0, 
               "id": "admin:102478extern", 
               "name": "Avignon (84000)"
             }, 
             "links": [], 
             "arrival_date_time": "20120928T123900", 
-            "additional_informations": [], 
             "departure_date_time": "20120928T123900", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Avignon-TGV", 
                 "links": [], 
                 "coord": {
@@ -246,19 +200,8 @@
                     "zip_code": "84000"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:OCE:SP:TGV-87318964", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Avignon-TGV", 
                   "links": [], 
                   "coord": {
@@ -297,7 +240,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Avignon-TGV", 
                 "links": [], 
                 "coord": {
@@ -320,19 +262,8 @@
                     "zip_code": "84000"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:OCE:SP:TGV-87318964", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Avignon-TGV", 
                   "links": [], 
                   "coord": {
@@ -372,18 +303,16 @@
               {
                 "type": "network", 
                 "id": "network:SNC"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20120928T131400", 
-            "additional_informations": [], 
-            "departure_date_time": "20120928T123900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 0.0, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "gare de Marseille-St-Charles (Marseille)", 
               "code": "", 
@@ -400,7 +329,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Marseille-St-Charles", 
                 "links": [], 
                 "coord": {
@@ -432,22 +360,11 @@
                     }, 
                     "label": "Marseille (13001-14005)", 
                     "id": "admin:76469extern", 
-                    "zip_code": "13001-14005"
+                    "zip_code": "13001;14005"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:OCE:SP:TGV-87751008", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Marseille-St-Charles", 
                   "links": [], 
                   "coord": {
@@ -463,11 +380,12 @@
               "id": "stop_point:OCE:SP:TGV-87751008", 
               "name": "gare de Marseille-St-Charles (Marseille)"
             }, 
+            "departure_date_time": "20120928T123900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 84944
+                  "length": 84945
                 }
               ], 
               "coordinates": [
@@ -491,7 +409,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Avignon-TGV", 
                   "links": [], 
                   "coord": {
@@ -504,12 +421,11 @@
                 }, 
                 "arrival_date_time": "20120928T123600", 
                 "additional_informations": [], 
-                "departure_date_time": "20120928T123900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120928T123900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Aix-en-Provence-TGV", 
                   "links": [], 
                   "coord": {
@@ -522,12 +438,11 @@
                 }, 
                 "arrival_date_time": "20120928T125900", 
                 "additional_informations": [], 
-                "departure_date_time": "20120928T130200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120928T130200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Marseille-St-Charles", 
                   "links": [], 
                   "coord": {
@@ -540,8 +455,8 @@
                 }, 
                 "arrival_date_time": "20120928T131400", 
                 "additional_informations": [], 
-                "departure_date_time": "20120928T131400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120928T131400"
               }
             ]
           }, 
@@ -549,7 +464,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Marseille-St-Charles", 
                 "links": [], 
                 "coord": {
@@ -581,22 +495,11 @@
                     }, 
                     "label": "Marseille (13001-14005)", 
                     "id": "admin:76469extern", 
-                    "zip_code": "13001-14005"
+                    "zip_code": "13001;14005"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:OCE:SP:TGV-87751008", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Marseille-St-Charles", 
                   "links": [], 
                   "coord": {
@@ -627,7 +530,7 @@
                       }, 
                       "label": "Marseille (13001-14005)", 
                       "id": "admin:76469extern", 
-                      "zip_code": "13001-14005"
+                      "zip_code": "13001;14005"
                     }
                   ], 
                   "timezone": "Europe/Paris", 
@@ -640,11 +543,9 @@
             }, 
             "links": [], 
             "arrival_date_time": "20120928T131400", 
-            "additional_informations": [], 
             "departure_date_time": "20120928T131400", 
             "to": {
               "embedded_type": "administrative_region", 
-              "quality": 0, 
               "administrative_region": {
                 "insee": "13055", 
                 "name": "Marseille", 
@@ -655,8 +556,9 @@
                 }, 
                 "label": "Marseille (13001-14005)", 
                 "id": "admin:76469extern", 
-                "zip_code": "13001-14005"
+                "zip_code": "13001;14005"
               }, 
+              "quality": 0, 
               "id": "admin:76469extern", 
               "name": "Marseille (13001-14005)"
             }, 
@@ -665,7 +567,13 @@
             "type": "crow_fly", 
             "id": "section_2_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 0.0, 
+          "unit": "gEC"
+        }, 
+        "duration": 2100, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 

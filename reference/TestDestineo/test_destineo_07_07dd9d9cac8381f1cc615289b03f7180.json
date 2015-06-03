@@ -482,48 +482,6 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/fr-pdl/poi_types/{poi_type.id}", 
-        "type": "poi_type", 
-        "rel": "poi_types", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/physical_modes/{physical_modes.id}", 
-        "type": "physical_modes", 
-        "rel": "physical_modes", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/pois/{poi.id}", 
-        "type": "poi", 
-        "rel": "pois", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/commercial_modes/{commercial_modes.id}", 
-        "type": "commercial_modes", 
-        "rel": "commercial_modes", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
-        "templated": true
-      }, 
-      {
         "href": "http://localhost/v1/coverage/fr-pdl/commercial_modes/{commercial_modes.id}", 
         "type": "commercial_modes", 
         "rel": "commercial_modes", 
@@ -570,6 +528,7 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [
           "is_pure_tc"
         ], 
@@ -600,15 +559,13 @@
         ], 
         "departure_date_time": "20141212T072500", 
         "requested_date_time": "20141212T111000", 
-        "type": "less_fallback_walk", 
-        "duration": 13260, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:NAN:SA:PPDO", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
                 "commercial_modes": [
                   {
                     "name": "Bus", 
@@ -645,17 +602,14 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:NAN:SA:PPDO"
               }, 
-              "name": "Pompidou (Nantes)", 
-              "id": "stop_area:NAN:SA:PPDO"
+              "name": "Pompidou (Nantes)"
             }, 
             "links": [], 
             "arrival_date_time": "20141212T072500", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T072500", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Pompidou", 
                 "links": [], 
                 "coord": {
@@ -680,7 +634,6 @@
                 ], 
                 "id": "stop_point:NAN:SP:PPDO2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -719,7 +672,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Pompidou", 
                 "links": [], 
                 "coord": {
@@ -744,7 +696,6 @@
                 ], 
                 "id": "stop_point:NAN:SP:PPDO2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -787,8 +738,13 @@
               }
             ], 
             "arrival_date_time": "20141212T073000", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T072500", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 211.0219, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Gare SNCF Sud (Nantes)", 
               "code": "C5", 
@@ -805,7 +761,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF Sud", 
                 "links": [], 
                 "coord": {
@@ -830,7 +785,6 @@
                 ], 
                 "id": "stop_point:NAN:SP:GSS98", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF Sud", 
                   "links": [], 
                   "coord": {
@@ -846,11 +800,12 @@
               "id": "stop_point:NAN:SP:GSS98", 
               "name": "Gare SNCF Sud (Nantes)"
             }, 
+            "departure_date_time": "20141212T072500", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 1626
+                  "length": 1627
                 }
               ], 
               "coordinates": [
@@ -882,7 +837,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -895,12 +849,11 @@
                 }, 
                 "arrival_date_time": "20141212T072500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T072500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T072500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Haubans", 
                   "links": [], 
                   "coord": {
@@ -913,12 +866,11 @@
                 }, 
                 "arrival_date_time": "20141212T072700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T072700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T072700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Picasso", 
                   "links": [], 
                   "coord": {
@@ -931,12 +883,11 @@
                 }, 
                 "arrival_date_time": "20141212T072900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T072900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T072900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Saupin-Cr\u00e9dit Municipal", 
                   "links": [], 
                   "coord": {
@@ -949,12 +900,11 @@
                 }, 
                 "arrival_date_time": "20141212T072900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T072900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T072900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare SNCF Sud", 
                   "links": [], 
                   "coord": {
@@ -967,8 +917,8 @@
                 }, 
                 "arrival_date_time": "20141212T073000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T073000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T073000"
               }
             ]
           }, 
@@ -976,7 +926,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF Sud", 
                 "links": [], 
                 "coord": {
@@ -1001,7 +950,6 @@
                 ], 
                 "id": "stop_point:NAN:SP:GSS98", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF Sud", 
                   "links": [], 
                   "coord": {
@@ -1019,12 +967,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141212T073700", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T073000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Nantes", 
                 "links": [], 
                 "coord": {
@@ -1051,7 +997,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87481002", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -1093,7 +1038,6 @@
           {
             "links": [], 
             "arrival_date_time": "20141212T073900", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T073700", 
             "duration": 120, 
             "type": "waiting", 
@@ -1103,7 +1047,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Nantes", 
                 "links": [], 
                 "coord": {
@@ -1130,7 +1073,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87481002", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -1173,8 +1115,13 @@
               }
             ], 
             "arrival_date_time": "20141212T091300", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T073900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 5050.92, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "gare de Le Mans (Le Mans)", 
               "code": "", 
@@ -1191,7 +1138,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Le Mans", 
                 "links": [], 
                 "coord": {
@@ -1218,7 +1164,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87396002", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Le Mans", 
                   "links": [], 
                   "coord": {
@@ -1234,11 +1179,12 @@
               "id": "stop_point:SNC:SP:SPOCETrainTER87396002", 
               "name": "gare de Le Mans (Le Mans)"
             }, 
+            "departure_date_time": "20141212T073900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 168362
+                  "length": 168364
                 }
               ], 
               "coordinates": [
@@ -1270,7 +1216,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Nantes", 
                   "links": [], 
                   "coord": {
@@ -1285,12 +1230,11 @@
                 }, 
                 "arrival_date_time": "20141212T073900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T073900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T073900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Ancenis", 
                   "links": [], 
                   "coord": {
@@ -1305,12 +1249,11 @@
                 }, 
                 "arrival_date_time": "20141212T075600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T075700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T075700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Angers-St-Laud", 
                   "links": [], 
                   "coord": {
@@ -1325,12 +1268,11 @@
                 }, 
                 "arrival_date_time": "20141212T081900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T082300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T082300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Sabl\u00e9-sur-Sarthe", 
                   "links": [], 
                   "coord": {
@@ -1343,12 +1285,11 @@
                 }, 
                 "arrival_date_time": "20141212T084700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T084800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T084800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Le Mans", 
                   "links": [], 
                   "coord": {
@@ -1363,15 +1304,14 @@
                 }, 
                 "arrival_date_time": "20141212T091300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T091300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T091300"
               }
             ]
           }, 
           {
             "links": [], 
             "arrival_date_time": "20141212T093900", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T091300", 
             "duration": 1560, 
             "type": "waiting", 
@@ -1381,7 +1321,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Le Mans", 
                 "links": [], 
                 "coord": {
@@ -1408,7 +1347,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87396002", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Le Mans", 
                   "links": [], 
                   "coord": {
@@ -1451,8 +1389,13 @@
               }
             ], 
             "arrival_date_time": "20141212T103500", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T093900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 2414.97, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "gare de Laval (Laval)", 
               "code": "", 
@@ -1469,7 +1412,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Laval", 
                 "links": [], 
                 "coord": {
@@ -1496,7 +1438,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87478404", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Laval", 
                   "links": [], 
                   "coord": {
@@ -1512,11 +1453,12 @@
               "id": "stop_point:SNC:SP:SPOCETrainTER87478404", 
               "name": "gare de Laval (Laval)"
             }, 
+            "departure_date_time": "20141212T093900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 80498
+                  "length": 80499
                 }
               ], 
               "coordinates": [
@@ -1552,7 +1494,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Le Mans", 
                   "links": [], 
                   "coord": {
@@ -1567,12 +1508,11 @@
                 }, 
                 "arrival_date_time": "20141212T093900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T093900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T093900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Conlie", 
                   "links": [], 
                   "coord": {
@@ -1585,12 +1525,11 @@
                 }, 
                 "arrival_date_time": "20141212T095200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T095300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T095300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Sill\u00e9-le-Guillaume", 
                   "links": [], 
                   "coord": {
@@ -1605,12 +1544,11 @@
                 }, 
                 "arrival_date_time": "20141212T100000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T100100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T100100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Evron", 
                   "links": [], 
                   "coord": {
@@ -1623,12 +1561,11 @@
                 }, 
                 "arrival_date_time": "20141212T101400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T101500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T101500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Montsurs", 
                   "links": [], 
                   "coord": {
@@ -1641,12 +1578,11 @@
                 }, 
                 "arrival_date_time": "20141212T102200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T102300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T102300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Laval", 
                   "links": [], 
                   "coord": {
@@ -1661,8 +1597,8 @@
                 }, 
                 "arrival_date_time": "20141212T103500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T103500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T103500"
               }
             ]
           }, 
@@ -1670,7 +1606,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Laval", 
                 "links": [], 
                 "coord": {
@@ -1697,7 +1632,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87478404", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Laval", 
                   "links": [], 
                   "coord": {
@@ -1715,12 +1649,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141212T103700", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T103500", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF", 
                 "links": [], 
                 "coord": {
@@ -1745,7 +1677,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav99", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -1787,7 +1718,6 @@
           {
             "links": [], 
             "arrival_date_time": "20141212T105200", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T103700", 
             "duration": 900, 
             "type": "waiting", 
@@ -1797,7 +1727,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF", 
                 "links": [], 
                 "coord": {
@@ -1822,7 +1751,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav99", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -1865,8 +1793,13 @@
               }
             ], 
             "arrival_date_time": "20141212T110100", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T105200", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 206.7418, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Jaunaie", 
               "code": "B", 
@@ -1883,7 +1816,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Cordeliers", 
                 "links": [], 
                 "coord": {
@@ -1908,7 +1840,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav102", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Cordeliers", 
                   "links": [], 
                   "coord": {
@@ -1924,11 +1855,12 @@
               "id": "stop_point:LAV:SP:Nav102", 
               "name": "Cordeliers (Laval)"
             }, 
+            "departure_date_time": "20141212T105200", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 1592
+                  "length": 1594
                 }
               ], 
               "coordinates": [
@@ -1968,7 +1900,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -1981,12 +1912,11 @@
                 }, 
                 "arrival_date_time": "20141212T105200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Alma", 
                   "links": [], 
                   "coord": {
@@ -1999,12 +1929,11 @@
                 }, 
                 "arrival_date_time": "20141212T105300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Buron", 
                   "links": [], 
                   "coord": {
@@ -2017,12 +1946,11 @@
                 }, 
                 "arrival_date_time": "20141212T105400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Pr\u00e9fecture", 
                   "links": [], 
                   "coord": {
@@ -2035,12 +1963,11 @@
                 }, 
                 "arrival_date_time": "20141212T105500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Echelle Marteau", 
                   "links": [], 
                   "coord": {
@@ -2053,12 +1980,11 @@
                 }, 
                 "arrival_date_time": "20141212T105600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare TUL", 
                   "links": [], 
                   "coord": {
@@ -2071,12 +1997,11 @@
                 }, 
                 "arrival_date_time": "20141212T110000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T110000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T110000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Cordeliers", 
                   "links": [], 
                   "coord": {
@@ -2089,8 +2014,8 @@
                 }, 
                 "arrival_date_time": "20141212T110100", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T110100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T110100"
               }
             ]
           }, 
@@ -2098,7 +2023,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Cordeliers", 
                 "links": [], 
                 "coord": {
@@ -2123,7 +2047,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav102", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Cordeliers", 
                   "links": [], 
                   "coord": {
@@ -2141,12 +2064,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141212T110100", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T110100", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Cordeliers", 
                 "links": [], 
                 "coord": {
@@ -2171,7 +2092,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav67", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Cordeliers", 
                   "links": [], 
                   "coord": {
@@ -2213,7 +2133,6 @@
           {
             "links": [], 
             "arrival_date_time": "20141212T110300", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T110100", 
             "duration": 120, 
             "type": "waiting", 
@@ -2223,7 +2142,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Cordeliers", 
                 "links": [], 
                 "coord": {
@@ -2248,7 +2166,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav67", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Cordeliers", 
                   "links": [], 
                   "coord": {
@@ -2291,8 +2208,13 @@
               }
             ], 
             "arrival_date_time": "20141212T110600", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T110300", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 45.7841, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Falu\u00e8res (Laval)", 
               "code": "J", 
@@ -2309,7 +2231,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Mairie", 
                 "links": [], 
                 "coord": {
@@ -2334,7 +2255,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav16", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Mairie", 
                   "links": [], 
                   "coord": {
@@ -2350,11 +2270,12 @@
               "id": "stop_point:LAV:SP:Nav16", 
               "name": "Mairie (Laval)"
             }, 
+            "departure_date_time": "20141212T110300", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 352
+                  "length": 353
                 }
               ], 
               "coordinates": [
@@ -2378,7 +2299,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Cordeliers", 
                   "links": [], 
                   "coord": {
@@ -2391,12 +2311,11 @@
                 }, 
                 "arrival_date_time": "20141212T110300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T110300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T110300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Ruisseaux", 
                   "links": [], 
                   "coord": {
@@ -2409,12 +2328,11 @@
                 }, 
                 "arrival_date_time": "20141212T110300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T110300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T110300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Mairie", 
                   "links": [], 
                   "coord": {
@@ -2427,8 +2345,8 @@
                 }, 
                 "arrival_date_time": "20141212T110600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T110600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T110600"
               }
             ]
           }, 
@@ -2436,7 +2354,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Mairie", 
                 "links": [], 
                 "coord": {
@@ -2461,7 +2378,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav16", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Mairie", 
                   "links": [], 
                   "coord": {
@@ -2493,13 +2409,12 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141212T110600", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T110600", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:LAV:SA:245", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
                 "commercial_modes": [
                   {
                     "name": "Bus", 
@@ -2536,15 +2451,20 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:LAV:SA:245"
               }, 
-              "name": "Mairie (Laval)", 
-              "id": "stop_area:LAV:SA:245"
+              "name": "Mairie (Laval)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_61_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 7929.4378, 
+          "unit": "gEC"
+        }, 
+        "duration": 13260, 
+        "type": "less_fallback_walk"
       }, 
       {
         "fare": {
@@ -2555,6 +2475,7 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [
           "is_pure_tc"
         ], 
@@ -2585,15 +2506,13 @@
         ], 
         "departure_date_time": "20141212T072500", 
         "requested_date_time": "20141212T111000", 
-        "type": "comfort", 
-        "duration": 12950, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:NAN:SA:PPDO", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
                 "commercial_modes": [
                   {
                     "name": "Bus", 
@@ -2630,17 +2549,14 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:NAN:SA:PPDO"
               }, 
-              "name": "Pompidou (Nantes)", 
-              "id": "stop_area:NAN:SA:PPDO"
+              "name": "Pompidou (Nantes)"
             }, 
             "links": [], 
             "arrival_date_time": "20141212T072500", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T072500", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Pompidou", 
                 "links": [], 
                 "coord": {
@@ -2665,7 +2581,6 @@
                 ], 
                 "id": "stop_point:NAN:SP:PPDO2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -2704,7 +2619,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Pompidou", 
                 "links": [], 
                 "coord": {
@@ -2729,7 +2643,6 @@
                 ], 
                 "id": "stop_point:NAN:SP:PPDO2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -2772,8 +2685,13 @@
               }
             ], 
             "arrival_date_time": "20141212T073000", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T072500", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 211.0219, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Gare SNCF Sud (Nantes)", 
               "code": "C5", 
@@ -2790,7 +2708,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF Sud", 
                 "links": [], 
                 "coord": {
@@ -2815,7 +2732,6 @@
                 ], 
                 "id": "stop_point:NAN:SP:GSS98", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF Sud", 
                   "links": [], 
                   "coord": {
@@ -2831,11 +2747,12 @@
               "id": "stop_point:NAN:SP:GSS98", 
               "name": "Gare SNCF Sud (Nantes)"
             }, 
+            "departure_date_time": "20141212T072500", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 1626
+                  "length": 1627
                 }
               ], 
               "coordinates": [
@@ -2867,7 +2784,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -2880,12 +2796,11 @@
                 }, 
                 "arrival_date_time": "20141212T072500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T072500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T072500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Haubans", 
                   "links": [], 
                   "coord": {
@@ -2898,12 +2813,11 @@
                 }, 
                 "arrival_date_time": "20141212T072700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T072700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T072700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Picasso", 
                   "links": [], 
                   "coord": {
@@ -2916,12 +2830,11 @@
                 }, 
                 "arrival_date_time": "20141212T072900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T072900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T072900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Saupin-Cr\u00e9dit Municipal", 
                   "links": [], 
                   "coord": {
@@ -2934,12 +2847,11 @@
                 }, 
                 "arrival_date_time": "20141212T072900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T072900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T072900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare SNCF Sud", 
                   "links": [], 
                   "coord": {
@@ -2952,8 +2864,8 @@
                 }, 
                 "arrival_date_time": "20141212T073000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T073000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T073000"
               }
             ]
           }, 
@@ -2961,7 +2873,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF Sud", 
                 "links": [], 
                 "coord": {
@@ -2986,7 +2897,6 @@
                 ], 
                 "id": "stop_point:NAN:SP:GSS98", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF Sud", 
                   "links": [], 
                   "coord": {
@@ -3004,12 +2914,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141212T073700", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T073000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Nantes", 
                 "links": [], 
                 "coord": {
@@ -3036,7 +2944,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87481002", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -3078,7 +2985,6 @@
           {
             "links": [], 
             "arrival_date_time": "20141212T073900", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T073700", 
             "duration": 120, 
             "type": "waiting", 
@@ -3088,7 +2994,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Nantes", 
                 "links": [], 
                 "coord": {
@@ -3115,7 +3020,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87481002", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -3158,8 +3062,13 @@
               }
             ], 
             "arrival_date_time": "20141212T091300", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T073900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 5050.92, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "gare de Le Mans (Le Mans)", 
               "code": "", 
@@ -3176,7 +3085,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Le Mans", 
                 "links": [], 
                 "coord": {
@@ -3203,7 +3111,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87396002", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Le Mans", 
                   "links": [], 
                   "coord": {
@@ -3219,11 +3126,12 @@
               "id": "stop_point:SNC:SP:SPOCETrainTER87396002", 
               "name": "gare de Le Mans (Le Mans)"
             }, 
+            "departure_date_time": "20141212T073900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 168362
+                  "length": 168364
                 }
               ], 
               "coordinates": [
@@ -3255,7 +3163,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Nantes", 
                   "links": [], 
                   "coord": {
@@ -3270,12 +3177,11 @@
                 }, 
                 "arrival_date_time": "20141212T073900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T073900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T073900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Ancenis", 
                   "links": [], 
                   "coord": {
@@ -3290,12 +3196,11 @@
                 }, 
                 "arrival_date_time": "20141212T075600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T075700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T075700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Angers-St-Laud", 
                   "links": [], 
                   "coord": {
@@ -3310,12 +3215,11 @@
                 }, 
                 "arrival_date_time": "20141212T081900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T082300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T082300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Sabl\u00e9-sur-Sarthe", 
                   "links": [], 
                   "coord": {
@@ -3328,12 +3232,11 @@
                 }, 
                 "arrival_date_time": "20141212T084700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T084800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T084800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Le Mans", 
                   "links": [], 
                   "coord": {
@@ -3348,15 +3251,14 @@
                 }, 
                 "arrival_date_time": "20141212T091300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T091300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T091300"
               }
             ]
           }, 
           {
             "links": [], 
             "arrival_date_time": "20141212T093900", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T091300", 
             "duration": 1560, 
             "type": "waiting", 
@@ -3366,7 +3268,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Le Mans", 
                 "links": [], 
                 "coord": {
@@ -3393,7 +3294,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87396002", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Le Mans", 
                   "links": [], 
                   "coord": {
@@ -3436,8 +3336,13 @@
               }
             ], 
             "arrival_date_time": "20141212T103500", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T093900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 2414.97, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "gare de Laval (Laval)", 
               "code": "", 
@@ -3454,7 +3359,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Laval", 
                 "links": [], 
                 "coord": {
@@ -3481,7 +3385,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87478404", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Laval", 
                   "links": [], 
                   "coord": {
@@ -3497,11 +3400,12 @@
               "id": "stop_point:SNC:SP:SPOCETrainTER87478404", 
               "name": "gare de Laval (Laval)"
             }, 
+            "departure_date_time": "20141212T093900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 80498
+                  "length": 80499
                 }
               ], 
               "coordinates": [
@@ -3537,7 +3441,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Le Mans", 
                   "links": [], 
                   "coord": {
@@ -3552,12 +3455,11 @@
                 }, 
                 "arrival_date_time": "20141212T093900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T093900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T093900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Conlie", 
                   "links": [], 
                   "coord": {
@@ -3570,12 +3472,11 @@
                 }, 
                 "arrival_date_time": "20141212T095200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T095300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T095300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Sill\u00e9-le-Guillaume", 
                   "links": [], 
                   "coord": {
@@ -3590,12 +3491,11 @@
                 }, 
                 "arrival_date_time": "20141212T100000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T100100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T100100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Evron", 
                   "links": [], 
                   "coord": {
@@ -3608,12 +3508,11 @@
                 }, 
                 "arrival_date_time": "20141212T101400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T101500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T101500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Montsurs", 
                   "links": [], 
                   "coord": {
@@ -3626,12 +3525,11 @@
                 }, 
                 "arrival_date_time": "20141212T102200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T102300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T102300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Laval", 
                   "links": [], 
                   "coord": {
@@ -3646,8 +3544,8 @@
                 }, 
                 "arrival_date_time": "20141212T103500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T103500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T103500"
               }
             ]
           }, 
@@ -3655,7 +3553,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Laval", 
                 "links": [], 
                 "coord": {
@@ -3682,7 +3579,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87478404", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Laval", 
                   "links": [], 
                   "coord": {
@@ -3700,12 +3596,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141212T103700", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T103500", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF", 
                 "links": [], 
                 "coord": {
@@ -3730,7 +3624,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav99", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -3772,7 +3665,6 @@
           {
             "links": [], 
             "arrival_date_time": "20141212T105200", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T103700", 
             "duration": 900, 
             "type": "waiting", 
@@ -3782,7 +3674,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF", 
                 "links": [], 
                 "coord": {
@@ -3807,7 +3698,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav99", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -3850,8 +3740,13 @@
               }
             ], 
             "arrival_date_time": "20141212T110000", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T105200", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 156.937, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Jaunaie", 
               "code": "B", 
@@ -3868,7 +3763,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare TUL", 
                 "links": [], 
                 "coord": {
@@ -3893,7 +3787,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav49", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare TUL", 
                   "links": [], 
                   "coord": {
@@ -3909,11 +3802,12 @@
               "id": "stop_point:LAV:SP:Nav49", 
               "name": "Gare TUL (Laval)"
             }, 
+            "departure_date_time": "20141212T105200", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 1209
+                  "length": 1210
                 }
               ], 
               "coordinates": [
@@ -3949,7 +3843,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -3962,12 +3855,11 @@
                 }, 
                 "arrival_date_time": "20141212T105200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Alma", 
                   "links": [], 
                   "coord": {
@@ -3980,12 +3872,11 @@
                 }, 
                 "arrival_date_time": "20141212T105300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Buron", 
                   "links": [], 
                   "coord": {
@@ -3998,12 +3889,11 @@
                 }, 
                 "arrival_date_time": "20141212T105400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Pr\u00e9fecture", 
                   "links": [], 
                   "coord": {
@@ -4016,12 +3906,11 @@
                 }, 
                 "arrival_date_time": "20141212T105500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Echelle Marteau", 
                   "links": [], 
                   "coord": {
@@ -4034,12 +3923,11 @@
                 }, 
                 "arrival_date_time": "20141212T105600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare TUL", 
                   "links": [], 
                   "coord": {
@@ -4052,8 +3940,8 @@
                 }, 
                 "arrival_date_time": "20141212T110000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T110000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T110000"
               }
             ]
           }, 
@@ -4061,7 +3949,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare TUL", 
                 "links": [], 
                 "coord": {
@@ -4098,7 +3985,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav49", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare TUL", 
                   "links": [], 
                   "coord": {
@@ -4130,12 +4016,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141212T110050", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T110000", 
             "to": {
               "embedded_type": "stop_area", 
               "stop_area": {
-                "comment": "", 
                 "commercial_modes": [
                   {
                     "name": "Bus", 
@@ -4213,8 +4097,8 @@
                   48.071402
                 ], 
                 [
-                  -0.7730484922416208, 
-                  48.0714679583038
+                  -0.7730484922, 
+                  48.0714679583
                 ], 
                 [
                   -0.7731317523, 
@@ -4229,12 +4113,12 @@
                   48.07108168
                 ], 
                 [
-                  -0.7733488234375315, 
-                  48.07084652267799
+                  -0.7733488234, 
+                  48.0708465227
                 ], 
                 [
-                  -0.7733488234375315, 
-                  48.07084652267799
+                  -0.7733488234, 
+                  48.0708465227
                 ]
               ]
             }, 
@@ -4269,7 +4153,13 @@
             "id": "section_36_0", 
             "mode": "walking"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 7833.8489, 
+          "unit": "gEC"
+        }, 
+        "duration": 12950, 
+        "type": "comfort"
       }, 
       {
         "fare": {
@@ -4280,6 +4170,7 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard", 
           "is_pure_tc"
@@ -4307,15 +4198,13 @@
         ], 
         "departure_date_time": "20141212T074500", 
         "requested_date_time": "20141212T111000", 
-        "type": "best", 
-        "duration": 11750, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:NAN:SA:PPDO", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
                 "commercial_modes": [
                   {
                     "name": "Bus", 
@@ -4352,17 +4241,14 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:NAN:SA:PPDO"
               }, 
-              "name": "Pompidou (Nantes)", 
-              "id": "stop_area:NAN:SA:PPDO"
+              "name": "Pompidou (Nantes)"
             }, 
             "links": [], 
             "arrival_date_time": "20141212T074500", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T074500", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Pompidou", 
                 "links": [], 
                 "coord": {
@@ -4387,7 +4273,6 @@
                 ], 
                 "id": "stop_point:NAN:SP:PPDO2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -4426,7 +4311,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Pompidou", 
                 "links": [], 
                 "coord": {
@@ -4451,7 +4335,6 @@
                 ], 
                 "id": "stop_point:NAN:SP:PPDO2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -4494,8 +4377,13 @@
               }
             ], 
             "arrival_date_time": "20141212T075000", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T074500", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 211.0219, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Gare SNCF Sud (Nantes)", 
               "code": "C5", 
@@ -4512,7 +4400,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF Sud", 
                 "links": [], 
                 "coord": {
@@ -4537,7 +4424,6 @@
                 ], 
                 "id": "stop_point:NAN:SP:GSS98", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF Sud", 
                   "links": [], 
                   "coord": {
@@ -4553,11 +4439,12 @@
               "id": "stop_point:NAN:SP:GSS98", 
               "name": "Gare SNCF Sud (Nantes)"
             }, 
+            "departure_date_time": "20141212T074500", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 1626
+                  "length": 1627
                 }
               ], 
               "coordinates": [
@@ -4589,7 +4476,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Pompidou", 
                   "links": [], 
                   "coord": {
@@ -4602,12 +4488,11 @@
                 }, 
                 "arrival_date_time": "20141212T074500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T074500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T074500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Haubans", 
                   "links": [], 
                   "coord": {
@@ -4620,12 +4505,11 @@
                 }, 
                 "arrival_date_time": "20141212T074700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T074700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T074700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Picasso", 
                   "links": [], 
                   "coord": {
@@ -4638,12 +4522,11 @@
                 }, 
                 "arrival_date_time": "20141212T074900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T074900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T074900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Saupin-Cr\u00e9dit Municipal", 
                   "links": [], 
                   "coord": {
@@ -4656,12 +4539,11 @@
                 }, 
                 "arrival_date_time": "20141212T074900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T074900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T074900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare SNCF Sud", 
                   "links": [], 
                   "coord": {
@@ -4674,8 +4556,8 @@
                 }, 
                 "arrival_date_time": "20141212T075000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T075000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T075000"
               }
             ]
           }, 
@@ -4683,7 +4565,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF Sud", 
                 "links": [], 
                 "coord": {
@@ -4708,7 +4589,6 @@
                 ], 
                 "id": "stop_point:NAN:SP:GSS98", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF Sud", 
                   "links": [], 
                   "coord": {
@@ -4726,12 +4606,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141212T075700", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T075000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Nantes", 
                 "links": [], 
                 "coord": {
@@ -4758,7 +4636,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETGV87481002", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -4800,7 +4677,6 @@
           {
             "links": [], 
             "arrival_date_time": "20141212T080000", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T075700", 
             "duration": 180, 
             "type": "waiting", 
@@ -4810,7 +4686,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Nantes", 
                 "links": [], 
                 "coord": {
@@ -4837,7 +4712,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETGV87481002", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -4880,8 +4754,13 @@
               }
             ], 
             "arrival_date_time": "20141212T083600", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T080000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 268.872, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "gare de Paris-Montparnasse 1-2 (Paris)", 
               "code": "", 
@@ -4898,7 +4777,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Angers-St-Laud", 
                 "links": [], 
                 "coord": {
@@ -4925,7 +4803,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETGV87484006", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare SNCF et routi\u00e8re Angers-St-Laud", 
                   "links": [], 
                   "coord": {
@@ -4941,6 +4818,7 @@
               "id": "stop_point:SNC:SP:SPOCETGV87484006", 
               "name": "gare de Angers-St-Laud (Angers)"
             }, 
+            "departure_date_time": "20141212T080000", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -4965,7 +4843,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Nantes", 
                   "links": [], 
                   "coord": {
@@ -4980,12 +4857,11 @@
                 }, 
                 "arrival_date_time": "20141212T080000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T080000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T080000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Angers-St-Laud", 
                   "links": [], 
                   "coord": {
@@ -5000,8 +4876,8 @@
                 }, 
                 "arrival_date_time": "20141212T083600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T083900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T083900"
               }
             ]
           }, 
@@ -5009,7 +4885,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Angers-St-Laud", 
                 "links": [], 
                 "coord": {
@@ -5036,7 +4911,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETGV87484006", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare SNCF et routi\u00e8re Angers-St-Laud", 
                   "links": [], 
                   "coord": {
@@ -5054,12 +4928,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141212T083600", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T083600", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Angers-St-Laud", 
                 "links": [], 
                 "coord": {
@@ -5086,7 +4958,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87484006", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare SNCF et routi\u00e8re Angers-St-Laud", 
                   "links": [], 
                   "coord": {
@@ -5128,7 +4999,6 @@
           {
             "links": [], 
             "arrival_date_time": "20141212T084400", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T083600", 
             "duration": 480, 
             "type": "waiting", 
@@ -5138,7 +5008,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Angers-St-Laud", 
                 "links": [], 
                 "coord": {
@@ -5165,7 +5034,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87484006", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare SNCF et routi\u00e8re Angers-St-Laud", 
                   "links": [], 
                   "coord": {
@@ -5208,8 +5076,13 @@
               }
             ], 
             "arrival_date_time": "20141212T093200", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T084400", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 2648.73, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "gare de Le Mans (Le Mans)", 
               "code": "", 
@@ -5226,7 +5099,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Le Mans", 
                 "links": [], 
                 "coord": {
@@ -5253,7 +5125,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87396002", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Le Mans", 
                   "links": [], 
                   "coord": {
@@ -5269,11 +5140,12 @@
               "id": "stop_point:SNC:SP:SPOCETrainTER87396002", 
               "name": "gare de Le Mans (Le Mans)"
             }, 
+            "departure_date_time": "20141212T084400", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 88290
+                  "length": 88291
                 }
               ], 
               "coordinates": [
@@ -5297,7 +5169,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Angers-St-Laud", 
                   "links": [], 
                   "coord": {
@@ -5312,12 +5183,11 @@
                 }, 
                 "arrival_date_time": "20141212T084400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T084400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T084400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Sabl\u00e9-sur-Sarthe", 
                   "links": [], 
                   "coord": {
@@ -5330,12 +5200,11 @@
                 }, 
                 "arrival_date_time": "20141212T090700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T090800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T090800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Le Mans", 
                   "links": [], 
                   "coord": {
@@ -5350,15 +5219,14 @@
                 }, 
                 "arrival_date_time": "20141212T093200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T093200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T093200"
               }
             ]
           }, 
           {
             "links": [], 
             "arrival_date_time": "20141212T093900", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T093200", 
             "duration": 420, 
             "type": "waiting", 
@@ -5368,7 +5236,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Le Mans", 
                 "links": [], 
                 "coord": {
@@ -5395,7 +5262,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87396002", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Le Mans", 
                   "links": [], 
                   "coord": {
@@ -5438,8 +5304,13 @@
               }
             ], 
             "arrival_date_time": "20141212T103500", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T093900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 2414.97, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "gare de Laval (Laval)", 
               "code": "", 
@@ -5456,7 +5327,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Laval", 
                 "links": [], 
                 "coord": {
@@ -5483,7 +5353,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87478404", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Laval", 
                   "links": [], 
                   "coord": {
@@ -5499,11 +5368,12 @@
               "id": "stop_point:SNC:SP:SPOCETrainTER87478404", 
               "name": "gare de Laval (Laval)"
             }, 
+            "departure_date_time": "20141212T093900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 80498
+                  "length": 80499
                 }
               ], 
               "coordinates": [
@@ -5539,7 +5409,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Le Mans", 
                   "links": [], 
                   "coord": {
@@ -5554,12 +5423,11 @@
                 }, 
                 "arrival_date_time": "20141212T093900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T093900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T093900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Conlie", 
                   "links": [], 
                   "coord": {
@@ -5572,12 +5440,11 @@
                 }, 
                 "arrival_date_time": "20141212T095200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T095300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T095300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Sill\u00e9-le-Guillaume", 
                   "links": [], 
                   "coord": {
@@ -5592,12 +5459,11 @@
                 }, 
                 "arrival_date_time": "20141212T100000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T100100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T100100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Evron", 
                   "links": [], 
                   "coord": {
@@ -5610,12 +5476,11 @@
                 }, 
                 "arrival_date_time": "20141212T101400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T101500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T101500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Montsurs", 
                   "links": [], 
                   "coord": {
@@ -5628,12 +5493,11 @@
                 }, 
                 "arrival_date_time": "20141212T102200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T102300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T102300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Laval", 
                   "links": [], 
                   "coord": {
@@ -5648,8 +5512,8 @@
                 }, 
                 "arrival_date_time": "20141212T103500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T103500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T103500"
               }
             ]
           }, 
@@ -5657,7 +5521,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Laval", 
                 "links": [], 
                 "coord": {
@@ -5684,7 +5547,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87478404", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Laval", 
                   "links": [], 
                   "coord": {
@@ -5702,12 +5564,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141212T103700", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T103500", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF", 
                 "links": [], 
                 "coord": {
@@ -5732,7 +5592,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav99", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -5774,7 +5633,6 @@
           {
             "links": [], 
             "arrival_date_time": "20141212T105200", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T103700", 
             "duration": 900, 
             "type": "waiting", 
@@ -5784,7 +5642,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF", 
                 "links": [], 
                 "coord": {
@@ -5809,7 +5666,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav99", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -5852,8 +5708,13 @@
               }
             ], 
             "arrival_date_time": "20141212T110000", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T105200", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 156.937, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Jaunaie", 
               "code": "B", 
@@ -5870,7 +5731,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare TUL", 
                 "links": [], 
                 "coord": {
@@ -5895,7 +5755,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav49", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare TUL", 
                   "links": [], 
                   "coord": {
@@ -5911,11 +5770,12 @@
               "id": "stop_point:LAV:SP:Nav49", 
               "name": "Gare TUL (Laval)"
             }, 
+            "departure_date_time": "20141212T105200", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 1209
+                  "length": 1210
                 }
               ], 
               "coordinates": [
@@ -5951,7 +5811,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -5964,12 +5823,11 @@
                 }, 
                 "arrival_date_time": "20141212T105200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Alma", 
                   "links": [], 
                   "coord": {
@@ -5982,12 +5840,11 @@
                 }, 
                 "arrival_date_time": "20141212T105300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Buron", 
                   "links": [], 
                   "coord": {
@@ -6000,12 +5857,11 @@
                 }, 
                 "arrival_date_time": "20141212T105400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Pr\u00e9fecture", 
                   "links": [], 
                   "coord": {
@@ -6018,12 +5874,11 @@
                 }, 
                 "arrival_date_time": "20141212T105500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Echelle Marteau", 
                   "links": [], 
                   "coord": {
@@ -6036,12 +5891,11 @@
                 }, 
                 "arrival_date_time": "20141212T105600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare TUL", 
                   "links": [], 
                   "coord": {
@@ -6054,8 +5908,8 @@
                 }, 
                 "arrival_date_time": "20141212T110000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T110000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T110000"
               }
             ]
           }, 
@@ -6063,7 +5917,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare TUL", 
                 "links": [], 
                 "coord": {
@@ -6100,7 +5953,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav49", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare TUL", 
                   "links": [], 
                   "coord": {
@@ -6132,12 +5984,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141212T110050", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T110000", 
             "to": {
               "embedded_type": "stop_area", 
               "stop_area": {
-                "comment": "", 
                 "commercial_modes": [
                   {
                     "name": "Bus", 
@@ -6215,8 +6065,8 @@
                   48.071402
                 ], 
                 [
-                  -0.7730484922416208, 
-                  48.0714679583038
+                  -0.7730484922, 
+                  48.0714679583
                 ], 
                 [
                   -0.7731317523, 
@@ -6231,12 +6081,12 @@
                   48.07108168
                 ], 
                 [
-                  -0.7733488234375315, 
-                  48.07084652267799
+                  -0.7733488234, 
+                  48.0708465227
                 ], 
                 [
-                  -0.7733488234375315, 
-                  48.07084652267799
+                  -0.7733488234, 
+                  48.0708465227
                 ]
               ]
             }, 
@@ -6271,7 +6121,13 @@
             "id": "section_75_0", 
             "mode": "walking"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 5700.5309, 
+          "unit": "gEC"
+        }, 
+        "duration": 11750, 
+        "type": "best"
       }, 
       {
         "fare": {
@@ -6282,6 +6138,7 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [], 
         "nb_transfers": 2, 
         "arrival_date_time": "20141212T110050", 
@@ -6316,14 +6173,11 @@
         ], 
         "departure_date_time": "20141212T072521", 
         "requested_date_time": "20141212T111000", 
-        "type": "comfort", 
-        "duration": 12929, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
               "stop_area": {
-                "comment": "", 
                 "commercial_modes": [
                   {
                     "name": "Bus", 
@@ -6382,7 +6236,7 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "id": "-1.5282361998190208;47.20923758136383"
+                "id": "-1.528236199819021;47.20923758136383"
               }, 
               "quality": 0, 
               "id": "stop_area:NAN:SA:PPDO", 
@@ -6390,13 +6244,9 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141212T072827", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T072521", 
             "to": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.530267353;47.20810194", 
-              "name": "11 boulevard ALEXANDRE MILLERAND (Nantes)", 
               "address": {
                 "name": "boulevard ALEXANDRE MILLERAND", 
                 "house_number": 11, 
@@ -6420,7 +6270,10 @@
                   }
                 ], 
                 "id": "-1.530267353;47.20810194"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.530267353;47.20810194", 
+              "name": "11 boulevard ALEXANDRE MILLERAND (Nantes)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -6431,12 +6284,12 @@
               ], 
               "coordinates": [
                 [
-                  -1.5282361998190208, 
-                  47.20923758136383
+                  -1.5282361998, 
+                  47.2092375814
                 ], 
                 [
-                  -1.5282361998190208, 
-                  47.20923758136383
+                  -1.5282361998, 
+                  47.2092375814
                 ], 
                 [
                   -1.528319557, 
@@ -6490,9 +6343,6 @@
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.530267353;47.20810194", 
-              "name": "11 boulevard ALEXANDRE MILLERAND (Nantes)", 
               "address": {
                 "name": "boulevard ALEXANDRE MILLERAND", 
                 "house_number": 11, 
@@ -6516,18 +6366,28 @@
                   }
                 ], 
                 "id": "-1.530267353;47.20810194"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.530267353;47.20810194", 
+              "name": "11 boulevard ALEXANDRE MILLERAND (Nantes)"
             }, 
             "links": [], 
             "arrival_date_time": "20141212T073027", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T072827", 
             "to": {
               "embedded_type": "poi", 
-              "quality": 0, 
-              "id": "poi:TRANSP44_358", 
-              "name": "Millerand station bicloo n\u00b083 (Nantes)", 
               "poi": {
+                "properties": {
+                  "ref:PDL:IGN:id": "TRANSP44_358", 
+                  "addr:city": "Nantes", 
+                  "ref:PDL:IGN:category": "Equipement v\u00e9lo", 
+                  "addr:full": "9 boulevard Alexandre Millerand_44200", 
+                  "ref:PDL:IGN:subcategory": "V\u00e9lo en libre service", 
+                  "creation_date": "2014-02-07", 
+                  "source": "Nantes m\u00e9tropole", 
+                  "addr:postcode": "44000", 
+                  "ref:INSEE": "44109"
+                }, 
                 "poi_type": {
                   "name": "V\u00c3\u00a9lo en libre-service", 
                   "id": "poi_type:amenity:bicycle_rental"
@@ -6576,19 +6436,11 @@
                   ], 
                   "id": "-1.530166;47.208215"
                 }, 
-                "id": "poi:TRANSP44_358", 
-                "properties": {
-                  "ref:PDL:IGN:id": "TRANSP44_358", 
-                  "addr:city": "Nantes", 
-                  "ref:PDL:IGN:category": "Equipement v\u00e9lo", 
-                  "addr:full": "9 boulevard Alexandre Millerand_44200", 
-                  "ref:PDL:IGN:subcategory": "V\u00e9lo en libre service", 
-                  "creation_date": "2014-02-07", 
-                  "source": "Nantes m\u00e9tropole", 
-                  "addr:postcode": "44000", 
-                  "ref:INSEE": "44109"
-                }
-              }
+                "id": "poi:TRANSP44_358"
+              }, 
+              "quality": 0, 
+              "id": "poi:TRANSP44_358", 
+              "name": "Millerand station bicloo n\u00b083 (Nantes)"
             }, 
             "duration": 120, 
             "path": [
@@ -6605,10 +6457,18 @@
           {
             "from": {
               "embedded_type": "poi", 
-              "quality": 0, 
-              "id": "poi:TRANSP44_358", 
-              "name": "Millerand station bicloo n\u00b083 (Nantes)", 
               "poi": {
+                "properties": {
+                  "ref:PDL:IGN:id": "TRANSP44_358", 
+                  "addr:city": "Nantes", 
+                  "ref:PDL:IGN:category": "Equipement v\u00e9lo", 
+                  "addr:full": "9 boulevard Alexandre Millerand_44200", 
+                  "ref:PDL:IGN:subcategory": "V\u00e9lo en libre service", 
+                  "creation_date": "2014-02-07", 
+                  "source": "Nantes m\u00e9tropole", 
+                  "addr:postcode": "44000", 
+                  "ref:INSEE": "44109"
+                }, 
                 "poi_type": {
                   "name": "V\u00c3\u00a9lo en libre-service", 
                   "id": "poi_type:amenity:bicycle_rental"
@@ -6657,30 +6517,29 @@
                   ], 
                   "id": "-1.530166;47.208215"
                 }, 
-                "id": "poi:TRANSP44_358", 
+                "id": "poi:TRANSP44_358"
+              }, 
+              "quality": 0, 
+              "id": "poi:TRANSP44_358", 
+              "name": "Millerand station bicloo n\u00b083 (Nantes)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20141212T073652", 
+            "departure_date_time": "20141212T073027", 
+            "to": {
+              "embedded_type": "poi", 
+              "poi": {
                 "properties": {
-                  "ref:PDL:IGN:id": "TRANSP44_358", 
+                  "ref:PDL:IGN:id": "TRANSP44_369", 
                   "addr:city": "Nantes", 
                   "ref:PDL:IGN:category": "Equipement v\u00e9lo", 
-                  "addr:full": "9 boulevard Alexandre Millerand_44200", 
+                  "addr:full": "1 place Charles Le Roux_44000", 
                   "ref:PDL:IGN:subcategory": "V\u00e9lo en libre service", 
                   "creation_date": "2014-02-07", 
                   "source": "Nantes m\u00e9tropole", 
                   "addr:postcode": "44000", 
                   "ref:INSEE": "44109"
-                }
-              }
-            }, 
-            "links": [], 
-            "arrival_date_time": "20141212T073652", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T073027", 
-            "to": {
-              "embedded_type": "poi", 
-              "quality": 0, 
-              "id": "poi:TRANSP44_369", 
-              "name": "Gare Nord station bicloo n\u00b062 (Nantes)", 
-              "poi": {
+                }, 
                 "poi_type": {
                   "name": "V\u00c3\u00a9lo en libre-service", 
                   "id": "poi_type:amenity:bicycle_rental"
@@ -6729,19 +6588,15 @@
                   ], 
                   "id": "-1.542193;47.218148"
                 }, 
-                "id": "poi:TRANSP44_369", 
-                "properties": {
-                  "ref:PDL:IGN:id": "TRANSP44_369", 
-                  "addr:city": "Nantes", 
-                  "ref:PDL:IGN:category": "Equipement v\u00e9lo", 
-                  "addr:full": "1 place Charles Le Roux_44000", 
-                  "ref:PDL:IGN:subcategory": "V\u00e9lo en libre service", 
-                  "creation_date": "2014-02-07", 
-                  "source": "Nantes m\u00e9tropole", 
-                  "addr:postcode": "44000", 
-                  "ref:INSEE": "44109"
-                }
-              }
+                "id": "poi:TRANSP44_369"
+              }, 
+              "quality": 0, 
+              "id": "poi:TRANSP44_369", 
+              "name": "Gare Nord station bicloo n\u00b062 (Nantes)"
+            }, 
+            "co2_emission": {
+              "value": 0.0, 
+              "unit": "gEC"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -6961,10 +6816,18 @@
           {
             "from": {
               "embedded_type": "poi", 
-              "quality": 0, 
-              "id": "poi:TRANSP44_369", 
-              "name": "Gare Nord station bicloo n\u00b062 (Nantes)", 
               "poi": {
+                "properties": {
+                  "ref:PDL:IGN:id": "TRANSP44_369", 
+                  "addr:city": "Nantes", 
+                  "ref:PDL:IGN:category": "Equipement v\u00e9lo", 
+                  "addr:full": "1 place Charles Le Roux_44000", 
+                  "ref:PDL:IGN:subcategory": "V\u00e9lo en libre service", 
+                  "creation_date": "2014-02-07", 
+                  "source": "Nantes m\u00e9tropole", 
+                  "addr:postcode": "44000", 
+                  "ref:INSEE": "44109"
+                }, 
                 "poi_type": {
                   "name": "V\u00c3\u00a9lo en libre-service", 
                   "id": "poi_type:amenity:bicycle_rental"
@@ -7013,29 +6876,17 @@
                   ], 
                   "id": "-1.542193;47.218148"
                 }, 
-                "id": "poi:TRANSP44_369", 
-                "properties": {
-                  "ref:PDL:IGN:id": "TRANSP44_369", 
-                  "addr:city": "Nantes", 
-                  "ref:PDL:IGN:category": "Equipement v\u00e9lo", 
-                  "addr:full": "1 place Charles Le Roux_44000", 
-                  "ref:PDL:IGN:subcategory": "V\u00e9lo en libre service", 
-                  "creation_date": "2014-02-07", 
-                  "source": "Nantes m\u00e9tropole", 
-                  "addr:postcode": "44000", 
-                  "ref:INSEE": "44109"
-                }
-              }
+                "id": "poi:TRANSP44_369"
+              }, 
+              "quality": 0, 
+              "id": "poi:TRANSP44_369", 
+              "name": "Gare Nord station bicloo n\u00b062 (Nantes)"
             }, 
             "links": [], 
             "arrival_date_time": "20141212T073752", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T073652", 
             "to": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.541864086;47.21815002", 
-              "name": "1 rue ECORCHARD (Nantes)", 
               "address": {
                 "name": "rue ECORCHARD", 
                 "house_number": 1, 
@@ -7059,7 +6910,10 @@
                   }
                 ], 
                 "id": "-1.541864086;47.21815002"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.541864086;47.21815002", 
+              "name": "1 rue ECORCHARD (Nantes)"
             }, 
             "duration": 60, 
             "path": [
@@ -7076,9 +6930,6 @@
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.541864086;47.21815002", 
-              "name": "1 rue ECORCHARD (Nantes)", 
               "address": {
                 "name": "rue ECORCHARD", 
                 "house_number": 1, 
@@ -7102,16 +6953,17 @@
                   }
                 ], 
                 "id": "-1.541864086;47.21815002"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.541864086;47.21815002", 
+              "name": "1 rue ECORCHARD (Nantes)"
             }, 
             "links": [], 
             "arrival_date_time": "20141212T073900", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T073752", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Nantes", 
                 "links": [], 
                 "coord": {
@@ -7138,7 +6990,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87481002", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -7193,8 +7044,8 @@
                   47.21782449
                 ], 
                 [
-                  -1.5418011235613496, 
-                  47.21755222501716
+                  -1.5418011236, 
+                  47.217552225
                 ], 
                 [
                   -1.541916, 
@@ -7237,7 +7088,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Nantes", 
                 "links": [], 
                 "coord": {
@@ -7264,7 +7114,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87481002", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -7307,8 +7156,13 @@
               }
             ], 
             "arrival_date_time": "20141212T091300", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T073900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 5050.92, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "gare de Le Mans (Le Mans)", 
               "code": "", 
@@ -7325,7 +7179,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Le Mans", 
                 "links": [], 
                 "coord": {
@@ -7352,7 +7205,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87396002", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Le Mans", 
                   "links": [], 
                   "coord": {
@@ -7368,11 +7220,12 @@
               "id": "stop_point:SNC:SP:SPOCETrainTER87396002", 
               "name": "gare de Le Mans (Le Mans)"
             }, 
+            "departure_date_time": "20141212T073900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 168362
+                  "length": 168364
                 }
               ], 
               "coordinates": [
@@ -7404,7 +7257,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Nantes", 
                   "links": [], 
                   "coord": {
@@ -7419,12 +7271,11 @@
                 }, 
                 "arrival_date_time": "20141212T073900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T073900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T073900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Ancenis", 
                   "links": [], 
                   "coord": {
@@ -7439,12 +7290,11 @@
                 }, 
                 "arrival_date_time": "20141212T075600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T075700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T075700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Angers-St-Laud", 
                   "links": [], 
                   "coord": {
@@ -7459,12 +7309,11 @@
                 }, 
                 "arrival_date_time": "20141212T081900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T082300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T082300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Sabl\u00e9-sur-Sarthe", 
                   "links": [], 
                   "coord": {
@@ -7477,12 +7326,11 @@
                 }, 
                 "arrival_date_time": "20141212T084700", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T084800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T084800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Le Mans", 
                   "links": [], 
                   "coord": {
@@ -7497,15 +7345,14 @@
                 }, 
                 "arrival_date_time": "20141212T091300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T091300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T091300"
               }
             ]
           }, 
           {
             "links": [], 
             "arrival_date_time": "20141212T093900", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T091300", 
             "duration": 1560, 
             "type": "waiting", 
@@ -7515,7 +7362,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Le Mans", 
                 "links": [], 
                 "coord": {
@@ -7542,7 +7388,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87396002", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Le Mans", 
                   "links": [], 
                   "coord": {
@@ -7585,8 +7430,13 @@
               }
             ], 
             "arrival_date_time": "20141212T103500", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T093900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 2414.97, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "gare de Laval (Laval)", 
               "code": "", 
@@ -7603,7 +7453,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Laval", 
                 "links": [], 
                 "coord": {
@@ -7630,7 +7479,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87478404", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Laval", 
                   "links": [], 
                   "coord": {
@@ -7646,11 +7494,12 @@
               "id": "stop_point:SNC:SP:SPOCETrainTER87478404", 
               "name": "gare de Laval (Laval)"
             }, 
+            "departure_date_time": "20141212T093900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 80498
+                  "length": 80499
                 }
               ], 
               "coordinates": [
@@ -7686,7 +7535,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Le Mans", 
                   "links": [], 
                   "coord": {
@@ -7701,12 +7549,11 @@
                 }, 
                 "arrival_date_time": "20141212T093900", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T093900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T093900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Conlie", 
                   "links": [], 
                   "coord": {
@@ -7719,12 +7566,11 @@
                 }, 
                 "arrival_date_time": "20141212T095200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T095300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T095300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Sill\u00e9-le-Guillaume", 
                   "links": [], 
                   "coord": {
@@ -7739,12 +7585,11 @@
                 }, 
                 "arrival_date_time": "20141212T100000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T100100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T100100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Evron", 
                   "links": [], 
                   "coord": {
@@ -7757,12 +7602,11 @@
                 }, 
                 "arrival_date_time": "20141212T101400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T101500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T101500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Montsurs", 
                   "links": [], 
                   "coord": {
@@ -7775,12 +7619,11 @@
                 }, 
                 "arrival_date_time": "20141212T102200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T102300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T102300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Laval", 
                   "links": [], 
                   "coord": {
@@ -7795,8 +7638,8 @@
                 }, 
                 "arrival_date_time": "20141212T103500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T103500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T103500"
               }
             ]
           }, 
@@ -7804,7 +7647,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Laval", 
                 "links": [], 
                 "coord": {
@@ -7831,7 +7673,6 @@
                 ], 
                 "id": "stop_point:SNC:SP:SPOCETrainTER87478404", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Laval", 
                   "links": [], 
                   "coord": {
@@ -7849,12 +7690,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141212T103700", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T103500", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF", 
                 "links": [], 
                 "coord": {
@@ -7879,7 +7718,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav99", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -7921,7 +7759,6 @@
           {
             "links": [], 
             "arrival_date_time": "20141212T105200", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T103700", 
             "duration": 900, 
             "type": "waiting", 
@@ -7931,7 +7768,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF", 
                 "links": [], 
                 "coord": {
@@ -7956,7 +7792,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav99", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -7999,8 +7834,13 @@
               }
             ], 
             "arrival_date_time": "20141212T110000", 
-            "additional_informations": [], 
-            "departure_date_time": "20141212T105200", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 156.937, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Jaunaie", 
               "code": "B", 
@@ -8017,7 +7857,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare TUL", 
                 "links": [], 
                 "coord": {
@@ -8042,7 +7881,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav49", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare TUL", 
                   "links": [], 
                   "coord": {
@@ -8058,11 +7896,12 @@
               "id": "stop_point:LAV:SP:Nav49", 
               "name": "Gare TUL (Laval)"
             }, 
+            "departure_date_time": "20141212T105200", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 1209
+                  "length": 1210
                 }
               ], 
               "coordinates": [
@@ -8098,7 +7937,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -8111,12 +7949,11 @@
                 }, 
                 "arrival_date_time": "20141212T105200", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Alma", 
                   "links": [], 
                   "coord": {
@@ -8129,12 +7966,11 @@
                 }, 
                 "arrival_date_time": "20141212T105300", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Buron", 
                   "links": [], 
                   "coord": {
@@ -8147,12 +7983,11 @@
                 }, 
                 "arrival_date_time": "20141212T105400", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Pr\u00e9fecture", 
                   "links": [], 
                   "coord": {
@@ -8165,12 +8000,11 @@
                 }, 
                 "arrival_date_time": "20141212T105500", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Echelle Marteau", 
                   "links": [], 
                   "coord": {
@@ -8183,12 +8017,11 @@
                 }, 
                 "arrival_date_time": "20141212T105600", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T105600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T105600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare TUL", 
                   "links": [], 
                   "coord": {
@@ -8201,8 +8034,8 @@
                 }, 
                 "arrival_date_time": "20141212T110000", 
                 "additional_informations": [], 
-                "departure_date_time": "20141212T110000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20141212T110000"
               }
             ]
           }, 
@@ -8210,7 +8043,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare TUL", 
                 "links": [], 
                 "coord": {
@@ -8247,7 +8079,6 @@
                 ], 
                 "id": "stop_point:LAV:SP:Nav49", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare TUL", 
                   "links": [], 
                   "coord": {
@@ -8279,12 +8110,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20141212T110050", 
-            "additional_informations": [], 
             "departure_date_time": "20141212T110000", 
             "to": {
               "embedded_type": "stop_area", 
               "stop_area": {
-                "comment": "", 
                 "commercial_modes": [
                   {
                     "name": "Bus", 
@@ -8362,8 +8191,8 @@
                   48.071402
                 ], 
                 [
-                  -0.7730484922416208, 
-                  48.0714679583038
+                  -0.7730484922, 
+                  48.0714679583
                 ], 
                 [
                   -0.7731317523, 
@@ -8378,12 +8207,12 @@
                   48.07108168
                 ], 
                 [
-                  -0.7733488234375315, 
-                  48.07084652267799
+                  -0.7733488234, 
+                  48.0708465227
                 ], 
                 [
-                  -0.7733488234375315, 
-                  48.07084652267799
+                  -0.7733488234, 
+                  48.0708465227
                 ]
               ]
             }, 
@@ -8418,7 +8247,13 @@
             "id": "section_11_14_0_3", 
             "mode": "walking"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 7622.827, 
+          "unit": "gEC"
+        }, 
+        "duration": 12929, 
+        "type": "comfort"
       }
     ], 
     "disruptions": [], 

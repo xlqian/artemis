@@ -54,34 +54,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_3_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/nb-corr-03/journeys?to=stop_area%3ANC3%3ASA%3A5&from=stop_area%3ANC3%3ASA%3A1&datetime_represents=arrival&datetime=20041213T085900", 
@@ -114,21 +87,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/nb-corr-03/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/nb-corr-03/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/nb-corr-03/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
+        "href": "http://localhost/v1/coverage/nb-corr-03/commercial_modes/{commercial_modes.id}", 
+        "type": "commercial_modes", 
+        "rel": "commercial_modes", 
         "templated": true
       }, 
       {
@@ -138,9 +99,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/nb-corr-03/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
+        "href": "http://localhost/v1/coverage/nb-corr-03/physical_modes/{physical_modes.id}", 
+        "type": "physical_modes", 
+        "rel": "physical_modes", 
         "templated": true
       }
     ], 
@@ -152,16 +113,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -188,17 +142,27 @@
         ], 
         "departure_date_time": "20041213T070000", 
         "requested_date_time": "20041213T070000", 
-        "type": "best", 
-        "duration": 7200, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:NC3:SA:1", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "TRAMWAY", 
+                    "id": "commercial_mode:TRAMWAY"
+                  }
+                ], 
                 "name": "Arret 1", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Tramway", 
+                    "id": "physical_mode:Tramway"
+                  }
+                ], 
                 "coord": {
                   "lat": "47.829736", 
                   "lon": "1.89175"
@@ -221,17 +185,14 @@
                 "timezone": "Africa/Abidjan", 
                 "id": "stop_area:NC3:SA:1"
               }, 
-              "name": "Arret 1 (Ardon)", 
-              "id": "stop_area:NC3:SA:1"
+              "name": "Arret 1 (Ardon)"
             }, 
             "links": [], 
             "arrival_date_time": "20041213T070000", 
-            "additional_informations": [], 
             "departure_date_time": "20041213T070000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Arret 1", 
                 "links": [], 
                 "coord": {
@@ -254,19 +215,8 @@
                     "zip_code": "45160"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:NC3:SP:Nav1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Arret 1", 
                   "links": [], 
                   "coord": {
@@ -305,7 +255,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Arret 1", 
                 "links": [], 
                 "coord": {
@@ -328,19 +277,8 @@
                     "zip_code": "45160"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:NC3:SP:Nav1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Arret 1", 
                   "links": [], 
                   "coord": {
@@ -380,18 +318,16 @@
               {
                 "type": "network", 
                 "id": "network:default_network"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20041213T080000", 
-            "additional_informations": [], 
-            "departure_date_time": "20041213T070000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 20.2244, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Arret C1 (Fleury-les-Aubrais)", 
               "code": "T1", 
@@ -408,7 +344,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Arret 2", 
                 "links": [], 
                 "coord": {
@@ -428,22 +363,11 @@
                     }, 
                     "label": "Orl\u00e9ans (45000-45100)", 
                     "id": "admin:147559extern", 
-                    "zip_code": "45000-45100"
+                    "zip_code": "45000;45100"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:NC3:SP:Nav2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Arret 2", 
                   "links": [], 
                   "coord": {
@@ -459,6 +383,7 @@
               "id": "stop_point:NC3:SP:Nav2", 
               "name": "Arret 2 (Orl\u00e9ans)"
             }, 
+            "departure_date_time": "20041213T070000", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -483,7 +408,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Arret 1", 
                   "links": [], 
                   "coord": {
@@ -496,12 +420,11 @@
                 }, 
                 "arrival_date_time": "20041213T070000", 
                 "additional_informations": [], 
-                "departure_date_time": "20041213T070000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041213T070000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Arret 2", 
                   "links": [], 
                   "coord": {
@@ -514,15 +437,14 @@
                 }, 
                 "arrival_date_time": "20041213T080000", 
                 "additional_informations": [], 
-                "departure_date_time": "20041213T080000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041213T080000"
               }
             ]
           }, 
           {
             "links": [], 
             "arrival_date_time": "20041213T083000", 
-            "additional_informations": [], 
             "departure_date_time": "20041213T080000", 
             "duration": 1800, 
             "type": "waiting", 
@@ -532,7 +454,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Arret 2", 
                 "links": [], 
                 "coord": {
@@ -552,22 +473,11 @@
                     }, 
                     "label": "Orl\u00e9ans (45000-45100)", 
                     "id": "admin:147559extern", 
-                    "zip_code": "45000-45100"
+                    "zip_code": "45000;45100"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:NC3:SP:Nav2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Arret 2", 
                   "links": [], 
                   "coord": {
@@ -607,18 +517,16 @@
               {
                 "type": "network", 
                 "id": "network:default_network"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20041213T090000", 
-            "additional_informations": [], 
-            "departure_date_time": "20041213T083000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 14.9141, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Arret C2 (Saint-Cyr-en-Val)", 
               "code": "T2", 
@@ -635,7 +543,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Arret C2", 
                 "links": [], 
                 "coord": {
@@ -658,19 +565,8 @@
                     "zip_code": "45590"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:NC3:SP:Nav4", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Arret C2", 
                   "links": [], 
                   "coord": {
@@ -686,6 +582,7 @@
               "id": "stop_point:NC3:SP:Nav4", 
               "name": "Arret C2 (Saint-Cyr-en-Val)"
             }, 
+            "departure_date_time": "20041213T083000", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -710,7 +607,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Arret 2", 
                   "links": [], 
                   "coord": {
@@ -723,12 +619,11 @@
                 }, 
                 "arrival_date_time": "20041213T083000", 
                 "additional_informations": [], 
-                "departure_date_time": "20041213T083000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041213T083000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Arret C2", 
                   "links": [], 
                   "coord": {
@@ -741,8 +636,8 @@
                 }, 
                 "arrival_date_time": "20041213T090000", 
                 "additional_informations": [], 
-                "departure_date_time": "20041213T090000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041213T090000"
               }
             ]
           }, 
@@ -750,7 +645,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Arret C2", 
                 "links": [], 
                 "coord": {
@@ -773,19 +667,8 @@
                     "zip_code": "45590"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:NC3:SP:Nav4", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Arret C2", 
                   "links": [], 
                   "coord": {
@@ -817,15 +700,26 @@
             }, 
             "links": [], 
             "arrival_date_time": "20041213T090000", 
-            "additional_informations": [], 
             "departure_date_time": "20041213T090000", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:NC3:SA:5", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "TRAMWAY", 
+                    "id": "commercial_mode:TRAMWAY"
+                  }
+                ], 
                 "name": "Arret C2", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Tramway", 
+                    "id": "physical_mode:Tramway"
+                  }
+                ], 
                 "coord": {
                   "lat": "47.863789", 
                   "lon": "1.947915"
@@ -848,15 +742,20 @@
                 "timezone": "Africa/Abidjan", 
                 "id": "stop_area:NC3:SA:5"
               }, 
-              "name": "Arret C2 (Saint-Cyr-en-Val)", 
-              "id": "stop_area:NC3:SA:5"
+              "name": "Arret C2 (Saint-Cyr-en-Val)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_4_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 35.1385, 
+          "unit": "gEC"
+        }, 
+        "duration": 7200, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 

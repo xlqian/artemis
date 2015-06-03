@@ -54,34 +54,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_3_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/freqparis/journeys?to=stop_area%3AFQP%3ASA%3Agrest&from=stop_area%3AFQP%3ASA%3Adefen&datetime_represents=arrival&datetime=20090922T222900", 
@@ -130,30 +103,6 @@
         "type": "physical_modes", 
         "rel": "physical_modes", 
         "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/freqparis/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/freqparis/commercial_modes/{commercial_modes.id}", 
-        "type": "commercial_modes", 
-        "rel": "commercial_modes", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/freqparis/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/freqparis/physical_modes/{physical_modes.id}", 
-        "type": "physical_modes", 
-        "rel": "physical_modes", 
-        "templated": true
       }
     ], 
     "journeys": [
@@ -164,16 +113,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -200,15 +142,13 @@
         ], 
         "departure_date_time": "20090922T220100", 
         "requested_date_time": "20090922T220000", 
-        "type": "best", 
-        "duration": 1740, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:FQP:SA:defen", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
                 "commercial_modes": [
                   {
                     "name": "METRO", 
@@ -245,17 +185,14 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:FQP:SA:defen"
               }, 
-              "name": "La defense (Puteaux)", 
-              "id": "stop_area:FQP:SA:defen"
+              "name": "La defense (Puteaux)"
             }, 
             "links": [], 
             "arrival_date_time": "20090922T220100", 
-            "additional_informations": [], 
             "departure_date_time": "20090922T220100", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "La Defense", 
                 "links": [], 
                 "coord": {
@@ -280,7 +217,6 @@
                 ], 
                 "id": "stop_point:FQP:SP:defen", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "La defense", 
                   "links": [], 
                   "coord": {
@@ -319,7 +255,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "La Defense", 
                 "links": [], 
                 "coord": {
@@ -344,7 +279,6 @@
                 ], 
                 "id": "stop_point:FQP:SP:defen", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "La defense", 
                   "links": [], 
                   "coord": {
@@ -384,18 +318,16 @@
               {
                 "type": "network", 
                 "id": "network:FQP"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20090922T222000", 
-            "additional_informations": [], 
-            "departure_date_time": "20090922T220100", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 29.3568, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Nation (Paris)", 
               "code": "", 
@@ -412,7 +344,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Chatelet", 
                 "links": [], 
                 "coord": {
@@ -432,7 +363,7 @@
                     }, 
                     "label": "Paris (75001-75116)", 
                     "id": "admin:7444extern", 
-                    "zip_code": "75001-75116"
+                    "zip_code": "75001;75116"
                   }, 
                   {
                     "insee": "75104", 
@@ -449,7 +380,6 @@
                 ], 
                 "id": "stop_point:FQP:SP:chate", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Chatelet", 
                   "links": [], 
                   "coord": {
@@ -465,6 +395,7 @@
               "id": "stop_point:FQP:SP:chate", 
               "name": "Chatelet (Paris)"
             }, 
+            "departure_date_time": "20090922T220100", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -489,7 +420,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "La Defense", 
                   "links": [], 
                   "coord": {
@@ -502,12 +432,11 @@
                 }, 
                 "arrival_date_time": "20090922T220100", 
                 "additional_informations": [], 
-                "departure_date_time": "20090922T220100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20090922T220100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Chatelet", 
                   "links": [], 
                   "coord": {
@@ -520,15 +449,14 @@
                 }, 
                 "arrival_date_time": "20090922T222000", 
                 "additional_informations": [], 
-                "departure_date_time": "20090922T222000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20090922T222000"
               }
             ]
           }, 
           {
             "links": [], 
             "arrival_date_time": "20090922T222400", 
-            "additional_informations": [], 
             "departure_date_time": "20090922T222000", 
             "duration": 240, 
             "type": "waiting", 
@@ -538,7 +466,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Chatelet", 
                 "links": [], 
                 "coord": {
@@ -558,7 +485,7 @@
                     }, 
                     "label": "Paris (75001-75116)", 
                     "id": "admin:7444extern", 
-                    "zip_code": "75001-75116"
+                    "zip_code": "75001;75116"
                   }, 
                   {
                     "insee": "75104", 
@@ -575,7 +502,6 @@
                 ], 
                 "id": "stop_point:FQP:SP:chate", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Chatelet", 
                   "links": [], 
                   "coord": {
@@ -615,18 +541,16 @@
               {
                 "type": "network", 
                 "id": "network:FQP"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20090922T223000", 
-            "additional_informations": [], 
-            "departure_date_time": "20090922T222400", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 7.2006, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Gare du Nord (Paris)", 
               "code": "", 
@@ -643,7 +567,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare de l'Est", 
                 "links": [], 
                 "coord": {
@@ -663,7 +586,7 @@
                     }, 
                     "label": "Paris (75001-75116)", 
                     "id": "admin:7444extern", 
-                    "zip_code": "75001-75116"
+                    "zip_code": "75001;75116"
                   }, 
                   {
                     "insee": "75110", 
@@ -680,7 +603,6 @@
                 ], 
                 "id": "stop_point:FQP:SP:grest", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare de l'Est", 
                   "links": [], 
                   "coord": {
@@ -696,6 +618,7 @@
               "id": "stop_point:FQP:SP:grest", 
               "name": "Gare de l'Est (Paris)"
             }, 
+            "departure_date_time": "20090922T222400", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -720,7 +643,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Chatelet", 
                   "links": [], 
                   "coord": {
@@ -733,12 +655,11 @@
                 }, 
                 "arrival_date_time": "20090922T222400", 
                 "additional_informations": [], 
-                "departure_date_time": "20090922T222400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20090922T222400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare de l'Est", 
                   "links": [], 
                   "coord": {
@@ -751,8 +672,8 @@
                 }, 
                 "arrival_date_time": "20090922T223000", 
                 "additional_informations": [], 
-                "departure_date_time": "20090922T223000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20090922T223000"
               }
             ]
           }, 
@@ -760,7 +681,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare de l'Est", 
                 "links": [], 
                 "coord": {
@@ -780,7 +700,7 @@
                     }, 
                     "label": "Paris (75001-75116)", 
                     "id": "admin:7444extern", 
-                    "zip_code": "75001-75116"
+                    "zip_code": "75001;75116"
                   }, 
                   {
                     "insee": "75110", 
@@ -797,7 +717,6 @@
                 ], 
                 "id": "stop_point:FQP:SP:grest", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare de l'Est", 
                   "links": [], 
                   "coord": {
@@ -816,7 +735,7 @@
                       }, 
                       "label": "Paris (75001-75116)", 
                       "id": "admin:7444extern", 
-                      "zip_code": "75001-75116"
+                      "zip_code": "75001;75116"
                     }, 
                     {
                       "insee": "75110", 
@@ -841,13 +760,12 @@
             }, 
             "links": [], 
             "arrival_date_time": "20090922T223000", 
-            "additional_informations": [], 
             "departure_date_time": "20090922T223000", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:FQP:SA:grest", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
                 "commercial_modes": [
                   {
                     "name": "METRO", 
@@ -878,7 +796,7 @@
                     }, 
                     "label": "Paris (75001-75116)", 
                     "id": "admin:7444extern", 
-                    "zip_code": "75001-75116"
+                    "zip_code": "75001;75116"
                   }, 
                   {
                     "insee": "75110", 
@@ -896,15 +814,20 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:FQP:SA:grest"
               }, 
-              "name": "Gare de l'Est (Paris)", 
-              "id": "stop_area:FQP:SA:grest"
+              "name": "Gare de l'Est (Paris)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_4_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 36.5574, 
+          "unit": "gEC"
+        }, 
+        "duration": 1740, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 

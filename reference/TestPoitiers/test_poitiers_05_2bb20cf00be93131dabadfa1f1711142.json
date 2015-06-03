@@ -38,27 +38,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/poitiers/journeys?to=stop_area%3APOI%3ASA%3A10046&datetime_represents=arrival&from=stop_area%3APOI%3ASA%3A10001&max_duration_to_pt=2100&walking_speed=0.83&datetime=20091117T053400", 
@@ -113,36 +93,6 @@
         "type": "address", 
         "rel": "addresses", 
         "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/poitiers/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/poitiers/commercial_modes/{commercial_modes.id}", 
-        "type": "commercial_modes", 
-        "rel": "commercial_modes", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/poitiers/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/poitiers/physical_modes/{physical_modes.id}", 
-        "type": "physical_modes", 
-        "rel": "physical_modes", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/poitiers/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
       }
     ], 
     "journeys": [
@@ -153,16 +103,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -195,14 +138,11 @@
         ], 
         "departure_date_time": "20091117T044344", 
         "requested_date_time": "20091117T002000", 
-        "type": "best", 
-        "duration": 3076, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
               "stop_area": {
-                "comment": "", 
                 "commercial_modes": [
                   {
                     "name": "Bus", 
@@ -261,7 +201,7 @@
                     "zip_code": "86000"
                   }
                 ], 
-                "id": "0.3336438141102656;46.581823386353264"
+                "id": "0.3336438141102656;46.58182338635326"
               }, 
               "quality": 0, 
               "id": "stop_area:POI:SA:10001", 
@@ -269,12 +209,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20091117T051507", 
-            "additional_informations": [], 
             "departure_date_time": "20091117T044344", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Henri Oudin", 
                 "links": [], 
                 "coord": {
@@ -297,33 +235,8 @@
                     "zip_code": "86000"
                   }
                 ], 
-                "address": {
-                  "name": "Rue Henri Oudin", 
-                  "house_number": 8, 
-                  "coord": {
-                    "lat": "46.581297", 
-                    "lon": "0.342097"
-                  }, 
-                  "label": "8 Rue Henri Oudin (Poitiers)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "86194", 
-                      "name": "Poitiers", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "46.58698872", 
-                        "lon": "0.3426561942"
-                      }, 
-                      "label": "Poitiers (86000)", 
-                      "id": "admin:86194", 
-                      "zip_code": "86000"
-                    }
-                  ], 
-                  "id": "0.342097;46.581297"
-                }, 
                 "id": "stop_point:POI:SP:20391", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Henri Oudin", 
                   "links": [], 
                   "coord": {
@@ -349,33 +262,9 @@
                   "id": "stop_area:POI:SA:10025"
                 }
               }, 
-              "name": "Henri Oudin (Poitiers)", 
-              "address": {
-                "name": "Rue Henri Oudin", 
-                "house_number": 8, 
-                "coord": {
-                  "lat": "46.581297", 
-                  "lon": "0.342097"
-                }, 
-                "label": "8 Rue Henri Oudin (Poitiers)", 
-                "administrative_regions": [
-                  {
-                    "insee": "86194", 
-                    "name": "Poitiers", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "46.58698872", 
-                      "lon": "0.3426561942"
-                    }, 
-                    "label": "Poitiers (86000)", 
-                    "id": "admin:86194", 
-                    "zip_code": "86000"
-                  }
-                ], 
-                "id": "0.342097;46.581297"
-              }, 
               "quality": 0, 
-              "id": "stop_point:POI:SP:20391"
+              "id": "stop_point:POI:SP:20391", 
+              "name": "Henri Oudin (Poitiers)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -386,12 +275,12 @@
               ], 
               "coordinates": [
                 [
-                  0.3336438141102656, 
-                  46.581823386353264
+                  0.3336438141, 
+                  46.5818233864
                 ], 
                 [
-                  0.3336438141102656, 
-                  46.581823386353264
+                  0.3336438141, 
+                  46.5818233864
                 ], 
                 [
                   0.3336676069, 
@@ -478,8 +367,8 @@
                   46.5814944
                 ], 
                 [
-                  0.3420878807695631, 
-                  46.581302493454224
+                  0.3420878808, 
+                  46.5813024935
                 ], 
                 [
                   0.342097, 
@@ -558,7 +447,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Henri Oudin", 
                 "links": [], 
                 "coord": {
@@ -581,19 +469,8 @@
                     "zip_code": "86000"
                   }
                 ], 
-                "address": {
-                  "house_number": 8, 
-                  "id": "0.342097;46.581297", 
-                  "name": "Rue Henri Oudin", 
-                  "coord": {
-                    "lat": "46.581297", 
-                    "lon": "0.342097"
-                  }, 
-                  "label": "8 Rue Henri Oudin (Poitiers)"
-                }, 
                 "id": "stop_point:POI:SP:20391", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Henri Oudin", 
                   "links": [], 
                   "coord": {
@@ -633,18 +510,16 @@
               {
                 "type": "network", 
                 "id": "network:POI:1"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20091117T053500", 
-            "additional_informations": [], 
-            "departure_date_time": "20091117T050700", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 1299.0752, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "H. de Ville Lebascles (Poitiers)", 
               "code": "N2B", 
@@ -661,7 +536,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Northampton", 
                 "links": [], 
                 "coord": {
@@ -684,19 +558,8 @@
                     "zip_code": "86000"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.37921;46.579682", 
-                  "name": "Avenue de Northampton", 
-                  "coord": {
-                    "lat": "46.579682", 
-                    "lon": "0.37921"
-                  }, 
-                  "label": "Avenue de Northampton (Poitiers)"
-                }, 
                 "id": "stop_point:POI:SP:20082", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Northampton", 
                   "links": [], 
                   "coord": {
@@ -712,11 +575,12 @@
               "id": "stop_point:POI:SP:20082", 
               "name": "Northampton (Poitiers)"
             }, 
+            "departure_date_time": "20091117T050700", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 9994
+                  "length": 10016
                 }
               ], 
               "coordinates": [
@@ -880,7 +744,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Henri Oudin", 
                   "links": [], 
                   "coord": {
@@ -893,8 +756,8 @@
                 }, 
                 "arrival_date_time": "20091117T050700", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T050700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T050700"
               }, 
               {
                 "stop_point": {
@@ -907,16 +770,25 @@
                   }, 
                   "label": "Bapt. St-Jean - Ste Croix (Poitiers)", 
                   "equipments": [], 
+                  "comments": [
+                    {
+                      "type": "standard", 
+                      "value": "abribus"
+                    }, 
+                    {
+                      "type": "standard", 
+                      "value": "abribus"
+                    }
+                  ], 
                   "id": "stop_point:POI:SP:20290"
                 }, 
                 "arrival_date_time": "20091117T050900", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T050900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T050900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Pont Neuf", 
                   "links": [], 
                   "coord": {
@@ -929,12 +801,11 @@
                 }, 
                 "arrival_date_time": "20091117T050900", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T050900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T050900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Anatole France", 
                   "links": [], 
                   "coord": {
@@ -947,12 +818,11 @@
                 }, 
                 "arrival_date_time": "20091117T051000", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T051000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Pont St-Cyprien", 
                   "links": [], 
                   "coord": {
@@ -965,12 +835,11 @@
                 }, 
                 "arrival_date_time": "20091117T051200", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T051200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Les Cours", 
                   "links": [], 
                   "coord": {
@@ -983,12 +852,11 @@
                 }, 
                 "arrival_date_time": "20091117T051200", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T051200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Fief de Grimoire", 
                   "links": [], 
                   "coord": {
@@ -1001,12 +869,11 @@
                 }, 
                 "arrival_date_time": "20091117T051300", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T051300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Rhin-Danube", 
                   "links": [], 
                   "coord": {
@@ -1019,12 +886,11 @@
                 }, 
                 "arrival_date_time": "20091117T051400", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T051400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Les Sables", 
                   "links": [], 
                   "coord": {
@@ -1037,12 +903,11 @@
                 }, 
                 "arrival_date_time": "20091117T051500", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T051500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Clos Gaultier", 
                   "links": [], 
                   "coord": {
@@ -1055,12 +920,11 @@
                 }, 
                 "arrival_date_time": "20091117T051500", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T051500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Moli\u00e8re", 
                   "links": [], 
                   "coord": {
@@ -1073,12 +937,11 @@
                 }, 
                 "arrival_date_time": "20091117T051600", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T051600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "St-Cyprien", 
                   "links": [], 
                   "coord": {
@@ -1091,12 +954,11 @@
                 }, 
                 "arrival_date_time": "20091117T051600", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T051600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Grand-Maison", 
                   "links": [], 
                   "coord": {
@@ -1109,12 +971,11 @@
                 }, 
                 "arrival_date_time": "20091117T051700", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T051700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Ronsard", 
                   "links": [], 
                   "coord": {
@@ -1127,12 +988,11 @@
                 }, 
                 "arrival_date_time": "20091117T051800", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T051800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Acadie", 
                   "links": [], 
                   "coord": {
@@ -1145,12 +1005,11 @@
                 }, 
                 "arrival_date_time": "20091117T051900", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T051900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T051900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Pontreau", 
                   "links": [], 
                   "coord": {
@@ -1163,12 +1022,11 @@
                 }, 
                 "arrival_date_time": "20091117T052000", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T052000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T052000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Paul Verlaine", 
                   "links": [], 
                   "coord": {
@@ -1181,12 +1039,11 @@
                 }, 
                 "arrival_date_time": "20091117T052100", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T052100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T052100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Les Landes", 
                   "links": [], 
                   "coord": {
@@ -1199,12 +1056,11 @@
                 }, 
                 "arrival_date_time": "20091117T052200", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T052200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T052200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Camille Gu\u00e9rin", 
                   "links": [], 
                   "coord": {
@@ -1217,12 +1073,11 @@
                 }, 
                 "arrival_date_time": "20091117T052200", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T052200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T052200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Patinoire", 
                   "links": [], 
                   "coord": {
@@ -1235,12 +1090,11 @@
                 }, 
                 "arrival_date_time": "20091117T052300", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T052300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T052300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Stade", 
                   "links": [], 
                   "coord": {
@@ -1253,12 +1107,11 @@
                 }, 
                 "arrival_date_time": "20091117T052400", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T052400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T052400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bosquets", 
                   "links": [], 
                   "coord": {
@@ -1271,12 +1124,11 @@
                 }, 
                 "arrival_date_time": "20091117T052400", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T052400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T052400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gymnase", 
                   "links": [], 
                   "coord": {
@@ -1289,12 +1141,11 @@
                 }, 
                 "arrival_date_time": "20091117T052500", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T052500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T052500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Aub\u00e9pines", 
                   "links": [], 
                   "coord": {
@@ -1307,12 +1158,11 @@
                 }, 
                 "arrival_date_time": "20091117T052500", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T052500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T052500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Petits Champs", 
                   "links": [], 
                   "coord": {
@@ -1325,12 +1175,11 @@
                 }, 
                 "arrival_date_time": "20091117T052600", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T052600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T052600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "P\u00f4le Technologique", 
                   "links": [], 
                   "coord": {
@@ -1343,12 +1192,11 @@
                 }, 
                 "arrival_date_time": "20091117T052700", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T052700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T052700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Descartes", 
                   "links": [], 
                   "coord": {
@@ -1361,12 +1209,11 @@
                 }, 
                 "arrival_date_time": "20091117T052800", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T052800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T052800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Parcobus Champlain", 
                   "links": [], 
                   "coord": {
@@ -1379,12 +1226,11 @@
                 }, 
                 "arrival_date_time": "20091117T052900", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T052900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T052900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Iassy", 
                   "links": [], 
                   "coord": {
@@ -1397,12 +1243,11 @@
                 }, 
                 "arrival_date_time": "20091117T052900", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T052900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T052900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Hauts Martins", 
                   "links": [], 
                   "coord": {
@@ -1415,12 +1260,11 @@
                 }, 
                 "arrival_date_time": "20091117T053000", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T053000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T053000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Mari\u00e9ville", 
                   "links": [], 
                   "coord": {
@@ -1433,12 +1277,11 @@
                 }, 
                 "arrival_date_time": "20091117T053000", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T053000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T053000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Montpensier", 
                   "links": [], 
                   "coord": {
@@ -1451,12 +1294,11 @@
                 }, 
                 "arrival_date_time": "20091117T053100", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T053100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T053100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Iaroslav", 
                   "links": [], 
                   "coord": {
@@ -1469,12 +1311,11 @@
                 }, 
                 "arrival_date_time": "20091117T053100", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T053100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T053100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Centre Culturel", 
                   "links": [], 
                   "coord": {
@@ -1487,12 +1328,11 @@
                 }, 
                 "arrival_date_time": "20091117T053200", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T053200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T053200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Vayres", 
                   "links": [], 
                   "coord": {
@@ -1505,12 +1345,11 @@
                 }, 
                 "arrival_date_time": "20091117T053200", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T053200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T053200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Templiers", 
                   "links": [], 
                   "coord": {
@@ -1523,12 +1362,11 @@
                 }, 
                 "arrival_date_time": "20091117T053300", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T053300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T053300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bois Dousset", 
                   "links": [], 
                   "coord": {
@@ -1541,12 +1379,11 @@
                 }, 
                 "arrival_date_time": "20091117T053300", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T053300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T053300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Northampton", 
                   "links": [], 
                   "coord": {
@@ -1559,8 +1396,8 @@
                 }, 
                 "arrival_date_time": "20091117T053500", 
                 "additional_informations": [], 
-                "departure_date_time": "20091117T053500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091117T053500"
               }
             ]
           }, 
@@ -1568,7 +1405,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Northampton", 
                 "links": [], 
                 "coord": {
@@ -1591,33 +1427,8 @@
                     "zip_code": "86000"
                   }
                 ], 
-                "address": {
-                  "name": "Avenue de Northampton", 
-                  "house_number": 0, 
-                  "coord": {
-                    "lat": "46.579682", 
-                    "lon": "0.37921"
-                  }, 
-                  "label": "Avenue de Northampton (Poitiers)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "86194", 
-                      "name": "Poitiers", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "46.58698872", 
-                        "lon": "0.3426561942"
-                      }, 
-                      "label": "Poitiers (86000)", 
-                      "id": "admin:86194", 
-                      "zip_code": "86000"
-                    }
-                  ], 
-                  "id": "0.37921;46.579682"
-                }, 
                 "id": "stop_point:POI:SP:20082", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Northampton", 
                   "links": [], 
                   "coord": {
@@ -1649,13 +1460,12 @@
             }, 
             "links": [], 
             "arrival_date_time": "20091117T053500", 
-            "additional_informations": [], 
             "departure_date_time": "20091117T053500", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:POI:SA:10046", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
                 "commercial_modes": [
                   {
                     "name": "Bus", 
@@ -1692,15 +1502,20 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:POI:SA:10046"
               }, 
-              "name": "Northampton (Poitiers)", 
-              "id": "stop_area:POI:SA:10046"
+              "name": "Northampton (Poitiers)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_2_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 1299.0752, 
+          "unit": "gEC"
+        }, 
+        "duration": 3076, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 

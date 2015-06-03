@@ -177,48 +177,6 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/fr-pdl/poi_types/{poi_type.id}", 
-        "type": "poi_type", 
-        "rel": "poi_types", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/physical_modes/{physical_modes.id}", 
-        "type": "physical_modes", 
-        "rel": "physical_modes", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/pois/{poi.id}", 
-        "type": "poi", 
-        "rel": "pois", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/commercial_modes/{commercial_modes.id}", 
-        "type": "commercial_modes", 
-        "rel": "commercial_modes", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/fr-pdl/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
-        "templated": true
-      }, 
-      {
         "href": "http://localhost/v1/coverage/fr-pdl/commercial_modes/{commercial_modes.id}", 
         "type": "commercial_modes", 
         "rel": "commercial_modes", 
@@ -265,6 +223,7 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [
           "is_pure_tc"
         ], 
@@ -291,15 +250,13 @@
         ], 
         "departure_date_time": "20150124T220100", 
         "requested_date_time": "20150124T200000", 
-        "type": "less_fallback_walk", 
-        "duration": 2400, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:NAN:SA:COMM", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
                 "commercial_modes": [
                   {
                     "name": "Bus", 
@@ -344,17 +301,14 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:NAN:SA:COMM"
               }, 
-              "name": "Commerce (Nantes)", 
-              "id": "stop_area:NAN:SA:COMM"
+              "name": "Commerce (Nantes)"
             }, 
             "links": [], 
             "arrival_date_time": "20150124T220100", 
-            "additional_informations": [], 
             "departure_date_time": "20150124T220100", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Commerce", 
                 "links": [], 
                 "coord": {
@@ -381,7 +335,6 @@
                 ], 
                 "id": "stop_point:NAN:SP:COMF1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Commerce", 
                   "links": [], 
                   "coord": {
@@ -420,7 +373,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Commerce", 
                 "links": [], 
                 "coord": {
@@ -447,7 +399,6 @@
                 ], 
                 "id": "stop_point:NAN:SP:COMF1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Commerce", 
                   "links": [], 
                   "coord": {
@@ -490,8 +441,13 @@
               }
             ], 
             "arrival_date_time": "20150124T220400", 
-            "additional_informations": [], 
-            "departure_date_time": "20150124T220100", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 107.651, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Le Cardo (Orvault)", 
               "code": "C2", 
@@ -508,7 +464,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Talensac", 
                 "links": [], 
                 "coord": {
@@ -533,7 +488,6 @@
                 ], 
                 "id": "stop_point:NAN:SP:TLSA2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Talensac", 
                   "links": [], 
                   "coord": {
@@ -549,11 +503,12 @@
               "id": "stop_point:NAN:SP:TLSA2", 
               "name": "Talensac (Nantes)"
             }, 
+            "departure_date_time": "20150124T220100", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 828
+                  "length": 830
                 }
               ], 
               "coordinates": [
@@ -585,7 +540,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Commerce", 
                   "links": [], 
                   "coord": {
@@ -600,12 +554,11 @@
                 }, 
                 "arrival_date_time": "20150124T220100", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T220100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T220100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Place du Cirque", 
                   "links": [], 
                   "coord": {
@@ -618,12 +571,11 @@
                 }, 
                 "arrival_date_time": "20150124T220100", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T220100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T220100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Cirque-Marais", 
                   "links": [], 
                   "coord": {
@@ -636,12 +588,11 @@
                 }, 
                 "arrival_date_time": "20150124T220200", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T220200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T220200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "50 Otages", 
                   "links": [], 
                   "coord": {
@@ -654,12 +605,11 @@
                 }, 
                 "arrival_date_time": "20150124T220300", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T220300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T220300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Talensac", 
                   "links": [], 
                   "coord": {
@@ -672,8 +622,8 @@
                 }, 
                 "arrival_date_time": "20150124T220400", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T220400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T220400"
               }
             ]
           }, 
@@ -681,7 +631,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Talensac", 
                 "links": [], 
                 "coord": {
@@ -706,7 +655,6 @@
                 ], 
                 "id": "stop_point:NAN:SP:TLSA2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Talensac", 
                   "links": [], 
                   "coord": {
@@ -724,12 +672,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20150124T220500", 
-            "additional_informations": [], 
             "departure_date_time": "20150124T220400", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Talensac", 
                 "links": [], 
                 "coord": {
@@ -754,7 +700,6 @@
                 ], 
                 "id": "stop_point:C44:SP:22189N", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Talensac", 
                   "links": [], 
                   "coord": {
@@ -796,7 +741,6 @@
           {
             "links": [], 
             "arrival_date_time": "20150124T221200", 
-            "additional_informations": [], 
             "departure_date_time": "20150124T220500", 
             "duration": 420, 
             "type": "waiting", 
@@ -806,7 +750,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Talensac", 
                 "links": [], 
                 "coord": {
@@ -831,7 +774,6 @@
                 ], 
                 "id": "stop_point:C44:SP:22189N", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Talensac", 
                   "links": [], 
                   "coord": {
@@ -874,8 +816,13 @@
               }
             ], 
             "arrival_date_time": "20150124T224100", 
-            "additional_informations": [], 
-            "departure_date_time": "20150124T221200", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 2602.656, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Cent sillons (Grandchamps-des-Fontaines)", 
               "code": "LILA 1E", 
@@ -892,7 +839,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Mairie", 
                 "links": [], 
                 "coord": {
@@ -917,7 +863,6 @@
                 ], 
                 "id": "stop_point:C44:SP:12232N", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Mairie", 
                   "links": [], 
                   "coord": {
@@ -933,11 +878,12 @@
               "id": "stop_point:C44:SP:12232N", 
               "name": "Mairie (Grandchamps-des-Fontaines)"
             }, 
+            "departure_date_time": "20150124T221200", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 18069
+                  "length": 18074
                 }
               ], 
               "coordinates": [
@@ -1009,7 +955,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Talensac", 
                   "links": [], 
                   "coord": {
@@ -1024,12 +969,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T221200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T221200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bel Air", 
                   "links": [], 
                   "coord": {
@@ -1044,12 +988,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T221300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T221300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Charles Le Goffic", 
                   "links": [], 
                   "coord": {
@@ -1064,12 +1007,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T221400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T221400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Rond Point De Rennes", 
                   "links": [], 
                   "coord": {
@@ -1084,12 +1026,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T221500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T221500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Les Am\u00e9ricains", 
                   "links": [], 
                   "coord": {
@@ -1104,12 +1045,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T221600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T221600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Hector Berlioz", 
                   "links": [], 
                   "coord": {
@@ -1124,12 +1064,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T221700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T221700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Picabia", 
                   "links": [], 
                   "coord": {
@@ -1144,12 +1083,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T222000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T222000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Le Cardo", 
                   "links": [], 
                   "coord": {
@@ -1164,12 +1102,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T222400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T222400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Tourneuve", 
                   "links": [], 
                   "coord": {
@@ -1182,12 +1119,11 @@
                 }, 
                 "arrival_date_time": "20150124T222800", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T222800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T222800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "M\u00e9nardais", 
                   "links": [], 
                   "coord": {
@@ -1200,12 +1136,11 @@
                 }, 
                 "arrival_date_time": "20150124T223100", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T223100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T223100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Poste de Gesvre", 
                   "links": [], 
                   "coord": {
@@ -1218,12 +1153,11 @@
                 }, 
                 "arrival_date_time": "20150124T223300", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T223300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T223300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Belle Etoile", 
                   "links": [], 
                   "coord": {
@@ -1236,12 +1170,11 @@
                 }, 
                 "arrival_date_time": "20150124T223400", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T223400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T223400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Roch\u00e8re", 
                   "links": [], 
                   "coord": {
@@ -1254,12 +1187,11 @@
                 }, 
                 "arrival_date_time": "20150124T223700", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T223700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T223700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bellevue", 
                   "links": [], 
                   "coord": {
@@ -1272,12 +1204,11 @@
                 }, 
                 "arrival_date_time": "20150124T223900", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T223900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T223900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Mairie", 
                   "links": [], 
                   "coord": {
@@ -1290,8 +1221,8 @@
                 }, 
                 "arrival_date_time": "20150124T224100", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T224100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T224100"
               }
             ]
           }, 
@@ -1299,7 +1230,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Mairie", 
                 "links": [], 
                 "coord": {
@@ -1324,7 +1254,6 @@
                 ], 
                 "id": "stop_point:C44:SP:12232N", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Mairie", 
                   "links": [], 
                   "coord": {
@@ -1356,11 +1285,9 @@
             }, 
             "links": [], 
             "arrival_date_time": "20150124T224100", 
-            "additional_informations": [], 
             "departure_date_time": "20150124T224100", 
             "to": {
               "embedded_type": "administrative_region", 
-              "quality": 0, 
               "administrative_region": {
                 "insee": "44066", 
                 "name": "Grandchamps-des-Fontaines", 
@@ -1373,6 +1300,7 @@
                 "id": "admin:44066", 
                 "zip_code": "44119"
               }, 
+              "quality": 0, 
               "id": "admin:44066", 
               "name": "Grandchamps-des-Fontaines (44119)"
             }, 
@@ -1381,7 +1309,13 @@
             "type": "crow_fly", 
             "id": "section_5_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 2710.307, 
+          "unit": "gEC"
+        }, 
+        "duration": 2400, 
+        "type": "less_fallback_walk"
       }, 
       {
         "fare": {
@@ -1392,6 +1326,7 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard", 
           "is_pure_tc"
@@ -1419,14 +1354,11 @@
         ], 
         "departure_date_time": "20150124T220221", 
         "requested_date_time": "20150124T200000", 
-        "type": "best", 
-        "duration": 2319, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
               "stop_area": {
-                "comment": "", 
                 "commercial_modes": [
                   {
                     "name": "Bus", 
@@ -1493,7 +1425,7 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "id": "-1.5562717520966065;47.213305545014684"
+                "id": "-1.556271752096607;47.21330554501468"
               }, 
               "quality": 0, 
               "id": "stop_area:NAN:SA:COMM", 
@@ -1501,12 +1433,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20150124T221000", 
-            "additional_informations": [], 
             "departure_date_time": "20150124T220221", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Place Du Cirque", 
                 "links": [], 
                 "coord": {
@@ -1531,7 +1461,6 @@
                 ], 
                 "id": "stop_point:C44:SP:22190N", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Place Du Cirque", 
                   "links": [], 
                   "coord": {
@@ -1570,12 +1499,12 @@
               ], 
               "coordinates": [
                 [
-                  -1.5562717520966065, 
-                  47.213305545014684
+                  -1.5562717521, 
+                  47.213305545
                 ], 
                 [
-                  -1.5562717520966065, 
-                  47.213305545014684
+                  -1.5562717521, 
+                  47.213305545
                 ], 
                 [
                   -1.55537378, 
@@ -1630,8 +1559,8 @@
                   47.21702074
                 ], 
                 [
-                  -1.5569234137003116, 
-                  47.217241661433405
+                  -1.5569234137, 
+                  47.2172416614
                 ], 
                 [
                   -1.556949, 
@@ -1668,7 +1597,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Place Du Cirque", 
                 "links": [], 
                 "coord": {
@@ -1693,7 +1621,6 @@
                 ], 
                 "id": "stop_point:C44:SP:22190N", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Place Du Cirque", 
                   "links": [], 
                   "coord": {
@@ -1736,8 +1663,13 @@
               }
             ], 
             "arrival_date_time": "20150124T224100", 
-            "additional_informations": [], 
-            "departure_date_time": "20150124T221000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 2672.064, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Cent sillons (Grandchamps-des-Fontaines)", 
               "code": "LILA 1E", 
@@ -1754,7 +1686,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Mairie", 
                 "links": [], 
                 "coord": {
@@ -1779,7 +1710,6 @@
                 ], 
                 "id": "stop_point:C44:SP:12232N", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Mairie", 
                   "links": [], 
                   "coord": {
@@ -1795,11 +1725,12 @@
               "id": "stop_point:C44:SP:12232N", 
               "name": "Mairie (Grandchamps-des-Fontaines)"
             }, 
+            "departure_date_time": "20150124T221000", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 18550
+                  "length": 18556
                 }
               ], 
               "coordinates": [
@@ -1875,7 +1806,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Place Du Cirque", 
                   "links": [], 
                   "coord": {
@@ -1890,12 +1820,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T221000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T221000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Talensac", 
                   "links": [], 
                   "coord": {
@@ -1910,12 +1839,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T221200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T221200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bel Air", 
                   "links": [], 
                   "coord": {
@@ -1930,12 +1858,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T221300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T221300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Charles Le Goffic", 
                   "links": [], 
                   "coord": {
@@ -1950,12 +1877,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T221400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T221400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Rond Point De Rennes", 
                   "links": [], 
                   "coord": {
@@ -1970,12 +1896,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T221500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T221500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Les Am\u00e9ricains", 
                   "links": [], 
                   "coord": {
@@ -1990,12 +1915,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T221600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T221600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Hector Berlioz", 
                   "links": [], 
                   "coord": {
@@ -2010,12 +1934,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T221700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T221700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Picabia", 
                   "links": [], 
                   "coord": {
@@ -2030,12 +1953,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T222000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T222000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Le Cardo", 
                   "links": [], 
                   "coord": {
@@ -2050,12 +1972,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T222400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T222400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Tourneuve", 
                   "links": [], 
                   "coord": {
@@ -2068,12 +1989,11 @@
                 }, 
                 "arrival_date_time": "20150124T222800", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T222800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T222800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "M\u00e9nardais", 
                   "links": [], 
                   "coord": {
@@ -2086,12 +2006,11 @@
                 }, 
                 "arrival_date_time": "20150124T223100", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T223100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T223100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Poste de Gesvre", 
                   "links": [], 
                   "coord": {
@@ -2104,12 +2023,11 @@
                 }, 
                 "arrival_date_time": "20150124T223300", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T223300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T223300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Belle Etoile", 
                   "links": [], 
                   "coord": {
@@ -2122,12 +2040,11 @@
                 }, 
                 "arrival_date_time": "20150124T223400", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T223400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T223400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Roch\u00e8re", 
                   "links": [], 
                   "coord": {
@@ -2140,12 +2057,11 @@
                 }, 
                 "arrival_date_time": "20150124T223700", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T223700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T223700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bellevue", 
                   "links": [], 
                   "coord": {
@@ -2158,12 +2074,11 @@
                 }, 
                 "arrival_date_time": "20150124T223900", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T223900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T223900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Mairie", 
                   "links": [], 
                   "coord": {
@@ -2176,8 +2091,8 @@
                 }, 
                 "arrival_date_time": "20150124T224100", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T224100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T224100"
               }
             ]
           }, 
@@ -2185,7 +2100,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Mairie", 
                 "links": [], 
                 "coord": {
@@ -2210,7 +2124,6 @@
                 ], 
                 "id": "stop_point:C44:SP:12232N", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Mairie", 
                   "links": [], 
                   "coord": {
@@ -2242,11 +2155,9 @@
             }, 
             "links": [], 
             "arrival_date_time": "20150124T224100", 
-            "additional_informations": [], 
             "departure_date_time": "20150124T224100", 
             "to": {
               "embedded_type": "administrative_region", 
-              "quality": 0, 
               "administrative_region": {
                 "insee": "44066", 
                 "name": "Grandchamps-des-Fontaines", 
@@ -2259,6 +2170,7 @@
                 "id": "admin:44066", 
                 "zip_code": "44119"
               }, 
+              "quality": 0, 
               "id": "admin:44066", 
               "name": "Grandchamps-des-Fontaines (44119)"
             }, 
@@ -2267,7 +2179,13 @@
             "type": "crow_fly", 
             "id": "section_14_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 2672.064, 
+          "unit": "gEC"
+        }, 
+        "duration": 2319, 
+        "type": "best"
       }, 
       {
         "fare": {
@@ -2278,6 +2196,7 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [], 
         "nb_transfers": 0, 
         "arrival_date_time": "20150124T224100", 
@@ -2302,14 +2221,11 @@
         ], 
         "departure_date_time": "20150124T220942", 
         "requested_date_time": "20150124T200000", 
-        "type": "car", 
-        "duration": 1878, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
               "stop_area": {
-                "comment": "", 
                 "commercial_modes": [
                   {
                     "name": "Bus", 
@@ -2376,7 +2292,7 @@
                     "zip_code": "44000"
                   }
                 ], 
-                "id": "-1.5562717520966065;47.213305545014684"
+                "id": "-1.556271752096607;47.21330554501468"
               }, 
               "quality": 0, 
               "id": "stop_area:NAN:SA:COMM", 
@@ -2384,14 +2300,25 @@
             }, 
             "links": [], 
             "arrival_date_time": "20150124T221802", 
-            "additional_informations": [], 
             "departure_date_time": "20150124T220942", 
             "to": {
               "embedded_type": "poi", 
-              "quality": 0, 
-              "id": "poi:TRANSP44_6216", 
-              "name": "Parc-relais Le Cardo (Orvault)", 
               "poi": {
+                "properties": {
+                  "access_condition": "Contr\u00f4le en sortie par lecture du code barre du titre de transport, du lundi au samedi de 6h \u00e0 22h - Vid\u00e9osurveill\u00e9.", 
+                  "capacity": "200 places", 
+                  "addr:city": "Orvault", 
+                  "opening": "Du lundi au samedi sauf jours f\u00e9ri\u00e9s. De 6h \u00e0 22h.", 
+                  "addr:postcode": "44700", 
+                  "addr:full": "Esplanade du Cardo", 
+                  "ref:PDL:IGN:subcategory": "Parking relais", 
+                  "creation_date": "2014-04-11", 
+                  "source": "Nantes M\u00e9tropole", 
+                  "ref:PDL:IGN:category": "Stationnement", 
+                  "ref:PDL:IGN:id": "TRANSP44_6216", 
+                  "ref:INSEE": "44114", 
+                  "park_ride": "no"
+                }, 
                 "poi_type": {
                   "name": "parking", 
                   "id": "poi_type:amenity:parking"
@@ -2440,23 +2367,15 @@
                   ], 
                   "id": "-1.584512;47.262502"
                 }, 
-                "id": "poi:TRANSP44_6216", 
-                "properties": {
-                  "access_condition": "Contr\u00f4le en sortie par lecture du code barre du titre de transport, du lundi au samedi de 6h \u00e0 22h - Vid\u00e9osurveill\u00e9.", 
-                  "capacity": "200 places", 
-                  "addr:city": "Orvault", 
-                  "opening": "Du lundi au samedi sauf jours f\u00e9ri\u00e9s. De 6h \u00e0 22h.", 
-                  "addr:postcode": "44700", 
-                  "addr:full": "Esplanade du Cardo", 
-                  "ref:PDL:IGN:subcategory": "Parking relais", 
-                  "creation_date": "2014-04-11", 
-                  "source": "Nantes M\u00e9tropole", 
-                  "ref:PDL:IGN:category": "Stationnement", 
-                  "ref:PDL:IGN:id": "TRANSP44_6216", 
-                  "ref:INSEE": "44114", 
-                  "park_ride": "no"
-                }
-              }
+                "id": "poi:TRANSP44_6216"
+              }, 
+              "quality": 0, 
+              "id": "poi:TRANSP44_6216", 
+              "name": "Parc-relais Le Cardo (Orvault)"
+            }, 
+            "co2_emission": {
+              "value": 1144.124, 
+              "unit": "gEC"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -2467,12 +2386,12 @@
               ], 
               "coordinates": [
                 [
-                  -1.5562717520966065, 
-                  47.213305545014684
+                  -1.5562717521, 
+                  47.213305545
                 ], 
                 [
-                  -1.5562717520966065, 
-                  47.213305545014684
+                  -1.5562717521, 
+                  47.213305545
                 ], 
                 [
                   -1.55537378, 
@@ -2719,8 +2638,8 @@
                   47.23324155
                 ], 
                 [
-                  -1.565848239, 
-                  47.23329377
+                  -1.565951108, 
+                  47.23322661
                 ], 
                 [
                   -1.565904736, 
@@ -3127,7 +3046,7 @@
               {
                 "duration": 54, 
                 "length": 599, 
-                "direction": 48, 
+                "direction": -50, 
                 "name": "boulevard ROBERT SCHUMAN"
               }, 
               {
@@ -3276,10 +3195,22 @@
           {
             "from": {
               "embedded_type": "poi", 
-              "quality": 0, 
-              "id": "poi:TRANSP44_6216", 
-              "name": "Parc-relais Le Cardo (Orvault)", 
               "poi": {
+                "properties": {
+                  "access_condition": "Contr\u00f4le en sortie par lecture du code barre du titre de transport, du lundi au samedi de 6h \u00e0 22h - Vid\u00e9osurveill\u00e9.", 
+                  "capacity": "200 places", 
+                  "addr:city": "Orvault", 
+                  "opening": "Du lundi au samedi sauf jours f\u00e9ri\u00e9s. De 6h \u00e0 22h.", 
+                  "addr:postcode": "44700", 
+                  "addr:full": "Esplanade du Cardo", 
+                  "ref:PDL:IGN:subcategory": "Parking relais", 
+                  "creation_date": "2014-04-11", 
+                  "source": "Nantes M\u00e9tropole", 
+                  "ref:PDL:IGN:category": "Stationnement", 
+                  "ref:PDL:IGN:id": "TRANSP44_6216", 
+                  "ref:INSEE": "44114", 
+                  "park_ride": "no"
+                }, 
                 "poi_type": {
                   "name": "parking", 
                   "id": "poi_type:amenity:parking"
@@ -3328,33 +3259,17 @@
                   ], 
                   "id": "-1.584512;47.262502"
                 }, 
-                "id": "poi:TRANSP44_6216", 
-                "properties": {
-                  "access_condition": "Contr\u00f4le en sortie par lecture du code barre du titre de transport, du lundi au samedi de 6h \u00e0 22h - Vid\u00e9osurveill\u00e9.", 
-                  "capacity": "200 places", 
-                  "addr:city": "Orvault", 
-                  "opening": "Du lundi au samedi sauf jours f\u00e9ri\u00e9s. De 6h \u00e0 22h.", 
-                  "addr:postcode": "44700", 
-                  "addr:full": "Esplanade du Cardo", 
-                  "ref:PDL:IGN:subcategory": "Parking relais", 
-                  "creation_date": "2014-04-11", 
-                  "source": "Nantes M\u00e9tropole", 
-                  "ref:PDL:IGN:category": "Stationnement", 
-                  "ref:PDL:IGN:id": "TRANSP44_6216", 
-                  "ref:INSEE": "44114", 
-                  "park_ride": "no"
-                }
-              }
+                "id": "poi:TRANSP44_6216"
+              }, 
+              "quality": 0, 
+              "id": "poi:TRANSP44_6216", 
+              "name": "Parc-relais Le Cardo (Orvault)"
             }, 
             "links": [], 
             "arrival_date_time": "20150124T222302", 
-            "additional_informations": [], 
             "departure_date_time": "20150124T221802", 
             "to": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.584159723;47.26228698", 
-              "name": "4 rue DU WATTMAN (Orvault)", 
               "address": {
                 "name": "rue DU WATTMAN", 
                 "house_number": 4, 
@@ -3378,7 +3293,10 @@
                   }
                 ], 
                 "id": "-1.584159723;47.26228698"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.584159723;47.26228698", 
+              "name": "4 rue DU WATTMAN (Orvault)"
             }, 
             "duration": 300, 
             "path": [
@@ -3395,9 +3313,6 @@
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-1.584159723;47.26228698", 
-              "name": "4 rue DU WATTMAN (Orvault)", 
               "address": {
                 "name": "rue DU WATTMAN", 
                 "house_number": 4, 
@@ -3421,16 +3336,17 @@
                   }
                 ], 
                 "id": "-1.584159723;47.26228698"
-              }
+              }, 
+              "quality": 0, 
+              "id": "-1.584159723;47.26228698", 
+              "name": "4 rue DU WATTMAN (Orvault)"
             }, 
             "links": [], 
             "arrival_date_time": "20150124T222400", 
-            "additional_informations": [], 
             "departure_date_time": "20150124T222302", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Le Cardo", 
                 "links": [], 
                 "coord": {
@@ -3455,7 +3371,6 @@
                 ], 
                 "id": "stop_point:C44:SP:22395N", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Le Cardo", 
                   "links": [], 
                   "coord": {
@@ -3514,8 +3429,8 @@
                   47.26192546
                 ], 
                 [
-                  -1.5842367095004206, 
-                  47.26170427096073
+                  -1.5842367095, 
+                  47.261704271
                 ], 
                 [
                   -1.584234, 
@@ -3564,7 +3479,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Le Cardo", 
                 "links": [], 
                 "coord": {
@@ -3589,7 +3503,6 @@
                 ], 
                 "id": "stop_point:C44:SP:22395N", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Le Cardo", 
                   "links": [], 
                   "coord": {
@@ -3632,8 +3545,13 @@
               }
             ], 
             "arrival_date_time": "20150124T224100", 
-            "additional_informations": [], 
-            "departure_date_time": "20150124T222400", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 1784.016, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Cent sillons (Grandchamps-des-Fontaines)", 
               "code": "LILA 1E", 
@@ -3650,7 +3568,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Mairie", 
                 "links": [], 
                 "coord": {
@@ -3675,7 +3592,6 @@
                 ], 
                 "id": "stop_point:C44:SP:12232N", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Mairie", 
                   "links": [], 
                   "coord": {
@@ -3691,11 +3607,12 @@
               "id": "stop_point:C44:SP:12232N", 
               "name": "Mairie (Grandchamps-des-Fontaines)"
             }, 
+            "departure_date_time": "20150124T222400", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 12387
+                  "length": 12389
                 }
               ], 
               "coordinates": [
@@ -3739,7 +3656,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Le Cardo", 
                   "links": [], 
                   "coord": {
@@ -3754,12 +3670,11 @@
                 "additional_informations": [
                   "pick_up_only"
                 ], 
-                "departure_date_time": "20150124T222400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T222400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Tourneuve", 
                   "links": [], 
                   "coord": {
@@ -3772,12 +3687,11 @@
                 }, 
                 "arrival_date_time": "20150124T222800", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T222800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T222800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "M\u00e9nardais", 
                   "links": [], 
                   "coord": {
@@ -3790,12 +3704,11 @@
                 }, 
                 "arrival_date_time": "20150124T223100", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T223100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T223100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Poste de Gesvre", 
                   "links": [], 
                   "coord": {
@@ -3808,12 +3721,11 @@
                 }, 
                 "arrival_date_time": "20150124T223300", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T223300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T223300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Belle Etoile", 
                   "links": [], 
                   "coord": {
@@ -3826,12 +3738,11 @@
                 }, 
                 "arrival_date_time": "20150124T223400", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T223400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T223400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Roch\u00e8re", 
                   "links": [], 
                   "coord": {
@@ -3844,12 +3755,11 @@
                 }, 
                 "arrival_date_time": "20150124T223700", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T223700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T223700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bellevue", 
                   "links": [], 
                   "coord": {
@@ -3862,12 +3772,11 @@
                 }, 
                 "arrival_date_time": "20150124T223900", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T223900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T223900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Mairie", 
                   "links": [], 
                   "coord": {
@@ -3880,8 +3789,8 @@
                 }, 
                 "arrival_date_time": "20150124T224100", 
                 "additional_informations": [], 
-                "departure_date_time": "20150124T224100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20150124T224100"
               }
             ]
           }, 
@@ -3889,7 +3798,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Mairie", 
                 "links": [], 
                 "coord": {
@@ -3914,7 +3822,6 @@
                 ], 
                 "id": "stop_point:C44:SP:12232N", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Mairie", 
                   "links": [], 
                   "coord": {
@@ -3946,11 +3853,9 @@
             }, 
             "links": [], 
             "arrival_date_time": "20150124T224100", 
-            "additional_informations": [], 
             "departure_date_time": "20150124T224100", 
             "to": {
               "embedded_type": "administrative_region", 
-              "quality": 0, 
               "administrative_region": {
                 "insee": "44066", 
                 "name": "Grandchamps-des-Fontaines", 
@@ -3963,6 +3868,7 @@
                 "id": "admin:44066", 
                 "zip_code": "44119"
               }, 
+              "quality": 0, 
               "id": "admin:44066", 
               "name": "Grandchamps-des-Fontaines (44119)"
             }, 
@@ -3971,7 +3877,13 @@
             "type": "crow_fly", 
             "id": "section_16_6_0_2"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 2928.14, 
+          "unit": "gEC"
+        }, 
+        "duration": 1878, 
+        "type": "car"
       }
     ], 
     "disruptions": [], 

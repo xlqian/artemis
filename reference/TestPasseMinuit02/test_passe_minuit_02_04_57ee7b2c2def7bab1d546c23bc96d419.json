@@ -38,27 +38,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/passe-minuit-02/journeys?to=stop_area%3APM2%3ASA%3A4&from=stop_area%3APM2%3ASA%3A2&datetime_represents=arrival&datetime=20080311T002400", 
@@ -91,21 +71,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/passe-minuit-02/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/passe-minuit-02/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/passe-minuit-02/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
+        "href": "http://localhost/v1/coverage/passe-minuit-02/commercial_modes/{commercial_modes.id}", 
+        "type": "commercial_modes", 
+        "rel": "commercial_modes", 
         "templated": true
       }, 
       {
@@ -115,9 +83,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/passe-minuit-02/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
+        "href": "http://localhost/v1/coverage/passe-minuit-02/physical_modes/{physical_modes.id}", 
+        "type": "physical_modes", 
+        "rel": "physical_modes", 
         "templated": true
       }
     ], 
@@ -129,16 +97,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -165,17 +126,27 @@
         ], 
         "departure_date_time": "20080311T000500", 
         "requested_date_time": "20080311T000000", 
-        "type": "best", 
-        "duration": 1200, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:PM2:SA:2", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "TRAIN", 
+                    "id": "commercial_mode:TRAIN"
+                  }
+                ], 
                 "name": "Bbb", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Train", 
+                    "id": "physical_mode:Train"
+                  }
+                ], 
                 "coord": {
                   "lat": "42.684527", 
                   "lon": "2.893785"
@@ -192,23 +163,20 @@
                     }, 
                     "label": "Perpignan (66000-66100)", 
                     "id": "admin:18000extern", 
-                    "zip_code": "66000-66100"
+                    "zip_code": "66000;66100"
                   }
                 ], 
                 "timezone": "Africa/Abidjan", 
                 "id": "stop_area:PM2:SA:2"
               }, 
-              "name": "Bbb (Perpignan)", 
-              "id": "stop_area:PM2:SA:2"
+              "name": "Bbb (Perpignan)"
             }, 
             "links": [], 
             "arrival_date_time": "20080311T000500", 
-            "additional_informations": [], 
             "departure_date_time": "20080311T000500", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Bbb", 
                 "links": [], 
                 "coord": {
@@ -228,22 +196,11 @@
                     }, 
                     "label": "Perpignan (66000-66100)", 
                     "id": "admin:18000extern", 
-                    "zip_code": "66000-66100"
+                    "zip_code": "66000;66100"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:PM2:SP:Nav2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Bbb", 
                   "links": [], 
                   "coord": {
@@ -262,7 +219,7 @@
                       }, 
                       "label": "Perpignan (66000-66100)", 
                       "id": "admin:18000extern", 
-                      "zip_code": "66000-66100"
+                      "zip_code": "66000;66100"
                     }
                   ], 
                   "timezone": "Africa/Abidjan", 
@@ -282,7 +239,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Bbb", 
                 "links": [], 
                 "coord": {
@@ -302,22 +258,11 @@
                     }, 
                     "label": "Perpignan (66000-66100)", 
                     "id": "admin:18000extern", 
-                    "zip_code": "66000-66100"
+                    "zip_code": "66000;66100"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:PM2:SP:Nav2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Bbb", 
                   "links": [], 
                   "coord": {
@@ -357,18 +302,16 @@
               {
                 "type": "network", 
                 "id": "network:default_network"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20080311T002500", 
-            "additional_informations": [], 
-            "departure_date_time": "20080311T000500", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 63.3199, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Ddd (Th\u00e9za)", 
               "code": "3", 
@@ -385,7 +328,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Ddd", 
                 "links": [], 
                 "coord": {
@@ -408,19 +350,8 @@
                     "zip_code": "66200"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:PM2:SP:Nav4", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Ddd", 
                   "links": [], 
                   "coord": {
@@ -436,11 +367,12 @@
               "id": "stop_point:PM2:SP:Nav4", 
               "name": "Ddd (Th\u00e9za)"
             }, 
+            "departure_date_time": "20080311T000500", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 5320
+                  "length": 5321
                 }
               ], 
               "coordinates": [
@@ -464,7 +396,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bbb", 
                   "links": [], 
                   "coord": {
@@ -477,12 +408,11 @@
                 }, 
                 "arrival_date_time": "20080311T000500", 
                 "additional_informations": [], 
-                "departure_date_time": "20080311T000500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20080311T000500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Ccc", 
                   "links": [], 
                   "coord": {
@@ -495,12 +425,11 @@
                 }, 
                 "arrival_date_time": "20080311T001500", 
                 "additional_informations": [], 
-                "departure_date_time": "20080311T001500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20080311T001500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Ddd", 
                   "links": [], 
                   "coord": {
@@ -513,8 +442,8 @@
                 }, 
                 "arrival_date_time": "20080311T002500", 
                 "additional_informations": [], 
-                "departure_date_time": "20080311T002500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20080311T002500"
               }
             ]
           }, 
@@ -522,7 +451,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Ddd", 
                 "links": [], 
                 "coord": {
@@ -545,19 +473,8 @@
                     "zip_code": "66200"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:PM2:SP:Nav4", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Ddd", 
                   "links": [], 
                   "coord": {
@@ -589,15 +506,26 @@
             }, 
             "links": [], 
             "arrival_date_time": "20080311T002500", 
-            "additional_informations": [], 
             "departure_date_time": "20080311T002500", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:PM2:SA:4", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "TRAIN", 
+                    "id": "commercial_mode:TRAIN"
+                  }
+                ], 
                 "name": "Ddd", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Train", 
+                    "id": "physical_mode:Train"
+                  }
+                ], 
                 "coord": {
                   "lat": "42.651243", 
                   "lon": "2.935705"
@@ -620,15 +548,20 @@
                 "timezone": "Africa/Abidjan", 
                 "id": "stop_area:PM2:SA:4"
               }, 
-              "name": "Ddd (Th\u00e9za)", 
-              "id": "stop_area:PM2:SA:4"
+              "name": "Ddd (Th\u00e9za)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_2_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 63.3199, 
+          "unit": "gEC"
+        }, 
+        "duration": 1200, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 

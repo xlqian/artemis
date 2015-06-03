@@ -54,34 +54,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_3_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/rebroussement/journeys?to=stop_area%3ARBR%3ASA%3A7&from=stop_area%3ARBR%3ASA%3A1&datetime_represents=arrival&datetime=20041213T092200", 
@@ -114,21 +87,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/rebroussement/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
+        "href": "http://localhost/v1/coverage/rebroussement/commercial_modes/{commercial_modes.id}", 
+        "type": "commercial_modes", 
+        "rel": "commercial_modes", 
         "templated": true
       }, 
       {
@@ -138,9 +99,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
+        "href": "http://localhost/v1/coverage/rebroussement/physical_modes/{physical_modes.id}", 
+        "type": "physical_modes", 
+        "rel": "physical_modes", 
         "templated": true
       }
     ], 
@@ -152,16 +113,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -188,17 +142,27 @@
         ], 
         "departure_date_time": "20041213T090000", 
         "requested_date_time": "20041213T090000", 
-        "type": "best", 
-        "duration": 1380, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:RBR:SA:1", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "TRAIN", 
+                    "id": "commercial_mode:TRAIN"
+                  }
+                ], 
                 "name": "Braden", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Train", 
+                    "id": "physical_mode:Train"
+                  }
+                ], 
                 "coord": {
                   "lat": "43.327232", 
                   "lon": "-0.38934"
@@ -221,17 +185,14 @@
                 "timezone": "Africa/Abidjan", 
                 "id": "stop_area:RBR:SA:1"
               }, 
-              "name": "Braden (Lons)", 
-              "id": "stop_area:RBR:SA:1"
+              "name": "Braden (Lons)"
             }, 
             "links": [], 
             "arrival_date_time": "20041213T090000", 
-            "additional_informations": [], 
             "departure_date_time": "20041213T090000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Braden", 
                 "links": [], 
                 "coord": {
@@ -254,19 +215,8 @@
                     "zip_code": "64140"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:RBR:SP:Nav1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Braden", 
                   "links": [], 
                   "coord": {
@@ -305,7 +255,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Braden", 
                 "links": [], 
                 "coord": {
@@ -328,19 +277,8 @@
                     "zip_code": "64140"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:RBR:SP:Nav1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Braden", 
                   "links": [], 
                   "coord": {
@@ -380,18 +318,16 @@
               {
                 "type": "network", 
                 "id": "network:default_network"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20041213T090700", 
-            "additional_informations": [], 
-            "departure_date_time": "20041213T090000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 69.4008, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Centre Ville (Morla\u00e0s)", 
               "code": "5", 
@@ -408,7 +344,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Prat Maria", 
                 "links": [], 
                 "coord": {
@@ -431,19 +366,8 @@
                     "zip_code": "64140"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:RBR:SP:Nav3", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Prat Maria", 
                   "links": [], 
                   "coord": {
@@ -459,11 +383,12 @@
               "id": "stop_point:RBR:SP:Nav3", 
               "name": "Prat Maria (Lons)"
             }, 
+            "departure_date_time": "20041213T090000", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 5831
+                  "length": 5832
                 }
               ], 
               "coordinates": [
@@ -487,7 +412,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Braden", 
                   "links": [], 
                   "coord": {
@@ -500,12 +424,11 @@
                 }, 
                 "arrival_date_time": "20041213T090000", 
                 "additional_informations": [], 
-                "departure_date_time": "20041213T090000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041213T090000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Iut", 
                   "links": [], 
                   "coord": {
@@ -518,12 +441,11 @@
                 }, 
                 "arrival_date_time": "20041213T090500", 
                 "additional_informations": [], 
-                "departure_date_time": "20041213T090500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041213T090500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Prat Maria", 
                   "links": [], 
                   "coord": {
@@ -536,15 +458,14 @@
                 }, 
                 "arrival_date_time": "20041213T090700", 
                 "additional_informations": [], 
-                "departure_date_time": "20041213T090700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041213T090700"
               }
             ]
           }, 
           {
             "links": [], 
             "arrival_date_time": "20041213T091400", 
-            "additional_informations": [], 
             "departure_date_time": "20041213T090700", 
             "duration": 420, 
             "type": "waiting", 
@@ -554,7 +475,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Prat Maria", 
                 "links": [], 
                 "coord": {
@@ -577,19 +497,8 @@
                     "zip_code": "64140"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:RBR:SP:Nav3", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Prat Maria", 
                   "links": [], 
                   "coord": {
@@ -629,18 +538,16 @@
               {
                 "type": "network", 
                 "id": "network:default_network"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20041213T092300", 
-            "additional_informations": [], 
-            "departure_date_time": "20041213T091400", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 68.5559, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Aquarive (Idron)", 
               "code": "1", 
@@ -657,7 +564,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Aquarive", 
                 "links": [], 
                 "coord": {
@@ -680,19 +586,8 @@
                     "zip_code": "64320"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:RBR:SP:Nav7", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Aquarive", 
                   "links": [], 
                   "coord": {
@@ -708,6 +603,7 @@
               "id": "stop_point:RBR:SP:Nav7", 
               "name": "Aquarive (Idron)"
             }, 
+            "departure_date_time": "20041213T091400", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -732,7 +628,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Prat Maria", 
                   "links": [], 
                   "coord": {
@@ -745,12 +640,11 @@
                 }, 
                 "arrival_date_time": "20041213T091400", 
                 "additional_informations": [], 
-                "departure_date_time": "20041213T091400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041213T091400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Aquarive", 
                   "links": [], 
                   "coord": {
@@ -763,8 +657,8 @@
                 }, 
                 "arrival_date_time": "20041213T092300", 
                 "additional_informations": [], 
-                "departure_date_time": "20041213T092300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041213T092300"
               }
             ]
           }, 
@@ -772,7 +666,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Aquarive", 
                 "links": [], 
                 "coord": {
@@ -795,19 +688,8 @@
                     "zip_code": "64320"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:RBR:SP:Nav7", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Aquarive", 
                   "links": [], 
                   "coord": {
@@ -839,15 +721,26 @@
             }, 
             "links": [], 
             "arrival_date_time": "20041213T092300", 
-            "additional_informations": [], 
             "departure_date_time": "20041213T092300", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:RBR:SA:7", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "TRAIN", 
+                    "id": "commercial_mode:TRAIN"
+                  }
+                ], 
                 "name": "Aquarive", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Train", 
+                    "id": "physical_mode:Train"
+                  }
+                ], 
                 "coord": {
                   "lat": "43.295999", 
                   "lon": "-0.320586"
@@ -870,15 +763,20 @@
                 "timezone": "Africa/Abidjan", 
                 "id": "stop_area:RBR:SA:7"
               }, 
-              "name": "Aquarive (Idron)", 
-              "id": "stop_area:RBR:SA:7"
+              "name": "Aquarive (Idron)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_4_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 137.9567, 
+          "unit": "gEC"
+        }, 
+        "duration": 1380, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 

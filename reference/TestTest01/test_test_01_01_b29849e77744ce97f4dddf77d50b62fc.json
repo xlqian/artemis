@@ -87,41 +87,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_3_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_6_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/test-01/journeys?to=stop_area%3ATS1%3ASA%3A6&from=stop_area%3ATS1%3ASA%3A2&datetime_represents=arrival&datetime=20041214T073800", 
@@ -154,21 +120,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/test-01/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/test-01/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/test-01/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
+        "href": "http://localhost/v1/coverage/test-01/commercial_modes/{commercial_modes.id}", 
+        "type": "commercial_modes", 
+        "rel": "commercial_modes", 
         "templated": true
       }, 
       {
@@ -178,9 +132,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/test-01/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
+        "href": "http://localhost/v1/coverage/test-01/physical_modes/{physical_modes.id}", 
+        "type": "physical_modes", 
+        "rel": "physical_modes", 
         "templated": true
       }
     ], 
@@ -192,16 +146,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -228,17 +175,27 @@
         ], 
         "departure_date_time": "20041214T070000", 
         "requested_date_time": "20041214T070000", 
-        "type": "best", 
-        "duration": 2340, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:TS1:SA:2", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "TRAIN", 
+                    "id": "commercial_mode:TRAIN"
+                  }
+                ], 
                 "name": "Arret 2", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Train", 
+                    "id": "physical_mode:Train"
+                  }
+                ], 
                 "coord": {
                   "lat": "43.609002", 
                   "lon": "7.094765"
@@ -253,25 +210,22 @@
                       "lat": "43.583599", 
                       "lon": "7.109049"
                     }, 
-                    "label": "Antibes (06160-06600)", 
+                    "label": "Antibes (6160-6600)", 
                     "id": "admin:74687extern", 
-                    "zip_code": "06160-06600"
+                    "zip_code": "06160;06600"
                   }
                 ], 
                 "timezone": "Africa/Abidjan", 
                 "id": "stop_area:TS1:SA:2"
               }, 
-              "name": "Arret 2 (Antibes)", 
-              "id": "stop_area:TS1:SA:2"
+              "name": "Arret 2 (Antibes)"
             }, 
             "links": [], 
             "arrival_date_time": "20041214T070000", 
-            "additional_informations": [], 
             "departure_date_time": "20041214T070000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Arret 2", 
                 "links": [], 
                 "coord": {
@@ -289,24 +243,13 @@
                       "lat": "43.583599", 
                       "lon": "7.109049"
                     }, 
-                    "label": "Antibes (06160-06600)", 
+                    "label": "Antibes (6160-6600)", 
                     "id": "admin:74687extern", 
-                    "zip_code": "06160-06600"
+                    "zip_code": "06160;06600"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:TS1:SP:Nav1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Arret 2", 
                   "links": [], 
                   "coord": {
@@ -323,9 +266,9 @@
                         "lat": "43.583599", 
                         "lon": "7.109049"
                       }, 
-                      "label": "Antibes (06160-06600)", 
+                      "label": "Antibes (6160-6600)", 
                       "id": "admin:74687extern", 
-                      "zip_code": "06160-06600"
+                      "zip_code": "06160;06600"
                     }
                   ], 
                   "timezone": "Africa/Abidjan", 
@@ -345,7 +288,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Arret 2", 
                 "links": [], 
                 "coord": {
@@ -363,24 +305,13 @@
                       "lat": "43.583599", 
                       "lon": "7.109049"
                     }, 
-                    "label": "Antibes (06160-06600)", 
+                    "label": "Antibes (6160-6600)", 
                     "id": "admin:74687extern", 
-                    "zip_code": "06160-06600"
+                    "zip_code": "06160;06600"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:TS1:SP:Nav1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Arret 2", 
                   "links": [], 
                   "coord": {
@@ -420,18 +351,16 @@
               {
                 "type": "network", 
                 "id": "network:default_network"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20041214T073000", 
-            "additional_informations": [], 
-            "departure_date_time": "20041214T070000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 48.3259, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Arret 6 (Antibes)", 
               "code": "OMNIBUS", 
@@ -448,7 +377,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Arret 5", 
                 "links": [], 
                 "coord": {
@@ -466,24 +394,13 @@
                       "lat": "43.583599", 
                       "lon": "7.109049"
                     }, 
-                    "label": "Antibes (06160-06600)", 
+                    "label": "Antibes (6160-6600)", 
                     "id": "admin:74687extern", 
-                    "zip_code": "06160-06600"
+                    "zip_code": "06160;06600"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:TS1:SP:Nav4", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Arret 5", 
                   "links": [], 
                   "coord": {
@@ -499,11 +416,12 @@
               "id": "stop_point:TS1:SP:Nav4", 
               "name": "Arret 5 (Antibes)"
             }, 
+            "departure_date_time": "20041214T070000", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 4059
+                  "length": 4061
                 }
               ], 
               "coordinates": [
@@ -531,7 +449,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Arret 2", 
                   "links": [], 
                   "coord": {
@@ -544,12 +461,11 @@
                 }, 
                 "arrival_date_time": "20041214T070000", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T070000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T070000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Arret 7", 
                   "links": [], 
                   "coord": {
@@ -562,12 +478,11 @@
                 }, 
                 "arrival_date_time": "20041214T071000", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T071000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T071000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Arret 4", 
                   "links": [], 
                   "coord": {
@@ -580,12 +495,11 @@
                 }, 
                 "arrival_date_time": "20041214T072000", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T072000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T072000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Arret 5", 
                   "links": [], 
                   "coord": {
@@ -598,15 +512,14 @@
                 }, 
                 "arrival_date_time": "20041214T073000", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T073000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T073000"
               }
             ]
           }, 
           {
             "links": [], 
             "arrival_date_time": "20041214T073800", 
-            "additional_informations": [], 
             "departure_date_time": "20041214T073000", 
             "duration": 480, 
             "type": "waiting", 
@@ -616,7 +529,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Arret 5", 
                 "links": [], 
                 "coord": {
@@ -634,24 +546,13 @@
                       "lat": "43.583599", 
                       "lon": "7.109049"
                     }, 
-                    "label": "Antibes (06160-06600)", 
+                    "label": "Antibes (6160-6600)", 
                     "id": "admin:74687extern", 
-                    "zip_code": "06160-06600"
+                    "zip_code": "06160;06600"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:TS1:SP:Nav4", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Arret 5", 
                   "links": [], 
                   "coord": {
@@ -691,18 +592,16 @@
               {
                 "type": "network", 
                 "id": "network:default_network"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20041214T073900", 
-            "additional_informations": [], 
-            "departure_date_time": "20041214T073800", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 22.4434, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Arret 8 (Antibes)", 
               "code": "OMNIBUS", 
@@ -719,7 +618,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Arret 6", 
                 "links": [], 
                 "coord": {
@@ -737,24 +635,13 @@
                       "lat": "43.583599", 
                       "lon": "7.109049"
                     }, 
-                    "label": "Antibes (06160-06600)", 
+                    "label": "Antibes (6160-6600)", 
                     "id": "admin:74687extern", 
-                    "zip_code": "06160-06600"
+                    "zip_code": "06160;06600"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:TS1:SP:Nav5", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Arret 6", 
                   "links": [], 
                   "coord": {
@@ -770,6 +657,7 @@
               "id": "stop_point:TS1:SP:Nav5", 
               "name": "Arret 6 (Antibes)"
             }, 
+            "departure_date_time": "20041214T073800", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -794,7 +682,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Arret 5", 
                   "links": [], 
                   "coord": {
@@ -807,12 +694,11 @@
                 }, 
                 "arrival_date_time": "20041214T073800", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T073800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T073800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Arret 6", 
                   "links": [], 
                   "coord": {
@@ -825,8 +711,8 @@
                 }, 
                 "arrival_date_time": "20041214T073900", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T073900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T073900"
               }
             ]
           }, 
@@ -834,7 +720,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Arret 6", 
                 "links": [], 
                 "coord": {
@@ -852,24 +737,13 @@
                       "lat": "43.583599", 
                       "lon": "7.109049"
                     }, 
-                    "label": "Antibes (06160-06600)", 
+                    "label": "Antibes (6160-6600)", 
                     "id": "admin:74687extern", 
-                    "zip_code": "06160-06600"
+                    "zip_code": "06160;06600"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:TS1:SP:Nav5", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Arret 6", 
                   "links": [], 
                   "coord": {
@@ -886,9 +760,9 @@
                         "lat": "43.583599", 
                         "lon": "7.109049"
                       }, 
-                      "label": "Antibes (06160-06600)", 
+                      "label": "Antibes (6160-6600)", 
                       "id": "admin:74687extern", 
-                      "zip_code": "06160-06600"
+                      "zip_code": "06160;06600"
                     }
                   ], 
                   "timezone": "Africa/Abidjan", 
@@ -901,15 +775,26 @@
             }, 
             "links": [], 
             "arrival_date_time": "20041214T073900", 
-            "additional_informations": [], 
             "departure_date_time": "20041214T073900", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:TS1:SA:6", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "TRAIN", 
+                    "id": "commercial_mode:TRAIN"
+                  }
+                ], 
                 "name": "Arret 6", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Train", 
+                    "id": "physical_mode:Train"
+                  }
+                ], 
                 "coord": {
                   "lat": "43.619825", 
                   "lon": "7.118833"
@@ -924,23 +809,28 @@
                       "lat": "43.583599", 
                       "lon": "7.109049"
                     }, 
-                    "label": "Antibes (06160-06600)", 
+                    "label": "Antibes (6160-6600)", 
                     "id": "admin:74687extern", 
-                    "zip_code": "06160-06600"
+                    "zip_code": "06160;06600"
                   }
                 ], 
                 "timezone": "Africa/Abidjan", 
                 "id": "stop_area:TS1:SA:6"
               }, 
-              "name": "Arret 6 (Antibes)", 
-              "id": "stop_area:TS1:SA:6"
+              "name": "Arret 6 (Antibes)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_4_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 70.7693, 
+          "unit": "gEC"
+        }, 
+        "duration": 2340, 
+        "type": "best"
       }, 
       {
         "fare": {
@@ -951,6 +841,7 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [], 
         "nb_transfers": 0, 
         "arrival_date_time": "20041214T075000", 
@@ -975,17 +866,27 @@
         ], 
         "departure_date_time": "20041214T070000", 
         "requested_date_time": "20041214T070000", 
-        "type": "less_fallback_walk", 
-        "duration": 3000, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:TS1:SA:2", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "TRAIN", 
+                    "id": "commercial_mode:TRAIN"
+                  }
+                ], 
                 "name": "Arret 2", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Train", 
+                    "id": "physical_mode:Train"
+                  }
+                ], 
                 "coord": {
                   "lat": "43.609002", 
                   "lon": "7.094765"
@@ -1000,25 +901,22 @@
                       "lat": "43.583599", 
                       "lon": "7.109049"
                     }, 
-                    "label": "Antibes (06160-06600)", 
+                    "label": "Antibes (6160-6600)", 
                     "id": "admin:74687extern", 
-                    "zip_code": "06160-06600"
+                    "zip_code": "06160;06600"
                   }
                 ], 
                 "timezone": "Africa/Abidjan", 
                 "id": "stop_area:TS1:SA:2"
               }, 
-              "name": "Arret 2 (Antibes)", 
-              "id": "stop_area:TS1:SA:2"
+              "name": "Arret 2 (Antibes)"
             }, 
             "links": [], 
             "arrival_date_time": "20041214T070000", 
-            "additional_informations": [], 
             "departure_date_time": "20041214T070000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Arret 2", 
                 "links": [], 
                 "coord": {
@@ -1036,24 +934,13 @@
                       "lat": "43.583599", 
                       "lon": "7.109049"
                     }, 
-                    "label": "Antibes (06160-06600)", 
+                    "label": "Antibes (6160-6600)", 
                     "id": "admin:74687extern", 
-                    "zip_code": "06160-06600"
+                    "zip_code": "06160;06600"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:TS1:SP:Nav1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Arret 2", 
                   "links": [], 
                   "coord": {
@@ -1070,9 +957,9 @@
                         "lat": "43.583599", 
                         "lon": "7.109049"
                       }, 
-                      "label": "Antibes (06160-06600)", 
+                      "label": "Antibes (6160-6600)", 
                       "id": "admin:74687extern", 
-                      "zip_code": "06160-06600"
+                      "zip_code": "06160;06600"
                     }
                   ], 
                   "timezone": "Africa/Abidjan", 
@@ -1092,7 +979,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Arret 2", 
                 "links": [], 
                 "coord": {
@@ -1110,24 +996,13 @@
                       "lat": "43.583599", 
                       "lon": "7.109049"
                     }, 
-                    "label": "Antibes (06160-06600)", 
+                    "label": "Antibes (6160-6600)", 
                     "id": "admin:74687extern", 
-                    "zip_code": "06160-06600"
+                    "zip_code": "06160;06600"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:TS1:SP:Nav1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Arret 2", 
                   "links": [], 
                   "coord": {
@@ -1167,18 +1042,16 @@
               {
                 "type": "network", 
                 "id": "network:default_network"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20041214T075000", 
-            "additional_informations": [], 
-            "departure_date_time": "20041214T070000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 70.7693, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Arret 6 (Antibes)", 
               "code": "OMNIBUS", 
@@ -1195,7 +1068,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Arret 6", 
                 "links": [], 
                 "coord": {
@@ -1213,24 +1085,13 @@
                       "lat": "43.583599", 
                       "lon": "7.109049"
                     }, 
-                    "label": "Antibes (06160-06600)", 
+                    "label": "Antibes (6160-6600)", 
                     "id": "admin:74687extern", 
-                    "zip_code": "06160-06600"
+                    "zip_code": "06160;06600"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:TS1:SP:Nav5", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Arret 6", 
                   "links": [], 
                   "coord": {
@@ -1246,11 +1107,12 @@
               "id": "stop_point:TS1:SP:Nav5", 
               "name": "Arret 6 (Antibes)"
             }, 
+            "departure_date_time": "20041214T070000", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 5945
+                  "length": 5947
                 }
               ], 
               "coordinates": [
@@ -1282,7 +1144,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Arret 2", 
                   "links": [], 
                   "coord": {
@@ -1295,12 +1156,11 @@
                 }, 
                 "arrival_date_time": "20041214T070000", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T070000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T070000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Arret 7", 
                   "links": [], 
                   "coord": {
@@ -1313,12 +1173,11 @@
                 }, 
                 "arrival_date_time": "20041214T071000", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T071000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T071000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Arret 4", 
                   "links": [], 
                   "coord": {
@@ -1331,12 +1190,11 @@
                 }, 
                 "arrival_date_time": "20041214T072000", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T072000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T072000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Arret 5", 
                   "links": [], 
                   "coord": {
@@ -1349,12 +1207,11 @@
                 }, 
                 "arrival_date_time": "20041214T073000", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T073000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T073000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Arret 6", 
                   "links": [], 
                   "coord": {
@@ -1367,8 +1224,8 @@
                 }, 
                 "arrival_date_time": "20041214T075000", 
                 "additional_informations": [], 
-                "departure_date_time": "20041214T075000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041214T075000"
               }
             ]
           }, 
@@ -1376,7 +1233,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Arret 6", 
                 "links": [], 
                 "coord": {
@@ -1394,24 +1250,13 @@
                       "lat": "43.583599", 
                       "lon": "7.109049"
                     }, 
-                    "label": "Antibes (06160-06600)", 
+                    "label": "Antibes (6160-6600)", 
                     "id": "admin:74687extern", 
-                    "zip_code": "06160-06600"
+                    "zip_code": "06160;06600"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:TS1:SP:Nav5", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Arret 6", 
                   "links": [], 
                   "coord": {
@@ -1428,9 +1273,9 @@
                         "lat": "43.583599", 
                         "lon": "7.109049"
                       }, 
-                      "label": "Antibes (06160-06600)", 
+                      "label": "Antibes (6160-6600)", 
                       "id": "admin:74687extern", 
-                      "zip_code": "06160-06600"
+                      "zip_code": "06160;06600"
                     }
                   ], 
                   "timezone": "Africa/Abidjan", 
@@ -1443,15 +1288,26 @@
             }, 
             "links": [], 
             "arrival_date_time": "20041214T075000", 
-            "additional_informations": [], 
             "departure_date_time": "20041214T075000", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:TS1:SA:6", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "TRAIN", 
+                    "id": "commercial_mode:TRAIN"
+                  }
+                ], 
                 "name": "Arret 6", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Train", 
+                    "id": "physical_mode:Train"
+                  }
+                ], 
                 "coord": {
                   "lat": "43.619825", 
                   "lon": "7.118833"
@@ -1466,23 +1322,28 @@
                       "lat": "43.583599", 
                       "lon": "7.109049"
                     }, 
-                    "label": "Antibes (06160-06600)", 
+                    "label": "Antibes (6160-6600)", 
                     "id": "admin:74687extern", 
-                    "zip_code": "06160-06600"
+                    "zip_code": "06160;06600"
                   }
                 ], 
                 "timezone": "Africa/Abidjan", 
                 "id": "stop_area:TS1:SA:6"
               }, 
-              "name": "Arret 6 (Antibes)", 
-              "id": "stop_area:TS1:SA:6"
+              "name": "Arret 6 (Antibes)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_7_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 70.7693, 
+          "unit": "gEC"
+        }, 
+        "duration": 3000, 
+        "type": "less_fallback_walk"
       }
     ], 
     "disruptions": [], 

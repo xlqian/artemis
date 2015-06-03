@@ -38,27 +38,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/poitiers/journeys?to=stop_area%3APOI%3ASA%3A10046&datetime_represents=arrival&from=stop_area%3APOI%3ASA%3A10001&max_duration_to_pt=1800&walking_speed=0.83&datetime=20091114T012200", 
@@ -91,21 +71,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/poitiers/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/poitiers/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/poitiers/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
+        "href": "http://localhost/v1/coverage/poitiers/commercial_modes/{commercial_modes.id}", 
+        "type": "commercial_modes", 
+        "rel": "commercial_modes", 
         "templated": true
       }, 
       {
@@ -115,9 +83,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/poitiers/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
+        "href": "http://localhost/v1/coverage/poitiers/physical_modes/{physical_modes.id}", 
+        "type": "physical_modes", 
+        "rel": "physical_modes", 
         "templated": true
       }
     ], 
@@ -129,16 +97,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -165,17 +126,27 @@
         ], 
         "departure_date_time": "20091114T010800", 
         "requested_date_time": "20091114T002000", 
-        "type": "best", 
-        "duration": 900, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:POI:SA:10001", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "commercial_mode:POI3"
+                  }
+                ], 
                 "name": "Gare SNCF", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "physical_mode:Bus"
+                  }
+                ], 
                 "coord": {
                   "lat": "46.581815", 
                   "lon": "0.333659"
@@ -198,17 +169,14 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:POI:SA:10001"
               }, 
-              "name": "Gare SNCF (Poitiers)", 
-              "id": "stop_area:POI:SA:10001"
+              "name": "Gare SNCF (Poitiers)"
             }, 
             "links": [], 
             "arrival_date_time": "20091114T010800", 
-            "additional_informations": [], 
             "departure_date_time": "20091114T010800", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF", 
                 "links": [], 
                 "coord": {
@@ -231,33 +199,8 @@
                     "zip_code": "86000"
                   }
                 ], 
-                "address": {
-                  "name": "Boulevard du Grand Cerf", 
-                  "house_number": 153, 
-                  "coord": {
-                    "lat": "46.582346", 
-                    "lon": "0.334187"
-                  }, 
-                  "label": "153 Boulevard du Grand Cerf (Poitiers)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "86194", 
-                      "name": "Poitiers", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "46.58698872", 
-                        "lon": "0.3426561942"
-                      }, 
-                      "label": "Poitiers (86000)", 
-                      "id": "admin:86194", 
-                      "zip_code": "86000"
-                    }
-                  ], 
-                  "id": "0.334187;46.582346"
-                }, 
                 "id": "stop_point:POI:SP:20001", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -296,7 +239,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Gare SNCF", 
                 "links": [], 
                 "coord": {
@@ -319,19 +261,8 @@
                     "zip_code": "86000"
                   }
                 ], 
-                "address": {
-                  "house_number": 153, 
-                  "id": "0.334187;46.582346", 
-                  "name": "Boulevard du Grand Cerf", 
-                  "coord": {
-                    "lat": "46.582346", 
-                    "lon": "0.334187"
-                  }, 
-                  "label": "153 Boulevard du Grand Cerf (Poitiers)"
-                }, 
                 "id": "stop_point:POI:SP:20001", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -371,18 +302,16 @@
               {
                 "type": "network", 
                 "id": "network:POI:1"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20091114T012300", 
-            "additional_informations": [], 
-            "departure_date_time": "20091114T010800", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 692.9871, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "H. de Ville Claveurier (Poitiers)", 
               "code": "N2A", 
@@ -399,7 +328,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Northampton", 
                 "links": [], 
                 "coord": {
@@ -422,19 +350,8 @@
                     "zip_code": "86000"
                   }
                 ], 
-                "address": {
-                  "house_number": 32, 
-                  "id": "0.378973;46.579732", 
-                  "name": "Rue Salvador Allende", 
-                  "coord": {
-                    "lat": "46.579732", 
-                    "lon": "0.378973"
-                  }, 
-                  "label": "32 Rue Salvador Allende (Poitiers)"
-                }, 
                 "id": "stop_point:POI:SP:20081", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Northampton", 
                   "links": [], 
                   "coord": {
@@ -450,11 +367,12 @@
               "id": "stop_point:POI:SP:20081", 
               "name": "Northampton (Poitiers)"
             }, 
+            "departure_date_time": "20091114T010800", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 5337
+                  "length": 5343
                 }
               ], 
               "coordinates": [
@@ -526,7 +444,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -539,12 +456,11 @@
                 }, 
                 "arrival_date_time": "20091114T010800", 
                 "additional_informations": [], 
-                "departure_date_time": "20091114T010800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091114T010800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "La Chauss\u00e9e", 
                   "links": [], 
                   "coord": {
@@ -557,12 +473,11 @@
                 }, 
                 "arrival_date_time": "20091114T011000", 
                 "additional_informations": [], 
-                "departure_date_time": "20091114T011000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091114T011000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Pont le Nain", 
                   "links": [], 
                   "coord": {
@@ -575,12 +490,11 @@
                 }, 
                 "arrival_date_time": "20091114T011200", 
                 "additional_informations": [], 
-                "departure_date_time": "20091114T011200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091114T011200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Mozart", 
                   "links": [], 
                   "coord": {
@@ -593,12 +507,11 @@
                 }, 
                 "arrival_date_time": "20091114T011300", 
                 "additional_informations": [], 
-                "departure_date_time": "20091114T011300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091114T011300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Europe", 
                   "links": [], 
                   "coord": {
@@ -611,12 +524,11 @@
                 }, 
                 "arrival_date_time": "20091114T011400", 
                 "additional_informations": [], 
-                "departure_date_time": "20091114T011400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091114T011400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Le Mail", 
                   "links": [], 
                   "coord": {
@@ -629,12 +541,11 @@
                 }, 
                 "arrival_date_time": "20091114T011500", 
                 "additional_informations": [], 
-                "departure_date_time": "20091114T011500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091114T011500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Marbourg", 
                   "links": [], 
                   "coord": {
@@ -647,12 +558,11 @@
                 }, 
                 "arrival_date_time": "20091114T011600", 
                 "additional_informations": [], 
-                "departure_date_time": "20091114T011600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091114T011600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Rondy", 
                   "links": [], 
                   "coord": {
@@ -665,12 +575,11 @@
                 }, 
                 "arrival_date_time": "20091114T011700", 
                 "additional_informations": [], 
-                "departure_date_time": "20091114T011700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091114T011700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Nelson Mandela", 
                   "links": [], 
                   "coord": {
@@ -683,12 +592,11 @@
                 }, 
                 "arrival_date_time": "20091114T011800", 
                 "additional_informations": [], 
-                "departure_date_time": "20091114T011800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091114T011800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Le Peletier", 
                   "links": [], 
                   "coord": {
@@ -701,12 +609,11 @@
                 }, 
                 "arrival_date_time": "20091114T011900", 
                 "additional_informations": [], 
-                "departure_date_time": "20091114T011900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091114T011900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Hoche", 
                   "links": [], 
                   "coord": {
@@ -719,12 +626,11 @@
                 }, 
                 "arrival_date_time": "20091114T011900", 
                 "additional_informations": [], 
-                "departure_date_time": "20091114T011900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091114T011900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Marat", 
                   "links": [], 
                   "coord": {
@@ -737,12 +643,11 @@
                 }, 
                 "arrival_date_time": "20091114T012000", 
                 "additional_informations": [], 
-                "departure_date_time": "20091114T012000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091114T012000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "St-Jacques de Compostelle", 
                   "links": [], 
                   "coord": {
@@ -755,12 +660,11 @@
                 }, 
                 "arrival_date_time": "20091114T012100", 
                 "additional_informations": [], 
-                "departure_date_time": "20091114T012100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091114T012100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Ch\u00e2lons", 
                   "links": [], 
                   "coord": {
@@ -773,12 +677,11 @@
                 }, 
                 "arrival_date_time": "20091114T012100", 
                 "additional_informations": [], 
-                "departure_date_time": "20091114T012100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091114T012100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Northampton", 
                   "links": [], 
                   "coord": {
@@ -791,8 +694,8 @@
                 }, 
                 "arrival_date_time": "20091114T012300", 
                 "additional_informations": [], 
-                "departure_date_time": "20091114T012300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20091114T012300"
               }
             ]
           }, 
@@ -800,7 +703,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Northampton", 
                 "links": [], 
                 "coord": {
@@ -823,33 +725,8 @@
                     "zip_code": "86000"
                   }
                 ], 
-                "address": {
-                  "name": "Rue Salvador Allende", 
-                  "house_number": 32, 
-                  "coord": {
-                    "lat": "46.579732", 
-                    "lon": "0.378973"
-                  }, 
-                  "label": "32 Rue Salvador Allende (Poitiers)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "86194", 
-                      "name": "Poitiers", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "46.58698872", 
-                        "lon": "0.3426561942"
-                      }, 
-                      "label": "Poitiers (86000)", 
-                      "id": "admin:86194", 
-                      "zip_code": "86000"
-                    }
-                  ], 
-                  "id": "0.378973;46.579732"
-                }, 
                 "id": "stop_point:POI:SP:20081", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Northampton", 
                   "links": [], 
                   "coord": {
@@ -881,15 +758,26 @@
             }, 
             "links": [], 
             "arrival_date_time": "20091114T012300", 
-            "additional_informations": [], 
             "departure_date_time": "20091114T012300", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:POI:SA:10046", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "commercial_mode:POI3"
+                  }
+                ], 
                 "name": "Northampton", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "physical_mode:Bus"
+                  }
+                ], 
                 "coord": {
                   "lat": "46.579707", 
                   "lon": "0.379092"
@@ -912,15 +800,20 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:POI:SA:10046"
               }, 
-              "name": "Northampton (Poitiers)", 
-              "id": "stop_area:POI:SA:10046"
+              "name": "Northampton (Poitiers)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_2_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 692.9871, 
+          "unit": "gEC"
+        }, 
+        "duration": 900, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 

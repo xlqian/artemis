@@ -38,27 +38,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/guichet-unique/journeys?to=admin%3A7444extern&datetime_represents=arrival&from=admin%3A36458extern&max_duration_to_pt=240&walking_speed=0.83&datetime=20121020T133000", 
@@ -95,30 +75,6 @@
         "type": "stop_area", 
         "rel": "stop_areas", 
         "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/guichet-unique/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/guichet-unique/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/guichet-unique/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/guichet-unique/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
       }
     ], 
     "journeys": [
@@ -129,16 +85,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -165,13 +114,10 @@
         ], 
         "departure_date_time": "20121020T124300", 
         "requested_date_time": "20121020T120000", 
-        "type": "best", 
-        "duration": 2880, 
         "sections": [
           {
             "from": {
               "embedded_type": "administrative_region", 
-              "quality": 0, 
               "administrative_region": {
                 "insee": "51454", 
                 "name": "Reims", 
@@ -184,17 +130,16 @@
                 "id": "admin:36458extern", 
                 "zip_code": "51100"
               }, 
+              "quality": 0, 
               "id": "admin:36458extern", 
               "name": "Reims (51100)"
             }, 
             "links": [], 
             "arrival_date_time": "20121020T124300", 
-            "additional_informations": [], 
             "departure_date_time": "20121020T124300", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Reims", 
                 "links": [], 
                 "coord": {
@@ -217,19 +162,8 @@
                     "zip_code": "51100"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:OCE:SP:TGV-87171009", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Reims", 
                   "links": [], 
                   "coord": {
@@ -268,7 +202,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Reims", 
                 "links": [], 
                 "coord": {
@@ -291,19 +224,8 @@
                     "zip_code": "51100"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:OCE:SP:TGV-87171009", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Reims", 
                   "links": [], 
                   "coord": {
@@ -343,18 +265,16 @@
               {
                 "type": "network", 
                 "id": "network:SNC"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20121020T133100", 
-            "additional_informations": [], 
-            "departure_date_time": "20121020T124300", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 0.0, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "gare de Paris-Est (Paris)", 
               "code": "", 
@@ -371,7 +291,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Paris-Est", 
                 "links": [], 
                 "coord": {
@@ -391,7 +310,7 @@
                     }, 
                     "label": "Paris (75001-75116)", 
                     "id": "admin:7444extern", 
-                    "zip_code": "75001-75116"
+                    "zip_code": "75001;75116"
                   }, 
                   {
                     "insee": "75110", 
@@ -406,19 +325,8 @@
                     "zip_code": "75010"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:OCE:SP:TGV-87113001", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Paris-Est", 
                   "links": [], 
                   "coord": {
@@ -434,6 +342,7 @@
               "id": "stop_point:OCE:SP:TGV-87113001", 
               "name": "gare de Paris-Est (Paris)"
             }, 
+            "departure_date_time": "20121020T124300", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -458,7 +367,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Reims", 
                   "links": [], 
                   "coord": {
@@ -471,12 +379,11 @@
                 }, 
                 "arrival_date_time": "20121020T124300", 
                 "additional_informations": [], 
-                "departure_date_time": "20121020T124300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20121020T124300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "gare de Paris-Est", 
                   "links": [], 
                   "coord": {
@@ -489,8 +396,8 @@
                 }, 
                 "arrival_date_time": "20121020T133100", 
                 "additional_informations": [], 
-                "departure_date_time": "20121020T133100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20121020T133100"
               }
             ]
           }, 
@@ -498,7 +405,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "gare de Paris-Est", 
                 "links": [], 
                 "coord": {
@@ -518,7 +424,7 @@
                     }, 
                     "label": "Paris (75001-75116)", 
                     "id": "admin:7444extern", 
-                    "zip_code": "75001-75116"
+                    "zip_code": "75001;75116"
                   }, 
                   {
                     "insee": "75110", 
@@ -533,19 +439,8 @@
                     "zip_code": "75010"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:OCE:SP:TGV-87113001", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "gare de Paris-Est", 
                   "links": [], 
                   "coord": {
@@ -564,7 +459,7 @@
                       }, 
                       "label": "Paris (75001-75116)", 
                       "id": "admin:7444extern", 
-                      "zip_code": "75001-75116"
+                      "zip_code": "75001;75116"
                     }, 
                     {
                       "insee": "75110", 
@@ -589,11 +484,9 @@
             }, 
             "links": [], 
             "arrival_date_time": "20121020T133100", 
-            "additional_informations": [], 
             "departure_date_time": "20121020T133100", 
             "to": {
               "embedded_type": "administrative_region", 
-              "quality": 0, 
               "administrative_region": {
                 "insee": "75056", 
                 "name": "Paris", 
@@ -604,8 +497,9 @@
                 }, 
                 "label": "Paris (75001-75116)", 
                 "id": "admin:7444extern", 
-                "zip_code": "75001-75116"
+                "zip_code": "75001;75116"
               }, 
+              "quality": 0, 
               "id": "admin:7444extern", 
               "name": "Paris (75001-75116)"
             }, 
@@ -614,7 +508,13 @@
             "type": "crow_fly", 
             "id": "section_2_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 0.0, 
+          "unit": "gEC"
+        }, 
+        "duration": 2880, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 

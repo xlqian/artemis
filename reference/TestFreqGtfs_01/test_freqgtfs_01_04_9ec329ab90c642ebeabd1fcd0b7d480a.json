@@ -38,27 +38,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A215949&from=stop_area%3AFQT%3ASA%3A212127&datetime_represents=arrival&datetime=20121110T074300", 
@@ -91,21 +71,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/freqgtfs-01/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
+        "href": "http://localhost/v1/coverage/freqgtfs-01/commercial_modes/{commercial_modes.id}", 
+        "type": "commercial_modes", 
+        "rel": "commercial_modes", 
         "templated": true
       }, 
       {
@@ -115,9 +83,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqgtfs-01/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
+        "href": "http://localhost/v1/coverage/freqgtfs-01/physical_modes/{physical_modes.id}", 
+        "type": "physical_modes", 
+        "rel": "physical_modes", 
         "templated": true
       }
     ], 
@@ -129,16 +97,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -165,17 +126,27 @@
         ], 
         "departure_date_time": "20121110T074300", 
         "requested_date_time": "20121110T070000", 
-        "type": "best", 
-        "duration": 60, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:FQT:SA:212127", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "BUS", 
+                    "id": "commercial_mode:BUS"
+                  }
+                ], 
                 "name": "La Lie", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "physical_mode:Bus"
+                  }
+                ], 
                 "coord": {
                   "lat": "43.34302", 
                   "lon": "-5.061669"
@@ -198,17 +169,14 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:FQT:SA:212127"
               }, 
-              "name": "La Lie (Flourens)", 
-              "id": "stop_area:FQT:SA:212127"
+              "name": "La Lie (Flourens)"
             }, 
             "links": [], 
             "arrival_date_time": "20121110T074300", 
-            "additional_informations": [], 
             "departure_date_time": "20121110T074300", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "La Lie", 
                 "links": [], 
                 "coord": {
@@ -231,19 +199,8 @@
                     "zip_code": "31130"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:FQT:SP:356427", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "La Lie", 
                   "links": [], 
                   "coord": {
@@ -282,7 +239,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "La Lie", 
                 "links": [], 
                 "coord": {
@@ -305,19 +261,8 @@
                     "zip_code": "31130"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:FQT:SP:356427", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "La Lie", 
                   "links": [], 
                   "coord": {
@@ -363,16 +308,18 @@
                 "id": "note:7559797143697062830"
               }, 
               {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
+                "type": "notes", 
+                "id": "note:7559797143697062830"
               }
             ], 
             "arrival_date_time": "20121110T074400", 
-            "additional_informations": [], 
-            "departure_date_time": "20121110T074300", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 73.2805, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Dr\u00e9mil Stade (Dr\u00e9mil-Lafage)", 
               "code": "35", 
@@ -389,7 +336,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Lac", 
                 "links": [], 
                 "coord": {
@@ -412,19 +358,8 @@
                     "zip_code": "31130"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:FQT:SP:360637", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Lac", 
                   "links": [], 
                   "coord": {
@@ -440,11 +375,12 @@
               "id": "stop_point:FQT:SP:360637", 
               "name": "Lac (Flourens)"
             }, 
+            "departure_date_time": "20121110T074300", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 563
+                  "length": 565
                 }
               ], 
               "coordinates": [
@@ -472,7 +408,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "La Lie", 
                   "links": [], 
                   "coord": {
@@ -485,12 +420,11 @@
                 }, 
                 "arrival_date_time": "20121110T074300", 
                 "additional_informations": [], 
-                "departure_date_time": "20121110T074300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20121110T074300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Digue", 
                   "links": [], 
                   "coord": {
@@ -503,12 +437,11 @@
                 }, 
                 "arrival_date_time": "20121110T074300", 
                 "additional_informations": [], 
-                "departure_date_time": "20121110T074300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20121110T074300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Mairie Flourens", 
                   "links": [], 
                   "coord": {
@@ -521,12 +454,11 @@
                 }, 
                 "arrival_date_time": "20121110T074300", 
                 "additional_informations": [], 
-                "departure_date_time": "20121110T074300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20121110T074300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Lac", 
                   "links": [], 
                   "coord": {
@@ -539,8 +471,8 @@
                 }, 
                 "arrival_date_time": "20121110T074400", 
                 "additional_informations": [], 
-                "departure_date_time": "20121110T074400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20121110T074400"
               }
             ]
           }, 
@@ -548,7 +480,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Lac", 
                 "links": [], 
                 "coord": {
@@ -571,19 +502,8 @@
                     "zip_code": "31130"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:FQT:SP:360637", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Lac", 
                   "links": [], 
                   "coord": {
@@ -615,15 +535,26 @@
             }, 
             "links": [], 
             "arrival_date_time": "20121110T074400", 
-            "additional_informations": [], 
             "departure_date_time": "20121110T074400", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:FQT:SA:215949", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "BUS", 
+                    "id": "commercial_mode:BUS"
+                  }
+                ], 
                 "name": "Lac", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "physical_mode:Bus"
+                  }
+                ], 
                 "coord": {
                   "lat": "27.325844", 
                   "lon": "1.73839"
@@ -646,15 +577,20 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:FQT:SA:215949"
               }, 
-              "name": "Lac (Flourens)", 
-              "id": "stop_area:FQT:SA:215949"
+              "name": "Lac (Flourens)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_2_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 73.2805, 
+          "unit": "gEC"
+        }, 
+        "duration": 60, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 

@@ -22,27 +22,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_0_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62595&datetime_represents=arrival&from=stop_area%3AASO%3ASA%3A1&max_duration_to_pt=1000&walking_speed=1&datetime=20121206T155400", 
@@ -75,36 +55,6 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/poi_types/{poi_type.id}", 
-        "type": "poi_type", 
-        "rel": "poi_types", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/saintomer/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/saintomer/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/saintomer/pois/{poi.id}", 
-        "type": "poi", 
-        "rel": "pois", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/saintomer/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
-        "templated": true
-      }, 
-      {
         "href": "http://localhost/v1/coverage/saintomer/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
@@ -119,16 +69,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -165,15 +108,13 @@
         ], 
         "departure_date_time": "20121206T153500", 
         "requested_date_time": "20121206T153500", 
-        "type": "best", 
-        "duration": 1200, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:ASO:SA:1", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
                 "name": "Gare", 
                 "links": [], 
                 "coord": {
@@ -198,8 +139,7 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:ASO:SA:1"
               }, 
-              "name": "Gare (Saint-Omer)", 
-              "id": "stop_area:ASO:SA:1"
+              "name": "Gare (Saint-Omer)"
             }, 
             "links": [
               {
@@ -225,20 +165,16 @@
               {
                 "type": "network", 
                 "id": "network:CASO"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20121206T155500", 
             "additional_informations": [
               "odt_with_zone"
             ], 
-            "departure_date_time": "20121206T153500", 
+            "co2_emission": {
+              "value": 1086.48, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Moulle (Moulle)", 
               "code": "", 
@@ -254,7 +190,6 @@
             }, 
             "to": {
               "embedded_type": "administrative_region", 
-              "quality": 0, 
               "administrative_region": {
                 "insee": "62595", 
                 "name": "Moulle", 
@@ -267,9 +202,11 @@
                 "id": "admin:62595", 
                 "zip_code": "62910"
               }, 
+              "quality": 0, 
               "id": "admin:62595", 
               "name": "Moulle (62910)"
             }, 
+            "departure_date_time": "20121206T153500", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -294,7 +231,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Gare SNCF", 
                   "links": [], 
                   "coord": {
@@ -309,12 +245,11 @@
                 "additional_informations": [
                   "on_demand_transport"
                 ], 
-                "departure_date_time": "20121206T153500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20121206T153500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Moulle", 
                   "links": [], 
                   "coord": {
@@ -329,12 +264,18 @@
                 "additional_informations": [
                   "on_demand_transport"
                 ], 
-                "departure_date_time": "20121206T155500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20121206T155500"
               }
             ]
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 1086.48, 
+          "unit": "gEC"
+        }, 
+        "duration": 1200, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 
