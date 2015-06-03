@@ -52,6 +52,7 @@ class TestSaintOmer(ArtemisTestFixture):
                      to="stop_area:ASO:SA:1", datetime="20121206T153500",
                      walking_speed="1", max_duration_to_pt="1000")
 
+    @xfail(reason="http://jira.canaltp.fr/browse/NAVP-205", raises=AssertionError)
     def test_saint_omer_stop_area_to_admin(self):
         """
         ID artemis v1: 6
