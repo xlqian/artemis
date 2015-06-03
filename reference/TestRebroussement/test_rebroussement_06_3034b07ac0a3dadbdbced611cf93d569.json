@@ -38,27 +38,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/rebroussement/journeys?to=stop_area%3ARBR%3ASA%3A4&from=stop_area%3ARBR%3ASA%3A3&datetime_represents=arrival&datetime=20041213T090800", 
@@ -91,21 +71,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/rebroussement/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
+        "href": "http://localhost/v1/coverage/rebroussement/commercial_modes/{commercial_modes.id}", 
+        "type": "commercial_modes", 
+        "rel": "commercial_modes", 
         "templated": true
       }, 
       {
@@ -115,9 +83,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
+        "href": "http://localhost/v1/coverage/rebroussement/physical_modes/{physical_modes.id}", 
+        "type": "physical_modes", 
+        "rel": "physical_modes", 
         "templated": true
       }
     ], 
@@ -129,16 +97,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -165,17 +126,27 @@
         ], 
         "departure_date_time": "20041213T090700", 
         "requested_date_time": "20041213T090000", 
-        "type": "best", 
-        "duration": 120, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:RBR:SA:3", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "TRAIN", 
+                    "id": "commercial_mode:TRAIN"
+                  }
+                ], 
                 "name": "Prat Maria", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Train", 
+                    "id": "physical_mode:Train"
+                  }
+                ], 
                 "coord": {
                   "lat": "43.322267", 
                   "lon": "-0.381937"
@@ -198,17 +169,14 @@
                 "timezone": "Africa/Abidjan", 
                 "id": "stop_area:RBR:SA:3"
               }, 
-              "name": "Prat Maria (Lons)", 
-              "id": "stop_area:RBR:SA:3"
+              "name": "Prat Maria (Lons)"
             }, 
             "links": [], 
             "arrival_date_time": "20041213T090700", 
-            "additional_informations": [], 
             "departure_date_time": "20041213T090700", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Prat Maria", 
                 "links": [], 
                 "coord": {
@@ -231,19 +199,8 @@
                     "zip_code": "64140"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:RBR:SP:Nav3", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Prat Maria", 
                   "links": [], 
                   "coord": {
@@ -282,7 +239,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Prat Maria", 
                 "links": [], 
                 "coord": {
@@ -305,19 +261,8 @@
                     "zip_code": "64140"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:RBR:SP:Nav3", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Prat Maria", 
                   "links": [], 
                   "coord": {
@@ -357,18 +302,16 @@
               {
                 "type": "network", 
                 "id": "network:default_network"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20041213T090900", 
-            "additional_informations": [], 
-            "departure_date_time": "20041213T090700", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 30.5354, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Centre Ville (Morla\u00e0s)", 
               "code": "5", 
@@ -385,7 +328,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Centre Commercial Kerdrezec", 
                 "links": [], 
                 "coord": {
@@ -408,19 +350,8 @@
                     "zip_code": "64000"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:RBR:SP:Nav4", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Centre Commercial Kerdrezec", 
                   "links": [], 
                   "coord": {
@@ -436,6 +367,7 @@
               "id": "stop_point:RBR:SP:Nav4", 
               "name": "Centre Commercial Kerdrezec (Pau)"
             }, 
+            "departure_date_time": "20041213T090700", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -460,7 +392,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Prat Maria", 
                   "links": [], 
                   "coord": {
@@ -473,12 +404,11 @@
                 }, 
                 "arrival_date_time": "20041213T090700", 
                 "additional_informations": [], 
-                "departure_date_time": "20041213T090700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041213T090700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Centre Commercial Kerdrezec", 
                   "links": [], 
                   "coord": {
@@ -491,8 +421,8 @@
                 }, 
                 "arrival_date_time": "20041213T090900", 
                 "additional_informations": [], 
-                "departure_date_time": "20041213T090900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20041213T090900"
               }
             ]
           }, 
@@ -500,7 +430,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Centre Commercial Kerdrezec", 
                 "links": [], 
                 "coord": {
@@ -523,19 +452,8 @@
                     "zip_code": "64000"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:RBR:SP:Nav4", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Centre Commercial Kerdrezec", 
                   "links": [], 
                   "coord": {
@@ -567,15 +485,26 @@
             }, 
             "links": [], 
             "arrival_date_time": "20041213T090900", 
-            "additional_informations": [], 
             "departure_date_time": "20041213T090900", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:RBR:SA:4", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "TRAIN", 
+                    "id": "commercial_mode:TRAIN"
+                  }
+                ], 
                 "name": "Centre Commercial Kerdrezec", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Train", 
+                    "id": "physical_mode:Train"
+                  }
+                ], 
                 "coord": {
                   "lat": "43.307893", 
                   "lon": "-0.357136"
@@ -598,15 +527,20 @@
                 "timezone": "Africa/Abidjan", 
                 "id": "stop_area:RBR:SA:4"
               }, 
-              "name": "Centre Commercial Kerdrezec (Pau)", 
-              "id": "stop_area:RBR:SA:4"
+              "name": "Centre Commercial Kerdrezec (Pau)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_2_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 30.5354, 
+          "unit": "gEC"
+        }, 
+        "duration": 120, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 

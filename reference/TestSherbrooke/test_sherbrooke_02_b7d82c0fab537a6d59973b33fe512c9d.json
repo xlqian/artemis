@@ -70,69 +70,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_3_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_5_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_8_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_11_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_14_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_17_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/sherbrooke/journeys?to=poi%3A3534+-+ADDRESS968+-+ADDRESS970&datetime_represents=arrival&from=poi%3A3713+-+ADDRESS370+-+ADDRESS1079&max_duration_to_pt=720&walking_speed=0.83&datetime=20111112T135131", 
@@ -177,45 +115,15 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/pois/{poi.id}", 
-        "type": "poi", 
-        "rel": "pois", 
-        "templated": true
-      }, 
-      {
         "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}", 
         "type": "address", 
         "rel": "addresses", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/sherbrooke/poi_types/{poi_type.id}", 
-        "type": "poi_type", 
-        "rel": "poi_types", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
         "href": "http://localhost/v1/coverage/sherbrooke/pois/{poi.id}", 
         "type": "poi", 
         "rel": "pois", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
         "templated": true
       }
     ], 
@@ -227,16 +135,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -263,8 +164,6 @@
         ], 
         "departure_date_time": "20111112T133423", 
         "requested_date_time": "20111112T133000", 
-        "type": "best", 
-        "duration": 1088, 
         "sections": [
           {
             "from": {
@@ -292,9 +191,10 @@
                     "zip_code": ""
                   }
                 ], 
-                "id": "-71.8476519348448;45.40618867807104"
+                "id": "-71.84765193484481;45.40618867807104"
               }, 
               "poi": {
+                "properties": {}, 
                 "poi_type": {
                   "name": "Intersection", 
                   "id": "poi_type:Intersection"
@@ -343,20 +243,17 @@
                   ], 
                   "id": "-71.847652;45.406189"
                 }, 
-                "id": "poi:3713 - ADDRESS370 - ADDRESS1079", 
-                "properties": {}
+                "id": "poi:3713 - ADDRESS370 - ADDRESS1079"
               }, 
               "quality": 0, 
               "id": "poi:3713 - ADDRESS370 - ADDRESS1079"
             }, 
             "links": [], 
             "arrival_date_time": "20111112T133512", 
-            "additional_informations": [], 
             "departure_date_time": "20111112T133423", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "des Trembles / ch. Galvin", 
                 "links": [], 
                 "coord": {
@@ -379,33 +276,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "name": "rue DES TREMBLES", 
-                  "house_number": 225, 
-                  "coord": {
-                    "lat": "45.405904", 
-                    "lon": "-71.847624"
-                  }, 
-                  "label": "225 rue DES TREMBLES (Sherbrooke)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "43027", 
-                      "name": "Sherbrooke", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "0.0", 
-                        "lon": "-73.23728992"
-                      }, 
-                      "label": "Sherbrooke", 
-                      "id": "admin:43027", 
-                      "zip_code": ""
-                    }
-                  ], 
-                  "id": "-71.847624;45.405904"
-                }, 
                 "id": "stop_point:STS:SP:2052", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "des Trembles / ch. Galvin", 
                   "links": [], 
                   "coord": {
@@ -431,33 +303,9 @@
                   "id": "stop_area:STS:SA:2045"
                 }
               }, 
-              "name": "des Trembles / ch. Galvin (Sherbrooke)", 
-              "address": {
-                "name": "rue DES TREMBLES", 
-                "house_number": 225, 
-                "coord": {
-                  "lat": "45.405904", 
-                  "lon": "-71.847624"
-                }, 
-                "label": "225 rue DES TREMBLES (Sherbrooke)", 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "-71.847624;45.405904"
-              }, 
               "quality": 0, 
-              "id": "stop_point:STS:SP:2052"
+              "id": "stop_point:STS:SP:2052", 
+              "name": "des Trembles / ch. Galvin (Sherbrooke)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -468,20 +316,20 @@
               ], 
               "coordinates": [
                 [
-                  -71.8476519348448, 
-                  45.40618867807104
+                  -71.8476519348, 
+                  45.4061886781
                 ], 
                 [
-                  -71.8476519348448, 
-                  45.40618867807104
+                  -71.8476519348, 
+                  45.4061886781
                 ], 
                 [
                   -71.84765237, 
                   45.40618859
                 ], 
                 [
-                  -71.84757957198138, 
-                  45.405915858826724
+                  -71.847579572, 
+                  45.4059158588
                 ], 
                 [
                   -71.847624, 
@@ -512,7 +360,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "des Trembles / ch. Galvin", 
                 "links": [], 
                 "coord": {
@@ -535,19 +382,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 225, 
-                  "id": "-71.847624;45.405904", 
-                  "name": "rue DES TREMBLES", 
-                  "coord": {
-                    "lat": "45.405904", 
-                    "lon": "-71.847624"
-                  }, 
-                  "label": "225 rue DES TREMBLES (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:2052", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "des Trembles / ch. Galvin", 
                   "links": [], 
                   "coord": {
@@ -587,20 +423,17 @@
               {
                 "type": "network", 
                 "id": "network:STS"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20111112T134300", 
             "additional_informations": [
+              "regular", 
               "stay_in"
             ], 
-            "departure_date_time": "20111112T133500", 
+            "co2_emission": {
+              "value": 512.4447, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "du Chalumeau / ch. Galvin (Sherbrooke)", 
               "code": "4", 
@@ -617,7 +450,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "du Chalumeau / ch. Galvin", 
                 "links": [], 
                 "coord": {
@@ -640,19 +472,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 3127, 
-                  "id": "-71.822775;45.40266", 
-                  "name": "chemin GALVIN", 
-                  "coord": {
-                    "lat": "45.40266", 
-                    "lon": "-71.822775"
-                  }, 
-                  "label": "3127 chemin GALVIN (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:2063", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "du Chalumeau / ch. Galvin", 
                   "links": [], 
                   "coord": {
@@ -668,11 +489,12 @@
               "id": "stop_point:STS:SP:2063", 
               "name": "du Chalumeau / ch. Galvin (Sherbrooke)"
             }, 
+            "departure_date_time": "20111112T133500", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 3643
+                  "length": 3951
                 }
               ], 
               "coordinates": [
@@ -944,7 +766,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Trembles / ch. Galvin", 
                   "links": [], 
                   "coord": {
@@ -957,12 +778,11 @@
                 }, 
                 "arrival_date_time": "20111112T133500", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T133500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T133500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Trembles / des Tilleuls", 
                   "links": [], 
                   "coord": {
@@ -975,12 +795,11 @@
                 }, 
                 "arrival_date_time": "20111112T133600", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T133600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T133600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Tilleuls / des Merisiers", 
                   "links": [], 
                   "coord": {
@@ -993,12 +812,11 @@
                 }, 
                 "arrival_date_time": "20111112T133600", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T133600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T133600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Merisiers (no.2295)", 
                   "links": [], 
                   "coord": {
@@ -1011,12 +829,11 @@
                 }, 
                 "arrival_date_time": "20111112T133700", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T133700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T133700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Merisiers / des Cypres", 
                   "links": [], 
                   "coord": {
@@ -1029,12 +846,11 @@
                 }, 
                 "arrival_date_time": "20111112T133800", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T133800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T133800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Cypr\u00e8s / des Bouleaux", 
                   "links": [], 
                   "coord": {
@@ -1047,12 +863,11 @@
                 }, 
                 "arrival_date_time": "20111112T133900", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T133900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T133900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Bouleaux / ch. Galvin", 
                   "links": [], 
                   "coord": {
@@ -1065,12 +880,11 @@
                 }, 
                 "arrival_date_time": "20111112T133900", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T133900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T133900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "ch. Galvin / Raby", 
                   "links": [], 
                   "coord": {
@@ -1083,12 +897,11 @@
                 }, 
                 "arrival_date_time": "20111112T133900", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T133900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T133900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "ch. Galvin / des M\u00e9l\u00e8zes", 
                   "links": [], 
                   "coord": {
@@ -1101,12 +914,11 @@
                 }, 
                 "arrival_date_time": "20111112T134000", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T134000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T134000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "ch. Galvin / Allard", 
                   "links": [], 
                   "coord": {
@@ -1119,12 +931,11 @@
                 }, 
                 "arrival_date_time": "20111112T134100", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T134100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T134100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "du Chalumeau / Allard", 
                   "links": [], 
                   "coord": {
@@ -1137,12 +948,11 @@
                 }, 
                 "arrival_date_time": "20111112T134100", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T134100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T134100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "du Chalumeau / \u00c9cole LaSamarre", 
                   "links": [], 
                   "coord": {
@@ -1155,12 +965,11 @@
                 }, 
                 "arrival_date_time": "20111112T134200", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T134200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T134200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "du Chalumeau / ch. Galvin", 
                   "links": [], 
                   "coord": {
@@ -1173,8 +982,8 @@
                 }, 
                 "arrival_date_time": "20111112T134300", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T134300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T134300"
               }
             ]
           }, 
@@ -1182,7 +991,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "du Chalumeau / ch. Galvin", 
                 "links": [], 
                 "coord": {
@@ -1205,19 +1013,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 3127, 
-                  "id": "-71.822775;45.40266", 
-                  "name": "chemin GALVIN", 
-                  "coord": {
-                    "lat": "45.40266", 
-                    "lon": "-71.822775"
-                  }, 
-                  "label": "3127 chemin GALVIN (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:2063", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "du Chalumeau / ch. Galvin", 
                   "links": [], 
                   "coord": {
@@ -1235,12 +1032,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20111112T134300", 
-            "additional_informations": [], 
             "departure_date_time": "20111112T134300", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "du Chalumeau / ch. Galvin", 
                 "links": [], 
                 "coord": {
@@ -1263,19 +1058,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 3127, 
-                  "id": "-71.822775;45.40266", 
-                  "name": "chemin GALVIN", 
-                  "coord": {
-                    "lat": "45.40266", 
-                    "lon": "-71.822775"
-                  }, 
-                  "label": "3127 chemin GALVIN (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:2063", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "du Chalumeau / ch. Galvin", 
                   "links": [], 
                   "coord": {
@@ -1318,7 +1102,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "du Chalumeau / ch. Galvin", 
                 "links": [], 
                 "coord": {
@@ -1341,19 +1124,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 3127, 
-                  "id": "-71.822775;45.40266", 
-                  "name": "chemin GALVIN", 
-                  "coord": {
-                    "lat": "45.40266", 
-                    "lon": "-71.822775"
-                  }, 
-                  "label": "3127 chemin GALVIN (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:2063", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "du Chalumeau / ch. Galvin", 
                   "links": [], 
                   "coord": {
@@ -1393,18 +1165,16 @@
               {
                 "type": "network", 
                 "id": "network:STS"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20111112T134400", 
-            "additional_informations": [], 
-            "departure_date_time": "20111112T134300", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 45.6544, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "des Chardonnerets / Marika (Sherbrooke)", 
               "code": "HLP", 
@@ -1421,7 +1191,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "des Chardonnerets / Marika", 
                 "links": [], 
                 "coord": {
@@ -1444,19 +1213,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 448, 
-                  "id": "-71.82052;45.404101", 
-                  "name": "rue DES CHARDONNERETS", 
-                  "coord": {
-                    "lat": "45.404101", 
-                    "lon": "-71.82052"
-                  }, 
-                  "label": "448 rue DES CHARDONNERETS (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:2097", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "des Chardonnerets / Marika", 
                   "links": [], 
                   "coord": {
@@ -1472,11 +1230,12 @@
               "id": "stop_point:STS:SP:2097", 
               "name": "des Chardonnerets / Marika (Sherbrooke)"
             }, 
+            "departure_date_time": "20111112T134300", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 238
+                  "length": 352
                 }
               ], 
               "coordinates": [
@@ -1520,7 +1279,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "du Chalumeau / ch. Galvin", 
                   "links": [], 
                   "coord": {
@@ -1535,12 +1293,11 @@
                 "additional_informations": [
                   "drop_off_only"
                 ], 
-                "departure_date_time": "20111112T134300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T134300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Chardonnerets / Marika", 
                   "links": [], 
                   "coord": {
@@ -1553,15 +1310,14 @@
                 }, 
                 "arrival_date_time": "20111112T134400", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T134400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T134400"
               }
             ]
           }, 
           {
             "links": [], 
             "arrival_date_time": "20111112T134900", 
-            "additional_informations": [], 
             "departure_date_time": "20111112T134400", 
             "duration": 300, 
             "type": "waiting", 
@@ -1571,7 +1327,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "des Chardonnerets / Marika", 
                 "links": [], 
                 "coord": {
@@ -1594,19 +1349,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 448, 
-                  "id": "-71.82052;45.404101", 
-                  "name": "rue DES CHARDONNERETS", 
-                  "coord": {
-                    "lat": "45.404101", 
-                    "lon": "-71.82052"
-                  }, 
-                  "label": "448 rue DES CHARDONNERETS (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:2097", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "des Chardonnerets / Marika", 
                   "links": [], 
                   "coord": {
@@ -1646,18 +1390,16 @@
               {
                 "type": "network", 
                 "id": "network:STS"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20111112T135100", 
-            "additional_informations": [], 
-            "departure_date_time": "20111112T134900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 143.1888, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Station du C\u00e9gep - quai E (Sherbrooke)", 
               "code": "9", 
@@ -1674,7 +1416,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "des Diamants / Normand", 
                 "links": [], 
                 "coord": {
@@ -1697,19 +1438,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 22, 
-                  "id": "-71.82686;45.410821", 
-                  "name": "rue DES DIAMANTS", 
-                  "coord": {
-                    "lat": "45.410821", 
-                    "lon": "-71.82686"
-                  }, 
-                  "label": "22 rue DES DIAMANTS (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:2101", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "des Diamants / Normand", 
                   "links": [], 
                   "coord": {
@@ -1725,11 +1455,12 @@
               "id": "stop_point:STS:SP:2101", 
               "name": "des Diamants / Normand (Sherbrooke)"
             }, 
+            "departure_date_time": "20111112T134900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 956
+                  "length": 1104
                 }
               ], 
               "coordinates": [
@@ -1821,7 +1552,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Chardonnerets / Marika", 
                   "links": [], 
                   "coord": {
@@ -1834,12 +1564,11 @@
                 }, 
                 "arrival_date_time": "20111112T134400", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T134900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T134900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Agates / des Cristaux", 
                   "links": [], 
                   "coord": {
@@ -1852,12 +1581,11 @@
                 }, 
                 "arrival_date_time": "20111112T134900", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T134900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T134900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Topazes / des Diamants", 
                   "links": [], 
                   "coord": {
@@ -1870,12 +1598,11 @@
                 }, 
                 "arrival_date_time": "20111112T135000", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T135000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T135000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Diamants / des Rubis", 
                   "links": [], 
                   "coord": {
@@ -1888,12 +1615,11 @@
                 }, 
                 "arrival_date_time": "20111112T135000", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T135000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T135000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Diamants / Normand", 
                   "links": [], 
                   "coord": {
@@ -1906,8 +1632,8 @@
                 }, 
                 "arrival_date_time": "20111112T135100", 
                 "additional_informations": [], 
-                "departure_date_time": "20111112T135100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111112T135100"
               }
             ]
           }, 
@@ -1915,7 +1641,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "des Diamants / Normand", 
                 "links": [], 
                 "coord": {
@@ -1950,33 +1675,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "name": "rue DES DIAMANTS", 
-                  "house_number": 22, 
-                  "coord": {
-                    "lat": "45.410821", 
-                    "lon": "-71.82686"
-                  }, 
-                  "label": "22 rue DES DIAMANTS (Sherbrooke)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "43027", 
-                      "name": "Sherbrooke", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "0.0", 
-                        "lon": "-73.23728992"
-                      }, 
-                      "label": "Sherbrooke", 
-                      "id": "admin:43027", 
-                      "zip_code": ""
-                    }
-                  ], 
-                  "id": "-71.82686;45.410821"
-                }, 
                 "id": "stop_point:STS:SP:2101", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "des Diamants / Normand", 
                   "links": [], 
                   "coord": {
@@ -2008,7 +1708,6 @@
             }, 
             "links": [], 
             "arrival_date_time": "20111112T135302", 
-            "additional_informations": [], 
             "departure_date_time": "20111112T135100", 
             "to": {
               "embedded_type": "poi", 
@@ -2038,6 +1737,7 @@
                 "id": "-71.82705011682432;45.41015495883248"
               }, 
               "poi": {
+                "properties": {}, 
                 "poi_type": {
                   "name": "Intersection", 
                   "id": "poi_type:Intersection"
@@ -2086,8 +1786,7 @@
                   ], 
                   "id": "-71.82705;45.410155"
                 }, 
-                "id": "poi:3534 - ADDRESS968 - ADDRESS970", 
-                "properties": {}
+                "id": "poi:3534 - ADDRESS968 - ADDRESS970"
               }, 
               "quality": 0, 
               "id": "poi:3534 - ADDRESS968 - ADDRESS970"
@@ -2105,20 +1804,20 @@
                   45.410821
                 ], 
                 [
-                  -71.826952905803, 
-                  45.410834315912325
+                  -71.8269529058, 
+                  45.4108343159
                 ], 
                 [
                   -71.82705023, 
                   45.41015528
                 ], 
                 [
-                  -71.82705011682432, 
-                  45.41015495883248
+                  -71.8270501168, 
+                  45.4101549588
                 ], 
                 [
-                  -71.82705011682432, 
-                  45.41015495883248
+                  -71.8270501168, 
+                  45.4101549588
                 ]
               ]
             }, 
@@ -2135,7 +1834,13 @@
             "id": "section_6_0", 
             "mode": "walking"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 701.2879, 
+          "unit": "gEC"
+        }, 
+        "duration": 1088, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 

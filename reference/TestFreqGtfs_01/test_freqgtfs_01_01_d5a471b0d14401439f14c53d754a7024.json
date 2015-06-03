@@ -38,27 +38,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/freqgtfs-01/journeys?to=stop_area%3AFQT%3ASA%3A211435&from=stop_area%3AFQT%3ASA%3A1374208&datetime_represents=arrival&datetime=20120905T064500", 
@@ -91,21 +71,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/freqgtfs-01/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/freqgtfs-01/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
+        "href": "http://localhost/v1/coverage/freqgtfs-01/commercial_modes/{commercial_modes.id}", 
+        "type": "commercial_modes", 
+        "rel": "commercial_modes", 
         "templated": true
       }, 
       {
@@ -115,9 +83,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqgtfs-01/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
+        "href": "http://localhost/v1/coverage/freqgtfs-01/physical_modes/{physical_modes.id}", 
+        "type": "physical_modes", 
+        "rel": "physical_modes", 
         "templated": true
       }
     ], 
@@ -129,16 +97,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -169,17 +130,35 @@
         ], 
         "departure_date_time": "20120905T062100", 
         "requested_date_time": "20120905T062000", 
-        "type": "best", 
-        "duration": 1500, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:FQT:SA:1374208", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "BUS", 
+                    "id": "commercial_mode:BUS"
+                  }, 
+                  {
+                    "name": "METRO", 
+                    "id": "commercial_mode:METRO"
+                  }
+                ], 
                 "name": "Ramonville M\u00e9tro", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "physical_mode:Bus"
+                  }, 
+                  {
+                    "name": "M\u00e9tro", 
+                    "id": "physical_mode:Metro"
+                  }
+                ], 
                 "coord": {
                   "lat": "27.325355", 
                   "lon": "1.670417"
@@ -202,17 +181,14 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:FQT:SA:1374208"
               }, 
-              "name": "Ramonville M\u00e9tro (Ramonville-Saint-Agne)", 
-              "id": "stop_area:FQT:SA:1374208"
+              "name": "Ramonville M\u00e9tro (Ramonville-Saint-Agne)"
             }, 
             "links": [], 
             "arrival_date_time": "20120905T062100", 
-            "additional_informations": [], 
             "departure_date_time": "20120905T062100", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Ramonville", 
                 "links": [], 
                 "coord": {
@@ -235,19 +211,8 @@
                     "zip_code": "31520"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:FQT:SP:1374209", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Ramonville M\u00e9tro", 
                   "links": [], 
                   "coord": {
@@ -286,7 +251,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Ramonville", 
                 "links": [], 
                 "coord": {
@@ -309,19 +273,8 @@
                     "zip_code": "31520"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:FQT:SP:1374209", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Ramonville M\u00e9tro", 
                   "links": [], 
                   "coord": {
@@ -367,16 +320,18 @@
                 "id": "note:817465718901251579"
               }, 
               {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
+                "type": "notes", 
+                "id": "note:817465718901251579"
               }
             ], 
             "arrival_date_time": "20120905T064600", 
-            "additional_informations": [], 
-            "departure_date_time": "20120905T062100", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 32.0826, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Borderouge (Toulouse)", 
               "code": "B", 
@@ -393,7 +348,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Canal du Midi", 
                 "links": [], 
                 "coord": {
@@ -413,22 +367,11 @@
                     }, 
                     "label": "Toulouse (31000-31500)", 
                     "id": "admin:35738extern", 
-                    "zip_code": "31000-31500"
+                    "zip_code": "31000;31500"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:FQT:SP:1483161", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Canal du Midi", 
                   "links": [], 
                   "coord": {
@@ -444,11 +387,12 @@
               "id": "stop_point:FQT:SP:1483161", 
               "name": "Canal du Midi (Toulouse)"
             }, 
+            "departure_date_time": "20120905T062100", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 9715
+                  "length": 9722
                 }
               ], 
               "coordinates": [
@@ -520,7 +464,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Ramonville", 
                   "links": [], 
                   "coord": {
@@ -533,12 +476,11 @@
                 }, 
                 "arrival_date_time": "20120905T062100", 
                 "additional_informations": [], 
-                "departure_date_time": "20120905T062100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120905T062100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Universit\u00e9 Paul Sabatier", 
                   "links": [], 
                   "coord": {
@@ -551,12 +493,11 @@
                 }, 
                 "arrival_date_time": "20120905T062800", 
                 "additional_informations": [], 
-                "departure_date_time": "20120905T062800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120905T062800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Facult\u00e9 de Pharmacie", 
                   "links": [], 
                   "coord": {
@@ -569,12 +510,11 @@
                 }, 
                 "arrival_date_time": "20120905T062900", 
                 "additional_informations": [], 
-                "departure_date_time": "20120905T062900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120905T062900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Rangueil", 
                   "links": [], 
                   "coord": {
@@ -587,12 +527,11 @@
                 }, 
                 "arrival_date_time": "20120905T063100", 
                 "additional_informations": [], 
-                "departure_date_time": "20120905T063100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120905T063100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Saouzelong", 
                   "links": [], 
                   "coord": {
@@ -605,12 +544,11 @@
                 }, 
                 "arrival_date_time": "20120905T063200", 
                 "additional_informations": [], 
-                "departure_date_time": "20120905T063200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120905T063200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Saint Agne-SNCF", 
                   "links": [], 
                   "coord": {
@@ -623,12 +561,11 @@
                 }, 
                 "arrival_date_time": "20120905T063300", 
                 "additional_informations": [], 
-                "departure_date_time": "20120905T063300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120905T063300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Empalot", 
                   "links": [], 
                   "coord": {
@@ -641,12 +578,11 @@
                 }, 
                 "arrival_date_time": "20120905T063500", 
                 "additional_informations": [], 
-                "departure_date_time": "20120905T063500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120905T063500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "St Michel - Marcel Langer", 
                   "links": [], 
                   "coord": {
@@ -659,12 +595,11 @@
                 }, 
                 "arrival_date_time": "20120905T063600", 
                 "additional_informations": [], 
-                "departure_date_time": "20120905T063600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120905T063600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Palais de Justice", 
                   "links": [], 
                   "coord": {
@@ -677,12 +612,11 @@
                 }, 
                 "arrival_date_time": "20120905T063800", 
                 "additional_informations": [], 
-                "departure_date_time": "20120905T063800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120905T063800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Carmes", 
                   "links": [], 
                   "coord": {
@@ -695,12 +629,11 @@
                 }, 
                 "arrival_date_time": "20120905T063900", 
                 "additional_informations": [], 
-                "departure_date_time": "20120905T063900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120905T063900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Fran\u00e7ois Verdier", 
                   "links": [], 
                   "coord": {
@@ -713,12 +646,11 @@
                 }, 
                 "arrival_date_time": "20120905T064000", 
                 "additional_informations": [], 
-                "departure_date_time": "20120905T064000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120905T064000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Jean Jaur\u00e8s", 
                   "links": [], 
                   "coord": {
@@ -731,12 +663,11 @@
                 }, 
                 "arrival_date_time": "20120905T064200", 
                 "additional_informations": [], 
-                "departure_date_time": "20120905T064200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120905T064200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Jeanne d'Arc", 
                   "links": [], 
                   "coord": {
@@ -749,12 +680,11 @@
                 }, 
                 "arrival_date_time": "20120905T064300", 
                 "additional_informations": [], 
-                "departure_date_time": "20120905T064300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120905T064300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Compans - Caffarelli", 
                   "links": [], 
                   "coord": {
@@ -767,12 +697,11 @@
                 }, 
                 "arrival_date_time": "20120905T064400", 
                 "additional_informations": [], 
-                "departure_date_time": "20120905T064400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120905T064400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Canal du Midi", 
                   "links": [], 
                   "coord": {
@@ -785,8 +714,8 @@
                 }, 
                 "arrival_date_time": "20120905T064600", 
                 "additional_informations": [], 
-                "departure_date_time": "20120905T064600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120905T064600"
               }
             ]
           }, 
@@ -794,7 +723,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Canal du Midi", 
                 "links": [], 
                 "coord": {
@@ -814,22 +742,11 @@
                     }, 
                     "label": "Toulouse (31000-31500)", 
                     "id": "admin:35738extern", 
-                    "zip_code": "31000-31500"
+                    "zip_code": "31000;31500"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:FQT:SP:1483161", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Canal du Midi", 
                   "links": [], 
                   "coord": {
@@ -848,7 +765,7 @@
                       }, 
                       "label": "Toulouse (31000-31500)", 
                       "id": "admin:35738extern", 
-                      "zip_code": "31000-31500"
+                      "zip_code": "31000;31500"
                     }
                   ], 
                   "timezone": "Europe/Paris", 
@@ -861,15 +778,34 @@
             }, 
             "links": [], 
             "arrival_date_time": "20120905T064600", 
-            "additional_informations": [], 
             "departure_date_time": "20120905T064600", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:FQT:SA:211435", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "BUS", 
+                    "id": "commercial_mode:BUS"
+                  }, 
+                  {
+                    "name": "METRO", 
+                    "id": "commercial_mode:METRO"
+                  }
+                ], 
                 "name": "Canal du Midi", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "physical_mode:Bus"
+                  }, 
+                  {
+                    "name": "M\u00e9tro", 
+                    "id": "physical_mode:Metro"
+                  }
+                ], 
                 "coord": {
                   "lat": "43.6153", 
                   "lon": "1.43379"
@@ -886,21 +822,26 @@
                     }, 
                     "label": "Toulouse (31000-31500)", 
                     "id": "admin:35738extern", 
-                    "zip_code": "31000-31500"
+                    "zip_code": "31000;31500"
                   }
                 ], 
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:FQT:SA:211435"
               }, 
-              "name": "Canal du Midi (Toulouse)", 
-              "id": "stop_area:FQT:SA:211435"
+              "name": "Canal du Midi (Toulouse)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_2_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 32.0826, 
+          "unit": "gEC"
+        }, 
+        "duration": 1500, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 

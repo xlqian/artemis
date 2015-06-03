@@ -103,90 +103,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_3_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_5_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_8_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_10_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_12_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_15_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_17_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_20_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_22_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/sherbrooke/journeys?to=stop_area%3ASTS%3ASA%3A1476&datetime_represents=arrival&from=-71.95892423;45.36721098&max_duration_to_pt=720&walking_speed=0.83&datetime=20111116T074656", 
@@ -219,9 +136,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/poi_types/{poi_type.id}", 
-        "type": "poi_type", 
-        "rel": "poi_types", 
+        "href": "http://localhost/v1/coverage/sherbrooke/commercial_modes/{commercial_modes.id}", 
+        "type": "commercial_modes", 
+        "rel": "commercial_modes", 
         "templated": true
       }, 
       {
@@ -231,27 +148,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/pois/{poi.id}", 
-        "type": "poi", 
-        "rel": "pois", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
+        "href": "http://localhost/v1/coverage/sherbrooke/physical_modes/{physical_modes.id}", 
+        "type": "physical_modes", 
+        "rel": "physical_modes", 
         "templated": true
       }, 
       {
@@ -271,6 +170,7 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [], 
         "nb_transfers": 1, 
         "arrival_date_time": "20111116T074939", 
@@ -295,15 +195,10 @@
         ], 
         "departure_date_time": "20111116T071718", 
         "requested_date_time": "20111116T080000", 
-        "type": "less_fallback_walk", 
-        "duration": 1941, 
         "sections": [
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-71.95892423;45.36721098", 
-              "name": "3643 rue DE L'ILLINOIS (Sherbrooke)", 
               "address": {
                 "name": "rue DE L'ILLINOIS", 
                 "house_number": 3643, 
@@ -338,17 +233,18 @@
                     "zip_code": ""
                   }
                 ], 
-                "id": "-71.95892423;45.36721098"
-              }
+                "id": "-71.95892422999999;45.36721098"
+              }, 
+              "quality": 0, 
+              "id": "-71.95892422999999;45.36721098", 
+              "name": "3643 rue DE L'ILLINOIS (Sherbrooke)"
             }, 
             "links": [], 
             "arrival_date_time": "20111116T071935", 
-            "additional_informations": [], 
             "departure_date_time": "20111116T071718", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "boul. de l'Universit\u00e9 / de l'Indiana", 
                 "links": [], 
                 "coord": {
@@ -371,33 +267,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "name": "boulevard DE L'UNIVERSITE", 
-                  "house_number": 3782, 
-                  "coord": {
-                    "lat": "45.368075", 
-                    "lon": "-71.958449"
-                  }, 
-                  "label": "3782 boulevard DE L'UNIVERSITE (Sherbrooke)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "43027", 
-                      "name": "Sherbrooke", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "0.0", 
-                        "lon": "-73.23728992"
-                      }, 
-                      "label": "Sherbrooke", 
-                      "id": "admin:43027", 
-                      "zip_code": ""
-                    }
-                  ], 
-                  "id": "-71.958449;45.368075"
-                }, 
                 "id": "stop_point:STS:SP:1267", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / de l'Indiana", 
                   "links": [], 
                   "coord": {
@@ -423,33 +294,9 @@
                   "id": "stop_area:STS:SA:1267"
                 }
               }, 
-              "name": "boul. de l'Universit\u00e9 / de l'Indiana (Sherbrooke)", 
-              "address": {
-                "name": "boulevard DE L'UNIVERSITE", 
-                "house_number": 3782, 
-                "coord": {
-                  "lat": "45.368075", 
-                  "lon": "-71.958449"
-                }, 
-                "label": "3782 boulevard DE L'UNIVERSITE (Sherbrooke)", 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "-71.958449;45.368075"
-              }, 
               "quality": 0, 
-              "id": "stop_point:STS:SP:1267"
+              "id": "stop_point:STS:SP:1267", 
+              "name": "boul. de l'Universit\u00e9 / de l'Indiana (Sherbrooke)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -476,8 +323,8 @@
                   45.36785852
                 ], 
                 [
-                  -71.95853142305658, 
-                  45.368109480854734
+                  -71.9585314231, 
+                  45.3681094809
                 ], 
                 [
                   -71.958449, 
@@ -502,7 +349,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "boul. de l'Universit\u00e9 / de l'Indiana", 
                 "links": [], 
                 "coord": {
@@ -525,19 +371,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 3782, 
-                  "id": "-71.958449;45.368075", 
-                  "name": "boulevard DE L'UNIVERSITE", 
-                  "coord": {
-                    "lat": "45.368075", 
-                    "lon": "-71.958449"
-                  }, 
-                  "label": "3782 boulevard DE L'UNIVERSITE (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:1267", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / de l'Indiana", 
                   "links": [], 
                   "coord": {
@@ -577,18 +412,16 @@
               {
                 "type": "network", 
                 "id": "network:STS"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20111116T072300", 
-            "additional_informations": [], 
-            "departure_date_time": "20111116T071900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 0.0, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Universit\u00e9 de Sherbrooke (Sherbrooke)", 
               "code": "24", 
@@ -605,7 +438,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "boul. de l'Universit\u00e9 / Cabana", 
                 "links": [], 
                 "coord": {
@@ -628,19 +460,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 2480, 
-                  "id": "-71.927936;45.382214", 
-                  "name": "boulevard DE L'UNIVERSITE", 
-                  "coord": {
-                    "lat": "45.382214", 
-                    "lon": "-71.927936"
-                  }, 
-                  "label": "2480 boulevard DE L'UNIVERSITE (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:171", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / Cabana", 
                   "links": [], 
                   "coord": {
@@ -656,11 +477,12 @@
               "id": "stop_point:STS:SP:171", 
               "name": "boul. de l'Universit\u00e9 / Cabana (Sherbrooke)"
             }, 
+            "departure_date_time": "20111116T071900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 3065
+                  "length": 3217
                 }
               ], 
               "coordinates": [
@@ -796,7 +618,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / de l'Indiana", 
                   "links": [], 
                   "coord": {
@@ -809,12 +630,11 @@
                 }, 
                 "arrival_date_time": "20111116T071900", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T071900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T071900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / Fernand-Bachand", 
                   "links": [], 
                   "coord": {
@@ -827,12 +647,11 @@
                 }, 
                 "arrival_date_time": "20111116T071900", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T071900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T071900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / Galt Ouest", 
                   "links": [], 
                   "coord": {
@@ -845,12 +664,11 @@
                 }, 
                 "arrival_date_time": "20111116T072000", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T072000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T072000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Universit\u00e9 / face \u00e0 Jacques-O'bready", 
                   "links": [], 
                   "coord": {
@@ -863,12 +681,11 @@
                 }, 
                 "arrival_date_time": "20111116T072000", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T072000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T072000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 (Le Triolet)", 
                   "links": [], 
                   "coord": {
@@ -881,12 +698,11 @@
                 }, 
                 "arrival_date_time": "20111116T072100", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T072100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T072100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9/ Prunier", 
                   "links": [], 
                   "coord": {
@@ -899,12 +715,11 @@
                 }, 
                 "arrival_date_time": "20111116T072300", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T072300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T072300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / Cabana", 
                   "links": [], 
                   "coord": {
@@ -917,15 +732,14 @@
                 }, 
                 "arrival_date_time": "20111116T072300", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T072300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T072300"
               }
             ]
           }, 
           {
             "links": [], 
             "arrival_date_time": "20111116T073900", 
-            "additional_informations": [], 
             "departure_date_time": "20111116T072300", 
             "duration": 960, 
             "type": "waiting", 
@@ -935,7 +749,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "boul. de l'Universit\u00e9 / Cabana", 
                 "links": [], 
                 "coord": {
@@ -958,19 +771,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 2480, 
-                  "id": "-71.927936;45.382214", 
-                  "name": "boulevard DE L'UNIVERSITE", 
-                  "coord": {
-                    "lat": "45.382214", 
-                    "lon": "-71.927936"
-                  }, 
-                  "label": "2480 boulevard DE L'UNIVERSITE (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:171", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / Cabana", 
                   "links": [], 
                   "coord": {
@@ -1010,18 +812,16 @@
               {
                 "type": "network", 
                 "id": "network:STS"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20111116T074500", 
-            "additional_informations": [], 
-            "departure_date_time": "20111116T073900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 245.5221, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Parc Blanchard (Sherbrooke)", 
               "code": "15", 
@@ -1038,7 +838,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Parc Blanchard", 
                 "links": [], 
                 "coord": {
@@ -1061,19 +860,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 745, 
-                  "id": "-71.927948;45.394124", 
-                  "name": "rue CABANA", 
-                  "coord": {
-                    "lat": "45.394124", 
-                    "lon": "-71.927948"
-                  }, 
-                  "label": "745 rue CABANA (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:1475", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Parc Blanchard", 
                   "links": [], 
                   "coord": {
@@ -1089,11 +877,12 @@
               "id": "stop_point:STS:SP:1475", 
               "name": "Parc Blanchard (Sherbrooke)"
             }, 
+            "departure_date_time": "20111116T073900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 1554
+                  "length": 1893
                 }
               ], 
               "coordinates": [
@@ -1197,7 +986,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / Cabana", 
                   "links": [], 
                   "coord": {
@@ -1210,12 +998,11 @@
                 }, 
                 "arrival_date_time": "20111116T073900", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T073900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T073900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bachand / Cabana", 
                   "links": [], 
                   "coord": {
@@ -1228,12 +1015,11 @@
                 }, 
                 "arrival_date_time": "20111116T074000", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T074000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T074000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bachand / du Saint-Esprit", 
                   "links": [], 
                   "coord": {
@@ -1246,12 +1032,11 @@
                 }, 
                 "arrival_date_time": "20111116T074000", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T074000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T074000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "du Saint-Esprit / Galt Ouest", 
                   "links": [], 
                   "coord": {
@@ -1264,12 +1049,11 @@
                 }, 
                 "arrival_date_time": "20111116T074100", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T074100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T074100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Denault / Cabana", 
                   "links": [], 
                   "coord": {
@@ -1282,12 +1066,11 @@
                 }, 
                 "arrival_date_time": "20111116T074200", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T074200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T074200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Cabana / Roy", 
                   "links": [], 
                   "coord": {
@@ -1300,12 +1083,11 @@
                 }, 
                 "arrival_date_time": "20111116T074300", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T074300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T074300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Parc Blanchard", 
                   "links": [], 
                   "coord": {
@@ -1318,8 +1100,8 @@
                 }, 
                 "arrival_date_time": "20111116T074500", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T074500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T074500"
               }
             ]
           }, 
@@ -1327,7 +1109,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Parc Blanchard", 
                 "links": [], 
                 "coord": {
@@ -1362,33 +1143,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "name": "rue CABANA", 
-                  "house_number": 745, 
-                  "coord": {
-                    "lat": "45.394124", 
-                    "lon": "-71.927948"
-                  }, 
-                  "label": "745 rue CABANA (Sherbrooke)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "43027", 
-                      "name": "Sherbrooke", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "0.0", 
-                        "lon": "-73.23728992"
-                      }, 
-                      "label": "Sherbrooke", 
-                      "id": "admin:43027", 
-                      "zip_code": ""
-                    }
-                  ], 
-                  "id": "-71.927948;45.394124"
-                }, 
                 "id": "stop_point:STS:SP:1475", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Parc Blanchard", 
                   "links": [], 
                   "coord": {
@@ -1420,14 +1176,24 @@
             }, 
             "links": [], 
             "arrival_date_time": "20111116T075116", 
-            "additional_informations": [], 
             "departure_date_time": "20111116T074500", 
             "to": {
               "embedded_type": "stop_area", 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "commercial_mode:Bus"
+                  }
+                ], 
                 "name": "Cabana (STS)", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "physical_mode:Bus"
+                  }
+                ], 
                 "coord": {
                   "lat": "45.391954", 
                   "lon": "-71.927845"
@@ -1472,7 +1238,7 @@
                     "zip_code": ""
                   }
                 ], 
-                "id": "-71.92778069192597;45.391959745998705"
+                "id": "-71.92778069192597;45.3919597459987"
               }, 
               "quality": 0, 
               "id": "stop_area:STS:SA:1476", 
@@ -1499,12 +1265,12 @@
                   45.39405427
                 ], 
                 [
-                  -71.92778069192597, 
-                  45.391959745998705
+                  -71.9277806919, 
+                  45.391959746
                 ], 
                 [
-                  -71.92778069192597, 
-                  45.391959745998705
+                  -71.9277806919, 
+                  45.391959746
                 ]
               ]
             }, 
@@ -1527,7 +1293,13 @@
             "id": "section_18_0", 
             "mode": "walking"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 245.5221, 
+          "unit": "gEC"
+        }, 
+        "duration": 1941, 
+        "type": "less_fallback_walk"
       }, 
       {
         "fare": {
@@ -1538,6 +1310,7 @@
           }, 
           "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -1564,15 +1337,10 @@
         ], 
         "departure_date_time": "20111116T071718", 
         "requested_date_time": "20111116T080000", 
-        "type": "best", 
-        "duration": 1838, 
         "sections": [
           {
             "from": {
               "embedded_type": "address", 
-              "quality": 0, 
-              "id": "-71.95892423;45.36721098", 
-              "name": "3643 rue DE L'ILLINOIS (Sherbrooke)", 
               "address": {
                 "name": "rue DE L'ILLINOIS", 
                 "house_number": 3643, 
@@ -1607,17 +1375,18 @@
                     "zip_code": ""
                   }
                 ], 
-                "id": "-71.95892423;45.36721098"
-              }
+                "id": "-71.95892422999999;45.36721098"
+              }, 
+              "quality": 0, 
+              "id": "-71.95892422999999;45.36721098", 
+              "name": "3643 rue DE L'ILLINOIS (Sherbrooke)"
             }, 
             "links": [], 
             "arrival_date_time": "20111116T071935", 
-            "additional_informations": [], 
             "departure_date_time": "20111116T071718", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "boul. de l'Universit\u00e9 / de l'Indiana", 
                 "links": [], 
                 "coord": {
@@ -1640,33 +1409,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "name": "boulevard DE L'UNIVERSITE", 
-                  "house_number": 3782, 
-                  "coord": {
-                    "lat": "45.368075", 
-                    "lon": "-71.958449"
-                  }, 
-                  "label": "3782 boulevard DE L'UNIVERSITE (Sherbrooke)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "43027", 
-                      "name": "Sherbrooke", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "0.0", 
-                        "lon": "-73.23728992"
-                      }, 
-                      "label": "Sherbrooke", 
-                      "id": "admin:43027", 
-                      "zip_code": ""
-                    }
-                  ], 
-                  "id": "-71.958449;45.368075"
-                }, 
                 "id": "stop_point:STS:SP:1267", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / de l'Indiana", 
                   "links": [], 
                   "coord": {
@@ -1692,33 +1436,9 @@
                   "id": "stop_area:STS:SA:1267"
                 }
               }, 
-              "name": "boul. de l'Universit\u00e9 / de l'Indiana (Sherbrooke)", 
-              "address": {
-                "name": "boulevard DE L'UNIVERSITE", 
-                "house_number": 3782, 
-                "coord": {
-                  "lat": "45.368075", 
-                  "lon": "-71.958449"
-                }, 
-                "label": "3782 boulevard DE L'UNIVERSITE (Sherbrooke)", 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "-71.958449;45.368075"
-              }, 
               "quality": 0, 
-              "id": "stop_point:STS:SP:1267"
+              "id": "stop_point:STS:SP:1267", 
+              "name": "boul. de l'Universit\u00e9 / de l'Indiana (Sherbrooke)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -1745,8 +1465,8 @@
                   45.36785852
                 ], 
                 [
-                  -71.95853142305658, 
-                  45.368109480854734
+                  -71.9585314231, 
+                  45.3681094809
                 ], 
                 [
                   -71.958449, 
@@ -1771,7 +1491,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "boul. de l'Universit\u00e9 / de l'Indiana", 
                 "links": [], 
                 "coord": {
@@ -1794,19 +1513,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 3782, 
-                  "id": "-71.958449;45.368075", 
-                  "name": "boulevard DE L'UNIVERSITE", 
-                  "coord": {
-                    "lat": "45.368075", 
-                    "lon": "-71.958449"
-                  }, 
-                  "label": "3782 boulevard DE L'UNIVERSITE (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:1267", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / de l'Indiana", 
                   "links": [], 
                   "coord": {
@@ -1846,18 +1554,16 @@
               {
                 "type": "network", 
                 "id": "network:STS"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20111116T072300", 
-            "additional_informations": [], 
-            "departure_date_time": "20111116T071900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 0.0, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Universit\u00e9 de Sherbrooke (Sherbrooke)", 
               "code": "24", 
@@ -1874,7 +1580,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "boul. de l'Universit\u00e9 / Cabana", 
                 "links": [], 
                 "coord": {
@@ -1897,19 +1602,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 2480, 
-                  "id": "-71.927936;45.382214", 
-                  "name": "boulevard DE L'UNIVERSITE", 
-                  "coord": {
-                    "lat": "45.382214", 
-                    "lon": "-71.927936"
-                  }, 
-                  "label": "2480 boulevard DE L'UNIVERSITE (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:171", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / Cabana", 
                   "links": [], 
                   "coord": {
@@ -1925,11 +1619,12 @@
               "id": "stop_point:STS:SP:171", 
               "name": "boul. de l'Universit\u00e9 / Cabana (Sherbrooke)"
             }, 
+            "departure_date_time": "20111116T071900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 3065
+                  "length": 3217
                 }
               ], 
               "coordinates": [
@@ -2065,7 +1760,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / de l'Indiana", 
                   "links": [], 
                   "coord": {
@@ -2078,12 +1772,11 @@
                 }, 
                 "arrival_date_time": "20111116T071900", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T071900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T071900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / Fernand-Bachand", 
                   "links": [], 
                   "coord": {
@@ -2096,12 +1789,11 @@
                 }, 
                 "arrival_date_time": "20111116T071900", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T071900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T071900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / Galt Ouest", 
                   "links": [], 
                   "coord": {
@@ -2114,12 +1806,11 @@
                 }, 
                 "arrival_date_time": "20111116T072000", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T072000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T072000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Universit\u00e9 / face \u00e0 Jacques-O'bready", 
                   "links": [], 
                   "coord": {
@@ -2132,12 +1823,11 @@
                 }, 
                 "arrival_date_time": "20111116T072000", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T072000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T072000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 (Le Triolet)", 
                   "links": [], 
                   "coord": {
@@ -2150,12 +1840,11 @@
                 }, 
                 "arrival_date_time": "20111116T072100", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T072100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T072100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9/ Prunier", 
                   "links": [], 
                   "coord": {
@@ -2168,12 +1857,11 @@
                 }, 
                 "arrival_date_time": "20111116T072300", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T072300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T072300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / Cabana", 
                   "links": [], 
                   "coord": {
@@ -2186,15 +1874,14 @@
                 }, 
                 "arrival_date_time": "20111116T072300", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T072300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T072300"
               }
             ]
           }, 
           {
             "links": [], 
             "arrival_date_time": "20111116T073900", 
-            "additional_informations": [], 
             "departure_date_time": "20111116T072300", 
             "duration": 960, 
             "type": "waiting", 
@@ -2204,7 +1891,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "boul. de l'Universit\u00e9 / Cabana", 
                 "links": [], 
                 "coord": {
@@ -2227,19 +1913,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 2480, 
-                  "id": "-71.927936;45.382214", 
-                  "name": "boulevard DE L'UNIVERSITE", 
-                  "coord": {
-                    "lat": "45.382214", 
-                    "lon": "-71.927936"
-                  }, 
-                  "label": "2480 boulevard DE L'UNIVERSITE (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:171", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / Cabana", 
                   "links": [], 
                   "coord": {
@@ -2279,18 +1954,16 @@
               {
                 "type": "network", 
                 "id": "network:STS"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20111116T074300", 
-            "additional_informations": [], 
-            "departure_date_time": "20111116T073900", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 181.8394, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Parc Blanchard (Sherbrooke)", 
               "code": "15", 
@@ -2307,7 +1980,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Cabana / Roy", 
                 "links": [], 
                 "coord": {
@@ -2330,19 +2002,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 1025, 
-                  "id": "-71.927495;45.389755", 
-                  "name": "rue CABANA", 
-                  "coord": {
-                    "lat": "45.389755", 
-                    "lon": "-71.927495"
-                  }, 
-                  "label": "1025 rue CABANA (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:2139", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Cabana / Roy", 
                   "links": [], 
                   "coord": {
@@ -2358,11 +2019,12 @@
               "id": "stop_point:STS:SP:2139", 
               "name": "Cabana / Roy (Sherbrooke)"
             }, 
+            "departure_date_time": "20111116T073900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 1067
+                  "length": 1402
                 }
               ], 
               "coordinates": [
@@ -2454,7 +2116,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / Cabana", 
                   "links": [], 
                   "coord": {
@@ -2467,12 +2128,11 @@
                 }, 
                 "arrival_date_time": "20111116T073900", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T073900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T073900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bachand / Cabana", 
                   "links": [], 
                   "coord": {
@@ -2485,12 +2145,11 @@
                 }, 
                 "arrival_date_time": "20111116T074000", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T074000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T074000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bachand / du Saint-Esprit", 
                   "links": [], 
                   "coord": {
@@ -2503,12 +2162,11 @@
                 }, 
                 "arrival_date_time": "20111116T074000", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T074000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T074000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "du Saint-Esprit / Galt Ouest", 
                   "links": [], 
                   "coord": {
@@ -2521,12 +2179,11 @@
                 }, 
                 "arrival_date_time": "20111116T074100", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T074100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T074100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Denault / Cabana", 
                   "links": [], 
                   "coord": {
@@ -2539,12 +2196,11 @@
                 }, 
                 "arrival_date_time": "20111116T074200", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T074200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T074200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Cabana / Roy", 
                   "links": [], 
                   "coord": {
@@ -2557,8 +2213,8 @@
                 }, 
                 "arrival_date_time": "20111116T074300", 
                 "additional_informations": [], 
-                "departure_date_time": "20111116T074300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111116T074300"
               }
             ]
           }, 
@@ -2566,7 +2222,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Cabana / Roy", 
                 "links": [], 
                 "coord": {
@@ -2601,33 +2256,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "name": "rue CABANA", 
-                  "house_number": 1025, 
-                  "coord": {
-                    "lat": "45.389755", 
-                    "lon": "-71.927495"
-                  }, 
-                  "label": "1025 rue CABANA (Sherbrooke)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "43027", 
-                      "name": "Sherbrooke", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "0.0", 
-                        "lon": "-73.23728992"
-                      }, 
-                      "label": "Sherbrooke", 
-                      "id": "admin:43027", 
-                      "zip_code": ""
-                    }
-                  ], 
-                  "id": "-71.927495;45.389755"
-                }, 
                 "id": "stop_point:STS:SP:2139", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Cabana / Roy", 
                   "links": [], 
                   "coord": {
@@ -2659,14 +2289,24 @@
             }, 
             "links": [], 
             "arrival_date_time": "20111116T074939", 
-            "additional_informations": [], 
             "departure_date_time": "20111116T074300", 
             "to": {
               "embedded_type": "stop_area", 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "commercial_mode:Bus"
+                  }
+                ], 
                 "name": "Cabana (STS)", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "physical_mode:Bus"
+                  }
+                ], 
                 "coord": {
                   "lat": "45.391954", 
                   "lon": "-71.927845"
@@ -2711,7 +2351,7 @@
                     "zip_code": ""
                   }
                 ], 
-                "id": "-71.92778069192597;45.391959745998705"
+                "id": "-71.92778069192597;45.3919597459987"
               }, 
               "quality": 0, 
               "id": "stop_area:STS:SA:1476", 
@@ -2730,20 +2370,20 @@
                   45.389755
                 ], 
                 [
-                  -71.92758268610966, 
-                  45.389746964961475
+                  -71.9275826861, 
+                  45.389746965
                 ], 
                 [
                   -71.92759438, 
                   45.38987458
                 ], 
                 [
-                  -71.92778069192597, 
-                  45.391959745998705
+                  -71.9277806919, 
+                  45.391959746
                 ], 
                 [
-                  -71.92778069192597, 
-                  45.391959745998705
+                  -71.9277806919, 
+                  45.391959746
                 ]
               ]
             }, 
@@ -2760,7 +2400,13 @@
             "id": "section_23_0", 
             "mode": "walking"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 181.8394, 
+          "unit": "gEC"
+        }, 
+        "duration": 1838, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 

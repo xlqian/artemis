@@ -3,7 +3,6 @@
   "response": {
     "journeys": [
       {
-        "tags": [], 
         "nb_transfers": 0, 
         "arrival_date_time": "20120904T154000", 
         "departure_date_time": "20120904T122500", 
@@ -11,131 +10,114 @@
         "duration": 11700, 
         "sections": [
           {
-            "duration": 0, 
+            "from": "A\u00e9roport Caen-Carpiquet (Carpiquet)", 
             "arrival_date_time": "20120904T122500", 
-            "departure_date_time": "20120904T122500"
-          }, 
-          {
-            "duration": 3600, 
-            "arrival_date_time": "20120904T132500", 
-            "departure_date_time": "20120904T122500"
-          }, 
-          {
+            "departure_date_time": "20120904T122500", 
+            "to": "A\u00e9roport Caen-Carpiquet (Carpiquet)", 
             "duration": 0, 
-            "arrival_date_time": "20120904T132500", 
-            "departure_date_time": "20120904T132500"
+            "type": "crow_fly"
           }, 
           {
+            "from": "A\u00e9roport Caen-Carpiquet (Carpiquet)", 
+            "arrival_date_time": "20120904T132500", 
+            "departure_date_time": "20120904T122500", 
+            "to": "Caen BOARDING - LANDING (Laval)", 
+            "duration": 3600, 
+            "type": "boarding"
+          }, 
+          {
+            "from": "Caen BOARDING - LANDING (Laval)", 
+            "arrival_date_time": "20120904T132500", 
+            "departure_date_time": "20120904T132500", 
+            "to": "Caen BOARDING - LANDING (Laval)", 
+            "duration": 0, 
+            "type": "transfer"
+          }, 
+          {
+            "from": "Caen BOARDING - LANDING (Laval)", 
+            "arrival_date_time": "20120904T144000", 
+            "departure_date_time": "20120904T132500", 
+            "to": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)", 
             "duration": 4500, 
-            "arrival_date_time": "20120904T144000", 
-            "departure_date_time": "20120904T132500"
+            "type": "public_transport"
           }, 
           {
+            "from": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)", 
+            "arrival_date_time": "20120904T144000", 
+            "departure_date_time": "20120904T144000", 
+            "to": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)", 
             "duration": 0, 
-            "arrival_date_time": "20120904T144000", 
-            "departure_date_time": "20120904T144000"
+            "type": "transfer"
           }, 
           {
+            "from": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)", 
+            "arrival_date_time": "20120904T154000", 
+            "departure_date_time": "20120904T144000", 
+            "to": "A\u00e9roport de LYON ST EXUPERY (Laval)", 
             "duration": 3600, 
-            "arrival_date_time": "20120904T154000", 
-            "departure_date_time": "20120904T144000"
+            "type": "landing"
           }, 
           {
-            "duration": 0, 
+            "from": "A\u00e9roport de LYON ST EXUPERY (Laval)", 
             "arrival_date_time": "20120904T154000", 
-            "departure_date_time": "20120904T154000"
+            "departure_date_time": "20120904T154000", 
+            "to": "A\u00e9roport de LYON ST EXUPERY (Laval)", 
+            "duration": 0, 
+            "type": "crow_fly"
           }
         ]
       }
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unkown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_3_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_5_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
-    "exceptions": [], 
-    "notes": [], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/airport/journeys?to=stop_area%3AAIR%3ASA%3AAIRPORTLYS&from=stop_area%3AAIR%3ASA%3AAIRPORTAIRPORT&datetime_represents=arrival&datetime=20120904T153900", 
         "type": "prev", 
+        "rel": "prev", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/airport/journeys?to=stop_area%3AAIR%3ASA%3AAIRPORTLYS&from=stop_area%3AAIR%3ASA%3AAIRPORTAIRPORT&datetime_represents=departure&datetime=20120904T122600", 
         "type": "next", 
+        "rel": "next", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/airport/journeys?to=stop_area%3AAIR%3ASA%3AAIRPORTLYS&from=stop_area%3AAIR%3ASA%3AAIRPORTAIRPORT&datetime_represents=departure&datetime=20120904T000000", 
         "type": "first", 
+        "rel": "first", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/airport/journeys?to=stop_area%3AAIR%3ASA%3AAIRPORTLYS&from=stop_area%3AAIR%3ASA%3AAIRPORTAIRPORT&datetime_represents=arrival&datetime=20120904T235900", 
         "type": "last", 
+        "rel": "last", 
         "templated": false
       }, 
       {
         "href": "http://localhost/v1/coverage/airport/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/airport/commercial_modes/{commercial_modes.id}", 
+        "type": "commercial_modes", 
+        "rel": "commercial_modes", 
         "templated": true
       }, 
       {
         "href": "http://localhost/v1/coverage/airport/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
+        "type": "stop_area", 
+        "rel": "stop_areas", 
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/airport/addresses/{address.id}", 
-        "rel": "address", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/airport/stop_points/{stop_point.id}", 
-        "rel": "stop_point", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/airport/stop_areas/{stop_area.id}", 
-        "rel": "stop_area", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/airport/addresses/{address.id}", 
-        "rel": "address", 
+        "href": "http://localhost/v1/coverage/airport/physical_modes/{physical_modes.id}", 
+        "type": "physical_modes", 
+        "rel": "physical_modes", 
         "templated": true
       }
     ], 
@@ -147,98 +129,144 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
-        "tags": [], 
+        "status": "", 
+        "tags": [
+          "standard"
+        ], 
         "nb_transfers": 0, 
         "arrival_date_time": "20120904T154000", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20120325", 
+                "end": "20121028"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": true, 
+              "saturday": true
+            }
+          }
+        ], 
         "departure_date_time": "20120904T122500", 
         "requested_date_time": "20120904T070000", 
-        "type": "best", 
-        "duration": 11700, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:AIR:SA:AIRPORTAIRPORT", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "Boarding - Landing", 
+                    "id": "commercial_mode:boarding_landing"
+                  }
+                ], 
                 "name": "A\u00e9roport Caen-Carpiquet", 
+                "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Landing", 
+                    "id": "physical_mode:CheckOut"
+                  }, 
+                  {
+                    "name": "Boarding", 
+                    "id": "physical_mode:CheckIn"
+                  }
+                ], 
                 "coord": {
                   "lat": "48.059422", 
                   "lon": "-0.777753"
                 }, 
+                "label": "A\u00e9roport Caen-Carpiquet (Carpiquet)", 
+                "administrative_regions": [
+                  {
+                    "insee": "14137", 
+                    "name": "Carpiquet", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.186203", 
+                      "lon": "-0.442506"
+                    }, 
+                    "label": "Carpiquet (14650)", 
+                    "id": "admin:152430extern", 
+                    "zip_code": "14650"
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
                 "id": "stop_area:AIR:SA:AIRPORTAIRPORT"
               }, 
-              "name": "A\u00e9roport Caen-Carpiquet", 
-              "id": "stop_area:AIR:SA:AIRPORTAIRPORT"
+              "name": "A\u00e9roport Caen-Carpiquet (Carpiquet)"
             }, 
             "links": [], 
             "arrival_date_time": "20120904T122500", 
-            "additional_informations": [
-              "regular"
-            ], 
             "departure_date_time": "20120904T122500", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "A\u00e9roport Caen-Carpiquet", 
+                "links": [], 
                 "coord": {
                   "lat": "49.183563", 
                   "lon": "-0.458405"
                 }, 
+                "label": "A\u00e9roport Caen-Carpiquet (Carpiquet)", 
                 "equipments": [], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "name": ""
-                }, 
+                "administrative_regions": [
+                  {
+                    "insee": "14137", 
+                    "name": "Carpiquet", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.186203", 
+                      "lon": "-0.442506"
+                    }, 
+                    "label": "Carpiquet (14650)", 
+                    "id": "admin:152430extern", 
+                    "zip_code": "14650"
+                  }
+                ], 
                 "id": "stop_point:AIR:SP:AIRPORTAIRPORT", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "A\u00e9roport Caen-Carpiquet", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.059422", 
                     "lon": "-0.777753"
                   }, 
+                  "label": "A\u00e9roport Caen-Carpiquet (Carpiquet)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "14137", 
+                      "name": "Carpiquet", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "49.186203", 
+                        "lon": "-0.442506"
+                      }, 
+                      "label": "Carpiquet (14650)", 
+                      "id": "admin:152430extern", 
+                      "zip_code": "14650"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:AIR:SA:AIRPORTAIRPORT"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:AIR:SP:AIRPORTAIRPORT", 
-              "name": "A\u00e9roport Caen-Carpiquet"
+              "name": "A\u00e9roport Caen-Carpiquet (Carpiquet)"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  -0.777753, 
-                  48.059422
-                ], 
-                [
-                  -0.458405, 
-                  49.183563
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_0_0"
@@ -247,46 +275,46 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "A\u00e9roport Caen-Carpiquet", 
+                "links": [], 
                 "coord": {
                   "lat": "49.183563", 
                   "lon": "-0.458405"
                 }, 
+                "label": "A\u00e9roport Caen-Carpiquet (Carpiquet)", 
                 "equipments": [], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "name": ""
-                }, 
+                "administrative_regions": [
+                  {
+                    "insee": "14137", 
+                    "name": "Carpiquet", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "49.186203", 
+                      "lon": "-0.442506"
+                    }, 
+                    "label": "Carpiquet (14650)", 
+                    "id": "admin:152430extern", 
+                    "zip_code": "14650"
+                  }
+                ], 
                 "id": "stop_point:AIR:SP:AIRPORTAIRPORT", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "A\u00e9roport Caen-Carpiquet", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.059422", 
                     "lon": "-0.777753"
                   }, 
+                  "label": "A\u00e9roport Caen-Carpiquet (Carpiquet)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:AIR:SA:AIRPORTAIRPORT"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:AIR:SP:AIRPORTAIRPORT", 
-              "name": "A\u00e9roport Caen-Carpiquet"
+              "name": "A\u00e9roport Caen-Carpiquet (Carpiquet)"
             }, 
-            "links": [
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
-              }
-            ], 
+            "links": [], 
             "arrival_date_time": "20120904T132500", 
             "additional_informations": [
               "regular"
@@ -295,36 +323,44 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Caen BOARDING - LANDING", 
+                "links": [], 
                 "coord": {
                   "lat": "48.053091", 
                   "lon": "-0.74252"
                 }, 
+                "label": "Caen BOARDING - LANDING (Laval)", 
                 "equipments": [], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "name": ""
-                }, 
+                "administrative_regions": [
+                  {
+                    "insee": "53130", 
+                    "name": "Laval", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.071037", 
+                      "lon": "-0.772349"
+                    }, 
+                    "label": "Laval (53000)", 
+                    "id": "admin:393284extern", 
+                    "zip_code": "53000"
+                  }
+                ], 
                 "id": "stop_point:AIR:SP:BOARDING2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Caen BOARDING - LANDING", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.053091", 
                     "lon": "-0.74252"
                   }, 
+                  "label": "Caen BOARDING - LANDING (Laval)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:AIR:SA:BOARDING2"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:AIR:SP:BOARDING2", 
-              "name": "Caen BOARDING - LANDING"
+              "name": "Caen BOARDING - LANDING (Laval)"
             }, 
             "duration": 3600, 
             "type": "boarding", 
@@ -334,76 +370,89 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Caen BOARDING - LANDING", 
+                "links": [], 
                 "coord": {
                   "lat": "48.053091", 
                   "lon": "-0.74252"
                 }, 
+                "label": "Caen BOARDING - LANDING (Laval)", 
                 "equipments": [], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "name": ""
-                }, 
+                "administrative_regions": [
+                  {
+                    "insee": "53130", 
+                    "name": "Laval", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.071037", 
+                      "lon": "-0.772349"
+                    }, 
+                    "label": "Laval (53000)", 
+                    "id": "admin:393284extern", 
+                    "zip_code": "53000"
+                  }
+                ], 
                 "id": "stop_point:AIR:SP:BOARDING2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Caen BOARDING - LANDING", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.053091", 
                     "lon": "-0.74252"
                   }, 
+                  "label": "Caen BOARDING - LANDING (Laval)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:AIR:SA:BOARDING2"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:AIR:SP:BOARDING2", 
-              "name": "Caen BOARDING - LANDING"
+              "name": "Caen BOARDING - LANDING (Laval)"
             }, 
             "links": [], 
             "arrival_date_time": "20120904T132500", 
-            "additional_informations": [
-              "regular"
-            ], 
             "departure_date_time": "20120904T132500", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Caen BOARDING - LANDING", 
+                "links": [], 
                 "coord": {
                   "lat": "48.053091", 
                   "lon": "-0.74252"
                 }, 
+                "label": "Caen BOARDING - LANDING (Laval)", 
                 "equipments": [], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "name": ""
-                }, 
+                "administrative_regions": [
+                  {
+                    "insee": "53130", 
+                    "name": "Laval", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.071037", 
+                      "lon": "-0.772349"
+                    }, 
+                    "label": "Laval (53000)", 
+                    "id": "admin:393284extern", 
+                    "zip_code": "53000"
+                  }
+                ], 
                 "id": "stop_point:AIR:SP:BOARDING2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Caen BOARDING - LANDING", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.053091", 
                     "lon": "-0.74252"
                   }, 
+                  "label": "Caen BOARDING - LANDING (Laval)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:AIR:SA:BOARDING2"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:AIR:SP:BOARDING2", 
-              "name": "Caen BOARDING - LANDING"
+              "name": "Caen BOARDING - LANDING (Laval)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -432,41 +481,49 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Caen BOARDING - LANDING", 
+                "links": [], 
                 "coord": {
                   "lat": "48.053091", 
                   "lon": "-0.74252"
                 }, 
+                "label": "Caen BOARDING - LANDING (Laval)", 
                 "equipments": [], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "name": ""
-                }, 
+                "administrative_regions": [
+                  {
+                    "insee": "53130", 
+                    "name": "Laval", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.071037", 
+                      "lon": "-0.772349"
+                    }, 
+                    "label": "Laval (53000)", 
+                    "id": "admin:393284extern", 
+                    "zip_code": "53000"
+                  }
+                ], 
                 "id": "stop_point:AIR:SP:BOARDING2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Caen BOARDING - LANDING", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.053091", 
                     "lon": "-0.74252"
                   }, 
+                  "label": "Caen BOARDING - LANDING (Laval)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:AIR:SA:BOARDING2"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:AIR:SP:BOARDING2", 
-              "name": "Caen BOARDING - LANDING"
+              "name": "Caen BOARDING - LANDING (Laval)"
             }, 
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:AIR:6473"
+                "id": "vehicle_journey:AIR:6473_dst_1"
               }, 
               {
                 "type": "line", 
@@ -487,25 +544,23 @@
               {
                 "type": "network", 
                 "id": "network:AIR"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20120904T144000", 
             "additional_informations": [
-              "regular"
+              "regular", 
+              "stay_in"
             ], 
-            "departure_date_time": "20120904T132500", 
+            "co2_emission": {
+              "value": 96.5928, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
-              "direction": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+              "direction": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)", 
               "code": "LYS", 
               "description": "", 
-              "color": "", 
+              "links": [], 
+              "color": "000000", 
               "physical_mode": "Avion", 
               "headsign": "AF5732", 
               "commercial_mode": "AVION", 
@@ -516,37 +571,46 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                "links": [], 
                 "coord": {
                   "lat": "48.055086", 
                   "lon": "-0.734032"
                 }, 
+                "label": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)", 
                 "equipments": [], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "name": ""
-                }, 
+                "administrative_regions": [
+                  {
+                    "insee": "53130", 
+                    "name": "Laval", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.071037", 
+                      "lon": "-0.772349"
+                    }, 
+                    "label": "Laval (53000)", 
+                    "id": "admin:393284extern", 
+                    "zip_code": "53000"
+                  }
+                ], 
                 "id": "stop_point:AIR:SP:LANDINGLYS", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.055086", 
                     "lon": "-0.734032"
                   }, 
+                  "label": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:AIR:SA:LANDINGLYS"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:AIR:SP:LANDINGLYS", 
-              "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING"
+              "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)"
             }, 
+            "departure_date_time": "20120904T132500", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -571,35 +635,37 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
-                  "equipments": [], 
                   "name": "Caen BOARDING - LANDING", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.053091", 
                     "lon": "-0.74252"
                   }, 
+                  "label": "Caen BOARDING - LANDING (Laval)", 
+                  "equipments": [], 
                   "id": "stop_point:AIR:SP:BOARDING2"
                 }, 
                 "arrival_date_time": "20120904T132500", 
                 "additional_informations": [], 
-                "departure_date_time": "20120904T132500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120904T132500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
-                  "equipments": [], 
                   "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.055086", 
                     "lon": "-0.734032"
                   }, 
+                  "label": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)", 
+                  "equipments": [], 
                   "id": "stop_point:AIR:SP:LANDINGLYS"
                 }, 
                 "arrival_date_time": "20120904T144000", 
                 "additional_informations": [], 
-                "departure_date_time": "20120904T144000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20120904T144000"
               }
             ]
           }, 
@@ -607,76 +673,89 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                "links": [], 
                 "coord": {
                   "lat": "48.055086", 
                   "lon": "-0.734032"
                 }, 
+                "label": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)", 
                 "equipments": [], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "name": ""
-                }, 
+                "administrative_regions": [
+                  {
+                    "insee": "53130", 
+                    "name": "Laval", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.071037", 
+                      "lon": "-0.772349"
+                    }, 
+                    "label": "Laval (53000)", 
+                    "id": "admin:393284extern", 
+                    "zip_code": "53000"
+                  }
+                ], 
                 "id": "stop_point:AIR:SP:LANDINGLYS", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.055086", 
                     "lon": "-0.734032"
                   }, 
+                  "label": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:AIR:SA:LANDINGLYS"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:AIR:SP:LANDINGLYS", 
-              "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING"
+              "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)"
             }, 
             "links": [], 
             "arrival_date_time": "20120904T144000", 
-            "additional_informations": [
-              "regular"
-            ], 
             "departure_date_time": "20120904T144000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                "links": [], 
                 "coord": {
                   "lat": "48.055086", 
                   "lon": "-0.734032"
                 }, 
+                "label": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)", 
                 "equipments": [], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "name": ""
-                }, 
+                "administrative_regions": [
+                  {
+                    "insee": "53130", 
+                    "name": "Laval", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.071037", 
+                      "lon": "-0.772349"
+                    }, 
+                    "label": "Laval (53000)", 
+                    "id": "admin:393284extern", 
+                    "zip_code": "53000"
+                  }
+                ], 
                 "id": "stop_point:AIR:SP:LANDINGLYS", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.055086", 
                     "lon": "-0.734032"
                   }, 
+                  "label": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:AIR:SA:LANDINGLYS"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:AIR:SP:LANDINGLYS", 
-              "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING"
+              "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -705,46 +784,46 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                "links": [], 
                 "coord": {
                   "lat": "48.055086", 
                   "lon": "-0.734032"
                 }, 
+                "label": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)", 
                 "equipments": [], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "name": ""
-                }, 
+                "administrative_regions": [
+                  {
+                    "insee": "53130", 
+                    "name": "Laval", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.071037", 
+                      "lon": "-0.772349"
+                    }, 
+                    "label": "Laval (53000)", 
+                    "id": "admin:393284extern", 
+                    "zip_code": "53000"
+                  }
+                ], 
                 "id": "stop_point:AIR:SP:LANDINGLYS", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.055086", 
                     "lon": "-0.734032"
                   }, 
+                  "label": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:AIR:SA:LANDINGLYS"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:AIR:SP:LANDINGLYS", 
-              "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING"
+              "name": "A\u00e9roport de LYON ST EXUPERY BOARDING - LANDING (Laval)"
             }, 
-            "links": [
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
-              }
-            ], 
+            "links": [], 
             "arrival_date_time": "20120904T154000", 
             "additional_informations": [
               "regular"
@@ -753,36 +832,44 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "A\u00e9roport de LYON ST EXUPERY", 
+                "links": [], 
                 "coord": {
                   "lat": "48.051176", 
                   "lon": "-0.792728"
                 }, 
+                "label": "A\u00e9roport de LYON ST EXUPERY (Laval)", 
                 "equipments": [], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "name": ""
-                }, 
+                "administrative_regions": [
+                  {
+                    "insee": "53130", 
+                    "name": "Laval", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.071037", 
+                      "lon": "-0.772349"
+                    }, 
+                    "label": "Laval (53000)", 
+                    "id": "admin:393284extern", 
+                    "zip_code": "53000"
+                  }
+                ], 
                 "id": "stop_point:AIR:SP:AIRPORTLYS", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "A\u00e9roport de LYON ST EXUPERY", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.051176", 
                     "lon": "-0.792728"
                   }, 
+                  "label": "A\u00e9roport de LYON ST EXUPERY (Laval)", 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:AIR:SA:AIRPORTLYS"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:AIR:SP:AIRPORTLYS", 
-              "name": "A\u00e9roport de LYON ST EXUPERY"
+              "name": "A\u00e9roport de LYON ST EXUPERY (Laval)"
             }, 
             "duration": 3600, 
             "type": "landing", 
@@ -792,82 +879,125 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "A\u00e9roport de LYON ST EXUPERY", 
+                "links": [], 
                 "coord": {
                   "lat": "48.051176", 
                   "lon": "-0.792728"
                 }, 
+                "label": "A\u00e9roport de LYON ST EXUPERY (Laval)", 
                 "equipments": [], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "name": ""
-                }, 
+                "administrative_regions": [
+                  {
+                    "insee": "53130", 
+                    "name": "Laval", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.071037", 
+                      "lon": "-0.772349"
+                    }, 
+                    "label": "Laval (53000)", 
+                    "id": "admin:393284extern", 
+                    "zip_code": "53000"
+                  }
+                ], 
                 "id": "stop_point:AIR:SP:AIRPORTLYS", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "A\u00e9roport de LYON ST EXUPERY", 
+                  "links": [], 
                   "coord": {
                     "lat": "48.051176", 
                     "lon": "-0.792728"
                   }, 
+                  "label": "A\u00e9roport de LYON ST EXUPERY (Laval)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "53130", 
+                      "name": "Laval", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "48.071037", 
+                        "lon": "-0.772349"
+                      }, 
+                      "label": "Laval (53000)", 
+                      "id": "admin:393284extern", 
+                      "zip_code": "53000"
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
                   "id": "stop_area:AIR:SA:AIRPORTLYS"
                 }
               }, 
               "quality": 0, 
               "id": "stop_point:AIR:SP:AIRPORTLYS", 
-              "name": "A\u00e9roport de LYON ST EXUPERY"
+              "name": "A\u00e9roport de LYON ST EXUPERY (Laval)"
             }, 
             "links": [], 
             "arrival_date_time": "20120904T154000", 
-            "additional_informations": [
-              "regular"
-            ], 
             "departure_date_time": "20120904T154000", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:AIR:SA:AIRPORTLYS", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "AVION", 
+                    "id": "commercial_mode:AVION"
+                  }
+                ], 
                 "name": "A\u00e9roport de LYON ST EXUPERY", 
+                "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Landing", 
+                    "id": "physical_mode:CheckOut"
+                  }, 
+                  {
+                    "name": "Boarding", 
+                    "id": "physical_mode:CheckIn"
+                  }
+                ], 
                 "coord": {
                   "lat": "48.051176", 
                   "lon": "-0.792728"
                 }, 
+                "label": "A\u00e9roport de LYON ST EXUPERY (Laval)", 
+                "administrative_regions": [
+                  {
+                    "insee": "53130", 
+                    "name": "Laval", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "48.071037", 
+                      "lon": "-0.772349"
+                    }, 
+                    "label": "Laval (53000)", 
+                    "id": "admin:393284extern", 
+                    "zip_code": "53000"
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
                 "id": "stop_area:AIR:SA:AIRPORTLYS"
               }, 
-              "name": "A\u00e9roport de LYON ST EXUPERY", 
-              "id": "stop_area:AIR:SA:AIRPORTLYS"
+              "name": "A\u00e9roport de LYON ST EXUPERY (Laval)"
             }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  -0.792728, 
-                  48.051176
-                ], 
-                [
-                  -0.792728, 
-                  48.051176
-                ]
-              ]
-            }, 
+            "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_6_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 96.5928, 
+          "unit": "gEC"
+        }, 
+        "duration": 11700, 
+        "type": "best"
       }
-    ]
+    ], 
+    "disruptions": [], 
+    "notes": [], 
+    "exceptions": []
   }
 }

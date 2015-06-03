@@ -38,27 +38,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/passe-minuit-02/journeys?to=stop_area%3APM2%3ASA%3A2&from=stop_area%3APM2%3ASA%3A1&datetime_represents=arrival&datetime=20080311T000900", 
@@ -91,21 +71,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/passe-minuit-02/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/passe-minuit-02/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/passe-minuit-02/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
+        "href": "http://localhost/v1/coverage/passe-minuit-02/commercial_modes/{commercial_modes.id}", 
+        "type": "commercial_modes", 
+        "rel": "commercial_modes", 
         "templated": true
       }, 
       {
@@ -115,9 +83,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/passe-minuit-02/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
+        "href": "http://localhost/v1/coverage/passe-minuit-02/physical_modes/{physical_modes.id}", 
+        "type": "physical_modes", 
+        "rel": "physical_modes", 
         "templated": true
       }
     ], 
@@ -129,16 +97,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -165,17 +126,27 @@
         ], 
         "departure_date_time": "20080310T235000", 
         "requested_date_time": "20080310T230000", 
-        "type": "best", 
-        "duration": 1200, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:PM2:SA:1", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "TRAIN", 
+                    "id": "commercial_mode:TRAIN"
+                  }
+                ], 
                 "name": "Aaa", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Train", 
+                    "id": "physical_mode:Train"
+                  }
+                ], 
                 "coord": {
                   "lat": "42.706708", 
                   "lon": "2.954531"
@@ -192,23 +163,20 @@
                     }, 
                     "label": "Perpignan (66000-66100)", 
                     "id": "admin:18000extern", 
-                    "zip_code": "66000-66100"
+                    "zip_code": "66000;66100"
                   }
                 ], 
                 "timezone": "Africa/Abidjan", 
                 "id": "stop_area:PM2:SA:1"
               }, 
-              "name": "Aaa (Perpignan)", 
-              "id": "stop_area:PM2:SA:1"
+              "name": "Aaa (Perpignan)"
             }, 
             "links": [], 
             "arrival_date_time": "20080310T235000", 
-            "additional_informations": [], 
             "departure_date_time": "20080310T235000", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Aaa", 
                 "links": [], 
                 "coord": {
@@ -228,22 +196,11 @@
                     }, 
                     "label": "Perpignan (66000-66100)", 
                     "id": "admin:18000extern", 
-                    "zip_code": "66000-66100"
+                    "zip_code": "66000;66100"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:PM2:SP:Nav1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Aaa", 
                   "links": [], 
                   "coord": {
@@ -262,7 +219,7 @@
                       }, 
                       "label": "Perpignan (66000-66100)", 
                       "id": "admin:18000extern", 
-                      "zip_code": "66000-66100"
+                      "zip_code": "66000;66100"
                     }
                   ], 
                   "timezone": "Africa/Abidjan", 
@@ -282,7 +239,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Aaa", 
                 "links": [], 
                 "coord": {
@@ -302,22 +258,11 @@
                     }, 
                     "label": "Perpignan (66000-66100)", 
                     "id": "admin:18000extern", 
-                    "zip_code": "66000-66100"
+                    "zip_code": "66000;66100"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:PM2:SP:Nav1", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Aaa", 
                   "links": [], 
                   "coord": {
@@ -357,18 +302,16 @@
               {
                 "type": "network", 
                 "id": "network:default_network"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20080311T001000", 
-            "additional_informations": [], 
-            "departure_date_time": "20080310T235000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 65.9736, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Ddd (Th\u00e9za)", 
               "code": "3", 
@@ -385,7 +328,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Bbb", 
                 "links": [], 
                 "coord": {
@@ -405,22 +347,11 @@
                     }, 
                     "label": "Perpignan (66000-66100)", 
                     "id": "admin:18000extern", 
-                    "zip_code": "66000-66100"
+                    "zip_code": "66000;66100"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:PM2:SP:Nav2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Bbb", 
                   "links": [], 
                   "coord": {
@@ -436,6 +367,7 @@
               "id": "stop_point:PM2:SP:Nav2", 
               "name": "Bbb (Perpignan)"
             }, 
+            "departure_date_time": "20080310T235000", 
             "geojson": {
               "type": "LineString", 
               "properties": [
@@ -460,7 +392,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Aaa", 
                   "links": [], 
                   "coord": {
@@ -473,12 +404,11 @@
                 }, 
                 "arrival_date_time": "20080310T235000", 
                 "additional_informations": [], 
-                "departure_date_time": "20080310T235000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20080310T235000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bbb", 
                   "links": [], 
                   "coord": {
@@ -491,8 +421,8 @@
                 }, 
                 "arrival_date_time": "20080311T001000", 
                 "additional_informations": [], 
-                "departure_date_time": "20080311T001000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20080311T001000"
               }
             ]
           }, 
@@ -500,7 +430,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Bbb", 
                 "links": [], 
                 "coord": {
@@ -520,22 +449,11 @@
                     }, 
                     "label": "Perpignan (66000-66100)", 
                     "id": "admin:18000extern", 
-                    "zip_code": "66000-66100"
+                    "zip_code": "66000;66100"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:PM2:SP:Nav2", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Bbb", 
                   "links": [], 
                   "coord": {
@@ -554,7 +472,7 @@
                       }, 
                       "label": "Perpignan (66000-66100)", 
                       "id": "admin:18000extern", 
-                      "zip_code": "66000-66100"
+                      "zip_code": "66000;66100"
                     }
                   ], 
                   "timezone": "Africa/Abidjan", 
@@ -567,15 +485,26 @@
             }, 
             "links": [], 
             "arrival_date_time": "20080311T001000", 
-            "additional_informations": [], 
             "departure_date_time": "20080311T001000", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:PM2:SA:2", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "TRAIN", 
+                    "id": "commercial_mode:TRAIN"
+                  }
+                ], 
                 "name": "Bbb", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Train", 
+                    "id": "physical_mode:Train"
+                  }
+                ], 
                 "coord": {
                   "lat": "42.684527", 
                   "lon": "2.893785"
@@ -592,21 +521,26 @@
                     }, 
                     "label": "Perpignan (66000-66100)", 
                     "id": "admin:18000extern", 
-                    "zip_code": "66000-66100"
+                    "zip_code": "66000;66100"
                   }
                 ], 
                 "timezone": "Africa/Abidjan", 
                 "id": "stop_area:PM2:SA:2"
               }, 
-              "name": "Bbb (Perpignan)", 
-              "id": "stop_area:PM2:SA:2"
+              "name": "Bbb (Perpignan)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_2_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 65.9736, 
+          "unit": "gEC"
+        }, 
+        "duration": 1200, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 

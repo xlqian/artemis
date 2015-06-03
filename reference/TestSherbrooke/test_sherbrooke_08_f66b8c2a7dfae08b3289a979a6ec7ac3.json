@@ -78,41 +78,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_4_0", 
-            "rel": "sections", 
-            "templated": false
-          }, 
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_6_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/sherbrooke/journeys?to=stop_area%3ASTS%3ASA%3A1475&datetime_represents=arrival&from=stop_area%3ASTS%3ASA%3A1147&max_duration_to_pt=720&walking_speed=0.83&datetime=20111028T074400", 
@@ -145,9 +111,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/poi_types/{poi_type.id}", 
-        "type": "poi_type", 
-        "rel": "poi_types", 
+        "href": "http://localhost/v1/coverage/sherbrooke/commercial_modes/{commercial_modes.id}", 
+        "type": "commercial_modes", 
+        "rel": "commercial_modes", 
         "templated": true
       }, 
       {
@@ -157,33 +123,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/pois/{poi.id}", 
-        "type": "poi", 
-        "rel": "pois", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/sherbrooke/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/sherbrooke/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
+        "href": "http://localhost/v1/coverage/sherbrooke/physical_modes/{physical_modes.id}", 
+        "type": "physical_modes", 
+        "rel": "physical_modes", 
         "templated": true
       }
     ], 
@@ -195,16 +137,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -231,17 +166,43 @@
         ], 
         "departure_date_time": "20111028T065500", 
         "requested_date_time": "20111028T075000", 
-        "type": "best", 
-        "duration": 3000, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:STS:SA:1147", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "commercial_mode:Bus"
+                  }, 
+                  {
+                    "name": "taxibus", 
+                    "id": "commercial_mode:taxibus"
+                  }, 
+                  {
+                    "name": "Minibus", 
+                    "id": "commercial_mode:Minibus"
+                  }
+                ], 
                 "name": "des Quatre-Saisons / des Lys", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "physical_mode:Bus"
+                  }, 
+                  {
+                    "name": "Minibus", 
+                    "id": "physical_mode:Minibus"
+                  }, 
+                  {
+                    "name": "taxibus", 
+                    "id": "physical_mode:taxibus"
+                  }
+                ], 
                 "coord": {
                   "lat": "45.421353", 
                   "lon": "-71.863868"
@@ -264,17 +225,14 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:STS:SA:1147"
               }, 
-              "name": "des Quatre-Saisons / des Lys (Sherbrooke)", 
-              "id": "stop_area:STS:SA:1147"
+              "name": "des Quatre-Saisons / des Lys (Sherbrooke)"
             }, 
             "links": [], 
             "arrival_date_time": "20111028T065500", 
-            "additional_informations": [], 
             "departure_date_time": "20111028T065500", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "des Quatre-Saisons / des Lys", 
                 "links": [], 
                 "coord": {
@@ -297,33 +255,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "name": "rue DES LYS", 
-                  "house_number": 932, 
-                  "coord": {
-                    "lat": "45.421353", 
-                    "lon": "-71.863868"
-                  }, 
-                  "label": "932 rue DES LYS (Sherbrooke)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "43027", 
-                      "name": "Sherbrooke", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "0.0", 
-                        "lon": "-73.23728992"
-                      }, 
-                      "label": "Sherbrooke", 
-                      "id": "admin:43027", 
-                      "zip_code": ""
-                    }
-                  ], 
-                  "id": "-71.863868;45.421353"
-                }, 
                 "id": "stop_point:STS:SP:1147", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "des Quatre-Saisons / des Lys", 
                   "links": [], 
                   "coord": {
@@ -362,7 +295,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "des Quatre-Saisons / des Lys", 
                 "links": [], 
                 "coord": {
@@ -385,19 +317,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 932, 
-                  "id": "-71.863868;45.421353", 
-                  "name": "rue DES LYS", 
-                  "coord": {
-                    "lat": "45.421353", 
-                    "lon": "-71.863868"
-                  }, 
-                  "label": "932 rue DES LYS (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:1147", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "des Quatre-Saisons / des Lys", 
                   "links": [], 
                   "coord": {
@@ -437,18 +358,16 @@
               {
                 "type": "network", 
                 "id": "network:STS"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20111028T070600", 
-            "additional_informations": [], 
-            "departure_date_time": "20111028T065500", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 551.6141, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Carrefour de l'Estrie (Sherbrooke)", 
               "code": "3", 
@@ -465,7 +384,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Station du C\u00e9gep - quai A", 
                 "links": [], 
                 "coord": {
@@ -488,19 +406,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 431, 
-                  "id": "-71.88485;45.411529", 
-                  "name": "rue DU CEGEP", 
-                  "coord": {
-                    "lat": "45.411529", 
-                    "lon": "-71.88485"
-                  }, 
-                  "label": "431 rue DU CEGEP (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:501A", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Station du C\u00e9gep", 
                   "links": [], 
                   "coord": {
@@ -516,11 +423,12 @@
               "id": "stop_point:STS:SP:501A", 
               "name": "Station du C\u00e9gep - quai A (Sherbrooke)"
             }, 
+            "departure_date_time": "20111028T065500", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 3567
+                  "length": 4253
                 }
               ], 
               "coordinates": [
@@ -836,7 +744,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Quatre-Saisons / des Lys", 
                   "links": [], 
                   "coord": {
@@ -849,12 +756,11 @@
                 }, 
                 "arrival_date_time": "20111028T065500", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T065500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T065500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Lys (r\u00e9sidence personnes \u00e2g\u00e9es)", 
                   "links": [], 
                   "coord": {
@@ -867,12 +773,11 @@
                 }, 
                 "arrival_date_time": "20111028T065500", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T065500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T065500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Lys / des Jardins-Fleuris", 
                   "links": [], 
                   "coord": {
@@ -885,12 +790,11 @@
                 }, 
                 "arrival_date_time": "20111028T065600", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T065600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T065600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Jonquilles / des Jardins-Fleuris", 
                   "links": [], 
                   "coord": {
@@ -903,12 +807,11 @@
                 }, 
                 "arrival_date_time": "20111028T065600", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T065600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T065600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Jonquilles (no.475)", 
                   "links": [], 
                   "coord": {
@@ -921,12 +824,11 @@
                 }, 
                 "arrival_date_time": "20111028T065700", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T065700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T065700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "des Jonquilles / Papineau", 
                   "links": [], 
                   "coord": {
@@ -939,12 +841,11 @@
                 }, 
                 "arrival_date_time": "20111028T065700", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T065700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T065700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "d'Arona / Papineau", 
                   "links": [], 
                   "coord": {
@@ -957,12 +858,11 @@
                 }, 
                 "arrival_date_time": "20111028T065800", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T065800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T065800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "d'Arona / de la Sainte-Famille", 
                   "links": [], 
                   "coord": {
@@ -975,12 +875,11 @@
                 }, 
                 "arrival_date_time": "20111028T065800", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T065800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T065800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "de la Sainte-Famille / 13e ave Nord", 
                   "links": [], 
                   "coord": {
@@ -993,12 +892,11 @@
                 }, 
                 "arrival_date_time": "20111028T065900", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T065900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T065900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Papineau / 12e ave Nord", 
                   "links": [], 
                   "coord": {
@@ -1011,12 +909,11 @@
                 }, 
                 "arrival_date_time": "20111028T070000", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T070000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T070000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Papineau / 10e ave", 
                   "links": [], 
                   "coord": {
@@ -1029,12 +926,11 @@
                 }, 
                 "arrival_date_time": "20111028T070000", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T070000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T070000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Papineau / 7e ave Nord", 
                   "links": [], 
                   "coord": {
@@ -1047,12 +943,11 @@
                 }, 
                 "arrival_date_time": "20111028T070100", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T070100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T070100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "7e ave Nord / Z\u00e9phirin-Cormier", 
                   "links": [], 
                   "coord": {
@@ -1065,12 +960,11 @@
                 }, 
                 "arrival_date_time": "20111028T070100", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T070100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T070100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "7e ave Nord / Langlois", 
                   "links": [], 
                   "coord": {
@@ -1083,12 +977,11 @@
                 }, 
                 "arrival_date_time": "20111028T070200", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T070200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T070200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Langlois / Cod\u00e8re", 
                   "links": [], 
                   "coord": {
@@ -1101,12 +994,11 @@
                 }, 
                 "arrival_date_time": "20111028T070200", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T070200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T070200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Langlois / de l'Assomption", 
                   "links": [], 
                   "coord": {
@@ -1119,12 +1011,11 @@
                 }, 
                 "arrival_date_time": "20111028T070300", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T070300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T070300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Langlois / Saint-Michel", 
                   "links": [], 
                   "coord": {
@@ -1137,12 +1028,11 @@
                 }, 
                 "arrival_date_time": "20111028T070300", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T070300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T070300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Saint-Michel / Terrill", 
                   "links": [], 
                   "coord": {
@@ -1155,12 +1045,11 @@
                 }, 
                 "arrival_date_time": "20111028T070400", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T070400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T070400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Entr\u00e9e Station du C\u00e9gep (Terrill)", 
                   "links": [], 
                   "coord": {
@@ -1173,12 +1062,11 @@
                 }, 
                 "arrival_date_time": "20111028T070500", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T070500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T070500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Station du C\u00e9gep - quai A", 
                   "links": [], 
                   "coord": {
@@ -1191,8 +1079,8 @@
                 }, 
                 "arrival_date_time": "20111028T070600", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T071000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T071000"
               }
             ]
           }, 
@@ -1200,7 +1088,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Station du C\u00e9gep - quai A", 
                 "links": [], 
                 "coord": {
@@ -1223,19 +1110,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 431, 
-                  "id": "-71.88485;45.411529", 
-                  "name": "rue DU CEGEP", 
-                  "coord": {
-                    "lat": "45.411529", 
-                    "lon": "-71.88485"
-                  }, 
-                  "label": "431 rue DU CEGEP (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:501A", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Station du C\u00e9gep", 
                   "links": [], 
                   "coord": {
@@ -1253,12 +1129,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20111028T070600", 
-            "additional_informations": [], 
             "departure_date_time": "20111028T070600", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Station du C\u00e9gep - quai E", 
                 "links": [], 
                 "coord": {
@@ -1281,19 +1155,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 431, 
-                  "id": "-71.88485;45.411529", 
-                  "name": "rue DU CEGEP", 
-                  "coord": {
-                    "lat": "45.411529", 
-                    "lon": "-71.88485"
-                  }, 
-                  "label": "431 rue DU CEGEP (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:501E", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Station du C\u00e9gep", 
                   "links": [], 
                   "coord": {
@@ -1335,7 +1198,6 @@
           {
             "links": [], 
             "arrival_date_time": "20111028T071600", 
-            "additional_informations": [], 
             "departure_date_time": "20111028T070600", 
             "duration": 600, 
             "type": "waiting", 
@@ -1345,7 +1207,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Station du C\u00e9gep - quai E", 
                 "links": [], 
                 "coord": {
@@ -1368,19 +1229,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 431, 
-                  "id": "-71.88485;45.411529", 
-                  "name": "rue DU CEGEP", 
-                  "coord": {
-                    "lat": "45.411529", 
-                    "lon": "-71.88485"
-                  }, 
-                  "label": "431 rue DU CEGEP (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:501E", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Station du C\u00e9gep", 
                   "links": [], 
                   "coord": {
@@ -1420,20 +1270,17 @@
               {
                 "type": "network", 
                 "id": "network:STS"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20111028T073800", 
             "additional_informations": [
+              "regular", 
               "stay_in"
             ], 
-            "departure_date_time": "20111028T071600", 
+            "co2_emission": {
+              "value": 1028.7804, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Universit\u00e9 de Sherbrooke (Sherbrooke)", 
               "code": "9", 
@@ -1450,7 +1297,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Universit\u00e9 de Sherbrooke", 
                 "links": [], 
                 "coord": {
@@ -1473,19 +1319,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 2474, 
-                  "id": "-71.929384;45.378733", 
-                  "name": "boulevard DE L'UNIVERSITE", 
-                  "coord": {
-                    "lat": "45.378733", 
-                    "lon": "-71.929384"
-                  }, 
-                  "label": "2474 boulevard DE L'UNIVERSITE (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:170", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Universit\u00e9 de Sherbrooke", 
                   "links": [], 
                   "coord": {
@@ -1501,11 +1336,12 @@
               "id": "stop_point:STS:SP:170", 
               "name": "Universit\u00e9 de Sherbrooke (Sherbrooke)"
             }, 
+            "departure_date_time": "20111028T071600", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 6596
+                  "length": 7932
                 }
               ], 
               "coordinates": [
@@ -2073,7 +1909,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Station du C\u00e9gep - quai E", 
                   "links": [], 
                   "coord": {
@@ -2086,12 +1921,11 @@
                 }, 
                 "arrival_date_time": "20111028T071300", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T071600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T071600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Entr\u00e9e Station du C\u00e9gep (Terrill)", 
                   "links": [], 
                   "coord": {
@@ -2104,12 +1938,11 @@
                 }, 
                 "arrival_date_time": "20111028T071600", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T071600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T071600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Terrill / du C\u00e9gep", 
                   "links": [], 
                   "coord": {
@@ -2122,12 +1955,11 @@
                 }, 
                 "arrival_date_time": "20111028T071600", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T071600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T071600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Terrill / Kennedy Nord", 
                   "links": [], 
                   "coord": {
@@ -2140,12 +1972,11 @@
                 }, 
                 "arrival_date_time": "20111028T071700", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T071700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T071700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "de Montr\u00e9al / Dufferin", 
                   "links": [], 
                   "coord": {
@@ -2158,12 +1989,11 @@
                 }, 
                 "arrival_date_time": "20111028T071900", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T071900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T071900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Dufferin / Bank", 
                   "links": [], 
                   "coord": {
@@ -2176,12 +2006,11 @@
                 }, 
                 "arrival_date_time": "20111028T071900", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T071900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T071900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Dufferin / Frontenac", 
                   "links": [], 
                   "coord": {
@@ -2194,12 +2023,11 @@
                 }, 
                 "arrival_date_time": "20111028T072000", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T072000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T072000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Frontenac (no.280 R\u00e9sidence Soleil)", 
                   "links": [], 
                   "coord": {
@@ -2212,12 +2040,11 @@
                 }, 
                 "arrival_date_time": "20111028T072100", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T072100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T072100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Frontenac / Belv\u00e9d\u00e8re Nord", 
                   "links": [], 
                   "coord": {
@@ -2230,12 +2057,11 @@
                 }, 
                 "arrival_date_time": "20111028T072100", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T072100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T072100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Belv\u00e9d\u00e8re Nord (no.185)", 
                   "links": [], 
                   "coord": {
@@ -2248,12 +2074,11 @@
                 }, 
                 "arrival_date_time": "20111028T072200", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T072200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T072200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Belv\u00e9d\u00e8re Nord / King Ouest", 
                   "links": [], 
                   "coord": {
@@ -2266,12 +2091,11 @@
                 }, 
                 "arrival_date_time": "20111028T072200", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T072200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T072200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Belv\u00e9d\u00e8re Sud / King Ouest", 
                   "links": [], 
                   "coord": {
@@ -2284,12 +2108,11 @@
                 }, 
                 "arrival_date_time": "20111028T072300", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T072300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T072300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Belv\u00e9d\u00e8re  Sud (entr\u00e9e IGA)", 
                   "links": [], 
                   "coord": {
@@ -2302,12 +2125,11 @@
                 }, 
                 "arrival_date_time": "20111028T072500", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T072500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T072500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Galt Ouest / de Courcelette", 
                   "links": [], 
                   "coord": {
@@ -2320,12 +2142,11 @@
                 }, 
                 "arrival_date_time": "20111028T072500", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T072500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T072500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Galt Ouest / du Pacifique", 
                   "links": [], 
                   "coord": {
@@ -2338,12 +2159,11 @@
                 }, 
                 "arrival_date_time": "20111028T072600", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T072600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T072600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Galt Ouest / Champlain", 
                   "links": [], 
                   "coord": {
@@ -2356,12 +2176,11 @@
                 }, 
                 "arrival_date_time": "20111028T072700", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T072700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T072700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Denault / Galt Ouest", 
                   "links": [], 
                   "coord": {
@@ -2374,12 +2193,11 @@
                 }, 
                 "arrival_date_time": "20111028T072700", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T072700", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T072700"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Denault / Edward-Rose", 
                   "links": [], 
                   "coord": {
@@ -2392,12 +2210,11 @@
                 }, 
                 "arrival_date_time": "20111028T072800", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T072800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T072800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Denault / de Dieppe", 
                   "links": [], 
                   "coord": {
@@ -2410,12 +2227,11 @@
                 }, 
                 "arrival_date_time": "20111028T072800", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T072800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T072800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Denault / Claire-Jolicoeur", 
                   "links": [], 
                   "coord": {
@@ -2428,12 +2244,11 @@
                 }, 
                 "arrival_date_time": "20111028T072900", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T072900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T072900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Denault / Saint-Marc", 
                   "links": [], 
                   "coord": {
@@ -2446,12 +2261,11 @@
                 }, 
                 "arrival_date_time": "20111028T073000", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T073000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T073000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Galt Ouest / Saint-Denis", 
                   "links": [], 
                   "coord": {
@@ -2464,12 +2278,11 @@
                 }, 
                 "arrival_date_time": "20111028T073100", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T073100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T073100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Galt Ouest / Saint-Raymond", 
                   "links": [], 
                   "coord": {
@@ -2482,12 +2295,11 @@
                 }, 
                 "arrival_date_time": "20111028T073200", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T073200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T073200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / Laterri\u00e8re", 
                   "links": [], 
                   "coord": {
@@ -2500,12 +2312,11 @@
                 }, 
                 "arrival_date_time": "20111028T073200", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T073200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T073200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "du Montagnais / boul. de l'Universit\u00e9", 
                   "links": [], 
                   "coord": {
@@ -2518,12 +2329,11 @@
                 }, 
                 "arrival_date_time": "20111028T073400", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T073400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T073400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Universit\u00e9 de Sherbrooke (Sciences)", 
                   "links": [], 
                   "coord": {
@@ -2536,12 +2346,11 @@
                 }, 
                 "arrival_date_time": "20111028T073400", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T073400", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T073400"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Universit\u00e9 de Sherbrooke (Musique)", 
                   "links": [], 
                   "coord": {
@@ -2554,12 +2363,11 @@
                 }, 
                 "arrival_date_time": "20111028T073500", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T073500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T073500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Universit\u00e9 de Sherbrooke (G\u00e9nie)", 
                   "links": [], 
                   "coord": {
@@ -2572,12 +2380,11 @@
                 }, 
                 "arrival_date_time": "20111028T073600", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T073600", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T073600"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Universit\u00e9 de Sherbrooke", 
                   "links": [], 
                   "coord": {
@@ -2590,8 +2397,8 @@
                 }, 
                 "arrival_date_time": "20111028T073800", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T073800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T073800"
               }
             ]
           }, 
@@ -2599,7 +2406,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Universit\u00e9 de Sherbrooke", 
                 "links": [], 
                 "coord": {
@@ -2622,19 +2428,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 2474, 
-                  "id": "-71.929384;45.378733", 
-                  "name": "boulevard DE L'UNIVERSITE", 
-                  "coord": {
-                    "lat": "45.378733", 
-                    "lon": "-71.929384"
-                  }, 
-                  "label": "2474 boulevard DE L'UNIVERSITE (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:170", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Universit\u00e9 de Sherbrooke", 
                   "links": [], 
                   "coord": {
@@ -2652,12 +2447,10 @@
             }, 
             "links": [], 
             "arrival_date_time": "20111028T073800", 
-            "additional_informations": [], 
             "departure_date_time": "20111028T073800", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Universit\u00e9 de Sherbrooke - quai A", 
                 "links": [], 
                 "coord": {
@@ -2680,19 +2473,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 2474, 
-                  "id": "-71.929384;45.378733", 
-                  "name": "boulevard DE L'UNIVERSITE", 
-                  "coord": {
-                    "lat": "45.378733", 
-                    "lon": "-71.929384"
-                  }, 
-                  "label": "2474 boulevard DE L'UNIVERSITE (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:170A", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Universit\u00e9 de Sherbrooke", 
                   "links": [], 
                   "coord": {
@@ -2735,7 +2517,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Universit\u00e9 de Sherbrooke - quai A", 
                 "links": [], 
                 "coord": {
@@ -2758,19 +2539,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 2474, 
-                  "id": "-71.929384;45.378733", 
-                  "name": "boulevard DE L'UNIVERSITE", 
-                  "coord": {
-                    "lat": "45.378733", 
-                    "lon": "-71.929384"
-                  }, 
-                  "label": "2474 boulevard DE L'UNIVERSITE (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:170A", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Universit\u00e9 de Sherbrooke", 
                   "links": [], 
                   "coord": {
@@ -2810,18 +2580,16 @@
               {
                 "type": "network", 
                 "id": "network:STS"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20111028T074500", 
-            "additional_informations": [], 
-            "departure_date_time": "20111028T073800", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 411.2787, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "Parc Blanchard (Sherbrooke)", 
               "code": "15", 
@@ -2838,7 +2606,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Parc Blanchard", 
                 "links": [], 
                 "coord": {
@@ -2861,19 +2628,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "house_number": 745, 
-                  "id": "-71.927948;45.394124", 
-                  "name": "rue CABANA", 
-                  "coord": {
-                    "lat": "45.394124", 
-                    "lon": "-71.927948"
-                  }, 
-                  "label": "745 rue CABANA (Sherbrooke)"
-                }, 
                 "id": "stop_point:STS:SP:1475", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Parc Blanchard", 
                   "links": [], 
                   "coord": {
@@ -2889,11 +2645,12 @@
               "id": "stop_point:STS:SP:1475", 
               "name": "Parc Blanchard (Sherbrooke)"
             }, 
+            "departure_date_time": "20111028T073800", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 2087
+                  "length": 3171
                 }
               ], 
               "coordinates": [
@@ -3057,7 +2814,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Universit\u00e9 de Sherbrooke - quai A", 
                   "links": [], 
                   "coord": {
@@ -3070,12 +2826,11 @@
                 }, 
                 "arrival_date_time": "20111028T073800", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T073800", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T073800"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9/ Prunier", 
                   "links": [], 
                   "coord": {
@@ -3088,12 +2843,11 @@
                 }, 
                 "arrival_date_time": "20111028T073900", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T073900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T073900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "boul. de l'Universit\u00e9 / Cabana", 
                   "links": [], 
                   "coord": {
@@ -3106,12 +2860,11 @@
                 }, 
                 "arrival_date_time": "20111028T073900", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T073900", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T073900"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bachand / Cabana", 
                   "links": [], 
                   "coord": {
@@ -3124,12 +2877,11 @@
                 }, 
                 "arrival_date_time": "20111028T074000", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T074000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T074000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Bachand / du Saint-Esprit", 
                   "links": [], 
                   "coord": {
@@ -3142,12 +2894,11 @@
                 }, 
                 "arrival_date_time": "20111028T074000", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T074000", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T074000"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "du Saint-Esprit / Galt Ouest", 
                   "links": [], 
                   "coord": {
@@ -3160,12 +2911,11 @@
                 }, 
                 "arrival_date_time": "20111028T074100", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T074100", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T074100"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Denault / Cabana", 
                   "links": [], 
                   "coord": {
@@ -3178,12 +2928,11 @@
                 }, 
                 "arrival_date_time": "20111028T074200", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T074200", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T074200"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Cabana / Roy", 
                   "links": [], 
                   "coord": {
@@ -3196,12 +2945,11 @@
                 }, 
                 "arrival_date_time": "20111028T074300", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T074300", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T074300"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "Parc Blanchard", 
                   "links": [], 
                   "coord": {
@@ -3214,8 +2962,8 @@
                 }, 
                 "arrival_date_time": "20111028T074500", 
                 "additional_informations": [], 
-                "departure_date_time": "20111028T074500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20111028T074500"
               }
             ]
           }, 
@@ -3223,7 +2971,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "Parc Blanchard", 
                 "links": [], 
                 "coord": {
@@ -3246,33 +2993,8 @@
                     "zip_code": ""
                   }
                 ], 
-                "address": {
-                  "name": "rue CABANA", 
-                  "house_number": 745, 
-                  "coord": {
-                    "lat": "45.394124", 
-                    "lon": "-71.927948"
-                  }, 
-                  "label": "745 rue CABANA (Sherbrooke)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "43027", 
-                      "name": "Sherbrooke", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "0.0", 
-                        "lon": "-73.23728992"
-                      }, 
-                      "label": "Sherbrooke", 
-                      "id": "admin:43027", 
-                      "zip_code": ""
-                    }
-                  ], 
-                  "id": "-71.927948;45.394124"
-                }, 
                 "id": "stop_point:STS:SP:1475", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "Parc Blanchard", 
                   "links": [], 
                   "coord": {
@@ -3304,15 +3026,26 @@
             }, 
             "links": [], 
             "arrival_date_time": "20111028T074500", 
-            "additional_informations": [], 
             "departure_date_time": "20111028T074500", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:STS:SA:1475", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "commercial_mode:Bus"
+                  }
+                ], 
                 "name": "Parc Blanchard", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Bus", 
+                    "id": "physical_mode:Bus"
+                  }
+                ], 
                 "coord": {
                   "lat": "45.394124", 
                   "lon": "-71.927948"
@@ -3335,15 +3068,20 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:STS:SA:1475"
               }, 
-              "name": "Parc Blanchard (Sherbrooke)", 
-              "id": "stop_area:STS:SA:1475"
+              "name": "Parc Blanchard (Sherbrooke)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_7_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 1991.6732, 
+          "unit": "gEC"
+        }, 
+        "duration": 3000, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 

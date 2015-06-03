@@ -38,27 +38,7 @@
     ]
   }, 
   "full_response": {
-    "tickets": [
-      {
-        "comment": "unknown ticket", 
-        "name": "unknown_ticket", 
-        "links": [
-          {
-            "internal": true, 
-            "type": "section", 
-            "id": "section_1_0", 
-            "rel": "sections", 
-            "templated": false
-          }
-        ], 
-        "cost": {
-          "currency": "", 
-          "value": "0.0"
-        }, 
-        "found": false, 
-        "id": "unknown_ticket_0"
-      }
-    ], 
+    "tickets": [], 
     "links": [
       {
         "href": "http://localhost/v1/coverage/freqsimple/journeys?to=stop_area%3AFQS%3ASA%3AMBC&from=stop_area%3AFQS%3ASA%3AGRA&datetime_represents=arrival&datetime=20070417T053608", 
@@ -91,21 +71,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqsimple/stop_areas/{stop_area.id}", 
-        "type": "stop_area", 
-        "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/freqsimple/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/freqsimple/stop_points/{stop_point.id}", 
-        "type": "stop_point", 
-        "rel": "stop_points", 
+        "href": "http://localhost/v1/coverage/freqsimple/commercial_modes/{commercial_modes.id}", 
+        "type": "commercial_modes", 
+        "rel": "commercial_modes", 
         "templated": true
       }, 
       {
@@ -115,9 +83,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/freqsimple/addresses/{address.id}", 
-        "type": "address", 
-        "rel": "addresses", 
+        "href": "http://localhost/v1/coverage/freqsimple/physical_modes/{physical_modes.id}", 
+        "type": "physical_modes", 
+        "rel": "physical_modes", 
         "templated": true
       }
     ], 
@@ -129,16 +97,9 @@
             "currency": "", 
             "value": "0.0"
           }, 
-          "links": [
-            {
-              "internal": true, 
-              "type": "ticket", 
-              "id": "unknown_ticket_0", 
-              "rel": "tickets", 
-              "templated": false
-            }
-          ]
+          "links": []
         }, 
+        "status": "", 
         "tags": [
           "standard"
         ], 
@@ -165,17 +126,27 @@
         ], 
         "departure_date_time": "20070417T051500", 
         "requested_date_time": "20070417T050000", 
-        "type": "best", 
-        "duration": 1328, 
         "sections": [
           {
             "from": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:FQS:SA:GRA", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "METRO", 
+                    "id": "commercial_mode:METRO"
+                  }
+                ], 
                 "name": "BALMA-GRAMONT", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "M\u00e9tro", 
+                    "id": "physical_mode:Metro"
+                  }
+                ], 
                 "coord": {
                   "lat": "48.843979", 
                   "lon": "2.379063"
@@ -184,17 +155,14 @@
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:FQS:SA:GRA"
               }, 
-              "name": "BALMA-GRAMONT", 
-              "id": "stop_area:FQS:SA:GRA"
+              "name": "BALMA-GRAMONT"
             }, 
             "links": [], 
             "arrival_date_time": "20070417T051500", 
-            "additional_informations": [], 
             "departure_date_time": "20070417T051500", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "BALMA-GRAMONT", 
                 "links": [], 
                 "coord": {
@@ -203,19 +171,8 @@
                 }, 
                 "label": "BALMA-GRAMONT", 
                 "equipments": [], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:FQS:SP:GRA", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "BALMA-GRAMONT", 
                   "links": [], 
                   "coord": {
@@ -240,7 +197,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "BALMA-GRAMONT", 
                 "links": [], 
                 "coord": {
@@ -249,19 +205,8 @@
                 }, 
                 "label": "BALMA-GRAMONT", 
                 "equipments": [], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:FQS:SP:GRA", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "BALMA-GRAMONT", 
                   "links": [], 
                   "coord": {
@@ -301,18 +246,16 @@
               {
                 "type": "network", 
                 "id": "network:FQS"
-              }, 
-              {
-                "internal": true, 
-                "type": "ticket", 
-                "id": "unknown_ticket_0", 
-                "rel": "tickets", 
-                "templated": false
               }
             ], 
             "arrival_date_time": "20070417T053708", 
-            "additional_informations": [], 
-            "departure_date_time": "20070417T051500", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 4344.5688, 
+              "unit": "gEC"
+            }, 
             "display_informations": {
               "direction": "BASSO-CAMBO (Toulouse)", 
               "code": "", 
@@ -329,7 +272,6 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "BASSO-CAMBO", 
                 "links": [], 
                 "coord": {
@@ -349,22 +291,11 @@
                     }, 
                     "label": "Toulouse (31000-31500)", 
                     "id": "admin:35738extern", 
-                    "zip_code": "31000-31500"
+                    "zip_code": "31000;31500"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:FQS:SP:MBC", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "BASSO-CAMBO", 
                   "links": [], 
                   "coord": {
@@ -380,11 +311,12 @@
               "id": "stop_point:FQS:SP:MBC", 
               "name": "BASSO-CAMBO (Toulouse)"
             }, 
+            "departure_date_time": "20070417T051500", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 1316530
+                  "length": 1316536
                 }
               ], 
               "coordinates": [
@@ -468,7 +400,6 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "BALMA-GRAMONT", 
                   "links": [], 
                   "coord": {
@@ -481,12 +412,11 @@
                 }, 
                 "arrival_date_time": "20070417T051500", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T051500", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T051500"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "ARGOULETS", 
                   "links": [], 
                   "coord": {
@@ -499,12 +429,11 @@
                 }, 
                 "arrival_date_time": "20070417T051610", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T051610", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T051610"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "ROSERAIE", 
                   "links": [], 
                   "coord": {
@@ -517,12 +446,11 @@
                 }, 
                 "arrival_date_time": "20070417T051729", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T051729", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T051729"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "JOLIMONT", 
                   "links": [], 
                   "coord": {
@@ -535,12 +463,11 @@
                 }, 
                 "arrival_date_time": "20070417T051856", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T051856", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T051856"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "MARENGO-SNCF", 
                   "links": [], 
                   "coord": {
@@ -553,12 +480,11 @@
                 }, 
                 "arrival_date_time": "20070417T052020", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T052020", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T052020"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "JEAN JAURES", 
                   "links": [], 
                   "coord": {
@@ -571,12 +497,11 @@
                 }, 
                 "arrival_date_time": "20070417T052138", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T052138", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T052138"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "CAPITOLE", 
                   "links": [], 
                   "coord": {
@@ -589,12 +514,11 @@
                 }, 
                 "arrival_date_time": "20070417T052241", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T052241", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T052241"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "ESQUIROL", 
                   "links": [], 
                   "coord": {
@@ -607,12 +531,11 @@
                 }, 
                 "arrival_date_time": "20070417T052354", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T052354", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T052354"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "ST-CYPRIEN-REPUBLIQUE", 
                   "links": [], 
                   "coord": {
@@ -625,12 +548,11 @@
                 }, 
                 "arrival_date_time": "20070417T052538", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T052538", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T052538"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "PATTE D'OIE", 
                   "links": [], 
                   "coord": {
@@ -643,12 +565,11 @@
                 }, 
                 "arrival_date_time": "20070417T052655", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T052655", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T052655"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "ARENES", 
                   "links": [], 
                   "coord": {
@@ -661,12 +582,11 @@
                 }, 
                 "arrival_date_time": "20070417T052804", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T052804", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T052804"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "FONTAINE-LESTANG", 
                   "links": [], 
                   "coord": {
@@ -679,12 +599,11 @@
                 }, 
                 "arrival_date_time": "20070417T052926", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T052926", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T052926"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "MERMOZ", 
                   "links": [], 
                   "coord": {
@@ -697,12 +616,11 @@
                 }, 
                 "arrival_date_time": "20070417T053032", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T053032", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T053032"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "BAGATELLE", 
                   "links": [], 
                   "coord": {
@@ -715,12 +633,11 @@
                 }, 
                 "arrival_date_time": "20070417T053137", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T053137", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T053137"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "MIRAIL-UNIVERSITE", 
                   "links": [], 
                   "coord": {
@@ -733,12 +650,11 @@
                 }, 
                 "arrival_date_time": "20070417T053319", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T053319", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T053319"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "REYNERIE", 
                   "links": [], 
                   "coord": {
@@ -751,12 +667,11 @@
                 }, 
                 "arrival_date_time": "20070417T053426", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T053426", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T053426"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "BELLEFONTAINE", 
                   "links": [], 
                   "coord": {
@@ -769,12 +684,11 @@
                 }, 
                 "arrival_date_time": "20070417T053544", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T053544", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T053544"
               }, 
               {
                 "stop_point": {
-                  "comment": "", 
                   "name": "BASSO-CAMBO", 
                   "links": [], 
                   "coord": {
@@ -787,8 +701,8 @@
                 }, 
                 "arrival_date_time": "20070417T053708", 
                 "additional_informations": [], 
-                "departure_date_time": "20070417T053708", 
-                "links": []
+                "links": [], 
+                "departure_date_time": "20070417T053708"
               }
             ]
           }, 
@@ -796,7 +710,6 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "comment": "", 
                 "name": "BASSO-CAMBO", 
                 "links": [], 
                 "coord": {
@@ -816,22 +729,11 @@
                     }, 
                     "label": "Toulouse (31000-31500)", 
                     "id": "admin:35738extern", 
-                    "zip_code": "31000-31500"
+                    "zip_code": "31000;31500"
                   }
                 ], 
-                "address": {
-                  "house_number": 0, 
-                  "id": "0.0;0.0", 
-                  "name": "", 
-                  "coord": {
-                    "lat": "0.0", 
-                    "lon": "0.0"
-                  }, 
-                  "label": ""
-                }, 
                 "id": "stop_point:FQS:SP:MBC", 
                 "stop_area": {
-                  "comment": "", 
                   "name": "BASSO-CAMBO", 
                   "links": [], 
                   "coord": {
@@ -850,7 +752,7 @@
                       }, 
                       "label": "Toulouse (31000-31500)", 
                       "id": "admin:35738extern", 
-                      "zip_code": "31000-31500"
+                      "zip_code": "31000;31500"
                     }
                   ], 
                   "timezone": "Europe/Paris", 
@@ -863,15 +765,26 @@
             }, 
             "links": [], 
             "arrival_date_time": "20070417T053708", 
-            "additional_informations": [], 
             "departure_date_time": "20070417T053708", 
             "to": {
               "embedded_type": "stop_area", 
+              "id": "stop_area:FQS:SA:MBC", 
               "quality": 0, 
               "stop_area": {
-                "comment": "", 
+                "commercial_modes": [
+                  {
+                    "name": "METRO", 
+                    "id": "commercial_mode:METRO"
+                  }
+                ], 
                 "name": "BASSO-CAMBO", 
                 "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "M\u00e9tro", 
+                    "id": "physical_mode:Metro"
+                  }
+                ], 
                 "coord": {
                   "lat": "48.830492", 
                   "lon": "2.390951"
@@ -888,21 +801,26 @@
                     }, 
                     "label": "Toulouse (31000-31500)", 
                     "id": "admin:35738extern", 
-                    "zip_code": "31000-31500"
+                    "zip_code": "31000;31500"
                   }
                 ], 
                 "timezone": "Europe/Paris", 
                 "id": "stop_area:FQS:SA:MBC"
               }, 
-              "name": "BASSO-CAMBO (Toulouse)", 
-              "id": "stop_area:FQS:SA:MBC"
+              "name": "BASSO-CAMBO (Toulouse)"
             }, 
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
             "id": "section_2_0"
           }
-        ]
+        ], 
+        "co2_emission": {
+          "value": 4344.5688, 
+          "unit": "gEC"
+        }, 
+        "duration": 1328, 
+        "type": "best"
       }
     ], 
     "disruptions": [], 
