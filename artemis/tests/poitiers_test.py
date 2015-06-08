@@ -1,6 +1,5 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 import pytest
-xfail = pytest.mark.xfail
 
 @dataset([DataSet("poitiers")])
 class TestPoitiers(ArtemisTestFixture):
@@ -64,7 +63,6 @@ class TestPoitiers(ArtemisTestFixture):
                      to="stop_area:POI:SA:10114", datetime="20090906T070000",
                      walking_speed="0.83", max_duration_to_pt="240")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1468", raises=AssertionError)
     def test_poitiers_08(self):
         """
         ID artemis v1: 13
