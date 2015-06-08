@@ -1,6 +1,5 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 import pytest
-xfail = pytest.mark.xfail
 
 @dataset([DataSet("test-01")])
 class TestTest01(ArtemisTestFixture):
