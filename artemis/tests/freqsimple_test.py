@@ -1,6 +1,5 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 import pytest
-xfail = pytest.mark.xfail
 
 @dataset([DataSet("freqsimple")])
 class TestFreqSimple(ArtemisTestFixture):
@@ -19,7 +18,6 @@ class TestFreqSimple(ArtemisTestFixture):
         self.journey(_from="stop_area:FQS:SA:MBC",
                      to="stop_area:FQS:SA:GRA", datetime="20070417T0100")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1461", raises=AssertionError)
     def test_freqsimple_04(self):
         self.journey(_from="stop_area:FQS:SA:MBC",
                      to="stop_area:FQS:SA:GRA", datetime="20070417T0520", datetime_represents="arrival")
