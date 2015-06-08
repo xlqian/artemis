@@ -4,31 +4,31 @@
     "journeys": [
       {
         "nb_transfers": 0, 
-        "arrival_date_time": "20120928T131400", 
-        "departure_date_time": "20120928T123900", 
+        "arrival_date_time": "20120928T124600", 
+        "departure_date_time": "20120928T121100", 
         "type": "best", 
         "duration": 2100, 
         "sections": [
           {
             "from": "Avignon (84000)", 
-            "arrival_date_time": "20120928T123900", 
-            "departure_date_time": "20120928T123900", 
+            "arrival_date_time": "20120928T121100", 
+            "departure_date_time": "20120928T121100", 
             "to": "gare de Avignon-TGV (Avignon)", 
             "duration": 0, 
             "type": "crow_fly"
           }, 
           {
             "from": "gare de Avignon-TGV (Avignon)", 
-            "arrival_date_time": "20120928T131400", 
-            "departure_date_time": "20120928T123900", 
+            "arrival_date_time": "20120928T124600", 
+            "departure_date_time": "20120928T121100", 
             "to": "gare de Marseille-St-Charles (Marseille)", 
             "duration": 2100, 
             "type": "public_transport"
           }, 
           {
             "from": "gare de Marseille-St-Charles (Marseille)", 
-            "arrival_date_time": "20120928T131400", 
-            "departure_date_time": "20120928T131400", 
+            "arrival_date_time": "20120928T130100", 
+            "departure_date_time": "20120928T130100", 
             "to": "Marseille (13001-14005)", 
             "duration": 0, 
             "type": "crow_fly"
@@ -41,13 +41,13 @@
     "tickets": [], 
     "links": [
       {
-        "href": "http://localhost/v1/coverage/guichet-unique/journeys?to=admin%3A76469extern&datetime_represents=arrival&from=admin%3A102478extern&max_duration_to_pt=240&walking_speed=0.83&datetime=20120928T131300", 
+        "href": "http://localhost/v1/coverage/guichet-unique/journeys?to=admin%3A76469extern&datetime_represents=arrival&from=admin%3A102478extern&max_duration_to_pt=240&walking_speed=0.83&datetime=20120928T124500", 
         "type": "prev", 
         "rel": "prev", 
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/guichet-unique/journeys?to=admin%3A76469extern&datetime_represents=departure&from=admin%3A102478extern&max_duration_to_pt=240&walking_speed=0.83&datetime=20120928T124000", 
+        "href": "http://localhost/v1/coverage/guichet-unique/journeys?to=admin%3A76469extern&datetime_represents=departure&from=admin%3A102478extern&max_duration_to_pt=240&walking_speed=0.83&datetime=20120928T121200", 
         "type": "next", 
         "rel": "next", 
         "templated": false
@@ -92,7 +92,7 @@
           "standard"
         ], 
         "nb_transfers": 0, 
-        "arrival_date_time": "20120928T131400", 
+        "arrival_date_time": "20120928T124600", 
         "calendars": [
           {
             "exceptions": [
@@ -118,20 +118,24 @@
               }, 
               {
                 "type": "remove", 
-                "datetime": "20121007"
-              }, 
-              {
-                "type": "remove", 
                 "datetime": "20121015"
               }, 
               {
                 "type": "remove", 
                 "datetime": "20121016"
+              }, 
+              {
+                "type": "add", 
+                "datetime": "20120923"
+              }, 
+              {
+                "type": "add", 
+                "datetime": "20120930"
               }
             ], 
             "active_periods": [
               {
-                "begin": "20120914", 
+                "begin": "20120917", 
                 "end": "20121008"
               }, 
               {
@@ -145,12 +149,12 @@
               "friday": true, 
               "wednesday": true, 
               "thursday": true, 
-              "sunday": true, 
+              "sunday": false, 
               "saturday": true
             }
           }
         ], 
-        "departure_date_time": "20120928T123900", 
+        "departure_date_time": "20120928T121100", 
         "requested_date_time": "20120928T120000", 
         "sections": [
           {
@@ -173,8 +177,8 @@
               "name": "Avignon (84000)"
             }, 
             "links": [], 
-            "arrival_date_time": "20120928T123900", 
-            "departure_date_time": "20120928T123900", 
+            "arrival_date_time": "20120928T121100", 
+            "departure_date_time": "20120928T121100", 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
@@ -282,15 +286,15 @@
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:OCE:SN005358F0100434613_dst_1"
+                "id": "vehicle_journey:OCETGV-87192039-87756056-9:37069_dst_1"
               }, 
               {
                 "type": "line", 
-                "id": "line:OCE:TGV-87751008-87471003"
+                "id": "line:OCE:TGV-87192039-87756056"
               }, 
               {
                 "type": "route", 
-                "id": "route:OCE:TGV-87471003-87751008-9"
+                "id": "route:OCE:TGV-87192039-87756056-9"
               }, 
               {
                 "type": "commercial_mode", 
@@ -305,25 +309,22 @@
                 "id": "network:SNC"
               }
             ], 
-            "arrival_date_time": "20120928T131400", 
+            "arrival_date_time": "20120928T124600", 
             "additional_informations": [
               "regular"
             ], 
-            "co2_emission": {
-              "value": 0.0, 
-              "unit": "gEC"
-            }, 
+            "departure_date_time": "20120928T121100", 
             "display_informations": {
-              "direction": "gare de Marseille-St-Charles (Marseille)", 
+              "direction": "gare de Nice-Ville (Nice)", 
               "code": "", 
               "description": "", 
               "links": [], 
               "color": "000000", 
               "physical_mode": "TGV", 
-              "headsign": "5358", 
+              "headsign": "5148", 
               "commercial_mode": "TGV", 
               "equipments": [], 
-              "label": "Marseille-St-Charles - Rennes", 
+              "label": "Metz-Ville - Nice-Ville", 
               "network": "SNCF"
             }, 
             "to": {
@@ -380,22 +381,17 @@
               "id": "stop_point:OCE:SP:TGV-87751008", 
               "name": "gare de Marseille-St-Charles (Marseille)"
             }, 
-            "departure_date_time": "20120928T123900", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 84945
+                  "length": 83879
                 }
               ], 
               "coordinates": [
                 [
                   4.78616, 
                   43.921963
-                ], 
-                [
-                  5.317273, 
-                  43.455151
                 ], 
                 [
                   5.380659, 
@@ -419,27 +415,10 @@
                   "equipments": [], 
                   "id": "stop_point:OCE:SP:TGV-87318964"
                 }, 
-                "arrival_date_time": "20120928T123600", 
+                "arrival_date_time": "20120928T120800", 
                 "additional_informations": [], 
                 "links": [], 
-                "departure_date_time": "20120928T123900"
-              }, 
-              {
-                "stop_point": {
-                  "name": "gare de Aix-en-Provence-TGV", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "43.455151", 
-                    "lon": "5.317273"
-                  }, 
-                  "label": "gare de Aix-en-Provence-TGV (Aix-en-Provence)", 
-                  "equipments": [], 
-                  "id": "stop_point:OCE:SP:TGV-87319012"
-                }, 
-                "arrival_date_time": "20120928T125900", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20120928T130200"
+                "departure_date_time": "20120928T121100"
               }, 
               {
                 "stop_point": {
@@ -453,10 +432,10 @@
                   "equipments": [], 
                   "id": "stop_point:OCE:SP:TGV-87751008"
                 }, 
-                "arrival_date_time": "20120928T131400", 
+                "arrival_date_time": "20120928T124600", 
                 "additional_informations": [], 
                 "links": [], 
-                "departure_date_time": "20120928T131400"
+                "departure_date_time": "20120928T130100"
               }
             ]
           }, 
@@ -542,8 +521,8 @@
               "name": "gare de Marseille-St-Charles (Marseille)"
             }, 
             "links": [], 
-            "arrival_date_time": "20120928T131400", 
-            "departure_date_time": "20120928T131400", 
+            "arrival_date_time": "20120928T130100", 
+            "departure_date_time": "20120928T130100", 
             "to": {
               "embedded_type": "administrative_region", 
               "administrative_region": {
@@ -568,10 +547,6 @@
             "id": "section_2_0"
           }
         ], 
-        "co2_emission": {
-          "value": 0.0, 
-          "unit": "gEC"
-        }, 
         "duration": 2100, 
         "type": "best"
       }
