@@ -1,6 +1,5 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 import pytest
-xfail = pytest.mark.xfail
 
 @dataset([DataSet("guichet-unique")])
 class TestGuichetUnique(ArtemisTestFixture):
@@ -38,7 +37,6 @@ class TestGuichetUnique(ArtemisTestFixture):
                      to="admin:7444extern", datetime="20121020T120000",
                      walking_speed="0.83", max_duration_to_pt="240")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1481", raises=AssertionError)
     def test_guichet_unique_avignon_to_marseille(self):
         """
         ID artemis v1: 19
