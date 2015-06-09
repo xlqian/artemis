@@ -3,7 +3,7 @@
   "response": {
     "journeys": [
       {
-        "nb_transfers": 1, 
+        "nb_transfers": 0, 
         "arrival_date_time": "20111112T135231", 
         "departure_date_time": "20111112T133423", 
         "type": "best", 
@@ -42,12 +42,12 @@
             "type": "public_transport"
           }, 
           {
-            "from": null, 
-            "arrival_date_time": "20111112T134900", 
+            "from": "des Chardonnerets / Marika (Sherbrooke)", 
+            "arrival_date_time": "20111112T134400", 
             "departure_date_time": "20111112T134400", 
-            "to": null, 
-            "duration": 300, 
-            "type": "waiting"
+            "to": "des Chardonnerets / Marika (Sherbrooke)", 
+            "duration": 0, 
+            "type": "transfer"
           }, 
           {
             "from": "des Chardonnerets / Marika (Sherbrooke)", 
@@ -141,7 +141,7 @@
         "tags": [
           "standard"
         ], 
-        "nb_transfers": 1, 
+        "nb_transfers": 0, 
         "arrival_date_time": "20111112T135231", 
         "calendars": [
           {
@@ -402,7 +402,7 @@
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:STS:484611584_dst_2"
+                "id": "vehicle_journey:STS4_1A:1584_dst_2"
               }, 
               {
                 "type": "line", 
@@ -1144,7 +1144,7 @@
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:STS:484622988_dst_2"
+                "id": "vehicle_journey:STSHLP_2063_2097:2988_dst_2"
               }, 
               {
                 "type": "line", 
@@ -1169,7 +1169,8 @@
             ], 
             "arrival_date_time": "20111112T134400", 
             "additional_informations": [
-              "regular"
+              "regular", 
+              "stay_in"
             ], 
             "co2_emission": {
               "value": 45.6544, 
@@ -1316,11 +1317,114 @@
             ]
           }, 
           {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "des Chardonnerets / Marika", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.404101", 
+                  "lon": "-71.82052"
+                }, 
+                "label": "des Chardonnerets / Marika (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "stop_point:STS:SP:2097", 
+                "stop_area": {
+                  "name": "des Chardonnerets / Marika", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.404101", 
+                    "lon": "-71.82052"
+                  }, 
+                  "label": "des Chardonnerets / Marika (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:2097"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:2097", 
+              "name": "des Chardonnerets / Marika (Sherbrooke)"
+            }, 
             "links": [], 
-            "arrival_date_time": "20111112T134900", 
+            "arrival_date_time": "20111112T134400", 
             "departure_date_time": "20111112T134400", 
-            "duration": 300, 
-            "type": "waiting", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "des Chardonnerets / Marika", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.404101", 
+                  "lon": "-71.82052"
+                }, 
+                "label": "des Chardonnerets / Marika (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "stop_point:STS:SP:2097", 
+                "stop_area": {
+                  "name": "des Chardonnerets / Marika", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.404101", 
+                    "lon": "-71.82052"
+                  }, 
+                  "label": "des Chardonnerets / Marika (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:2097"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:2097", 
+              "name": "des Chardonnerets / Marika (Sherbrooke)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  -71.82052, 
+                  45.404101
+                ], 
+                [
+                  -71.82052, 
+                  45.404101
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "transfer_type": "stay_in", 
+            "type": "transfer", 
             "id": "section_4_0"
           }, 
           {
@@ -1369,7 +1473,7 @@
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:STS:484632713_dst_2"
+                "id": "vehicle_journey:STS9_2R_R:2713_dst_2"
               }, 
               {
                 "type": "line", 

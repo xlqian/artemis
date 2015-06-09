@@ -3,7 +3,7 @@
   "response": {
     "journeys": [
       {
-        "nb_transfers": 1, 
+        "nb_transfers": 0, 
         "arrival_date_time": "20111111T070312", 
         "departure_date_time": "20111111T064200", 
         "type": "best", 
@@ -42,12 +42,12 @@
             "type": "public_transport"
           }, 
           {
-            "from": null, 
-            "arrival_date_time": "20111111T065800", 
+            "from": "du Chalumeau / ch. Galvin (Sherbrooke)", 
+            "arrival_date_time": "20111111T065700", 
             "departure_date_time": "20111111T065700", 
-            "to": null, 
-            "duration": 60, 
-            "type": "waiting"
+            "to": "du Chalumeau / ch. Galvin (Sherbrooke)", 
+            "duration": 0, 
+            "type": "transfer"
           }, 
           {
             "from": "du Chalumeau / ch. Galvin (Sherbrooke)", 
@@ -153,7 +153,7 @@
         "tags": [
           "standard"
         ], 
-        "nb_transfers": 1, 
+        "nb_transfers": 0, 
         "arrival_date_time": "20111111T070312", 
         "calendars": [
           {
@@ -1358,7 +1358,8 @@
             ], 
             "arrival_date_time": "20111111T065700", 
             "additional_informations": [
-              "regular"
+              "regular", 
+              "stay_in"
             ], 
             "co2_emission": {
               "value": 326.1955, 
@@ -1545,11 +1546,114 @@
             ]
           }, 
           {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "du Chalumeau / ch. Galvin", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.402505", 
+                  "lon": "-71.823141"
+                }, 
+                "label": "du Chalumeau / ch. Galvin (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "stop_point:STS:SP:2038", 
+                "stop_area": {
+                  "name": "du Chalumeau / ch. Galvin", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.402505", 
+                    "lon": "-71.823141"
+                  }, 
+                  "label": "du Chalumeau / ch. Galvin (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:2038"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:2038", 
+              "name": "du Chalumeau / ch. Galvin (Sherbrooke)"
+            }, 
             "links": [], 
-            "arrival_date_time": "20111111T065800", 
+            "arrival_date_time": "20111111T065700", 
             "departure_date_time": "20111111T065700", 
-            "duration": 60, 
-            "type": "waiting", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "du Chalumeau / ch. Galvin", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.402505", 
+                  "lon": "-71.823141"
+                }, 
+                "label": "du Chalumeau / ch. Galvin (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "stop_point:STS:SP:2038", 
+                "stop_area": {
+                  "name": "du Chalumeau / ch. Galvin", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.402505", 
+                    "lon": "-71.823141"
+                  }, 
+                  "label": "du Chalumeau / ch. Galvin (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:2038"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:2038", 
+              "name": "du Chalumeau / ch. Galvin (Sherbrooke)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  -71.823141, 
+                  45.402505
+                ], 
+                [
+                  -71.823141, 
+                  45.402505
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "transfer_type": "stay_in", 
+            "type": "transfer", 
             "id": "section_4_0"
           }, 
           {
