@@ -20,7 +20,6 @@ class TestSherbrooke(ArtemisTestFixture):
                      to="poi:3713 - ADDRESS370 - ADDRESS1079", datetime="20111112T151500",
                      walking_speed="0.83", max_duration_to_pt="720")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1562", raises=AssertionError)
     def test_sherbrooke_04(self):
         self.journey(_from="stop_area:STS:SA:501",
                      to="poi:3624 - ADDRESS962 - ADDRESS1013", datetime="20111111T063000",
