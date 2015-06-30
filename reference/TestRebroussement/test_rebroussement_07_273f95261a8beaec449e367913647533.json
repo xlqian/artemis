@@ -6,7 +6,7 @@
         "nb_transfers": 1, 
         "arrival_date_time": "20041213T092300", 
         "departure_date_time": "20041213T090000", 
-        "type": "best", 
+        "type": "less_fallback_walk", 
         "duration": 1380, 
         "sections": [
           {
@@ -50,6 +50,39 @@
             "type": "crow_fly"
           }
         ]
+      }, 
+      {
+        "nb_transfers": 0, 
+        "arrival_date_time": "20041213T092300", 
+        "departure_date_time": "20041213T090153", 
+        "type": "best", 
+        "duration": 1267, 
+        "sections": [
+          {
+            "from": "Braden (Lons)", 
+            "arrival_date_time": "20041213T091400", 
+            "departure_date_time": "20041213T090153", 
+            "to": "Prat Maria (Lons)", 
+            "duration": 727, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Prat Maria (Lons)", 
+            "arrival_date_time": "20041213T092300", 
+            "departure_date_time": "20041213T091400", 
+            "to": "Aquarive (Idron)", 
+            "duration": 540, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Aquarive (Idron)", 
+            "arrival_date_time": "20041213T092300", 
+            "departure_date_time": "20041213T092300", 
+            "to": "Aquarive (Idron)", 
+            "duration": 0, 
+            "type": "crow_fly"
+          }
+        ]
       }
     ]
   }, 
@@ -63,7 +96,7 @@
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/rebroussement/journeys?to=stop_area%3ARBR%3ASA%3A7&from=stop_area%3ARBR%3ASA%3A1&datetime_represents=departure&datetime=20041213T090100", 
+        "href": "http://localhost/v1/coverage/rebroussement/journeys?to=stop_area%3ARBR%3ASA%3A7&from=stop_area%3ARBR%3ASA%3A1&datetime_represents=departure&datetime=20041213T090253", 
         "type": "next", 
         "rel": "next", 
         "templated": false
@@ -116,9 +149,7 @@
           "links": []
         }, 
         "status": "", 
-        "tags": [
-          "standard"
-        ], 
+        "tags": [], 
         "nb_transfers": 1, 
         "arrival_date_time": "20041213T092300", 
         "calendars": [
@@ -297,7 +328,7 @@
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:RBR:1-132"
+                "id": "vehicle_journey:RBRNav1:32"
               }, 
               {
                 "type": "line", 
@@ -335,7 +366,7 @@
               "links": [], 
               "color": "000000", 
               "physical_mode": "Train", 
-              "headsign": "RBR:1-132", 
+              "headsign": "RBRNav1:32", 
               "commercial_mode": "TRAIN", 
               "equipments": [], 
               "label": "5", 
@@ -517,7 +548,7 @@
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:RBR:2-97"
+                "id": "vehicle_journey:RBRNav2:7"
               }, 
               {
                 "type": "line", 
@@ -555,7 +586,7 @@
               "links": [], 
               "color": "000000", 
               "physical_mode": "Train", 
-              "headsign": "RBR:2-97", 
+              "headsign": "RBRNav2:7", 
               "commercial_mode": "TRAIN", 
               "equipments": [], 
               "label": "1", 
@@ -776,6 +807,476 @@
           "unit": "gEC"
         }, 
         "duration": 1380, 
+        "type": "less_fallback_walk"
+      }, 
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": []
+        }, 
+        "status": "", 
+        "tags": [
+          "standard"
+        ], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20041213T092300", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20040101", 
+                "end": "20041231"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
+        "departure_date_time": "20041213T090153", 
+        "requested_date_time": "20041213T090000", 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "id": "stop_area:RBR:SA:1", 
+              "quality": 0, 
+              "stop_area": {
+                "commercial_modes": [
+                  {
+                    "name": "TRAIN", 
+                    "id": "commercial_mode:TRAIN"
+                  }
+                ], 
+                "name": "Braden", 
+                "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Train", 
+                    "id": "physical_mode:Train"
+                  }
+                ], 
+                "coord": {
+                  "lat": "43.327232", 
+                  "lon": "-0.38934"
+                }, 
+                "label": "Braden (Lons)", 
+                "administrative_regions": [
+                  {
+                    "insee": "64348", 
+                    "name": "Lons", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.315407", 
+                      "lon": "-0.409763"
+                    }, 
+                    "label": "Lons (64140)", 
+                    "id": "admin:166786extern", 
+                    "zip_code": "64140"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
+                "id": "stop_area:RBR:SA:1"
+              }, 
+              "name": "Braden (Lons)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041213T091400", 
+            "departure_date_time": "20041213T090153", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "Prat Maria", 
+                "links": [], 
+                "coord": {
+                  "lat": "43.322267", 
+                  "lon": "-0.381937"
+                }, 
+                "label": "Prat Maria (Lons)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "64348", 
+                    "name": "Lons", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.315407", 
+                      "lon": "-0.409763"
+                    }, 
+                    "label": "Lons (64140)", 
+                    "id": "admin:166786extern", 
+                    "zip_code": "64140"
+                  }
+                ], 
+                "id": "stop_point:RBR:SP:Nav3", 
+                "stop_area": {
+                  "name": "Prat Maria", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.322267", 
+                    "lon": "-0.381937"
+                  }, 
+                  "label": "Prat Maria (Lons)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "64348", 
+                      "name": "Lons", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "43.315407", 
+                        "lon": "-0.409763"
+                      }, 
+                      "label": "Lons (64140)", 
+                      "id": "admin:166786extern", 
+                      "zip_code": "64140"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:RBR:SA:3"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:RBR:SP:Nav3", 
+              "name": "Prat Maria (Lons)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 814
+                }
+              ], 
+              "coordinates": [
+                [
+                  -0.38934, 
+                  43.327232
+                ], 
+                [
+                  -0.381937, 
+                  43.322267
+                ]
+              ]
+            }, 
+            "duration": 727, 
+            "type": "crow_fly", 
+            "id": "section_5_0", 
+            "mode": "walking"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "Prat Maria", 
+                "links": [], 
+                "coord": {
+                  "lat": "43.322267", 
+                  "lon": "-0.381937"
+                }, 
+                "label": "Prat Maria (Lons)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "64348", 
+                    "name": "Lons", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.315407", 
+                      "lon": "-0.409763"
+                    }, 
+                    "label": "Lons (64140)", 
+                    "id": "admin:166786extern", 
+                    "zip_code": "64140"
+                  }
+                ], 
+                "id": "stop_point:RBR:SP:Nav3", 
+                "stop_area": {
+                  "name": "Prat Maria", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.322267", 
+                    "lon": "-0.381937"
+                  }, 
+                  "label": "Prat Maria (Lons)", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:RBR:SA:3"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:RBR:SP:Nav3", 
+              "name": "Prat Maria (Lons)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:RBRNav2:7"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:RBR:Nav2"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:RBR:Nav2"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:TRAIN"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Train"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:default_network"
+              }
+            ], 
+            "arrival_date_time": "20041213T092300", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 68.5559, 
+              "unit": "gEC"
+            }, 
+            "display_informations": {
+              "direction": "Aquarive (Idron)", 
+              "code": "1", 
+              "description": "", 
+              "links": [], 
+              "color": "000000", 
+              "physical_mode": "Train", 
+              "headsign": "RBRNav2:7", 
+              "commercial_mode": "TRAIN", 
+              "equipments": [], 
+              "label": "1", 
+              "network": "default network"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "Aquarive", 
+                "links": [], 
+                "coord": {
+                  "lat": "43.295999", 
+                  "lon": "-0.320586"
+                }, 
+                "label": "Aquarive (Idron)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "64269", 
+                    "name": "Idron", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.291084", 
+                      "lon": "-0.311753"
+                    }, 
+                    "label": "Idron (64320)", 
+                    "id": "admin:167648extern", 
+                    "zip_code": "64320"
+                  }
+                ], 
+                "id": "stop_point:RBR:SP:Nav7", 
+                "stop_area": {
+                  "name": "Aquarive", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.295999", 
+                    "lon": "-0.320586"
+                  }, 
+                  "label": "Aquarive (Idron)", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:RBR:SA:7"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:RBR:SP:Nav7", 
+              "name": "Aquarive (Idron)"
+            }, 
+            "departure_date_time": "20041213T091400", 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 5761
+                }
+              ], 
+              "coordinates": [
+                [
+                  -0.381937, 
+                  43.322267
+                ], 
+                [
+                  -0.320586, 
+                  43.295999
+                ]
+              ]
+            }, 
+            "duration": 540, 
+            "type": "public_transport", 
+            "id": "section_6_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "name": "Prat Maria", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.322267", 
+                    "lon": "-0.381937"
+                  }, 
+                  "label": "Prat Maria (Lons)", 
+                  "equipments": [], 
+                  "id": "stop_point:RBR:SP:Nav3"
+                }, 
+                "arrival_date_time": "20041213T091400", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20041213T091400"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Aquarive", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.295999", 
+                    "lon": "-0.320586"
+                  }, 
+                  "label": "Aquarive (Idron)", 
+                  "equipments": [], 
+                  "id": "stop_point:RBR:SP:Nav7"
+                }, 
+                "arrival_date_time": "20041213T092300", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20041213T092300"
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "Aquarive", 
+                "links": [], 
+                "coord": {
+                  "lat": "43.295999", 
+                  "lon": "-0.320586"
+                }, 
+                "label": "Aquarive (Idron)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "64269", 
+                    "name": "Idron", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.291084", 
+                      "lon": "-0.311753"
+                    }, 
+                    "label": "Idron (64320)", 
+                    "id": "admin:167648extern", 
+                    "zip_code": "64320"
+                  }
+                ], 
+                "id": "stop_point:RBR:SP:Nav7", 
+                "stop_area": {
+                  "name": "Aquarive", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "43.295999", 
+                    "lon": "-0.320586"
+                  }, 
+                  "label": "Aquarive (Idron)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "64269", 
+                      "name": "Idron", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "43.291084", 
+                        "lon": "-0.311753"
+                      }, 
+                      "label": "Idron (64320)", 
+                      "id": "admin:167648extern", 
+                      "zip_code": "64320"
+                    }
+                  ], 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:RBR:SA:7"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:RBR:SP:Nav7", 
+              "name": "Aquarive (Idron)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041213T092300", 
+            "departure_date_time": "20041213T092300", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "id": "stop_area:RBR:SA:7", 
+              "quality": 0, 
+              "stop_area": {
+                "commercial_modes": [
+                  {
+                    "name": "TRAIN", 
+                    "id": "commercial_mode:TRAIN"
+                  }
+                ], 
+                "name": "Aquarive", 
+                "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Train", 
+                    "id": "physical_mode:Train"
+                  }
+                ], 
+                "coord": {
+                  "lat": "43.295999", 
+                  "lon": "-0.320586"
+                }, 
+                "label": "Aquarive (Idron)", 
+                "administrative_regions": [
+                  {
+                    "insee": "64269", 
+                    "name": "Idron", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "43.291084", 
+                      "lon": "-0.311753"
+                    }, 
+                    "label": "Idron (64320)", 
+                    "id": "admin:167648extern", 
+                    "zip_code": "64320"
+                  }
+                ], 
+                "timezone": "Africa/Abidjan", 
+                "id": "stop_area:RBR:SA:7"
+              }, 
+              "name": "Aquarive (Idron)"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_7_0"
+          }
+        ], 
+        "co2_emission": {
+          "value": 68.5559, 
+          "unit": "gEC"
+        }, 
+        "duration": 1267, 
         "type": "best"
       }
     ], 
