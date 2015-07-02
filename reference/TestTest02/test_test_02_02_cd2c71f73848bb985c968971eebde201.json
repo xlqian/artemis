@@ -4,9 +4,42 @@
     "journeys": [
       {
         "nb_transfers": 0, 
+        "arrival_date_time": "20041215T102617", 
+        "departure_date_time": "20041215T100000", 
+        "type": "best", 
+        "duration": 1577, 
+        "sections": [
+          {
+            "from": "Arret 1", 
+            "arrival_date_time": "20041215T100000", 
+            "departure_date_time": "20041215T100000", 
+            "to": "N", 
+            "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "N", 
+            "arrival_date_time": "20041215T102000", 
+            "departure_date_time": "20041215T100000", 
+            "to": "O", 
+            "duration": 1200, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "O", 
+            "arrival_date_time": "20041215T102617", 
+            "departure_date_time": "20041215T102000", 
+            "to": "Arret 3", 
+            "duration": 377, 
+            "type": "crow_fly"
+          }
+        ]
+      }, 
+      {
+        "nb_transfers": 0, 
         "arrival_date_time": "20041215T103100", 
         "departure_date_time": "20041215T100100", 
-        "type": "best", 
+        "type": "less_fallback_walk", 
         "duration": 1800, 
         "sections": [
           {
@@ -41,7 +74,7 @@
     "tickets": [], 
     "links": [
       {
-        "href": "http://localhost/v1/coverage/test-02/journeys?to=stop_area%3ATS2%3ASA%3A3&from=stop_area%3ATS2%3ASA%3A1&datetime_represents=arrival&datetime=20041215T103000", 
+        "href": "http://localhost/v1/coverage/test-02/journeys?to=stop_area%3ATS2%3ASA%3A3&from=stop_area%3ATS2%3ASA%3A1&datetime_represents=arrival&datetime=20041215T102517", 
         "type": "prev", 
         "rel": "prev", 
         "templated": false
@@ -103,6 +136,362 @@
         "tags": [
           "standard"
         ], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20041215T102617", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20040101", 
+                "end": "20041231"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
+        "departure_date_time": "20041215T100000", 
+        "requested_date_time": "20041214T110500", 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "id": "stop_area:TS2:SA:1", 
+              "quality": 0, 
+              "stop_area": {
+                "commercial_modes": [
+                  {
+                    "name": "TRAIN", 
+                    "id": "commercial_mode:TRAIN"
+                  }
+                ], 
+                "name": "Arret 1", 
+                "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Train", 
+                    "id": "physical_mode:Train"
+                  }
+                ], 
+                "coord": {
+                  "lat": "11.454215", 
+                  "lon": "72.306969"
+                }, 
+                "label": "Arret 1", 
+                "timezone": "Africa/Abidjan", 
+                "id": "stop_area:TS2:SA:1"
+              }, 
+              "name": "Arret 1"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041215T100000", 
+            "departure_date_time": "20041215T100000", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "N", 
+                "links": [], 
+                "coord": {
+                  "lat": "11.454215", 
+                  "lon": "72.306969"
+                }, 
+                "label": "N", 
+                "equipments": [], 
+                "id": "stop_point:TS2:SP:Nav1", 
+                "stop_area": {
+                  "name": "Arret 1", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "11.454215", 
+                    "lon": "72.306969"
+                  }, 
+                  "label": "Arret 1", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:TS2:SA:1"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:TS2:SP:Nav1", 
+              "name": "N"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_0_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "N", 
+                "links": [], 
+                "coord": {
+                  "lat": "11.454215", 
+                  "lon": "72.306969"
+                }, 
+                "label": "N", 
+                "equipments": [], 
+                "id": "stop_point:TS2:SP:Nav1", 
+                "stop_area": {
+                  "name": "Arret 1", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "11.454215", 
+                    "lon": "72.306969"
+                  }, 
+                  "label": "Arret 1", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:TS2:SA:1"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:TS2:SP:Nav1", 
+              "name": "N"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:TS2Nav1:2"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:TS2:Nav1"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:TS2:Nav1"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:TRAIN"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Train"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:default_network"
+              }
+            ], 
+            "arrival_date_time": "20041215T102000", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 11.2336, 
+              "unit": "gEC"
+            }, 
+            "display_informations": {
+              "direction": "Q", 
+              "code": "JOUR", 
+              "description": "", 
+              "links": [], 
+              "color": "000000", 
+              "physical_mode": "Train", 
+              "headsign": "TS2Nav1:2", 
+              "commercial_mode": "TRAIN", 
+              "equipments": [], 
+              "label": "JOUR", 
+              "network": "default network"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "O", 
+                "links": [], 
+                "coord": {
+                  "lat": "11.450681", 
+                  "lon": "72.314848"
+                }, 
+                "label": "O", 
+                "equipments": [], 
+                "id": "stop_point:TS2:SP:Nav2", 
+                "stop_area": {
+                  "name": "Arret 2", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "11.450681", 
+                    "lon": "72.314848"
+                  }, 
+                  "label": "Arret 2", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:TS2:SA:2"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:TS2:SP:Nav2", 
+              "name": "O"
+            }, 
+            "departure_date_time": "20041215T100000", 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 944
+                }
+              ], 
+              "coordinates": [
+                [
+                  72.306969, 
+                  11.454215
+                ], 
+                [
+                  72.314848, 
+                  11.450681
+                ]
+              ]
+            }, 
+            "duration": 1200, 
+            "type": "public_transport", 
+            "id": "section_1_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "name": "N", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "11.454215", 
+                    "lon": "72.306969"
+                  }, 
+                  "label": "N", 
+                  "equipments": [], 
+                  "id": "stop_point:TS2:SP:Nav1"
+                }, 
+                "arrival_date_time": "20041215T100000", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20041215T100000"
+              }, 
+              {
+                "stop_point": {
+                  "name": "O", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "11.450681", 
+                    "lon": "72.314848"
+                  }, 
+                  "label": "O", 
+                  "equipments": [], 
+                  "id": "stop_point:TS2:SP:Nav2"
+                }, 
+                "arrival_date_time": "20041215T102000", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20041215T102000"
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "O", 
+                "links": [], 
+                "coord": {
+                  "lat": "11.450681", 
+                  "lon": "72.314848"
+                }, 
+                "label": "O", 
+                "equipments": [], 
+                "id": "stop_point:TS2:SP:Nav2", 
+                "stop_area": {
+                  "name": "Arret 2", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "11.450681", 
+                    "lon": "72.314848"
+                  }, 
+                  "label": "Arret 2", 
+                  "timezone": "Africa/Abidjan", 
+                  "id": "stop_area:TS2:SA:2"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:TS2:SP:Nav2", 
+              "name": "O"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20041215T102617", 
+            "departure_date_time": "20041215T102000", 
+            "to": {
+              "embedded_type": "stop_area", 
+              "id": "stop_area:TS2:SA:3", 
+              "quality": 0, 
+              "stop_area": {
+                "commercial_modes": [
+                  {
+                    "name": "TRAIN", 
+                    "id": "commercial_mode:TRAIN"
+                  }
+                ], 
+                "name": "Arret 3", 
+                "links": [], 
+                "physical_modes": [
+                  {
+                    "name": "Train", 
+                    "id": "physical_mode:Train"
+                  }
+                ], 
+                "coord": {
+                  "lat": "11.453084", 
+                  "lon": "72.317857"
+                }, 
+                "label": "Arret 3", 
+                "timezone": "Africa/Abidjan", 
+                "id": "stop_area:TS2:SA:3"
+              }, 
+              "name": "Arret 3"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 423
+                }
+              ], 
+              "coordinates": [
+                [
+                  72.314848, 
+                  11.450681
+                ], 
+                [
+                  72.317857, 
+                  11.453084
+                ]
+              ]
+            }, 
+            "duration": 377, 
+            "type": "crow_fly", 
+            "id": "section_2_0", 
+            "mode": "walking"
+          }
+        ], 
+        "co2_emission": {
+          "value": 11.2336, 
+          "unit": "gEC"
+        }, 
+        "duration": 1577, 
+        "type": "best"
+      }, 
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": []
+        }, 
+        "status": "", 
+        "tags": [], 
         "nb_transfers": 0, 
         "arrival_date_time": "20041215T103100", 
         "calendars": [
@@ -191,7 +580,7 @@
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
-            "id": "section_0_0"
+            "id": "section_3_0"
           }, 
           {
             "from": {
@@ -322,7 +711,7 @@
             }, 
             "duration": 1800, 
             "type": "public_transport", 
-            "id": "section_1_0", 
+            "id": "section_4_0", 
             "stop_date_times": [
               {
                 "stop_point": {
@@ -441,7 +830,7 @@
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
-            "id": "section_2_0"
+            "id": "section_5_0"
           }
         ], 
         "co2_emission": {
@@ -449,7 +838,7 @@
           "unit": "gEC"
         }, 
         "duration": 1800, 
-        "type": "best"
+        "type": "less_fallback_walk"
       }
     ], 
     "disruptions": [], 
