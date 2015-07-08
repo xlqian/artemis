@@ -74,7 +74,7 @@ class TestTad(ArtemisTestFixture):
     # _from is a coord in admin : admin:41212
     def test_coord_2_stop_area(self):
         self.journey(_from="1.3573;47.5564",
-                     to="stop_area:T18:SA:blr1",
+                     to="stop_area:CAA:SA:blr2",
                      datetime="20150310T102000")
 
     """
