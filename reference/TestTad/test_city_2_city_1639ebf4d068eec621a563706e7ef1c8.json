@@ -1,0 +1,280 @@
+{
+  "query": "http://localhost/v1/coverage/tad/journeys?from=admin:41246&to=admin:41266&datetime=20150302T102000&datetime_represents=departure", 
+  "response": {
+    "journeys": [
+      {
+        "nb_transfers": 0, 
+        "arrival_date_time": "20150302T103000", 
+        "departure_date_time": "20150302T102000", 
+        "type": "best", 
+        "duration": 600, 
+        "sections": [
+          {
+            "from": "Seur (41120)", 
+            "arrival_date_time": "20150302T103000", 
+            "departure_date_time": "20150302T102000", 
+            "to": "Valaire (41120)", 
+            "duration": 600, 
+            "type": "on_demand_transport"
+          }
+        ]
+      }
+    ]
+  }, 
+  "full_response": {
+    "tickets": [], 
+    "links": [
+      {
+        "href": "http://localhost/v1/coverage/tad/journeys?to=admin%3A41266&from=admin%3A41246&datetime_represents=arrival&datetime=20150302T102900", 
+        "type": "prev", 
+        "rel": "prev", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/tad/journeys?to=admin%3A41266&from=admin%3A41246&datetime_represents=departure&datetime=20150302T102100", 
+        "type": "next", 
+        "rel": "next", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/tad/journeys?to=admin%3A41266&from=admin%3A41246&datetime_represents=departure&datetime=20150302T000000", 
+        "type": "first", 
+        "rel": "first", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/tad/journeys?to=admin%3A41266&from=admin%3A41246&datetime_represents=arrival&datetime=20150302T235900", 
+        "type": "last", 
+        "rel": "last", 
+        "templated": false
+      }, 
+      {
+        "href": "http://localhost/v1/coverage/tad/stop_points/{stop_point.id}", 
+        "type": "stop_point", 
+        "rel": "stop_points", 
+        "templated": true
+      }
+    ], 
+    "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": []
+        }, 
+        "status": "", 
+        "tags": [
+          "standard"
+        ], 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20150302T103000", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20150301", 
+                "end": "20150305"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": false, 
+              "wednesday": true, 
+              "thursday": false, 
+              "sunday": true, 
+              "saturday": false
+            }
+          }
+        ], 
+        "departure_date_time": "20150302T102000", 
+        "requested_date_time": "20150302T102000", 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "administrative_region", 
+              "administrative_region": {
+                "insee": "41246", 
+                "name": "Seur", 
+                "level": 8, 
+                "coord": {
+                  "lat": "47.50222439", 
+                  "lon": "1.333762372"
+                }, 
+                "label": "Seur (41120)", 
+                "id": "admin:41246", 
+                "zip_code": "41120"
+              }, 
+              "quality": 0, 
+              "id": "admin:41246", 
+              "name": "Seur (41120)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:620C0492D2CD030E9A732F3C8BCF73B6:1"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:CAC:1_commne_commune"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:620C0492D2CD030E9A732F3C8BCF73B6:1"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:CACCoach"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:default_physical_mode"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:CAC:Tub"
+              }
+            ], 
+            "arrival_date_time": "20150302T103000", 
+            "additional_informations": [
+              "has_datetime_estimated", 
+              "odt_with_zone"
+            ], 
+            "departure_date_time": "20150302T102000", 
+            "display_informations": {
+              "direction": "Villefrancoeur (Villefrancoeur)", 
+              "code": "", 
+              "description": "", 
+              "links": [], 
+              "color": "", 
+              "physical_mode": "mode physique par d\u00e9faut", 
+              "headsign": "Resago", 
+              "commercial_mode": "", 
+              "equipments": [], 
+              "label": "Resago", 
+              "network": "Tub"
+            }, 
+            "to": {
+              "embedded_type": "administrative_region", 
+              "administrative_region": {
+                "insee": "41266", 
+                "name": "Valaire", 
+                "level": 8, 
+                "coord": {
+                  "lat": "47.47059823", 
+                  "lon": "1.268231128"
+                }, 
+                "label": "Valaire (41120)", 
+                "id": "admin:41266", 
+                "zip_code": "41120"
+              }, 
+              "quality": 0, 
+              "id": "admin:41266", 
+              "name": "Valaire (41120)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 6052
+                }
+              ], 
+              "coordinates": [
+                [
+                  1.333763, 
+                  47.502225
+                ], 
+                [
+                  1.268232, 
+                  47.470599
+                ]
+              ]
+            }, 
+            "duration": 600, 
+            "type": "on_demand_transport", 
+            "id": "section_0_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "name": "Seur", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.502225", 
+                    "lon": "1.333763"
+                  }, 
+                  "label": "Seur (Seur)", 
+                  "equipments": [], 
+                  "id": "stop_point:41246"
+                }, 
+                "arrival_date_time": "20150302T102000", 
+                "additional_informations": [
+                  "on_demand_transport", 
+                  "date_time_estimated"
+                ], 
+                "links": [
+                  {
+                    "internal": true, 
+                    "type": "notes", 
+                    "id": "note:1485545218648285707", 
+                    "rel": "notes"
+                  }
+                ], 
+                "departure_date_time": "20150302T102000"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Valaire", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "47.470599", 
+                    "lon": "1.268232"
+                  }, 
+                  "label": "Valaire (Valaire)", 
+                  "equipments": [], 
+                  "id": "stop_point:41266"
+                }, 
+                "arrival_date_time": "20150302T103000", 
+                "additional_informations": [
+                  "drop_off_only", 
+                  "on_demand_transport", 
+                  "date_time_estimated"
+                ], 
+                "links": [
+                  {
+                    "internal": true, 
+                    "type": "notes", 
+                    "id": "note:1485545218648285707", 
+                    "rel": "notes"
+                  }
+                ], 
+                "departure_date_time": "20150302T103000"
+              }
+            ]
+          }
+        ], 
+        "duration": 600, 
+        "type": "best"
+      }
+    ], 
+    "disruptions": [], 
+    "notes": [
+      {
+        "type": "notes", 
+        "id": "note:1485545218648285707", 
+        "value": "Pour r\u00e9server son transport resago,il suffit d appeler le 09 693 693 41 ou de se rendre sur www.azalys-blois.fr.Le transport peut \u00eatre r\u00e9serv\u00e9 d une semaine \u00e0 l avance jusqu \u00e0 : 12h le jour du transport pour un d\u00e9placement \u00e0 partir de 14h, 17h la veille du transport pour un d\u00e9placement avant 14h, le samedi jusqu\u2019\u00e0 17h pour un d\u00e9placement le dimanche ou le lundi matin"
+      }
+    ], 
+    "feed_publishers": [
+      {
+        "url": "http://www.canaltp.fr/", 
+        "id": "tad", 
+        "license": "AAA", 
+        "name": "TESTS TAD"
+      }
+    ], 
+    "exceptions": []
+  }
+}
