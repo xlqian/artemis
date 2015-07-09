@@ -14,7 +14,7 @@ class TestTad(ArtemisTestFixture):
     # to is a coord in admin : admin:41266
     def test_city_2_coord(self):
         self.journey(_from="admin:41246",
-                     to="1.2391;47.4599",
+                     to="1.2453;47.4713",
                      datetime="20150302T102000")
 
     # _from is a coord in admin : admin:41246
@@ -27,7 +27,7 @@ class TestTad(ArtemisTestFixture):
     # to is a coord in admin : admin:41266
     def test_coord_2_coord(self):
         self.journey(_from="1.3379;47.5096",
-                     to="1.2391;47.4599",
+                     to="1.2453;47.4713",
                      datetime="20150302T102000")
 
     """
@@ -118,6 +118,7 @@ class TestTad(ArtemisTestFixture):
                      to="stop_point:CA2:SP:blr1",
                      datetime="20150313T102000")
 
+    # _from is a coord in admin : admin:41295
     def test_coord_2_stop_area_dep_after(self):
         self.journey(_from="1.3828;47.5831",
                      to="stop_area:CA2:SA:blr1",
@@ -165,6 +166,7 @@ class TestTad(ArtemisTestFixture):
                      to="stop_point:CA1:SP:blr9",
                      datetime="20150319T102000")
 
+    # _from is a coord in admin : admin:41047
     def test_coord_2_stop_area_arr_before(self):
         self.journey(_from="1.3561;47.6089",
                      to="stop_area:CA1:SA:blr9",
