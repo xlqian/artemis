@@ -7,7 +7,6 @@ class TestSaintOmer(ArtemisTestFixture):
     """
       test "on demand transport"
     """
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1540", raises=AssertionError)
     def test_saint_omer_admin_to_poi(self):
         """
         ID artemis v1: 0 and 1
@@ -16,7 +15,6 @@ class TestSaintOmer(ArtemisTestFixture):
                      to="poi:adm117", datetime="20121206T133500",
                      walking_speed="1", max_duration_to_pt="1000")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1542", raises=AssertionError)
     def test_saint_omer_poi_to_admin(self):
         """
         ID artemis v1: 2
@@ -25,7 +23,6 @@ class TestSaintOmer(ArtemisTestFixture):
                      to="admin:62595", datetime="20121206T153500",
                      walking_speed="1", max_duration_to_pt="1000")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1540", raises=AssertionError)
     def test_saint_omer_admin_to_address(self):
         """
         ID artemis v1: 3
@@ -34,7 +31,6 @@ class TestSaintOmer(ArtemisTestFixture):
                      to="2.26668185;50.75150538", datetime="20121206T153500",
                      walking_speed="1", max_duration_to_pt="1000")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1542", raises=AssertionError)
     def test_saint_omer_address_to_admin(self):
         """
         ID artemis v1: 4
@@ -43,7 +39,6 @@ class TestSaintOmer(ArtemisTestFixture):
                      to="admin:62595", datetime="20121206T153500",
                      walking_speed="1", max_duration_to_pt="1000")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1540", raises=AssertionError)
     def test_saint_omer_admin_to_sto_area(self):
         """
         ID artemis v1: 5
@@ -52,7 +47,6 @@ class TestSaintOmer(ArtemisTestFixture):
                      to="stop_area:ASO:SA:1", datetime="20121206T153500",
                      walking_speed="1", max_duration_to_pt="1000")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVP-205", raises=AssertionError)
     def test_saint_omer_stop_area_to_admin(self):
         """
         ID artemis v1: 6
@@ -61,7 +55,6 @@ class TestSaintOmer(ArtemisTestFixture):
                      to="admin:62595", datetime="20121206T153500",
                      walking_speed="1", max_duration_to_pt="1000")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1540", raises=AssertionError)
     def test_saint_omer_admin_to_admin_01(self):
         """
         ID artemis v1: 7
@@ -70,7 +63,6 @@ class TestSaintOmer(ArtemisTestFixture):
                      to="admin:62458", datetime="20121120T101500",
                      walking_speed="1", max_duration_to_pt="1000")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1540", raises=AssertionError)
     def test_saint_omer_admin_to_admin_02(self):
         """
         ID artemis v1: 8

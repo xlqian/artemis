@@ -3,56 +3,24 @@
   "response": {
     "journeys": [
       {
-        "nb_transfers": 1, 
-        "arrival_date_time": "20121121T073700", 
-        "departure_date_time": "20121121T070900", 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20121120T103600", 
+        "departure_date_time": "20121120T101600", 
         "type": "best", 
-        "duration": 1680, 
+        "duration": 1200, 
         "sections": [
           {
             "from": "Houlle (62910)", 
-            "arrival_date_time": "20121121T070900", 
-            "departure_date_time": "20121121T070900", 
-            "to": "Place (Houlle)", 
-            "duration": 0, 
-            "type": "crow_fly"
+            "arrival_date_time": "20121120T103600", 
+            "departure_date_time": "20121120T101600", 
+            "to": "Place Painlev\u00e9 (Saint-Omer)", 
+            "duration": 1200, 
+            "type": "on_demand_transport"
           }, 
           {
-            "from": "Place (Houlle)", 
-            "arrival_date_time": "20121121T072500", 
-            "departure_date_time": "20121121T070900", 
-            "to": "Eug\u00e8ne Delacroix (Longuenesse)", 
-            "duration": 960, 
-            "type": "public_transport"
-          }, 
-          {
-            "from": "Eug\u00e8ne Delacroix (Longuenesse)", 
-            "arrival_date_time": "20121121T072949", 
-            "departure_date_time": "20121121T072500", 
-            "to": "Place Perpignan (Saint-Omer)", 
-            "duration": 289, 
-            "type": "transfer"
-          }, 
-          {
-            "from": null, 
-            "arrival_date_time": "20121121T073500", 
-            "departure_date_time": "20121121T072949", 
-            "to": null, 
-            "duration": 311, 
-            "type": "waiting"
-          }, 
-          {
-            "from": "Place Perpignan (Saint-Omer)", 
-            "arrival_date_time": "20121121T073700", 
-            "departure_date_time": "20121121T073500", 
-            "to": "Gare (Saint-Omer)", 
-            "duration": 120, 
-            "type": "public_transport"
-          }, 
-          {
-            "from": "Gare (Saint-Omer)", 
-            "arrival_date_time": "20121121T073700", 
-            "departure_date_time": "20121121T073700", 
+            "from": "Place Painlev\u00e9 (Saint-Omer)", 
+            "arrival_date_time": "20121120T103600", 
+            "departure_date_time": "20121120T103600", 
             "to": "Saint-Omer (62500)", 
             "duration": 0, 
             "type": "crow_fly"
@@ -65,25 +33,25 @@
     "tickets": [], 
     "links": [
       {
-        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62765&datetime_represents=arrival&from=admin%3A62458&max_duration_to_pt=1000&walking_speed=1&datetime=20121121T073600", 
+        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62765&datetime_represents=arrival&from=admin%3A62458&max_duration_to_pt=1000&walking_speed=1&datetime=20121120T103500", 
         "type": "prev", 
         "rel": "prev", 
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62765&datetime_represents=departure&from=admin%3A62458&max_duration_to_pt=1000&walking_speed=1&datetime=20121121T071000", 
+        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62765&datetime_represents=departure&from=admin%3A62458&max_duration_to_pt=1000&walking_speed=1&datetime=20121120T101700", 
         "type": "next", 
         "rel": "next", 
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62765&datetime_represents=departure&from=admin%3A62458&max_duration_to_pt=1000&walking_speed=1&datetime=20121121T000000", 
+        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62765&datetime_represents=departure&from=admin%3A62458&max_duration_to_pt=1000&walking_speed=1&datetime=20121120T000000", 
         "type": "first", 
         "rel": "first", 
         "templated": false
       }, 
       {
-        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62765&datetime_represents=arrival&from=admin%3A62458&max_duration_to_pt=1000&walking_speed=1&datetime=20121121T235900", 
+        "href": "http://localhost/v1/coverage/saintomer/journeys?to=admin%3A62765&datetime_represents=arrival&from=admin%3A62458&max_duration_to_pt=1000&walking_speed=1&datetime=20121120T235900", 
         "type": "last", 
         "rel": "last", 
         "templated": false
@@ -115,14 +83,24 @@
         "tags": [
           "standard"
         ], 
-        "nb_transfers": 1, 
-        "arrival_date_time": "20121121T073700", 
+        "nb_transfers": 0, 
+        "arrival_date_time": "20121120T103600", 
         "calendars": [
           {
+            "exceptions": [
+              {
+                "type": "remove", 
+                "datetime": "20121225"
+              }, 
+              {
+                "type": "remove", 
+                "datetime": "20130101"
+              }
+            ], 
             "active_periods": [
               {
-                "begin": "20121109", 
-                "end": "20121222"
+                "begin": "20121102", 
+                "end": "20130331"
               }
             ], 
             "week_pattern": {
@@ -132,11 +110,11 @@
               "wednesday": true, 
               "thursday": true, 
               "sunday": false, 
-              "saturday": false
+              "saturday": true
             }
           }
         ], 
-        "departure_date_time": "20121121T070900", 
+        "departure_date_time": "20121120T101600", 
         "requested_date_time": "20121120T101500", 
         "sections": [
           {
@@ -147,8 +125,8 @@
                 "name": "Houlle", 
                 "level": 8, 
                 "coord": {
-                  "lat": "50.79670402", 
-                  "lon": "2.174242109"
+                  "lat": "50.79677237", 
+                  "lon": "2.174185568"
                 }, 
                 "label": "Houlle (62910)", 
                 "id": "admin:62458", 
@@ -158,377 +136,172 @@
               "id": "admin:62458", 
               "name": "Houlle (62910)"
             }, 
-            "links": [], 
-            "arrival_date_time": "20121121T070900", 
-            "departure_date_time": "20121121T070900", 
-            "to": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "Place", 
-                "links": [], 
-                "coord": {
-                  "lat": "50.796578", 
-                  "lon": "2.174108"
-                }, 
-                "label": "Place (Houlle)", 
-                "equipments": [
-                  "has_sheltered"
-                ], 
-                "administrative_regions": [
-                  {
-                    "insee": "62458", 
-                    "name": "Houlle", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "50.79670402", 
-                      "lon": "2.174242109"
-                    }, 
-                    "label": "Houlle (62910)", 
-                    "id": "admin:62458", 
-                    "zip_code": "62910"
-                  }
-                ], 
-                "id": "stop_point:SC1:SP:Nav200", 
-                "stop_area": {
-                  "name": "Place", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "50.796415", 
-                    "lon": "2.174152"
-                  }, 
-                  "label": "Place (Houlle)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "62458", 
-                      "name": "Houlle", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "50.79670402", 
-                        "lon": "2.174242109"
-                      }, 
-                      "label": "Houlle (62910)", 
-                      "id": "admin:62458", 
-                      "zip_code": "62910"
-                    }
-                  ], 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:SC1:SA:98"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:SC1:SP:Nav200", 
-              "name": "Place (Houlle)"
-            }, 
-            "mode": "walking", 
-            "duration": 0, 
-            "type": "crow_fly", 
-            "id": "section_0_0"
-          }, 
-          {
-            "from": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "Place", 
-                "links": [], 
-                "coord": {
-                  "lat": "50.796578", 
-                  "lon": "2.174108"
-                }, 
-                "label": "Place (Houlle)", 
-                "equipments": [
-                  "has_sheltered"
-                ], 
-                "administrative_regions": [
-                  {
-                    "insee": "62458", 
-                    "name": "Houlle", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "50.79670402", 
-                      "lon": "2.174242109"
-                    }, 
-                    "label": "Houlle (62910)", 
-                    "id": "admin:62458", 
-                    "zip_code": "62910"
-                  }
-                ], 
-                "id": "stop_point:SC1:SP:Nav200", 
-                "stop_area": {
-                  "name": "Place", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "50.796415", 
-                    "lon": "2.174152"
-                  }, 
-                  "label": "Place (Houlle)", 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:SC1:SA:98"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:SC1:SP:Nav200", 
-              "name": "Place (Houlle)"
-            }, 
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:SC1:54-12129_dst_2"
+                "id": "vehicle_journey:CTDASO6:CTD2_2012-11-15"
               }, 
               {
                 "type": "line", 
-                "id": "line:SC1:Nav33"
+                "id": "line:CTD:2_2012-11-15"
               }, 
               {
                 "type": "route", 
-                "id": "route:SC1:Nav54"
+                "id": "route:59ADB24EF3CDBE0297F05B395827453F:1:1"
               }, 
               {
                 "type": "commercial_mode", 
-                "id": "commercial_mode:Bus"
+                "id": "commercial_mode:Coach"
               }, 
               {
                 "type": "physical_mode", 
-                "id": "physical_mode:Bus"
+                "id": "physical_mode:Coach"
               }, 
               {
                 "type": "network", 
                 "id": "network:CASO"
               }
             ], 
-            "arrival_date_time": "20121121T072500", 
+            "arrival_date_time": "20121120T103600", 
             "additional_informations": [
-              "regular"
+              "has_datetime_estimated", 
+              "odt_with_zone"
             ], 
             "co2_emission": {
-              "value": 1255.8851, 
+              "value": 1270.359, 
               "unit": "gEC"
             }, 
             "display_informations": {
-              "direction": "Mathurin (Saint-Omer)", 
-              "code": "CS 5300", 
+              "direction": "Place Painlev\u00e9 (Saint-Omer)", 
+              "code": "", 
               "description": "", 
               "links": [], 
-              "color": "000000", 
-              "physical_mode": "Bus", 
-              "headsign": "SC1:54-12129_dst_2", 
-              "commercial_mode": "Bus", 
-              "equipments": [
-                "has_school_vehicle"
-              ], 
-              "label": "CS 5300", 
+              "color": "", 
+              "physical_mode": "Autocar", 
+              "headsign": "CASO TAD", 
+              "commercial_mode": "Autocar", 
+              "equipments": [], 
+              "label": "CASO TAD", 
               "network": "CASO Bus"
             }, 
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "name": "Eug\u00e8ne Delacroix", 
+                "name": "Place Painlev\u00e9", 
                 "links": [], 
                 "coord": {
-                  "lat": "50.745533", 
-                  "lon": "2.263995"
+                  "lat": "50.750315", 
+                  "lon": "2.250078"
                 }, 
-                "label": "Eug\u00e8ne Delacroix (Longuenesse)", 
+                "label": "Place Painlev\u00e9 (Saint-Omer)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
-                    "insee": "62525", 
-                    "name": "Longuenesse", 
+                    "insee": "62765", 
+                    "name": "Saint-Omer", 
                     "level": 8, 
                     "coord": {
-                      "lat": "50.73437483", 
-                      "lon": "2.239130524"
+                      "lat": "50.75008598", 
+                      "lon": "2.260709406"
                     }, 
-                    "label": "Longuenesse (62219)", 
-                    "id": "admin:62525", 
-                    "zip_code": "62219"
+                    "label": "Saint-Omer (62500)", 
+                    "id": "admin:62765", 
+                    "zip_code": "62500"
                   }
                 ], 
-                "id": "stop_point:SC1:SP:Nav240", 
+                "id": "stop_point:CTD:SP:ASO6", 
                 "stop_area": {
-                  "name": "Eug\u00e8ne Delacroix", 
+                  "name": "Place Painlev\u00e9", 
                   "links": [], 
                   "coord": {
-                    "lat": "50.745533", 
-                    "lon": "2.263995"
+                    "lat": "50.750378", 
+                    "lon": "2.250036"
                   }, 
-                  "label": "Eug\u00e8ne Delacroix (Longuenesse)", 
+                  "label": "Place Painlev\u00e9 (Saint-Omer)", 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:SC1:SA:123"
+                  "id": "stop_area:ASO:SA:6"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:SC1:SP:Nav240", 
-              "name": "Eug\u00e8ne Delacroix (Longuenesse)"
+              "id": "stop_point:CTD:SP:ASO6", 
+              "name": "Place Painlev\u00e9 (Saint-Omer)"
             }, 
-            "departure_date_time": "20121121T070900", 
+            "departure_date_time": "20121120T101600", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 9683
+                  "length": 7429
                 }
               ], 
               "coordinates": [
                 [
-                  2.174108, 
-                  50.796578
+                  2.174211, 
+                  50.796784
                 ], 
                 [
-                  2.163451, 
-                  50.791602
-                ], 
-                [
-                  2.16688, 
-                  50.790055
-                ], 
-                [
-                  2.198077, 
-                  50.775455
-                ], 
-                [
-                  2.205157, 
-                  50.771139
-                ], 
-                [
-                  2.230385, 
-                  50.758501
-                ], 
-                [
-                  2.263995, 
-                  50.745533
+                  2.250078, 
+                  50.750315
                 ]
               ]
             }, 
-            "duration": 960, 
-            "type": "public_transport", 
-            "id": "section_1_0", 
+            "duration": 1200, 
+            "type": "on_demand_transport", 
+            "id": "section_0_0", 
             "stop_date_times": [
               {
                 "stop_point": {
-                  "name": "Place", 
+                  "name": "Houlle", 
                   "links": [], 
                   "coord": {
-                    "lat": "50.796578", 
-                    "lon": "2.174108"
+                    "lat": "50.796784", 
+                    "lon": "2.174211"
                   }, 
-                  "label": "Place (Houlle)", 
-                  "equipments": [
-                    "has_sheltered"
-                  ], 
-                  "id": "stop_point:SC1:SP:Nav200"
-                }, 
-                "arrival_date_time": "20121121T070900", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20121121T070900"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Les Marni\u00e8res", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "50.791602", 
-                    "lon": "2.163451"
-                  }, 
-                  "label": "Les Marni\u00e8res (Moulle)", 
-                  "equipments": [
-                    "has_sheltered"
-                  ], 
-                  "id": "stop_point:SC1:SP:Nav223"
-                }, 
-                "arrival_date_time": "20121121T071200", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20121121T071200"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Le Brouay", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "50.790055", 
-                    "lon": "2.16688"
-                  }, 
-                  "label": "Le Brouay (Moulle)", 
-                  "equipments": [
-                    "has_sheltered"
-                  ], 
-                  "id": "stop_point:SC1:SP:Nav224"
-                }, 
-                "arrival_date_time": "20121121T071300", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20121121T071300"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Crinoline", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "50.775455", 
-                    "lon": "2.198077"
-                  }, 
-                  "label": "Crinoline (Tilques)", 
-                  "equipments": [
-                    "has_sheltered"
-                  ], 
-                  "id": "stop_point:SC1:SP:Nav155"
-                }, 
-                "arrival_date_time": "20121121T071600", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20121121T071600"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Le Paradis", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "50.771139", 
-                    "lon": "2.205157"
-                  }, 
-                  "label": "Le Paradis (Tilques)", 
+                  "label": "Houlle (Houlle)", 
                   "equipments": [], 
-                  "id": "stop_point:SC1:SP:Nav156"
+                  "id": "stop_point:62458"
                 }, 
-                "arrival_date_time": "20121121T071700", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20121121T071700"
+                "arrival_date_time": "20121120T101600", 
+                "additional_informations": [
+                  "on_demand_transport", 
+                  "date_time_estimated"
+                ], 
+                "links": [
+                  {
+                    "internal": true, 
+                    "type": "notes", 
+                    "id": "note:7891981869603749456", 
+                    "rel": "notes"
+                  }
+                ], 
+                "departure_date_time": "20121120T101600"
               }, 
               {
                 "stop_point": {
-                  "name": "Croix P\u00e8lerine", 
+                  "name": "Place Painlev\u00e9", 
                   "links": [], 
                   "coord": {
-                    "lat": "50.758501", 
-                    "lon": "2.230385"
+                    "lat": "50.750315", 
+                    "lon": "2.250078"
                   }, 
-                  "label": "Croix P\u00e8lerine (Saint-Martin-au-La\u00ebrt)", 
+                  "label": "Place Painlev\u00e9 (Saint-Omer)", 
                   "equipments": [], 
-                  "id": "stop_point:SC1:SP:Nav76"
+                  "id": "stop_point:CTD:SP:ASO6"
                 }, 
-                "arrival_date_time": "20121121T072000", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20121121T072000"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Eug\u00e8ne Delacroix", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "50.745533", 
-                    "lon": "2.263995"
-                  }, 
-                  "label": "Eug\u00e8ne Delacroix (Longuenesse)", 
-                  "equipments": [], 
-                  "id": "stop_point:SC1:SP:Nav240"
-                }, 
-                "arrival_date_time": "20121121T072500", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20121121T072500"
+                "arrival_date_time": "20121120T103600", 
+                "additional_informations": [
+                  "on_demand_transport", 
+                  "date_time_estimated"
+                ], 
+                "links": [
+                  {
+                    "internal": true, 
+                    "type": "notes", 
+                    "id": "note:7891981869603749456", 
+                    "rel": "notes"
+                  }
+                ], 
+                "departure_date_time": "20121120T103600"
               }
             ]
           }, 
@@ -536,227 +309,13 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "name": "Eug\u00e8ne Delacroix", 
+                "name": "Place Painlev\u00e9", 
                 "links": [], 
                 "coord": {
-                  "lat": "50.745533", 
-                  "lon": "2.263995"
+                  "lat": "50.750315", 
+                  "lon": "2.250078"
                 }, 
-                "label": "Eug\u00e8ne Delacroix (Longuenesse)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "insee": "62525", 
-                    "name": "Longuenesse", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "50.73437483", 
-                      "lon": "2.239130524"
-                    }, 
-                    "label": "Longuenesse (62219)", 
-                    "id": "admin:62525", 
-                    "zip_code": "62219"
-                  }
-                ], 
-                "id": "stop_point:SC1:SP:Nav240", 
-                "stop_area": {
-                  "name": "Eug\u00e8ne Delacroix", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "50.745533", 
-                    "lon": "2.263995"
-                  }, 
-                  "label": "Eug\u00e8ne Delacroix (Longuenesse)", 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:SC1:SA:123"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:SC1:SP:Nav240", 
-              "name": "Eug\u00e8ne Delacroix (Longuenesse)"
-            }, 
-            "links": [], 
-            "arrival_date_time": "20121121T072949", 
-            "departure_date_time": "20121121T072500", 
-            "to": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "Place Perpignan", 
-                "links": [], 
-                "coord": {
-                  "lat": "50.747236", 
-                  "lon": "2.262257"
-                }, 
-                "label": "Place Perpignan (Saint-Omer)", 
-                "equipments": [
-                  "has_sheltered"
-                ], 
-                "administrative_regions": [
-                  {
-                    "insee": "62765", 
-                    "name": "Saint-Omer", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "50.75004624", 
-                      "lon": "2.260695471"
-                    }, 
-                    "label": "Saint-Omer (62500)", 
-                    "id": "admin:62765", 
-                    "zip_code": "62500"
-                  }
-                ], 
-                "id": "stop_point:SC1:SP:Nav97", 
-                "stop_area": {
-                  "name": "Place Perpignan", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "50.747236", 
-                    "lon": "2.262257"
-                  }, 
-                  "label": "Place Perpignan (Saint-Omer)", 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:SC1:SA:37"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:SC1:SP:Nav97", 
-              "name": "Place Perpignan (Saint-Omer)"
-            }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 225
-                }
-              ], 
-              "coordinates": [
-                [
-                  2.263995, 
-                  50.745533
-                ], 
-                [
-                  2.262257, 
-                  50.747236
-                ]
-              ]
-            }, 
-            "duration": 289, 
-            "transfer_type": "walking", 
-            "type": "transfer", 
-            "id": "section_2_0"
-          }, 
-          {
-            "links": [], 
-            "arrival_date_time": "20121121T073500", 
-            "departure_date_time": "20121121T072949", 
-            "duration": 311, 
-            "type": "waiting", 
-            "id": "section_3_0"
-          }, 
-          {
-            "from": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "Place Perpignan", 
-                "links": [], 
-                "coord": {
-                  "lat": "50.747236", 
-                  "lon": "2.262257"
-                }, 
-                "label": "Place Perpignan (Saint-Omer)", 
-                "equipments": [
-                  "has_sheltered"
-                ], 
-                "administrative_regions": [
-                  {
-                    "insee": "62765", 
-                    "name": "Saint-Omer", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "50.75004624", 
-                      "lon": "2.260695471"
-                    }, 
-                    "label": "Saint-Omer (62500)", 
-                    "id": "admin:62765", 
-                    "zip_code": "62500"
-                  }
-                ], 
-                "id": "stop_point:SC1:SP:Nav97", 
-                "stop_area": {
-                  "name": "Place Perpignan", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "50.747236", 
-                    "lon": "2.262257"
-                  }, 
-                  "label": "Place Perpignan (Saint-Omer)", 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:SC1:SA:37"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:SC1:SP:Nav97", 
-              "name": "Place Perpignan (Saint-Omer)"
-            }, 
-            "links": [
-              {
-                "type": "vehicle_journey", 
-                "id": "vehicle_journey:SC1:93-12162_dst_2"
-              }, 
-              {
-                "type": "line", 
-                "id": "line:SC1:Nav56"
-              }, 
-              {
-                "type": "route", 
-                "id": "route:SC1:Nav93"
-              }, 
-              {
-                "type": "commercial_mode", 
-                "id": "commercial_mode:Bus"
-              }, 
-              {
-                "type": "physical_mode", 
-                "id": "physical_mode:Bus"
-              }, 
-              {
-                "type": "network", 
-                "id": "network:CASO"
-              }
-            ], 
-            "arrival_date_time": "20121121T073700", 
-            "additional_informations": [
-              "regular"
-            ], 
-            "co2_emission": {
-              "value": 99.9987, 
-              "unit": "gEC"
-            }, 
-            "display_informations": {
-              "direction": "Gare (Saint-Omer)", 
-              "code": "DS8", 
-              "description": "", 
-              "links": [], 
-              "color": "000000", 
-              "physical_mode": "Bus", 
-              "headsign": "SC1:93-12162_dst_2", 
-              "commercial_mode": "Bus", 
-              "equipments": [
-                "has_school_vehicle"
-              ], 
-              "label": "DS8", 
-              "network": "CASO Bus"
-            }, 
-            "to": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "Gare", 
-                "links": [], 
-                "coord": {
-                  "lat": "50.753575", 
-                  "lon": "2.266693"
-                }, 
-                "label": "Gare (Saint-Omer)", 
+                "label": "Place Painlev\u00e9 (Saint-Omer)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
@@ -764,135 +323,31 @@
                     "name": "Saint-Omer", 
                     "level": 8, 
                     "coord": {
-                      "lat": "50.75004624", 
-                      "lon": "2.260695471"
+                      "lat": "50.75008598", 
+                      "lon": "2.260709406"
                     }, 
                     "label": "Saint-Omer (62500)", 
                     "id": "admin:62765", 
                     "zip_code": "62500"
                   }
                 ], 
-                "id": "stop_point:SC1:SP:Nav3", 
+                "id": "stop_point:CTD:SP:ASO6", 
                 "stop_area": {
-                  "name": "Gare", 
+                  "name": "Place Painlev\u00e9", 
                   "links": [], 
                   "coord": {
-                    "lat": "50.753575", 
-                    "lon": "2.266693"
+                    "lat": "50.750378", 
+                    "lon": "2.250036"
                   }, 
-                  "label": "Gare (Saint-Omer)", 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:SC1:SA:1"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:SC1:SP:Nav3", 
-              "name": "Gare (Saint-Omer)"
-            }, 
-            "departure_date_time": "20121121T073500", 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 771
-                }
-              ], 
-              "coordinates": [
-                [
-                  2.262257, 
-                  50.747236
-                ], 
-                [
-                  2.266693, 
-                  50.753575
-                ]
-              ]
-            }, 
-            "duration": 120, 
-            "type": "public_transport", 
-            "id": "section_4_0", 
-            "stop_date_times": [
-              {
-                "stop_point": {
-                  "name": "Place Perpignan", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "50.747236", 
-                    "lon": "2.262257"
-                  }, 
-                  "label": "Place Perpignan (Saint-Omer)", 
-                  "equipments": [
-                    "has_sheltered"
-                  ], 
-                  "id": "stop_point:SC1:SP:Nav97"
-                }, 
-                "arrival_date_time": "20121121T073500", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20121121T073500"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Gare", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "50.753575", 
-                    "lon": "2.266693"
-                  }, 
-                  "label": "Gare (Saint-Omer)", 
-                  "equipments": [], 
-                  "id": "stop_point:SC1:SP:Nav3"
-                }, 
-                "arrival_date_time": "20121121T073700", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20121121T073700"
-              }
-            ]
-          }, 
-          {
-            "from": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "Gare", 
-                "links": [], 
-                "coord": {
-                  "lat": "50.753575", 
-                  "lon": "2.266693"
-                }, 
-                "label": "Gare (Saint-Omer)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "insee": "62765", 
-                    "name": "Saint-Omer", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "50.75004624", 
-                      "lon": "2.260695471"
-                    }, 
-                    "label": "Saint-Omer (62500)", 
-                    "id": "admin:62765", 
-                    "zip_code": "62500"
-                  }
-                ], 
-                "id": "stop_point:SC1:SP:Nav3", 
-                "stop_area": {
-                  "name": "Gare", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "50.753575", 
-                    "lon": "2.266693"
-                  }, 
-                  "label": "Gare (Saint-Omer)", 
+                  "label": "Place Painlev\u00e9 (Saint-Omer)", 
                   "administrative_regions": [
                     {
                       "insee": "62765", 
                       "name": "Saint-Omer", 
                       "level": 8, 
                       "coord": {
-                        "lat": "50.75004624", 
-                        "lon": "2.260695471"
+                        "lat": "50.75008598", 
+                        "lon": "2.260709406"
                       }, 
                       "label": "Saint-Omer (62500)", 
                       "id": "admin:62765", 
@@ -900,16 +355,16 @@
                     }
                   ], 
                   "timezone": "Europe/Paris", 
-                  "id": "stop_area:SC1:SA:1"
+                  "id": "stop_area:ASO:SA:6"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:SC1:SP:Nav3", 
-              "name": "Gare (Saint-Omer)"
+              "id": "stop_point:CTD:SP:ASO6", 
+              "name": "Place Painlev\u00e9 (Saint-Omer)"
             }, 
             "links": [], 
-            "arrival_date_time": "20121121T073700", 
-            "departure_date_time": "20121121T073700", 
+            "arrival_date_time": "20121120T103600", 
+            "departure_date_time": "20121120T103600", 
             "to": {
               "embedded_type": "administrative_region", 
               "administrative_region": {
@@ -917,8 +372,8 @@
                 "name": "Saint-Omer", 
                 "level": 8, 
                 "coord": {
-                  "lat": "50.75004624", 
-                  "lon": "2.260695471"
+                  "lat": "50.75008598", 
+                  "lon": "2.260709406"
                 }, 
                 "label": "Saint-Omer (62500)", 
                 "id": "admin:62765", 
@@ -931,19 +386,33 @@
             "mode": "walking", 
             "duration": 0, 
             "type": "crow_fly", 
-            "id": "section_5_0"
+            "id": "section_1_0"
           }
         ], 
         "co2_emission": {
-          "value": 1355.8838, 
+          "value": 1270.359, 
           "unit": "gEC"
         }, 
-        "duration": 1680, 
+        "duration": 1200, 
         "type": "best"
       }
     ], 
     "disruptions": [], 
-    "notes": [], 
+    "notes": [
+      {
+        "type": "notes", 
+        "id": "note:7891981869603749456", 
+        "value": "Circule du lundi au samedi de 7h \u00e0 19h. R\u00e9servation n\u00e9cessaire la veille avant 12h00 au plus tard au 0 800 510 232. Ce service est r\u00e9serv\u00e9 aux habitants des communes situ\u00e9es sur le P\u00e9rim\u00e8tre de Transport Urbain de la CASO"
+      }
+    ], 
+    "feed_publishers": [
+      {
+        "url": "", 
+        "id": "saintomer", 
+        "license": "", 
+        "name": ""
+      }
+    ], 
     "exceptions": []
   }
 }
