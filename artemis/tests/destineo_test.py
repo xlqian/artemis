@@ -71,7 +71,6 @@ class TestDestineo(ArtemisTestFixture):
                      last_section_mode=['walking', 'bss'],
                      min_nb_journeys=3)
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVP-152", raises=AssertionError)
     def test_destineo_equivalent_journeys(self):
         """
         http://jira.canaltp.fr/browse/NAVITIAII-1630
