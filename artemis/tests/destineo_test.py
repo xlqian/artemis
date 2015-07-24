@@ -92,3 +92,50 @@ class TestDestineo(ArtemisTestFixture):
                      first_section_mode=['walking', 'bike', 'bss', 'car'],
                      last_section_mode=['walking', 'bss'],
                      min_nb_journeys=3, datetime_represents='arrival')
+
+    def test_destineo_08(self):
+        """
+        We go from "Baffert (La Roche-sur-Yon)" to "Les Alisiers (La Roche-sur-Yon)"
+        and we want an accessible journey!
+        """
+        self.journey(_from='stop_area:LRY:SA:lrybaff',
+                     to='stop_area:LRY:SA:lryaliz', datetime='20141015T174500',
+                     first_section_mode=['walking', 'car'],
+                     last_section_mode=['walking'],
+                     min_nb_journeys=3, datetime_represents='departure', wheelchair=True)
+
+    def test_destineo_09(self):
+        """
+        we go from "Blanchetiere (La chapelle sur erdre)" to "2 cours du champ de mars (Nantes)"
+        we want an accessible journey but Blanchetiere is not accessible, and the next stop area: La Cogne,
+        is only accessible on the other direction.
+        Last but not least we will take the C2 line to "Commerce", this stop_area has two stop_point
+        deserve by the C2 but only one of them is accessible and the transfers is longer!
+        """
+        self.journey(_from='stop_area:NAN:SA:BNCH',
+                     to='-1.544430191;47.21391219', datetime='20141006T104000',
+                     first_section_mode=['walking', 'car'],
+                     last_section_mode=['walking'],
+                     min_nb_journeys=3, datetime_represents='departure', wheelchair=True)
+
+    def test_destineo_10(self):
+        """
+        We go from "Rosenberg (Saint-Herblain)" to "Cochardieres (Saint-Herblain)".
+        We want an accessible journey but there is none!
+        """
+        self.journey(_from='stop_area:NAN:SA:RSNB',
+                     to='stop_area:NAN:SA:CCDI', datetime='20141028T115000',
+                     first_section_mode=['walking', 'car'],
+                     last_section_mode=['walking'],
+                     min_nb_journeys=3, datetime_represents='arrival', wheelchair=True)
+
+    def test_destineo_11(self):
+        """
+        We go from "Cimetiere de Bouaye (Bouaye)" to "Piano'cktail (Bouguenais)".
+        We want an accessible journey but there is none!
+        """
+        self.journey(_from='stop_area:NAN:SA:BYEE',
+                     to='stop_area:NAN:SA:PIAO', datetime='20141028T115000',
+                     first_section_mode=['walking', 'car'],
+                     last_section_mode=['walking'],
+                     min_nb_journeys=3, datetime_represents='departure', wheelchair=True)
