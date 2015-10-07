@@ -3,71 +3,6 @@
   "response": {
     "journeys": [
       {
-        "nb_transfers": 0, 
-        "arrival_date_time": "20111114T065806", 
-        "departure_date_time": "20111114T062000", 
-        "type": "best", 
-        "duration": 2286, 
-        "sections": [
-          {
-            "from": "Carrefour de l'Estrie (Sherbrooke)", 
-            "arrival_date_time": "20111114T062000", 
-            "departure_date_time": "20111114T062000", 
-            "to": "Carrefour de l'Estrie - quai A (Sherbrooke)", 
-            "duration": 0, 
-            "type": "crow_fly"
-          }, 
-          {
-            "from": "Carrefour de l'Estrie - quai A (Sherbrooke)", 
-            "arrival_date_time": "20111114T063400", 
-            "departure_date_time": "20111114T062000", 
-            "to": "Station du C\u00e9gep (Sherbrooke)", 
-            "duration": 840, 
-            "type": "public_transport"
-          }, 
-          {
-            "from": "Station du C\u00e9gep (Sherbrooke)", 
-            "arrival_date_time": "20111114T063800", 
-            "departure_date_time": "20111114T063400", 
-            "to": "Station du C\u00e9gep - quai G (Sherbrooke)", 
-            "duration": 240, 
-            "type": "transfer"
-          }, 
-          {
-            "from": "Station du C\u00e9gep - quai G (Sherbrooke)", 
-            "arrival_date_time": "20111114T065100", 
-            "departure_date_time": "20111114T063800", 
-            "to": "Normand / Allard (Sherbrooke)", 
-            "duration": 780, 
-            "type": "public_transport"
-          }, 
-          {
-            "from": "Normand / Allard (Sherbrooke)", 
-            "arrival_date_time": "20111114T065100", 
-            "departure_date_time": "20111114T065100", 
-            "to": "Normand / Allard (Sherbrooke)", 
-            "duration": 0, 
-            "type": "transfer"
-          }, 
-          {
-            "from": "Normand / Allard (Sherbrooke)", 
-            "arrival_date_time": "20111114T065300", 
-            "departure_date_time": "20111114T065100", 
-            "to": "des Chardonnerets / Marika (Sherbrooke)", 
-            "duration": 120, 
-            "type": "public_transport"
-          }, 
-          {
-            "from": "des Chardonnerets / Marika (Sherbrooke)", 
-            "arrival_date_time": "20111114T065952", 
-            "departure_date_time": "20111114T065300", 
-            "to": "CHEMIN GALVIN - RUE DU CHALUMEAU (Sherbrooke)", 
-            "duration": 412, 
-            "type": "street_network"
-          }
-        ]
-      }, 
-      {
         "nb_transfers": 1, 
         "arrival_date_time": "20111114T065735", 
         "departure_date_time": "20111114T062000", 
@@ -139,6 +74,71 @@
             "type": "street_network"
           }
         ]
+      }, 
+      {
+        "nb_transfers": 0, 
+        "arrival_date_time": "20111114T065806", 
+        "departure_date_time": "20111114T062000", 
+        "type": "best", 
+        "duration": 2286, 
+        "sections": [
+          {
+            "from": "Carrefour de l'Estrie (Sherbrooke)", 
+            "arrival_date_time": "20111114T062000", 
+            "departure_date_time": "20111114T062000", 
+            "to": "Carrefour de l'Estrie - quai A (Sherbrooke)", 
+            "duration": 0, 
+            "type": "crow_fly"
+          }, 
+          {
+            "from": "Carrefour de l'Estrie - quai A (Sherbrooke)", 
+            "arrival_date_time": "20111114T063400", 
+            "departure_date_time": "20111114T062000", 
+            "to": "Station du C\u00e9gep (Sherbrooke)", 
+            "duration": 840, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Station du C\u00e9gep (Sherbrooke)", 
+            "arrival_date_time": "20111114T063800", 
+            "departure_date_time": "20111114T063400", 
+            "to": "Station du C\u00e9gep - quai G (Sherbrooke)", 
+            "duration": 240, 
+            "type": "transfer"
+          }, 
+          {
+            "from": "Station du C\u00e9gep - quai G (Sherbrooke)", 
+            "arrival_date_time": "20111114T065100", 
+            "departure_date_time": "20111114T063800", 
+            "to": "Normand / Allard (Sherbrooke)", 
+            "duration": 780, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "Normand / Allard (Sherbrooke)", 
+            "arrival_date_time": "20111114T065100", 
+            "departure_date_time": "20111114T065100", 
+            "to": "Normand / Allard (Sherbrooke)", 
+            "duration": 0, 
+            "type": "transfer"
+          }, 
+          {
+            "from": "Normand / Allard (Sherbrooke)", 
+            "arrival_date_time": "20111114T065300", 
+            "departure_date_time": "20111114T065100", 
+            "to": "des Chardonnerets / Marika (Sherbrooke)", 
+            "duration": 120, 
+            "type": "public_transport"
+          }, 
+          {
+            "from": "des Chardonnerets / Marika (Sherbrooke)", 
+            "arrival_date_time": "20111114T065952", 
+            "departure_date_time": "20111114T065300", 
+            "to": "CHEMIN GALVIN - RUE DU CHALUMEAU (Sherbrooke)", 
+            "duration": 412, 
+            "type": "street_network"
+          }
+        ]
       }
     ]
   }, 
@@ -176,9 +176,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/commercial_modes/{commercial_modes.id}", 
-        "type": "commercial_modes", 
-        "rel": "commercial_modes", 
+        "href": "http://localhost/v1/coverage/sherbrooke/poi_types/{poi_type.id}", 
+        "type": "poi_type", 
+        "rel": "poi_types", 
         "templated": true
       }, 
       {
@@ -188,21 +188,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/sherbrooke/physical_modes/{physical_modes.id}", 
-        "type": "physical_modes", 
-        "rel": "physical_modes", 
-        "templated": true
-      }, 
-      {
         "href": "http://localhost/v1/coverage/sherbrooke/pois/{poi.id}", 
         "type": "poi", 
         "rel": "pois", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/sherbrooke/poi_types/{poi_type.id}", 
-        "type": "poi_type", 
-        "rel": "poi_types", 
         "templated": true
       }, 
       {
@@ -213,6 +201,2564 @@
       }
     ], 
     "journeys": [
+      {
+        "fare": {
+          "found": false, 
+          "total": {
+            "currency": "", 
+            "value": "0.0"
+          }, 
+          "links": []
+        }, 
+        "status": "", 
+        "tags": [
+          "standard"
+        ], 
+        "nb_transfers": 1, 
+        "arrival_date_time": "20111114T065735", 
+        "calendars": [
+          {
+            "active_periods": [
+              {
+                "begin": "20111031", 
+                "end": "20111224"
+              }
+            ], 
+            "week_pattern": {
+              "monday": true, 
+              "tuesday": true, 
+              "friday": true, 
+              "wednesday": true, 
+              "thursday": true, 
+              "sunday": false, 
+              "saturday": false
+            }
+          }
+        ], 
+        "departure_date_time": "20111114T062000", 
+        "requested_date_time": "20111114T070000", 
+        "sections": [
+          {
+            "from": {
+              "embedded_type": "stop_area", 
+              "id": "stop_area:STS:SA:298", 
+              "quality": 0, 
+              "stop_area": {
+                "name": "Carrefour de l'Estrie", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.402364", 
+                  "lon": "-71.952689"
+                }, 
+                "label": "Carrefour de l'Estrie (Sherbrooke)", 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "timezone": "Europe/Paris", 
+                "id": "stop_area:STS:SA:298"
+              }, 
+              "name": "Carrefour de l'Estrie (Sherbrooke)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20111114T062000", 
+            "departure_date_time": "20111114T062000", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "Carrefour de l'Estrie - quai A", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.402364", 
+                  "lon": "-71.952689"
+                }, 
+                "label": "Carrefour de l'Estrie - quai A (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "stop_point:STS:SP:298A", 
+                "stop_area": {
+                  "name": "Carrefour de l'Estrie", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.402364", 
+                    "lon": "-71.952689"
+                  }, 
+                  "label": "Carrefour de l'Estrie (Sherbrooke)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "43027", 
+                      "name": "Sherbrooke", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "0.0", 
+                        "lon": "-73.23728992"
+                      }, 
+                      "label": "Sherbrooke", 
+                      "id": "admin:43027", 
+                      "zip_code": ""
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:298"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:298A", 
+              "name": "Carrefour de l'Estrie - quai A (Sherbrooke)"
+            }, 
+            "mode": "walking", 
+            "duration": 0, 
+            "type": "crow_fly", 
+            "id": "section_16_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "Carrefour de l'Estrie - quai A", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.402364", 
+                  "lon": "-71.952689"
+                }, 
+                "label": "Carrefour de l'Estrie - quai A (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "stop_point:STS:SP:298A", 
+                "stop_area": {
+                  "name": "Carrefour de l'Estrie", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.402364", 
+                    "lon": "-71.952689"
+                  }, 
+                  "label": "Carrefour de l'Estrie (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:298"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:298A", 
+              "name": "Carrefour de l'Estrie - quai A (Sherbrooke)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:STS17S_1A:858_dst_2"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:STS:17S_1A"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:STS:17S_1A"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:Bus"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:STS"
+              }
+            ], 
+            "arrival_date_time": "20111114T063400", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 820.0931, 
+              "unit": "gEC"
+            }, 
+            "display_informations": {
+              "direction": "Station du C\u00e9gep (Sherbrooke)", 
+              "code": "17S", 
+              "description": "", 
+              "links": [], 
+              "color": "000000", 
+              "physical_mode": "Bus", 
+              "headsign": "Station du C\u00e9gep", 
+              "commercial_mode": "Bus", 
+              "equipments": [], 
+              "label": "17S", 
+              "network": "Soci\u00e9t\u00e9 de Transport de Sherbrooke"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "Station du C\u00e9gep", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.411529", 
+                  "lon": "-71.88485"
+                }, 
+                "label": "Station du C\u00e9gep (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "stop_point:STS:SP:501", 
+                "stop_area": {
+                  "name": "Station du C\u00e9gep", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.411529", 
+                    "lon": "-71.88485"
+                  }, 
+                  "label": "Station du C\u00e9gep (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:501"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:501", 
+              "name": "Station du C\u00e9gep (Sherbrooke)"
+            }, 
+            "departure_date_time": "20111114T062000", 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 6323
+                }
+              ], 
+              "coordinates": [
+                [
+                  -71.952689, 
+                  45.402364
+                ], 
+                [
+                  -71.9524, 
+                  45.40233
+                ], 
+                [
+                  -71.95244, 
+                  45.40271
+                ], 
+                [
+                  -71.9491, 
+                  45.40288
+                ], 
+                [
+                  -71.949091, 
+                  45.402842
+                ], 
+                [
+                  -71.94873, 
+                  45.4029
+                ], 
+                [
+                  -71.94877, 
+                  45.40344
+                ], 
+                [
+                  -71.94658, 
+                  45.40354
+                ], 
+                [
+                  -71.946575, 
+                  45.403509
+                ], 
+                [
+                  -71.94288, 
+                  45.40371
+                ], 
+                [
+                  -71.942874, 
+                  45.403664
+                ], 
+                [
+                  -71.94287, 
+                  45.40371
+                ], 
+                [
+                  -71.94145, 
+                  45.40378
+                ], 
+                [
+                  -71.93951, 
+                  45.40379
+                ], 
+                [
+                  -71.93951, 
+                  45.403732
+                ], 
+                [
+                  -71.93951, 
+                  45.40379
+                ], 
+                [
+                  -71.93518, 
+                  45.4038
+                ], 
+                [
+                  -71.935179, 
+                  45.403743
+                ], 
+                [
+                  -71.93518, 
+                  45.4038
+                ], 
+                [
+                  -71.93508, 
+                  45.4038
+                ], 
+                [
+                  -71.931882, 
+                  45.403712
+                ], 
+                [
+                  -71.93188, 
+                  45.40379
+                ], 
+                [
+                  -71.93178, 
+                  45.40379
+                ], 
+                [
+                  -71.92661, 
+                  45.40371
+                ], 
+                [
+                  -71.926607, 
+                  45.403636
+                ], 
+                [
+                  -71.923832, 
+                  45.40363
+                ], 
+                [
+                  -71.92085, 
+                  45.40365
+                ], 
+                [
+                  -71.920843, 
+                  45.403591
+                ], 
+                [
+                  -71.91805, 
+                  45.40367
+                ], 
+                [
+                  -71.91787, 
+                  45.40371
+                ], 
+                [
+                  -71.917847, 
+                  45.403611
+                ], 
+                [
+                  -71.91356, 
+                  45.40365
+                ], 
+                [
+                  -71.913562, 
+                  45.403566
+                ], 
+                [
+                  -71.91356, 
+                  45.40365
+                ], 
+                [
+                  -71.9108, 
+                  45.40361
+                ], 
+                [
+                  -71.910801, 
+                  45.403544
+                ], 
+                [
+                  -71.9108, 
+                  45.40361
+                ], 
+                [
+                  -71.90808, 
+                  45.40357
+                ], 
+                [
+                  -71.908084, 
+                  45.403473
+                ], 
+                [
+                  -71.90808, 
+                  45.40357
+                ], 
+                [
+                  -71.9049, 
+                  45.40354
+                ], 
+                [
+                  -71.904899, 
+                  45.403487
+                ], 
+                [
+                  -71.90358, 
+                  45.40353
+                ], 
+                [
+                  -71.90327, 
+                  45.40345
+                ], 
+                [
+                  -71.90285, 
+                  45.40348
+                ], 
+                [
+                  -71.90235, 
+                  45.40359
+                ], 
+                [
+                  -71.90132, 
+                  45.40408
+                ], 
+                [
+                  -71.901261, 
+                  45.404025
+                ], 
+                [
+                  -71.90132, 
+                  45.40408
+                ], 
+                [
+                  -71.89955, 
+                  45.40498
+                ], 
+                [
+                  -71.899497, 
+                  45.404932
+                ], 
+                [
+                  -71.89955, 
+                  45.40498
+                ], 
+                [
+                  -71.8969, 
+                  45.40633
+                ], 
+                [
+                  -71.896862, 
+                  45.406286
+                ], 
+                [
+                  -71.8969, 
+                  45.40633
+                ], 
+                [
+                  -71.896, 
+                  45.40683
+                ], 
+                [
+                  -71.89575, 
+                  45.40714
+                ], 
+                [
+                  -71.89505, 
+                  45.40764
+                ], 
+                [
+                  -71.89444, 
+                  45.40799
+                ], 
+                [
+                  -71.89173, 
+                  45.40916
+                ], 
+                [
+                  -71.89046, 
+                  45.40965
+                ], 
+                [
+                  -71.890392, 
+                  45.409569
+                ], 
+                [
+                  -71.89046, 
+                  45.40965
+                ], 
+                [
+                  -71.88925, 
+                  45.4104
+                ], 
+                [
+                  -71.88821, 
+                  45.41113
+                ], 
+                [
+                  -71.888138, 
+                  45.411081
+                ], 
+                [
+                  -71.88821, 
+                  45.41113
+                ], 
+                [
+                  -71.88677, 
+                  45.41215
+                ], 
+                [
+                  -71.886694, 
+                  45.412092
+                ], 
+                [
+                  -71.88677, 
+                  45.41215
+                ], 
+                [
+                  -71.88522, 
+                  45.41324
+                ], 
+                [
+                  -71.88486, 
+                  45.41299
+                ], 
+                [
+                  -71.884905, 
+                  45.412957
+                ], 
+                [
+                  -71.88486, 
+                  45.41299
+                ], 
+                [
+                  -71.884, 
+                  45.41238
+                ], 
+                [
+                  -71.88363, 
+                  45.41187
+                ], 
+                [
+                  -71.88467, 
+                  45.41168
+                ], 
+                [
+                  -71.88475, 
+                  45.41151
+                ], 
+                [
+                  -71.88485, 
+                  45.411529
+                ]
+              ]
+            }, 
+            "duration": 840, 
+            "type": "public_transport", 
+            "id": "section_17_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "name": "Carrefour de l'Estrie - quai A", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.402364", 
+                    "lon": "-71.952689"
+                  }, 
+                  "label": "Carrefour de l'Estrie - quai A (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:298A"
+                }, 
+                "arrival_date_time": "20111114T062000", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T062000"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Carrefour de l'Estrie (Zellers)", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.402842", 
+                    "lon": "-71.949091"
+                  }, 
+                  "label": "Carrefour de l'Estrie (Zellers) (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:387"
+                }, 
+                "arrival_date_time": "20111114T062000", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T062000"
+              }, 
+              {
+                "stop_point": {
+                  "name": "boul. de Portland / des \u00c9rables", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.403509", 
+                    "lon": "-71.946575"
+                  }, 
+                  "label": "boul. de Portland / des \u00c9rables (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:388"
+                }, 
+                "arrival_date_time": "20111114T062100", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T062100"
+              }, 
+              {
+                "stop_point": {
+                  "name": "boul. de Portland / boul. Lionel-Groulx", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.403664", 
+                    "lon": "-71.942874"
+                  }, 
+                  "label": "boul. de Portland / boul. Lionel-Groulx (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:389"
+                }, 
+                "arrival_date_time": "20111114T062200", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T062200"
+              }, 
+              {
+                "stop_point": {
+                  "name": "boul. de Portland / Wilson", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.403732", 
+                    "lon": "-71.93951"
+                  }, 
+                  "label": "boul. de Portland / Wilson (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:390"
+                }, 
+                "arrival_date_time": "20111114T062200", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T062200"
+              }, 
+              {
+                "stop_point": {
+                  "name": "boul. de Portland / Lauzon", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.403743", 
+                    "lon": "-71.935179"
+                  }, 
+                  "label": "boul. de Portland / Lauzon (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:391"
+                }, 
+                "arrival_date_time": "20111114T062300", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T062300"
+              }, 
+              {
+                "stop_point": {
+                  "name": "boul. de Portland / Meilleur", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.403712", 
+                    "lon": "-71.931882"
+                  }, 
+                  "label": "boul. de Portland / Meilleur (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:392"
+                }, 
+                "arrival_date_time": "20111114T062300", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T062300"
+              }, 
+              {
+                "stop_point": {
+                  "name": "boul. de Portland / Farwell", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.403636", 
+                    "lon": "-71.926607"
+                  }, 
+                  "label": "boul. de Portland / Farwell (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:393"
+                }, 
+                "arrival_date_time": "20111114T062400", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T062400"
+              }, 
+              {
+                "stop_point": {
+                  "name": "boul. de Portland / Fr\u00e9chette", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.40363", 
+                    "lon": "-71.923832"
+                  }, 
+                  "label": "boul. de Portland / Fr\u00e9chette (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:56"
+                }, 
+                "arrival_date_time": "20111114T062500", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T062500"
+              }, 
+              {
+                "stop_point": {
+                  "name": "boul. de Portland / Wood", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.403591", 
+                    "lon": "-71.920843"
+                  }, 
+                  "label": "boul. de Portland / Wood (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:57"
+                }, 
+                "arrival_date_time": "20111114T062500", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T062500"
+              }, 
+              {
+                "stop_point": {
+                  "name": "boul. de Portland / boul. Jacques-Cartier Nord", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.403611", 
+                    "lon": "-71.917847"
+                  }, 
+                  "label": "boul. de Portland / boul. Jacques-Cartier Nord (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:394"
+                }, 
+                "arrival_date_time": "20111114T062600", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T062600"
+              }, 
+              {
+                "stop_point": {
+                  "name": "boul. de Portland / Argyll", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.403566", 
+                    "lon": "-71.913562"
+                  }, 
+                  "label": "boul. de Portland / Argyll (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:396"
+                }, 
+                "arrival_date_time": "20111114T062600", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T062600"
+              }, 
+              {
+                "stop_point": {
+                  "name": "boul. de Portland / de Vimy", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.403544", 
+                    "lon": "-71.910801"
+                  }, 
+                  "label": "boul. de Portland / de Vimy (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:199"
+                }, 
+                "arrival_date_time": "20111114T062700", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T062700"
+              }, 
+              {
+                "stop_point": {
+                  "name": "boul. de Portland / de l'Ontario", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.403473", 
+                    "lon": "-71.908084"
+                  }, 
+                  "label": "boul. de Portland / de l'Ontario (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:200"
+                }, 
+                "arrival_date_time": "20111114T062800", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T062800"
+              }, 
+              {
+                "stop_point": {
+                  "name": "de Portland / du Qu\u00e9bec", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.403487", 
+                    "lon": "-71.904899"
+                  }, 
+                  "label": "de Portland / du Qu\u00e9bec (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:202"
+                }, 
+                "arrival_date_time": "20111114T062800", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T062800"
+              }, 
+              {
+                "stop_point": {
+                  "name": "de Montr\u00e9al / boul. Queen Victoria", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.404025", 
+                    "lon": "-71.901261"
+                  }, 
+                  "label": "de Montr\u00e9al / boul. Queen Victoria (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:203"
+                }, 
+                "arrival_date_time": "20111114T063000", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T063000"
+              }, 
+              {
+                "stop_point": {
+                  "name": "de Montr\u00e9al / Elisabeth", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.404932", 
+                    "lon": "-71.899497"
+                  }, 
+                  "label": "de Montr\u00e9al / Elisabeth (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:204"
+                }, 
+                "arrival_date_time": "20111114T063000", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T063000"
+              }, 
+              {
+                "stop_point": {
+                  "name": "de Montr\u00e9al / Joseph-Rosenbloom", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.406286", 
+                    "lon": "-71.896862"
+                  }, 
+                  "label": "de Montr\u00e9al / Joseph-Rosenbloom (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:1290"
+                }, 
+                "arrival_date_time": "20111114T063000", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T063000"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Terrill / Kennedy Nord", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.409569", 
+                    "lon": "-71.890392"
+                  }, 
+                  "label": "Terrill / Kennedy Nord (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:792"
+                }, 
+                "arrival_date_time": "20111114T063200", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T063200"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Terrill / du Cardinal-Villeneuve", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.411081", 
+                    "lon": "-71.888138"
+                  }, 
+                  "label": "Terrill / du Cardinal-Villeneuve (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:793"
+                }, 
+                "arrival_date_time": "20111114T063200", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T063200"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Terrill / du C\u00e9gep", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.412092", 
+                    "lon": "-71.886694"
+                  }, 
+                  "label": "Terrill / du C\u00e9gep (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:794"
+                }, 
+                "arrival_date_time": "20111114T063300", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T063300"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Entr\u00e9e Station du C\u00e9gep (Terrill)", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.412957", 
+                    "lon": "-71.884905"
+                  }, 
+                  "label": "Entr\u00e9e Station du C\u00e9gep (Terrill) (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:638"
+                }, 
+                "arrival_date_time": "20111114T063300", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T063300"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Station du C\u00e9gep", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.411529", 
+                    "lon": "-71.88485"
+                  }, 
+                  "label": "Station du C\u00e9gep (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:501"
+                }, 
+                "arrival_date_time": "20111114T063400", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T063400"
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "Station du C\u00e9gep", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.411529", 
+                  "lon": "-71.88485"
+                }, 
+                "label": "Station du C\u00e9gep (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "stop_point:STS:SP:501", 
+                "stop_area": {
+                  "name": "Station du C\u00e9gep", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.411529", 
+                    "lon": "-71.88485"
+                  }, 
+                  "label": "Station du C\u00e9gep (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:501"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:501", 
+              "name": "Station du C\u00e9gep (Sherbrooke)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20111114T063500", 
+            "departure_date_time": "20111114T063400", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "Station du C\u00e9gep - quai B", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.411529", 
+                  "lon": "-71.88485"
+                }, 
+                "label": "Station du C\u00e9gep - quai B (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "stop_point:STS:SP:501B", 
+                "stop_area": {
+                  "name": "Station du C\u00e9gep", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.411529", 
+                    "lon": "-71.88485"
+                  }, 
+                  "label": "Station du C\u00e9gep (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:501"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:501B", 
+              "name": "Station du C\u00e9gep - quai B (Sherbrooke)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  -71.88485, 
+                  45.411529
+                ], 
+                [
+                  -71.88485, 
+                  45.411529
+                ]
+              ]
+            }, 
+            "duration": 60, 
+            "transfer_type": "walking", 
+            "type": "transfer", 
+            "id": "section_18_0"
+          }, 
+          {
+            "links": [], 
+            "arrival_date_time": "20111114T064200", 
+            "departure_date_time": "20111114T063500", 
+            "duration": 420, 
+            "type": "waiting", 
+            "id": "section_19_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "Station du C\u00e9gep - quai B", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.411529", 
+                  "lon": "-71.88485"
+                }, 
+                "label": "Station du C\u00e9gep - quai B (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "stop_point:STS:SP:501B", 
+                "stop_area": {
+                  "name": "Station du C\u00e9gep", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.411529", 
+                    "lon": "-71.88485"
+                  }, 
+                  "label": "Station du C\u00e9gep (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:501"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:501B", 
+              "name": "Station du C\u00e9gep - quai B (Sherbrooke)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:STS4_1A:1580_dst_2"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:STS:4_1A"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:STS:4_1A"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:Bus"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:STS"
+              }
+            ], 
+            "arrival_date_time": "20111114T065300", 
+            "additional_informations": [
+              "regular", 
+              "stay_in"
+            ], 
+            "co2_emission": {
+              "value": 664.3234, 
+              "unit": "gEC"
+            }, 
+            "display_informations": {
+              "direction": "du Conseil / Galt Est (Sherbrooke)", 
+              "code": "4", 
+              "description": "", 
+              "links": [], 
+              "color": "999999", 
+              "physical_mode": "Bus", 
+              "headsign": "du Chalumeau - Galvin", 
+              "commercial_mode": "Bus", 
+              "equipments": [], 
+              "label": "4", 
+              "network": "Soci\u00e9t\u00e9 de Transport de Sherbrooke"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "du Conseil / Galt Est", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.40592", 
+                  "lon": "-71.852626"
+                }, 
+                "label": "du Conseil / Galt Est (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "stop_point:STS:SP:1469", 
+                "stop_area": {
+                  "name": "du Conseil / Galt Est", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.4061", 
+                    "lon": "-71.853157"
+                  }, 
+                  "label": "du Conseil / Galt Est (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:1464"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:1469", 
+              "name": "du Conseil / Galt Est (Sherbrooke)"
+            }, 
+            "departure_date_time": "20111114T064200", 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 5122
+                }
+              ], 
+              "coordinates": [
+                [
+                  -71.88485, 
+                  45.411529
+                ], 
+                [
+                  -71.88473, 
+                  45.41166
+                ], 
+                [
+                  -71.88448, 
+                  45.41146
+                ], 
+                [
+                  -71.88354, 
+                  45.41167
+                ], 
+                [
+                  -71.88321, 
+                  45.41095
+                ], 
+                [
+                  -71.88238, 
+                  45.40985
+                ], 
+                [
+                  -71.88335, 
+                  45.40953
+                ], 
+                [
+                  -71.883378, 
+                  45.409568
+                ], 
+                [
+                  -71.88335, 
+                  45.40953
+                ], 
+                [
+                  -71.88343, 
+                  45.40951
+                ], 
+                [
+                  -71.88315, 
+                  45.40781
+                ], 
+                [
+                  -71.883273, 
+                  45.407803
+                ], 
+                [
+                  -71.88315, 
+                  45.40781
+                ], 
+                [
+                  -71.88303, 
+                  45.40706
+                ], 
+                [
+                  -71.88289, 
+                  45.40686
+                ], 
+                [
+                  -71.88245, 
+                  45.40652
+                ], 
+                [
+                  -71.88213, 
+                  45.40673
+                ], 
+                [
+                  -71.882082, 
+                  45.406696
+                ], 
+                [
+                  -71.88213, 
+                  45.40673
+                ], 
+                [
+                  -71.88082, 
+                  45.4076
+                ], 
+                [
+                  -71.88036, 
+                  45.40786
+                ], 
+                [
+                  -71.880332, 
+                  45.407834
+                ], 
+                [
+                  -71.88036, 
+                  45.40786
+                ], 
+                [
+                  -71.88001, 
+                  45.40805
+                ], 
+                [
+                  -71.87998, 
+                  45.40773
+                ], 
+                [
+                  -71.88004, 
+                  45.40667
+                ], 
+                [
+                  -71.88004, 
+                  45.40555
+                ], 
+                [
+                  -71.880108, 
+                  45.405549
+                ], 
+                [
+                  -71.88004, 
+                  45.40392
+                ], 
+                [
+                  -71.87998, 
+                  45.40372
+                ], 
+                [
+                  -71.87952, 
+                  45.40309
+                ], 
+                [
+                  -71.879601, 
+                  45.403058
+                ], 
+                [
+                  -71.87952, 
+                  45.40309
+                ], 
+                [
+                  -71.87823, 
+                  45.40132
+                ], 
+                [
+                  -71.878339, 
+                  45.401285
+                ], 
+                [
+                  -71.87823, 
+                  45.40132
+                ], 
+                [
+                  -71.87775, 
+                  45.40056
+                ], 
+                [
+                  -71.87738, 
+                  45.39964
+                ], 
+                [
+                  -71.877497, 
+                  45.399618
+                ], 
+                [
+                  -71.87737, 
+                  45.39963
+                ], 
+                [
+                  -71.87684, 
+                  45.3982
+                ], 
+                [
+                  -71.876923, 
+                  45.39819
+                ], 
+                [
+                  -71.87684, 
+                  45.3982
+                ], 
+                [
+                  -71.87675, 
+                  45.39799
+                ], 
+                [
+                  -71.874936, 
+                  45.39844
+                ], 
+                [
+                  -71.87474, 
+                  45.39852
+                ], 
+                [
+                  -71.87238, 
+                  45.39894
+                ], 
+                [
+                  -71.87183, 
+                  45.39878
+                ], 
+                [
+                  -71.871844, 
+                  45.39875
+                ], 
+                [
+                  -71.87183, 
+                  45.39878
+                ], 
+                [
+                  -71.87158, 
+                  45.39872
+                ], 
+                [
+                  -71.87061, 
+                  45.39883
+                ], 
+                [
+                  -71.8681, 
+                  45.39919
+                ], 
+                [
+                  -71.868075, 
+                  45.399125
+                ], 
+                [
+                  -71.8681, 
+                  45.39919
+                ], 
+                [
+                  -71.8678, 
+                  45.39923
+                ], 
+                [
+                  -71.86812, 
+                  45.39959
+                ], 
+                [
+                  -71.86864, 
+                  45.40001
+                ], 
+                [
+                  -71.86906, 
+                  45.40028
+                ], 
+                [
+                  -71.86937, 
+                  45.40078
+                ], 
+                [
+                  -71.86939, 
+                  45.40102
+                ], 
+                [
+                  -71.869317, 
+                  45.401026
+                ], 
+                [
+                  -71.86939, 
+                  45.40102
+                ], 
+                [
+                  -71.8694, 
+                  45.40112
+                ], 
+                [
+                  -71.86735, 
+                  45.40115
+                ], 
+                [
+                  -71.867349, 
+                  45.401102
+                ], 
+                [
+                  -71.86735, 
+                  45.40115
+                ], 
+                [
+                  -71.86616, 
+                  45.40118
+                ], 
+                [
+                  -71.86514, 
+                  45.40118
+                ], 
+                [
+                  -71.865133, 
+                  45.401134
+                ], 
+                [
+                  -71.86485, 
+                  45.40118
+                ], 
+                [
+                  -71.8648, 
+                  45.40137
+                ], 
+                [
+                  -71.864844, 
+                  45.403705
+                ], 
+                [
+                  -71.86486, 
+                  45.40383
+                ], 
+                [
+                  -71.8635, 
+                  45.40383
+                ], 
+                [
+                  -71.86205, 
+                  45.40343
+                ], 
+                [
+                  -71.86175, 
+                  45.40331
+                ], 
+                [
+                  -71.86179, 
+                  45.403252
+                ], 
+                [
+                  -71.86175, 
+                  45.40331
+                ], 
+                [
+                  -71.8613, 
+                  45.40319
+                ], 
+                [
+                  -71.86054, 
+                  45.40331
+                ], 
+                [
+                  -71.85988, 
+                  45.40343
+                ], 
+                [
+                  -71.858821, 
+                  45.403768
+                ], 
+                [
+                  -71.85567, 
+                  45.40506
+                ], 
+                [
+                  -71.85529, 
+                  45.40535
+                ], 
+                [
+                  -71.85522, 
+                  45.405322
+                ], 
+                [
+                  -71.85529, 
+                  45.40535
+                ], 
+                [
+                  -71.85503, 
+                  45.40562
+                ], 
+                [
+                  -71.85473, 
+                  45.40591
+                ], 
+                [
+                  -71.85447, 
+                  45.40606
+                ], 
+                [
+                  -71.85262, 
+                  45.40605
+                ], 
+                [
+                  -71.852626, 
+                  45.40592
+                ]
+              ]
+            }, 
+            "duration": 660, 
+            "type": "public_transport", 
+            "id": "section_20_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "name": "Station du C\u00e9gep - quai B", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.411529", 
+                    "lon": "-71.88485"
+                  }, 
+                  "label": "Station du C\u00e9gep - quai B (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:501B"
+                }, 
+                "arrival_date_time": "20111114T064200", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T064200"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Entr\u00e9e Station du C\u00e9gep (\u00e9difice Expo-Sherbrooke)", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.409568", 
+                    "lon": "-71.883378"
+                  }, 
+                  "label": "Entr\u00e9e Station du C\u00e9gep (\u00e9difice Expo-Sherbrooke) (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:640"
+                }, 
+                "arrival_date_time": "20111114T064300", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T064300"
+              }, 
+              {
+                "stop_point": {
+                  "name": "du C\u00e9gep  / Mont-Plaisant", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.407803", 
+                    "lon": "-71.883273"
+                  }, 
+                  "label": "du C\u00e9gep  / Mont-Plaisant (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:641"
+                }, 
+                "arrival_date_time": "20111114T064300", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T064300"
+              }, 
+              {
+                "stop_point": {
+                  "name": "King Est / du C\u00e9gep", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.406696", 
+                    "lon": "-71.882082"
+                  }, 
+                  "label": "King Est / du C\u00e9gep (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:209"
+                }, 
+                "arrival_date_time": "20111114T064400", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T064400"
+              }, 
+              {
+                "stop_point": {
+                  "name": "King Est / Murray", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.407834", 
+                    "lon": "-71.880332"
+                  }, 
+                  "label": "King Est / Murray (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:210"
+                }, 
+                "arrival_date_time": "20111114T064400", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T064400"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Murray (no.162)", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.405549", 
+                    "lon": "-71.880108"
+                  }, 
+                  "label": "Murray (no.162) (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:211"
+                }, 
+                "arrival_date_time": "20111114T064500", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T064500"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Murray / du Conseil", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.403058", 
+                    "lon": "-71.879601"
+                  }, 
+                  "label": "Murray / du Conseil (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:352"
+                }, 
+                "arrival_date_time": "20111114T064500", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T064500"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Murray / Chalifoux", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.401285", 
+                    "lon": "-71.878339"
+                  }, 
+                  "label": "Murray / Chalifoux (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:2049"
+                }, 
+                "arrival_date_time": "20111114T064600", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T064600"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Murray (CHUS - H\u00f4tel-Dieu)", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.399618", 
+                    "lon": "-71.877497"
+                  }, 
+                  "label": "Murray (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:354"
+                }, 
+                "arrival_date_time": "20111114T064700", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T064700"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Murray / Woodward", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.39819", 
+                    "lon": "-71.876923"
+                  }, 
+                  "label": "Murray / Woodward (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:355"
+                }, 
+                "arrival_date_time": "20111114T064700", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T064700"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Woodward / 7e ave Sud", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.39844", 
+                    "lon": "-71.874936"
+                  }, 
+                  "label": "Woodward / 7e ave Sud (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:356"
+                }, 
+                "arrival_date_time": "20111114T064700", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T064700"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Woodward / 10e ave Sud", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.39875", 
+                    "lon": "-71.871844"
+                  }, 
+                  "label": "Woodward / 10e ave Sud (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:357"
+                }, 
+                "arrival_date_time": "20111114T064800", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T064800"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Woodward / boul. Lavigerie", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.399125", 
+                    "lon": "-71.868075"
+                  }, 
+                  "label": "Woodward / boul. Lavigerie (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:358"
+                }, 
+                "arrival_date_time": "20111114T064800", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T064800"
+              }, 
+              {
+                "stop_point": {
+                  "name": "boul. Lavigerie / Chalifoux", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.401026", 
+                    "lon": "-71.869317"
+                  }, 
+                  "label": "boul. Lavigerie / Chalifoux (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:1569"
+                }, 
+                "arrival_date_time": "20111114T064900", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T064900"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Chalifoux / 15e ave Sud", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.401102", 
+                    "lon": "-71.867349"
+                  }, 
+                  "label": "Chalifoux / 15e ave Sud (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:726"
+                }, 
+                "arrival_date_time": "20111114T064900", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T064900"
+              }, 
+              {
+                "stop_point": {
+                  "name": "Chalifoux / de Normandie", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.401134", 
+                    "lon": "-71.865133"
+                  }, 
+                  "label": "Chalifoux / de Normandie (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:1570"
+                }, 
+                "arrival_date_time": "20111114T065000", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T065000"
+              }, 
+              {
+                "stop_point": {
+                  "name": "de Normandie / du Conseil", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.403705", 
+                    "lon": "-71.864844"
+                  }, 
+                  "label": "de Normandie / du Conseil (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:2050"
+                }, 
+                "arrival_date_time": "20111114T065100", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T065100"
+              }, 
+              {
+                "stop_point": {
+                  "name": "du Conseil / Jean-Talon", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.403252", 
+                    "lon": "-71.86179"
+                  }, 
+                  "label": "du Conseil / Jean-Talon (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:1466"
+                }, 
+                "arrival_date_time": "20111114T065100", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T065100"
+              }, 
+              {
+                "stop_point": {
+                  "name": "du Conseil / du Verger", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.403768", 
+                    "lon": "-71.858821"
+                  }, 
+                  "label": "du Conseil / du Verger (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:1467"
+                }, 
+                "arrival_date_time": "20111114T065100", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T065100"
+              }, 
+              {
+                "stop_point": {
+                  "name": "du Conseil (Loutec)", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.405322", 
+                    "lon": "-71.85522"
+                  }, 
+                  "label": "du Conseil (Loutec) (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:1468"
+                }, 
+                "arrival_date_time": "20111114T065200", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T065200"
+              }, 
+              {
+                "stop_point": {
+                  "name": "du Conseil / Galt Est", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.40592", 
+                    "lon": "-71.852626"
+                  }, 
+                  "label": "du Conseil / Galt Est (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:1469"
+                }, 
+                "arrival_date_time": "20111114T065300", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T065300"
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "du Conseil / Galt Est", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.40592", 
+                  "lon": "-71.852626"
+                }, 
+                "label": "du Conseil / Galt Est (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "stop_point:STS:SP:1469", 
+                "stop_area": {
+                  "name": "du Conseil / Galt Est", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.4061", 
+                    "lon": "-71.853157"
+                  }, 
+                  "label": "du Conseil / Galt Est (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:1464"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:1469", 
+              "name": "du Conseil / Galt Est (Sherbrooke)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20111114T065300", 
+            "departure_date_time": "20111114T065300", 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "du Conseil / Galt Est", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.40592", 
+                  "lon": "-71.852626"
+                }, 
+                "label": "du Conseil / Galt Est (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "stop_point:STS:SP:1469", 
+                "stop_area": {
+                  "name": "du Conseil / Galt Est", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.4061", 
+                    "lon": "-71.853157"
+                  }, 
+                  "label": "du Conseil / Galt Est (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:1464"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:1469", 
+              "name": "du Conseil / Galt Est (Sherbrooke)"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 0
+                }
+              ], 
+              "coordinates": [
+                [
+                  -71.852626, 
+                  45.40592
+                ], 
+                [
+                  -71.852626, 
+                  45.40592
+                ]
+              ]
+            }, 
+            "duration": 0, 
+            "transfer_type": "stay_in", 
+            "type": "transfer", 
+            "id": "section_21_0"
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "du Conseil / Galt Est", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.40592", 
+                  "lon": "-71.852626"
+                }, 
+                "label": "du Conseil / Galt Est (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "stop_point:STS:SP:1469", 
+                "stop_area": {
+                  "name": "du Conseil / Galt Est", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.4061", 
+                    "lon": "-71.853157"
+                  }, 
+                  "label": "du Conseil / Galt Est (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:1464"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:1469", 
+              "name": "du Conseil / Galt Est (Sherbrooke)"
+            }, 
+            "links": [
+              {
+                "type": "vehicle_journey", 
+                "id": "vehicle_journey:STSHLP_1469_2038:3006_dst_2"
+              }, 
+              {
+                "type": "line", 
+                "id": "line:STS:HLP_1_170"
+              }, 
+              {
+                "type": "route", 
+                "id": "route:STS:HLP_1469_2038"
+              }, 
+              {
+                "type": "commercial_mode", 
+                "id": "commercial_mode:Bus"
+              }, 
+              {
+                "type": "physical_mode", 
+                "id": "physical_mode:Bus"
+              }, 
+              {
+                "type": "network", 
+                "id": "network:STS"
+              }
+            ], 
+            "arrival_date_time": "20111114T065700", 
+            "additional_informations": [
+              "regular"
+            ], 
+            "co2_emission": {
+              "value": 326.1955, 
+              "unit": "gEC"
+            }, 
+            "display_informations": {
+              "direction": "du Chalumeau / ch. Galvin (Sherbrooke)", 
+              "code": "HLP", 
+              "description": "", 
+              "links": [], 
+              "color": "000000", 
+              "physical_mode": "Bus", 
+              "headsign": "du Chalumeau - Galvin", 
+              "commercial_mode": "Bus", 
+              "equipments": [], 
+              "label": "HLP", 
+              "network": "Soci\u00e9t\u00e9 de Transport de Sherbrooke"
+            }, 
+            "to": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "du Chalumeau / ch. Galvin", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.402505", 
+                  "lon": "-71.823141"
+                }, 
+                "label": "du Chalumeau / ch. Galvin (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "stop_point:STS:SP:2038", 
+                "stop_area": {
+                  "name": "du Chalumeau / ch. Galvin", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.402505", 
+                    "lon": "-71.823141"
+                  }, 
+                  "label": "du Chalumeau / ch. Galvin (Sherbrooke)", 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:2038"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:2038", 
+              "name": "du Chalumeau / ch. Galvin (Sherbrooke)"
+            }, 
+            "departure_date_time": "20111114T065300", 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 2515
+                }
+              ], 
+              "coordinates": [
+                [
+                  -71.852626, 
+                  45.40592
+                ], 
+                [
+                  -71.85262, 
+                  45.40604
+                ], 
+                [
+                  -71.8507, 
+                  45.40599
+                ], 
+                [
+                  -71.84886, 
+                  45.40603
+                ], 
+                [
+                  -71.84766, 
+                  45.40619
+                ], 
+                [
+                  -71.84634, 
+                  45.40644
+                ], 
+                [
+                  -71.84529, 
+                  45.40655
+                ], 
+                [
+                  -71.84152, 
+                  45.40671
+                ], 
+                [
+                  -71.84035, 
+                  45.40672
+                ], 
+                [
+                  -71.83565, 
+                  45.40643
+                ], 
+                [
+                  -71.83404, 
+                  45.40622
+                ], 
+                [
+                  -71.83024, 
+                  45.40598
+                ], 
+                [
+                  -71.82968, 
+                  45.40583
+                ], 
+                [
+                  -71.82819, 
+                  45.40529
+                ], 
+                [
+                  -71.82565, 
+                  45.40423
+                ], 
+                [
+                  -71.82272, 
+                  45.40276
+                ], 
+                [
+                  -71.82304, 
+                  45.40245
+                ], 
+                [
+                  -71.823141, 
+                  45.402505
+                ]
+              ]
+            }, 
+            "duration": 240, 
+            "type": "public_transport", 
+            "id": "section_22_0", 
+            "stop_date_times": [
+              {
+                "stop_point": {
+                  "name": "du Conseil / Galt Est", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.40592", 
+                    "lon": "-71.852626"
+                  }, 
+                  "label": "du Conseil / Galt Est (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:1469"
+                }, 
+                "arrival_date_time": "20111114T065300", 
+                "additional_informations": [
+                  "drop_off_only"
+                ], 
+                "links": [], 
+                "departure_date_time": "20111114T065300"
+              }, 
+              {
+                "stop_point": {
+                  "name": "du Chalumeau / ch. Galvin", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.402505", 
+                    "lon": "-71.823141"
+                  }, 
+                  "label": "du Chalumeau / ch. Galvin (Sherbrooke)", 
+                  "equipments": [], 
+                  "id": "stop_point:STS:SP:2038"
+                }, 
+                "arrival_date_time": "20111114T065700", 
+                "additional_informations": [], 
+                "links": [], 
+                "departure_date_time": "20111114T065700"
+              }
+            ]
+          }, 
+          {
+            "from": {
+              "embedded_type": "stop_point", 
+              "stop_point": {
+                "name": "du Chalumeau / ch. Galvin", 
+                "links": [], 
+                "coord": {
+                  "lat": "45.402505", 
+                  "lon": "-71.823141"
+                }, 
+                "label": "du Chalumeau / ch. Galvin (Sherbrooke)", 
+                "equipments": [], 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }, 
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "stop_point:STS:SP:2038", 
+                "stop_area": {
+                  "name": "du Chalumeau / ch. Galvin", 
+                  "links": [], 
+                  "coord": {
+                    "lat": "45.402505", 
+                    "lon": "-71.823141"
+                  }, 
+                  "label": "du Chalumeau / ch. Galvin (Sherbrooke)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "43027", 
+                      "name": "Sherbrooke", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "0.0", 
+                        "lon": "-73.23728992"
+                      }, 
+                      "label": "Sherbrooke", 
+                      "id": "admin:43027", 
+                      "zip_code": ""
+                    }
+                  ], 
+                  "timezone": "Europe/Paris", 
+                  "id": "stop_area:STS:SA:2038"
+                }
+              }, 
+              "quality": 0, 
+              "id": "stop_point:STS:SP:2038", 
+              "name": "du Chalumeau / ch. Galvin (Sherbrooke)"
+            }, 
+            "links": [], 
+            "arrival_date_time": "20111114T065747", 
+            "departure_date_time": "20111114T065700", 
+            "to": {
+              "embedded_type": "poi", 
+              "name": "CHEMIN GALVIN - RUE DU CHALUMEAU (Sherbrooke)", 
+              "address": {
+                "name": "chemin GALVIN", 
+                "house_number": 3127, 
+                "coord": {
+                  "lat": "45.40277176", 
+                  "lon": "-71.82275824"
+                }, 
+                "label": "3127 chemin GALVIN (Sherbrooke)", 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "id": "-71.82275824;45.40277176"
+              }, 
+              "poi": {
+                "properties": {}, 
+                "poi_type": {
+                  "name": "Intersection", 
+                  "id": "poi_type:Intersection"
+                }, 
+                "name": "CHEMIN GALVIN - RUE DU CHALUMEAU", 
+                "coord": {
+                  "lat": "45.402772", 
+                  "lon": "-71.822758"
+                }, 
+                "label": "CHEMIN GALVIN - RUE DU CHALUMEAU (Sherbrooke)", 
+                "administrative_regions": [
+                  {
+                    "insee": "43027", 
+                    "name": "Sherbrooke", 
+                    "level": 8, 
+                    "coord": {
+                      "lat": "0.0", 
+                      "lon": "-73.23728992"
+                    }, 
+                    "label": "Sherbrooke", 
+                    "id": "admin:43027", 
+                    "zip_code": ""
+                  }
+                ], 
+                "address": {
+                  "name": "CHEMIN GALVIN - RUE DU CHALUMEAU", 
+                  "house_number": 0, 
+                  "coord": {
+                    "lat": "45.402772", 
+                    "lon": "-71.822758"
+                  }, 
+                  "label": "CHEMIN GALVIN - RUE DU CHALUMEAU (Sherbrooke)", 
+                  "administrative_regions": [
+                    {
+                      "insee": "43027", 
+                      "name": "Sherbrooke", 
+                      "level": 8, 
+                      "coord": {
+                        "lat": "0.0", 
+                        "lon": "-73.23728992"
+                      }, 
+                      "label": "Sherbrooke", 
+                      "id": "admin:43027", 
+                      "zip_code": ""
+                    }
+                  ], 
+                  "id": "-71.82275799999999;45.402772"
+                }, 
+                "id": "poi:3815 - ADDRESS370 - ADDRESS1126"
+              }, 
+              "quality": 0, 
+              "id": "poi:3815 - ADDRESS370 - ADDRESS1126"
+            }, 
+            "geojson": {
+              "type": "LineString", 
+              "properties": [
+                {
+                  "length": 39
+                }
+              ], 
+              "coordinates": [
+                [
+                  -71.823141, 
+                  45.402505
+                ], 
+                [
+                  -71.8231332401, 
+                  45.4027822556
+                ], 
+                [
+                  -71.82275824, 
+                  45.40277176
+                ], 
+                [
+                  -71.82275824, 
+                  45.40277176
+                ]
+              ]
+            }, 
+            "duration": 47, 
+            "path": [
+              {
+                "duration": 47, 
+                "length": 39, 
+                "direction": 0, 
+                "name": "rue DU CHALUMEAU"
+              }, 
+              {
+                "duration": 0, 
+                "length": 0, 
+                "direction": 0, 
+                "name": "chemin GALVIN"
+              }
+            ], 
+            "type": "street_network", 
+            "id": "section_23_0", 
+            "mode": "walking"
+          }
+        ], 
+        "co2_emission": {
+          "value": 1810.612, 
+          "unit": "gEC"
+        }, 
+        "duration": 2255, 
+        "type": "fastest"
+      }, 
       {
         "fare": {
           "found": false, 
@@ -254,36 +2800,8 @@
               "id": "stop_area:STS:SA:298", 
               "quality": 0, 
               "stop_area": {
-                "commercial_modes": [
-                  {
-                    "name": "taxibus", 
-                    "id": "commercial_mode:taxibus"
-                  }, 
-                  {
-                    "name": "Bus", 
-                    "id": "commercial_mode:Bus"
-                  }, 
-                  {
-                    "name": "Minibus", 
-                    "id": "commercial_mode:Minibus"
-                  }
-                ], 
                 "name": "Carrefour de l'Estrie", 
                 "links": [], 
-                "physical_modes": [
-                  {
-                    "name": "Bus", 
-                    "id": "physical_mode:Bus"
-                  }, 
-                  {
-                    "name": "Minibus", 
-                    "id": "physical_mode:Minibus"
-                  }, 
-                  {
-                    "name": "taxibus", 
-                    "id": "physical_mode:taxibus"
-                  }
-                ], 
                 "coord": {
                   "lat": "45.402364", 
                   "lon": "-71.952689"
@@ -2850,2592 +5368,6 @@
         }, 
         "duration": 2286, 
         "type": "best"
-      }, 
-      {
-        "fare": {
-          "found": false, 
-          "total": {
-            "currency": "", 
-            "value": "0.0"
-          }, 
-          "links": []
-        }, 
-        "status": "", 
-        "tags": [
-          "standard"
-        ], 
-        "nb_transfers": 1, 
-        "arrival_date_time": "20111114T065735", 
-        "calendars": [
-          {
-            "active_periods": [
-              {
-                "begin": "20111031", 
-                "end": "20111224"
-              }
-            ], 
-            "week_pattern": {
-              "monday": true, 
-              "tuesday": true, 
-              "friday": true, 
-              "wednesday": true, 
-              "thursday": true, 
-              "sunday": false, 
-              "saturday": false
-            }
-          }
-        ], 
-        "departure_date_time": "20111114T062000", 
-        "requested_date_time": "20111114T070000", 
-        "sections": [
-          {
-            "from": {
-              "embedded_type": "stop_area", 
-              "id": "stop_area:STS:SA:298", 
-              "quality": 0, 
-              "stop_area": {
-                "commercial_modes": [
-                  {
-                    "name": "taxibus", 
-                    "id": "commercial_mode:taxibus"
-                  }, 
-                  {
-                    "name": "Bus", 
-                    "id": "commercial_mode:Bus"
-                  }, 
-                  {
-                    "name": "Minibus", 
-                    "id": "commercial_mode:Minibus"
-                  }
-                ], 
-                "name": "Carrefour de l'Estrie", 
-                "links": [], 
-                "physical_modes": [
-                  {
-                    "name": "Bus", 
-                    "id": "physical_mode:Bus"
-                  }, 
-                  {
-                    "name": "Minibus", 
-                    "id": "physical_mode:Minibus"
-                  }, 
-                  {
-                    "name": "taxibus", 
-                    "id": "physical_mode:taxibus"
-                  }
-                ], 
-                "coord": {
-                  "lat": "45.402364", 
-                  "lon": "-71.952689"
-                }, 
-                "label": "Carrefour de l'Estrie (Sherbrooke)", 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "timezone": "Europe/Paris", 
-                "id": "stop_area:STS:SA:298"
-              }, 
-              "name": "Carrefour de l'Estrie (Sherbrooke)"
-            }, 
-            "links": [], 
-            "arrival_date_time": "20111114T062000", 
-            "departure_date_time": "20111114T062000", 
-            "to": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "Carrefour de l'Estrie - quai A", 
-                "links": [], 
-                "coord": {
-                  "lat": "45.402364", 
-                  "lon": "-71.952689"
-                }, 
-                "label": "Carrefour de l'Estrie - quai A (Sherbrooke)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "stop_point:STS:SP:298A", 
-                "stop_area": {
-                  "name": "Carrefour de l'Estrie", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.402364", 
-                    "lon": "-71.952689"
-                  }, 
-                  "label": "Carrefour de l'Estrie (Sherbrooke)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "43027", 
-                      "name": "Sherbrooke", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "0.0", 
-                        "lon": "-73.23728992"
-                      }, 
-                      "label": "Sherbrooke", 
-                      "id": "admin:43027", 
-                      "zip_code": ""
-                    }
-                  ], 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:298"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:STS:SP:298A", 
-              "name": "Carrefour de l'Estrie - quai A (Sherbrooke)"
-            }, 
-            "mode": "walking", 
-            "duration": 0, 
-            "type": "crow_fly", 
-            "id": "section_16_0"
-          }, 
-          {
-            "from": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "Carrefour de l'Estrie - quai A", 
-                "links": [], 
-                "coord": {
-                  "lat": "45.402364", 
-                  "lon": "-71.952689"
-                }, 
-                "label": "Carrefour de l'Estrie - quai A (Sherbrooke)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "stop_point:STS:SP:298A", 
-                "stop_area": {
-                  "name": "Carrefour de l'Estrie", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.402364", 
-                    "lon": "-71.952689"
-                  }, 
-                  "label": "Carrefour de l'Estrie (Sherbrooke)", 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:298"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:STS:SP:298A", 
-              "name": "Carrefour de l'Estrie - quai A (Sherbrooke)"
-            }, 
-            "links": [
-              {
-                "type": "vehicle_journey", 
-                "id": "vehicle_journey:STS17S_1A:858_dst_2"
-              }, 
-              {
-                "type": "line", 
-                "id": "line:STS:17S_1A"
-              }, 
-              {
-                "type": "route", 
-                "id": "route:STS:17S_1A"
-              }, 
-              {
-                "type": "commercial_mode", 
-                "id": "commercial_mode:Bus"
-              }, 
-              {
-                "type": "physical_mode", 
-                "id": "physical_mode:Bus"
-              }, 
-              {
-                "type": "network", 
-                "id": "network:STS"
-              }
-            ], 
-            "arrival_date_time": "20111114T063400", 
-            "additional_informations": [
-              "regular"
-            ], 
-            "co2_emission": {
-              "value": 820.0931, 
-              "unit": "gEC"
-            }, 
-            "display_informations": {
-              "direction": "Station du C\u00e9gep (Sherbrooke)", 
-              "code": "17S", 
-              "description": "", 
-              "links": [], 
-              "color": "000000", 
-              "physical_mode": "Bus", 
-              "headsign": "Station du C\u00e9gep", 
-              "commercial_mode": "Bus", 
-              "equipments": [], 
-              "label": "17S", 
-              "network": "Soci\u00e9t\u00e9 de Transport de Sherbrooke"
-            }, 
-            "to": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "Station du C\u00e9gep", 
-                "links": [], 
-                "coord": {
-                  "lat": "45.411529", 
-                  "lon": "-71.88485"
-                }, 
-                "label": "Station du C\u00e9gep (Sherbrooke)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "stop_point:STS:SP:501", 
-                "stop_area": {
-                  "name": "Station du C\u00e9gep", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.411529", 
-                    "lon": "-71.88485"
-                  }, 
-                  "label": "Station du C\u00e9gep (Sherbrooke)", 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:501"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:STS:SP:501", 
-              "name": "Station du C\u00e9gep (Sherbrooke)"
-            }, 
-            "departure_date_time": "20111114T062000", 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 6323
-                }
-              ], 
-              "coordinates": [
-                [
-                  -71.952689, 
-                  45.402364
-                ], 
-                [
-                  -71.9524, 
-                  45.40233
-                ], 
-                [
-                  -71.95244, 
-                  45.40271
-                ], 
-                [
-                  -71.9491, 
-                  45.40288
-                ], 
-                [
-                  -71.949091, 
-                  45.402842
-                ], 
-                [
-                  -71.94873, 
-                  45.4029
-                ], 
-                [
-                  -71.94877, 
-                  45.40344
-                ], 
-                [
-                  -71.94658, 
-                  45.40354
-                ], 
-                [
-                  -71.946575, 
-                  45.403509
-                ], 
-                [
-                  -71.94288, 
-                  45.40371
-                ], 
-                [
-                  -71.942874, 
-                  45.403664
-                ], 
-                [
-                  -71.94287, 
-                  45.40371
-                ], 
-                [
-                  -71.94145, 
-                  45.40378
-                ], 
-                [
-                  -71.93951, 
-                  45.40379
-                ], 
-                [
-                  -71.93951, 
-                  45.403732
-                ], 
-                [
-                  -71.93951, 
-                  45.40379
-                ], 
-                [
-                  -71.93518, 
-                  45.4038
-                ], 
-                [
-                  -71.935179, 
-                  45.403743
-                ], 
-                [
-                  -71.93518, 
-                  45.4038
-                ], 
-                [
-                  -71.93508, 
-                  45.4038
-                ], 
-                [
-                  -71.931882, 
-                  45.403712
-                ], 
-                [
-                  -71.93188, 
-                  45.40379
-                ], 
-                [
-                  -71.93178, 
-                  45.40379
-                ], 
-                [
-                  -71.92661, 
-                  45.40371
-                ], 
-                [
-                  -71.926607, 
-                  45.403636
-                ], 
-                [
-                  -71.923832, 
-                  45.40363
-                ], 
-                [
-                  -71.92085, 
-                  45.40365
-                ], 
-                [
-                  -71.920843, 
-                  45.403591
-                ], 
-                [
-                  -71.91805, 
-                  45.40367
-                ], 
-                [
-                  -71.91787, 
-                  45.40371
-                ], 
-                [
-                  -71.917847, 
-                  45.403611
-                ], 
-                [
-                  -71.91356, 
-                  45.40365
-                ], 
-                [
-                  -71.913562, 
-                  45.403566
-                ], 
-                [
-                  -71.91356, 
-                  45.40365
-                ], 
-                [
-                  -71.9108, 
-                  45.40361
-                ], 
-                [
-                  -71.910801, 
-                  45.403544
-                ], 
-                [
-                  -71.9108, 
-                  45.40361
-                ], 
-                [
-                  -71.90808, 
-                  45.40357
-                ], 
-                [
-                  -71.908084, 
-                  45.403473
-                ], 
-                [
-                  -71.90808, 
-                  45.40357
-                ], 
-                [
-                  -71.9049, 
-                  45.40354
-                ], 
-                [
-                  -71.904899, 
-                  45.403487
-                ], 
-                [
-                  -71.90358, 
-                  45.40353
-                ], 
-                [
-                  -71.90327, 
-                  45.40345
-                ], 
-                [
-                  -71.90285, 
-                  45.40348
-                ], 
-                [
-                  -71.90235, 
-                  45.40359
-                ], 
-                [
-                  -71.90132, 
-                  45.40408
-                ], 
-                [
-                  -71.901261, 
-                  45.404025
-                ], 
-                [
-                  -71.90132, 
-                  45.40408
-                ], 
-                [
-                  -71.89955, 
-                  45.40498
-                ], 
-                [
-                  -71.899497, 
-                  45.404932
-                ], 
-                [
-                  -71.89955, 
-                  45.40498
-                ], 
-                [
-                  -71.8969, 
-                  45.40633
-                ], 
-                [
-                  -71.896862, 
-                  45.406286
-                ], 
-                [
-                  -71.8969, 
-                  45.40633
-                ], 
-                [
-                  -71.896, 
-                  45.40683
-                ], 
-                [
-                  -71.89575, 
-                  45.40714
-                ], 
-                [
-                  -71.89505, 
-                  45.40764
-                ], 
-                [
-                  -71.89444, 
-                  45.40799
-                ], 
-                [
-                  -71.89173, 
-                  45.40916
-                ], 
-                [
-                  -71.89046, 
-                  45.40965
-                ], 
-                [
-                  -71.890392, 
-                  45.409569
-                ], 
-                [
-                  -71.89046, 
-                  45.40965
-                ], 
-                [
-                  -71.88925, 
-                  45.4104
-                ], 
-                [
-                  -71.88821, 
-                  45.41113
-                ], 
-                [
-                  -71.888138, 
-                  45.411081
-                ], 
-                [
-                  -71.88821, 
-                  45.41113
-                ], 
-                [
-                  -71.88677, 
-                  45.41215
-                ], 
-                [
-                  -71.886694, 
-                  45.412092
-                ], 
-                [
-                  -71.88677, 
-                  45.41215
-                ], 
-                [
-                  -71.88522, 
-                  45.41324
-                ], 
-                [
-                  -71.88486, 
-                  45.41299
-                ], 
-                [
-                  -71.884905, 
-                  45.412957
-                ], 
-                [
-                  -71.88486, 
-                  45.41299
-                ], 
-                [
-                  -71.884, 
-                  45.41238
-                ], 
-                [
-                  -71.88363, 
-                  45.41187
-                ], 
-                [
-                  -71.88467, 
-                  45.41168
-                ], 
-                [
-                  -71.88475, 
-                  45.41151
-                ], 
-                [
-                  -71.88485, 
-                  45.411529
-                ]
-              ]
-            }, 
-            "duration": 840, 
-            "type": "public_transport", 
-            "id": "section_17_0", 
-            "stop_date_times": [
-              {
-                "stop_point": {
-                  "name": "Carrefour de l'Estrie - quai A", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.402364", 
-                    "lon": "-71.952689"
-                  }, 
-                  "label": "Carrefour de l'Estrie - quai A (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:298A"
-                }, 
-                "arrival_date_time": "20111114T062000", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T062000"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Carrefour de l'Estrie (Zellers)", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.402842", 
-                    "lon": "-71.949091"
-                  }, 
-                  "label": "Carrefour de l'Estrie (Zellers) (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:387"
-                }, 
-                "arrival_date_time": "20111114T062000", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T062000"
-              }, 
-              {
-                "stop_point": {
-                  "name": "boul. de Portland / des \u00c9rables", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.403509", 
-                    "lon": "-71.946575"
-                  }, 
-                  "label": "boul. de Portland / des \u00c9rables (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:388"
-                }, 
-                "arrival_date_time": "20111114T062100", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T062100"
-              }, 
-              {
-                "stop_point": {
-                  "name": "boul. de Portland / boul. Lionel-Groulx", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.403664", 
-                    "lon": "-71.942874"
-                  }, 
-                  "label": "boul. de Portland / boul. Lionel-Groulx (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:389"
-                }, 
-                "arrival_date_time": "20111114T062200", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T062200"
-              }, 
-              {
-                "stop_point": {
-                  "name": "boul. de Portland / Wilson", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.403732", 
-                    "lon": "-71.93951"
-                  }, 
-                  "label": "boul. de Portland / Wilson (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:390"
-                }, 
-                "arrival_date_time": "20111114T062200", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T062200"
-              }, 
-              {
-                "stop_point": {
-                  "name": "boul. de Portland / Lauzon", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.403743", 
-                    "lon": "-71.935179"
-                  }, 
-                  "label": "boul. de Portland / Lauzon (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:391"
-                }, 
-                "arrival_date_time": "20111114T062300", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T062300"
-              }, 
-              {
-                "stop_point": {
-                  "name": "boul. de Portland / Meilleur", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.403712", 
-                    "lon": "-71.931882"
-                  }, 
-                  "label": "boul. de Portland / Meilleur (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:392"
-                }, 
-                "arrival_date_time": "20111114T062300", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T062300"
-              }, 
-              {
-                "stop_point": {
-                  "name": "boul. de Portland / Farwell", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.403636", 
-                    "lon": "-71.926607"
-                  }, 
-                  "label": "boul. de Portland / Farwell (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:393"
-                }, 
-                "arrival_date_time": "20111114T062400", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T062400"
-              }, 
-              {
-                "stop_point": {
-                  "name": "boul. de Portland / Fr\u00e9chette", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.40363", 
-                    "lon": "-71.923832"
-                  }, 
-                  "label": "boul. de Portland / Fr\u00e9chette (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:56"
-                }, 
-                "arrival_date_time": "20111114T062500", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T062500"
-              }, 
-              {
-                "stop_point": {
-                  "name": "boul. de Portland / Wood", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.403591", 
-                    "lon": "-71.920843"
-                  }, 
-                  "label": "boul. de Portland / Wood (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:57"
-                }, 
-                "arrival_date_time": "20111114T062500", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T062500"
-              }, 
-              {
-                "stop_point": {
-                  "name": "boul. de Portland / boul. Jacques-Cartier Nord", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.403611", 
-                    "lon": "-71.917847"
-                  }, 
-                  "label": "boul. de Portland / boul. Jacques-Cartier Nord (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:394"
-                }, 
-                "arrival_date_time": "20111114T062600", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T062600"
-              }, 
-              {
-                "stop_point": {
-                  "name": "boul. de Portland / Argyll", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.403566", 
-                    "lon": "-71.913562"
-                  }, 
-                  "label": "boul. de Portland / Argyll (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:396"
-                }, 
-                "arrival_date_time": "20111114T062600", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T062600"
-              }, 
-              {
-                "stop_point": {
-                  "name": "boul. de Portland / de Vimy", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.403544", 
-                    "lon": "-71.910801"
-                  }, 
-                  "label": "boul. de Portland / de Vimy (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:199"
-                }, 
-                "arrival_date_time": "20111114T062700", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T062700"
-              }, 
-              {
-                "stop_point": {
-                  "name": "boul. de Portland / de l'Ontario", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.403473", 
-                    "lon": "-71.908084"
-                  }, 
-                  "label": "boul. de Portland / de l'Ontario (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:200"
-                }, 
-                "arrival_date_time": "20111114T062800", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T062800"
-              }, 
-              {
-                "stop_point": {
-                  "name": "de Portland / du Qu\u00e9bec", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.403487", 
-                    "lon": "-71.904899"
-                  }, 
-                  "label": "de Portland / du Qu\u00e9bec (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:202"
-                }, 
-                "arrival_date_time": "20111114T062800", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T062800"
-              }, 
-              {
-                "stop_point": {
-                  "name": "de Montr\u00e9al / boul. Queen Victoria", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.404025", 
-                    "lon": "-71.901261"
-                  }, 
-                  "label": "de Montr\u00e9al / boul. Queen Victoria (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:203"
-                }, 
-                "arrival_date_time": "20111114T063000", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T063000"
-              }, 
-              {
-                "stop_point": {
-                  "name": "de Montr\u00e9al / Elisabeth", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.404932", 
-                    "lon": "-71.899497"
-                  }, 
-                  "label": "de Montr\u00e9al / Elisabeth (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:204"
-                }, 
-                "arrival_date_time": "20111114T063000", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T063000"
-              }, 
-              {
-                "stop_point": {
-                  "name": "de Montr\u00e9al / Joseph-Rosenbloom", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.406286", 
-                    "lon": "-71.896862"
-                  }, 
-                  "label": "de Montr\u00e9al / Joseph-Rosenbloom (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:1290"
-                }, 
-                "arrival_date_time": "20111114T063000", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T063000"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Terrill / Kennedy Nord", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.409569", 
-                    "lon": "-71.890392"
-                  }, 
-                  "label": "Terrill / Kennedy Nord (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:792"
-                }, 
-                "arrival_date_time": "20111114T063200", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T063200"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Terrill / du Cardinal-Villeneuve", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.411081", 
-                    "lon": "-71.888138"
-                  }, 
-                  "label": "Terrill / du Cardinal-Villeneuve (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:793"
-                }, 
-                "arrival_date_time": "20111114T063200", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T063200"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Terrill / du C\u00e9gep", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.412092", 
-                    "lon": "-71.886694"
-                  }, 
-                  "label": "Terrill / du C\u00e9gep (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:794"
-                }, 
-                "arrival_date_time": "20111114T063300", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T063300"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Entr\u00e9e Station du C\u00e9gep (Terrill)", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.412957", 
-                    "lon": "-71.884905"
-                  }, 
-                  "label": "Entr\u00e9e Station du C\u00e9gep (Terrill) (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:638"
-                }, 
-                "arrival_date_time": "20111114T063300", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T063300"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Station du C\u00e9gep", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.411529", 
-                    "lon": "-71.88485"
-                  }, 
-                  "label": "Station du C\u00e9gep (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:501"
-                }, 
-                "arrival_date_time": "20111114T063400", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T063400"
-              }
-            ]
-          }, 
-          {
-            "from": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "Station du C\u00e9gep", 
-                "links": [], 
-                "coord": {
-                  "lat": "45.411529", 
-                  "lon": "-71.88485"
-                }, 
-                "label": "Station du C\u00e9gep (Sherbrooke)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "stop_point:STS:SP:501", 
-                "stop_area": {
-                  "name": "Station du C\u00e9gep", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.411529", 
-                    "lon": "-71.88485"
-                  }, 
-                  "label": "Station du C\u00e9gep (Sherbrooke)", 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:501"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:STS:SP:501", 
-              "name": "Station du C\u00e9gep (Sherbrooke)"
-            }, 
-            "links": [], 
-            "arrival_date_time": "20111114T063500", 
-            "departure_date_time": "20111114T063400", 
-            "to": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "Station du C\u00e9gep - quai B", 
-                "links": [], 
-                "coord": {
-                  "lat": "45.411529", 
-                  "lon": "-71.88485"
-                }, 
-                "label": "Station du C\u00e9gep - quai B (Sherbrooke)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "stop_point:STS:SP:501B", 
-                "stop_area": {
-                  "name": "Station du C\u00e9gep", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.411529", 
-                    "lon": "-71.88485"
-                  }, 
-                  "label": "Station du C\u00e9gep (Sherbrooke)", 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:501"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:STS:SP:501B", 
-              "name": "Station du C\u00e9gep - quai B (Sherbrooke)"
-            }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  -71.88485, 
-                  45.411529
-                ], 
-                [
-                  -71.88485, 
-                  45.411529
-                ]
-              ]
-            }, 
-            "duration": 60, 
-            "transfer_type": "walking", 
-            "type": "transfer", 
-            "id": "section_18_0"
-          }, 
-          {
-            "links": [], 
-            "arrival_date_time": "20111114T064200", 
-            "departure_date_time": "20111114T063500", 
-            "duration": 420, 
-            "type": "waiting", 
-            "id": "section_19_0"
-          }, 
-          {
-            "from": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "Station du C\u00e9gep - quai B", 
-                "links": [], 
-                "coord": {
-                  "lat": "45.411529", 
-                  "lon": "-71.88485"
-                }, 
-                "label": "Station du C\u00e9gep - quai B (Sherbrooke)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "stop_point:STS:SP:501B", 
-                "stop_area": {
-                  "name": "Station du C\u00e9gep", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.411529", 
-                    "lon": "-71.88485"
-                  }, 
-                  "label": "Station du C\u00e9gep (Sherbrooke)", 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:501"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:STS:SP:501B", 
-              "name": "Station du C\u00e9gep - quai B (Sherbrooke)"
-            }, 
-            "links": [
-              {
-                "type": "vehicle_journey", 
-                "id": "vehicle_journey:STS4_1A:1580_dst_2"
-              }, 
-              {
-                "type": "line", 
-                "id": "line:STS:4_1A"
-              }, 
-              {
-                "type": "route", 
-                "id": "route:STS:4_1A"
-              }, 
-              {
-                "type": "commercial_mode", 
-                "id": "commercial_mode:Bus"
-              }, 
-              {
-                "type": "physical_mode", 
-                "id": "physical_mode:Bus"
-              }, 
-              {
-                "type": "network", 
-                "id": "network:STS"
-              }
-            ], 
-            "arrival_date_time": "20111114T065300", 
-            "additional_informations": [
-              "regular", 
-              "stay_in"
-            ], 
-            "co2_emission": {
-              "value": 664.3234, 
-              "unit": "gEC"
-            }, 
-            "display_informations": {
-              "direction": "du Conseil / Galt Est (Sherbrooke)", 
-              "code": "4", 
-              "description": "", 
-              "links": [], 
-              "color": "999999", 
-              "physical_mode": "Bus", 
-              "headsign": "du Chalumeau - Galvin", 
-              "commercial_mode": "Bus", 
-              "equipments": [], 
-              "label": "4", 
-              "network": "Soci\u00e9t\u00e9 de Transport de Sherbrooke"
-            }, 
-            "to": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "du Conseil / Galt Est", 
-                "links": [], 
-                "coord": {
-                  "lat": "45.40592", 
-                  "lon": "-71.852626"
-                }, 
-                "label": "du Conseil / Galt Est (Sherbrooke)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "stop_point:STS:SP:1469", 
-                "stop_area": {
-                  "name": "du Conseil / Galt Est", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.4061", 
-                    "lon": "-71.853157"
-                  }, 
-                  "label": "du Conseil / Galt Est (Sherbrooke)", 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:1464"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:STS:SP:1469", 
-              "name": "du Conseil / Galt Est (Sherbrooke)"
-            }, 
-            "departure_date_time": "20111114T064200", 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 5122
-                }
-              ], 
-              "coordinates": [
-                [
-                  -71.88485, 
-                  45.411529
-                ], 
-                [
-                  -71.88473, 
-                  45.41166
-                ], 
-                [
-                  -71.88448, 
-                  45.41146
-                ], 
-                [
-                  -71.88354, 
-                  45.41167
-                ], 
-                [
-                  -71.88321, 
-                  45.41095
-                ], 
-                [
-                  -71.88238, 
-                  45.40985
-                ], 
-                [
-                  -71.88335, 
-                  45.40953
-                ], 
-                [
-                  -71.883378, 
-                  45.409568
-                ], 
-                [
-                  -71.88335, 
-                  45.40953
-                ], 
-                [
-                  -71.88343, 
-                  45.40951
-                ], 
-                [
-                  -71.88315, 
-                  45.40781
-                ], 
-                [
-                  -71.883273, 
-                  45.407803
-                ], 
-                [
-                  -71.88315, 
-                  45.40781
-                ], 
-                [
-                  -71.88303, 
-                  45.40706
-                ], 
-                [
-                  -71.88289, 
-                  45.40686
-                ], 
-                [
-                  -71.88245, 
-                  45.40652
-                ], 
-                [
-                  -71.88213, 
-                  45.40673
-                ], 
-                [
-                  -71.882082, 
-                  45.406696
-                ], 
-                [
-                  -71.88213, 
-                  45.40673
-                ], 
-                [
-                  -71.88082, 
-                  45.4076
-                ], 
-                [
-                  -71.88036, 
-                  45.40786
-                ], 
-                [
-                  -71.880332, 
-                  45.407834
-                ], 
-                [
-                  -71.88036, 
-                  45.40786
-                ], 
-                [
-                  -71.88001, 
-                  45.40805
-                ], 
-                [
-                  -71.87998, 
-                  45.40773
-                ], 
-                [
-                  -71.88004, 
-                  45.40667
-                ], 
-                [
-                  -71.88004, 
-                  45.40555
-                ], 
-                [
-                  -71.880108, 
-                  45.405549
-                ], 
-                [
-                  -71.88004, 
-                  45.40392
-                ], 
-                [
-                  -71.87998, 
-                  45.40372
-                ], 
-                [
-                  -71.87952, 
-                  45.40309
-                ], 
-                [
-                  -71.879601, 
-                  45.403058
-                ], 
-                [
-                  -71.87952, 
-                  45.40309
-                ], 
-                [
-                  -71.87823, 
-                  45.40132
-                ], 
-                [
-                  -71.878339, 
-                  45.401285
-                ], 
-                [
-                  -71.87823, 
-                  45.40132
-                ], 
-                [
-                  -71.87775, 
-                  45.40056
-                ], 
-                [
-                  -71.87738, 
-                  45.39964
-                ], 
-                [
-                  -71.877497, 
-                  45.399618
-                ], 
-                [
-                  -71.87737, 
-                  45.39963
-                ], 
-                [
-                  -71.87684, 
-                  45.3982
-                ], 
-                [
-                  -71.876923, 
-                  45.39819
-                ], 
-                [
-                  -71.87684, 
-                  45.3982
-                ], 
-                [
-                  -71.87675, 
-                  45.39799
-                ], 
-                [
-                  -71.874936, 
-                  45.39844
-                ], 
-                [
-                  -71.87474, 
-                  45.39852
-                ], 
-                [
-                  -71.87238, 
-                  45.39894
-                ], 
-                [
-                  -71.87183, 
-                  45.39878
-                ], 
-                [
-                  -71.871844, 
-                  45.39875
-                ], 
-                [
-                  -71.87183, 
-                  45.39878
-                ], 
-                [
-                  -71.87158, 
-                  45.39872
-                ], 
-                [
-                  -71.87061, 
-                  45.39883
-                ], 
-                [
-                  -71.8681, 
-                  45.39919
-                ], 
-                [
-                  -71.868075, 
-                  45.399125
-                ], 
-                [
-                  -71.8681, 
-                  45.39919
-                ], 
-                [
-                  -71.8678, 
-                  45.39923
-                ], 
-                [
-                  -71.86812, 
-                  45.39959
-                ], 
-                [
-                  -71.86864, 
-                  45.40001
-                ], 
-                [
-                  -71.86906, 
-                  45.40028
-                ], 
-                [
-                  -71.86937, 
-                  45.40078
-                ], 
-                [
-                  -71.86939, 
-                  45.40102
-                ], 
-                [
-                  -71.869317, 
-                  45.401026
-                ], 
-                [
-                  -71.86939, 
-                  45.40102
-                ], 
-                [
-                  -71.8694, 
-                  45.40112
-                ], 
-                [
-                  -71.86735, 
-                  45.40115
-                ], 
-                [
-                  -71.867349, 
-                  45.401102
-                ], 
-                [
-                  -71.86735, 
-                  45.40115
-                ], 
-                [
-                  -71.86616, 
-                  45.40118
-                ], 
-                [
-                  -71.86514, 
-                  45.40118
-                ], 
-                [
-                  -71.865133, 
-                  45.401134
-                ], 
-                [
-                  -71.86485, 
-                  45.40118
-                ], 
-                [
-                  -71.8648, 
-                  45.40137
-                ], 
-                [
-                  -71.864844, 
-                  45.403705
-                ], 
-                [
-                  -71.86486, 
-                  45.40383
-                ], 
-                [
-                  -71.8635, 
-                  45.40383
-                ], 
-                [
-                  -71.86205, 
-                  45.40343
-                ], 
-                [
-                  -71.86175, 
-                  45.40331
-                ], 
-                [
-                  -71.86179, 
-                  45.403252
-                ], 
-                [
-                  -71.86175, 
-                  45.40331
-                ], 
-                [
-                  -71.8613, 
-                  45.40319
-                ], 
-                [
-                  -71.86054, 
-                  45.40331
-                ], 
-                [
-                  -71.85988, 
-                  45.40343
-                ], 
-                [
-                  -71.858821, 
-                  45.403768
-                ], 
-                [
-                  -71.85567, 
-                  45.40506
-                ], 
-                [
-                  -71.85529, 
-                  45.40535
-                ], 
-                [
-                  -71.85522, 
-                  45.405322
-                ], 
-                [
-                  -71.85529, 
-                  45.40535
-                ], 
-                [
-                  -71.85503, 
-                  45.40562
-                ], 
-                [
-                  -71.85473, 
-                  45.40591
-                ], 
-                [
-                  -71.85447, 
-                  45.40606
-                ], 
-                [
-                  -71.85262, 
-                  45.40605
-                ], 
-                [
-                  -71.852626, 
-                  45.40592
-                ]
-              ]
-            }, 
-            "duration": 660, 
-            "type": "public_transport", 
-            "id": "section_20_0", 
-            "stop_date_times": [
-              {
-                "stop_point": {
-                  "name": "Station du C\u00e9gep - quai B", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.411529", 
-                    "lon": "-71.88485"
-                  }, 
-                  "label": "Station du C\u00e9gep - quai B (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:501B"
-                }, 
-                "arrival_date_time": "20111114T064200", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T064200"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Entr\u00e9e Station du C\u00e9gep (\u00e9difice Expo-Sherbrooke)", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.409568", 
-                    "lon": "-71.883378"
-                  }, 
-                  "label": "Entr\u00e9e Station du C\u00e9gep (\u00e9difice Expo-Sherbrooke) (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:640"
-                }, 
-                "arrival_date_time": "20111114T064300", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T064300"
-              }, 
-              {
-                "stop_point": {
-                  "name": "du C\u00e9gep  / Mont-Plaisant", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.407803", 
-                    "lon": "-71.883273"
-                  }, 
-                  "label": "du C\u00e9gep  / Mont-Plaisant (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:641"
-                }, 
-                "arrival_date_time": "20111114T064300", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T064300"
-              }, 
-              {
-                "stop_point": {
-                  "name": "King Est / du C\u00e9gep", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.406696", 
-                    "lon": "-71.882082"
-                  }, 
-                  "label": "King Est / du C\u00e9gep (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:209"
-                }, 
-                "arrival_date_time": "20111114T064400", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T064400"
-              }, 
-              {
-                "stop_point": {
-                  "name": "King Est / Murray", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.407834", 
-                    "lon": "-71.880332"
-                  }, 
-                  "label": "King Est / Murray (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:210"
-                }, 
-                "arrival_date_time": "20111114T064400", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T064400"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Murray (no.162)", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.405549", 
-                    "lon": "-71.880108"
-                  }, 
-                  "label": "Murray (no.162) (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:211"
-                }, 
-                "arrival_date_time": "20111114T064500", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T064500"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Murray / du Conseil", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.403058", 
-                    "lon": "-71.879601"
-                  }, 
-                  "label": "Murray / du Conseil (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:352"
-                }, 
-                "arrival_date_time": "20111114T064500", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T064500"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Murray / Chalifoux", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.401285", 
-                    "lon": "-71.878339"
-                  }, 
-                  "label": "Murray / Chalifoux (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:2049"
-                }, 
-                "arrival_date_time": "20111114T064600", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T064600"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Murray (CHUS - H\u00f4tel-Dieu)", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.399618", 
-                    "lon": "-71.877497"
-                  }, 
-                  "label": "Murray (CHUS - H\u00f4tel-Dieu) (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:354"
-                }, 
-                "arrival_date_time": "20111114T064700", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T064700"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Murray / Woodward", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.39819", 
-                    "lon": "-71.876923"
-                  }, 
-                  "label": "Murray / Woodward (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:355"
-                }, 
-                "arrival_date_time": "20111114T064700", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T064700"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Woodward / 7e ave Sud", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.39844", 
-                    "lon": "-71.874936"
-                  }, 
-                  "label": "Woodward / 7e ave Sud (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:356"
-                }, 
-                "arrival_date_time": "20111114T064700", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T064700"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Woodward / 10e ave Sud", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.39875", 
-                    "lon": "-71.871844"
-                  }, 
-                  "label": "Woodward / 10e ave Sud (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:357"
-                }, 
-                "arrival_date_time": "20111114T064800", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T064800"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Woodward / boul. Lavigerie", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.399125", 
-                    "lon": "-71.868075"
-                  }, 
-                  "label": "Woodward / boul. Lavigerie (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:358"
-                }, 
-                "arrival_date_time": "20111114T064800", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T064800"
-              }, 
-              {
-                "stop_point": {
-                  "name": "boul. Lavigerie / Chalifoux", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.401026", 
-                    "lon": "-71.869317"
-                  }, 
-                  "label": "boul. Lavigerie / Chalifoux (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:1569"
-                }, 
-                "arrival_date_time": "20111114T064900", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T064900"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Chalifoux / 15e ave Sud", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.401102", 
-                    "lon": "-71.867349"
-                  }, 
-                  "label": "Chalifoux / 15e ave Sud (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:726"
-                }, 
-                "arrival_date_time": "20111114T064900", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T064900"
-              }, 
-              {
-                "stop_point": {
-                  "name": "Chalifoux / de Normandie", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.401134", 
-                    "lon": "-71.865133"
-                  }, 
-                  "label": "Chalifoux / de Normandie (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:1570"
-                }, 
-                "arrival_date_time": "20111114T065000", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T065000"
-              }, 
-              {
-                "stop_point": {
-                  "name": "de Normandie / du Conseil", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.403705", 
-                    "lon": "-71.864844"
-                  }, 
-                  "label": "de Normandie / du Conseil (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:2050"
-                }, 
-                "arrival_date_time": "20111114T065100", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T065100"
-              }, 
-              {
-                "stop_point": {
-                  "name": "du Conseil / Jean-Talon", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.403252", 
-                    "lon": "-71.86179"
-                  }, 
-                  "label": "du Conseil / Jean-Talon (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:1466"
-                }, 
-                "arrival_date_time": "20111114T065100", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T065100"
-              }, 
-              {
-                "stop_point": {
-                  "name": "du Conseil / du Verger", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.403768", 
-                    "lon": "-71.858821"
-                  }, 
-                  "label": "du Conseil / du Verger (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:1467"
-                }, 
-                "arrival_date_time": "20111114T065100", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T065100"
-              }, 
-              {
-                "stop_point": {
-                  "name": "du Conseil (Loutec)", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.405322", 
-                    "lon": "-71.85522"
-                  }, 
-                  "label": "du Conseil (Loutec) (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:1468"
-                }, 
-                "arrival_date_time": "20111114T065200", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T065200"
-              }, 
-              {
-                "stop_point": {
-                  "name": "du Conseil / Galt Est", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.40592", 
-                    "lon": "-71.852626"
-                  }, 
-                  "label": "du Conseil / Galt Est (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:1469"
-                }, 
-                "arrival_date_time": "20111114T065300", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T065300"
-              }
-            ]
-          }, 
-          {
-            "from": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "du Conseil / Galt Est", 
-                "links": [], 
-                "coord": {
-                  "lat": "45.40592", 
-                  "lon": "-71.852626"
-                }, 
-                "label": "du Conseil / Galt Est (Sherbrooke)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "stop_point:STS:SP:1469", 
-                "stop_area": {
-                  "name": "du Conseil / Galt Est", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.4061", 
-                    "lon": "-71.853157"
-                  }, 
-                  "label": "du Conseil / Galt Est (Sherbrooke)", 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:1464"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:STS:SP:1469", 
-              "name": "du Conseil / Galt Est (Sherbrooke)"
-            }, 
-            "links": [], 
-            "arrival_date_time": "20111114T065300", 
-            "departure_date_time": "20111114T065300", 
-            "to": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "du Conseil / Galt Est", 
-                "links": [], 
-                "coord": {
-                  "lat": "45.40592", 
-                  "lon": "-71.852626"
-                }, 
-                "label": "du Conseil / Galt Est (Sherbrooke)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "stop_point:STS:SP:1469", 
-                "stop_area": {
-                  "name": "du Conseil / Galt Est", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.4061", 
-                    "lon": "-71.853157"
-                  }, 
-                  "label": "du Conseil / Galt Est (Sherbrooke)", 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:1464"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:STS:SP:1469", 
-              "name": "du Conseil / Galt Est (Sherbrooke)"
-            }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 0
-                }
-              ], 
-              "coordinates": [
-                [
-                  -71.852626, 
-                  45.40592
-                ], 
-                [
-                  -71.852626, 
-                  45.40592
-                ]
-              ]
-            }, 
-            "duration": 0, 
-            "transfer_type": "stay_in", 
-            "type": "transfer", 
-            "id": "section_21_0"
-          }, 
-          {
-            "from": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "du Conseil / Galt Est", 
-                "links": [], 
-                "coord": {
-                  "lat": "45.40592", 
-                  "lon": "-71.852626"
-                }, 
-                "label": "du Conseil / Galt Est (Sherbrooke)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "stop_point:STS:SP:1469", 
-                "stop_area": {
-                  "name": "du Conseil / Galt Est", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.4061", 
-                    "lon": "-71.853157"
-                  }, 
-                  "label": "du Conseil / Galt Est (Sherbrooke)", 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:1464"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:STS:SP:1469", 
-              "name": "du Conseil / Galt Est (Sherbrooke)"
-            }, 
-            "links": [
-              {
-                "type": "vehicle_journey", 
-                "id": "vehicle_journey:STSHLP_1469_2038:3006_dst_2"
-              }, 
-              {
-                "type": "line", 
-                "id": "line:STS:HLP_1_170"
-              }, 
-              {
-                "type": "route", 
-                "id": "route:STS:HLP_1469_2038"
-              }, 
-              {
-                "type": "commercial_mode", 
-                "id": "commercial_mode:Bus"
-              }, 
-              {
-                "type": "physical_mode", 
-                "id": "physical_mode:Bus"
-              }, 
-              {
-                "type": "network", 
-                "id": "network:STS"
-              }
-            ], 
-            "arrival_date_time": "20111114T065700", 
-            "additional_informations": [
-              "regular"
-            ], 
-            "co2_emission": {
-              "value": 326.1955, 
-              "unit": "gEC"
-            }, 
-            "display_informations": {
-              "direction": "du Chalumeau / ch. Galvin (Sherbrooke)", 
-              "code": "HLP", 
-              "description": "", 
-              "links": [], 
-              "color": "000000", 
-              "physical_mode": "Bus", 
-              "headsign": "du Chalumeau - Galvin", 
-              "commercial_mode": "Bus", 
-              "equipments": [], 
-              "label": "HLP", 
-              "network": "Soci\u00e9t\u00e9 de Transport de Sherbrooke"
-            }, 
-            "to": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "du Chalumeau / ch. Galvin", 
-                "links": [], 
-                "coord": {
-                  "lat": "45.402505", 
-                  "lon": "-71.823141"
-                }, 
-                "label": "du Chalumeau / ch. Galvin (Sherbrooke)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "stop_point:STS:SP:2038", 
-                "stop_area": {
-                  "name": "du Chalumeau / ch. Galvin", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.402505", 
-                    "lon": "-71.823141"
-                  }, 
-                  "label": "du Chalumeau / ch. Galvin (Sherbrooke)", 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:2038"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:STS:SP:2038", 
-              "name": "du Chalumeau / ch. Galvin (Sherbrooke)"
-            }, 
-            "departure_date_time": "20111114T065300", 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 2515
-                }
-              ], 
-              "coordinates": [
-                [
-                  -71.852626, 
-                  45.40592
-                ], 
-                [
-                  -71.85262, 
-                  45.40604
-                ], 
-                [
-                  -71.8507, 
-                  45.40599
-                ], 
-                [
-                  -71.84886, 
-                  45.40603
-                ], 
-                [
-                  -71.84766, 
-                  45.40619
-                ], 
-                [
-                  -71.84634, 
-                  45.40644
-                ], 
-                [
-                  -71.84529, 
-                  45.40655
-                ], 
-                [
-                  -71.84152, 
-                  45.40671
-                ], 
-                [
-                  -71.84035, 
-                  45.40672
-                ], 
-                [
-                  -71.83565, 
-                  45.40643
-                ], 
-                [
-                  -71.83404, 
-                  45.40622
-                ], 
-                [
-                  -71.83024, 
-                  45.40598
-                ], 
-                [
-                  -71.82968, 
-                  45.40583
-                ], 
-                [
-                  -71.82819, 
-                  45.40529
-                ], 
-                [
-                  -71.82565, 
-                  45.40423
-                ], 
-                [
-                  -71.82272, 
-                  45.40276
-                ], 
-                [
-                  -71.82304, 
-                  45.40245
-                ], 
-                [
-                  -71.823141, 
-                  45.402505
-                ]
-              ]
-            }, 
-            "duration": 240, 
-            "type": "public_transport", 
-            "id": "section_22_0", 
-            "stop_date_times": [
-              {
-                "stop_point": {
-                  "name": "du Conseil / Galt Est", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.40592", 
-                    "lon": "-71.852626"
-                  }, 
-                  "label": "du Conseil / Galt Est (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:1469"
-                }, 
-                "arrival_date_time": "20111114T065300", 
-                "additional_informations": [
-                  "drop_off_only"
-                ], 
-                "links": [], 
-                "departure_date_time": "20111114T065300"
-              }, 
-              {
-                "stop_point": {
-                  "name": "du Chalumeau / ch. Galvin", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.402505", 
-                    "lon": "-71.823141"
-                  }, 
-                  "label": "du Chalumeau / ch. Galvin (Sherbrooke)", 
-                  "equipments": [], 
-                  "id": "stop_point:STS:SP:2038"
-                }, 
-                "arrival_date_time": "20111114T065700", 
-                "additional_informations": [], 
-                "links": [], 
-                "departure_date_time": "20111114T065700"
-              }
-            ]
-          }, 
-          {
-            "from": {
-              "embedded_type": "stop_point", 
-              "stop_point": {
-                "name": "du Chalumeau / ch. Galvin", 
-                "links": [], 
-                "coord": {
-                  "lat": "45.402505", 
-                  "lon": "-71.823141"
-                }, 
-                "label": "du Chalumeau / ch. Galvin (Sherbrooke)", 
-                "equipments": [], 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }, 
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "stop_point:STS:SP:2038", 
-                "stop_area": {
-                  "name": "du Chalumeau / ch. Galvin", 
-                  "links": [], 
-                  "coord": {
-                    "lat": "45.402505", 
-                    "lon": "-71.823141"
-                  }, 
-                  "label": "du Chalumeau / ch. Galvin (Sherbrooke)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "43027", 
-                      "name": "Sherbrooke", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "0.0", 
-                        "lon": "-73.23728992"
-                      }, 
-                      "label": "Sherbrooke", 
-                      "id": "admin:43027", 
-                      "zip_code": ""
-                    }
-                  ], 
-                  "timezone": "Europe/Paris", 
-                  "id": "stop_area:STS:SA:2038"
-                }
-              }, 
-              "quality": 0, 
-              "id": "stop_point:STS:SP:2038", 
-              "name": "du Chalumeau / ch. Galvin (Sherbrooke)"
-            }, 
-            "links": [], 
-            "arrival_date_time": "20111114T065747", 
-            "departure_date_time": "20111114T065700", 
-            "to": {
-              "embedded_type": "poi", 
-              "name": "CHEMIN GALVIN - RUE DU CHALUMEAU (Sherbrooke)", 
-              "address": {
-                "name": "chemin GALVIN", 
-                "house_number": 3127, 
-                "coord": {
-                  "lat": "45.40277176", 
-                  "lon": "-71.82275824"
-                }, 
-                "label": "3127 chemin GALVIN (Sherbrooke)", 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "id": "-71.82275824;45.40277176"
-              }, 
-              "poi": {
-                "properties": {}, 
-                "poi_type": {
-                  "name": "Intersection", 
-                  "id": "poi_type:Intersection"
-                }, 
-                "name": "CHEMIN GALVIN - RUE DU CHALUMEAU", 
-                "coord": {
-                  "lat": "45.402772", 
-                  "lon": "-71.822758"
-                }, 
-                "label": "CHEMIN GALVIN - RUE DU CHALUMEAU (Sherbrooke)", 
-                "administrative_regions": [
-                  {
-                    "insee": "43027", 
-                    "name": "Sherbrooke", 
-                    "level": 8, 
-                    "coord": {
-                      "lat": "0.0", 
-                      "lon": "-73.23728992"
-                    }, 
-                    "label": "Sherbrooke", 
-                    "id": "admin:43027", 
-                    "zip_code": ""
-                  }
-                ], 
-                "address": {
-                  "name": "CHEMIN GALVIN - RUE DU CHALUMEAU", 
-                  "house_number": 0, 
-                  "coord": {
-                    "lat": "45.402772", 
-                    "lon": "-71.822758"
-                  }, 
-                  "label": "CHEMIN GALVIN - RUE DU CHALUMEAU (Sherbrooke)", 
-                  "administrative_regions": [
-                    {
-                      "insee": "43027", 
-                      "name": "Sherbrooke", 
-                      "level": 8, 
-                      "coord": {
-                        "lat": "0.0", 
-                        "lon": "-73.23728992"
-                      }, 
-                      "label": "Sherbrooke", 
-                      "id": "admin:43027", 
-                      "zip_code": ""
-                    }
-                  ], 
-                  "id": "-71.82275799999999;45.402772"
-                }, 
-                "id": "poi:3815 - ADDRESS370 - ADDRESS1126"
-              }, 
-              "quality": 0, 
-              "id": "poi:3815 - ADDRESS370 - ADDRESS1126"
-            }, 
-            "geojson": {
-              "type": "LineString", 
-              "properties": [
-                {
-                  "length": 39
-                }
-              ], 
-              "coordinates": [
-                [
-                  -71.823141, 
-                  45.402505
-                ], 
-                [
-                  -71.8231332401, 
-                  45.4027822556
-                ], 
-                [
-                  -71.82275824, 
-                  45.40277176
-                ], 
-                [
-                  -71.82275824, 
-                  45.40277176
-                ]
-              ]
-            }, 
-            "duration": 47, 
-            "path": [
-              {
-                "duration": 47, 
-                "length": 39, 
-                "direction": 0, 
-                "name": "rue DU CHALUMEAU"
-              }, 
-              {
-                "duration": 0, 
-                "length": 0, 
-                "direction": 0, 
-                "name": "chemin GALVIN"
-              }
-            ], 
-            "type": "street_network", 
-            "id": "section_23_0", 
-            "mode": "walking"
-          }
-        ], 
-        "co2_emission": {
-          "value": 1810.612, 
-          "unit": "gEC"
-        }, 
-        "duration": 2255, 
-        "type": "fastest"
       }
     ], 
     "disruptions": [], 
