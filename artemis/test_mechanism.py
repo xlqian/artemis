@@ -1,4 +1,5 @@
-import hashlib
+
+from collections import defaultdict
 import inspect
 import logging
 import os
@@ -71,7 +72,7 @@ class ArtemisTestFixture:
         Note: py.test does not want to collect class with custom constructor,
         so we init the class in the setup
         """
-        self.api_call_by_params = {}  # key is md5 of url, val is the number of call
+        self.test_counter = defaultdict(int)
 
     @classmethod
     def setup_class(cls):
@@ -314,7 +315,7 @@ class ArtemisTestFixture:
 
         self.api(query, response_mask)
 
-    def _get_file_name(self, url):
+    def _get_file_name(self):
         """
         create the name of the file for storing the query.
 
@@ -327,25 +328,20 @@ class ArtemisTestFixture:
         """
         class_name = self.__class__.__name__  # we get the fixture name
         func_name = get_calling_test_function()
+        test_name = '{}/{}'.format(class_name, func_name)
 
-        call_id = hashlib.md5(str(url).encode()).hexdigest()
+        self.test_counter[test_name] += 1
 
-        #if we already called this url in the same method, we add a number
-        key = (func_name, call_id)
-        if key in self.api_call_by_params:
-            call_id = "{call}_{number}".format(call=call_id, number=self.api_call_by_params[key])
-            self.api_call_by_params[call_id] += 1
+        if self.test_counter[test_name] > 1:
+            return "{}_{}.json".format(test_name, self.test_counter[test_name] - 1)
         else:
-            self.api_call_by_params[call_id] = 1
-
-        return "{fixture_name}/{function_name}_{specific_call_id}.json"\
-            .format(fixture_name=class_name, function_name=func_name, specific_call_id=call_id)
+            return "{}.json".format(test_name)
 
     def _save_response(self, url, response, filtered_response):
         """
         save the response in a file and return the filename (with the fixture directory)
         """
-        filename = self._get_file_name(url)
+        filename = self._get_file_name()
         file_complete_path = os.path.join(config['RESPONSE_FILE_PATH'], filename)
         if not os.path.exists(os.path.dirname(file_complete_path)):
             os.makedirs(os.path.dirname(file_complete_path))
