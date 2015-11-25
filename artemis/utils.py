@@ -15,7 +15,7 @@ import select
 
 _api_main_root_point = 'http://localhost/'
 
-_api_current_root_point = _api_main_root_point + 'v1/'
+_api_current_root_point = _api_main_root_point + config['API_POINT_PREFIX'] + 'v1/'
 
 
 def check_equals(a, b, msg=None):

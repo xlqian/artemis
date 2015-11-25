@@ -2,9 +2,9 @@
 
 TYR_DIR = "/srv/tyr"
 
-DATASET_PATH_LAYOUT = "/srv/artemis_data/{dataset}/"
+DATASET_PATH_LAYOUT = "/artemis/data/{dataset}/"
 
-NAV_FILE_PATH_LAYOUT = "/srv/ed/{dataset}/data.nav.lz4"
+NAV_FILE_PATH_LAYOUT = "/srv/ed/data/{dataset}/data.nav.lz4"
 
 NEW_FUSIO_FILE_PATH_LAYOUT = "/srv/fusio/source/{dataset}/NAVITIART/databases.zip"
 
@@ -12,14 +12,14 @@ RESPONSE_FILE_PATH = 'output'
 
 REFERENCE_FILE_PATH = 'reference'
 
-API_POINT_PREFIX = ''
+API_POINT_PREFIX = 'navitia/'
 
-JORMUNGANDR_DB = 'dbname=jormungandr user=jormungandr host=localhost password=jormungandr'
+JORMUNGANDR_DB = 'dbname=jormungandr user=jormungandr host=postgis password=jormungandr'
 
 LOGGER = {
     'version': 1,
     'disable_existing_loggers': False,
-    'formatters':{
+    'formatters': {
         'default': {
             'format': '[%(asctime)s] [%(levelname)5s] %(message)s',
         },
