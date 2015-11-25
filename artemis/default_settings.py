@@ -12,6 +12,8 @@ RESPONSE_FILE_PATH = 'output'
 
 REFERENCE_FILE_PATH = 'reference'
 
+API_POINT_PREFIX = ''
+
 JORMUNGANDR_DB = 'dbname=jormungandr user=jormungandr host=localhost password=jormungandr'
 
 LOGGER = {
@@ -42,5 +44,3 @@ LOGGER = {
         },
     }
 }
-
-

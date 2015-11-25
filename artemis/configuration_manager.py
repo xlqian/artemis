@@ -10,7 +10,6 @@ config.from_object('artemis.default_settings')
 if 'CONFIG_FILE' in os.environ:
     config.from_envvar('CONFIG_FILE')
 
-
 if 'LOGGER' in config:
     logging.config.dictConfig(config['LOGGER'])
 else:  # Default is std out
