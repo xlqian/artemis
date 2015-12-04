@@ -21,20 +21,20 @@
             "from": "Arret 1 (Saint-Andr\u00e9-lez-Lille)", 
             "arrival_date_time": "20041213T080000", 
             "departure_date_time": "20041213T070000", 
-            "to": "Arret 2 (La Madeleine)", 
+            "to": "Arret 3 (Loos)", 
             "duration": 3600, 
             "type": "public_transport"
           }, 
           {
-            "from": "Arret 2 (La Madeleine)", 
+            "from": "Arret 3 (Loos)", 
             "arrival_date_time": "20041213T080000", 
             "departure_date_time": "20041213T080000", 
-            "to": "Arret 2 (La Madeleine)", 
+            "to": "Arret 3 (Loos)", 
             "duration": 0, 
             "type": "transfer"
           }, 
           {
-            "from": "Arret 2 (La Madeleine)", 
+            "from": "Arret 3 (Loos)", 
             "arrival_date_time": "20041213T090000", 
             "departure_date_time": "20041213T080000", 
             "to": "Arret 5 (Lompret)", 
@@ -87,21 +87,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/prolong-auto/commercial_modes/{commercial_modes.id}", 
-        "type": "commercial_modes", 
-        "rel": "commercial_modes", 
-        "templated": true
-      }, 
-      {
         "href": "http://localhost/v1/coverage/prolong-auto/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/prolong-auto/physical_modes/{physical_modes.id}", 
-        "type": "physical_modes", 
-        "rel": "physical_modes", 
         "templated": true
       }
     ], 
@@ -149,20 +137,8 @@
               "id": "stop_area:PRA:SA:1", 
               "quality": 0, 
               "stop_area": {
-                "commercial_modes": [
-                  {
-                    "name": "BUS", 
-                    "id": "commercial_mode:BUS"
-                  }
-                ], 
                 "name": "Arret 1", 
                 "links": [], 
-                "physical_modes": [
-                  {
-                    "name": "Bus", 
-                    "id": "physical_mode:Bus"
-                  }
-                ], 
                 "coord": {
                   "lat": "50.654045", 
                   "lon": "3.043897"
@@ -297,7 +273,7 @@
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:PRA:1-215"
+                "id": "vehicle_journey:PRANav1:12"
               }, 
               {
                 "type": "line", 
@@ -326,17 +302,17 @@
               "stay_in"
             ], 
             "co2_emission": {
-              "value": 336.8309, 
+              "value": 574.3116, 
               "unit": "gEC"
             }, 
             "display_informations": {
-              "direction": "Arret 2 (La Madeleine)", 
+              "direction": "Arret 3 (Loos)", 
               "code": "1", 
               "description": "", 
               "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
-              "headsign": "PRA:1-215", 
+              "headsign": "PRANav1:12", 
               "commercial_mode": "BUS", 
               "equipments": [], 
               "label": "1", 
@@ -345,51 +321,51 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "name": "Arret 2", 
+                "name": "Arret 3", 
                 "links": [], 
                 "coord": {
-                  "lat": "50.651704", 
-                  "lon": "3.080549"
+                  "lat": "50.621395", 
+                  "lon": "3.007971"
                 }, 
-                "label": "Arret 2 (La Madeleine)", 
+                "label": "Arret 3 (Loos)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
-                    "insee": "59368", 
-                    "name": "La Madeleine", 
+                    "insee": "59360", 
+                    "name": "Loos", 
                     "level": 8, 
                     "coord": {
-                      "lat": "50.65654", 
-                      "lon": "3.067816"
+                      "lat": "50.609207", 
+                      "lon": "3.016252"
                     }, 
-                    "label": "La Madeleine (59110)", 
-                    "id": "admin:58617extern", 
-                    "zip_code": "59110"
+                    "label": "Loos (59120)", 
+                    "id": "admin:58402extern", 
+                    "zip_code": "59120"
                   }
                 ], 
-                "id": "stop_point:PRA:SP:Nav2", 
+                "id": "stop_point:PRA:SP:Nav4", 
                 "stop_area": {
-                  "name": "Arret 2", 
+                  "name": "Arret 3", 
                   "links": [], 
                   "coord": {
-                    "lat": "50.651704", 
-                    "lon": "3.080549"
+                    "lat": "50.621395", 
+                    "lon": "3.007971"
                   }, 
-                  "label": "Arret 2 (La Madeleine)", 
+                  "label": "Arret 3 (Loos)", 
                   "timezone": "Africa/Abidjan", 
-                  "id": "stop_area:PRA:SA:2"
+                  "id": "stop_area:PRA:SA:3"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:PRA:SP:Nav2", 
-              "name": "Arret 2 (La Madeleine)"
+              "id": "stop_point:PRA:SP:Nav4", 
+              "name": "Arret 3 (Loos)"
             }, 
             "departure_date_time": "20041213T070000", 
             "geojson": {
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 2597
+                  "length": 4428
                 }
               ], 
               "coordinates": [
@@ -398,8 +374,8 @@
                   50.654045
                 ], 
                 [
-                  3.080549, 
-                  50.651704
+                  3.007971, 
+                  50.621395
                 ]
               ]
             }, 
@@ -426,15 +402,15 @@
               }, 
               {
                 "stop_point": {
-                  "name": "Arret 2", 
+                  "name": "Arret 3", 
                   "links": [], 
                   "coord": {
-                    "lat": "50.651704", 
-                    "lon": "3.080549"
+                    "lat": "50.621395", 
+                    "lon": "3.007971"
                   }, 
-                  "label": "Arret 2 (La Madeleine)", 
+                  "label": "Arret 3 (Loos)", 
                   "equipments": [], 
-                  "id": "stop_point:PRA:SP:Nav2"
+                  "id": "stop_point:PRA:SP:Nav4"
                 }, 
                 "arrival_date_time": "20041213T080000", 
                 "additional_informations": [], 
@@ -447,44 +423,44 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "name": "Arret 2", 
+                "name": "Arret 3", 
                 "links": [], 
                 "coord": {
-                  "lat": "50.651704", 
-                  "lon": "3.080549"
+                  "lat": "50.621395", 
+                  "lon": "3.007971"
                 }, 
-                "label": "Arret 2 (La Madeleine)", 
+                "label": "Arret 3 (Loos)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
-                    "insee": "59368", 
-                    "name": "La Madeleine", 
+                    "insee": "59360", 
+                    "name": "Loos", 
                     "level": 8, 
                     "coord": {
-                      "lat": "50.65654", 
-                      "lon": "3.067816"
+                      "lat": "50.609207", 
+                      "lon": "3.016252"
                     }, 
-                    "label": "La Madeleine (59110)", 
-                    "id": "admin:58617extern", 
-                    "zip_code": "59110"
+                    "label": "Loos (59120)", 
+                    "id": "admin:58402extern", 
+                    "zip_code": "59120"
                   }
                 ], 
-                "id": "stop_point:PRA:SP:Nav2", 
+                "id": "stop_point:PRA:SP:Nav4", 
                 "stop_area": {
-                  "name": "Arret 2", 
+                  "name": "Arret 3", 
                   "links": [], 
                   "coord": {
-                    "lat": "50.651704", 
-                    "lon": "3.080549"
+                    "lat": "50.621395", 
+                    "lon": "3.007971"
                   }, 
-                  "label": "Arret 2 (La Madeleine)", 
+                  "label": "Arret 3 (Loos)", 
                   "timezone": "Africa/Abidjan", 
-                  "id": "stop_area:PRA:SA:2"
+                  "id": "stop_area:PRA:SA:3"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:PRA:SP:Nav2", 
-              "name": "Arret 2 (La Madeleine)"
+              "id": "stop_point:PRA:SP:Nav4", 
+              "name": "Arret 3 (Loos)"
             }, 
             "links": [], 
             "arrival_date_time": "20041213T080000", 
@@ -492,44 +468,44 @@
             "to": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "name": "Arret 2", 
+                "name": "Arret 3", 
                 "links": [], 
                 "coord": {
-                  "lat": "50.651704", 
-                  "lon": "3.080549"
+                  "lat": "50.621395", 
+                  "lon": "3.007971"
                 }, 
-                "label": "Arret 2 (La Madeleine)", 
+                "label": "Arret 3 (Loos)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
-                    "insee": "59368", 
-                    "name": "La Madeleine", 
+                    "insee": "59360", 
+                    "name": "Loos", 
                     "level": 8, 
                     "coord": {
-                      "lat": "50.65654", 
-                      "lon": "3.067816"
+                      "lat": "50.609207", 
+                      "lon": "3.016252"
                     }, 
-                    "label": "La Madeleine (59110)", 
-                    "id": "admin:58617extern", 
-                    "zip_code": "59110"
+                    "label": "Loos (59120)", 
+                    "id": "admin:58402extern", 
+                    "zip_code": "59120"
                   }
                 ], 
-                "id": "stop_point:PRA:SP:Nav2", 
+                "id": "stop_point:PRA:SP:Nav4", 
                 "stop_area": {
-                  "name": "Arret 2", 
+                  "name": "Arret 3", 
                   "links": [], 
                   "coord": {
-                    "lat": "50.651704", 
-                    "lon": "3.080549"
+                    "lat": "50.621395", 
+                    "lon": "3.007971"
                   }, 
-                  "label": "Arret 2 (La Madeleine)", 
+                  "label": "Arret 3 (Loos)", 
                   "timezone": "Africa/Abidjan", 
-                  "id": "stop_area:PRA:SA:2"
+                  "id": "stop_area:PRA:SA:3"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:PRA:SP:Nav2", 
-              "name": "Arret 2 (La Madeleine)"
+              "id": "stop_point:PRA:SP:Nav4", 
+              "name": "Arret 3 (Loos)"
             }, 
             "geojson": {
               "type": "LineString", 
@@ -540,12 +516,12 @@
               ], 
               "coordinates": [
                 [
-                  3.080549, 
-                  50.651704
+                  3.007971, 
+                  50.621395
                 ], 
                 [
-                  3.080549, 
-                  50.651704
+                  3.007971, 
+                  50.621395
                 ]
               ]
             }, 
@@ -558,49 +534,49 @@
             "from": {
               "embedded_type": "stop_point", 
               "stop_point": {
-                "name": "Arret 2", 
+                "name": "Arret 3", 
                 "links": [], 
                 "coord": {
-                  "lat": "50.651704", 
-                  "lon": "3.080549"
+                  "lat": "50.621395", 
+                  "lon": "3.007971"
                 }, 
-                "label": "Arret 2 (La Madeleine)", 
+                "label": "Arret 3 (Loos)", 
                 "equipments": [], 
                 "administrative_regions": [
                   {
-                    "insee": "59368", 
-                    "name": "La Madeleine", 
+                    "insee": "59360", 
+                    "name": "Loos", 
                     "level": 8, 
                     "coord": {
-                      "lat": "50.65654", 
-                      "lon": "3.067816"
+                      "lat": "50.609207", 
+                      "lon": "3.016252"
                     }, 
-                    "label": "La Madeleine (59110)", 
-                    "id": "admin:58617extern", 
-                    "zip_code": "59110"
+                    "label": "Loos (59120)", 
+                    "id": "admin:58402extern", 
+                    "zip_code": "59120"
                   }
                 ], 
-                "id": "stop_point:PRA:SP:Nav2", 
+                "id": "stop_point:PRA:SP:Nav4", 
                 "stop_area": {
-                  "name": "Arret 2", 
+                  "name": "Arret 3", 
                   "links": [], 
                   "coord": {
-                    "lat": "50.651704", 
-                    "lon": "3.080549"
+                    "lat": "50.621395", 
+                    "lon": "3.007971"
                   }, 
-                  "label": "Arret 2 (La Madeleine)", 
+                  "label": "Arret 3 (Loos)", 
                   "timezone": "Africa/Abidjan", 
-                  "id": "stop_area:PRA:SA:2"
+                  "id": "stop_area:PRA:SA:3"
                 }
               }, 
               "quality": 0, 
-              "id": "stop_point:PRA:SP:Nav2", 
-              "name": "Arret 2 (La Madeleine)"
+              "id": "stop_point:PRA:SP:Nav4", 
+              "name": "Arret 3 (Loos)"
             }, 
             "links": [
               {
                 "type": "vehicle_journey", 
-                "id": "vehicle_journey:PRA:2-13"
+                "id": "vehicle_journey:PRANav2:2"
               }, 
               {
                 "type": "line", 
@@ -628,17 +604,17 @@
               "regular"
             ], 
             "co2_emission": {
-              "value": 735.6584, 
+              "value": 508.2943, 
               "unit": "gEC"
             }, 
             "display_informations": {
-              "direction": "Arret 6 (Lille)", 
+              "direction": "Arret 5' (Lille)", 
               "code": "2", 
               "description": "", 
               "links": [], 
               "color": "000000", 
               "physical_mode": "Bus", 
-              "headsign": "PRA:2-13", 
+              "headsign": "PRANav2:2", 
               "commercial_mode": "BUS", 
               "equipments": [], 
               "label": "2", 
@@ -691,13 +667,13 @@
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 5672
+                  "length": 3919
                 }
               ], 
               "coordinates": [
                 [
-                  3.080549, 
-                  50.651704
+                  3.007971, 
+                  50.621395
                 ], 
                 [
                   3.000439, 
@@ -711,15 +687,15 @@
             "stop_date_times": [
               {
                 "stop_point": {
-                  "name": "Arret 2", 
+                  "name": "Arret 3", 
                   "links": [], 
                   "coord": {
-                    "lat": "50.651704", 
-                    "lon": "3.080549"
+                    "lat": "50.621395", 
+                    "lon": "3.007971"
                   }, 
-                  "label": "Arret 2 (La Madeleine)", 
+                  "label": "Arret 3 (Loos)", 
                   "equipments": [], 
-                  "id": "stop_point:PRA:SP:Nav2"
+                  "id": "stop_point:PRA:SP:Nav4"
                 }, 
                 "arrival_date_time": "20041213T080000", 
                 "additional_informations": [], 
@@ -810,20 +786,8 @@
               "id": "stop_area:PRA:SA:5", 
               "quality": 0, 
               "stop_area": {
-                "commercial_modes": [
-                  {
-                    "name": "BUS", 
-                    "id": "commercial_mode:BUS"
-                  }
-                ], 
                 "name": "Arret 5", 
                 "links": [], 
-                "physical_modes": [
-                  {
-                    "name": "Bus", 
-                    "id": "physical_mode:Bus"
-                  }
-                ], 
                 "coord": {
                   "lat": "50.656313", 
                   "lon": "3.000439"
@@ -855,7 +819,7 @@
           }
         ], 
         "co2_emission": {
-          "value": 1072.4893, 
+          "value": 1082.6059, 
           "unit": "gEC"
         }, 
         "duration": 7200, 
@@ -864,6 +828,14 @@
     ], 
     "disruptions": [], 
     "notes": [], 
+    "feed_publishers": [
+      {
+        "url": "", 
+        "id": "prolong-auto", 
+        "license": "", 
+        "name": ""
+      }
+    ], 
     "exceptions": []
   }
 }
