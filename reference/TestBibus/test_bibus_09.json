@@ -4,10 +4,10 @@
     "journeys": [
       {
         "nb_transfers": 1, 
-        "arrival_date_time": "20041214T064311", 
+        "arrival_date_time": "20041214T064355", 
         "departure_date_time": "20041214T060000", 
         "type": "best", 
-        "duration": 2591, 
+        "duration": 2635, 
         "sections": [
           {
             "from": "Palaren (Brest) (Guipavas)", 
@@ -51,10 +51,10 @@
           }, 
           {
             "from": "Coat - Ar - Piquet (Brest)", 
-            "arrival_date_time": "20041214T064747", 
+            "arrival_date_time": "20041214T064846", 
             "departure_date_time": "20041214T063000", 
             "to": "Kerguen (Brest)", 
-            "duration": 1067, 
+            "duration": 1126, 
             "type": "street_network"
           }
         ]
@@ -65,7 +65,7 @@
     "tickets": [], 
     "links": [
       {
-        "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A180&datetime_represents=arrival&from=stop_area%3ABIB%3ASA%3A288&max_duration_to_pt=1200&walking_speed=0.83&datetime=20041214T064211", 
+        "href": "http://localhost/v1/coverage/bibus/journeys?to=stop_area%3ABIB%3ASA%3A180&datetime_represents=arrival&from=stop_area%3ABIB%3ASA%3A288&max_duration_to_pt=1200&walking_speed=0.83&datetime=20041214T064255", 
         "type": "prev", 
         "rel": "prev", 
         "templated": false
@@ -95,21 +95,9 @@
         "templated": true
       }, 
       {
-        "href": "http://localhost/v1/coverage/bibus/commercial_modes/{commercial_modes.id}", 
-        "type": "commercial_modes", 
-        "rel": "commercial_modes", 
-        "templated": true
-      }, 
-      {
         "href": "http://localhost/v1/coverage/bibus/stop_areas/{stop_area.id}", 
         "type": "stop_area", 
         "rel": "stop_areas", 
-        "templated": true
-      }, 
-      {
-        "href": "http://localhost/v1/coverage/bibus/physical_modes/{physical_modes.id}", 
-        "type": "physical_modes", 
-        "rel": "physical_modes", 
         "templated": true
       }, 
       {
@@ -134,7 +122,7 @@
           "standard"
         ], 
         "nb_transfers": 1, 
-        "arrival_date_time": "20041214T064311", 
+        "arrival_date_time": "20041214T064355", 
         "calendars": [
           {
             "exceptions": [
@@ -181,20 +169,8 @@
               "id": "stop_area:BIB:SA:288", 
               "quality": 0, 
               "stop_area": {
-                "commercial_modes": [
-                  {
-                    "name": "Bus", 
-                    "id": "commercial_mode:bus"
-                  }
-                ], 
                 "name": "Palaren", 
                 "links": [], 
-                "physical_modes": [
-                  {
-                    "name": "Bus", 
-                    "id": "physical_mode:Bus"
-                  }
-                ], 
                 "coord": {
                   "lat": "48.396951", 
                   "lon": "-4.436042"
@@ -1403,25 +1379,13 @@
               "name": "Coat - Ar - Piquet (Brest)"
             }, 
             "links": [], 
-            "arrival_date_time": "20041214T064747", 
+            "arrival_date_time": "20041214T064846", 
             "departure_date_time": "20041214T063000", 
             "to": {
               "embedded_type": "stop_area", 
               "stop_area": {
-                "commercial_modes": [
-                  {
-                    "name": "Bus", 
-                    "id": "commercial_mode:bus"
-                  }
-                ], 
                 "name": "Kerguen", 
                 "links": [], 
-                "physical_modes": [
-                  {
-                    "name": "Bus", 
-                    "id": "physical_mode:Bus"
-                  }
-                ], 
                 "coord": {
                   "lat": "48.424201", 
                   "lon": "-4.460086"
@@ -1476,7 +1440,7 @@
               "type": "LineString", 
               "properties": [
                 {
-                  "length": 885
+                  "length": 935
                 }
               ], 
               "coordinates": [
@@ -1542,7 +1506,7 @@
                 ]
               ]
             }, 
-            "duration": 1067, 
+            "duration": 1126, 
             "path": [
               {
                 "duration": 35, 
@@ -1569,8 +1533,8 @@
                 "name": "Rue Pierre Martin"
               }, 
               {
-                "duration": 141, 
-                "length": 117, 
+                "duration": 201, 
+                "length": 166, 
                 "direction": -88, 
                 "name": "Rue Charles Le Gros"
               }
@@ -1584,12 +1548,20 @@
           "value": 980.9211, 
           "unit": "gEC"
         }, 
-        "duration": 2591, 
+        "duration": 2635, 
         "type": "best"
       }
     ], 
     "disruptions": [], 
     "notes": [], 
+    "feed_publishers": [
+      {
+        "url": "", 
+        "id": "bibus", 
+        "license": "", 
+        "name": ""
+      }
+    ], 
     "exceptions": []
   }
 }
