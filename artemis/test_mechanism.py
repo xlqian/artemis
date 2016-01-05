@@ -8,6 +8,7 @@ import psycopg2
 import re
 import json
 import time
+from artemis import default_checker
 import utils
 from configuration_manager import config
 
@@ -261,7 +262,7 @@ class ArtemisTestFixture:
     # wrappers around utils functions #
     ###################################
 
-    def api(self, url, response_mask=None):
+    def api(self, url, response_checker):
         """
         call the api and check against previous results
 
@@ -269,14 +270,15 @@ class ArtemisTestFixture:
         """
         response, url = utils.api(url)
 
-        filtered_response = utils.filter_dict(response, response_mask)
+        filtered_response = response_checker.filter(response)
 
         filename = self._save_response(url, response, filtered_response)
 
-        utils.compare_with_ref(filtered_response, filename, response_mask)
+        utils.compare_with_ref(filtered_response, filename, response_checker)
 
     def journey(self, _from, to, datetime, datetime_represents='departure',
-                response_mask=utils.default_journey_mask, auto_from=None, auto_to=None, first_section_mode=[],
+                response_checker=default_checker.default_journey_checker, auto_from=None, auto_to=None,
+                first_section_mode=[],
                 last_section_mode=[], **kwargs):
         """
         syntaxic sugar around the journey api
@@ -303,17 +305,16 @@ class ArtemisTestFixture:
         for mode in last_section_mode:
             query = '{query}&last_section_mode[]={mode}'.format(query=query, mode=mode)
 
-
         for k, v in kwargs.iteritems():
             query = "{query}&{k}={v}".format(query=query, k=k, v=v)
 
         if len(self.__class__.data_sets) == 1:
             # for tests with only one dataset, we directly use the region's journey API
-            # Note: this shoudl not be mandatory, but since there are still bugs with the global journey API
+            # Note: this should not be mandatory, but since there are still bugs with the global journey API
             # we use this for the moment.
             query = "coverage/{region}/journeys?{q}".format(region=self.__class__.data_sets[0].name, q=query)
 
-        self.api(query, response_mask)
+        self.api(query, response_checker)
 
     def _get_file_name(self):
         """
