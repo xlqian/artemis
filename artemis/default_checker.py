@@ -1,10 +1,12 @@
 from flask.ext.restful import fields
+from artemis.utils import Checker, WhiteListMask
 
 """
 The default behaviour for journeys is to check only a subset journey
 
 the mask create a new dict filtering only the wanted elt
 """
+
 
 section = {
     "duration": fields.Raw,
@@ -24,7 +26,7 @@ journey = {
     'type': fields.Raw,
 }
 
-default_journey_mask = {
-    "journeys": fields.List(fields.Nested(journey)),
-}
+default_journey_checker = Checker(filter=WhiteListMask(mask={
+    "journeys": fields.List(fields.Nested(journey))
+}))
 
