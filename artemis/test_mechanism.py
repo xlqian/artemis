@@ -8,6 +8,7 @@ import psycopg2
 import re
 import json
 import time
+from retrying import Retrying, retry, RetryError
 from artemis import default_checker
 import utils
 from configuration_manager import config
@@ -60,6 +61,18 @@ class DataSet(object):
 
     def __str__(self):
         return self.name
+
+
+def kraken_status(data_set):
+    response, _ = utils.api("coverage/{r}".format(r=data_set.name))
+    assert 'error' not in response, "problem with the region: {error}".format(error=response['error'])
+
+    current_region = response.get('regions', [None])[0]
+    #the region should be the one asked for
+    assert current_region and current_region['id'] == data_set.name
+
+    return current_region['status']
+
 
 class ArtemisTestFixture:
     """
@@ -214,31 +227,14 @@ class ArtemisTestFixture:
         # to have better errors, we check at the beginning that all is right
         for data_set in cls.data_sets:
 
-            #we have to let some time to kraken to load the data
-            nb_try = 12
-            current_region = None
-            for i_try in range (0, nb_try):
-                response, _ = utils.api("coverage/{r}".format(r=data_set.name))
-                assert 'error' not in response, "problem with the region: {error}".format(error=response['error'])
-
-                current_region = response.get('regions', [None])[0]
-                #the region should be the one asked for
-                assert current_region and current_region['id'] == data_set.name
-
-                status = current_region['status']
-                if status is not None and \
-                    status not in  ('loading_data', 'no_data'):  #should be corrected in kraken, status should only be loading_data
-                    break
-
-                logging.getLogger(__name__).debug("{} still loading data, waiting a bit".format(current_region['id']))
-
-                time.sleep(5)
-
-            #and it should be running
-            if current_region['status'] != 'running':
-                logging.getLogger(__name__).error("region {r} KO, status={s}".format(r=data_set.name, s=current_region['status']))
-                logging.getLogger(__name__).warn("full response={}".format(response))
-                assert False, "kraken not started"
+            # we wait a bit for the kraken to be started
+            try:
+                Retrying(stop_max_delay=2 * 60 * 1000,  # we wait max 2 minutes for the kraken to be loaded
+                         wait_fixed=100,
+                         retry_on_result=lambda x: x != 'running') \
+                    .call(kraken_status, data_set)
+            except RetryError as e:
+                assert False, "region {r} KO, status={s}".format(r=data_set.name, s=e.last_attempt.value)
 
     @classmethod
     def kill_jormungandr(cls):
