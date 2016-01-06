@@ -277,9 +277,10 @@ class ArtemisTestFixture:
         utils.compare_with_ref(filtered_response, filename, response_checker)
 
     def journey(self, _from, to, datetime, datetime_represents='departure',
-                response_checker=default_checker.default_journey_checker, auto_from=None, auto_to=None,
-                first_section_mode=[],
-                last_section_mode=[], **kwargs):
+                response_checker=default_checker.default_journey_checker,
+                auto_from=None, auto_to=None,
+                first_section_mode=[], last_section_mode=[],
+                **kwargs):
         """
         syntaxic sugar around the journey api
 
