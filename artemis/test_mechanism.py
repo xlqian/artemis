@@ -40,6 +40,21 @@ def get_calling_test_function():
     raise KeyError("impossible to find the calling test method")
 
 
+def dir_path(dataset):
+    p = config['DATASET_PATH_LAYOUT']
+    return p.format(dataset=dataset)
+
+
+def nav_path(dataset):
+    p = config['NAV_FILE_PATH_LAYOUT']
+    return p.format(dataset=dataset)
+
+
+def new_fusio_files_path(dataset):
+    p = config['NEW_FUSIO_FILE_PATH_LAYOUT']
+    return p.format(dataset=dataset.upper())
+
+
 class DataSet(object):
     def __init__(self, name, scenario='default'):
         self.name = name
@@ -97,6 +112,8 @@ class ArtemisTestFixture:
 
         Launch all necessary services to have a running navitia solution
         """
+        logging.getLogger(__name__).info("Starting to test {}".format(cls.__name__))
+
         cls.run_additional_service()
 
         cls.remove_data()
