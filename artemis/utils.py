@@ -16,6 +16,21 @@ _api_main_root_point = 'http://localhost/'
 _api_current_root_point = _api_main_root_point + config['API_POINT_PREFIX'] + 'v1/'
 
 
+def instance_data_path(dataset):
+    p = config['DATASET_PATH_LAYOUT']
+    return p.format(dataset=dataset)
+
+
+def nav_path(dataset):
+    p = config['NAV_FILE_PATH_LAYOUT']
+    return p.format(dataset=dataset)
+
+
+def new_fusio_files_path(dataset):
+    p = config['NEW_FUSIO_FILE_PATH_LAYOUT']
+    return p.format(dataset=dataset.upper())
+
+
 def api(url):
     """
     default call to the api
@@ -228,14 +243,14 @@ class Checker(object):
         return self._comparator.compare(*args, **kwargs)
 
 
-def launch_exec(cmd, additional_env=None):
+def launch_exec(cmd, additional_args=[], additional_env=None):
     """
     Launch an exec with args, log the outputs
     return a tuple with (return code, process)
     the process can be used for example to kill the process later
     """
     logger = logging.getLogger(__name__)
-    logger.debug('Launching ' + cmd)
+    logger.debug('Launching ' + cmd + ' '.join(additional_args))
 
     fdr, fdw = os.pipe()
     new_env = os.environ.copy()
@@ -243,7 +258,9 @@ def launch_exec(cmd, additional_env=None):
         for k, v in additional_env.iteritems():
             new_env[k] = v
     try:
-        proc = subprocess.Popen(cmd.split(' '), stderr=fdw,
+        splited = cmd.split(' ')
+        splited.extend(additional_args)
+        proc = subprocess.Popen(splited, stderr=fdw,
                          stdout=fdw, close_fds=True, env=new_env)
         poller = select.poll()
         poller.register(fdr)

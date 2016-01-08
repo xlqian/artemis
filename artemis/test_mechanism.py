@@ -8,6 +8,7 @@ import psycopg2
 import re
 import json
 import time
+import pytest
 from retrying import Retrying, retry, RetryError
 from artemis import default_checker
 import utils
@@ -39,21 +40,6 @@ def get_calling_test_function():
     raise KeyError("impossible to find the calling test method")
 
 
-def dir_path(dataset):
-    p = config['DATASET_PATH_LAYOUT']
-    return p.format(dataset=dataset)
-
-
-def nav_path(dataset):
-    p = config['NAV_FILE_PATH_LAYOUT']
-    return p.format(dataset=dataset)
-
-
-def new_fusio_files_path(dataset):
-    p = config['NEW_FUSIO_FILE_PATH_LAYOUT']
-    return p.format(dataset=dataset.upper())
-
-
 class DataSet(object):
     def __init__(self, name, scenario='default'):
         self.name = name
@@ -79,7 +65,8 @@ class ArtemisTestFixture:
     Mother class for all integration tests
     """
 
-    def setup(self):
+    @pytest.fixture(scope='function', autouse=True)
+    def before_each_test(self):
         """
         setup function called before each test
 
@@ -89,14 +76,27 @@ class ArtemisTestFixture:
         self.test_counter = defaultdict(int)
 
     @classmethod
-    def setup_class(cls):
+    @pytest.yield_fixture(scope='module', autouse=True)
+    def my_method_setup(cls):
+        """
+        method called once for each fixture
+
+        Handle init and teardown of the fixture
+        """
+        logging.getLogger(__name__).info("Setting up the tests {}".format(cls.__name__))
+        cls.init_fixture()
+        logging.getLogger(__name__).info("running the tests {}".format(cls.__name__))
+        yield
+        logging.getLogger(__name__).info("cleaning up the tests {}".format(cls.__name__))
+        cls.clean_fixture()
+
+    @classmethod
+    def init_fixture(cls):
         """
         Method called once before running the tests of the fixture
 
         Launch all necessary services to have a running navitia solution
         """
-        logging.getLogger(__name__).info("Starting to test {}".format(cls.__name__))
-
         cls.run_additional_service()
 
         cls.remove_data()
@@ -105,7 +105,7 @@ class ArtemisTestFixture:
 
         cls.read_data()
 
-        cls.pop_krakens()  # this might be removed if tyr manage it (in the read_data process)
+        cls.pop_krakens()
 
         cls.pop_jormungandr()
 
@@ -119,17 +119,17 @@ class ArtemisTestFixture:
             return
 
         for data_set in cls.data_sets:
-            fusio_databases_file = new_fusio_files_path(data_set.name)
+            fusio_databases_file = utils.new_fusio_files_path(data_set.name)
             if not os.path.exists(fusio_databases_file):
                 continue
 
             logging.getLogger(__name__).debug("updating data for {}".format(data_set.name))
 
             #we copy the file to update the reference data
-            shutil.move(fusio_databases_file, os.path.join(dir_path(data_set.name), 'fusio/databases.zip'))
+            shutil.move(fusio_databases_file, os.path.join(utils.instance_data_path(data_set.name), 'fusio/databases.zip'))
 
     @classmethod
-    def teardown_class(cls):
+    def clean_fixture(cls):
         """
         Method called once after running the tests of the fixture.
         """
@@ -158,7 +158,7 @@ class ArtemisTestFixture:
         for data_set in cls.data_sets:
             logging.getLogger(__name__).debug("reading data for {}".format(data_set.name))
             # we'll read all subdir
-            data_path = dir_path(data_set.name)
+            data_path = utils.instance_data_path(data_set.name)
 
             data_dirs = [os.path.join(data_path, sub_dir_name)
                          for sub_dir_name in os.listdir(data_path)
@@ -248,7 +248,7 @@ class ArtemisTestFixture:
         for data_set in cls.data_sets:
             logging.getLogger(__name__).debug("deleting data for {}".format(data_set.name))
             try:
-                os.remove(nav_path(data_set.name))
+                os.remove(utils.nav_path(data_set.name))
             except:
                 logging.getLogger(__name__).exception("can't remove data.nav"
                                                       ".lz4")
