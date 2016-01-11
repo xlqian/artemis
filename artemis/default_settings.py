@@ -2,7 +2,11 @@
 
 TYR_DIR = "/srv/tyr"
 
-DATASET_PATH_LAYOUT = "/srv/artemis_data/{dataset}/"
+DATA_DIR = "/srv/artemis_data"
+
+CITIES_INPUT_FILE = DATA_DIR + "/france_boundaries.osm.pbf"
+
+DATASET_PATH_LAYOUT = DATA_DIR + "/{dataset}/"
 
 NAV_FILE_PATH_LAYOUT = "/srv/ed/{dataset}/data.nav.lz4"
 
@@ -16,12 +20,14 @@ API_POINT_PREFIX = ''
 
 JORMUNGANDR_DB = 'dbname=jormungandr user=jormungandr host=localhost password=jormungandr'
 
+CITIES_DB = 'dbname=cities user=navitia host=localhost password=password'
+
 LOGGER = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters':{
         'default': {
-            'format': '[%(asctime)s] [%(levelname)5s] %(message)s',
+            'format': '[%(asctime)s] [%(levelname)5s] [%(name)25s] %(message)s',
         },
     },
     'handlers': {
