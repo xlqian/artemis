@@ -66,7 +66,7 @@ def get_ire_data(name):
         return ire.read()
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=2000)
+@retry(stop_max_delay=10000, wait_fixed=200)
 def wait_for_rt_reload(last_rt_data_loaded):
     _response, _ = utils.api("coverage/sncf/status")
     if last_rt_data_loaded == _response['status']['last_rt_data_loaded']:
