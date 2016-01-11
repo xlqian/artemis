@@ -16,4 +16,6 @@ RESPONSE_FILE_PATH = '/artemis/output'
 
 JORMUNGANDR_DB = 'dbname=jormungandr user=jormungandr host=artemis_db password=jormungandr'
 
+CITIES_DB = 'dbname=cities user=navitia host=artemis_db password=password'
+
 KIRIN_API = 'http://kirin:9090'
