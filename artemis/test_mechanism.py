@@ -66,10 +66,14 @@ def get_ire_data(name):
         return ire.read()
 
 
+def get_last_rt_loaded_time():
+    _response, _ = utils.api("coverage/sncf/status")
+    return _response['status']['last_rt_data_loaded']
+
+
 @retry(stop_max_delay=10000, wait_fixed=200)
 def wait_for_rt_reload(last_rt_data_loaded):
-    _response, _ = utils.api("coverage/sncf/status")
-    if last_rt_data_loaded == _response['status']['last_rt_data_loaded']:
+    if last_rt_data_loaded == get_last_rt_loaded_time():
         raise Exception("kraken data is not loaded")
     return
 

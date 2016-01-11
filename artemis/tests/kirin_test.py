@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, utils, send_ire, wait_for_rt_reload
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, \
+    utils, send_ire, get_last_rt_loaded_time, wait_for_rt_reload
 
 
 @dataset([DataSet("sncf")])
@@ -16,8 +17,7 @@ class TestRealTime(ArtemisTestFixture):
                      data_freshness="base_schedule")
 
     def test_cancel_train(self):
-        response, _ = utils.api("coverage/sncf/status")
-        last_rt_data_loaded = response['status']['last_rt_data_loaded']
+        last_rt_data_loaded = get_last_rt_loaded_time()
 
         # TGV
         send_ire('trip_removal_tgv_2913.xml')
@@ -32,8 +32,7 @@ class TestRealTime(ArtemisTestFixture):
                      data_freshness="realtime")
 
     def test_repeat_the_same_ire(self):
-        response, _ = utils.api("coverage/sncf/status")
-        last_rt_data_loaded = response['status']['last_rt_data_loaded']
+        last_rt_data_loaded = get_last_rt_loaded_time()
 
         for i in range(5):
             send_ire('trip_removal_tgv_6123.xml')
@@ -49,9 +48,7 @@ class TestRealTime(ArtemisTestFixture):
                      data_freshness="realtime")
 
     def test_reload_from_scratch(self):
-
-        response, _ = utils.api("coverage/sncf/status")
-        last_rt_data_loaded = response['status']['last_rt_data_loaded']
+        last_rt_data_loaded = get_last_rt_loaded_time()
 
         self.kill_the_krakens()
         self.pop_krakens()
