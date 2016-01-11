@@ -10,6 +10,10 @@ NAV_FILE_PATH_LAYOUT = "/srv/ed/data/{dataset}/data.nav.lz4"
 
 API_POINT_PREFIX = 'navitia/'
 
+REFERENCE_FILE_PATH = '/artemis/references'
+
+RESPONSE_FILE_PATH = '/artemis/output'
+
 JORMUNGANDR_DB = 'dbname=jormungandr user=jormungandr host=artemis_db password=jormungandr'
 
 CITIES_DB = 'dbname=cities user=navitia host=artemis_db password=password'
