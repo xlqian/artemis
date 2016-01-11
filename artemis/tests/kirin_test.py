@@ -35,21 +35,17 @@ class TestRealTime(ArtemisTestFixture):
         response, _ = utils.api("coverage/sncf/status")
         last_rt_data_loaded = response['status']['last_rt_data_loaded']
 
-        # TGV
-        send_ire('trip_removal_tgv_2913.xml')
-        # iDTGV
-        send_ire('trip_removal_tgv_6154.xml')
-
-        # TGV
-        send_ire('trip_removal_tgv_2913.xml')
-        # iDTGV
-        send_ire('trip_removal_tgv_6154.xml')
+        for i in range(5):
+            send_ire('trip_removal_tgv_6123.xml')
+            send_ire('trip_removal_tgv_6123.xml')
+            send_ire('trip_removal_tgv_6123.xml')
+            send_ire('trip_removal_tgv_6123.xml')
 
         wait_for_rt_reload(last_rt_data_loaded)
 
         self.journey(_from="stop_area:OCE:SA:87686006",
                      to="stop_area:OCE:SA:87751008",
-                     datetime="20151215T1420",
+                     datetime="20151220T1700",
                      data_freshness="realtime")
 
     def test_reload_from_scratch(self):
