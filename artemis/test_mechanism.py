@@ -66,14 +66,14 @@ def get_ire_data(name):
         return ire.read()
 
 
-def get_last_rt_loaded_time():
-    _response, _ = utils.api("coverage/sncf/status")
+def get_last_rt_loaded_time(cov):
+    _response, _ = utils.api("coverage/{cov}/status".format(cov=cov))
     return _response['status']['last_rt_data_loaded']
 
 
 @retry(stop_max_delay=10000, wait_fixed=200)
-def wait_for_rt_reload(last_rt_data_loaded):
-    if last_rt_data_loaded == get_last_rt_loaded_time():
+def wait_for_rt_reload(last_rt_data_loaded, cov):
+    if last_rt_data_loaded == get_last_rt_loaded_time(cov):
         raise Exception("kraken data is not loaded")
     return
 
@@ -141,8 +141,6 @@ class ArtemisTestFixture:
 
         Launch all necessary services to have a running navitia solution
         """
-        logging.getLogger(__name__).info("Starting to test {}".format(cls.__name__))
-
         cls.run_additional_service()
 
         cls.remove_data()
