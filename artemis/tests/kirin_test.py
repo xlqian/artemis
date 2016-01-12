@@ -37,9 +37,6 @@ class TestRealTime(ArtemisTestFixture):
 
         for i in range(5):
             send_ire('trip_removal_tgv_6123.xml')
-            send_ire('trip_removal_tgv_6123.xml')
-            send_ire('trip_removal_tgv_6123.xml')
-            send_ire('trip_removal_tgv_6123.xml')
 
         wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
