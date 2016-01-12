@@ -12,12 +12,29 @@ class TestRealTime(ArtemisTestFixture):
     """
 
     def test_normal_train(self):
+        """
+        Requested departure: 2015/12/15 14:20
+        From: Gare de Lyon, Paris
+        To: Saint Charles, Marseilles
+
+        we should find a train travelling from 14:37 to 17:54
+        """
         self.journey(_from="stop_area:OCE:SA:87686006",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20151215T1420",
                      data_freshness="base_schedule")
 
     def test_cancel_train(self):
+        """
+        test cancellation of the train
+
+        Requested departure: 2015/12/15 14:20
+        From: Gare de Lyon, Paris
+        To: Saint Charles, Marseilles
+
+        Before the cancellation, we should find a train travelling from 14:37 to 17:54
+        After the cancellation, a train travelling from 15:37 to 18:54 will be found
+        """
         last_rt_data_loaded = get_last_rt_loaded_time(COVERAGE)
 
         # TGV
@@ -33,6 +50,15 @@ class TestRealTime(ArtemisTestFixture):
                      data_freshness="realtime")
 
     def test_repeat_the_same_ire_and_reload_from_scratch(self):
+        """
+        test cancellation of the train
+
+        Requested departure: 2015/12/20 17:00
+        From: Gare de Lyon, Paris
+        To: Saint Charles, Marseilles
+
+        After the cancellation, a train travelling from 18:37 to 21:54 should be found
+        """
         last_rt_data_loaded = get_last_rt_loaded_time(COVERAGE)
 
         for i in range(5):
@@ -47,7 +73,7 @@ class TestRealTime(ArtemisTestFixture):
 
         """
         At this point, an IRE is saved into the db,
-        now we'll test the case where kraken is run from scratch, and the previous
+        now we'll test the case where kraken is run from scratch and the previous
         IRE should be taken into account
         """
         last_rt_data_loaded = get_last_rt_loaded_time(COVERAGE)
