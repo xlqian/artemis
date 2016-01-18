@@ -85,6 +85,9 @@ class TestBibus(ArtemisTestFixture):
     def test_coverage(self):
         self.api('/')
 
+    def test_show_codes_on_stop_area(self):
+        self.api('stop_areas/stop_area:BIB:SA:212?show_codes=true&depth=3')
+
     def test_one_stop_area(self):
         self._pt_ref_call('stop_areas', 'stop_area:BIB:SA:212')
 
@@ -118,5 +121,26 @@ class TestBibus(ArtemisTestFixture):
     def test_one_contributor(self):
         self._pt_ref_call('contributors', 'BIB')
 
+    """
+    Other retrocompat' on API
+    """
+    def test_autocomplete(self):
+        self.api('places?q=jaures')
 
+    def test_geoloc(self):
+        self.api('coords/-4.487201604;48.38987538')
 
+    def test_place_nearby(self):
+        self.api('stop_areas/stop_area:BIB:SA:212/places_nearby')
+
+    def test_stop_schedule(self):
+        self.api('stop_areas/stop_area:BIB:SA:212/stop_schedules?from_datetime=20041002T080000')
+
+    def test_route_schedule(self):
+        self.api('routes/route:BIB:NUIT26/route_schedules?from_datetime=20041002T080000')
+
+    def test_departures(self):
+        self.api('stop_areas/stop_area:BIB:SA:212/departures?from_datetime=20041106T100000')
+
+    def test_arrivals(self):
+        self.api('stop_areas/stop_area:BIB:SA:212/arrivals?from_datetime=20041106T100000')
