@@ -3,9 +3,7 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, \
     utils, send_ire, get_last_rt_loaded_time, wait_for_rt_reload
 
-COVERAGE = 'sncf'
-
-@dataset([DataSet(COVERAGE)])
+@dataset([DataSet("sncf")])
 class TestRealTime(ArtemisTestFixture):
     """
     test RealTime on SNCF

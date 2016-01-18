@@ -18,7 +18,7 @@ REFERENCE_FILE_PATH = 'reference'
 
 API_POINT_PREFIX = ''
 
-API_KIRIN = 'localhost:9090'
+KIRIN_API = 'http://localhost:9090'
 
 JORMUNGANDR_DB = 'dbname=jormungandr user=jormungandr host=localhost password=jormungandr'
 
