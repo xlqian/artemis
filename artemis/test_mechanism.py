@@ -127,11 +127,11 @@ class ArtemisTestFixture:
 
         Handle init and teardown of the fixture
         """
-        logging.getLogger(__name__).info("Setting up the tests {}".format(cls.__name__))
+        logging.getLogger(__name__).debug("Setting up the tests {}".format(cls.__name__))
         cls.init_fixture()
-        logging.getLogger(__name__).info("running the tests {}".format(cls.__name__))
+        logging.getLogger(__name__).debug("Running the tests {}".format(cls.__name__))
         yield
-        logging.getLogger(__name__).info("cleaning up the tests {}".format(cls.__name__))
+        logging.getLogger(__name__).debug("Cleaning up the tests {}".format(cls.__name__))
         cls.clean_fixture()
 
     @classmethod

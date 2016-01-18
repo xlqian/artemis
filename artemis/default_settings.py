@@ -18,7 +18,7 @@ REFERENCE_FILE_PATH = 'reference'
 
 API_POINT_PREFIX = ''
 
-API_KIRIN = '' # TO BE CONFIGURED ON ARTEMIS
+API_KIRIN = 'localhost:9090'
 
 JORMUNGANDR_DB = 'dbname=jormungandr user=jormungandr host=localhost password=jormungandr'
 
