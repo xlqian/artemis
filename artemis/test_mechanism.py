@@ -258,7 +258,18 @@ class ArtemisTestFixture:
     # wrappers around utils functions #
     ###################################
 
-    def api(self, url, response_checker):
+    def api(self, url, response_checker=default_checker.default_checker):
+        """
+        used to check misc API
+
+        NOTE: works only when one region is loaded for the moment (when needed change this)
+        """
+        if len(self.__class__.data_sets) == 1:
+            full_url = "coverage/{region}/{url}".format(region=self.__class__.data_sets[0].name, url=url)
+
+        return self._api_call(full_url, response_checker)
+
+    def _api_call(self, url, response_checker):
         """
         call the api and check against previous results
 
@@ -311,7 +322,7 @@ class ArtemisTestFixture:
             # we use this for the moment.
             query = "coverage/{region}/journeys?{q}".format(region=self.__class__.data_sets[0].name, q=query)
 
-        self.api(query, response_checker)
+        self._api_call(query, response_checker)
 
     def _get_file_name(self):
         """

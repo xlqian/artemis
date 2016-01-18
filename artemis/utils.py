@@ -10,6 +10,7 @@ from artemis.configuration_manager import config
 import subprocess
 import select
 import flask_restful
+from copy import deepcopy
 
 _api_main_root_point = 'http://localhost/'
 
@@ -119,11 +120,12 @@ class WhiteListMask(object):
 
 
 class BlackListMask(object):
-    def __init__(self, mask):
-        self.mask = mask
+    def __init__(self):
+        pass
 
     def filter(self, response):
-        raise "TODO"
+        """TODO: for the moment no filter"""
+        return deepcopy(response)
 
 
 def check_equals(a, b):
@@ -141,13 +143,9 @@ def check_equals(a, b):
     assert a == b
 
 
-def is_subset(dict1, dict2):
+def is_subset(obj1, obj2):
     """
     Check that dict1 is a subset of dict2, so that each element of dict 1 is contained in dict2
-
-    >>> bob = {'tutu': 1,
-    ... 'tata': [1, 2],
-    ... 'titi': [{'a':1}, {'b':1}]}
 
     >>> bobette = {'tutu': 1,
     ... 'tata': [1, 2],
@@ -155,21 +153,19 @@ def is_subset(dict1, dict2):
     ... 'tete': ('tuple1', ['ltuple1', 'ltuple2']),
     ... 'titi': [{'a':1}, {'b':1}]}
 
+    >>> from copy import deepcopy
+    >>> bob = deepcopy(bobette)
+    >>> del bob['tete']
+
     >>> is_subset(bob, bobette)
 
     >>> is_subset(bobette, bob)
     Traceback (most recent call last):
-      File "/usr/lib/python2.7/doctest.py", line 1315, in __run
-        compileflags, 1) in test.globs
-      File "<doctest artemis.utils.is_subset[3]>", line 1, in <module>
-        is_subset(bobette, bob)
-      File "/home/antoine/dev/artemis/artemis/utils.py", line 159, in is_subset
-        assert k in dict2
-    AssertionError: assert 'toto' in {'tata': [1, 2], 'titi': [{'a': 1}, {'b': 1}], 'tutu': 1}
+        ...
+    AssertionError: assert 'tete' in {'tata': [1, 2], 'titi': [{'a': 1}, {'b': 1}], 'toto': {'bob': 12, 'bobette': 13, 'nested_bob': {'bob': 3}}, 'tutu': 1}
 
     >>> is_subset({}, bob) # empty dict is a subset of all dict
 
-    >>> from copy import deepcopy
     >>> modified_bobette = deepcopy(bobette)
     >>> modified_bobette['toto']['nested_bob']['bob'] = 'changed'
 
@@ -177,31 +173,44 @@ def is_subset(dict1, dict2):
 
     >>> is_subset(bobette, modified_bobette)
     Traceback (most recent call last):
-      File "/usr/lib/python2.7/doctest.py", line 1315, in __run
-        compileflags, 1) in test.globs
-      File "<doctest artemis.utils.is_subset[3]>", line 1, in <module>
-        is_subset(bobette, bob)
-      File "/home/antoine/dev/artemis/artemis/utils.py", line 159, in is_subset
-        assert k in dict2
+        ...
     AssertionError: assert 3 == 'changed'
 
     >>> is_subset(modified_bobette, bobette)
     Traceback (most recent call last):
-      File "/usr/lib/python2.7/doctest.py", line 1315, in __run
-        compileflags, 1) in test.globs
-      File "<doctest artemis.utils.is_subset[3]>", line 1, in <module>
-        is_subset(bobette, bob)
-      File "/home/antoine/dev/artemis/artemis/utils.py", line 159, in is_subset
-        assert k in dict2
+        ...
     AssertionError: assert 'changed' == 3
-    """
-    for k, v in dict1.iteritems():
-        assert k in dict2
 
+    >>> multibob = {'multibob': [deepcopy(bob), deepcopy(bob)]}
+
+    >>> is_subset(multibob, multibob)
+
+    >>> modified_multibob = deepcopy(multibob)
+    >>> del modified_multibob['multibob'][1]['titi']
+
+    >>> is_subset(modified_multibob, multibob)
+
+    >>> is_subset(multibob, modified_multibob)
+    Traceback (most recent call last):
+        ...
+    AssertionError: assert 'titi' in {'tata': [1, 2], 'toto': {'bob': 12, 'bobette': 13, 'nested_bob': {'bob': 3}}, 'tutu': 1}
+    """
+    if type(obj1) not in (dict, list) or type(obj2) != type(obj1):
+        assert obj1 == obj2
+        return
+
+    for k, v in obj1.iteritems():
+        assert k in obj2
+
+        v2 = obj2[k]
         if type(v) is dict:
-            is_subset(v, dict2[k])
+            is_subset(v, v2)
+        elif type(v) is list:
+            assert type(v2) is list
+            for s1, s2 in zip(v, v2):
+                is_subset(s1, s2)
         else:
-            assert v == dict2[k]
+            assert v == v2
 
 
 class PerfectComparator(object):
@@ -213,7 +222,7 @@ class PerfectComparator(object):
         return check_equals(response, ref)
 
 
-class SubsetComparison(object):
+class SubsetComparator(object):
     """
     All element in the reference must be in the new response
 
