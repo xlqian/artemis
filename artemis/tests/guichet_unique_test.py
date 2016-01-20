@@ -1,7 +1,9 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
-import pytest
 
-@dataset([DataSet("guichet-unique")])
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, \
+    send_ire, get_last_rt_loaded_time, wait_for_rt_reload
+
+COVERAGE = "guichet-unique"
+@dataset([DataSet(COVERAGE)])
 class TestGuichetUnique(ArtemisTestFixture):
     """
     """
@@ -68,3 +70,84 @@ class TestGuichetUnique(ArtemisTestFixture):
         self.journey(_from="admin:7444extern",
                      to="admin:2651291extern", datetime="20121025T120000",
                      walking_speed="0.83", max_duration_to_pt="6000")
+
+
+
+    """
+    test RealTime on SNCF
+    """
+
+    def test_kirin_normal_train(self):
+        """
+        Requested departure: 2012/12/15 16:30
+        From: Gare de Lyon, Paris
+        To: Saint Charles, Marseille
+
+        we should find a train travelling from 16:37 to 19:50
+        """
+        self.journey(_from="stop_area:OCE:SA:87686006",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121215T1630",
+                     data_freshness="base_schedule")
+
+    def test_kirin_cancel_train(self):
+        """
+        test cancellation of the train
+
+        Requested departure: 2012/12/15 16:30
+        From: Gare de Lyon, Paris
+        To: Saint Charles, Marseille
+
+        Before the cancellation, we should find a train travelling from 16:37 to 19:50
+        After the cancellation, a train travelling from 17:07 to 20:24 will be found
+        """
+        last_rt_data_loaded = get_last_rt_loaded_time(COVERAGE)
+
+        # TGV
+        send_ire('trip_removal_tgv_6121.xml')
+
+        wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87686006",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121215T1630",
+                     data_freshness="realtime")
+
+    def test_kirin_repeat_the_same_ire_and_reload_from_scratch(self):
+        """
+        test cancellation of the train
+
+        Requested departure: 2012/12/20 17:00
+        From: Gare de Lyon, Paris
+        To: Saint Charles, Marseille
+
+        After the cancellation, a train travelling from 18:19 to 21:29 should be found
+        """
+        last_rt_data_loaded = get_last_rt_loaded_time(COVERAGE)
+
+        for i in range(5):
+            send_ire('trip_removal_tgv_6123.xml')
+
+        wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87686006",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121220T1700",
+                     data_freshness="realtime")
+
+        """
+        At this point, an IRE is saved into the db,
+        now we'll test the case where kraken is run from scratch and the previous
+        IRE should be taken into account
+        """
+        last_rt_data_loaded = get_last_rt_loaded_time(COVERAGE)
+
+        self.kill_the_krakens()
+        self.pop_krakens()
+
+        wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87686006",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121220T1700",
+                     data_freshness="realtime")

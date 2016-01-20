@@ -12,6 +12,7 @@ import pytest
 from retrying import Retrying, retry, RetryError
 from artemis import default_checker
 import utils
+import requests
 from configuration_manager import config
 
 # regexp used to identify a test method (simplified version of nose)
@@ -20,7 +21,7 @@ _test_method_regexp = re.compile("^(test_.*|.*_test)$")
 _tyr = config['TYR_DIR'] + "/manage.py"
 _tyr_config_file = config['TYR_DIR'] + "/settings.py"
 
-
+_kirin_api = config['KIRIN_API']
 #to limit the permissions of the jenkins user on the artemis platform, we create a proxy for all kraken services
 _kraken_wrapper = '/usr/local/bin/kraken_service_wrapper'
 
@@ -38,6 +39,49 @@ def get_calling_test_function():
 
     #a test method has to be found by construction, if none is found there is a problem
     raise KeyError("impossible to find the calling test method")
+
+
+def dir_path(dataset):
+    p = config['DATASET_PATH_LAYOUT']
+    return p.format(dataset=dataset)
+
+
+def nav_path(dataset):
+    p = config['NAV_FILE_PATH_LAYOUT']
+    return p.format(dataset=dataset)
+
+
+def new_fusio_files_path(dataset):
+    p = config['NEW_FUSIO_FILE_PATH_LAYOUT']
+    return p.format(dataset=dataset.upper())
+
+
+def get_ire_data(name):
+    """
+    return an IRE input as string
+    the name must be the name of a file in tests/fixtures
+    """
+    _file = os.path.join(os.path.dirname(__file__), 'tests', 'fixtures', name)
+    with open(_file, "r") as ire:
+        return ire.read()
+
+
+def get_last_rt_loaded_time(cov):
+    _response, _ = utils.api("coverage/{cov}/status".format(cov=cov))
+    return _response['status']['last_rt_data_loaded']
+
+
+@retry(stop_max_delay=20000, wait_fixed=500)
+def wait_for_rt_reload(last_rt_data_loaded, cov):
+    if last_rt_data_loaded == get_last_rt_loaded_time(cov):
+        raise Exception("kraken data is not loaded")
+    return
+
+
+def send_ire(ire_name):
+    requests.post(_kirin_api+'/ire',
+                  data=get_ire_data(ire_name),
+                  headers={'Content-Type': 'application/xml;charset=utf-8'})
 
 
 class DataSet(object):
@@ -83,11 +127,11 @@ class ArtemisTestFixture:
 
         Handle init and teardown of the fixture
         """
-        logging.getLogger(__name__).info("Setting up the tests {}".format(cls.__name__))
+        logging.getLogger(__name__).debug("Setting up the tests {}".format(cls.__name__))
         cls.init_fixture()
-        logging.getLogger(__name__).info("running the tests {}".format(cls.__name__))
+        logging.getLogger(__name__).debug("Running the tests {}".format(cls.__name__))
         yield
-        logging.getLogger(__name__).info("cleaning up the tests {}".format(cls.__name__))
+        logging.getLogger(__name__).debug("Cleaning up the tests {}".format(cls.__name__))
         cls.clean_fixture()
 
     @classmethod
