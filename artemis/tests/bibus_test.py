@@ -1,3 +1,4 @@
+from artemis import default_checker
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 import pytest
 
@@ -63,3 +64,83 @@ class TestBibus(ArtemisTestFixture):
                      to="stop_area:BIB:SA:170", datetime="20050607T114200",
                      datetime_represents="arrival", walking_speed="0.83", max_duration_to_pt="1200")
 
+    def test_v1_end_point(self):
+        """
+        some retro-compatibility on global API calls
+
+        (Note no calls on /coverage, it depends on the number of instances)
+        """
+        self._api_call('/', response_checker=default_checker.default_checker)
+
+    """
+    Tests on different pt_ref api
+
+    For each test we just call a collection api with a random id, and the
+    retrocompatibility of the API must not be broken
+    """
+    def _pt_ref_call(self, collection, id):
+        for i in range(1, 4):
+            self.api('{col}/{id}?depth={d}'.format(col=collection, id=id, d=i))
+
+    def test_coverage(self):
+        self.api('/')
+
+    def test_show_codes_on_stop_area(self):
+        self.api('stop_areas/stop_area:BIB:SA:212?show_codes=true&depth=3')
+
+    def test_one_stop_area(self):
+        self._pt_ref_call('stop_areas', 'stop_area:BIB:SA:212')
+
+    def test_one_stop_point(self):
+        self._pt_ref_call('stop_points', 'stop_point:BIB:SP:Nav504')
+
+    def test_one_network(self):
+        self._pt_ref_call('networks', 'network:BIB:1001')
+
+    def test_one_route(self):
+        self._pt_ref_call('routes', 'route:BIB:NUIT26')
+
+    def test_one_company(self):
+        self._pt_ref_call('companies', 'company:default_company')
+
+    def test_one_line(self):
+        self._pt_ref_call('lines', 'line:BIB:Nav1')
+
+    def test_one_vj(self):
+        self._pt_ref_call('vehicle_journeys', 'vehicle_journey:BIBNUIT:44_dst_1')
+
+    def test_one_physical_mode(self):
+        self._pt_ref_call('physical_modes', 'physical_mode:Bus')
+
+    def test_one_commercial_mode(self):
+        self._pt_ref_call('commercial_modes', 'commercial_mode:bus')
+
+    def test_one_frame(self):
+        self._pt_ref_call('frames', 'default_frame:BIB')
+
+    def test_one_contributor(self):
+        self._pt_ref_call('contributors', 'BIB')
+
+    """
+    Other retrocompat' on API
+    """
+    def test_autocomplete(self):
+        self.api('places?q=jaures')
+
+    def test_geoloc(self):
+        self.api('coords/-4.487201604;48.38987538')
+
+    def test_place_nearby(self):
+        self.api('stop_areas/stop_area:BIB:SA:212/places_nearby')
+
+    def test_stop_schedule(self):
+        self.api('stop_areas/stop_area:BIB:SA:212/stop_schedules?from_datetime=20041002T080000')
+
+    def test_route_schedule(self):
+        self.api('routes/route:BIB:NUIT26/route_schedules?from_datetime=20041002T080000')
+
+    def test_departures(self):
+        self.api('stop_areas/stop_area:BIB:SA:212/departures?from_datetime=20041106T100000')
+
+    def test_arrivals(self):
+        self.api('stop_areas/stop_area:BIB:SA:212/arrivals?from_datetime=20041106T100000')
