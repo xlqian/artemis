@@ -71,7 +71,7 @@ def get_last_rt_loaded_time(cov):
     return _response['status']['last_rt_data_loaded']
 
 
-@retry(stop_max_delay=10000, wait_fixed=200)
+@retry(stop_max_delay=20000, wait_fixed=500)
 def wait_for_rt_reload(last_rt_data_loaded, cov):
     if last_rt_data_loaded == get_last_rt_loaded_time(cov):
         raise Exception("kraken data is not loaded")
