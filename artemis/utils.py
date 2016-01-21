@@ -11,6 +11,7 @@ import subprocess
 import select
 import flask_restful
 from copy import deepcopy
+import re
 
 _api_main_root_point = 'http://localhost/'
 
@@ -43,7 +44,15 @@ def api(url):
 
     raw_response = requests.get(norm_url)
 
-    response = raw_response.json()
+    raw_text = raw_response.text
+
+    # Hackounet
+    # we don't want full urls in the response, since it will change depending on where the test in run
+    # so we remove the server address
+    pattern = "http:\\\\/\\\\/.+?\\\\/v1\\\\/"
+    modified = re.sub(pattern, "http:\\/\\/SERVER_ADDR\\/v1\\/", raw_text)
+
+    response = json.loads(modified)
 
     return response, norm_url
 
