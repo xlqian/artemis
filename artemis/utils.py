@@ -150,6 +150,7 @@ def comparator(compare_generator):
         return 0
     return compare
 
+
 def sort_all_list_dict(response):
     """
     depth first search on a dict.
