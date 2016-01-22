@@ -1,7 +1,9 @@
 """
 Lots of helper functions to ease tests
 """
+from collections import deque
 import os
+import itertools
 import requests
 import logging
 from flask import json
@@ -12,6 +14,7 @@ import select
 import flask_restful
 from copy import deepcopy
 import re
+import json as real_json
 
 _api_main_root_point = 'http://localhost/'
 
@@ -128,13 +131,68 @@ class WhiteListMask(object):
         return filter_dict(response, self.mask)
 
 
-class BlackListMask(object):
+def comparator(compare_generator):
+    def compare(obj1, obj2):
+        """
+        To decide that 2 objects are equals, we loop through all values of the
+        compare_generator and stop at the first non equals value
+
+        Note: the fillvalue is the value used when a generator is consumed
+        (if the 2 generators does not return the same number of elt).
+        by setting it to object(), we ensure that it will be !=
+        from any values returned by the other generator
+        """
+        for a, b in itertools.izip_longest(compare_generator(obj1),
+                                           compare_generator(obj2),
+                                           fillvalue=object()):
+            if a != b:
+                return -1 if a < b else 1
+        return 0
+    return compare
+
+
+def sort_all_list_dict(response):
+    """
+    depth first search on a dict.
+    sort all list in the dict
+    """
+    queue = deque()
+
+    def magic_sort(elt):
+        to_check = ['uri', 'id', 'label', 'name', 'href']
+        for field in to_check:
+            if field in elt:
+                yield elt[field]
+        yield elt
+
+    def add_elt(elt, first=False):
+        if isinstance(elt, (list, tuple)):
+            if isinstance(elt, list):
+                elt.sort(cmp=comparator(magic_sort))
+            for val in elt:
+                queue.append(val)
+        elif hasattr(elt, 'iteritems'):
+            for k, v in elt.iteritems():
+                queue.append((k, v))
+        elif first:  # for the first elt, we add it even if it is no collection
+            queue.append(elt)
+
+    add_elt(response, first=True)
+    while queue:
+        elem = queue.pop()
+        add_elt(elem)
+
+
+class RetrocompatibilityMask(object):
     def __init__(self):
         pass
 
     def filter(self, response):
-        """TODO: for the moment no filter"""
-        return deepcopy(response)
+        """For retrocompatibility we don't care about sorting, so we sort all lists"""
+        r = deepcopy(response)
+
+        sort_all_list_dict(r)
+        return r
 
 
 def check_equals(a, b):

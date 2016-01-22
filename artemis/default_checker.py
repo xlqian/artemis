@@ -1,5 +1,5 @@
 from flask.ext.restful import fields
-from artemis.utils import Checker, WhiteListMask, BlackListMask, SubsetComparator
+from artemis.utils import Checker, WhiteListMask, SubsetComparator, RetrocompatibilityMask
 
 """
 The default behaviour for journeys is to check only a subset journey
@@ -31,4 +31,4 @@ default_journey_checker = Checker(filter=WhiteListMask(mask={
 }))
 
 # the default checker only checks that the api is retrocompatible
-default_checker = Checker(filter=BlackListMask(), comparator=SubsetComparator())
+default_checker = Checker(filter=RetrocompatibilityMask(), comparator=SubsetComparator())

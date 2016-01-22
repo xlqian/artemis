@@ -1,6 +1,7 @@
 from artemis import default_checker
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 import pytest
+xfail = pytest.mark.xfail
 
 @dataset([DataSet("bibus")])
 class TestBibus(ArtemisTestFixture):
@@ -78,9 +79,8 @@ class TestBibus(ArtemisTestFixture):
     For each test we just call a collection api with a random id, and the
     retrocompatibility of the API must not be broken
     """
-    def _pt_ref_call(self, collection, id):
-        for i in range(1, 4):
-            self.api('{col}/{id}?depth={d}'.format(col=collection, id=id, d=i))
+    def _pt_ref_call(self, collection, id, depth):
+        self.api('{col}/{id}?depth={d}'.format(col=collection, id=id, d=depth))
 
     # for the moment, I don't know how to handle last_load_at
     # def test_coverage(self):
@@ -89,42 +89,91 @@ class TestBibus(ArtemisTestFixture):
     def test_show_codes_on_stop_area(self):
         self.api('stop_areas/stop_area:BIB:SA:212?show_codes=true&depth=3')
 
-    def test_one_stop_area(self):
-        self._pt_ref_call('stop_areas', 'stop_area:BIB:SA:212')
+    def test_one_stop_area_depth_1(self):
+        self._pt_ref_call('stop_areas', 'stop_area:BIB:SA:212', depth=1)
+    def test_one_stop_area_depth_2(self):
+        self._pt_ref_call('stop_areas', 'stop_area:BIB:SA:212', depth=2)
+    def test_one_stop_area_depth_3(self):
+        self._pt_ref_call('stop_areas', 'stop_area:BIB:SA:212', depth=3)
 
-    def test_one_stop_point(self):
-        self._pt_ref_call('stop_points', 'stop_point:BIB:SP:Nav504')
+    def test_one_stop_point_depth_1(self):
+        self._pt_ref_call('stop_points', 'stop_point:BIB:SP:Nav504', depth=1)
+    def test_one_stop_point_depth_2(self):
+        self._pt_ref_call('stop_points', 'stop_point:BIB:SP:Nav504', depth=2)
+    def test_one_stop_point_depth_3(self):
+        self._pt_ref_call('stop_points', 'stop_point:BIB:SP:Nav504', depth=3)
 
-    def test_one_network(self):
-        self._pt_ref_call('networks', 'network:BIB:1001')
+    def test_one_network_depth_1(self):
+        self._pt_ref_call('networks', 'network:BIB:1001', depth=1)
+    def test_one_network_depth_2(self):
+        self._pt_ref_call('networks', 'network:BIB:1001', depth=2)
+    def test_one_network_depth_3(self):
+        self._pt_ref_call('networks', 'network:BIB:1001', depth=3)
 
-    def test_one_route(self):
-        self._pt_ref_call('routes', 'route:BIB:NUIT26')
+    def test_one_route_depth_1(self):
+        self._pt_ref_call('routes', 'route:BIB:Nav2092', depth=1)
+    def test_one_route_depth_2(self):
+        self._pt_ref_call('routes', 'route:BIB:Nav2092', depth=2)
+    @xfail(reason="there is some instability on the order of the stoparea list", raises=AssertionError)
+    def test_one_route_depth_3(self):
+        self._pt_ref_call('routes', 'route:BIB:Nav2092', depth=3)
 
-    def test_one_company(self):
-        self._pt_ref_call('companies', 'company:default_company')
+    def test_one_company_depth_1(self):
+        self._pt_ref_call('companies', 'company:default_company', depth=1)
+    def test_one_company_depth_2(self):
+        self._pt_ref_call('companies', 'company:default_company', depth=2)
+    def test_one_company_depth_3(self):
+        self._pt_ref_call('companies', 'company:default_company', depth=3)
 
-    def test_one_line(self):
-        self._pt_ref_call('lines', 'line:BIB:Nav1')
+    def test_one_line_depth_1(self):
+        self._pt_ref_call('lines', 'line:BIB:Nav1', depth=1)
+    def test_one_line_depth_2(self):
+        self._pt_ref_call('lines', 'line:BIB:Nav1', depth=2)
+    def test_one_line_depth_3(self):
+        self._pt_ref_call('lines', 'line:BIB:Nav1', depth=3)
 
-    def test_one_vj(self):
-        self._pt_ref_call('vehicle_journeys', 'vehicle_journey:BIBNUIT:44_dst_1')
+    @xfail(reason="we need to filter journey pattern name, we can depend on some order, and we don't care", raises=AssertionError)
+    def test_one_vj_depth_1(self):
+        self._pt_ref_call('vehicle_journeys', 'vehicle_journey:BIBNUIT:44_dst_1', depth=1)
+    @xfail(reason="we need to filter journey pattern name, we can depend on some order, and we don't care", raises=AssertionError)
+    def test_one_vj_depth_2(self):
+        self._pt_ref_call('vehicle_journeys', 'vehicle_journey:BIBNUIT:44_dst_1', depth=2)
+    @xfail(reason="we need to filter journey pattern name, we can depend on some order, and we don't care", raises=AssertionError)
+    def test_one_vj_depth_3(self):
+        self._pt_ref_call('vehicle_journeys', 'vehicle_journey:BIBNUIT:44_dst_1', depth=3)
 
-    def test_one_physical_mode(self):
-        self._pt_ref_call('physical_modes', 'physical_mode:Bus')
+    def test_one_physical_mode_depth_1(self):
+        self._pt_ref_call('physical_modes', 'physical_mode:Bus', depth=1)
+    def test_one_physical_mode_depth_2(self):
+        self._pt_ref_call('physical_modes', 'physical_mode:Bus', depth=2)
+    def test_one_physical_mode_depth_3(self):
+        self._pt_ref_call('physical_modes', 'physical_mode:Bus', depth=3)
 
-    def test_one_commercial_mode(self):
-        self._pt_ref_call('commercial_modes', 'commercial_mode:bus')
+    def test_one_commercial_mode_depth_1(self):
+        self._pt_ref_call('commercial_modes', 'commercial_mode:bus', depth=1)
+    def test_one_commercial_mode_depth_2(self):
+        self._pt_ref_call('commercial_modes', 'commercial_mode:bus', depth=2)
+    def test_one_commercial_mode_depth_3(self):
+        self._pt_ref_call('commercial_modes', 'commercial_mode:bus', depth=3)
 
-    def test_one_frame(self):
-        self._pt_ref_call('frames', 'default_frame:BIB')
+    def test_one_frame_depth_1(self):
+        self._pt_ref_call('frames', 'default_frame:BIB', depth=1)
+    def test_one_frame_depth_2(self):
+        self._pt_ref_call('frames', 'default_frame:BIB', depth=2)
+    def test_one_frame_depth_3(self):
+        self._pt_ref_call('frames', 'default_frame:BIB', depth=3)
 
-    def test_one_contributor(self):
-        self._pt_ref_call('contributors', 'BIB')
+    def test_one_contributor_depth_1(self):
+        self._pt_ref_call('contributors', 'BIB', depth=1)
+    def test_one_contributor_depth_2(self):
+        self._pt_ref_call('contributors', 'BIB', depth=2)
+    def test_one_contributor_depth_3(self):
+        self._pt_ref_call('contributors', 'BIB', depth=3)
 
     """
     Other retrocompat' on API
     """
+    @xfail(reason="there is some instability on the 'quality' field", raises=AssertionError)
     def test_autocomplete(self):
         self.api('places?q=jaures')
 
@@ -138,7 +187,7 @@ class TestBibus(ArtemisTestFixture):
         self.api('stop_areas/stop_area:BIB:SA:212/stop_schedules?from_datetime=20041002T080000')
 
     def test_route_schedule(self):
-        self.api('routes/route:BIB:NUIT26/route_schedules?from_datetime=20041002T080000')
+        self.api('routes/route:BIB:Nav2092/route_schedules?from_datetime=20041104T080000')
 
     def test_departures(self):
         self.api('stop_areas/stop_area:BIB:SA:212/departures?from_datetime=20041106T100000')
