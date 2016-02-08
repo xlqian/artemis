@@ -22,6 +22,8 @@ KIRIN_API = 'http://localhost:9090'
 
 JORMUNGANDR_DB = 'dbname=jormungandr user=jormungandr host=localhost password=jormungandr'
 
+KIRIN_DB = 'dbname=kirin user=kirin host=localhost password=kirin'
+
 CITIES_DB = 'dbname=cities user=navitia host=localhost password=password'
 
 LOGGER = {
