@@ -83,6 +83,11 @@ def send_ire(ire_name):
                   data=get_ire_data(ire_name),
                   headers={'Content-Type': 'application/xml;charset=utf-8'})
 
+# given a cursor on a db, and table names separated by a comma (ex: "tata, toto, titi")
+def truncate_tables(cursor, table_names_string):
+    logging.getLogger(__name__).debug("query db: TRUNCATE {} CASCADE ;".format(table_names_string))
+    cursor.execute("TRUNCATE {} CASCADE ;".format(table_names_string))
+
 
 class DataSet(object):
     def __init__(self, name, scenario='default'):
@@ -223,8 +228,7 @@ class ArtemisTestFixture:
             cur = conn.cursor()
             tables = ['data_set', 'instance', 'job']
 
-            logging.getLogger(__name__).debug("query jormun db: TRUNCATE {} CASCADE ;".format(', '.join(tables)))
-            cur.execute("TRUNCATE {} CASCADE ;".format(', '.join(tables)))
+            truncate_tables(cur, ', '.join(tables))
 
             #we add the instances in the table
             for data_set in cls.data_sets:
@@ -235,7 +239,7 @@ class ArtemisTestFixture:
         except:
             logging.getLogger(__name__).exception("problem with jormun db")
             conn.close()
-            assert "problem while cleaning jormungandr db"
+            assert False, "problem while cleaning jormungandr db"
         conn.close()
 
     @classmethod
@@ -296,16 +300,14 @@ class ArtemisTestFixture:
             cur.execute("SELECT relname FROM pg_stat_user_tables WHERE relname != 'alembic_version';")
             tables = cur.fetchall()
 
-            logging.getLogger(__name__).debug("tables = {}".format(tables))
-            logging.getLogger(__name__).debug("query kirin db: TRUNCATE {} CASCADE ;".format(', '.join(e[0] for e in tables)))
-            cur.execute("TRUNCATE {} CASCADE ;".format(', '.join(e[0] for e in tables)))
+            truncate_tables(cur, ', '.join(e[0] for e in tables))
 
             conn.commit()
             logging.getLogger(__name__).debug("query done")
         except:
             logging.getLogger(__name__).exception("problem with kirin db")
             conn.close()
-            assert "problem while cleaning kirin db"
+            assert False, "problem while cleaning kirin db"
         conn.close()
 
     @classmethod
@@ -317,9 +319,7 @@ class ArtemisTestFixture:
             try:
                 os.remove(utils.nav_path(data_set.name))
             except:
-                logging.getLogger(__name__).exception("can't remove data.nav"
-                                                      ".lz4")
-                assert "problem while cleaning data"
+                logging.getLogger(__name__).exception("can't remove data.nav.lz4")
 
     ###################################
     # wrappers around utils functions #
