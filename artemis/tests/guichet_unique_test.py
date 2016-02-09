@@ -77,6 +77,13 @@ class TestGuichetUnique(ArtemisTestFixture):
     test RealTime on SNCF
     """
 
+    def test_no_disruption(self):
+        """
+        Request on disruptions before applying any
+        We shouldn't have any
+        """
+        self.api('disruptions')
+
     def test_kirin_normal_train(self):
         """
         Requested departure: 2012/12/15 16:30
@@ -88,7 +95,7 @@ class TestGuichetUnique(ArtemisTestFixture):
         self.journey(_from="stop_area:OCE:SA:87686006",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121215T1630",
-                     data_freshness="base_schedule")
+                     data_freshness="realtime")
 
     def test_kirin_cancel_train(self):
         """
@@ -108,10 +115,18 @@ class TestGuichetUnique(ArtemisTestFixture):
 
         wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
+        # test that it is still OK in base-schedule
+        self.journey(_from="stop_area:OCE:SA:87686006",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121215T1630",
+                     data_freshness="base_schedule")
+
+        # test that RT is disrupted
         self.journey(_from="stop_area:OCE:SA:87686006",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121215T1630",
                      data_freshness="realtime")
+
 
     def test_kirin_repeat_the_same_ire_and_reload_from_scratch(self):
         """

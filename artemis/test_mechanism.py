@@ -83,6 +83,11 @@ def send_ire(ire_name):
                   data=get_ire_data(ire_name),
                   headers={'Content-Type': 'application/xml;charset=utf-8'})
 
+# given a cursor on a db, and table names separated by a comma (ex: "tata, toto, titi")
+def truncate_tables(cursor, table_names_string):
+    logging.getLogger(__name__).debug("query db: TRUNCATE {} CASCADE ;".format(table_names_string))
+    cursor.execute("TRUNCATE {} CASCADE ;".format(table_names_string))
+
 
 class DataSet(object):
     def __init__(self, name, scenario='default'):
@@ -217,14 +222,13 @@ class ArtemisTestFixture:
 
     @classmethod
     def clean_jormun_db(cls):
-        logging.getLogger(__name__).debug("cleaning jomrungandr database")
+        logging.getLogger(__name__).debug("cleaning jormungandr database")
         conn = psycopg2.connect(config['JORMUNGANDR_DB'])
         try:
             cur = conn.cursor()
             tables = ['data_set', 'instance', 'job']
 
-            logging.getLogger(__name__).debug("query: TRUNCATE {} CASCADE ;".format(', '.join(tables)))
-            cur.execute("TRUNCATE {} CASCADE ;".format(', '.join(tables)))
+            truncate_tables(cur, ', '.join(tables))
 
             #we add the instances in the table
             for data_set in cls.data_sets:
@@ -235,7 +239,7 @@ class ArtemisTestFixture:
         except:
             logging.getLogger(__name__).exception("problem with jormun db")
             conn.close()
-            assert "problem while cleaning jormungandr db"
+            assert False, "problem while cleaning jormungandr db"
         conn.close()
 
     @classmethod
@@ -288,15 +292,34 @@ class ArtemisTestFixture:
         assert ret == 0, "cannot stop apache"
 
     @classmethod
+    def clean_kirin_db(cls):
+        logging.getLogger(__name__).debug("cleaning kirin database")
+        conn = psycopg2.connect(config['KIRIN_DB'])
+        try:
+            cur = conn.cursor()
+            cur.execute("SELECT relname FROM pg_stat_user_tables WHERE relname != 'alembic_version';")
+            tables = cur.fetchall()
+
+            truncate_tables(cur, ', '.join(e[0] for e in tables))
+
+            conn.commit()
+            logging.getLogger(__name__).debug("query done")
+        except:
+            logging.getLogger(__name__).exception("problem with kirin db")
+            conn.close()
+            assert False, "problem while cleaning kirin db"
+        conn.close()
+
+    @classmethod
     def remove_data(cls):
+        #clean kirin database
+        cls.clean_kirin_db()
         for data_set in cls.data_sets:
             logging.getLogger(__name__).debug("deleting data for {}".format(data_set.name))
             try:
                 os.remove(utils.nav_path(data_set.name))
             except:
-                logging.getLogger(__name__).exception("can't remove data.nav"
-                                                      ".lz4")
-                assert "problem while cleaning data"
+                logging.getLogger(__name__).exception("can't remove data.nav.lz4")
 
     ###################################
     # wrappers around utils functions #
