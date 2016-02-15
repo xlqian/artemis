@@ -157,11 +157,11 @@ class TestBibus(ArtemisTestFixture):
         self._pt_ref_call('commercial_modes', 'commercial_mode:bus', depth=3)
 
     def test_one_frame_depth_1(self):
-        self._pt_ref_call('frames', 'default_frame:BIB', depth=1)
+        self._pt_ref_call('datasets', 'default_frame:BIB', depth=1)
     def test_one_frame_depth_2(self):
-        self._pt_ref_call('frames', 'default_frame:BIB', depth=2)
+        self._pt_ref_call('datasets', 'default_frame:BIB', depth=2)
     def test_one_frame_depth_3(self):
-        self._pt_ref_call('frames', 'default_frame:BIB', depth=3)
+        self._pt_ref_call('datasets', 'default_frame:BIB', depth=3)
 
     def test_one_contributor_depth_1(self):
         self._pt_ref_call('contributors', 'BIB', depth=1)
