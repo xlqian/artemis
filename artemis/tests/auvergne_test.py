@@ -28,6 +28,7 @@ class TestAuvergne(ArtemisTestFixture):
                      _night_bus_filter_base_factor=7200,
                      max_duration_to_pt=1800)
 
+    @xfail(reason="Test deactivated while improving it", raises=AssertionError)
     def test_auvergne_03(self):
         """
         same that 02, but this time the nigth bus filter should remove walking solution since they are too late
