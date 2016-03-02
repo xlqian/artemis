@@ -131,6 +131,43 @@ class WhiteListMask(object):
         return filter_dict(response, self.mask)
 
 
+class BlackListMask(object):
+    """
+    >>> bobette = {'tutu': 1,
+    ... 'tata': [1, 2],
+    ... 'toto': {'bob':12, 'bobette': 13, 'nested_bob': {'bob': 3}},
+    ... 'tete': ('tuple1', ['ltuple1', 'ltuple2']),
+    ... 'titi': [{'a':1}, {'b':1}]}
+    >>> bl = BlackListMask(['$..bob'])
+    >>> print bl.filter(bobette)
+    {'tata': [1, 2], 'toto': {'bobette': 13, 'bob': None, 'nested_bob': {'bob': None}}, 'tutu': 1, 'tete': ('tuple1', ['ltuple1', 'ltuple2']), 'titi': [{'a': 1}, {'b': 1}]}
+    """
+    def __init__(self, masks=[]):
+        self.masks = masks
+
+    def _black_list_filter(self, dct):
+        import jsonpath_rw as jp
+        for mask in self.masks:
+            paths_found = jp.parse(mask).find(dct)
+            for path in paths_found:
+                # context.value is a reference to the object to which path belongs
+                # Ex:
+                # {"a": {"b": {"c":42} } }
+                # the given jsonpath is $..c
+                # the path to c will be "c" and its context.value is {"c": 42}
+                # the path to {"c": 42} is "b" and its context.value is {"b": {"c": 42}}
+                # etc...
+                if isinstance(path.path, jp.Fields):
+                    # case where the container is a dict
+                    path.context.value[str(path.path)] = None
+                if isinstance(path.path, jp.jsonpath.Index):
+                    # case where the container is a list
+                    path.context.value[path.path.index] = None
+
+    def filter(self, response):
+        return self._black_list_filter(response)
+
+
 def comparator(compare_generator):
     def compare(obj1, obj2):
         """
