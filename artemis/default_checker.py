@@ -1,5 +1,6 @@
 from flask.ext.restful import fields
 from artemis.utils import Checker, WhiteListMask, BlackListMask, SubsetComparator, RetrocompatibilityMask
+import re
 
 """
 The default behaviour for journeys is to check only a subset journey
@@ -31,13 +32,10 @@ default_journey_checker = Checker(filters=[WhiteListMask(
 )])
 
 
-def replace_hyperlink(text):
-    # we don't want full urls in the response, since it will change depending on where the test in run
-    # so we remove the server address
-    import re
-    return re.sub("http:\\\\/\\\\/.+?\\\\/v1\\\\/",
-                  "http:\\/\\/SERVER_ADDR\\/v1\\/", text)
 
+# we don't want full urls in the response, since it will change depending on where the test in run
+# so we remove the server address
+replace_hyperlink = lambda text: re.sub(r"http://.+?/v1/", r"http://SERVER_ADDR/v1/", text)
 
 nullify_elem = lambda x: None
 
@@ -48,7 +46,7 @@ DEFAULT_BLACKLIST_MASK = (('$..disruptions[*].disruption_uri', nullify_elem),
                           ('$..disruptions[*].uri', nullify_elem),
                           ('$..disruptions[*].id', nullify_elem),
                           ('$..disruptions[*].updated_at', nullify_elem),
-                          ('$..ref', replace_hyperlink))
+                          ('$..href', replace_hyperlink))
 
 default_checker = Checker(filters=[RetrocompatibilityMask(),
                                    BlackListMask(DEFAULT_BLACKLIST_MASK)],
