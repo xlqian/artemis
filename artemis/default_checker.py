@@ -26,19 +26,18 @@ journey = {
     'type': fields.Raw,
 }
 
-default_journey_checker = Checker(filter=WhiteListMask(mask={
-    "journeys": fields.List(fields.Nested(journey))
-}))
-
-# the default checker only checks that the api is retrocompatible
-default_checker = Checker(filter=RetrocompatibilityMask(), comparator=SubsetComparator())
+default_journey_checker = Checker(filters=[WhiteListMask(
+    mask={"journeys": fields.List(fields.Nested(journey))}
+)])
 
 # Note: two dots between '$' and 'disruptions[*]' will match ALL (even nested) disruptions under root
-DISRUPTIONS_MASK = ['$..disruptions[*].disruption_uri',
+DISRUPTIONS_MASK = ('$..disruptions[*].disruption_uri',
                     '$..disruptions[*].disruption_id',
                     '$..disruptions[*].impact_id',
                     '$..disruptions[*].uri',
                     '$..disruptions[*].id',
-                    '$..disruptions[*].updated_at']
+                    '$..disruptions[*].updated_at')
 
-default_disruption_checker = Checker(filter=BlackListMask(DISRUPTIONS_MASK), comparator=SubsetComparator())
+default_checker = Checker(filters=[RetrocompatibilityMask(),
+                                   BlackListMask(DISRUPTIONS_MASK)],
+                          comparator=SubsetComparator())

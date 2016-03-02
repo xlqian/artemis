@@ -1,7 +1,6 @@
 
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, \
     send_ire, get_last_rt_loaded_time, wait_for_rt_reload
-from artemis.default_checker import default_disruption_checker
 
 COVERAGE = "guichet-unique"
 @dataset([DataSet(COVERAGE)])
@@ -128,8 +127,7 @@ class TestGuichetUnique(ArtemisTestFixture):
                      datetime="20121215T1630",
                      data_freshness="realtime")
 
-        self.api('vehicle_journeys/vehicle_journey:OCETGV-87686006-87751008-7:34580/disruptions',
-                 response_checker=default_disruption_checker)
+        self.api('vehicle_journeys/vehicle_journey:OCETGV-87686006-87751008-7:34580/disruptions')
 
     def test_kirin_repeat_the_same_ire_and_reload_from_scratch(self):
         """
