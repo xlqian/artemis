@@ -33,10 +33,12 @@ default_journey_checker = Checker(filter=WhiteListMask(mask={
 # the default checker only checks that the api is retrocompatible
 default_checker = Checker(filter=RetrocompatibilityMask(), comparator=SubsetComparator())
 
-BL_MASKS = ['$..disruptions[*].disruption_uri',
-            '$..disruptions[*].disruption_id',
-            '$..disruptions[*].impact_id',
-            '$..disruptions[*].uri',
-            '$..disruptions[*].updated_at']
+# Note: two dots between '$' and 'disruptions[*]' will match ALL (even nested) disruptions under root
+DISRUPTIONS_MASK = ['$..disruptions[*].disruption_uri',
+                    '$..disruptions[*].disruption_id',
+                    '$..disruptions[*].impact_id',
+                    '$..disruptions[*].uri',
+                    '$..disruptions[*].id',
+                    '$..disruptions[*].updated_at']
 
-default_disruption_checker = Checker(filter=BlackListMask(BL_MASKS), comparator=SubsetComparator())
+default_disruption_checker = Checker(filter=BlackListMask(DISRUPTIONS_MASK), comparator=SubsetComparator())

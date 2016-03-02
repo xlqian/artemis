@@ -137,27 +137,13 @@ class BlackListMask(object):
 
     def _black_list_filter(self, dct):
         import jsonpath_rw as jp
-
-        def _nullify_element(dct, path, level=0):
-            if path.context is None:
-                return dct
-            dct = _nullify_element(dct, path.context, level + 1)
-            if isinstance(path.path, jp.Fields):
-                key = str(path.path)
-                if level:
-                    return dct[key]
-                dct[key] = None
-
-            if isinstance(path.path, jp.jsonpath.Index):
-                index = path.path.index
-                if level:
-                    return dct[index]
-                dct[index] = None
-
         for mask in self.masks:
             paths_found = jp.parse(mask).find(dct)
             for path in paths_found:
-                _nullify_element(dct, path)
+                if isinstance(path.path, jp.Fields):
+                    path.context.value[str(path.path)] = None
+                if isinstance(path.path, jp.jsonpath.Index):
+                    path.context.value[path.path.index] = None
 
     def filter(self, response):
         return self._black_list_filter(response)
