@@ -30,14 +30,26 @@ default_journey_checker = Checker(filters=[WhiteListMask(
     mask={"journeys": fields.List(fields.Nested(journey))}
 )])
 
+
+def replace_hyperlink(text):
+    # we don't want full urls in the response, since it will change depending on where the test in run
+    # so we remove the server address
+    import re
+    return re.sub("http:\\\\/\\\\/.+?\\\\/v1\\\\/",
+                  "http:\\/\\/SERVER_ADDR\\/v1\\/", text)
+
+
+nullify_elem = lambda x: None
+
 # Note: two dots between '$' and 'disruptions[*]' will match ALL (even nested) disruptions under root
-DISRUPTIONS_MASK = ('$..disruptions[*].disruption_uri',
-                    '$..disruptions[*].disruption_id',
-                    '$..disruptions[*].impact_id',
-                    '$..disruptions[*].uri',
-                    '$..disruptions[*].id',
-                    '$..disruptions[*].updated_at')
+DEFAULT_BLACKLIST_MASK = (('$..disruptions[*].disruption_uri', nullify_elem),
+                          ('$..disruptions[*].disruption_id', nullify_elem),
+                          ('$..disruptions[*].impact_id', nullify_elem),
+                          ('$..disruptions[*].uri', nullify_elem),
+                          ('$..disruptions[*].id', nullify_elem),
+                          ('$..disruptions[*].updated_at', nullify_elem),
+                          ('$..ref', replace_hyperlink))
 
 default_checker = Checker(filters=[RetrocompatibilityMask(),
-                                   BlackListMask(DISRUPTIONS_MASK)],
+                                   BlackListMask(DEFAULT_BLACKLIST_MASK)],
                           comparator=SubsetComparator())

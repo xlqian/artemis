@@ -45,25 +45,9 @@ def api(url):
     return the response and the url called (it might have been modified with the normalization)
     """
     norm_url = werkzeug.url_fix(_api_current_root_point + url)  # normalize url
-
     raw_response = requests.get(norm_url)
 
-    response = json.loads(raw_response.text)
-
-    # we don't want full urls in the response, since it will change depending on where the test in run
-    # so we remove the server address
-    pattern = "http:\\\\/\\\\/.+?\\\\/v1\\\\/"
-    for path in jp.parse('$..href').find(response):
-        key = None
-        if isinstance(path.path, jp.Fields):
-            # case where the container is a dict
-            key = str(path.path)
-        elif isinstance(path.path, jp.jsonpath.Index):
-            # case where the container is a list
-            key = path.path.index
-        path.context.value[key] = re.sub(pattern, "http:\\/\\/SERVER_ADDR\\/v1\\/", path.value)
-
-    return response, norm_url
+    return json.loads(raw_response.text), norm_url
 
 
 def get_ref(call_id):
@@ -152,7 +136,7 @@ class BlackListMask(object):
         self.masks = masks
 
     def _black_list_filter(self, dct):
-        for mask in self.masks:
+        for (mask, action) in self.masks:
             paths_found = jp.parse(mask).find(dct)
             for path in paths_found:
                 # context.value is a reference to the object to which path belongs
@@ -162,12 +146,14 @@ class BlackListMask(object):
                 # the path to c will be "c" and its context.value is {"c": 42}
                 # the path to {"c": 42} is "b" and its context.value is {"b": {"c": 42}}
                 # etc...
+                key = None
                 if isinstance(path.path, jp.Fields):
                     # case where the container is a dict
-                    path.context.value[str(path.path)] = None
+                    key = str(path.path)
                 elif isinstance(path.path, jp.jsonpath.Index):
                     # case where the container is a list
-                    path.context.value[path.path.index] = None
+                    key = path.path.index
+                path.context.value[key] = action(path.value)
 
     def filter(self, response):
         return self._black_list_filter(response)
