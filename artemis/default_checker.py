@@ -1,5 +1,6 @@
 from flask.ext.restful import fields
 from artemis.utils import Checker, WhiteListMask, BlackListMask, SubsetComparator, RetrocompatibilityMask
+import re
 
 """
 The default behaviour for journeys is to check only a subset journey
@@ -26,19 +27,27 @@ journey = {
     'type': fields.Raw,
 }
 
-default_journey_checker = Checker(filter=WhiteListMask(mask={
-    "journeys": fields.List(fields.Nested(journey))
-}))
+default_journey_checker = Checker(filters=[WhiteListMask(
+    mask={"journeys": fields.List(fields.Nested(journey))}
+)])
 
-# the default checker only checks that the api is retrocompatible
-default_checker = Checker(filter=RetrocompatibilityMask(), comparator=SubsetComparator())
+
+
+# we don't want full urls in the response, since it will change depending on where the test in run
+# so we remove the server address
+replace_hyperlink = lambda text: re.sub(r"http://.+?/v1/", r"http://SERVER_ADDR/v1/", text)
+
+nullify_elem = lambda x: None
 
 # Note: two dots between '$' and 'disruptions[*]' will match ALL (even nested) disruptions under root
-DISRUPTIONS_MASK = ['$..disruptions[*].disruption_uri',
-                    '$..disruptions[*].disruption_id',
-                    '$..disruptions[*].impact_id',
-                    '$..disruptions[*].uri',
-                    '$..disruptions[*].id',
-                    '$..disruptions[*].updated_at']
+DEFAULT_BLACKLIST_MASK = (('$..disruptions[*].disruption_uri', nullify_elem),
+                          ('$..disruptions[*].disruption_id', nullify_elem),
+                          ('$..disruptions[*].impact_id', nullify_elem),
+                          ('$..disruptions[*].uri', nullify_elem),
+                          ('$..disruptions[*].id', nullify_elem),
+                          ('$..disruptions[*].updated_at', nullify_elem),
+                          ('$..href', replace_hyperlink))
 
-default_disruption_checker = Checker(filter=BlackListMask(DISRUPTIONS_MASK), comparator=SubsetComparator())
+default_checker = Checker(filters=[RetrocompatibilityMask(),
+                                   BlackListMask(DEFAULT_BLACKLIST_MASK)],
+                          comparator=SubsetComparator())
