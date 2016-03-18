@@ -11,9 +11,12 @@ from artemis.configuration_manager import config
 
 def pytest_addoption(parser):
     """
-    We add a pytest option to skip the cities integration
+    We add a pytest option to
+    * skip the cities integration
+    * skip the data integration (if it has been done before, it can save some time)
     """
     parser.addoption("--skip_cities", action="store_true", help="skip cities loading")
+    parser.addoption("--skip_bina", action="store_true", help="skip binarization")
 
 
 @pytest.fixture(scope="session", autouse=True)
