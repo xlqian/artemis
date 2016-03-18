@@ -154,6 +154,7 @@ class BlackListMask(object):
                     # case where the container is a list
                     key = path.path.index
                 path.context.value[key] = action(path.value)
+        return dct
 
     def filter(self, response):
         return self._black_list_filter(response)

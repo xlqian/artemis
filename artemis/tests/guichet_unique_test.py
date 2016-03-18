@@ -129,6 +129,16 @@ class TestGuichetUnique(ArtemisTestFixture):
 
         self.api('vehicle_journeys/vehicle_journey:OCETGV-87686006-87751008-7:34580/disruptions')
 
+        # test of departures with a cancelled train
+        # in realtime we should have 6 passages, and in base_schedule we should have 7
+        # the addditional passage should be the one at 20121215T163700
+        self.api('stop_areas/stop_area:OCE:SA:87686006/'
+                 'lines/line:OCE:TGV-87751008-87686006/departures?from_datetime=20121215T1630')
+
+        self.api('stop_areas/stop_area:OCE:SA:87686006/'
+                 'lines/line:OCE:TGV-87751008-87686006/departures'
+                 '?from_datetime=20121215T1630&data_freshness=base_schedule')
+
     def test_kirin_repeat_the_same_ire_and_reload_from_scratch(self):
         """
         test cancellation of the train
