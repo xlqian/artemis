@@ -126,21 +126,21 @@ class ArtemisTestFixture:
 
     @classmethod
     @pytest.yield_fixture(scope='module', autouse=True)
-    def my_method_setup(cls):
+    def my_method_setup(cls, request):
         """
         method called once for each fixture
 
         Handle init and teardown of the fixture
         """
         logging.getLogger(__name__).debug("Setting up the tests {}".format(cls.__name__))
-        cls.init_fixture()
+        cls.init_fixture(skip_bina=request.config.getvalue("skip_bina"))
         logging.getLogger(__name__).debug("Running the tests {}".format(cls.__name__))
         yield
         logging.getLogger(__name__).debug("Cleaning up the tests {}".format(cls.__name__))
         cls.clean_fixture()
 
     @classmethod
-    def init_fixture(cls):
+    def init_fixture(cls, skip_bina):
         """
         Method called once before running the tests of the fixture
 
@@ -148,11 +148,17 @@ class ArtemisTestFixture:
         """
         cls.run_additional_service()
 
-        cls.remove_data()
+        # clean kirin database
+        cls.clean_kirin_db()
 
-        cls.update_data()
+        if skip_bina:
+            logging.getLogger(__name__).warn("skipping binarization")
+        else:
+            cls.remove_data()
 
-        cls.read_data()
+            cls.update_data()
+
+            cls.read_data()
 
         cls.pop_krakens()
 
@@ -312,8 +318,6 @@ class ArtemisTestFixture:
 
     @classmethod
     def remove_data(cls):
-        #clean kirin database
-        cls.clean_kirin_db()
         for data_set in cls.data_sets:
             logging.getLogger(__name__).debug("deleting data for {}".format(data_set.name))
             try:
