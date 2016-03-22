@@ -216,9 +216,6 @@ def sort_all_list_dict(response):
 
 
 class RetrocompatibilityMask(object):
-    def __init__(self):
-        pass
-
     def filter(self, response):
         """For retrocompatibility we don't care about sorting, so we sort all lists"""
         sort_all_list_dict(response)
@@ -396,9 +393,6 @@ class StopScheduleIDGenerator(object):
     """
     For stopschedule, we need to generate a custom stop schedule ID to be able to sort them for the comparison
     """
-    def __init__(self):
-        pass
-
     def filter(self, response):
         for stop_schedule in response.get('stop_schedules', []):
             stop_schedule[ARTEMIS_CUSTOM_ID] = "{s}__**__{r}".\
