@@ -1,5 +1,6 @@
 from flask.ext.restful import fields
-from artemis.utils import Checker, WhiteListMask, BlackListMask, SubsetComparator, RetrocompatibilityMask
+from artemis.utils import Checker, WhiteListMask, BlackListMask, SubsetComparator, RetrocompatibilityMask, \
+    StopScheduleIDGenerator
 import re
 
 """
@@ -50,4 +51,9 @@ DEFAULT_BLACKLIST_MASK = (('$..disruptions[*].disruption_uri', nullify_elem),
 
 default_checker = Checker(filters=[RetrocompatibilityMask(),
                                    BlackListMask(DEFAULT_BLACKLIST_MASK)],
+                          comparator=SubsetComparator())
+
+stop_schedule_checker = Checker(filters=[StopScheduleIDGenerator(),
+                                         RetrocompatibilityMask(),
+                                         BlackListMask(DEFAULT_BLACKLIST_MASK)],
                           comparator=SubsetComparator())
