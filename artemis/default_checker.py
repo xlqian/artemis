@@ -35,7 +35,7 @@ default_journey_checker = Checker(filters=[WhiteListMask(
 
 # we don't want full urls in the response, since it will change depending on where the test in run
 # so we remove the server address
-replace_hyperlink = lambda text: re.sub(r"http://.+?/v1/", r"http://SERVER_ADDR/v1/", text)
+replace_hyperlink = lambda text: re.sub(r"http://.+?/v1/(.*?)/?$", r"http://SERVER_ADDR/v1/\1", text)
 
 nullify_elem = lambda x: None
 
