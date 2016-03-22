@@ -1,4 +1,5 @@
 from artemis import default_checker
+from artemis.default_checker import stop_schedule_checker
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
 import pytest
 xfail = pytest.mark.xfail
@@ -184,7 +185,8 @@ class TestBibus(ArtemisTestFixture):
         self.api('stop_areas/stop_area:BIB:SA:212/places_nearby')
 
     def test_stop_schedule(self):
-        self.api('stop_areas/stop_area:BIB:SA:212/stop_schedules?from_datetime=20041002T080000')
+        self.api('stop_areas/stop_area:BIB:SA:212/stop_schedules?from_datetime=20041107T080000',
+                 response_checker=stop_schedule_checker)
 
     def test_route_schedule(self):
         self.api('routes/route:BIB:Nav2092/route_schedules?from_datetime=20041104T080000')
