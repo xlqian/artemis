@@ -17,6 +17,9 @@ import re
 import jsonpath_rw as jp
 import functools
 
+ARTEMIS_CUSTOM_ID = '__artemis_id__'
+
+
 _api_main_root_point = 'http://localhost/'
 
 _api_current_root_point = _api_main_root_point + config['API_POINT_PREFIX'] + 'v1/'
@@ -128,7 +131,7 @@ class BlackListMask(object):
     ... 'toto': {'bob':12, 'bobette': 13, 'nested_bob': {'bob': 3}},
     ... 'tete': ('tuple1', ['ltuple1', 'ltuple2']),
     ... 'titi': [{'a':1}, {'b':1}]}
-    >>> bl = BlackListMask(['$..bob'])
+    >>> bl = BlackListMask([('$..bob', lambda x: None)])
     >>> print bl.filter(bobette)
     {'tata': [1, 2], 'toto': {'bobette': 13, 'bob': None, 'nested_bob': {'bob': None}}, 'tutu': 1, 'tete': ('tuple1', ['ltuple1', 'ltuple2']), 'titi': [{'a': 1}, {'b': 1}]}
     """
@@ -188,7 +191,7 @@ def sort_all_list_dict(response):
     queue = deque()
 
     def magic_sort(elt):
-        to_check = ['uri', 'id', 'label', 'name', 'href']
+        to_check = [ARTEMIS_CUSTOM_ID, 'uri', 'id', 'label', 'name', 'href']
         for field in to_check:
             if field in elt:
                 yield elt[field]
@@ -213,15 +216,10 @@ def sort_all_list_dict(response):
 
 
 class RetrocompatibilityMask(object):
-    def __init__(self):
-        pass
-
     def filter(self, response):
         """For retrocompatibility we don't care about sorting, so we sort all lists"""
-        r = deepcopy(response)
-
-        sort_all_list_dict(r)
-        return r
+        sort_all_list_dict(response)
+        return response
 
 
 def check_equals(a, b):
@@ -330,7 +328,7 @@ class SubsetComparator(object):
 
 
 def compose_functions(*functions):
-    return functools.reduce(lambda f, g: lambda x: f(g(x)), functions, lambda x: x)
+    return functools.reduce(lambda f, g: lambda x: g(f(x)), functions, lambda x: x)
 
 
 class Checker(object):
@@ -345,11 +343,12 @@ class Checker(object):
         self._filters = filters
         self._comparator = comparator
 
-    def filter(self, *args, **kwargs):
+    def filter(self, response):
+        r = deepcopy(response)
         # we want that each filter in self._filters do its filter
         # It turns out that we want a function composition
         fs = [f.filter for f in self._filters]
-        return compose_functions(*fs)(*args, **kwargs)
+        return compose_functions(*fs)(r)
 
     def compare(self, *args, **kwargs):
         return self._comparator.compare(*args, **kwargs)
@@ -388,3 +387,17 @@ def launch_exec(cmd, additional_args=[], additional_env=None):
         os.close(fdw)
 
     return proc.returncode, proc
+
+
+class StopScheduleIDGenerator(object):
+    """
+    For stopschedule, we need to generate a custom stop schedule ID to be able to sort them for the comparison
+    """
+    def filter(self, response):
+        for stop_schedule in response.get('stop_schedules', []):
+            stop_schedule[ARTEMIS_CUSTOM_ID] = "{s}__**__{r}".\
+                format(s=stop_schedule.get('stop_point', {}).get('id'),
+                       r=stop_schedule.get('route', {}).get('id'))
+
+        return response
+
