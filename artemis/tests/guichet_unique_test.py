@@ -71,7 +71,22 @@ class TestGuichetUnique(ArtemisTestFixture):
                      to="admin:2651291extern", datetime="20121025T120000",
                      walking_speed="0.83", max_duration_to_pt="6000")
 
+    def test_too_long_waiting_filter(self):
+        """
+        Test a journey from saint quentin -> saint just in the new_default scenario
 
+        The query is late, and without filter we have 2 journeys
+
+        * One where the traveller leaves at 20h19, sleeps at Amiens and arrive in the morning (6h22)
+        * One where the traveller leaves at 7h22 and arrive at 9h14
+
+        We don't want the first journey, so it is filtered and we should only have the second one
+
+        linked to http://jira.canaltp.fr/browse/NAVITIAII-2000
+        """
+        self.journey(_from="stop_area:OCE:SA:87296004",
+                     to="stop_area:OCE:SA:87313270", datetime="20121123T2019",
+                     _override_scenario="new_default")
 
     """
     test RealTime on SNCF
