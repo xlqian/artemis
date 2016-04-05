@@ -142,7 +142,7 @@ class TestGuichetUnique(ArtemisTestFixture):
                      datetime="20121215T1630",
                      data_freshness="realtime")
 
-        self.api('vehicle_journeys/vehicle_journey:OCETGV-87686006-87751008-7:34580/disruptions')
+        self.api('vehicle_journeys/vehicle_journey:OCE:SN006121F02003/disruptions')
 
         # test of departures with a cancelled train
         # in realtime we should have 6 passages, and in base_schedule we should have 7
