@@ -105,11 +105,11 @@ class TestBibus(ArtemisTestFixture):
         self._pt_ref_call('stop_points', 'stop_point:BIB:SP:Nav504', depth=3)
 
     def test_one_network_depth_1(self):
-        self._pt_ref_call('networks', 'network:BIB:1001', depth=1)
+        self._pt_ref_call('networks', 'network:bibus', depth=1)
     def test_one_network_depth_2(self):
-        self._pt_ref_call('networks', 'network:BIB:1001', depth=2)
+        self._pt_ref_call('networks', 'network:bibus', depth=2)
     def test_one_network_depth_3(self):
-        self._pt_ref_call('networks', 'network:BIB:1001', depth=3)
+        self._pt_ref_call('networks', 'network:bibus', depth=3)
 
     def test_one_route_depth_1(self):
         self._pt_ref_call('routes', 'route:BIB:Nav2092', depth=1)
