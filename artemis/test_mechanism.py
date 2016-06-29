@@ -321,7 +321,8 @@ class ArtemisTestFixture:
         for data_set in cls.data_sets:
             logging.getLogger(__name__).debug("deleting data for {}".format(data_set.name))
             try:
-                os.remove(utils.nav_path(data_set.name))
+                if os.path.exists(utils.nav_path(data_set.name)):
+                    os.remove(utils.nav_path(data_set.name))
             except:
                 logging.getLogger(__name__).exception("can't remove data.nav.lz4")
 
