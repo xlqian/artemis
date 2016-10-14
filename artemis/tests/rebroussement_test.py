@@ -5,7 +5,7 @@ import pytest
 xfail = pytest.mark.xfail
 #
 @dataset([DataSet("rebroussement")])
-class Rebroussement():
+class Rebroussement(object):
     """
     TODO: put there comments about the dataset
     """
@@ -50,7 +50,8 @@ class TestRebroussementNewDefault(Rebroussement, ArtemisTestFixture):
     pass
 
 
-@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
 @set_scenario({"rebroussement": {"scenario": "experimental"}})
 class TestRebroussementExperimental(Rebroussement, ArtemisTestFixture):
-    pass
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_rebroussement_07(self):
+        super(TestRebroussementExperimental, self).test_rebroussement_07()

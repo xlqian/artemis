@@ -1,8 +1,10 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 import pytest
+xfail = pytest.mark.xfail
+
 
 @dataset([DataSet("sherbrooke")])
-class TestSherbrooke(ArtemisTestFixture):
+class Sherbrooke(object):
     def test_sherbrooke_01(self):
         self.journey(_from="stop_area:STS:SA:387",
                      to="poi:3815 - ADDRESS370 - ADDRESS1126", datetime="20111116T070000",
@@ -43,6 +45,7 @@ class TestSherbrooke(ArtemisTestFixture):
                      to="stop_area:STS:SA:1475", datetime="20111028T075000",
                      datetime_represents="arrival", walking_speed="0.83", max_duration_to_pt="720")
 
+    @xfail(reason="Migration debian8 ?", raises=AssertionError)
     def test_sherbrooke_09(self):
         self.journey(_from="-71.95892423;45.36721098",
                      to="stop_area:STS:SA:1476", datetime="20111116T080000",
@@ -82,3 +85,79 @@ class TestSherbrooke(ArtemisTestFixture):
         self.journey(_from="stop_point:STS:SP:322",
                      to="stop_point:STS:SP:2160", datetime="20111114T070000",
                      walking_speed="0.83", max_duration_to_pt="0")
+
+
+@set_scenario({"sherbrooke": {"scenario": "default"}})
+class TestSherbrookeDefault(Sherbrooke, ArtemisTestFixture):
+    pass
+
+
+@set_scenario({"sherbrooke": {"scenario": "new_default"}})
+class TestSherbrookeNewDefault(Sherbrooke, ArtemisTestFixture):
+    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
+    def test_sherbrooke_01(self):
+        super(TestSherbrookeNewDefault, self).test_sherbrooke_01()
+    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
+    def test_sherbrooke_02(self):
+        super(TestSherbrookeNewDefault, self).test_sherbrooke_02()
+    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
+    def test_sherbrooke_06(self):
+        super(TestSherbrookeNewDefault, self).test_sherbrooke_06()
+    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
+    def test_sherbrooke_10(self):
+        super(TestSherbrookeNewDefault, self).test_sherbrooke_10()
+    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
+    def test_sherbrooke_13(self):
+        super(TestSherbrookeNewDefault, self).test_sherbrooke_13()
+    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
+    def test_sherbrooke_14(self):
+        super(TestSherbrookeNewDefault, self).test_sherbrooke_14()
+
+
+@set_scenario({"sherbrooke": {"scenario": "experimental"}})
+class TestSherbrookeExperimental(Sherbrooke, ArtemisTestFixture):
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_sherbrooke_01(self):
+        super(TestSherbrookeExperimental, self).test_sherbrooke_01()
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_sherbrooke_02(self):
+        super(TestSherbrookeExperimental, self).test_sherbrooke_02()
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_sherbrooke_03(self):
+        super(TestSherbrookeExperimental, self).test_sherbrooke_03()
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_sherbrooke_04(self):
+        super(TestSherbrookeExperimental, self).test_sherbrooke_04()
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_sherbrooke_05(self):
+        super(TestSherbrookeExperimental, self).test_sherbrooke_05()
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_sherbrooke_06(self):
+        super(TestSherbrookeExperimental, self).test_sherbrooke_06()
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_sherbrooke_07(self):
+        super(TestSherbrookeExperimental, self).test_sherbrooke_07()
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_sherbrooke_09(self):
+        super(TestSherbrookeExperimental, self).test_sherbrooke_09()
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_sherbrooke_10(self):
+        super(TestSherbrookeExperimental, self).test_sherbrooke_10()
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_sherbrooke_11(self):
+        super(TestSherbrookeExperimental, self).test_sherbrooke_11()
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_sherbrooke_12(self):
+        super(TestSherbrookeExperimental, self).test_sherbrooke_12()
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_sherbrooke_13(self):
+        super(TestSherbrookeExperimental, self).test_sherbrooke_13()
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_sherbrooke_14(self):
+        super(TestSherbrookeExperimental, self).test_sherbrooke_14()
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_sherbrooke_15_sp_to_sp_with_walking(self):
+        super(TestSherbrookeExperimental, self).test_sherbrooke_15_sp_to_sp_with_walking()
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_sherbrooke_16_sp_to_sp_without_walking(self):
+        super(TestSherbrookeExperimental, self).test_sherbrooke_16_sp_to_sp_without_walking()

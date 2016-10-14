@@ -1,10 +1,7 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
-import pytest
-
-xfail = pytest.mark.xfail
 
 @dataset([DataSet("passe-minuit-01")])
-class PasseMinuit01():
+class PasseMinuit01(object):
     """
     test journeys over midnight
     """
@@ -44,7 +41,6 @@ class TestPasseMinuit01NewDefault(PasseMinuit01, ArtemisTestFixture):
     pass
 
 
-@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
 @set_scenario({"passe-minuit-01": {"scenario": "experimental"}})
 class TestPasseMinuit01Experimental(PasseMinuit01, ArtemisTestFixture):
     pass

@@ -30,7 +30,6 @@ class TestItlNewDefault(Itl, ArtemisTestFixture):
     pass
 
 
-@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
 @set_scenario({"itl": {"scenario": "experimental"}})
 class TestItlExperimental(Itl, ArtemisTestFixture):
     pass

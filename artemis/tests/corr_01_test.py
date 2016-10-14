@@ -1,6 +1,4 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
-import pytest
-xfail = pytest.mark.xfail
 
 
 @dataset([DataSet("corr-01")])
@@ -30,7 +28,6 @@ class TestCorr01NewDefault(Corr01, ArtemisTestFixture):
     pass
 
 
-@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
 @set_scenario({"corr-01": {"scenario": "experimental"}})
 class TestCorr01Experimental(Corr01, ArtemisTestFixture):
     pass

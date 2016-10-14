@@ -1,9 +1,7 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
-import pytest
-xfail = pytest.mark.xfail
 
 @dataset([DataSet("freqsimple")])
-class FreqSimple():
+class FreqSimple(object):
     """
     TODO: put there comments about the dataset
     """
@@ -37,7 +35,6 @@ class TestFreqSimpleNewDefault(FreqSimple, ArtemisTestFixture):
     pass
 
 
-@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
 @set_scenario({"freqsimple": {"scenario": "experimental"}})
 class TestFreqSimpleExperimental(FreqSimple, ArtemisTestFixture):
     pass

@@ -6,7 +6,7 @@ xfail = pytest.mark.xfail
 
 
 @dataset([DataSet("test-02")])
-class ArtTest02(ArtemisTestFixture):
+class ArtTest02(object):
     """
     TODO: put there comments about the dataset
     """
@@ -33,8 +33,9 @@ class TestArtTest02Default(ArtTest02, ArtemisTestFixture):
 
 @set_scenario({"test-02": {"scenario": "new_default"}})
 class TestArtTest02NewDefault(ArtTest02, ArtemisTestFixture):
-    pass
-
+    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
+    def test_art_test_02_03(self):
+        super(TestArtTest02NewDefault, self).test_art_test_02_03()
 
 @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
 @set_scenario({"test-02": {"scenario": "experimental"}})

@@ -5,7 +5,7 @@ xfail = pytest.mark.xfail
 
 
 @dataset([DataSet("test-03")])
-class ArtTest03():
+class ArtTest03(object):
     """
     TODO: put there comments about the dataset
     """

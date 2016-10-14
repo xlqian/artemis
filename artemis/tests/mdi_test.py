@@ -1,10 +1,8 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
-import pytest
 
-xfail = pytest.mark.xfail
 
 @dataset([DataSet("mdi")])
-class MDI():
+class MDI(object):
     """
     TODO: put there comments about the dataset
     """
@@ -34,7 +32,6 @@ class TestMDINewDefault(MDI, ArtemisTestFixture):
     pass
 
 
-@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
 @set_scenario({"mdi": {"scenario": "experimental"}})
 class TestMDIExperimental(MDI, ArtemisTestFixture):
     pass

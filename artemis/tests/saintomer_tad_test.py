@@ -1,9 +1,10 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 import pytest
 xfail = pytest.mark.xfail
 
+
 @dataset([DataSet("saintomer")])
-class TestSaintOmer(ArtemisTestFixture):
+class SaintOmer(object):
     """
       test "on demand transport"
     """
@@ -70,3 +71,19 @@ class TestSaintOmer(ArtemisTestFixture):
         self.journey(_from="admin:62458",
                      to="admin:62765", datetime="20121120T101500",
                      walking_speed="1", max_duration_to_pt="1000")
+
+
+@set_scenario({"saintomer": {"scenario": "default"}})
+class TestSaintOmerDefault(SaintOmer, ArtemisTestFixture):
+    pass
+
+
+@set_scenario({"saintomer": {"scenario": "new_default"}})
+class TestSaintOmerNewDefault(SaintOmer, ArtemisTestFixture):
+    pass
+
+
+@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+@set_scenario({"saintomer": {"scenario": "experimental"}})
+class TestSaintOmerExperimental(SaintOmer, ArtemisTestFixture):
+    pass

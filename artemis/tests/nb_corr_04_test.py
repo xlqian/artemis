@@ -4,7 +4,7 @@ import pytest
 xfail = pytest.mark.xfail
 
 @dataset([DataSet("nb-corr-04")])
-class NbCorr04():
+class NbCorr04(object):
     """
     TODO: put there comments about the dataset
     """
@@ -23,7 +23,12 @@ class TestNbCorr04Default(NbCorr04, ArtemisTestFixture):
 
 @set_scenario({"nb-corr-04": {"scenario": "new_default"}})
 class TestNbCorr04NewDefault(NbCorr04, ArtemisTestFixture):
-    pass
+    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
+    def test_nb_corr_04_01(self):
+        super(TestNbCorr04NewDefault, self).test_nb_corr_04_01()
+    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
+    def test_nb_corr_04_02(self):
+        super(TestNbCorr04NewDefault, self).test_nb_corr_04_02()
 
 
 @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)

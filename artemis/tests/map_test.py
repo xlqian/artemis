@@ -3,7 +3,7 @@ import pytest
 xfail = pytest.mark.xfail
 
 @dataset([DataSet("map")])
-class Map():
+class Map(object):
     """
     test walk transfert
     """

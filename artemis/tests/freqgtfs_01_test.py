@@ -1,10 +1,8 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
-import pytest
-xfail = pytest.mark.xfail
 
 
 @dataset([DataSet("freqgtfs-01")])
-class FreqGtfs_01():
+class FreqGtfs_01(object):
     """
     test frequencies to stops serialisation by FUSiO
     """
@@ -44,12 +42,12 @@ class FreqGtfs_01():
 class TestFreqGtfs_01Default(FreqGtfs_01, ArtemisTestFixture):
     pass
 
+
 @set_scenario({"freqgtfs-01": {"scenario": "new_default"}})
 class TestFreqGtfs_01NewDefault(FreqGtfs_01, ArtemisTestFixture):
     pass
 
 
-@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
 @set_scenario({"freqgtfs-01": {"scenario": "experimental"}})
 class TestFreqGtfs_01Experimental(FreqGtfs_01, ArtemisTestFixture):
     pass

@@ -1,10 +1,7 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
-import pytest
-
-xfail = pytest.mark.xfail
 
 @dataset([DataSet("prolong-auto")])
-class ProlongAuto():
+class ProlongAuto(object):
     """
     TODO: put there comments about the dataset
     """
@@ -30,7 +27,6 @@ class TestProlongAutoNewDefault(ProlongAuto, ArtemisTestFixture):
     pass
 
 
-@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
 @set_scenario({"prolong-auto": {"scenario": "experimental"}})
 class TestProlongAutoExperimental(ProlongAuto, ArtemisTestFixture):
     pass

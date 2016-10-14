@@ -4,7 +4,7 @@ import pytest
 xfail = pytest.mark.xfail
 
 @dataset([DataSet("poitiers")])
-class Poitiers():
+class Poitiers(object):
     """
     """
     def test_poitiers_01(self):
@@ -80,10 +80,19 @@ class TestPoitiersDefault(Poitiers, ArtemisTestFixture):
 
 @set_scenario({"poitiers": {"scenario": "new_default"}})
 class TestPoitiersNewDefault(Poitiers, ArtemisTestFixture):
-    pass
+    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
+    def test_poitiers_08(self):
+        super(TestPoitiersNewDefault, self).test_poitiers_08()
 
 
-@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
 @set_scenario({"poitiers": {"scenario": "experimental"}})
 class TestPoitiersExperimental(Poitiers, ArtemisTestFixture):
-    pass
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_poitiers_04(self):
+        super(TestPoitiersExperimental, self).test_poitiers_04()
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_poitiers_05(self):
+        super(TestPoitiersExperimental, self).test_poitiers_05()
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_poitiers_08(self):
+        super(TestPoitiersExperimental, self).test_poitiers_08()

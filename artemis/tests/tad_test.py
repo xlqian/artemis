@@ -5,7 +5,7 @@ xfail = pytest.mark.xfail
 
 
 @dataset([DataSet("tad")])
-class Tad():
+class Tad(object):
     """
     On demand transport tests
     """

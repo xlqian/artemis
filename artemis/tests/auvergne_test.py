@@ -3,7 +3,7 @@ import pytest
 xfail = pytest.mark.xfail
 
 @dataset([DataSet("fr-auv")])
-class Auvergne():
+class Auvergne(object):
     """
     test for new_default with data from auvergne
     """
@@ -58,7 +58,12 @@ class TestAuvergneNewDefault(Auvergne, ArtemisTestFixture):
     pass
 
 
-@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
 @set_scenario({"fr-auv": {"scenario": "experimental"}})
 class TestAuvergneExperimental(Auvergne, ArtemisTestFixture):
-    pass
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_auvergne_02(self):
+        super(TestAuvergneExperimental, self).test_auvergne_02()
+
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_auvergne_03(self):
+        super(TestAuvergneExperimental, self).test_auvergne_03()
