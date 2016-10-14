@@ -1,8 +1,11 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
+import pytest
+
+xfail = pytest.mark.xfail
 
 
 @dataset([DataSet("tad")])
-class TestTad(ArtemisTestFixture):
+class Tad():
     """
     On demand transport tests
     """
@@ -231,3 +234,17 @@ class TestTad(ArtemisTestFixture):
         self.journey(_from="1.3828;47.5831",
                      to="stop_area:CA3:SA:blr9",
                      datetime="20150407T102000")
+
+@set_scenario({"tad": {"scenario": "default"}})
+class TestTadDefault(Tad, ArtemisTestFixture):
+    pass
+
+@set_scenario({"tad": {"scenario": "new_default"}})
+class TestTadNewDefault(Tad, ArtemisTestFixture):
+    pass
+
+
+@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+@set_scenario({"tad": {"scenario": "experimental"}})
+class TestTadExperimental(Tad, ArtemisTestFixture):
+    pass

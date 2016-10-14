@@ -1,8 +1,10 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
+import pytest
 
+xfail = pytest.mark.xfail
 
 @dataset([DataSet("passe-minuit-02")])
-class TestPasseMinuit02(ArtemisTestFixture):
+class PasseMinuit02():
     """
     TODO: put there comments about the dataset
     """
@@ -60,3 +62,17 @@ class TestPasseMinuit02(ArtemisTestFixture):
     def test_passe_minuit_02_13(self):
         self.journey(_from="stop_area:PM2:SA:5",
                      to="stop_area:PM2:SA:6", datetime="20080408T0055", datetime_represents="arrival")
+
+@set_scenario({"passe-minuit-02": {"scenario": "default"}})
+class TestPasseMinuit02Default(PasseMinuit02, ArtemisTestFixture):
+    pass
+
+@set_scenario({"passe-minuit-02": {"scenario": "new_default"}})
+class TestPasseMinuit02NewDefault(PasseMinuit02, ArtemisTestFixture):
+    pass
+
+
+@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+@set_scenario({"passe-minuit-02": {"scenario": "experimental"}})
+class TestPasseMinuit02Experimental(PasseMinuit02, ArtemisTestFixture):
+    pass

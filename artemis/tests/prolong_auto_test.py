@@ -1,8 +1,10 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 import pytest
 
+xfail = pytest.mark.xfail
+
 @dataset([DataSet("prolong-auto")])
-class TestProlongAuto(ArtemisTestFixture):
+class ProlongAuto():
     """
     TODO: put there comments about the dataset
     """
@@ -18,3 +20,17 @@ class TestProlongAuto(ArtemisTestFixture):
     def test_prolong_auto_03(self):
         self.journey(_from="stop_area:PRA:SA:1",
                      to="stop_area:PRA:SA:5", datetime="20041213T0700")
+
+@set_scenario({"prolong-auto": {"scenario": "default"}})
+class TestProlongAutoDefault(ProlongAuto, ArtemisTestFixture):
+    pass
+
+@set_scenario({"prolong-auto": {"scenario": "new_default"}})
+class TestProlongAutoNewDefault(ProlongAuto, ArtemisTestFixture):
+    pass
+
+
+@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+@set_scenario({"prolong-auto": {"scenario": "experimental"}})
+class TestProlongAutoExperimental(ProlongAuto, ArtemisTestFixture):
+    pass

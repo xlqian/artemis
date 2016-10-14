@@ -1,8 +1,11 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 
+import pytest
 
+xfail = pytest.mark.xfail
+#
 @dataset([DataSet("rebroussement")])
-class TestRebroussement(ArtemisTestFixture):
+class Rebroussement():
     """
     TODO: put there comments about the dataset
     """
@@ -37,3 +40,17 @@ class TestRebroussement(ArtemisTestFixture):
     def test_rebroussement_08(self):
         self.journey(_from="stop_area:RBR:SA:4",
                      to="stop_area:RBR:SA:7", datetime="20041213T0900")
+
+@set_scenario({"rebroussement": {"scenario": "default"}})
+class TestRebroussementDefault(Rebroussement, ArtemisTestFixture):
+    pass
+
+@set_scenario({"rebroussement": {"scenario": "new_default"}})
+class TestRebroussementNewDefault(Rebroussement, ArtemisTestFixture):
+    pass
+
+
+@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+@set_scenario({"rebroussement": {"scenario": "experimental"}})
+class TestRebroussementExperimental(Rebroussement, ArtemisTestFixture):
+    pass

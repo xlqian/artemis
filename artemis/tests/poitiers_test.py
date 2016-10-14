@@ -1,8 +1,10 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 import pytest
 
+xfail = pytest.mark.xfail
+
 @dataset([DataSet("poitiers")])
-class TestPoitiers(ArtemisTestFixture):
+class Poitiers():
     """
     """
     def test_poitiers_01(self):
@@ -70,3 +72,18 @@ class TestPoitiers(ArtemisTestFixture):
         self.journey(_from="stop_area:POI:SA:10001",
                      to="stop_area:POI:SA:10114", datetime="20091007T180000",
                      walking_speed="0.83", max_duration_to_pt="1200")
+
+
+@set_scenario({"poitiers": {"scenario": "default"}})
+class TestPoitiersDefault(Poitiers, ArtemisTestFixture):
+    pass
+
+@set_scenario({"poitiers": {"scenario": "new_default"}})
+class TestPoitiersNewDefault(Poitiers, ArtemisTestFixture):
+    pass
+
+
+@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+@set_scenario({"poitiers": {"scenario": "experimental"}})
+class TestPoitiersExperimental(Poitiers, ArtemisTestFixture):
+    pass

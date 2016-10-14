@@ -98,6 +98,22 @@ class DataSet(object):
         return self.name
 
 
+def set_scenario(config):
+    def deco(cls):
+        cls.data_sets = []
+        for c in cls.__bases__:
+            if hasattr(c, "data_sets"):
+                for dataset in c.data_sets:
+                    cls.data_sets.append(DataSet(dataset.name, dataset.scenario))
+        if config:
+            for dataset in cls.data_sets:
+                conf = config.get(dataset.name, None)
+                if conf:
+                    dataset.scenario = conf.get("scenario", "default")
+        return cls
+    return deco
+
+
 def kraken_status(data_set):
     response, _ = utils.api("coverage/{r}".format(r=data_set.name))
     assert 'error' not in response, "problem with the region: {error}".format(error=response['error'])
@@ -113,7 +129,7 @@ class ArtemisTestFixture:
     """
     Mother class for all integration tests
     """
-
+    dataset_binarized = []
     @pytest.fixture(scope='function', autouse=True)
     def before_each_test(self):
         """
@@ -151,18 +167,65 @@ class ArtemisTestFixture:
         # clean kirin database
         cls.clean_kirin_db()
 
-        if skip_bina:
-            logging.getLogger(__name__).warn("skipping binarization")
-        else:
-            cls.remove_data()
-
-            cls.update_data()
-
-            cls.read_data()
+        cls.manage_data(skip_bina)
 
         cls.pop_krakens()
 
         cls.pop_jormungandr()
+
+    @classmethod
+    def manage_data(cls, skip_bina):
+
+        if skip_bina:
+            logging.getLogger(__name__).warn("skipping binarization")
+            return
+
+        cls.clean_jormun_db()
+        for data_set in cls.data_sets:
+            if data_set.name in cls.dataset_binarized:
+                logging.getLogger(__name__).warn("skipping binarization dataset {}".format(data_set))
+                continue
+            cls.remove_data_by_dataset(data_set)
+            cls.update_data_by_dataset(data_set)
+            cls.read_data_by_dataset(data_set)
+            cls.dataset_binarized.append(data_set.name)
+
+    @classmethod
+    def remove_data_by_dataset(cls, data_set):
+        logging.getLogger(__name__).debug("deleting data for {}".format(data_set.name))
+        try:
+            if os.path.exists(utils.nav_path(data_set.name)):
+                os.remove(utils.nav_path(data_set.name))
+        except:
+            logging.getLogger(__name__).exception("can't remove data.nav.lz4")
+
+    @classmethod
+    def update_data_by_dataset(cls, data_set):
+        fusio_databases_file = utils.new_fusio_files_path(data_set.name)
+        if not os.path.exists(fusio_databases_file):
+            return
+
+        logging.getLogger(__name__).debug("updating data for {}".format(data_set.name))
+
+        #we copy the file to update the reference data
+        shutil.move(fusio_databases_file, os.path.join(utils.instance_data_path(data_set.name), 'fusio/databases.zip'))
+
+    @classmethod
+    def read_data_by_dataset(cls, data_set):
+        logging.getLogger(__name__).debug("reading data for {}".format(data_set.name))
+        # we'll read all subdir
+        data_path = utils.instance_data_path(data_set.name)
+
+        data_dirs = [os.path.join(data_path, sub_dir_name)
+                     for sub_dir_name in os.listdir(data_path)
+                     if os.path.isdir(os.path.join(data_path, sub_dir_name))]
+
+        logging.getLogger(__name__).debug("loading {}".format(data_dirs))
+        utils.launch_exec("{tyr} load_data {data_set} {data_set_dir}"
+                          .format(tyr=_tyr,
+                                  data_set=data_set.name,
+                                  data_set_dir=','.join(data_dirs)),
+                          additional_env={'TYR_CONFIG_FILE': _tyr_config_file})
 
     @classmethod
     def update_data(cls):
@@ -189,7 +252,7 @@ class ArtemisTestFixture:
         Method called once after running the tests of the fixture.
         """
         logging.getLogger(__name__).debug("Tearing down the tests {}, time to clean up"
-                                         .format(cls.__name__))
+                                          .format(cls.__name__))
         cls.kill_the_krakens()
         cls.kill_jormungandr()
 
@@ -387,12 +450,16 @@ class ArtemisTestFixture:
 
         for k, v in kwargs.iteritems():
             query = "{query}&{k}={v}".format(query=query, k=k, v=v)
-
+        scenario = None
         if len(self.__class__.data_sets) == 1:
             # for tests with only one dataset, we directly use the region's journey API
             # Note: this should not be mandatory, but since there are still bugs with the global journey API
             # we use this for the moment.
-            query = "coverage/{region}/journeys?{q}".format(region=self.__class__.data_sets[0].name, q=query)
+            scenario = self.__class__.data_sets[0].scenario
+            query = "coverage/{region}/journeys?{q}&_override_scenario={scenario}".format(
+                region=self.__class__.data_sets[0].name,
+                q=query,
+                scenario=scenario)
 
         self._api_call(query, response_checker)
 
@@ -407,9 +474,12 @@ class ArtemisTestFixture:
         if a custom_name is provided we take it, else we create a md5 on the url.
         a custom_name must be provided is the same call is done twice in the same test function
         """
-        class_name = self.__class__.__name__  # we get the fixture name
+        #class_name = self.__class__.__name__  # we get the fixture name
+        class_name = "Test{}".format(inspect.getmro(self.__class__)[1].__name__)
+        scenario = inspect.getmro(self.__class__)[0].data_sets[0].scenario
+
         func_name = get_calling_test_function()
-        test_name = '{}/{}'.format(class_name, func_name)
+        test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
 
         self.test_counter[test_name] += 1
 

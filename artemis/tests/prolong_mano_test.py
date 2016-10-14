@@ -1,8 +1,10 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 import pytest
 
+xfail = pytest.mark.xfail
+
 @dataset([DataSet("prolong-mano")])
-class TestProlongMano(ArtemisTestFixture):
+class ProlongMano():
     """
     TODO: put there comments about the dataset
     """
@@ -13,3 +15,17 @@ class TestProlongMano(ArtemisTestFixture):
     def test_prolong_mano_02(self):
         self.journey(_from="stop_area:PRM:SA:1",
                      to="stop_area:PRM:SA:9", datetime="20041213T0700")
+
+@set_scenario({"prolong-mano": {"scenario": "default"}})
+class TestProlongManoDefault(ProlongMano, ArtemisTestFixture):
+    pass
+
+@set_scenario({"prolong-mano": {"scenario": "new_default"}})
+class TestProlongManoNewDefault(ProlongMano, ArtemisTestFixture):
+    pass
+
+
+@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+@set_scenario({"prolong-mano": {"scenario": "experimental"}})
+class TestProlongManoExperimental(ProlongMano, ArtemisTestFixture):
+    pass
