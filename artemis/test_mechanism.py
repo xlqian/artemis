@@ -176,11 +176,12 @@ class ArtemisTestFixture:
     @classmethod
     def manage_data(cls, skip_bina):
 
+        cls.clean_jormun_db()
+
         if skip_bina:
             logging.getLogger(__name__).warn("skipping binarization")
             return
 
-        cls.clean_jormun_db()
         for data_set in cls.data_sets:
             if data_set.name in cls.dataset_binarized:
                 logging.getLogger(__name__).warn("skipping binarization dataset {}".format(data_set))
@@ -228,25 +229,6 @@ class ArtemisTestFixture:
                           additional_env={'TYR_CONFIG_FILE': _tyr_config_file})
 
     @classmethod
-    def update_data(cls):
-        """
-        if new dataset exist we must unzip in data directory to consider in "read_data"
-        """
-        if not config['NEW_FUSIO_FILE_PATH_LAYOUT']:
-            # if we don't have a fusio dir we don't update the data
-            return
-
-        for data_set in cls.data_sets:
-            fusio_databases_file = utils.new_fusio_files_path(data_set.name)
-            if not os.path.exists(fusio_databases_file):
-                continue
-
-            logging.getLogger(__name__).debug("updating data for {}".format(data_set.name))
-
-            #we copy the file to update the reference data
-            shutil.move(fusio_databases_file, os.path.join(utils.instance_data_path(data_set.name), 'fusio/databases.zip'))
-
-    @classmethod
     def clean_fixture(cls):
         """
         Method called once after running the tests of the fixture.
@@ -262,32 +244,6 @@ class ArtemisTestFixture:
         run all services that have to be active for all tests
         """
         pass
-
-    @classmethod
-    def read_data(cls):
-        """
-        Read the different data given by Fusio
-        launch the different readers (Fusio2Ed, osm2is, ...) and binarize the data
-
-        All is left to tyr
-        """
-        #clean jormungandr database
-        cls.clean_jormun_db()
-        for data_set in cls.data_sets:
-            logging.getLogger(__name__).debug("reading data for {}".format(data_set.name))
-            # we'll read all subdir
-            data_path = utils.instance_data_path(data_set.name)
-
-            data_dirs = [os.path.join(data_path, sub_dir_name)
-                         for sub_dir_name in os.listdir(data_path)
-                         if os.path.isdir(os.path.join(data_path, sub_dir_name))]
-
-            logging.getLogger(__name__).debug("loading {}".format(data_dirs))
-            utils.launch_exec("{tyr} load_data {data_set} {data_set_dir}"
-                              .format(tyr=_tyr,
-                                      data_set=data_set.name,
-                                      data_set_dir=','.join(data_dirs)),
-                              additional_env={'TYR_CONFIG_FILE': _tyr_config_file})
 
     @classmethod
     def clean_jormun_db(cls):
@@ -379,16 +335,6 @@ class ArtemisTestFixture:
             assert False, "problem while cleaning kirin db"
         conn.close()
 
-    @classmethod
-    def remove_data(cls):
-        for data_set in cls.data_sets:
-            logging.getLogger(__name__).debug("deleting data for {}".format(data_set.name))
-            try:
-                if os.path.exists(utils.nav_path(data_set.name)):
-                    os.remove(utils.nav_path(data_set.name))
-            except:
-                logging.getLogger(__name__).exception("can't remove data.nav.lz4")
-
     ###################################
     # wrappers around utils functions #
     ###################################
@@ -450,16 +396,11 @@ class ArtemisTestFixture:
 
         for k, v in kwargs.iteritems():
             query = "{query}&{k}={v}".format(query=query, k=k, v=v)
-        scenario = None
         if len(self.__class__.data_sets) == 1:
             # for tests with only one dataset, we directly use the region's journey API
             # Note: this should not be mandatory, but since there are still bugs with the global journey API
             # we use this for the moment.
-            scenario = self.__class__.data_sets[0].scenario
-            query = "coverage/{region}/journeys?{q}&_override_scenario={scenario}".format(
-                region=self.__class__.data_sets[0].name,
-                q=query,
-                scenario=scenario)
+            query = "coverage/{region}/journeys?{q}".format(region=self.__class__.data_sets[0].name, q=query)
 
         self._api_call(query, response_checker)
 

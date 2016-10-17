@@ -144,5 +144,5 @@ class Destineo(object):
 
 
 @set_scenario({"fr-pdl": {"scenario": "destineo"}})
-class TestDestineoDefault(Destineo, ArtemisTestFixture):
+class TestDestineo(Destineo, ArtemisTestFixture):
     pass
