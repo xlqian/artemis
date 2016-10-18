@@ -23,13 +23,9 @@ class TestTadDefault(ArtTest01, ArtemisTestFixture):
 
 @set_scenario({"test-01": {"scenario": "new_default"}})
 class TestTadNewDefault(ArtTest01, ArtemisTestFixture):
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_art_test_01_02(self):
-        super(TestTadNewDefault, self).test_art_test_01_02()
+    pass
 
 
 @set_scenario({"test-01": {"scenario": "experimental"}})
 class TestTadExperimental(ArtTest01, ArtemisTestFixture):
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_art_test_01_02(self):
-        super(TestTadExperimental, self).test_art_test_01_02()
+    pass

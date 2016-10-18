@@ -33,7 +33,6 @@ class TestCorr02NewDefault(Corr02, ArtemisTestFixture):
     pass
 
 
-#@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
 @set_scenario({"corr-02": {"scenario": "experimental"}})
 class TestCorr02Experimental(Corr02, ArtemisTestFixture):
     pass

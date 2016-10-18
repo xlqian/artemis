@@ -31,13 +31,12 @@ class ArtTest02(object):
 class TestArtTest02Default(ArtTest02, ArtemisTestFixture):
     pass
 
+
 @set_scenario({"test-02": {"scenario": "new_default"}})
 class TestArtTest02NewDefault(ArtTest02, ArtemisTestFixture):
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_art_test_02_03(self):
-        super(TestArtTest02NewDefault, self).test_art_test_02_03()
+    pass
 
-@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+
 @set_scenario({"test-02": {"scenario": "experimental"}})
 class TestArtTest02Experimental(ArtTest02, ArtemisTestFixture):
     pass

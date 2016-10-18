@@ -52,15 +52,17 @@ class Mission(object):
 
 @set_scenario({"mission": {"scenario": "default"}})
 class TestMissionDefault(Mission, ArtemisTestFixture):
-    pass
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_mission_02(self):
+        super(TestMissionDefault, self).test_mission_02()
 
 @set_scenario({"mission": {"scenario": "new_default"}})
 class TestMissionNewDefault(Mission, ArtemisTestFixture):
-    pass
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_mission_02(self):
+        super(TestMissionNewDefault, self).test_mission_02()
 
 
 @set_scenario({"mission": {"scenario": "experimental"}})
 class TestMissionExperimental(Mission, ArtemisTestFixture):
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_mission_02(self):
-        super(TestMissionExperimental, self).test_mission_02()
+    pass

@@ -3,7 +3,7 @@ import pytest
 xfail = pytest.mark.xfail
 
 @dataset([DataSet("itl")])
-class Itl():
+class Itl(object):
     """
     test local traffic policy constraint
     """
