@@ -245,9 +245,6 @@ class TestBibusDefault(Bibus, ArtemisTestFixture):
 
 @set_scenario({"bibus": {"scenario": "new_default"}})
 class TestBibusNewDefault(Bibus, ArtemisTestFixture):
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_bibus_01(self):
-        super(TestBibusNewDefault, self).test_bibus_01()
 
     @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
     def test_bibus_03(self):
