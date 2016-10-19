@@ -71,25 +71,9 @@ class TestTCLDefault(TCL, ArtemisTestFixture):
 
 @set_scenario({"tcl": {"scenario": "new_default"}})
 class TestTCLNewDefault(TCL, ArtemisTestFixture):
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_tcl_01(self):
-        super(TestTCLNewDefault, self).test_tcl_01()
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_tcl_04(self):
-        super(TestTCLNewDefault, self).test_tcl_04()
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_tcl_05(self):
-        super(TestTCLNewDefault, self).test_tcl_05()
+    pass
 
 
 @set_scenario({"tcl": {"scenario": "experimental"}})
 class TestTCLExperimental(TCL, ArtemisTestFixture):
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_tcl_01(self):
-        super(TestTCLExperimental, self).test_tcl_01()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_tcl_04(self):
-        super(TestTCLExperimental, self).test_tcl_04()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_tcl_05(self):
-        super(TestTCLExperimental, self).test_tcl_05()
+    pass

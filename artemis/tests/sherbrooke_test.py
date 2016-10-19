@@ -94,24 +94,7 @@ class TestSherbrookeDefault(Sherbrooke, ArtemisTestFixture):
 
 @set_scenario({"sherbrooke": {"scenario": "new_default"}})
 class TestSherbrookeNewDefault(Sherbrooke, ArtemisTestFixture):
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_sherbrooke_01(self):
-        super(TestSherbrookeNewDefault, self).test_sherbrooke_01()
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_sherbrooke_02(self):
-        super(TestSherbrookeNewDefault, self).test_sherbrooke_02()
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_sherbrooke_06(self):
-        super(TestSherbrookeNewDefault, self).test_sherbrooke_06()
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_sherbrooke_10(self):
-        super(TestSherbrookeNewDefault, self).test_sherbrooke_10()
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_sherbrooke_13(self):
-        super(TestSherbrookeNewDefault, self).test_sherbrooke_13()
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_sherbrooke_14(self):
-        super(TestSherbrookeNewDefault, self).test_sherbrooke_14()
+    pass
 
 
 @set_scenario({"sherbrooke": {"scenario": "experimental"}})
