@@ -400,9 +400,7 @@ class ArtemisTestFixture:
             # for tests with only one dataset, we directly use the region's journey API
             # Note: this should not be mandatory, but since there are still bugs with the global journey API
             # we use this for the moment.
-            query = "coverage/{region}/journeys?{q}&_override_scenario={scenario}".\
-                format(region=self.__class__.data_sets[0].name,
-                       q=query, scenario=self.__class__.data_sets[0].scenario)
+            query = "coverage/{region}/journeys?{q}".format(region=self.__class__.data_sets[0].name, q=query)
 
         self._api_call(query, response_checker)
 
