@@ -23,15 +23,9 @@ class TestNbCorr04Default(NbCorr04, ArtemisTestFixture):
 
 @set_scenario({"nb-corr-04": {"scenario": "new_default"}})
 class TestNbCorr04NewDefault(NbCorr04, ArtemisTestFixture):
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_nb_corr_04_01(self):
-        super(TestNbCorr04NewDefault, self).test_nb_corr_04_01()
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_nb_corr_04_02(self):
-        super(TestNbCorr04NewDefault, self).test_nb_corr_04_02()
+    pass
 
 
-@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
 @set_scenario({"nb-corr-04": {"scenario": "experimental"}})
 class TestNbCorr04Experimental(NbCorr04, ArtemisTestFixture):
     pass
