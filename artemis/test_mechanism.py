@@ -184,7 +184,7 @@ class ArtemisTestFixture:
 
         for data_set in cls.data_sets:
             if data_set.name in cls.dataset_binarized:
-                logging.getLogger(__name__).warn("skipping binarization dataset {}".format(data_set))
+                logging.getLogger(__name__).warn("binarization dataset {} has been done, skipping....".format(data_set))
                 continue
             cls.remove_data_by_dataset(data_set)
             cls.update_data_by_dataset(data_set)
@@ -400,7 +400,9 @@ class ArtemisTestFixture:
             # for tests with only one dataset, we directly use the region's journey API
             # Note: this should not be mandatory, but since there are still bugs with the global journey API
             # we use this for the moment.
-            query = "coverage/{region}/journeys?{q}".format(region=self.__class__.data_sets[0].name, q=query)
+            query = "coverage/{region}/journeys?{q}&_override_scenario={scenario}".\
+                format(region=self.__class__.data_sets[0].name,
+                       q=query, scenario=self.__class__.data_sets[0].scenario)
 
         self._api_call(query, response_checker)
 
@@ -415,9 +417,9 @@ class ArtemisTestFixture:
         if a custom_name is provided we take it, else we create a md5 on the url.
         a custom_name must be provided is the same call is done twice in the same test function
         """
-        #class_name = self.__class__.__name__  # we get the fixture name
-        class_name = "Test{}".format(inspect.getmro(self.__class__)[1].__name__)
-        scenario = inspect.getmro(self.__class__)[0].data_sets[0].scenario
+        mro = inspect.getmro(self.__class__)
+        class_name = "Test{}".format(mro[1].__name__)
+        scenario = mro[0].data_sets[0].scenario
 
         func_name = get_calling_test_function()
         test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
