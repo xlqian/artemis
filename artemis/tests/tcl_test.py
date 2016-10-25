@@ -1,8 +1,10 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 import pytest
 
+xfail = pytest.mark.xfail
+
 @dataset([DataSet("tcl")])
-class TestTCL(ArtemisTestFixture):
+class TCL(object):
     """
     TODO: put there comments about the dataset
     """
@@ -61,3 +63,17 @@ class TestTCL(ArtemisTestFixture):
         self.journey(_from="stop_area:TCL:SA:5520",
                      to="stop_area:TCL:SA:5085", datetime="20090723T004400",
                      datetime_represents="arrival", walking_speed="0.83", max_duration_to_pt="240")
+
+
+@set_scenario({"tcl": {"scenario": "default"}})
+class TestTCLDefault(TCL, ArtemisTestFixture):
+    pass
+
+@set_scenario({"tcl": {"scenario": "new_default"}})
+class TestTCLNewDefault(TCL, ArtemisTestFixture):
+    pass
+
+
+@set_scenario({"tcl": {"scenario": "experimental"}})
+class TestTCLExperimental(TCL, ArtemisTestFixture):
+    pass

@@ -1,8 +1,8 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 
 
 @dataset([DataSet("freqgtfs")])
-class TestFreqGtfs(ArtemisTestFixture):
+class FreqGtfs(object):
     """
     test frequencies to stops serialisation by FUSiO
     """
@@ -31,3 +31,17 @@ class TestFreqGtfs(ArtemisTestFixture):
         self.journey(_from="stop_area:FQG:SA:1",
                      to="stop_area:FQG:SA:35",
                      datetime="20070417T055000", datetime_represents="arrival")
+
+
+@set_scenario({"freqgtfs": {"scenario": "default"}})
+class TestFreqGtfsDefault(FreqGtfs, ArtemisTestFixture):
+    pass
+
+@set_scenario({"freqgtfs": {"scenario": "new_default"}})
+class TestFreqGtfsNewDefault(FreqGtfs, ArtemisTestFixture):
+    pass
+
+
+@set_scenario({"freqgtfs": {"scenario": "experimental"}})
+class TestFreqGtfsExperimental(FreqGtfs, ArtemisTestFixture):
+    pass

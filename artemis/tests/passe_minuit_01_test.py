@@ -1,8 +1,7 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
-
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 
 @dataset([DataSet("passe-minuit-01")])
-class TestPasseMinuit01(ArtemisTestFixture):
+class PasseMinuit01(object):
     """
     test journeys over midnight
     """
@@ -32,3 +31,16 @@ class TestPasseMinuit01(ArtemisTestFixture):
                      to="stop_area:PM1:SA:4",
                      datetime="20051124T070000", datetime_represents="arrival")
 
+
+@set_scenario({"passe-minuit-01": {"scenario": "default"}})
+class TestPasseMinuit01Default(PasseMinuit01, ArtemisTestFixture):
+    pass
+
+@set_scenario({"passe-minuit-01": {"scenario": "new_default"}})
+class TestPasseMinuit01NewDefault(PasseMinuit01, ArtemisTestFixture):
+    pass
+
+
+@set_scenario({"passe-minuit-01": {"scenario": "experimental"}})
+class TestPasseMinuit01Experimental(PasseMinuit01, ArtemisTestFixture):
+    pass

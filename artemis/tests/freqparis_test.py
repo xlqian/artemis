@@ -1,8 +1,7 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
-import pytest
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 
 @dataset([DataSet("freqparis")])
-class TestFreqParis(ArtemisTestFixture):
+class FreqParis(object):
     """
     TODO: put there comments about the dataset
     """
@@ -33,3 +32,17 @@ class TestFreqParis(ArtemisTestFixture):
     def test_freqparis_07(self):
         self.journey(_from="stop_area:FQP:SA:defen",
                      to="stop_area:FQP:SA:grest", datetime="20090922T2355")
+
+
+@set_scenario({"freqparis": {"scenario": "default"}})
+class TestFreqParisDefault(FreqParis, ArtemisTestFixture):
+    pass
+
+@set_scenario({"freqparis": {"scenario": "new_default"}})
+class TestFreqParisNewDefault(FreqParis, ArtemisTestFixture):
+    pass
+
+
+@set_scenario({"freqparis": {"scenario": "experimental"}})
+class TestFreqParisExperimental(FreqParis, ArtemisTestFixture):
+    pass

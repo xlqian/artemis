@@ -1,9 +1,9 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 
 #TODO: rename the test
 
 @dataset([DataSet("boucle-01")])
-class TestBoucle01(ArtemisTestFixture):
+class Boucle01(object):
     """
     TODO: put there comments about the dataset
     """
@@ -19,3 +19,17 @@ class TestBoucle01(ArtemisTestFixture):
     def test_boucle_01_03(self):
         self.journey(_from="stop_area:BC1:SA:8",
                      to="stop_area:BC1:SA:5", datetime="20041213T0730")
+
+
+@set_scenario({"boucle-01": {"scenario": "default"}})
+class TestBoucle01Default(Boucle01, ArtemisTestFixture):
+    pass
+
+@set_scenario({"boucle-01": {"scenario": "new_default"}})
+class TestBoucle01NewDefault(Boucle01, ArtemisTestFixture):
+    pass
+
+
+@set_scenario({"boucle-01": {"scenario": "experimental"}})
+class TestBoucle01Experimental(Boucle01, ArtemisTestFixture):
+    pass

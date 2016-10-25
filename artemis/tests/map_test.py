@@ -1,9 +1,9 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 import pytest
 xfail = pytest.mark.xfail
 
 @dataset([DataSet("map")])
-class TestMap(ArtemisTestFixture):
+class Map(object):
     """
     test walk transfert
     """
@@ -61,3 +61,15 @@ class TestMap(ArtemisTestFixture):
                      to="stop_area:MAP:SA:5",
                      datetime="20041210T070000")
 
+@set_scenario({"map": {"scenario": "default"}})
+class TestMapDefault(Map, ArtemisTestFixture):
+    pass
+
+@set_scenario({"map": {"scenario": "new_default"}})
+class TestMapNewDefault(Map, ArtemisTestFixture):
+    pass
+
+
+@set_scenario({"map": {"scenario": "experimental"}})
+class TestMapExperimental(Map, ArtemisTestFixture):
+    pass

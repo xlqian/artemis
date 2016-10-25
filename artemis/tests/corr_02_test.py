@@ -1,8 +1,8 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 
 
 @dataset([DataSet("corr-02")])
-class TestCorr02(ArtemisTestFixture):
+class Corr02(object):
     """
     TODO: put there comments about the dataset
     """
@@ -22,3 +22,17 @@ class TestCorr02(ArtemisTestFixture):
         """
         self.journey(_from="stop_area:CR2:SA:1",
                      to="stop_area:CR2:SA:4", datetime="20041213T0700")
+
+
+@set_scenario({"corr-02": {"scenario": "default"}})
+class TestCorr02Default(Corr02, ArtemisTestFixture):
+    pass
+
+@set_scenario({"corr-02": {"scenario": "new_default"}})
+class TestCorr02NewDefault(Corr02, ArtemisTestFixture):
+    pass
+
+
+@set_scenario({"corr-02": {"scenario": "experimental"}})
+class TestCorr02Experimental(Corr02, ArtemisTestFixture):
+    pass

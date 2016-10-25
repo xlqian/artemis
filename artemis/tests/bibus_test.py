@@ -1,11 +1,12 @@
 from artemis import default_checker
 from artemis.default_checker import stop_schedule_checker
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 import pytest
+
 xfail = pytest.mark.xfail
 
 @dataset([DataSet("bibus")])
-class TestBibus(ArtemisTestFixture):
+class Bibus(object):
     """
     """
     def test_bibus_01(self):
@@ -92,94 +93,122 @@ class TestBibus(ArtemisTestFixture):
 
     def test_one_stop_area_depth_1(self):
         self._pt_ref_call('stop_areas', 'stop_area:BIB:SA:212', depth=1)
+
     def test_one_stop_area_depth_2(self):
         self._pt_ref_call('stop_areas', 'stop_area:BIB:SA:212', depth=2)
+
     def test_one_stop_area_depth_3(self):
         self._pt_ref_call('stop_areas', 'stop_area:BIB:SA:212', depth=3)
 
     def test_one_stop_point_depth_1(self):
         self._pt_ref_call('stop_points', 'stop_point:BIB:SP:Nav504', depth=1)
+
     def test_one_stop_point_depth_2(self):
         self._pt_ref_call('stop_points', 'stop_point:BIB:SP:Nav504', depth=2)
+
     def test_one_stop_point_depth_3(self):
         self._pt_ref_call('stop_points', 'stop_point:BIB:SP:Nav504', depth=3)
 
     def test_one_network_has_code_bibus(self):
         self.api('networks?filter=network.has_code(source,bibus)')
+
     def test_one_network_has_code_1001(self):
         self.api('networks?filter=network.has_code(source,1001)')
+
     def test_one_network_has_code_rien(self):
         self.api('networks?filter=network.has_code(source,rien)')
+
     def test_one_network_external_code_bibus(self):
         self._api_call('networks?external_code=bibus', default_checker.default_checker)
+
     def test_one_network_external_code_BIB1006(self):
         self._api_call('networks?external_code=BIB1006', default_checker.default_checker)
+
     def test_one_network_external_code_rien(self):
         self._api_call('networks?external_code=rien', default_checker.default_checker)
+
     def test_one_network_depth_1(self):
         self._pt_ref_call('networks', 'network:bibus', depth=1)
+
     def test_one_network_depth_2(self):
         self._pt_ref_call('networks', 'network:bibus', depth=2)
+
     def test_one_network_depth_3(self):
         self._pt_ref_call('networks', 'network:bibus', depth=3)
 
     def test_one_route_depth_1(self):
         self._pt_ref_call('routes', 'route:BIB:Nav2092', depth=1)
+
     def test_one_route_depth_2(self):
         self._pt_ref_call('routes', 'route:BIB:Nav2092', depth=2)
+
     @xfail(reason="there is some instability on the order of the stoparea list", raises=AssertionError)
     def test_one_route_depth_3(self):
         self._pt_ref_call('routes', 'route:BIB:Nav2092', depth=3)
 
     def test_one_company_depth_1(self):
         self._pt_ref_call('companies', 'company:default_company', depth=1)
+
     def test_one_company_depth_2(self):
         self._pt_ref_call('companies', 'company:default_company', depth=2)
+
     def test_one_company_depth_3(self):
         self._pt_ref_call('companies', 'company:default_company', depth=3)
 
     def test_one_line_depth_1(self):
         self._pt_ref_call('lines', 'line:BIB:Nav1', depth=1)
+
     def test_one_line_depth_2(self):
         self._pt_ref_call('lines', 'line:BIB:Nav1', depth=2)
+
     def test_one_line_depth_3(self):
         self._pt_ref_call('lines', 'line:BIB:Nav1', depth=3)
 
     @xfail(reason="we need to filter journey pattern name, we can depend on some order, and we don't care", raises=AssertionError)
     def test_one_vj_depth_1(self):
         self._pt_ref_call('vehicle_journeys', 'vehicle_journey:BIBNUIT:44_dst_1', depth=1)
+
     @xfail(reason="we need to filter journey pattern name, we can depend on some order, and we don't care", raises=AssertionError)
     def test_one_vj_depth_2(self):
         self._pt_ref_call('vehicle_journeys', 'vehicle_journey:BIBNUIT:44_dst_1', depth=2)
+
     @xfail(reason="we need to filter journey pattern name, we can depend on some order, and we don't care", raises=AssertionError)
     def test_one_vj_depth_3(self):
         self._pt_ref_call('vehicle_journeys', 'vehicle_journey:BIBNUIT:44_dst_1', depth=3)
 
     def test_one_physical_mode_depth_1(self):
         self._pt_ref_call('physical_modes', 'physical_mode:Bus', depth=1)
+
     def test_one_physical_mode_depth_2(self):
         self._pt_ref_call('physical_modes', 'physical_mode:Bus', depth=2)
+
     def test_one_physical_mode_depth_3(self):
         self._pt_ref_call('physical_modes', 'physical_mode:Bus', depth=3)
 
     def test_one_commercial_mode_depth_1(self):
         self._pt_ref_call('commercial_modes', 'commercial_mode:bus', depth=1)
+
     def test_one_commercial_mode_depth_2(self):
         self._pt_ref_call('commercial_modes', 'commercial_mode:bus', depth=2)
+
     def test_one_commercial_mode_depth_3(self):
         self._pt_ref_call('commercial_modes', 'commercial_mode:bus', depth=3)
 
     def test_one_dataset_depth_1(self):
         self._pt_ref_call('datasets', 'BIB:0', depth=1)
+
     def test_one_dataset_depth_2(self):
         self._pt_ref_call('datasets', 'BIB:0', depth=2)
+
     def test_one_dataset_depth_3(self):
         self._pt_ref_call('datasets', 'BIB:0', depth=3)
 
     def test_one_contributor_depth_1(self):
         self._pt_ref_call('contributors', 'BIB', depth=1)
+
     def test_one_contributor_depth_2(self):
         self._pt_ref_call('contributors', 'BIB', depth=2)
+
     def test_one_contributor_depth_3(self):
         self._pt_ref_call('contributors', 'BIB', depth=3)
 
@@ -208,3 +237,53 @@ class TestBibus(ArtemisTestFixture):
 
     def test_arrivals(self):
         self.api('stop_areas/stop_area:BIB:SA:212/arrivals?from_datetime=20041106T100000')
+
+
+@set_scenario({"bibus": {"scenario": "default"}})
+class TestBibusDefault(Bibus, ArtemisTestFixture):
+    pass
+
+@set_scenario({"bibus": {"scenario": "new_default"}})
+class TestBibusNewDefault(Bibus, ArtemisTestFixture):
+
+    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
+    def test_bibus_03(self):
+        super(TestBibusNewDefault, self).test_bibus_03()
+
+    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
+    def test_bibus_04(self):
+        super(TestBibusNewDefault, self).test_bibus_04()
+
+    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
+    def test_bibus_09(self):
+        super(TestBibusNewDefault, self).test_bibus_09()
+
+@set_scenario({"bibus": {"scenario": "experimental"}})
+class TestBibusExperimental(Bibus, ArtemisTestFixture):
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_bibus_01(self):
+        super(TestBibusExperimental, self).test_bibus_01()
+
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_bibus_02(self):
+        super(TestBibusExperimental, self).test_bibus_02()
+
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_bibus_03(self):
+        super(TestBibusExperimental, self).test_bibus_03()
+
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_bibus_04(self):
+        super(TestBibusExperimental, self).test_bibus_04()
+
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_bibus_06(self):
+        super(TestBibusExperimental, self).test_bibus_06()
+
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_bibus_09(self):
+        super(TestBibusExperimental, self).test_bibus_09()
+
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_bibus_10(self):
+        super(TestBibusExperimental, self).test_bibus_10()

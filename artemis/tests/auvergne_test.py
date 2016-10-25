@@ -1,7 +1,9 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
+import pytest
+xfail = pytest.mark.xfail
 
-@dataset([DataSet("fr-auv", scenario='new_default')])
-class TestAuvergne(ArtemisTestFixture):
+@dataset([DataSet("fr-auv")])
+class Auvergne(object):
     """
     test for new_default with data from auvergne
     """
@@ -49,3 +51,19 @@ class TestAuvergne(ArtemisTestFixture):
                      first_section_mode=['bike', 'bss', 'walking', 'car'],
                      last_section_mode=['walking'],
                      min_nb_journeys=3)
+
+
+@set_scenario({"fr-auv": {"scenario": "new_default"}})
+class TestAuvergneNewDefault(Auvergne, ArtemisTestFixture):
+    pass
+
+
+@set_scenario({"fr-auv": {"scenario": "experimental"}})
+class TestAuvergneExperimental(Auvergne, ArtemisTestFixture):
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_auvergne_02(self):
+        super(TestAuvergneExperimental, self).test_auvergne_02()
+
+    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+    def test_auvergne_03(self):
+        super(TestAuvergneExperimental, self).test_auvergne_03()

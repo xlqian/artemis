@@ -1,9 +1,11 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 import pytest
+
 xfail = pytest.mark.xfail
 
-@dataset([DataSet("fr-pdl", scenario='destineo')])
-class TestDestineo(ArtemisTestFixture):
+
+@dataset([DataSet("fr-pdl")])
+class Destineo(object):
     """
     test for destineo with their custom scenario
     """
@@ -139,3 +141,8 @@ class TestDestineo(ArtemisTestFixture):
                      first_section_mode=['walking', 'car'],
                      last_section_mode=['walking'],
                      min_nb_journeys=3, datetime_represents='departure', wheelchair=True)
+
+
+@set_scenario({"fr-pdl": {"scenario": "destineo"}})
+class TestDestineo(Destineo, ArtemisTestFixture):
+    pass

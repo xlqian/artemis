@@ -1,8 +1,8 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 
 
 @dataset([DataSet("mdi")])
-class TestMDI(ArtemisTestFixture):
+class MDI(object):
     """
     TODO: put there comments about the dataset
     """
@@ -21,3 +21,17 @@ class TestMDI(ArtemisTestFixture):
     def test_mdi_04(self):
         self.journey(_from="stop_area:MDI:SA:2",
                      to="stop_area:MDI:SA:1", datetime="20070419T0700")
+
+
+@set_scenario({"mdi": {"scenario": "default"}})
+class TestMDIDefault(MDI, ArtemisTestFixture):
+    pass
+
+@set_scenario({"mdi": {"scenario": "new_default"}})
+class TestMDINewDefault(MDI, ArtemisTestFixture):
+    pass
+
+
+@set_scenario({"mdi": {"scenario": "experimental"}})
+class TestMDIExperimental(MDI, ArtemisTestFixture):
+    pass
