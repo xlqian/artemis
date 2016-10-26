@@ -162,6 +162,9 @@ class ArtemisTestFixture:
 
         Launch all necessary services to have a running navitia solution
         """
+
+        cls.kill_the_krakens()
+        
         cls.run_additional_service()
 
         # clean kirin database
