@@ -141,7 +141,7 @@ class ArtemisTestFixture:
         self.test_counter = defaultdict(int)
 
     @classmethod
-    @pytest.yield_fixture(scope='module', autouse=True)
+    @pytest.yield_fixture(scope='class', autouse=True)
     def my_method_setup(cls, request):
         """
         method called once for each fixture
@@ -163,8 +163,6 @@ class ArtemisTestFixture:
         Launch all necessary services to have a running navitia solution
         """
 
-        cls.kill_the_krakens()
-        
         cls.run_additional_service()
 
         # clean kirin database
