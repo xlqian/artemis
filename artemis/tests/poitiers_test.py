@@ -85,8 +85,4 @@ class TestPoitiersNewDefault(Poitiers, ArtemisTestFixture):
 
 @set_scenario({"poitiers": {"scenario": "experimental"}})
 class TestPoitiersExperimental(Poitiers, ArtemisTestFixture):
-    def test_poitiers_04(self):
-        super(TestPoitiersExperimental, self).test_poitiers_04()
-
-    def test_poitiers_05(self):
-        super(TestPoitiersExperimental, self).test_poitiers_05()
+    pass

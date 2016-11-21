@@ -60,8 +60,4 @@ class TestAuvergneNewDefault(Auvergne, ArtemisTestFixture):
 
 @set_scenario({"fr-auv": {"scenario": "experimental"}})
 class TestAuvergneExperimental(Auvergne, ArtemisTestFixture):
-    def test_auvergne_02(self):
-        super(TestAuvergneExperimental, self).test_auvergne_02()
-
-    def test_auvergne_03(self):
-        super(TestAuvergneExperimental, self).test_auvergne_03()
+    pass
