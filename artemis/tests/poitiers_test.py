@@ -85,9 +85,8 @@ class TestPoitiersNewDefault(Poitiers, ArtemisTestFixture):
 
 @set_scenario({"poitiers": {"scenario": "experimental"}})
 class TestPoitiersExperimental(Poitiers, ArtemisTestFixture):
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
     def test_poitiers_04(self):
         super(TestPoitiersExperimental, self).test_poitiers_04()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
+
     def test_poitiers_05(self):
         super(TestPoitiersExperimental, self).test_poitiers_05()
