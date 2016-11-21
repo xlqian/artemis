@@ -60,10 +60,4 @@ class TestAuvergneNewDefault(Auvergne, ArtemisTestFixture):
 
 @set_scenario({"fr-auv": {"scenario": "experimental"}})
 class TestAuvergneExperimental(Auvergne, ArtemisTestFixture):
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_auvergne_02(self):
-        super(TestAuvergneExperimental, self).test_auvergne_02()
-
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_auvergne_03(self):
-        super(TestAuvergneExperimental, self).test_auvergne_03()
+    pass

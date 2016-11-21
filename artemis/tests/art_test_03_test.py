@@ -18,12 +18,12 @@ class ArtTest03(object):
 class TestTest03Default(ArtTest03, ArtemisTestFixture):
     pass
 
+
 @set_scenario({"test-03": {"scenario": "new_default"}})
 class TestTest03NewDefault(ArtTest03, ArtemisTestFixture):
     pass
 
 
-@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
 @set_scenario({"test-03": {"scenario": "experimental"}})
 class TestTest03Experimental(ArtTest03, ArtemisTestFixture):
     pass
