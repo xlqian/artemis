@@ -8,7 +8,6 @@ class Map(object):
     test walk transfert
     """
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1132", raises=AssertionError)
     def test_map_01(self):
         """
         test walk journey
@@ -17,7 +16,6 @@ class Map(object):
                      to="stop_area:MAP:SA:2",
                      datetime="20041210T070000")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1132", raises=AssertionError)
     def test_map_02(self):
         """
         test walk transfert at start
@@ -26,7 +24,6 @@ class Map(object):
                      to="stop_area:MAP:SA:3",
                      datetime="20041210T070000")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1132", raises=AssertionError)
     def test_map_03(self):
         """
         test walk transfert at start, at end
@@ -35,7 +32,6 @@ class Map(object):
                      to="stop_area:MAP:SA:4",
                      datetime="20041210T070000")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1132", raises=AssertionError)
     def test_map_04(self):
         """
         test walk transfert at start, in the middle
@@ -44,7 +40,6 @@ class Map(object):
                      to="stop_area:MAP:SA:5",
                      datetime="20041210T070000")
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1132", raises=AssertionError)
     def test_map_05(self):
         """
         test walk transfert at end
