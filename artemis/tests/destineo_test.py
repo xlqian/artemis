@@ -142,6 +142,12 @@ class Destineo(object):
                      last_section_mode=['walking'],
                      min_nb_journeys=3, datetime_represents='departure', wheelchair=True)
 
+    def test_destineo_autocomplete(self):
+        """
+        We want to find the street "rue de la Loire (Saint-Sébastien-sur-Loire)" as the first answer.
+
+        """
+        self.api('places?q=rue%20de%20la%20loire%20saint%20s%C3%A9bastien&count=1&')
 
 @set_scenario({"fr-pdl": {"scenario": "destineo"}})
 class TestDestineo(Destineo, ArtemisTestFixture):
