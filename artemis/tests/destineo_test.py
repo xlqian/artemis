@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 import pytest
 
@@ -144,7 +146,7 @@ class Destineo(object):
 
     def test_destineo_autocomplete(self):
         """
-        We want to find the street "rue de la Loire (Saint-Sébastien-sur-Loire)" as the first answer.
+        We want to find the street "rue de la Loire (Saint-Sebastien-sur-Loire)" as the first answer.
 
         """
         self.api('places?q=rue%20de%20la%20loire%20saint%20sebastien&count=1&')
