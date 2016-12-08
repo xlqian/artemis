@@ -180,12 +180,12 @@ class ArtemisTestFixture:
         cls.clean_jormun_db()
 
         if skip_bina:
-            logging.getLogger(__name__).warn("skipping binarization")
+            logging.getLogger(__name__).info("skipping binarization")
             return
 
         for data_set in cls.data_sets:
             if data_set.name in cls.dataset_binarized:
-                logging.getLogger(__name__).warn("binarization dataset {} has been done, skipping....".format(data_set))
+                logging.getLogger(__name__).debug("binarization dataset {} has been done, skipping....".format(data_set))
                 continue
             cls.remove_data_by_dataset(data_set)
             cls.update_data_by_dataset(data_set)
@@ -258,7 +258,7 @@ class ArtemisTestFixture:
 
             #we add the instances in the table
             for data_set in cls.data_sets:
-                cur.execute("INSERT INTO instance (name, is_free, scenario) VALUES ('{}', true, '{}');".format(data_set.name, data_set.scenario))
+                cur.execute("INSERT INTO instance (name, is_free, is_open_data, scenario) VALUES ('{}', true, false, '{}');".format(data_set.name, data_set.scenario))
 
             conn.commit()
             logging.getLogger(__name__).debug("query done")
