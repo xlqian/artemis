@@ -52,6 +52,22 @@ class Auvergne(object):
                      last_section_mode=['walking'],
                      min_nb_journeys=3)
 
+    def test_auvergne_admin_to_station(self):
+        """
+        test the admin to station
+        starts from a small town near Clermont-ferrand to the clermont's station
+
+        The response should be the same for new_default and experimental
+
+        We should be able to:
+           * crow fly directly from the main Cebazat stations
+           * have a direct path from the center of the town
+        """
+        self.journey(_from="admin:110629",
+                     to="stop_area:SNC:SA:SAOCE87734004", datetime="20160117T120000",
+                     first_section_mode=['walking', 'car'],
+                     last_section_mode=['walking'])
+
 
 @set_scenario({"fr-auv": {"scenario": "new_default"}})
 class TestAuvergneNewDefault(Auvergne, ArtemisTestFixture):
