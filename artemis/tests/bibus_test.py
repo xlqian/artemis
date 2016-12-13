@@ -238,6 +238,11 @@ class Bibus(object):
     def test_arrivals(self):
         self.api('stop_areas/stop_area:BIB:SA:212/arrivals?from_datetime=20041106T100000')
 
+    def test_geo_status(self):
+        """
+        check geodata sources and volume
+        """
+        self.api('_geo_status')
 
 @set_scenario({"bibus": {"scenario": "default"}})
 class TestBibusDefault(Bibus, ArtemisTestFixture):

@@ -150,6 +150,12 @@ class Destineo(object):
 
         """
         self.api('places?q=rue%20de%20la%20loire%20saint%20sebastien&count=1&')
+        
+    def test_geo_status(self):
+        """
+        check geodata sources and volume
+        """
+        self.api('_geo_status')
 
 @set_scenario({"fr-pdl": {"scenario": "destineo"}})
 class TestDestineo(Destineo, ArtemisTestFixture):
