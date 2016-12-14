@@ -52,6 +52,12 @@ class Auvergne(object):
                      last_section_mode=['walking'],
                      min_nb_journeys=3)
 
+    def test_geo_status(self):
+        """
+        check geodata sources and volume
+        """
+        self.api('_geo_status')
+
     def test_auvergne_admin_to_station(self):
         """
         test the admin to station
