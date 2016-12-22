@@ -52,6 +52,4 @@ class TestRebroussementNewDefault(Rebroussement, ArtemisTestFixture):
 
 @set_scenario({"rebroussement": {"scenario": "experimental"}})
 class TestRebroussementExperimental(Rebroussement, ArtemisTestFixture):
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_rebroussement_07(self):
-        super(TestRebroussementExperimental, self).test_rebroussement_07()
+    pass
