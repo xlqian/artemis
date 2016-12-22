@@ -130,12 +130,6 @@ class TestSherbrookeExperimental(Sherbrooke, ArtemisTestFixture):
     def test_sherbrooke_11(self):
         super(TestSherbrookeExperimental, self).test_sherbrooke_11()
     @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_sherbrooke_12(self):
-        super(TestSherbrookeExperimental, self).test_sherbrooke_12()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_sherbrooke_13(self):
-        super(TestSherbrookeExperimental, self).test_sherbrooke_13()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
     def test_sherbrooke_14(self):
         super(TestSherbrookeExperimental, self).test_sherbrooke_14()
     @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
