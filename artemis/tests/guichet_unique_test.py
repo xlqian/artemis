@@ -213,24 +213,3 @@ class TestGuichetUniqueExperimental(GuichetUnique, ArtemisTestFixture):
     @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
     def test_guichet_unique_caen_to_marseille(self):
         super(TestGuichetUniqueExperimental, self).test_guichet_unique_caen_to_marseille()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_guichet_unique_paris_to_rouen(self):
-        super(TestGuichetUniqueExperimental, self).test_guichet_unique_paris_to_rouen()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_guichet_unique_caen_to_brest(self):
-        super(TestGuichetUniqueExperimental, self).test_guichet_unique_caen_to_brest()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_guichet_unique_reims_to_paris(self):
-        super(TestGuichetUniqueExperimental, self).test_guichet_unique_reims_to_paris()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_guichet_unique_avignon_to_marseille(self):
-        super(TestGuichetUniqueExperimental, self).test_guichet_unique_avignon_to_marseille()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_guichet_unique_paris_to_avignon(self):
-        super(TestGuichetUniqueExperimental, self).test_guichet_unique_paris_to_avignon()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_guichet_unique_paris_to_ay(self):
-        super(TestGuichetUniqueExperimental, self).test_guichet_unique_paris_to_ay()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_guichet_unique_paris_to_Avenay_Val_d_Or(self):
-        super(TestGuichetUniqueExperimental, self).test_guichet_unique_paris_to_Avenay_Val_d_Or()
