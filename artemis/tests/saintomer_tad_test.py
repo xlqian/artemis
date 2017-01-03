@@ -83,7 +83,6 @@ class TestSaintOmerNewDefault(SaintOmer, ArtemisTestFixture):
     pass
 
 
-@xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
 @set_scenario({"saintomer": {"scenario": "experimental"}})
 class TestSaintOmerExperimental(SaintOmer, ArtemisTestFixture):
     pass
