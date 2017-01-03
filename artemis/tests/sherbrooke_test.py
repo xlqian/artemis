@@ -106,41 +106,14 @@ class TestSherbrookeExperimental(Sherbrooke, ArtemisTestFixture):
     def test_sherbrooke_02(self):
         super(TestSherbrookeExperimental, self).test_sherbrooke_02()
     @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_sherbrooke_03(self):
-        super(TestSherbrookeExperimental, self).test_sherbrooke_03()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
     def test_sherbrooke_04(self):
         super(TestSherbrookeExperimental, self).test_sherbrooke_04()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_sherbrooke_05(self):
-        super(TestSherbrookeExperimental, self).test_sherbrooke_05()
     @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
     def test_sherbrooke_06(self):
         super(TestSherbrookeExperimental, self).test_sherbrooke_06()
     @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_sherbrooke_07(self):
-        super(TestSherbrookeExperimental, self).test_sherbrooke_07()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_sherbrooke_09(self):
-        super(TestSherbrookeExperimental, self).test_sherbrooke_09()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
     def test_sherbrooke_10(self):
         super(TestSherbrookeExperimental, self).test_sherbrooke_10()
     @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_sherbrooke_11(self):
-        super(TestSherbrookeExperimental, self).test_sherbrooke_11()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_sherbrooke_12(self):
-        super(TestSherbrookeExperimental, self).test_sherbrooke_12()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_sherbrooke_13(self):
-        super(TestSherbrookeExperimental, self).test_sherbrooke_13()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
     def test_sherbrooke_14(self):
         super(TestSherbrookeExperimental, self).test_sherbrooke_14()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_sherbrooke_15_sp_to_sp_with_walking(self):
-        super(TestSherbrookeExperimental, self).test_sherbrooke_15_sp_to_sp_with_walking()
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_sherbrooke_16_sp_to_sp_without_walking(self):
-        super(TestSherbrookeExperimental, self).test_sherbrooke_16_sp_to_sp_without_walking()
