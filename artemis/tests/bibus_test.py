@@ -244,51 +244,17 @@ class Bibus(object):
         """
         self.api('_geo_status')
 
+
 @set_scenario({"bibus": {"scenario": "default"}})
 class TestBibusDefault(Bibus, ArtemisTestFixture):
     pass
 
+
 @set_scenario({"bibus": {"scenario": "new_default"}})
 class TestBibusNewDefault(Bibus, ArtemisTestFixture):
+    pass
 
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_bibus_03(self):
-        super(TestBibusNewDefault, self).test_bibus_03()
-
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_bibus_04(self):
-        super(TestBibusNewDefault, self).test_bibus_04()
-
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_bibus_09(self):
-        super(TestBibusNewDefault, self).test_bibus_09()
 
 @set_scenario({"bibus": {"scenario": "experimental"}})
 class TestBibusExperimental(Bibus, ArtemisTestFixture):
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_bibus_01(self):
-        super(TestBibusExperimental, self).test_bibus_01()
-
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_bibus_02(self):
-        super(TestBibusExperimental, self).test_bibus_02()
-
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_bibus_03(self):
-        super(TestBibusExperimental, self).test_bibus_03()
-
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_bibus_04(self):
-        super(TestBibusExperimental, self).test_bibus_04()
-
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_bibus_06(self):
-        super(TestBibusExperimental, self).test_bibus_06()
-
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_bibus_09(self):
-        super(TestBibusExperimental, self).test_bibus_09()
-
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_bibus_10(self):
-        super(TestBibusExperimental, self).test_bibus_10()
+    pass
