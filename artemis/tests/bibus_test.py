@@ -94,14 +94,14 @@ class Bibus(object):
                      datetime_represents="departure", walking_speed="0.83", max_duration_to_pt="1200",
                      max_duration="1500", max_transfers="0")
 
-    #Concerned Ticket: http://jira.canaltp.fr/browse/ITI-343
+    #Concerned Ticket: http://jira.canaltp.fr/browse/ITI-375
     @xfail(reason="This test needs a correction for experimental", raises=AssertionError)
     def test_from_unknown_object(self):
         self.journey(_from="stop_area:unexisting:",
                      to="stop_area:BIB:SA:9", datetime="20041214T000000",
                      datetime_represents="departure", walking_speed="0.83", max_duration_to_pt="1200")
 
-    #Concerned Ticket: http://jira.canaltp.fr/browse/ITI-343
+    #Concerned Ticket: http://jira.canaltp.fr/browse/ITI-375
     @xfail(reason="This test needs a correction for experimental", raises=AssertionError)
     def test_to_unknown_object(self):
         self.journey(_from="stop_area:BIB:SA:9",
