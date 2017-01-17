@@ -28,8 +28,13 @@ journey = {
     'type': fields.Raw,
 }
 
+error = {
+    'id': fields.Raw,
+    'message': fields.Raw
+}
+
 default_journey_checker = Checker(filters=[WhiteListMask(
-    mask={"journeys": fields.List(fields.Nested(journey))}
+    mask={"journeys": fields.List(fields.Nested(journey)), "error": fields.Nested(error)}
 )])
 
 

@@ -67,6 +67,55 @@ class Bibus(object):
                      to="stop_area:BIB:SA:170", datetime="20050607T114200",
                      datetime_represents="arrival", walking_speed="0.83", max_duration_to_pt="1200")
 
+    '''
+    Tests of responses with error message.
+    '''
+    def test_date_out_of_bound(self):
+        self.journey(_from="stop_area:BIB:SA:527",
+                     to="stop_area:BIB:SA:9", datetime="20051214T070000",
+                     datetime_represents="arrival", walking_speed="0.83", max_duration_to_pt="1200")
+
+    # There is not any stop_point within 50 seconds of walking period from origin
+    def test_no_origin(self):
+        self.journey(_from="poi:222500305513897_7",
+                     to="stop_area:BIB:SA:1210", datetime="20041214T220000",
+                     datetime_represents="departure", walking_speed="0.83", max_duration_to_pt="50")
+
+    # There is not any stop_point within 50 seconds of walking period from destination
+    def test_no_destination(self):
+        self.journey(_from="stop_area:BIB:SA:9",
+                     to="poi:222500305513897_7", datetime="20041214T220000",
+                     datetime_represents="departure", walking_speed="0.83", max_duration_to_pt="50")
+
+    # There is no solution without any correspondence and with max duration of 1500 seconds
+    def test_no_solution(self):
+        self.journey(_from="stop_area:BIB:SA:9",
+                     to="poi:222500305513897_7", datetime="20041214T000000",
+                     datetime_represents="departure", walking_speed="0.83", max_duration_to_pt="1200",
+                     max_duration="1500", max_transfers="0")
+
+    #Concerned Ticket: http://jira.canaltp.fr/browse/ITI-375
+    @xfail(reason="This test needs a correction for experimental", raises=AssertionError)
+    def test_from_unknown_object(self):
+        self.journey(_from="stop_area:unexisting:",
+                     to="stop_area:BIB:SA:9", datetime="20041214T000000",
+                     datetime_represents="departure", walking_speed="0.83", max_duration_to_pt="1200")
+
+    #Concerned Ticket: http://jira.canaltp.fr/browse/ITI-375
+    @xfail(reason="This test needs a correction for experimental", raises=AssertionError)
+    def test_to_unknown_object(self):
+        self.journey(_from="stop_area:BIB:SA:9",
+                     to="stop_area:unexisting:", datetime="20041214T000000",
+                     datetime_represents="departure", walking_speed="0.83", max_duration_to_pt="1200")
+
+    #Concerned Ticket: http://jira.canaltp.fr/browse/ITI-375
+    @xfail(reason="This test needs a correction for experimental", raises=AssertionError)
+    def test_no_origin_nor_destination(self):
+        self.journey(_from="-4.084801490596711;48.01533468818747",
+                     to="-4.080642851923755;47.97614436460814", datetime="20041214T000000",
+                     datetime_represents="departure", walking_speed="0.83", max_duration_to_pt="1200",
+                     max_transfers="0")
+
     def test_v1_end_point(self):
         """
         some retro-compatibility on global API calls
