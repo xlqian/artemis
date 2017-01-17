@@ -108,6 +108,14 @@ class Bibus(object):
                      to="stop_area:unexisting:", datetime="20041214T000000",
                      datetime_represents="departure", walking_speed="0.83", max_duration_to_pt="1200")
 
+    #Concerned Ticket: http://jira.canaltp.fr/browse/ITI-375
+    @xfail(reason="This test needs a correction for experimental", raises=AssertionError)
+    def test_no_origin_nor_destination(self):
+        self.journey(_from="-4.084801490596711;48.01533468818747",
+                     to="-4.080642851923755;47.97614436460814", datetime="20041214T000000",
+                     datetime_represents="departure", walking_speed="0.83", max_duration_to_pt="1200",
+                     max_transfers="0")
+
     def test_v1_end_point(self):
         """
         some retro-compatibility on global API calls
