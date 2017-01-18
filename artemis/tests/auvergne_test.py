@@ -21,7 +21,7 @@ class Auvergne(object):
         """
         http://jira.canaltp.fr/browse/NAVITIAII-2016
         """
-        self.journey(_from="admin:122692",
+        self.journey(_from="admin:fr:63135",
                      to="3.121833801269531;45.885276435738504", datetime="20160118T120300",
                      first_section_mode=['bike', 'bss', 'walking', 'car'],
                      last_section_mode=['walking'],
@@ -33,7 +33,7 @@ class Auvergne(object):
         """
         same that 02, but this time the nigth bus filter should remove walking solution since they are too late
         """
-        self.journey(_from="admin:122692",
+        self.journey(_from="admin:fr:63135",
                      to="3.121833801269531;45.885276435738504", datetime="20160118T120300",
                      first_section_mode=['bike', 'bss', 'walking', 'car'],
                      last_section_mode=['walking'],
@@ -68,7 +68,7 @@ class Auvergne(object):
            * crow fly directly from the main Cebazat stations
            * have a direct path from the center of the town
         """
-        self.journey(_from="admin:110629",
+        self.journey(_from="admin:fr:63063",
                      to="stop_area:SNC:SA:SAOCE87734004", datetime="20160117T120000",
                      first_section_mode=['walking', 'car'],
                      last_section_mode=['walking'])
