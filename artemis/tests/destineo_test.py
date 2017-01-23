@@ -26,8 +26,8 @@ class Destineo(object):
         """
         we go to "Pouzauges" from "La Mothe-Achard" nothing special with this one
         """
-        self.journey(_from="admin:85152",
-                     to="admin:85182", datetime="20141203T121000",
+        self.journey(_from="admin:fr:85152",
+                     to="admin:fr:85182", datetime="20141203T121000",
                      first_section_mode=['bike', 'bss', 'walking', 'car'],
                      last_section_mode=['bss'],
                      min_nb_journeys=3)
@@ -82,7 +82,7 @@ class Destineo(object):
         We don't want to take the same vjs but at different stop points, they should be filtered
         """
         self.journey(_from='stop_area:NAN:SA:COMM',
-                     to='admin:44066', datetime='20150124T200000',
+                     to='admin:fr:44066', datetime='20150124T200000',
                      first_section_mode=['walking', 'bike', 'bss', 'car'],
                      last_section_mode=['walking', 'bss'],
                      min_nb_journeys=3)
