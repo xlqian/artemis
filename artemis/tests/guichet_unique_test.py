@@ -231,7 +231,7 @@ class GuichetUnique(object):
                      data_freshness="realtime")
 
         # we also can find the disruption through the VJ
-        self.api('vehicle_journeys/vehicle_journey:OCE:SN866105F01002_dst_1/disruptions')
+        self.api('trips/OCE:SN866143F01001/disruptions')
 
         # we then send the partial delete
         last_rt_data_loaded = get_last_rt_loaded_time(COVERAGE)
@@ -251,7 +251,7 @@ class GuichetUnique(object):
                      data_freshness="realtime")
 
         # we still can find 1 (and only one) disruption (mixing delay and partial deletion)
-        self.api('vehicle_journeys/vehicle_journey:OCE:SN866105F01002_dst_1/disruptions')
+        self.api('trips/OCE:SN866143F01001/disruptions')
 
 
 @set_scenario({COVERAGE: {"scenario": "default"}})
