@@ -210,7 +210,10 @@ class GuichetUnique(object):
         Before the delay, we should take the train 866143 travelling from 19:54 to 20:42
         After the delay, we take the same train, travelling from 19:54 to 20:52 will be found
 
-        The partial deletion is on the last stops [Margaux, Moulis-Listrac and Pauillac]
+        The partial deletion is on the last stops [Macau, Margaux, Moulis-Listrac and Pauillac]
+        Note: only the departure from Macau is deleted
+        and in the IRE data the last stop is Lesparre, but it's not in the navitia's VJ (so we don't impact it)
+
         So after the partial deletion, we cannot take the same train, we take the train the day after (21/11)
         at 06:54 to 07:46
         """
