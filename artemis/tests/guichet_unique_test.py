@@ -197,6 +197,66 @@ class GuichetUnique(object):
                      data_freshness="realtime")
 
 
+    def test_kirin_delay_train_and_partial_delete(self):
+        """
+        test first to send a delay on a train
+
+        Then we send a partial delete (some stops are no longer served)
+
+        Requested departure: 2012/11/20 19:00
+        From: Bordeaux-St-Jean
+        To: Moulis-Listrac
+
+        Before the delay, we should take the train 866143 travelling from 19:54 to 20:42
+        After the delay, we take the same train, travelling from 19:54 to 20:52 will be found
+
+        The partial deletion is on the last stops [Macau, Margaux, Moulis-Listrac and Pauillac]
+        Note: only the departure from Macau is deleted
+        and in the IRE data the last stop is Lesparre, but it's not in the navitia's VJ (so we don't impact it)
+
+        So after the partial deletion, we cannot take the same train, we take the train the day after (21/11)
+        at 06:54 to 07:46
+        """
+        last_rt_data_loaded = get_last_rt_loaded_time(COVERAGE)
+        send_ire('trip_delay_866143.xml')
+        wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        # test that it is still OK in base-schedule
+        self.journey(_from="stop_area:OCE:SA:87581009",
+                     to="stop_area:OCE:SA:87581231",
+                     datetime="20121120T190000",
+                     data_freshness="base_schedule")
+
+        # test that the journey is delayed
+        self.journey(_from="stop_area:OCE:SA:87581009",
+                     to="stop_area:OCE:SA:87581231",
+                     datetime="20121120T190000",
+                     data_freshness="realtime")
+
+        # we also can find the disruption through the VJ
+        self.api('trips/OCE:SN866143F01001/disruptions')
+
+        # we then send the partial delete
+        last_rt_data_loaded = get_last_rt_loaded_time(COVERAGE)
+        send_ire('trip_partially_deleted_866143.xml')
+        wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        # test that it is still OK in base-schedule
+        self.journey(_from="stop_area:OCE:SA:87581009",
+                     to="stop_area:OCE:SA:87581231",
+                     datetime="20121120T190000",
+                     data_freshness="base_schedule")
+
+        # but now in real time we take the next train
+        self.journey(_from="stop_area:OCE:SA:87581009",
+                     to="stop_area:OCE:SA:87581231",
+                     datetime="20121120T190000",
+                     data_freshness="realtime")
+
+        # we still can find 1 (and only one) disruption (mixing delay and partial deletion)
+        self.api('trips/OCE:SN866143F01001/disruptions')
+
+
 @set_scenario({COVERAGE: {"scenario": "default"}})
 class TestGuichetUniqueDefault(GuichetUnique, ArtemisTestFixture):
     pass
