@@ -1,4 +1,3 @@
-
 from collections import defaultdict
 import inspect
 import logging
@@ -68,10 +67,10 @@ def get_ire_data(name):
 
 def get_last_rt_loaded_time(cov):
     _response, _ = utils.api("coverage/{cov}/status".format(cov=cov))
-    return _response['status']['last_rt_data_loaded']
+    return _response.get('status', {}).get('last_rt_data_loaded', object())
 
 
-@retry(stop_max_delay=20000, wait_fixed=500)
+@retry(stop_max_delay=25000, wait_fixed=500)
 def wait_for_rt_reload(last_rt_data_loaded, cov):
     if last_rt_data_loaded == get_last_rt_loaded_time(cov):
         raise Exception("kraken data is not loaded")
