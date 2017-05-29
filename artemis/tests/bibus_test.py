@@ -152,7 +152,7 @@ class Bibus(object):
     def test_one_stop_point_depth_3(self):
         self._pt_ref_call('stop_points', 'stop_point:BIB:SP:Nav504', depth=3)
 
-    def test_one_network_has_code_bibus(self):
+    def test_one_network_has_not_code_bibus(self):
         self.api('networks?filter=network.has_code(source,bibus)')
 
     def test_one_network_has_code_1001(self):
@@ -161,8 +161,8 @@ class Bibus(object):
     def test_one_network_has_code_rien(self):
         self.api('networks?filter=network.has_code(source,rien)')
 
-    def test_one_network_external_code_bibus(self):
-        self._api_call('networks?external_code=bibus', default_checker.default_checker)
+    def test_one_network_external_code_BIB1001(self):
+        self._api_call('networks?external_code=BIB1001', default_checker.default_checker)
 
     def test_one_network_external_code_BIB1006(self):
         self._api_call('networks?external_code=BIB1006', default_checker.default_checker)
