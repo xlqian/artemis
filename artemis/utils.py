@@ -1,6 +1,7 @@
 """
 Lots of helper functions to ease tests
 """
+import collections
 from collections import deque
 import os
 import itertools
@@ -191,11 +192,14 @@ def sort_all_list_dict(response):
     queue = deque()
 
     def magic_sort(elt):
-        to_check = [ARTEMIS_CUSTOM_ID, 'uri', 'id', 'label', 'name', 'href']
-        for field in to_check:
-            if field in elt:
-                yield elt[field]
-        yield elt
+        if not isinstance(elt, collections.Iterable):
+            yield elt
+        else:
+            to_check = [ARTEMIS_CUSTOM_ID, 'uri', 'id', 'label', 'name', 'href']
+            for field in to_check:
+                if field in elt:
+                    yield elt[field]
+            yield elt
 
     def add_elt(elt, first=False):
         if isinstance(elt, (list, tuple)):
