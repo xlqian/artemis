@@ -297,6 +297,15 @@ def is_subset(obj1, obj2):
         assert obj1 == obj2
         return
 
+    def compare_list(l1, l2):
+        assert type(l2) is list
+        for s1, s2 in zip(l1, l2):
+            is_subset(s1, s2)
+
+    if type(obj1) is list:
+        compare_list(obj1, obj2)
+        return
+
     for k, v in obj1.iteritems():
         assert k in obj2
 
@@ -304,9 +313,7 @@ def is_subset(obj1, obj2):
         if type(v) is dict:
             is_subset(v, v2)
         elif type(v) is list:
-            assert type(v2) is list
-            for s1, s2 in zip(v, v2):
-                is_subset(s1, s2)
+            compare_list(v, v2)
         else:
             assert v == v2
 
