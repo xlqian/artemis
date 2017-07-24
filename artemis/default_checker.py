@@ -52,6 +52,7 @@ DEFAULT_BLACKLIST_MASK = (('$..disruptions[*].disruption_uri', nullify_elem),
                           ('$..disruptions[*].uri', nullify_elem),
                           ('$..disruptions[*].id', nullify_elem),
                           ('$..disruptions[*].updated_at', nullify_elem),
+                          ('$..journeys[*].sections[*].id', nullify_elem),
                           ('$..href', replace_hyperlink))
 
 default_checker = Checker(filters=[RetrocompatibilityMask(),
