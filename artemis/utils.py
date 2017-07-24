@@ -241,7 +241,7 @@ def check_equals(a, b):
     assert a == b
 
 
-def is_subset(obj1, obj2):
+def is_subset(obj1, obj2, current_path=None):
     """
     Check that dict1 is a subset of dict2, so that each element of dict 1 is contained in dict2
 
@@ -260,7 +260,7 @@ def is_subset(obj1, obj2):
     >>> is_subset(bobette, bob)
     Traceback (most recent call last):
         ...
-    AssertionError: assert 'tete' in {'tata': [1, 2], 'titi': [{'a': 1}, {'b': 1}], 'toto': {'bob': 12, 'bobette': 13, 'nested_bob': {'bob': 3}}, 'tutu': 1}
+    AssertionError: 'tete' not in {'tutu': 1, 'toto': {'bobette': 13, 'bob': 12, 'nested_bob': {'bob': 3}}, 'titi': [{'a': 1}, {'b': 1}], 'tata': [1, 2]} in path []
 
     >>> is_subset({}, bob) # empty dict is a subset of all dict
 
@@ -272,12 +272,12 @@ def is_subset(obj1, obj2):
     >>> is_subset(bobette, modified_bobette)
     Traceback (most recent call last):
         ...
-    AssertionError: assert 3 == 'changed'
+    AssertionError: '3' != 'changed' in path ['toto', 'nested_bob', 'bob']
 
     >>> is_subset(modified_bobette, bobette)
     Traceback (most recent call last):
         ...
-    AssertionError: assert 'changed' == 3
+    AssertionError: 'changed' != '3' in path ['toto', 'nested_bob', 'bob']
 
     >>> multibob = {'multibob': [deepcopy(bob), deepcopy(bob)]}
 
@@ -291,31 +291,27 @@ def is_subset(obj1, obj2):
     >>> is_subset(multibob, modified_multibob)
     Traceback (most recent call last):
         ...
-    AssertionError: assert 'titi' in {'tata': [1, 2], 'toto': {'bob': 12, 'bobette': 13, 'nested_bob': {'bob': 3}}, 'tutu': 1}
+    AssertionError: 'titi' not in {'tutu': 1, 'toto': {'bobette': 13, 'bob': 12, 'nested_bob': {'bob': 3}}, 'tata': [1, 2]} in path ['multibob', '[1]']
     """
+    current_path = current_path or []
     if type(obj1) not in (dict, list) or type(obj2) != type(obj1):
-        assert obj1 == obj2
+        assert obj1 == obj2, "'{elt1}' != '{elt2}' in path {p}".format(elt1=obj1, elt2=obj2, p=current_path)
         return
 
     def compare_list(l1, l2):
-        assert type(l2) is list
-        for s1, s2 in zip(l1, l2):
-            is_subset(s1, s2)
+        assert type(l2) is list, '{l} is type{t} in path {p}'.format(l=l2, t=type(l2), p=current_path)
+        for idx, (s1, s2) in enumerate(zip(l1, l2)):
+            is_subset(s1, s2, current_path=current_path[:] + ['[{}]'.format(idx)])
 
     if type(obj1) is list:
         compare_list(obj1, obj2)
         return
 
     for k, v in obj1.iteritems():
-        assert k in obj2
+        assert k in obj2, "'{k}' not in {obj2} in path {p}".format(k=k, obj2=obj2, p=current_path)
 
         v2 = obj2[k]
-        if type(v) is dict:
-            is_subset(v, v2)
-        elif type(v) is list:
-            compare_list(v, v2)
-        else:
-            assert v == v2
+        is_subset(v, v2, current_path=current_path[:] + [k])
 
 
 class PerfectComparator(object):
