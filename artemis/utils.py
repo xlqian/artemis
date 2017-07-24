@@ -131,10 +131,14 @@ class BlackListMask(object):
     ... 'tata': [1, 2],
     ... 'toto': {'bob':12, 'bobette': 13, 'nested_bob': {'bob': 3}},
     ... 'tete': ('tuple1', ['ltuple1', 'ltuple2']),
-    ... 'titi': [{'a':1}, {'b':1}]}
+    ... 'titi': [{'a':1}, {'b':1, 'a': -1}]}
     >>> bl = BlackListMask([('$..bob', lambda x: None)])
     >>> print bl.filter(bobette)
-    {'tata': [1, 2], 'toto': {'bobette': 13, 'bob': None, 'nested_bob': {'bob': None}}, 'tutu': 1, 'tete': ('tuple1', ['ltuple1', 'ltuple2']), 'titi': [{'a': 1}, {'b': 1}]}
+    {'tata': [1, 2], 'toto': {'bobette': 13, 'bob': None, 'nested_bob': {'bob': None}}, 'tutu': 1, 'tete': ('tuple1', ['ltuple1', 'ltuple2']), 'titi': [{'a': 1}, {'a': -1, 'b': 1}]}
+    >>> from functools import partial
+    >>> bl = BlackListMask([('$.titi', partial(sorted, key=lambda x: x.get('a')))])
+    >>> print bl.filter(bobette).get('titi')
+    [{'a': -1, 'b': 1}, {'a': 1}]
     """
     def __init__(self, masks=[]):
         self.masks = masks
@@ -282,7 +286,7 @@ def is_subset(obj1, obj2, current_path=None):
     >>> is_subset(bobette, modified_bobette)
     Traceback (most recent call last):
         ...
-    AssertionError: type of 'initial' (<type 'str'>) != type of '3' (<type 'int'>) in path ['toto', 'nested_bob', 'bob']
+    AssertionError: 'initial' != '3' in path ['toto', 'nested_bob', 'bob']
 
     >>> multibob = {'multibob': [deepcopy(bob), deepcopy(bob)]}
 
@@ -299,15 +303,12 @@ def is_subset(obj1, obj2, current_path=None):
     AssertionError: 'titi' not in {'tutu': 1, 'toto': {'bobette': 13, 'bob': 12, 'nested_bob': {'bob': 'initial'}}, 'tata': [1, 2]} in path ['multibob', '[1]']
     """
     current_path = current_path or []
-    assert type(obj2) == type(obj1), "type of '{elt1}' ({t1}) != type of '{elt2}' ({t2}) in path {p}"\
-        .format(elt1=obj1, elt2=obj2, p=current_path, t1=type(obj1), t2=type(obj2))
-
-    if type(obj1) is list:
+    if type(obj1) is list and type(obj2) is list:
         for idx, (s1, s2) in enumerate(zip(obj1, obj2)):
             is_subset(s1, s2, current_path=current_path[:] + ['[{}]'.format(idx)])
         return
 
-    if type(obj1) is dict:
+    if type(obj1) is dict and type(obj2) is dict:
         for k, v in obj1.iteritems():
             assert k in obj2, "'{k}' not in {obj2} in path {p}".format(k=k, obj2=obj2, p=current_path)
 

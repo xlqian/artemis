@@ -413,7 +413,7 @@ class ArtemisTestFixture:
 
         if self.journey_full_response_comparison_mode:
             # we want to compare the journeys very thoroughly, check the non regression on the full_response
-            response_checker = default_checker.default_checker
+            response_checker = default_checker.journeys_retrocompatibility_checker
 
         self._api_call(query, response_checker)
 
