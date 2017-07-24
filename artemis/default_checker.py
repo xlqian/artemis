@@ -2,7 +2,7 @@ from functools import partial
 
 from flask.ext.restful import fields
 from artemis.utils import Checker, WhiteListMask, BlackListMask, SubsetComparator, RetrocompatibilityMask, \
-    StopScheduleIDGenerator
+    StopScheduleIDGenerator, PerfectComparator
 import re
 
 """
@@ -57,7 +57,11 @@ DEFAULT_BLACKLIST_MASK = (('$..disruptions[*].disruption_uri', nullify_elem),
                           ('$..journeys[*].sections[*].id', nullify_elem),
                           ('$..href', replace_hyperlink))
 
-JOURNEY_MASK = (('$.links', partial(sorted, key=lambda x: x.get('href'))),)
+JOURNEY_MASK = (
+    ('$.links', partial(sorted, key=lambda x: x.get('href'))),
+    # we consider that the admins list are not ordered
+    ('$..administrative_regions', partial(sorted, key=lambda x: x.get('id'))),
+)
 
 default_checker = Checker(filters=[RetrocompatibilityMask(),
                                    BlackListMask(DEFAULT_BLACKLIST_MASK)],
@@ -66,7 +70,7 @@ default_checker = Checker(filters=[RetrocompatibilityMask(),
 # for journeys we don't want to sort the lists
 journeys_retrocompatibility_checker = Checker(filters=[BlackListMask(DEFAULT_BLACKLIST_MASK),
                                                        BlackListMask(JOURNEY_MASK)],
-                                              comparator=SubsetComparator())
+                                              comparator=PerfectComparator())
 
 stop_schedule_checker = Checker(filters=[StopScheduleIDGenerator(),
                                          RetrocompatibilityMask(),
