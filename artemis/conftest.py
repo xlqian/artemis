@@ -17,7 +17,7 @@ def pytest_addoption(parser):
     """
     parser.addoption("--skip_cities", action="store_true", help="skip cities loading")
     parser.addoption("--skip_bina", action="store_true", help="skip binarization")
-    parser.addoption("--nazi", action="store_true", help="journeys comparison is made on full response")
+    parser.addoption("--hard_journey_check", action="store_true", help="journeys comparison is made on full response")
 
 
 @pytest.fixture(scope="session", autouse=True)

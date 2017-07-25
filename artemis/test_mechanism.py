@@ -149,7 +149,7 @@ class ArtemisTestFixture:
         """
         logging.getLogger(__name__).debug("Setting up the tests {}".format(cls.__name__))
         cls.init_fixture(skip_bina=request.config.getvalue("skip_bina"),
-                         journey_full_response_comparison_mode=request.config.getvalue("nazi"))
+                         journey_full_response_comparison_mode=request.config.getvalue("hard_journey_check"))
         logging.getLogger(__name__).debug("Running the tests {}".format(cls.__name__))
         yield
         logging.getLogger(__name__).debug("Cleaning up the tests {}".format(cls.__name__))
