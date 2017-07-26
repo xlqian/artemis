@@ -148,19 +148,28 @@ class ArtemisTestFixture:
         Handle init and teardown of the fixture
         """
         logging.getLogger(__name__).debug("Setting up the tests {}".format(cls.__name__))
-        cls.init_fixture(skip_bina=request.config.getvalue("skip_bina"))
+        cls.init_fixture(skip_bina=request.config.getvalue("skip_bina"),
+                         journey_full_response_comparison_mode=request.config.getvalue("hard_journey_check"))
         logging.getLogger(__name__).debug("Running the tests {}".format(cls.__name__))
         yield
         logging.getLogger(__name__).debug("Cleaning up the tests {}".format(cls.__name__))
         cls.clean_fixture()
 
     @classmethod
-    def init_fixture(cls, skip_bina):
+    def init_fixture(cls, skip_bina, journey_full_response_comparison_mode):
         """
         Method called once before running the tests of the fixture
 
         Launch all necessary services to have a running navitia solution
+        :param skip_bina to use the already done binarization
+        :param journey_full_response_comparison_mode if set to True will compare the journeys
+        on the full_response with the no regression mode (like the other apis)
+        This should be used only occasionally as the journey response are prone to changes
         """
+        # we store the variable to use it a test time
+        if journey_full_response_comparison_mode:
+            logging.getLogger(__name__).warning("Nazi journeys comparison activated")
+        cls.journey_full_response_comparison_mode = journey_full_response_comparison_mode
 
         cls.run_additional_service()
 
@@ -401,6 +410,10 @@ class ArtemisTestFixture:
             # Note: this should not be mandatory, but since there are still bugs with the global journey API
             # we use this for the moment.
             query = "coverage/{region}/journeys?{q}".format(region=self.__class__.data_sets[0].name, q=query)
+
+        if self.journey_full_response_comparison_mode:
+            # we want to compare the journeys very thoroughly, check the non regression on the full_response
+            response_checker = default_checker.journeys_retrocompatibility_checker
 
         self._api_call(query, response_checker)
 

@@ -1,6 +1,7 @@
 """
 Lots of helper functions to ease tests
 """
+import collections
 from collections import deque
 import os
 import itertools
@@ -130,10 +131,14 @@ class BlackListMask(object):
     ... 'tata': [1, 2],
     ... 'toto': {'bob':12, 'bobette': 13, 'nested_bob': {'bob': 3}},
     ... 'tete': ('tuple1', ['ltuple1', 'ltuple2']),
-    ... 'titi': [{'a':1}, {'b':1}]}
+    ... 'titi': [{'a':1}, {'b':1, 'a': -1}]}
     >>> bl = BlackListMask([('$..bob', lambda x: None)])
     >>> print bl.filter(bobette)
-    {'tata': [1, 2], 'toto': {'bobette': 13, 'bob': None, 'nested_bob': {'bob': None}}, 'tutu': 1, 'tete': ('tuple1', ['ltuple1', 'ltuple2']), 'titi': [{'a': 1}, {'b': 1}]}
+    {'tata': [1, 2], 'toto': {'bobette': 13, 'bob': None, 'nested_bob': {'bob': None}}, 'tutu': 1, 'tete': ('tuple1', ['ltuple1', 'ltuple2']), 'titi': [{'a': 1}, {'a': -1, 'b': 1}]}
+    >>> from functools import partial
+    >>> bl = BlackListMask([('$.titi', partial(sorted, key=lambda x: x.get('a')))])
+    >>> print bl.filter(bobette).get('titi')
+    [{'a': -1, 'b': 1}, {'a': 1}]
     """
     def __init__(self, masks=[]):
         self.masks = masks
@@ -191,11 +196,14 @@ def sort_all_list_dict(response):
     queue = deque()
 
     def magic_sort(elt):
-        to_check = [ARTEMIS_CUSTOM_ID, 'uri', 'id', 'label', 'name', 'href']
-        for field in to_check:
-            if field in elt:
-                yield elt[field]
-        yield elt
+        if not isinstance(elt, collections.Iterable):
+            yield elt
+        else:
+            to_check = [ARTEMIS_CUSTOM_ID, 'uri', 'id', 'label', 'name', 'href']
+            for field in to_check:
+                if field in elt:
+                    yield elt[field]
+            yield elt
 
     def add_elt(elt, first=False):
         if isinstance(elt, (list, tuple)):
@@ -237,13 +245,13 @@ def check_equals(a, b):
     assert a == b
 
 
-def is_subset(obj1, obj2):
+def is_subset(obj1, obj2, current_path=None):
     """
     Check that dict1 is a subset of dict2, so that each element of dict 1 is contained in dict2
 
     >>> bobette = {'tutu': 1,
     ... 'tata': [1, 2],
-    ... 'toto': {'bob':12, 'bobette': 13, 'nested_bob': {'bob': 3}},
+    ... 'toto': {'bob':12, 'bobette': 13, 'nested_bob': {'bob': 'initial'}},
     ... 'tete': ('tuple1', ['ltuple1', 'ltuple2']),
     ... 'titi': [{'a':1}, {'b':1}]}
 
@@ -256,7 +264,7 @@ def is_subset(obj1, obj2):
     >>> is_subset(bobette, bob)
     Traceback (most recent call last):
         ...
-    AssertionError: assert 'tete' in {'tata': [1, 2], 'titi': [{'a': 1}, {'b': 1}], 'toto': {'bob': 12, 'bobette': 13, 'nested_bob': {'bob': 3}}, 'tutu': 1}
+    AssertionError: 'tete' not in {'tutu': 1, 'toto': {'bobette': 13, 'bob': 12, 'nested_bob': {'bob': 'initial'}}, 'titi': [{'a': 1}, {'b': 1}], 'tata': [1, 2]} in path []
 
     >>> is_subset({}, bob) # empty dict is a subset of all dict
 
@@ -268,12 +276,17 @@ def is_subset(obj1, obj2):
     >>> is_subset(bobette, modified_bobette)
     Traceback (most recent call last):
         ...
-    AssertionError: assert 3 == 'changed'
+    AssertionError: 'initial' != 'changed' in path ['toto', 'nested_bob', 'bob']
 
     >>> is_subset(modified_bobette, bobette)
     Traceback (most recent call last):
         ...
-    AssertionError: assert 'changed' == 3
+    AssertionError: 'changed' != 'initial' in path ['toto', 'nested_bob', 'bob']
+    >>> modified_bobette['toto']['nested_bob']['bob'] = 3 # test with a different type
+    >>> is_subset(bobette, modified_bobette)
+    Traceback (most recent call last):
+        ...
+    AssertionError: 'initial' != '3' in path ['toto', 'nested_bob', 'bob']
 
     >>> multibob = {'multibob': [deepcopy(bob), deepcopy(bob)]}
 
@@ -287,24 +300,23 @@ def is_subset(obj1, obj2):
     >>> is_subset(multibob, modified_multibob)
     Traceback (most recent call last):
         ...
-    AssertionError: assert 'titi' in {'tata': [1, 2], 'toto': {'bob': 12, 'bobette': 13, 'nested_bob': {'bob': 3}}, 'tutu': 1}
+    AssertionError: 'titi' not in {'tutu': 1, 'toto': {'bobette': 13, 'bob': 12, 'nested_bob': {'bob': 'initial'}}, 'tata': [1, 2]} in path ['multibob', '[1]']
     """
-    if type(obj1) not in (dict, list) or type(obj2) != type(obj1):
-        assert obj1 == obj2
+    current_path = current_path or []
+    if type(obj1) is list and type(obj2) is list:
+        for idx, (s1, s2) in enumerate(zip(obj1, obj2)):
+            is_subset(s1, s2, current_path=current_path[:] + ['[{}]'.format(idx)])
         return
 
-    for k, v in obj1.iteritems():
-        assert k in obj2
+    if type(obj1) is dict and type(obj2) is dict:
+        for k, v in obj1.iteritems():
+            assert k in obj2, "'{k}' not in {obj2} in path {p}".format(k=k, obj2=obj2, p=current_path)
 
-        v2 = obj2[k]
-        if type(v) is dict:
-            is_subset(v, v2)
-        elif type(v) is list:
-            assert type(v2) is list
-            for s1, s2 in zip(v, v2):
-                is_subset(s1, s2)
-        else:
-            assert v == v2
+            v2 = obj2[k]
+            is_subset(v, v2, current_path=current_path[:] + [k])
+        return
+
+    assert obj1 == obj2, "'{elt1}' != '{elt2}' in path {p}".format(elt1=obj1, elt2=obj2, p=current_path)
 
 
 class PerfectComparator(object):
