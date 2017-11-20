@@ -171,6 +171,8 @@ class ArtemisTestFixture:
             logging.getLogger(__name__).warning("Nazi journeys comparison activated")
         cls.journey_full_response_comparison_mode = journey_full_response_comparison_mode
 
+        cls.kill_jormungandr()
+
         cls.run_additional_service()
 
         # clean kirin database
@@ -245,7 +247,6 @@ class ArtemisTestFixture:
         logging.getLogger(__name__).debug("Tearing down the tests {}, time to clean up"
                                           .format(cls.__name__))
         cls.kill_the_krakens()
-        cls.kill_jormungandr()
 
     @classmethod
     def run_additional_service(cls):
