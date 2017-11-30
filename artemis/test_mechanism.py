@@ -303,7 +303,9 @@ class ArtemisTestFixture:
         """
         logging.getLogger(__name__).debug("running jormungandr")
         # jormungandr is launched with apache
+        utils.launch_exec('sudo service apache2 status')
         ret, _ = utils.launch_exec('sudo service apache2 start')
+        utils.launch_exec('sudo service apache2 status')
 
         assert ret == 0, "cannot start apache"
 
@@ -322,7 +324,9 @@ class ArtemisTestFixture:
     @classmethod
     def kill_jormungandr(cls):
         logging.getLogger(__name__).debug("killing jormungandr")
+        utils.launch_exec('sudo service apache2 status')
         ret, _ = utils.launch_exec('sudo service apache2 stop')
+        utils.launch_exec('sudo service apache2 status')
 
         assert ret == 0, "cannot stop apache"
 
