@@ -11,6 +11,18 @@ The default behaviour for journeys is to check only a subset journey
 the mask create a new dict filtering only the wanted elt
 """
 
+distances = {
+	'bike': fields.Raw,
+	'car': fields.Raw,
+	'walking': fields.Raw
+}
+
+durations = {
+	'bike': fields.Raw,
+	'car': fields.Raw,
+	'total': fields.Raw,
+	'walking': fields.Raw
+}
 
 section = {
     "duration": fields.Raw,
@@ -26,6 +38,8 @@ journey = {
     'nb_transfers': fields.Raw,
     'departure_date_time': fields.Raw,
     'arrival_date_time': fields.Raw,
+	'distances': fields.Nested(distances),
+	'durations': fields.Nested(durations),
     'sections': fields.List(fields.Nested(section)),
     'type': fields.Raw,
 }
