@@ -1,6 +1,5 @@
 
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, \
-    send_ire, get_last_rt_loaded_time, wait_for_rt_reload, set_scenario
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 import pytest
 
 xfail = pytest.mark.xfail
@@ -126,12 +125,12 @@ class GuichetUnique(object):
         Before the cancellation, we should find a train travelling from 16:37 to 19:50
         After the cancellation, a train travelling from 17:07 to 20:24 will be found
         """
-        last_rt_data_loaded = get_last_rt_loaded_time(COVERAGE)
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
 
         # TGV
-        send_ire('trip_removal_tgv_6121.xml')
+        self.send_ire('trip_removal_tgv_6121.xml')
 
-        wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
         # test that it is still OK in base-schedule
         self.journey(_from="stop_area:OCE:SA:87686006",
@@ -167,12 +166,12 @@ class GuichetUnique(object):
 
         After the cancellation, a train travelling from 18:19 to 21:29 should be found
         """
-        last_rt_data_loaded = get_last_rt_loaded_time(COVERAGE)
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
 
         for i in range(5):
-            send_ire('trip_removal_tgv_6123.xml')
+            self.send_ire('trip_removal_tgv_6123.xml')
 
-        wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
         self.journey(_from="stop_area:OCE:SA:87686006",
                      to="stop_area:OCE:SA:87751008",
@@ -184,12 +183,12 @@ class GuichetUnique(object):
         now we'll test the case where kraken is run from scratch and the previous
         IRE should be taken into account
         """
-        last_rt_data_loaded = get_last_rt_loaded_time(COVERAGE)
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
 
         self.kill_the_krakens()
         self.pop_krakens()
 
-        wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
         self.journey(_from="stop_area:OCE:SA:87686006",
                      to="stop_area:OCE:SA:87751008",
@@ -217,9 +216,9 @@ class GuichetUnique(object):
         So after the partial deletion, we cannot take the same train, we take the train the day after (21/11)
         at 06:54 to 07:46
         """
-        last_rt_data_loaded = get_last_rt_loaded_time(COVERAGE)
-        send_ire('trip_delay_866143.xml')
-        wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_ire('trip_delay_866143.xml')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
         # test that it is still OK in base-schedule
         self.journey(_from="stop_area:OCE:SA:87581009",
@@ -237,9 +236,9 @@ class GuichetUnique(object):
         self.api('trips/OCE:SN866143F01001/disruptions')
 
         # we then send the partial delete
-        last_rt_data_loaded = get_last_rt_loaded_time(COVERAGE)
-        send_ire('trip_partially_deleted_866143.xml')
-        wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_ire('trip_partially_deleted_866143.xml')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
         # test that it is still OK in base-schedule
         self.journey(_from="stop_area:OCE:SA:87581009",

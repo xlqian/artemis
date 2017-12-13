@@ -81,9 +81,11 @@ def get_ref(call_id):
 
 def get_ref_full_response(call_id):
     all_ref_dict = get_ref(call_id)
-
     return all_ref_dict['full_response']
 
+def get_ref_short_response(call_id):
+    all_ref_dict = get_ref(call_id)
+    return all_ref_dict['response']
 
 def compare_with_ref(resp, call_id, checker):
     """
@@ -97,7 +99,35 @@ def compare_with_ref(resp, call_id, checker):
     # differences when the output or the mask change
     ref = checker.filter(ref_full_response)
 
+    # first check that short response matches
+    check_reference_consistency(call_id, checker)
+
     checker.compare(resp, ref)
+
+
+def check_reference_consistency(call_id, checker):
+    """
+    check that short response in ref matches full response
+    """
+    ref_full_response = get_ref_full_response(call_id)
+    ref = checker.filter(ref_full_response)
+    short_ref = get_ref_short_response(call_id)
+    is_ok = True
+    try:
+        checker.compare(ref, short_ref)
+    except Exception as e:
+        is_ok = False
+        print # cleaner output
+        logging.getLogger(__name__).error('File {}, "response" and "full_response" decorrelated: {}'.format(call_id, e))
+    try:
+        checker.compare(short_ref, ref)
+    except Exception as e:
+        is_ok = False
+        print # cleaner output
+        logging.getLogger(__name__).warning('File {}, "response" maybe outdated considering "full_response" '
+                                            '(artemis checks more values than before?): {}'.format(call_id, e))
+
+    return is_ok
 
 
 def launch_exec_background(exec_name, args):

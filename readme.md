@@ -17,13 +17,17 @@ you can provide a custom config file (if the default_settings.py is not good eno
 
 There lot's of [other possible options](http://pytest.org/) that can be given to py.test. You can for example generate a junit like xml report with the ``--junit-xml=my_file.xml``.
 
-There is also 2 custom artemis parameters:
+There is also 4 custom artemis parameters:
 
  * --skip_cities: skip the loading of the cities database. It can save time when running several times artemis.
  WARNING the test will fail if the cities database is not loaded.
  
  * --skip_bina: skip the loading of the ED data. It can save lots of time when running several times artemis.
  WARNING the test will fail if the data are not loaded
+
+ * --hard_journey_check: journey comparison is made using full response, not filtered one
+
+ * --check_ref: only check that short response is consistent with full response in reference files (skip bina, cities and kraken calls)
 
 Tests Organisation
 ==================
