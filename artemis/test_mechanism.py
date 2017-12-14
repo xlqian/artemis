@@ -64,24 +64,6 @@ def get_ire_data(name):
     with open(_file, "r") as ire:
         return ire.read()
 
-
-def get_last_rt_loaded_time(cov):
-    _response, _ = utils.api("coverage/{cov}/status".format(cov=cov))
-    return _response.get('status', {}).get('last_rt_data_loaded', object())
-
-
-@retry(stop_max_delay=25000, wait_fixed=500)
-def wait_for_rt_reload(last_rt_data_loaded, cov):
-    if last_rt_data_loaded == get_last_rt_loaded_time(cov):
-        raise Exception("kraken data is not loaded")
-    return
-
-
-def send_ire(ire_name):
-    requests.post(_kirin_api+'/ire',
-                  data=get_ire_data(ire_name),
-                  headers={'Content-Type': 'application/xml;charset=utf-8'})
-
 # given a cursor on a db, and table names separated by a comma (ex: "tata, toto, titi")
 def truncate_tables(cursor, table_names_string):
     logging.getLogger(__name__).debug("query db: TRUNCATE {} CASCADE ;".format(table_names_string))
@@ -149,14 +131,18 @@ class ArtemisTestFixture:
         """
         logging.getLogger(__name__).debug("Setting up the tests {}".format(cls.__name__))
         cls.init_fixture(skip_bina=request.config.getvalue("skip_bina"),
-                         journey_full_response_comparison_mode=request.config.getvalue("hard_journey_check"))
+                         journey_full_response_comparison_mode=request.config.getvalue("hard_journey_check"),
+                         check_ref=request.config.getvalue("check_ref"))
+
         logging.getLogger(__name__).debug("Running the tests {}".format(cls.__name__))
         yield
-        logging.getLogger(__name__).debug("Cleaning up the tests {}".format(cls.__name__))
-        cls.clean_fixture()
+
+        if not request.config.getvalue("check_ref"):
+            logging.getLogger(__name__).debug("Cleaning up the tests {}".format(cls.__name__))
+            cls.clean_fixture()
 
     @classmethod
-    def init_fixture(cls, skip_bina, journey_full_response_comparison_mode):
+    def init_fixture(cls, skip_bina, journey_full_response_comparison_mode, check_ref):
         """
         Method called once before running the tests of the fixture
 
@@ -164,12 +150,17 @@ class ArtemisTestFixture:
         :param skip_bina to use the already done binarization
         :param journey_full_response_comparison_mode if set to True will compare the journeys
         on the full_response with the no regression mode (like the other apis)
+        :param check_ref to check only consistency of reference files
         This should be used only occasionally as the journey response are prone to changes
         """
         # we store the variable to use it a test time
         if journey_full_response_comparison_mode:
-            logging.getLogger(__name__).warning("Nazi journeys comparison activated")
+            logging.getLogger(__name__).warning("Full journeys comparison activated")
         cls.journey_full_response_comparison_mode = journey_full_response_comparison_mode
+        cls.check_ref = check_ref
+
+        if check_ref:
+            return
 
         cls.kill_jormungandr()
 
@@ -282,6 +273,9 @@ class ArtemisTestFixture:
         """
         launch all the kraken services
         """
+        if cls.check_ref:
+            return
+
         for data_set in cls.data_sets:
             logging.getLogger(__name__).debug("launching the kraken {}".format(data_set.name))
             return_code, _ = utils.launch_exec('sudo {service} {kraken} start'.format(service=_kraken_wrapper, kraken=data_set.name))
@@ -290,6 +284,9 @@ class ArtemisTestFixture:
 
     @classmethod
     def kill_the_krakens(cls):
+        if cls.check_ref:
+            return
+
         for data_set in cls.data_sets:
             logging.getLogger(__name__).debug("killing the kraken {}".format(data_set.name))
             return_code, _ = utils.launch_exec('sudo {service} {kraken} stop'.format(service=_kraken_wrapper, kraken=data_set.name))
@@ -353,6 +350,30 @@ class ArtemisTestFixture:
     # wrappers around utils functions #
     ###################################
 
+    def send_ire(self, ire_name):
+        if self.check_ref:
+            return
+
+        requests.post(_kirin_api+'/ire',
+                      data=get_ire_data(ire_name),
+                      headers={'Content-Type': 'application/xml;charset=utf-8'})
+
+    def get_last_rt_loaded_time(self, cov):
+        if self.check_ref:
+            return
+
+        _response, _ = utils.api("coverage/{cov}/status".format(cov=cov))
+        return _response.get('status', {}).get('last_rt_data_loaded', object())
+
+    @retry(stop_max_delay=25000, wait_fixed=500)
+    def wait_for_rt_reload(self, last_rt_data_loaded, cov):
+        if self.check_ref:
+            return
+
+        if last_rt_data_loaded == self.get_last_rt_loaded_time(cov):
+            raise Exception("kraken data is not loaded")
+        return
+
     def api(self, url, response_checker=default_checker.default_checker):
         """
         used to check misc API
@@ -370,6 +391,11 @@ class ArtemisTestFixture:
 
         the query is writen in a file
         """
+        if self.check_ref: # only check consistency
+            filename = self._get_file_name()
+            assert utils.check_reference_consistency(filename, response_checker)
+            return
+
         response, url = utils.api(url)
 
         filtered_response = response_checker.filter(response)

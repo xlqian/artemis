@@ -18,6 +18,8 @@ def pytest_addoption(parser):
     parser.addoption("--skip_cities", action="store_true", help="skip cities loading")
     parser.addoption("--skip_bina", action="store_true", help="skip binarization")
     parser.addoption("--hard_journey_check", action="store_true", help="journeys comparison is made on full response")
+    parser.addoption("--check_ref", action="store_true",
+                     help="only check that response is consistent with full response in reference files")
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -26,7 +28,7 @@ def load_cities(request):
     Before running the tests we want to load cities
     """
     log = logging.getLogger(__name__)
-    if request.config.getvalue("skip_cities"):
+    if request.config.getvalue("skip_cities") or request.config.getvalue("check_ref"):
         log.info("skiping cities loading")
         return
 
