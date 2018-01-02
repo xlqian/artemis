@@ -69,7 +69,8 @@ DEFAULT_BLACKLIST_MASK = (('$..disruptions[*].disruption_uri', nullify_elem),
                           ('$..disruptions[*].id', nullify_elem),
                           ('$..disruptions[*].updated_at', nullify_elem),
                           ('$..journeys[*].sections[*].id', nullify_elem),
-                          ('$..href', replace_hyperlink))
+                          ('$..href', replace_hyperlink),
+                          ('$.context.current_datetime', nullify_elem))
 
 JOURNEY_MASK = (
     ('$.links', partial(sorted, key=lambda x: x.get('href'))),
