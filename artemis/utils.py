@@ -340,13 +340,13 @@ def is_subset(obj1, obj2, current_path=None):
 
     if type(obj1) is dict and type(obj2) is dict:
         for k, v in obj1.iteritems():
-            assert k in obj2, "'{k}' not in {obj2} in path {p}".format(k=k, obj2=obj2, p=current_path)
+            assert k in obj2, u"'{k}' not in {obj2} in path {p}".format(k=k, obj2=obj2, p=current_path)
 
             v2 = obj2[k]
             is_subset(v, v2, current_path=current_path[:] + [k])
         return
 
-    assert obj1 == obj2, "'{elt1}' != '{elt2}' in path {p}".format(elt1=obj1, elt2=obj2, p=current_path)
+    assert obj1 == obj2, u"'{elt1}' != '{elt2}' in path {p}".format(elt1=obj1, elt2=obj2, p=current_path)
 
 
 class PerfectComparator(object):
