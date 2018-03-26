@@ -10,7 +10,7 @@ class Auvergne(object):
         """
         http://jira.canaltp.fr/browse/NAVITIAII-2020
         """
-        self.journey(_from="poi:n303386067",
+        self.journey(_from="poi:osm:node:303386067",
                      to="3.0630843999999797;45.7589254", datetime="20160121T170000",
                      first_section_mode=['bike', 'bss', 'walking', 'car'],
                      last_section_mode=['walking'],
