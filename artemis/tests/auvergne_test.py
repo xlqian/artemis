@@ -51,6 +51,14 @@ class Auvergne(object):
                      last_section_mode=['walking'],
                      min_nb_journeys=3)
 
+    def test_auvergne_05(self):
+        """
+        big PR
+        """
+        self.journey(_from="3.0902481079101562;45.8892912569653",
+                     to="3.1218767166137695;45.88621444878203", datetime="20160118T120300",
+                     min_nb_journeys=3)
+
     def test_geo_status(self):
         """
         check geodata sources and volume
