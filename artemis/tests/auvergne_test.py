@@ -51,13 +51,30 @@ class Auvergne(object):
                      last_section_mode=['walking'],
                      min_nb_journeys=3)
 
-    def test_auvergne_05(self):
+    def test_min_nb_journeys(self):
         """
-        big PR
+        https://jira.kisio.org/browse/NAVP-863
         """
-        self.journey(_from="3.0902481079101562;45.8892912569653",
-                     to="3.1218767166137695;45.88621444878203", datetime="20160118T120300",
-                     min_nb_journeys=3)
+        self.journey(_from="3.10763;45.78656",
+                     to="3.04947;45.76422", datetime="20160120T100000",
+                     min_nb_journeys=5)
+
+    def test_no_shared_section(self):
+        """
+        https://jira.kisio.org/browse/NAVP-858
+        """
+        self.journey(_from="3.10763;45.78656",
+                     to="3.04947;45.76422", datetime="20160120T100000",
+                     min_nb_journeys=5,
+                     _no_shared_section=True)
+
+    def test_free_radius_from(self):
+        """
+        https://jira.kisio.org/browse/NAVP-820
+        """
+        self.journey(_from="3.10763;45.78656",
+                     to="3.04947;45.76422", datetime="20160120T100000",
+                     free_radius_from=400)
 
     def test_geo_status(self):
         """
