@@ -56,7 +56,6 @@ class Auvergne(object):
     #     https://jira.kisio.org/browse/NAVP-863
     #     """
     #     # Test temporarily deactivated, to be repaired ASAP
-    #     # https://jira.kisio.org/browse/NAVITIAII-2484
     #
     #     self.journey(_from="3.10763;45.78656",
     #                  to="3.04947;45.76422", datetime="20160120T100000",
