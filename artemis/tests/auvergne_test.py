@@ -51,6 +51,33 @@ class Auvergne(object):
                      last_section_mode=['walking'],
                      min_nb_journeys=3)
 
+    # def test_min_nb_journeys(self):
+    #     """
+    #     https://jira.kisio.org/browse/NAVP-863
+    #     """
+    #     # Test temporarily deactivated, to be repaired ASAP
+    #
+    #     self.journey(_from="3.10763;45.78656",
+    #                  to="3.04947;45.76422", datetime="20160120T100000",
+    #                  min_nb_journeys=5)
+
+    def test_no_shared_section(self):
+        """
+        https://jira.kisio.org/browse/NAVP-858
+        """
+        self.journey(_from="3.10763;45.78656",
+                     to="3.04947;45.76422", datetime="20160120T100000",
+                     min_nb_journeys=5,
+                     _no_shared_section=True)
+
+    def test_free_radius_from(self):
+        """
+        https://jira.kisio.org/browse/NAVP-820
+        """
+        self.journey(_from="3.10763;45.78656",
+                     to="3.04947;45.76422", datetime="20160120T100000",
+                     free_radius_from=400)
+
     def test_geo_status(self):
         """
         check geodata sources and volume
