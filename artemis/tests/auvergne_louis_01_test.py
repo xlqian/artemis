@@ -1,6 +1,6 @@
-from utils import TestFixture, journey_test
+import base_pytest2
 
-class TestAuvergne(TestFixture):
+class TestAuvergne(base_pytest2.TestFixture):
 
     """
     test for new_default with data from auvergne
@@ -9,7 +9,8 @@ class TestAuvergne(TestFixture):
         """
         http://jira.canaltp.fr/browse/NAVITIAII-2016
         """
-       journey_test(_from="admin:fr:63135",
+
+        base_pytest2.journey_Test(self, _from="admin:fr:63135",
                     to="3.121833801269531;45.885276435738504", datetime="20160118T120300",
                     first_section_mode=['bike', 'bss', 'walking', 'car'],
                     last_section_mode=['walking'],

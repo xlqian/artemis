@@ -38,7 +38,7 @@ class TestFixture(object):
         file_name = "{}.json".format(test_name)
         print file_name
         return file_name
-    
+
 def compare_with_ref_louis(self, response,
                         response_checker=default_checker.default_journey_checker):
     """
