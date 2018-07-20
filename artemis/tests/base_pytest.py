@@ -2,10 +2,8 @@ import requests
 import inspect
 import re
 from flask import json
-from artemis import default_checker
+from artemis import default_checker, utils
 import os
-
-from artemis import utils
 
 
 # Beginning of the URL : we want the request to go to my own Jormun on my own machine
@@ -14,8 +12,7 @@ URL = 'http://127.0.0.1:9191/v1/coverage/default/journeys?'
 # Path to my artemis references
 PATH_REF = '/home/louis_gaillet/Projets/Artemis/artemis_references/'
 
-# regexp used to identify a test method (simplified version of nose)
-_test_method_regexp = re.compile("^(test_.*|.*_test)$")
+
 
 
 
@@ -61,19 +58,7 @@ def journey_Test(self, _from, to, datetime,
     compare_with_ref(self, dict_resp)
 
 
-def get_calling_test_function():
-    """
-    return the calling test method.
 
-    go back up the stack until a method with test in the name
-    """
-    for m in inspect.stack():
-        method_name = m[3]  # m is a tuple and the 4th elt is the name of the function
-        if _test_method_regexp.match(method_name):
-            return method_name
-
-    #a test method has to be found by construction, if none is found there is a problem
-    raise KeyError("impossible to find the calling test method")
 
 
 def compare_with_ref(self, response,
@@ -130,6 +115,9 @@ def compare_with_ref(self, response,
     ### Compare answer and reference
     response_checker.compare(filtered_response, filtered_reference)
 
+
+
+
 class TestFixture(object):
 
     def get_file_name(self):
@@ -137,7 +125,7 @@ class TestFixture(object):
         class_name = "{}".format(mro[0].__name__)
         scenario = 'new_default'
 
-        func_name = get_calling_test_function()
+        func_name = utils.get_calling_test_function()
         test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
         file_name = "{}.json".format(test_name)
         print file_name

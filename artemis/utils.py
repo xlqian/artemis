@@ -17,6 +17,8 @@ from copy import deepcopy
 import re
 import jsonpath_rw as jp
 import functools
+import inspect
+
 
 ARTEMIS_CUSTOM_ID = '__artemis_id__'
 
@@ -443,3 +445,19 @@ class StopScheduleIDGenerator(object):
 
         return response
 
+# regexp used to identify a test method (simplified version of nose)
+_test_method_regexp = re.compile("^(test_.*|.*_test)$")
+
+def get_calling_test_function():
+    """
+    return the calling test method.
+
+    go back up the stack until a method with test in the name
+    """
+    for m in inspect.stack():
+        method_name = m[3]  # m is a tuple and the 4th elt is the name of the function
+        if _test_method_regexp.match(method_name):
+            return method_name
+
+    #a test method has to be found by construction, if none is found there is a problem
+    raise KeyError("impossible to find the calling test method")
