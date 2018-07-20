@@ -5,6 +5,8 @@ from flask import json
 from artemis import default_checker
 import os
 
+from artemis import utils
+
 
 # Beginning of the URL : we want the request to go to my own Jormun on my own machine
 URL = 'http://127.0.0.1:9191/v1/coverage/default/journeys?'
@@ -128,9 +130,6 @@ def compare_with_ref(self, response,
     ### Compare answer and reference
     response_checker.compare(filtered_response, filtered_reference)
 
-
-
-#----------------------------------------------------------------------------------------------
 class TestFixture(object):
 
     def get_file_name(self):
