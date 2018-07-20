@@ -17,11 +17,9 @@ from copy import deepcopy
 import re
 import jsonpath_rw as jp
 import functools
-import inspect
 
 
 ARTEMIS_CUSTOM_ID = '__artemis_id__'
-
 
 _api_main_root_point = 'http://localhost/'
 
@@ -448,29 +446,3 @@ class StopScheduleIDGenerator(object):
 # regexp used to identify a test method (simplified version of nose)
 _test_method_regexp = re.compile("^(test_.*|.*_test)$")
 
-def get_calling_test_function():
-    """
-    return the calling test method.
-
-    go back up the stack until a method with test in the name
-    """
-    for m in inspect.stack():
-        method_name = m[3]  # m is a tuple and the 4th elt is the name of the function
-        if _test_method_regexp.match(method_name):
-            return method_name
-
-    #a test method has to be found by construction, if none is found there is a problem
-    raise KeyError("impossible to find the calling test method")
-
-class TestFixture(object):
-
-    def get_file_name(self):
-        mro = inspect.getmro(self.__class__)
-        class_name = "{}".format(mro[0].__name__)
-        scenario = 'new_default'
-
-        func_name = get_calling_test_function()
-        test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
-        file_name = "{}.json".format(test_name)
-        print file_name
-        return file_name
