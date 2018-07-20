@@ -3,14 +3,14 @@ import inspect
 import re
 from flask import json
 from artemis import default_checker, utils
-import os
+import base_pytest2
+
 
 
 # Beginning of the URL : we want the request to go to my own Jormun on my own machine
 URL = 'http://127.0.0.1:9191/v1/coverage/default/journeys?'
 
-# Path to my artemis references
-PATH_REF = '/home/louis_gaillet/Projets/Artemis/artemis_references/'
+
 
 def journey_Test(self, _from, to, datetime,
             datetime_represents='departure',
@@ -51,64 +51,11 @@ def journey_Test(self, _from, to, datetime,
     dict_resp = json.loads(raw_response.text)
 
     # Comparing my response and my reference
-    compare_with_ref(self, dict_resp)
-
-def compare_with_ref(self, response,
-                     response_checker=default_checker.default_journey_checker):
-    """
-    This function take the response (which is a dictionary) and compare it to a the reference
-    It first goes finding the reference
-    Then filters both ref and resp
-    Finaly it compares them
-
-    """
-
-    ### Get the reference
-
-    # Create the file name
-    filename = self.get_file_name()
-
-    # Add path to artemis references
-    # config = flask_conf.Config(os.path.dirname(os.path.realpath(__file__)))
-    filepath = os.path.join(PATH_REF, filename)
-
-    assert os.path.isfile(filepath)
-    with open(filepath, 'r') as f:
-        raw_reference = f.read()
-    #print("reference : ", raw_reference)
-
-    # Transform the string into a dictionary
-    dict_ref = json.loads(raw_reference)
-
-    # Get only the full_response part from the ref
-    ref_full_response = dict_ref['full_response']
+    base_pytest2.compare_with_ref_louis(self, dict_resp)
 
 
-    ### Filtering ref end resp
 
-    # Filtering with the checker
-    filtered_reference = response_checker.filter(ref_full_response)
-
-    # Filtering the answer. (We compare to a reference also filtered with the same filter)
-    filtered_response = response_checker.filter(response)
-    #print(filtered_response)
-
-
-    """
-    # This part is only to check ref and resp content
-    with open('reference.txt', 'w') as reference_text:
-        reference_text.write(json.dumps(filtered_reference, indent=4))
-
-    with open('response.txt', 'w') as response_text:
-        response_text.write(json.dumps(filtered_response, indent=4))
-    """
-
-
-    ### Compare answer and reference
-    response_checker.compare(filtered_response, filtered_reference)
-
-
-class TestAuvergne(utils.TestFixture):
+class TestAuvergne(base_pytest2.TestFixture):
 
 
     """
