@@ -12,10 +12,6 @@ URL = 'http://127.0.0.1:9191/v1/coverage/default/journeys?'
 # Path to my artemis references
 PATH_REF = '/home/louis_gaillet/Projets/Artemis/artemis_references/'
 
-
-
-
-
 def journey_Test(self, _from, to, datetime,
             datetime_represents='departure',
             auto_from=None, auto_to=None,
@@ -56,10 +52,6 @@ def journey_Test(self, _from, to, datetime,
 
     # Comparing my response and my reference
     compare_with_ref(self, dict_resp)
-
-
-
-
 
 def compare_with_ref(self, response,
                      response_checker=default_checker.default_journey_checker):
@@ -116,24 +108,7 @@ def compare_with_ref(self, response,
     response_checker.compare(filtered_response, filtered_reference)
 
 
-
-
-class TestFixture(object):
-
-    def get_file_name(self):
-        mro = inspect.getmro(self.__class__)
-        class_name = "{}".format(mro[0].__name__)
-        scenario = 'new_default'
-
-        func_name = utils.get_calling_test_function()
-        test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
-        file_name = "{}.json".format(test_name)
-        print file_name
-        return file_name
-
-
-
-class TestAuvergne(TestFixture):
+class TestAuvergne(utils.TestFixture):
 
 
     """
