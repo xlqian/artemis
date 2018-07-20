@@ -9,6 +9,7 @@ class Airport1(object):
     """
     TODO: put there comments about the dataset
     """
+
     def test_airport_01_01(self):
         self.journey(_from="stop_area:AI1:SA:AIRPORTAIRPORT",
                      to="stop_area:AI1:SA:AIRPORTLYS", datetime="20120904T0700")
@@ -31,6 +32,7 @@ class Airport1(object):
 @set_scenario({"airport-01": {"scenario": "default"}})
 class TestAirport1Default(Airport1, ArtemisTestFixture):
     pass
+
 
 @set_scenario({"airport-01": {"scenario": "new_default"}})
 class TestAirport1NewDefault(Airport1, ArtemisTestFixture):
