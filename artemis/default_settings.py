@@ -26,10 +26,10 @@ KIRIN_DB = 'dbname=kirin user=kirin host=localhost password=kirin'
 
 CITIES_DB = 'dbname=cities user=navitia host=localhost password=password'
 
-# Path to my artemis references
+# Path to artemis references
 PATH_REF = '/home/louis_gaillet/Projets/Artemis/artemis_references/'
 
-# Beginning of the URL : we want the request to go to my own Jormun on my own machine
+# Beginning of the URL : we want the request to go to our own Jormun on our own machine
 URL_JORMUN = 'http://127.0.0.1:9191/v1/coverage/default/journeys?'
 
 LOGGER = {

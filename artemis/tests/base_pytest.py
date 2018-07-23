@@ -72,9 +72,9 @@ class TestFixture(object):
         dict_resp = json.loads(raw_response.text)
 
         # Comparing my response and my reference
-        compare_with_ref_louis(self, dict_resp)
+        compare_with_ref(self, dict_resp)
 
-def compare_with_ref_louis(self, response,
+def compare_with_ref(self, response,
                         response_checker=default_checker.default_journey_checker):
     """
     This function take the response (which is a dictionary) and compare it to a the reference
@@ -83,6 +83,12 @@ def compare_with_ref_louis(self, response,
     Finaly it compares them
 
     """
+    def save_ref_resp_as_files():
+        with open('reference.txt', 'w') as reference_text:
+            reference_text.write(json.dumps(filtered_reference, indent=4))
+
+        with open('response.txt', 'w') as response_text:
+            response_text.write(json.dumps(filtered_response, indent=4))
 
     ### Get the reference
 
@@ -114,13 +120,9 @@ def compare_with_ref_louis(self, response,
     filtered_response = response_checker.filter(response)
     #print(filtered_response)
 
-    """
-    # This part is only to check ref and resp content
-    with open('reference.txt', 'w') as reference_text:
-        reference_text.write(json.dumps(filtered_reference, indent=4))
 
-    with open('response.txt', 'w') as response_text:
-        response_text.write(json.dumps(filtered_response, indent=4))
-    """
-    ### Compare answer and reference
+    # This part is only to check ref and resp content by saving them into files
+    #save_ref_resp_as_files()
+
+    ### Compare response and reference
     response_checker.compare(filtered_response, filtered_reference)
