@@ -126,10 +126,6 @@ class TestAuvergne(TestFixture):
         # Compare answer and reference
         response_checker.compare(filtered_response, filtered_reference)
 
-
-
-
-
         pass
     """
     test for new_default with data from auvergne
@@ -148,9 +144,3 @@ class TestAuvergne(TestFixture):
                            max_duration_to_pt=1200)
 
         self.compare_with_ref(response)
-
-
-        #Final assert of the pytest, should compare the filtered json answer and the reference.
-        assert 1 == 1 #Temporarily 1==1 so I can build my test step by step and check that each one is working.
-
-
