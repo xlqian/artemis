@@ -1,10 +1,8 @@
-import inspect
-from artemis import default_checker, utils
 import os
 from flask import json
 import requests
 import inspect
-import re
+from artemis import default_checker, utils
 from artemis.configuration_manager import config
 
 def get_calling_test_function():
@@ -31,7 +29,7 @@ class TestFixture(object):
         func_name = get_calling_test_function()
         test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
         file_name = "{}.json".format(test_name)
-        print file_name
+        print ('url : ', file_name)
         return file_name
 
     def journey(self, _from, to, datetime,

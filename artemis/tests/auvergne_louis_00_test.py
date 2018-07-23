@@ -1,8 +1,7 @@
-import base_pytest
-
-class TestAuvergne(base_pytest.TestFixture):
+from artemis.base_pytest import TestFixture
 
 
+class TestAuvergne(TestFixture):
     """
     test for new_default with data from auvergne
     """
