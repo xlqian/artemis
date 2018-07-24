@@ -34,7 +34,6 @@ class TestFixture(object):
         func_name = get_calling_test_function()
         test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
         file_name = "{}.json".format(test_name)
-        print ('url : ', file_name)
         return file_name
 
     def journey(self, _from, to, datetime,
@@ -102,6 +101,7 @@ def compare_with_ref(self, response,
     relative_path_file = os.path.dirname(__file__)
     relative_path_ref = relative_path_file[:-16] + '/artemis_references/'
     filepath = os.path.join(relative_path_ref, filename)
+    print('Path to reference : ' + filepath)
 
     assert os.path.isfile(filepath)
     with open(filepath, 'r') as f:
