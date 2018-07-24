@@ -10,6 +10,8 @@ def get_calling_test_function():
     return the calling test method.
 
     go back up the stack until a method with test in the name
+
+    Used here to find the name of the coverage
     """
     for m in inspect.stack():
         method_name = m[3]  # m is a tuple and the 4th elt is the name of the function
@@ -22,6 +24,9 @@ def get_calling_test_function():
 class TestFixture(object):
 
     def get_file_name(self):
+        """
+        Get second half of the path to the artemis reference file
+        """
         mro = inspect.getmro(self.__class__)
         class_name = "{}".format(mro[0].__name__)
         scenario = 'new_default'
@@ -94,8 +99,9 @@ def compare_with_ref(self, response,
     filename = self.get_file_name()
 
     # Add path to artemis references
-    # config = flask_conf.Config(os.path.dirname(os.path.realpath(__file__)))
-    filepath = os.path.join(config['PATH_REF'], filename)
+    relative_path_file = os.path.dirname(__file__)
+    relative_path_ref = relative_path_file[:-16] + '/artemis_references/'
+    filepath = os.path.join(relative_path_ref, filename)
 
     assert os.path.isfile(filepath)
     with open(filepath, 'r') as f:
