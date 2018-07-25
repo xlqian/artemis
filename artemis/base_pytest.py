@@ -4,6 +4,8 @@ import requests
 import inspect
 from artemis import default_checker, utils
 from artemis.configuration_manager import config
+import difflib
+import sys
 
 def get_calling_test_function():
     """
@@ -87,22 +89,25 @@ def compare_with_ref(self, response,
     """
 
     def ref_resp2files():
-        # find name of test
-        file_path = str(self.get_file_name())
-        file_name = file_path.split('/')[-1]
-        file_name = file_name[:-5]
-
-        # create a folder
-        dir_path = os.path.dirname(__file__) + '/outputs'
-        if not os.path.exists(dir_path):
-            os.makedirs(dir_path)
 
         # save reference
-        with open(dir_path + '/reference_' + file_name + '.txt', 'w') as reference_text:
-            reference_text.write(json.dumps(filtered_reference, indent=4))
+        with open(full_file_name_ref, 'w') as reference_text:
+            reference_text.write(json_filtered_reference)
         # save response
-        with open(dir_path + '/response_' + file_name + '.txt', 'w') as response_text:
-            response_text.write(json.dumps(filtered_response, indent=4))
+        with open(full_file_name_resp, 'w') as response_text:
+            response_text.write(json_filtered_response)
+
+    def print_diff():
+
+        # open reference
+        with open(full_file_name_ref) as reference_text:
+            reference = reference_text.readlines()
+        # open response
+        with open(full_file_name_resp) as response_text:
+            response = response_text.readlines()
+
+        for line in difflib.unified_diff(reference, response):
+            sys.stdout.write(line)
 
     ### Get the reference
 
@@ -117,7 +122,6 @@ def compare_with_ref(self, response,
     assert os.path.isfile(filepath)
     with open(filepath, 'r') as f:
         raw_reference = f.read()
-    #print("reference : ", raw_reference)
 
     # Transform the string into a dictionary
     dict_ref = json.loads(raw_reference)
@@ -134,10 +138,34 @@ def compare_with_ref(self, response,
     # Filtering the answer. (We compare to a reference also filtered with the same filter)
     filtered_response = response_checker.filter(response)
 
+    ### Create a json layout string
+    json_filtered_reference = json.dumps(filtered_reference, indent=4)
+    json_filtered_response = json.dumps(filtered_response, indent=4)
+
     ### Compare response and reference
     compare_result = response_checker.compare(filtered_response, filtered_reference)
+
+    ### If not resp and ref different
     if not compare_result:
+
+        # find name of test
+        file_path = str(self.get_file_name())
+        file_name = file_path.split('/')[-1]
+        file_name = file_name[:-5]
+
+        # create a folder
+        dir_path = os.path.dirname(__file__) + '/outputs'
+        if not os.path.exists(dir_path):
+            os.makedirs(dir_path)
+
+        # create path to ref and resp
+        full_file_name_ref = dir_path + '/reference_' + file_name + '.txt'
+        full_file_name_resp = dir_path + '/response_' + file_name + '.txt'
+
         # Save resp and ref as txt files in folder named outputs
         ref_resp2files()
+
+        # Print difference in console
+        print_diff()
 
     assert compare_result
