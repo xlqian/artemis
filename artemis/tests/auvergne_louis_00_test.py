@@ -25,7 +25,7 @@ class TestAuvergne(TestFixture):
         """
         self.journey(_from="admin:fr:63135",
                      to="3.121833801269531;45.885276435738504", datetime="20160118T120300",
-                     first_section_mode=['bike', 'bss', 'walking', 'car'],
+                     first_section_mode=['bike', 'bss', 'walking'],
                      last_section_mode=['walking'],
                      min_nb_journeys=3,
                      _night_bus_filter_base_factor=7200,
