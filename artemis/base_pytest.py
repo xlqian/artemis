@@ -65,7 +65,7 @@ class TestFixture(object):
             query = "{query}&{k}={v}".format(query=query, k=k, v=v)
 
         # full URL concatenation
-        query = config['URL_JORMUN'] + query
+        query = config['URL_JORMUN'] + '/v1/coverage/' + str(self.data_sets[0]) + '/journeys?' + query
 
         # Get the json answer of the request (it is just a string here)
         raw_response = requests.get(query)
@@ -85,11 +85,23 @@ def compare_with_ref(self, response,
     Finaly it compares them
 
     """
-    def save_ref_resp_as_files():
-        with open('reference.txt', 'w') as reference_text:
-            reference_text.write(json.dumps(filtered_reference, indent=4))
 
-        with open('response.txt', 'w') as response_text:
+    def ref_resp2files():
+        # find name of test
+        file_path = str(self.get_file_name())
+        file_name = file_path.split('/')[-1]
+        file_name = file_name[:-5]
+
+        # create a folder
+        dir_path = os.path.dirname(__file__) + '/outputs'
+        if not os.path.exists(dir_path):
+            os.makedirs(dir_path)
+
+        # save reference
+        with open(dir_path + '/reference_' + file_name + '.txt', 'w') as reference_text:
+            reference_text.write(json.dumps(filtered_reference, indent=4))
+        # save response
+        with open(dir_path + '/response_' + file_name + '.txt', 'w') as response_text:
             response_text.write(json.dumps(filtered_response, indent=4))
 
     ### Get the reference
@@ -101,7 +113,6 @@ def compare_with_ref(self, response,
     relative_path_file = os.path.dirname(__file__)
     relative_path_ref = relative_path_file[:-16] + '/artemis_references/'
     filepath = os.path.join(relative_path_ref, filename)
-    print('Path to reference : ' + filepath)
 
     assert os.path.isfile(filepath)
     with open(filepath, 'r') as f:
@@ -122,11 +133,11 @@ def compare_with_ref(self, response,
 
     # Filtering the answer. (We compare to a reference also filtered with the same filter)
     filtered_response = response_checker.filter(response)
-    #print(filtered_response)
-
-
-    # This part is only to check ref and resp content by saving them into files
-    #save_ref_resp_as_files()
 
     ### Compare response and reference
-    response_checker.compare(filtered_response, filtered_reference)
+    compare_result = response_checker.compare(filtered_response, filtered_reference)
+    if not compare_result:
+        # Save resp and ref as txt files in folder named outputs
+        ref_resp2files()
+
+    assert compare_result

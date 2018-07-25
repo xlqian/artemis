@@ -1,6 +1,7 @@
 from artemis.base_pytest import TestFixture
+from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 
-
+@dataset([DataSet("default")])
 class TestAuvergne(TestFixture):
     """
     test for new_default with data from auvergne
