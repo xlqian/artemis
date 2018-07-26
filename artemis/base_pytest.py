@@ -106,8 +106,17 @@ def compare_with_ref(self, response,
         with open(full_file_name_resp) as response_text:
             response = response_text.readlines()
 
+        # Print failed test name
+        sys.stdout.write('\033[95m' + '\n\n' +  str(file_name) + ' failed :' + '\033[0m' + '\n\n')
+
+        # Print differences between ref and resp in console
         for line in difflib.unified_diff(reference, response):
-            sys.stdout.write(line)
+            if line[0] == '+':
+                sys.stdout.write('\033[92m' + line + '\033[0m') # Print in green
+            elif line[0] == '-':
+                sys.stdout.write('\033[91m' + line + '\033[0m') # Print red
+            else:
+                sys.stdout.write(line)
 
     ### Get the reference
 
