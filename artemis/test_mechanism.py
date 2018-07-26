@@ -377,7 +377,7 @@ class ArtemisTestFixture:
 
         rt_data_loaded = self.get_last_rt_loaded_time(cov)
 
-        if rt_data_loaded is None or last_rt_data_loaded == rt_data_loaded:
+        if last_rt_data_loaded == rt_data_loaded:
             raise Exception("realt time data not loaded")
 
     def api(self, url, response_checker=default_checker.default_checker):
