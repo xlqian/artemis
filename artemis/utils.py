@@ -50,8 +50,10 @@ def api(url):
     """
     norm_url = werkzeug.url_fix(_api_current_root_point + url)  # normalize url
     raw_response = requests.get(norm_url)
-
-    return json.loads(raw_response.text), norm_url
+    #print("RAW_RESPONSE - ", dir(raw_response))
+    result = json.loads(raw_response.text)
+    result["status_code"] = raw_response.status_code
+    return result, norm_url
 
 
 def get_ref(call_id):

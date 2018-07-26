@@ -171,6 +171,11 @@ class GuichetUnique(object):
         for i in range(5):
             self.send_ire('trip_removal_tgv_6123.xml')
 
+	import time
+	print("doooooodoooo zzzzzzZZZZZZZZ")
+	time.sleep(5)
+	print("Yeahhhhh !!!!")
+
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
         self.journey(_from="stop_area:OCE:SA:87686006",
@@ -187,6 +192,10 @@ class GuichetUnique(object):
 
         self.kill_the_krakens()
         self.pop_krakens()
+
+	print("dodooooo numero 2 zzzzzzzzzzzzzz")
+	time.sleep(5)
+	print("c'est partiiiiiiiiiiii mon kikiiiiiiiiiiiiiiiiiiiiii")
 
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
