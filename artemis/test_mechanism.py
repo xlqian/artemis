@@ -381,8 +381,8 @@ class ArtemisTestFixture:
         rt_data_loaded = self.get_last_rt_loaded_time(cov)
         counter = 1
 
-        while (rt_data_loaded is None or last_rt_data_loaded == rt_data_loaded) and counter < 20 :
-	        time.sleep(1)
+        while (rt_data_loaded is None or last_rt_data_loaded == rt_data_loaded) and counter < 20:
+            time.sleep(1)
             rt_data_loaded = self.get_last_rt_loaded_time(cov)
             counter += 1
 
