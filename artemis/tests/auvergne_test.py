@@ -1,5 +1,6 @@
 from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
 
+
 @dataset([DataSet("fr-auv")])
 class Auvergne(object):
     """
