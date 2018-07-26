@@ -1,5 +1,5 @@
 import os
-from flask import json
+import json
 import requests
 import inspect
 from artemis import default_checker, utils
