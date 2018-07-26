@@ -358,49 +358,34 @@ class ArtemisTestFixture:
                       data=get_ire_data(ire_name),
                       headers={'Content-Type': 'application/xml;charset=utf-8'})
 
-#    def get_last_rt_loaded_time(self, cov):
-#        if self.check_ref:
-#            return
-
-#        _response, _ = utils.api("coverage/{cov}/status".format(cov=cov))
-#        return _response.get('status', {}).get('last_rt_data_loaded', object())
-
-#    @retry(stop_max_delay=25000, wait_fixed=500)
-#    def wait_for_rt_reload(self, last_rt_data_loaded, cov):
-#        if self.check_ref:
-#            return
-
-#        if last_rt_data_loaded == self.get_last_rt_loaded_time(cov):
-#            raise Exception("kraken data is not loaded")
-#        return
-
     def get_last_rt_loaded_time(self, cov):
-            if self.check_ref:
-                return
+        if self.check_ref:
+            return
 
+        _res, _ = utils.api("coverage/{cov}/status".format(cov=cov))
+        counter = 1
+
+        while _res["status_code"] > 500 and counter < 20:
+            time.sleep(1)
+            print("Wait before retrying a status on Kraken")
             _res, _ = utils.api("coverage/{cov}/status".format(cov=cov))
-            #print("RESPONSE ##### - " + str(_response) + " ## c'est quoi ca ? -> " + str(_) )
+            counter += 1
 
-            while _res["status_code"] == 503:
-		import time
-		time.sleep(5)
-		print("Wait before retrying a status on Kraken")
-		_res, _ = utils.api("coverage/{cov}/status".format(cov=cov))
-		
-            return _res.get('status', {}).get('last_rt_data_loaded', object())
-            
+        return _res.get('status', {}).get('last_rt_data_loaded', object())
+
     #@retry(stop_max_delay=25000, wait_fixed=500)
     def wait_for_rt_reload(self, last_rt_data_loaded, cov):
         if self.check_ref:
             return
 
         rt_data_loaded = self.get_last_rt_loaded_time(cov)
+        counter = 1
 
-        while rt_data_loaded is None or last_rt_data_loaded == rt_data_loaded:
-	    import time
-            time.sleep(5)
-            print("retrying...... yet another time.....")
+        while (rt_data_loaded is None or last_rt_data_loaded == rt_data_loaded)
+              and counter < 20 :
+	        time.sleep(1)
             rt_data_loaded = self.get_last_rt_loaded_time(cov)
+            counter += 1
 
     def api(self, url, response_checker=default_checker.default_checker):
         """
