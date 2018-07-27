@@ -40,8 +40,7 @@ def new_fusio_files_path(dataset):
     p = config['NEW_FUSIO_FILE_PATH_LAYOUT']
     return p.format(dataset=dataset.upper())
 
-
-def api(url):
+def request(url):
     """
     default call to the api
     call http://endpoint/v1/{url}
@@ -51,8 +50,7 @@ def api(url):
     norm_url = werkzeug.url_fix(_api_current_root_point + url)  # normalize url
     raw_response = requests.get(norm_url)
 
-    return json.loads(raw_response.text), norm_url
-
+    return json.loads(raw_response.text), norm_url, raw_response.status_code
 
 def get_ref(call_id):
     """

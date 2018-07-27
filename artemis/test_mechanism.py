@@ -96,7 +96,7 @@ def set_scenario(config):
 
 
 def kraken_status(data_set):
-    response, _ = utils.api("coverage/{r}".format(r=data_set.name))
+    response, _, _ = utils.request("coverage/{r}".format(r=data_set.name))
     assert 'error' not in response, "problem with the region: {error}".format(error=response['error'])
 
     current_region = response.get('regions', [None])[0]
@@ -358,21 +358,27 @@ class ArtemisTestFixture:
                       data=get_ire_data(ire_name),
                       headers={'Content-Type': 'application/xml;charset=utf-8'})
 
+    @retry(stop_max_delay=25000, wait_fixed=500)
     def get_last_rt_loaded_time(self, cov):
         if self.check_ref:
             return
 
-        _response, _ = utils.api("coverage/{cov}/status".format(cov=cov))
-        return _response.get('status', {}).get('last_rt_data_loaded', object())
+        _res, _, status_code = utils.request("coverage/{cov}/status".format(cov=cov))
+
+        if status_code == 503:
+            raise Exception("Navitia is not available")
+
+        return _res.get('status', {}).get('last_rt_data_loaded', object())
 
     @retry(stop_max_delay=25000, wait_fixed=500)
     def wait_for_rt_reload(self, last_rt_data_loaded, cov):
         if self.check_ref:
             return
 
-        if last_rt_data_loaded == self.get_last_rt_loaded_time(cov):
-            raise Exception("kraken data is not loaded")
-        return
+        rt_data_loaded = self.get_last_rt_loaded_time(cov)
+
+        if last_rt_data_loaded == rt_data_loaded:
+            raise Exception("real time data not loaded")
 
     def api(self, url, response_checker=default_checker.default_checker):
         """
@@ -396,7 +402,7 @@ class ArtemisTestFixture:
             assert utils.check_reference_consistency(filename, response_checker)
             return
 
-        response, url = utils.api(url)
+        response, url, _ = utils.request(url)
 
         filtered_response = response_checker.filter(response)
 
