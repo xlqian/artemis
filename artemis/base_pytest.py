@@ -204,5 +204,3 @@ def compare_with_ref(self, response,
         print_diff()
 
     assert compare_result
-
-    print('optizetghzehrighzer')
