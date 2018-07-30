@@ -98,6 +98,32 @@ class Auvergne(object):
                      first_section_mode=['walking', 'car'],
                      last_section_mode=['walking'])
 
+    def test_time_frame_duration(self):
+        """
+        Test parameter 'timeframe_duration'.
+
+        Without the parameter, we only have 1 result.
+        But when setting 'timeframe_duration=600', we want to have all the possible
+        itinaries withing the next 10 minutes (10 min * 60 sec).
+        """
+        self.journey(_from="3.08643;45.75419",
+                     to="3.09981;45.77871",
+                     datetime="20160118T080000",
+                     timeframe_duration="600")
+
+    def test_time_frame_duration_with_max_nb_journey(self):
+        """
+        Test the combination of 'timeframe_duration' along with 'max_nb_journeys'.
+
+        'timeframe_duration=600' returns 7 itinaries that we want to filter down
+        to only 3 using 'max_nb_journeys'
+        """
+        self.journey(_from="3.08643;45.75419",
+                     to="3.09981;45.77871",
+                     datetime="20160118T080000",
+                     timeframe_duration="600",
+                     max_nb_journeys="3")
+
 
 @set_scenario({"fr-auv": {"scenario": "new_default"}})
 class TestAuvergneNewDefault(Auvergne, ArtemisTestFixture):
