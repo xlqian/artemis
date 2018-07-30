@@ -6,6 +6,24 @@ from artemis import default_checker, utils
 from artemis.configuration_manager import config
 import difflib
 import sys
+import six
+
+if six.PY3: # case using python 3
+    from enum import Enum
+
+    class Colors(Enum):
+        RED = '\033[91m'
+        GREEN = '\033[92m'
+        PINK = '\033[95m'
+        DEFAULT = '\033[0m'
+
+if six.PY2: # case using python 2
+    class Colors():
+        RED = '\033[91m'
+        GREEN = '\033[92m'
+        PINK = '\033[95m'
+        DEFAULT = '\033[0m'
+
 
 def get_calling_test_function():
     """
@@ -63,7 +81,7 @@ class TestFixture(object):
         for mode in last_section_mode:
             query = '{query}&last_section_mode[]={mode}'.format(query=query, mode=mode)
 
-        for k, v in kwargs.iteritems():
+        for k, v in six.iteritems(kwargs):
             query = "{query}&{k}={v}".format(query=query, k=k, v=v)
 
         # full URL concatenation
@@ -99,6 +117,14 @@ def compare_with_ref(self, response,
 
     def print_diff():
 
+        def print_color(line, color = Colors.DEFAULT):
+            """console print, with color"""
+            if six.PY3: # case using python 3
+                sys.stdout.write('{}{}{}'.format(color.value, line, Colors.DEFAULT.value))
+            if six.PY2: # case using python 2
+                sys.stdout.write('{}{}{}'.format(color, line, Colors.DEFAULT))
+
+
         # open reference
         with open(full_file_name_ref) as reference_text:
             reference = reference_text.readlines()
@@ -107,14 +133,14 @@ def compare_with_ref(self, response,
             response = response_text.readlines()
 
         # Print failed test name
-        sys.stdout.write('\033[95m' + '\n\n' +  str(file_name) + ' failed :' + '\033[0m' + '\n\n')
+        print_color('\n\n' + str(file_name) + ' failed :' + '\n\n', Colors.PINK)
 
         # Print differences between ref and resp in console
         for line in difflib.unified_diff(reference, response):
             if line[0] == '+':
-                sys.stdout.write('\033[92m' + line + '\033[0m') # Print in green
+                print_color(line, Colors.GREEN)
             elif line[0] == '-':
-                sys.stdout.write('\033[91m' + line + '\033[0m') # Print red
+                print_color(line, Colors.RED)
             else:
                 sys.stdout.write(line)
 
@@ -178,3 +204,5 @@ def compare_with_ref(self, response,
         print_diff()
 
     assert compare_result
+
+    print('optizetghzehrighzer')
