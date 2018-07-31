@@ -416,7 +416,7 @@ class ArtemisTestFixture:
                 first_section_mode=[], last_section_mode=[],
                 **kwargs):
         """
-        syntaxic sugar around the journey api
+        syntactic sugar around the journey api
 
         auto_from and auto_to are used to access the autocomplete api
 
