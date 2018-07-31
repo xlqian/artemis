@@ -43,12 +43,26 @@ def get_calling_test_function():
 
 class TestFixture(object):
 
+    def request_compare(self, url):
+
+        # creating the url
+        query = config['URL_JORMUN'] + '/v1/coverage/' + str(self.data_sets[0]) + '/' + url
+
+        # Get the json answer of the request (it is just a string here)
+        raw_response = requests.get(query)
+
+        # Transform the string into a dictionary
+        dict_resp = json.loads(raw_response.text)
+
+        # Comparing my response and my reference
+        compare_with_ref(self, dict_resp)
+
     def get_file_name(self):
         """
         Get second half of the path to the artemis reference file
         """
         mro = inspect.getmro(self.__class__)
-        class_name = "{}".format(mro[0].__name__)
+        class_name = "Test{}".format(mro[1].__name__)
         scenario = 'new_default'
 
         func_name = get_calling_test_function()
@@ -84,17 +98,15 @@ class TestFixture(object):
         for k, v in six.iteritems(kwargs):
             query = "{query}&{k}={v}".format(query=query, k=k, v=v)
 
-        # full URL concatenation
-        query = config['URL_JORMUN'] + '/v1/coverage/' + str(self.data_sets[0]) + '/journeys?' + query
+        # launching request dans comparing
+        self.request_compare('journeys?' + query)
 
-        # Get the json answer of the request (it is just a string here)
-        raw_response = requests.get(query)
-
-        # Transform the string into a dictionary
-        dict_resp = json.loads(raw_response.text)
-
-        # Comparing my response and my reference
-        compare_with_ref(self, dict_resp)
+    def api(self, url, response_checker=default_checker.default_checker):
+        """
+        NOTE: works only when one region is loaded for the moment (when needed change this)
+        """
+        # launching request dans comparing
+        self.request_compare(url)
 
 def compare_with_ref(self, response,
                         response_checker=default_checker.default_journey_checker):
@@ -135,7 +147,7 @@ def compare_with_ref(self, response,
         # Print failed test name
         print_color('\n\n' + str(file_name) + ' failed :' + '\n\n', Colors.PINK)
 
-        # Print differences between ref and resp in console
+        # PriTestFixturent differences between ref and resp in console
         for line in difflib.unified_diff(reference, response):
             if line[0] == '+':
                 print_color(line, Colors.GREEN)

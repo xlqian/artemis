@@ -10,9 +10,9 @@ import time
 import pytest
 from retrying import Retrying, retry, RetryError
 from artemis import default_checker
-import utils
+from artemis import utils
 import requests
-from configuration_manager import config
+from artemis.configuration_manager import config
 
 # regexp used to identify a test method (simplified version of nose)
 _test_method_regexp = re.compile("^(test_.*|.*_test)$")
