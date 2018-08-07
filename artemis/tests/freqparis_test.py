@@ -1,4 +1,5 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
+from artemis.test_mechanism import dataset, DataSet, set_scenario
+from artemis.base_pytest import ArtemisTestFixture
 
 @dataset([DataSet("freqparis")])
 class FreqParis(object):

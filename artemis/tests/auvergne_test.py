@@ -1,4 +1,4 @@
-from artemis.base_pytest import TestFixture
+from artemis.base_pytest import ArtemisTestFixture
 from artemis.test_mechanism import dataset, DataSet, set_scenario
 
 
@@ -103,10 +103,10 @@ class Auvergne(object):
 
 
 @set_scenario({"fr-auv": {"scenario": "new_default"}})
-class TestAuvergneNewDefault(Auvergne, TestFixture):
+class TestAuvergneNewDefault(Auvergne, ArtemisTestFixture):
     pass
 
 
 @set_scenario({"fr-auv": {"scenario": "experimental"}})
-class TestAuvergneExperimental(Auvergne, TestFixture):
+class TestAuvergneExperimental(Auvergne, ArtemisTestFixture):
     pass

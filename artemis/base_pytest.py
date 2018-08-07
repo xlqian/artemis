@@ -7,6 +7,12 @@ from artemis.configuration_manager import config
 import difflib
 import sys
 import six
+import pytest
+import logging
+from collections import defaultdict
+import docker
+import tarfile
+import zipfile
 
 if six.PY3: # case using python 3
     from enum import Enum
@@ -24,6 +30,12 @@ if six.PY2: # case using python 2
         PINK = '\033[95m'
         DEFAULT = '\033[0m'
 
+def print_color(line, color = Colors.DEFAULT):
+    """console print, with color"""
+    if six.PY3: # case using python 3
+        sys.stdout.write('{}{}{}'.format(color.value, line, Colors.DEFAULT.value))
+    if six.PY2: # case using python 2
+        sys.stdout.write('{}{}{}'.format(color, line, Colors.DEFAULT))
 
 def get_calling_test_function():
     """
@@ -41,7 +53,96 @@ def get_calling_test_function():
     #a test method has to be found by construction, if none is found there is a problem
     raise KeyError("impossible to find the calling test method")
 
-class TestFixture(object):
+class ArtemisTestFixture(object):
+
+    dataset_binarized = []
+
+    @pytest.fixture(scope='function', autouse=True)
+    def before_each_test(self):
+        """
+        setup function called before each test
+
+        Note: py.test does not want to collect class with custom constructor,
+        so we init the class in the setup
+        """
+        self.test_counter = defaultdict(int)
+
+    @classmethod
+    def remove_data_by_dataset(cls, data_set):
+        file_path = '/srv/ed/output/{}.nav.lz4'.format(data_set.name)
+        print_color('\npath to volume from container: ' + file_path, Colors.PINK) #--------------------------------------------------------------PRINTS
+        client = docker.from_env()
+        container = client.containers.get('navitia-docker-compose_tyr_worker_1')
+        container.exec_run('rm ' + file_path)
+
+    @classmethod
+    def update_data_by_dataset(cls, data_set):
+        data_path = config['ARTEMIS_PATH'] + '/artemis_data'
+        input_path = '{}/{}'.format(config['CONTAINER_DATA_INPUT_PATH'], data_set.name)
+
+        logging.getLogger(__name__).debug("updating data for {}".format(data_set.name))
+
+        #opening the container as client
+        client = docker.from_env()
+        container = client.containers.get('navitia-docker-compose_tyr_worker_1')
+        container.exec_run('mkdir ' + input_path)
+
+        #put the fusio data
+        fusio_path = '{}/{}/fusio'.format(data_path, data_set.name)
+        fusio_databases_file = fusio_path + '/{}.zip'.format(data_set.name)
+        print_color('\npath to fusio: ' + fusio_path, Colors.PINK)
+        print_color('\npath to fusio file: ' + fusio_databases_file, Colors.PINK) #--------------------------------------------------------------PRINTS
+
+        if os.path.exists(fusio_path):
+            file_list = []
+            #get all the files names from fusio
+            for file in os.listdir(fusio_path):
+                if file.endswith('.txt'):
+                    file_list.append(file)
+            #put them into a zip
+            with zipfile.ZipFile('{}/{}.zip'.format(fusio_path, data_set.name), 'w') as zip:
+                for name in file_list:
+                    zip.write('{}/{}'.format(fusio_path, name), arcname=name)
+            #put the zip into a tar
+            with tarfile.open("./sample1.tar", "w") as tar:
+                for name in [fusio_databases_file]:
+                    tar.add(name, arcname='{}.zip'.format(data_set.name))
+            #send the tar to the volume
+            with open('./sample1.tar', 'rb') as f:
+                container.put_archive(input_path, f.read())
+        else:
+            print_color('\nError : Fusio path does not exist : {}'.format(fusio_path), Colors.RED)
+
+        #put the osm data
+        osm_path = '{}/{}/osm'.format(data_path, data_set.name)
+        osm_file_name = ''
+        if os.path.exists(osm_path):
+            #get the osm file name
+            for file in os.listdir(osm_path):
+                if file.endswith('.pbf'):
+                    osm_file_name += file
+            osm_file = osm_path + '/' + osm_file_name
+
+            #put the osm file in a tar
+            with tarfile.open("./sample1.tar", "w") as tar:
+                for name in [osm_file]:
+                    tar.add(name, arcname=osm_file_name)
+            #send the tar to volume
+            with open('./sample1.tar', 'rb') as f:
+                container.put_archive(input_path, f.read())
+        else:
+            print_color('\nError : osm path does not exist : {}'.format(osm_path), Colors.RED)
+
+    @classmethod
+    @pytest.yield_fixture(scope='class', autouse=True)
+    def manage_data(cls):
+        for data_set in cls.data_sets:
+            if data_set.name in cls.dataset_binarized:
+                logging.getLogger(__name__).debug("binarization dataset {} has been done, skipping....".format(data_set))
+                continue
+            cls.remove_data_by_dataset(data_set)
+            cls.update_data_by_dataset(data_set)
+
 
     def request_compare(self, url):
 
@@ -128,14 +229,6 @@ def compare_with_ref(self, response,
             response_text.write(json_filtered_response)
 
     def print_diff():
-
-        def print_color(line, color = Colors.DEFAULT):
-            """console print, with color"""
-            if six.PY3: # case using python 3
-                sys.stdout.write('{}{}{}'.format(color.value, line, Colors.DEFAULT.value))
-            if six.PY2: # case using python 2
-                sys.stdout.write('{}{}{}'.format(color, line, Colors.DEFAULT))
-
 
         # open reference
         with open(full_file_name_ref) as reference_text:
