@@ -21,9 +21,7 @@ import functools
 
 ARTEMIS_CUSTOM_ID = '__artemis_id__'
 
-_api_main_root_point = 'http://localhost/'
-
-_api_current_root_point = _api_main_root_point + config['API_POINT_PREFIX'] + 'v1/'
+_api_current_root_point = config['URL_JORMUN'] + '/v1/'
 
 
 def instance_data_path(dataset):

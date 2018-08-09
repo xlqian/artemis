@@ -1,5 +1,5 @@
 from artemis.test_mechanism import dataset, DataSet, set_scenario
-from artemis.base_pytest import TestFixture
+from artemis.base_pytest import ArtemisTestFixture
 import pytest
 
 xfail = pytest.mark.xfail

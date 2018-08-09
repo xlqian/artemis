@@ -505,6 +505,7 @@ def dataset(datasets):
 
     each test should have this decorator to make clear the data set used for the tests
     """
+
     def deco(cls):
         cls.data_sets = datasets
         return cls

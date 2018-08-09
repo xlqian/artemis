@@ -35,6 +35,9 @@ CONTAINER_DATA_OUTPUT_PATH ='/srv/ed/output'
 
 ARTEMIS_PATH = '/home/louis_gaillet/Projets/Artemis'
 
+TYR_PORT = "9898"
+URL_TYR = 'http://localhost'
+
 LOGGER = {
     'version': 1,
     'disable_existing_loggers': False,

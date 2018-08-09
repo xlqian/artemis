@@ -13,6 +13,8 @@ from collections import defaultdict
 import docker
 import tarfile
 import zipfile
+from retrying import retry
+
 
 if six.PY3: # case using python 3
     from enum import Enum
@@ -30,7 +32,8 @@ if six.PY2: # case using python 2
         PINK = '\033[95m'
         DEFAULT = '\033[0m'
 
-def print_color(line, color = Colors.DEFAULT):
+
+def print_color(line, color=Colors.DEFAULT):
     """console print, with color"""
     if six.PY3: # case using python 3
         sys.stdout.write('{}{}{}'.format(color.value, line, Colors.DEFAULT.value))
@@ -57,6 +60,7 @@ class ArtemisTestFixture(object):
 
     dataset_binarized = []
 
+    tyr_worker_container_name = 'navitiadockercompose_tyr_worker_1'
     @pytest.fixture(scope='function', autouse=True)
     def before_each_test(self):
         """
@@ -72,11 +76,24 @@ class ArtemisTestFixture(object):
         file_path = '/srv/ed/output/{}.nav.lz4'.format(data_set.name)
         print_color('\npath to volume from container: ' + file_path, Colors.PINK) #--------------------------------------------------------------PRINTS
         client = docker.from_env()
-        container = client.containers.get('navitia-docker-compose_tyr_worker_1')
+        container = client.containers.get(cls.tyr_worker_container_name)
         container.exec_run('rm ' + file_path)
 
     @classmethod
     def update_data_by_dataset(cls, data_set):
+        def get_last_rt_loaded_time(cov):
+
+            _response, _ = utils.api("coverage/{cov}/status".format(cov=cov))
+            return _response.get('status', {}).get('last_load_at', "")
+
+        @retry(wait_fixed=5000)
+        def wait_for_rt_reload(self, last_rt_data_loaded, cov):
+            new_rt_data_loaded = get_last_rt_loaded_time(cov)
+
+            if last_rt_data_loaded == new_rt_data_loaded:
+                raise Exception("kraken data is not loaded")
+            return
+
         data_path = config['ARTEMIS_PATH'] + '/artemis_data'
         input_path = '{}/{}'.format(config['CONTAINER_DATA_INPUT_PATH'], data_set.name)
 
@@ -84,13 +101,17 @@ class ArtemisTestFixture(object):
 
         #opening the container as client
         client = docker.from_env()
-        container = client.containers.get('navitia-docker-compose_tyr_worker_1')
+        container = client.containers.get(cls.tyr_worker_container_name)
         container.exec_run('mkdir ' + input_path)
+
+        #save the last reload time by tyr
+        last_reload_time = get_last_rt_loaded_time(cov=data_set.name)
+        print_color('last loaded time : ' + str(last_reload_time), Colors.PINK)
 
         #put the fusio data
         fusio_path = '{}/{}/fusio'.format(data_path, data_set.name)
         fusio_databases_file = fusio_path + '/{}.zip'.format(data_set.name)
-        print_color('\npath to fusio: ' + fusio_path, Colors.PINK)
+        print_color('\npath to fusio: ' + fusio_path, Colors.PINK) #--------------------------------------------------------------PRINTS
         print_color('\npath to fusio file: ' + fusio_databases_file, Colors.PINK) #--------------------------------------------------------------PRINTS
 
         if os.path.exists(fusio_path):
@@ -133,16 +154,20 @@ class ArtemisTestFixture(object):
         else:
             print_color('\nError : osm path does not exist : {}'.format(osm_path), Colors.RED)
 
+        #Wait until data is reloaded
+        wait_for_rt_reload(cls, last_reload_time, cov=data_set.name)
+
     @classmethod
     @pytest.yield_fixture(scope='class', autouse=True)
     def manage_data(cls):
+
         for data_set in cls.data_sets:
             if data_set.name in cls.dataset_binarized:
                 logging.getLogger(__name__).debug("binarization dataset {} has been done, skipping....".format(data_set))
                 continue
             cls.remove_data_by_dataset(data_set)
             cls.update_data_by_dataset(data_set)
-
+            cls.dataset_binarized.append(data_set.name)
 
     def request_compare(self, url):
 
