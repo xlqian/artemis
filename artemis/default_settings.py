@@ -28,15 +28,12 @@ CITIES_DB = 'dbname=cities user=navitia host=localhost password=password'
 
 # Beginning of the URL : we want the request to go to our own Jormun on our own machine
 URL_JORMUN = 'http://localhost:9191'
+URL_TYR = 'http://localhost:9898'
 
 CONTAINER_DATA_INPUT_PATH ='/srv/ed/input'
 
 CONTAINER_DATA_OUTPUT_PATH ='/srv/ed/output'
 
-ARTEMIS_PATH = '/home/louis_gaillet/Projets/Artemis'
-
-TYR_PORT = "9898"
-URL_TYR = 'http://localhost'
 
 LOGGER = {
     'version': 1,

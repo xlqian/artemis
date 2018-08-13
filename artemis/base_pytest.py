@@ -19,26 +19,24 @@ from retrying import retry
 if six.PY3: # case using python 3
     from enum import Enum
 
-    class Colors(Enum):
-        RED = '\033[91m'
-        GREEN = '\033[92m'
-        PINK = '\033[95m'
-        DEFAULT = '\033[0m'
-
 if six.PY2: # case using python 2
-    class Colors():
-        RED = '\033[91m'
-        GREEN = '\033[92m'
-        PINK = '\033[95m'
-        DEFAULT = '\033[0m'
+    from aenum import Enum
+
+
+class Colors(Enum):
+    RED = '\033[91m'
+    GREEN = '\033[92m'
+    PINK = '\033[95m'
+    DEFAULT = '\033[0m'
+
+
+logger = logging.getLogger(__name__)
 
 
 def print_color(line, color=Colors.DEFAULT):
     """console print, with color"""
-    if six.PY3: # case using python 3
-        sys.stdout.write('{}{}{}'.format(color.value, line, Colors.DEFAULT.value))
-    if six.PY2: # case using python 2
-        sys.stdout.write('{}{}{}'.format(color, line, Colors.DEFAULT))
+    sys.stdout.write('{}{}{}'.format(color.value, line, Colors.DEFAULT.value))
+
 
 def get_calling_test_function():
     """
@@ -60,7 +58,7 @@ class ArtemisTestFixture(object):
 
     dataset_binarized = []
 
-    tyr_worker_container_name = 'navitiadockercompose_tyr_worker_1'
+    tyr_worker_container_name = 'navitia-docker-compose_tyr_worker_1'
     @pytest.fixture(scope='function', autouse=True)
     def before_each_test(self):
         """
@@ -74,7 +72,7 @@ class ArtemisTestFixture(object):
     @classmethod
     def remove_data_by_dataset(cls, data_set):
         file_path = '/srv/ed/output/{}.nav.lz4'.format(data_set.name)
-        print_color('\npath to volume from container: ' + file_path, Colors.PINK) #--------------------------------------------------------------PRINTS
+        logger.info('path to volume from container: ' + file_path)
         client = docker.from_env()
         container = client.containers.get(cls.tyr_worker_container_name)
         container.exec_run('rm ' + file_path)
@@ -86,84 +84,107 @@ class ArtemisTestFixture(object):
             _response, _ = utils.api("coverage/{cov}/status".format(cov=cov))
             return _response.get('status', {}).get('last_load_at', "")
 
-        @retry(wait_fixed=5000)
-        def wait_for_rt_reload(self, last_rt_data_loaded, cov):
+        # wait 5 min at most
+        @retry(stop_max_delay=300000, wait_fixed=5000)
+        def wait_for_rt_reload(last_rt_data_loaded, cov):
             new_rt_data_loaded = get_last_rt_loaded_time(cov)
 
             if last_rt_data_loaded == new_rt_data_loaded:
                 raise Exception("kraken data is not loaded")
             return
 
-        data_path = config['ARTEMIS_PATH'] + '/artemis_data'
+        data_path = config['DATA_DIR']
         input_path = '{}/{}'.format(config['CONTAINER_DATA_INPUT_PATH'], data_set.name)
 
-        logging.getLogger(__name__).debug("updating data for {}".format(data_set.name))
+        logger.info("updating data for {}".format(data_set.name))
 
-        #opening the container as client
+        # opening the container as client
         client = docker.from_env()
         container = client.containers.get(cls.tyr_worker_container_name)
         container.exec_run('mkdir ' + input_path)
 
-        #save the last reload time by tyr
+        # ave the last reload time by tyr
         last_reload_time = get_last_rt_loaded_time(cov=data_set.name)
-        print_color('last loaded time : ' + str(last_reload_time), Colors.PINK)
+        logger.info('last loaded time : ' + str(last_reload_time))
 
-        #put the fusio data
+        # put the fusio data
         fusio_path = '{}/{}/fusio'.format(data_path, data_set.name)
         fusio_databases_file = fusio_path + '/{}.zip'.format(data_set.name)
-        print_color('\npath to fusio: ' + fusio_path, Colors.PINK) #--------------------------------------------------------------PRINTS
-        print_color('\npath to fusio file: ' + fusio_databases_file, Colors.PINK) #--------------------------------------------------------------PRINTS
 
         if os.path.exists(fusio_path):
+            logger.info('putting Fusio data : {}'.format(fusio_path))
             file_list = []
-            #get all the files names from fusio
+            # get all the files names from fusio
             for file in os.listdir(fusio_path):
                 if file.endswith('.txt'):
                     file_list.append(file)
-            #put them into a zip
+            # put them into a zip
             with zipfile.ZipFile('{}/{}.zip'.format(fusio_path, data_set.name), 'w') as zip:
                 for name in file_list:
                     zip.write('{}/{}'.format(fusio_path, name), arcname=name)
-            #put the zip into a tar
+            # put the zip into a tar
             with tarfile.open("./sample1.tar", "w") as tar:
                 for name in [fusio_databases_file]:
                     tar.add(name, arcname='{}.zip'.format(data_set.name))
-            #send the tar to the volume
+            # send the tar to the volume
             with open('./sample1.tar', 'rb') as f:
                 container.put_archive(input_path, f.read())
         else:
-            print_color('\nError : Fusio path does not exist : {}'.format(fusio_path), Colors.RED)
+            logger.warning('Fusio path does not exist : {}'.format(fusio_path))
 
-        #put the osm data
+        # put the osm data
         osm_path = '{}/{}/osm'.format(data_path, data_set.name)
         osm_file_name = ''
         if os.path.exists(osm_path):
-            #get the osm file name
-            for file in os.listdir(osm_path):
-                if file.endswith('.pbf'):
-                    osm_file_name += file
+            logger.info('putting osm data : {}'.format(osm_path))
+
+            # get the osm file name
+            for f in os.listdir(osm_path):
+                if f.endswith('.pbf'):
+                    osm_file_name += f
             osm_file = osm_path + '/' + osm_file_name
 
-            #put the osm file in a tar
+            # put the osm file in a tar
             with tarfile.open("./sample1.tar", "w") as tar:
                 for name in [osm_file]:
                     tar.add(name, arcname=osm_file_name)
-            #send the tar to volume
+            # send the tar to volume
             with open('./sample1.tar', 'rb') as f:
                 container.put_archive(input_path, f.read())
         else:
-            print_color('\nError : osm path does not exist : {}'.format(osm_path), Colors.RED)
+            logger.warning('osm path does not exist : {}'.format(osm_path))
 
-        #Wait until data is reloaded
-        wait_for_rt_reload(cls, last_reload_time, cov=data_set.name)
+        # put the osm data
+        geopal_path = '{}/{}/geopal'.format(data_path, data_set.name)
+        geopal_file_name = ''
+        if os.path.exists(geopal_path):
+            logger.info('putting osm data : {}'.format(geopal_path))
+
+            # get the osm file name
+            for f in os.listdir(geopal_path):
+                if f.endswith('.pbf'):
+                    geopal_file_name += f
+            geopal_file = geopal_path + '/' + geopal_file_name
+
+            # put the osm file in a tar
+            with tarfile.open("./sample1.tar", "w") as tar:
+                for name in [geopal_file]:
+                    tar.add(name, arcname=osm_file_name)
+            # send the tar to volume
+            with open('./sample1.tar', 'rb') as f:
+                container.put_archive(input_path, f.read())
+        else:
+            logger.warning('geopal file path does not exist : {}'.format(geopal_path))
+
+        # Wait until data is reloaded
+        wait_for_rt_reload(last_reload_time, data_set.name)
 
     @classmethod
     @pytest.yield_fixture(scope='class', autouse=True)
     def manage_data(cls):
-
         for data_set in cls.data_sets:
             if data_set.name in cls.dataset_binarized:
-                logging.getLogger(__name__).debug("binarization dataset {} has been done, skipping....".format(data_set))
+                logger.info("binarization dataset {} has been done, skipping....".format(data_set))
                 continue
             cls.remove_data_by_dataset(data_set)
             cls.update_data_by_dataset(data_set)
@@ -234,8 +255,8 @@ class ArtemisTestFixture(object):
         # launching request dans comparing
         self.request_compare(url)
 
-def compare_with_ref(self, response,
-                        response_checker=default_checker.default_journey_checker):
+
+def compare_with_ref(self, response, response_checker=default_checker.default_journey_checker):
     """
     This function take the response (which is a dictionary) and compare it to a the reference
     It first goes finding the reference
@@ -274,17 +295,16 @@ def compare_with_ref(self, response,
             else:
                 sys.stdout.write(line)
 
-    ### Get the reference
+    # Get the reference
 
     # Create the file name
     filename = self.get_file_name()
 
     # Add path to artemis references
-    relative_path_file = os.path.dirname(__file__)
-    relative_path_ref = relative_path_file[:-16] + '/artemis_references/'
+    relative_path_ref = config['REFERENCE_FILE_PATH']
     filepath = os.path.join(relative_path_ref, filename)
+    assert os.path.isfile(filepath), "{} is not a file".format(filepath)
 
-    assert os.path.isfile(filepath)
     with open(filepath, 'r') as f:
         raw_reference = f.read()
 
@@ -319,7 +339,7 @@ def compare_with_ref(self, response,
         file_name = file_name[:-5]
 
         # create a folder
-        dir_path = os.path.dirname(__file__) + '/outputs'
+        dir_path = config['RESPONSE_FILE_PATH']
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
 
