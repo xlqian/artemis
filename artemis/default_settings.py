@@ -29,7 +29,7 @@ KIRIN_DB = 'dbname=kirin user=kirin host=localhost password=kirin'
 CITIES_DB = 'dbname=cities user=navitia host=localhost password=password'
 
 # By default, the requests will be made locally. But it can be directed to any Jormun/Tyr instance
-URL_JORMUN = 'http://localhost:9191'
+URL_JORMUN = 'http://localhost'
 URL_TYR = 'http://localhost:9898'
 
 CONTAINER_DATA_INPUT_PATH ='/srv/ed/input'
