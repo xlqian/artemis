@@ -1,6 +1,6 @@
 from functools import partial
 
-from flask.ext.restful import fields
+from flask_restful import fields
 from artemis.utils import Checker, WhiteListMask, BlackListMask, SubsetComparator, RetrocompatibilityMask, \
     StopScheduleIDGenerator, PerfectComparator
 import re

@@ -1,7 +1,7 @@
 import logging
 import os
 import shutil
-from configuration_manager import config
+from artemis.configuration_manager import config
 
 #NOTE: I did not manage to use the setup_module for a global init,
 #so this is done here (but it'll be more difficult if we need a global teardown...as

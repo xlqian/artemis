@@ -2,6 +2,7 @@
 
 TYR_DIR = "/srv/tyr"
 
+# Path to artemis_data folder
 DATA_DIR = "/srv/artemis_data"
 
 CITIES_INPUT_FILE = DATA_DIR + "/france_boundaries.osm.pbf"
@@ -14,6 +15,7 @@ NEW_FUSIO_FILE_PATH_LAYOUT = "/srv/fusio/source/{dataset}/NAVITIART/databases.zi
 
 RESPONSE_FILE_PATH = 'output'
 
+# Path to artemis_references folder
 REFERENCE_FILE_PATH = 'reference'
 
 API_POINT_PREFIX = ''
@@ -25,6 +27,15 @@ JORMUNGANDR_DB = 'dbname=jormungandr user=jormungandr host=localhost password=jo
 KIRIN_DB = 'dbname=kirin user=kirin host=localhost password=kirin'
 
 CITIES_DB = 'dbname=cities user=navitia host=localhost password=password'
+
+# By default, the requests will be made locally. But it can be directed to any Jormun/Tyr instance
+URL_JORMUN = 'http://localhost'
+URL_TYR = 'http://localhost:9898'
+
+CONTAINER_DATA_INPUT_PATH ='/srv/ed/input'
+
+CONTAINER_DATA_OUTPUT_PATH ='/srv/ed/output'
+
 
 LOGGER = {
     'version': 1,

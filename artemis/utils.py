@@ -18,12 +18,10 @@ import re
 import jsonpath_rw as jp
 import functools
 
+
 ARTEMIS_CUSTOM_ID = '__artemis_id__'
 
-
-_api_main_root_point = 'http://localhost/'
-
-_api_current_root_point = _api_main_root_point + config['API_POINT_PREFIX'] + 'v1/'
+_api_current_root_point = config['URL_JORMUN'] + '/v1/'
 
 
 def instance_data_path(dataset):
@@ -270,7 +268,7 @@ def check_equals(a, b):
 
     the implementation might be done with hidden variables and a default decorator on each test function
     """
-    assert a == b
+    return a == b
 
 
 def is_subset(obj1, obj2, current_path=None):
@@ -440,4 +438,7 @@ class StopScheduleIDGenerator(object):
                        r=stop_schedule.get('route', {}).get('id'))
 
         return response
+
+# regexp used to identify a test method (simplified version of nose)
+_test_method_regexp = re.compile("^(test_.*|.*_test)$")
 
