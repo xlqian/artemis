@@ -111,7 +111,7 @@ class ArtemisTestFixture(object):
             return _response.get('status', {}).get('last_load_at', "")
 
         # wait 5 min at most
-        @retry(stop_max_delay=300000, wait_fixed=5000)
+        @retry(stop_max_delay=3000000, wait_fixed=5000)
         def wait_for_kraken_reload(last_rt_data_loaded, cov):
             new_rt_data_loaded = get_last_coverage_loaded_time(cov)
 
@@ -133,74 +133,49 @@ class ArtemisTestFixture(object):
         last_reload_time = get_last_coverage_loaded_time(cov=data_set.name)
         logger.info('last loaded time : ' + str(last_reload_time))
 
+        def put_data(data_type, file_suffix, zipped):
+            path = '{}/{}/{}'.format(data_path, data_set.name, data_type)
+            zip_file = '{}/{}_{}.zip'.format(path, data_set.name, data_type)
+
+            if os.path.exists(path):
+                logger.info('putting {} data : {}'.format(data_type, path))
+                # get all the files names
+                files = [f for f in os.listdir(path)
+                         if f.endswith(file_suffix)]
+
+                if zipped:
+                    # put them into a zip
+                    with zipfile.ZipFile(zip_file, 'w') as zip:
+                        for f in files:
+                            zip.write('{}/{}'.format(path, f), arcname=f)
+
+                # put the zip into a tar
+                with tarfile.open("./{}.tar".format(data_type), "w") as tar:
+                    if zipped:
+                        tar.add(zip_file, arcname='{}.zip'.format(data_type))
+                    else:
+                        for f in files:
+                            tar.add('{}/{}'.format(path, f), arcname=f)
+
+                # send the tar to the volume
+                with open('./{}.tar'.format(data_type), 'rb') as f:
+                    container.put_archive(input_path, f.read())
+            else:
+                logger.warning('{} path does not exist : {}'.format(data_type, path))
+
         # put the fusio data
-        fusio_path = '{}/{}/fusio'.format(data_path, data_set.name)
-        fusio_databases_file = fusio_path + '/{}.zip'.format(data_set.name)
-
-        if os.path.exists(fusio_path):
-            logger.info('putting Fusio data : {}'.format(fusio_path))
-            file_list = []
-            # get all the files names from fusio
-            for file in os.listdir(fusio_path):
-                if file.endswith('.txt'):
-                    file_list.append(file)
-            # put them into a zip
-            with zipfile.ZipFile('{}/{}.zip'.format(fusio_path, data_set.name), 'w') as zip:
-                for name in file_list:
-                    zip.write('{}/{}'.format(fusio_path, name), arcname=name)
-            # put the zip into a tar
-            with tarfile.open("./sample1.tar", "w") as tar:
-                for name in [fusio_databases_file]:
-                    tar.add(name, arcname='{}.zip'.format(data_set.name))
-            # send the tar to the volume
-            with open('./sample1.tar', 'rb') as f:
-                container.put_archive(input_path, f.read())
-        else:
-            logger.warning('Fusio path does not exist : {}'.format(fusio_path))
-
+        put_data('fusio', '.txt', zipped=True)
         # put the osm data
-        osm_path = '{}/{}/osm'.format(data_path, data_set.name)
-        osm_file_name = ''
-        if os.path.exists(osm_path):
-            logger.info('putting osm data : {}'.format(osm_path))
+        put_data('osm', '.pbf', zipped=False)
 
-            # get the osm file name
-            for f in os.listdir(osm_path):
-                if f.endswith('.pbf'):
-                    osm_file_name += f
-            osm_file = osm_path + '/' + osm_file_name
+        # put the poi data
+        put_data('poi', '.txt', zipped=True)
+        put_data('fusio-poi', '.txt', zipped=True)
 
-            # put the osm file in a tar
-            with tarfile.open("./sample1.tar", "w") as tar:
-                for name in [osm_file]:
-                    tar.add(name, arcname=osm_file_name)
-            # send the tar to volume
-            with open('./sample1.tar', 'rb') as f:
-                container.put_archive(input_path, f.read())
-        else:
-            logger.warning('osm path does not exist : {}'.format(osm_path))
-
-        # put the osm data
-        geopal_path = '{}/{}/geopal'.format(data_path, data_set.name)
-        geopal_file_name = ''
-        if os.path.exists(geopal_path):
-            logger.info('putting osm data : {}'.format(geopal_path))
-
-            # get the osm file name
-            for f in os.listdir(geopal_path):
-                if f.endswith('.pbf'):
-                    geopal_file_name += f
-            geopal_file = geopal_path + '/' + geopal_file_name
-
-            # put the osm file in a tar
-            with tarfile.open("./sample1.tar", "w") as tar:
-                for name in [geopal_file]:
-                    tar.add(name, arcname=osm_file_name)
-            # send the tar to volume
-            with open('./sample1.tar', 'rb') as f:
-                container.put_archive(input_path, f.read())
-        else:
-            logger.warning('geopal file path does not exist : {}'.format(geopal_path))
+        # put the geopal data
+        put_data('geopal', '.txt', zipped=True)
+        put_data('fusio-geopal', '.txt', zipped=True)
+        put_data('fusio-address', '.txt', zipped=True)
 
         # Wait until data is reloaded
         wait_for_kraken_reload(last_reload_time, data_set.name)
