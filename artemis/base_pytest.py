@@ -32,12 +32,14 @@ class Colors(Enum):
 
 logger = logging.getLogger(__name__)
 
+_kirin_api = config['KIRIN_API']
+
 
 def print_color(line, color=Colors.DEFAULT):
     """console print, with color"""
     sys.stdout.write('{}{}{}'.format(color.value, line, Colors.DEFAULT.value))
 
-
+# TODO: Move in utils
 def get_calling_test_function():
     """
     return the calling test method.
@@ -54,11 +56,23 @@ def get_calling_test_function():
     #a test method has to be found by construction, if none is found there is a problem
     raise KeyError("impossible to find the calling test method")
 
+def get_ire_data(name):
+    """
+    return an IRE input as string
+    the name must be the name of a file in tests/fixtures
+    """
+    _file = os.path.join(os.path.dirname(__file__), 'tests', 'fixtures', name)
+    with open(_file, "r") as ire:
+        return ire.read()
+        
 class ArtemisTestFixture(object):
 
     dataset_binarized = []
 
-    tyr_worker_container_name = 'navitia-docker-compose_tyr_worker_1'
+    # Name of the docker container from the docker-compose
+    # TODO: Needs to be common with docker-compose.yml
+    tyr_worker_container_name = 'navitiadockercompose_tyr_worker_1'
+
     @pytest.fixture(scope='function', autouse=True)
     def before_each_test(self):
         """
@@ -70,6 +84,18 @@ class ArtemisTestFixture(object):
         self.test_counter = defaultdict(int)
 
     @classmethod
+    @pytest.yield_fixture(scope='class', autouse=True)
+    def manage_data(cls):
+
+        for data_set in cls.data_sets:
+            if data_set.name in cls.dataset_binarized:
+                logger.info("binarization dataset {} has been done, skipping....".format(data_set))
+                continue
+            cls.remove_data_by_dataset(data_set)
+            cls.update_data_by_dataset(data_set)
+            cls.dataset_binarized.append(data_set.name)
+
+    @classmethod
     def remove_data_by_dataset(cls, data_set):
         file_path = '/srv/ed/output/{}.nav.lz4'.format(data_set.name)
         logger.info('path to volume from container: ' + file_path)
@@ -79,15 +105,15 @@ class ArtemisTestFixture(object):
 
     @classmethod
     def update_data_by_dataset(cls, data_set):
-        def get_last_rt_loaded_time(cov):
+        def get_last_coverage_loaded_time(cov):
 
-            _response, _ = utils.api("coverage/{cov}/status".format(cov=cov))
+            _response, _, _ = utils.request("coverage/{cov}/status".format(cov=cov))
             return _response.get('status', {}).get('last_load_at', "")
 
         # wait 5 min at most
         @retry(stop_max_delay=300000, wait_fixed=5000)
-        def wait_for_rt_reload(last_rt_data_loaded, cov):
-            new_rt_data_loaded = get_last_rt_loaded_time(cov)
+        def wait_for_kraken_reload(last_rt_data_loaded, cov):
+            new_rt_data_loaded = get_last_coverage_loaded_time(cov)
 
             if last_rt_data_loaded == new_rt_data_loaded:
                 raise Exception("kraken data is not loaded")
@@ -103,8 +129,8 @@ class ArtemisTestFixture(object):
         container = client.containers.get(cls.tyr_worker_container_name)
         container.exec_run('mkdir ' + input_path)
 
-        # ave the last reload time by tyr
-        last_reload_time = get_last_rt_loaded_time(cov=data_set.name)
+        # Have the last reload time by Kraken
+        last_reload_time = get_last_coverage_loaded_time(cov=data_set.name)
         logger.info('last loaded time : ' + str(last_reload_time))
 
         # put the fusio data
@@ -177,18 +203,30 @@ class ArtemisTestFixture(object):
             logger.warning('geopal file path does not exist : {}'.format(geopal_path))
 
         # Wait until data is reloaded
-        wait_for_rt_reload(last_reload_time, data_set.name)
+        wait_for_kraken_reload(last_reload_time, data_set.name)
 
-    @classmethod
-    @pytest.yield_fixture(scope='class', autouse=True)
-    def manage_data(cls):
-        for data_set in cls.data_sets:
-            if data_set.name in cls.dataset_binarized:
-                logger.info("binarization dataset {} has been done, skipping....".format(data_set))
-                continue
-            cls.remove_data_by_dataset(data_set)
-            cls.update_data_by_dataset(data_set)
-            cls.dataset_binarized.append(data_set.name)
+    def send_ire(self, ire_name):
+        logger.info("Sending IRE file : ".format(ire_name))
+        r = requests.post(_kirin_api+'/ire',
+                      data=get_ire_data(ire_name).encode('UTF-8'),
+                      headers={'Content-Type': 'application/xml;charset=utf-8'})
+        r.raise_for_status()
+        
+    @retry(stop_max_delay=25000, wait_fixed=500)
+    def get_last_rt_loaded_time(self, cov):
+        _res, _, status_code = utils.request("coverage/{cov}/status".format(cov=cov))
+
+        if status_code == 503:
+            raise Exception("Navitia is not available")
+
+        return _res.get('status', {}).get('last_rt_data_loaded', object())
+
+    @retry(stop_max_delay=25000, wait_fixed=500)
+    def wait_for_rt_reload(self, last_rt_data_loaded, cov):
+        rt_data_loaded = self.get_last_rt_loaded_time(cov)
+
+        if last_rt_data_loaded == rt_data_loaded:
+            raise Exception("real time data not loaded")
 
     def request_compare(self, url):
 
@@ -210,6 +248,7 @@ class ArtemisTestFixture(object):
         """
         mro = inspect.getmro(self.__class__)
         class_name = "Test{}".format(mro[1].__name__)
+        # TODO: needs to be configurable
         scenario = 'new_default'
 
         func_name = get_calling_test_function()
@@ -219,11 +258,10 @@ class ArtemisTestFixture(object):
 
     def journey(self, _from, to, datetime,
                 datetime_represents='departure',
-                auto_from=None, auto_to=None,
                 first_section_mode=[], last_section_mode=[],
                 **kwargs):
         """
-        This function is comming from the test_mechanism.py file.
+        This function is coming from the test_mechanism.py file.
         We only use the part that generates the url.
         Other parts are calling test that fail because we do not have the whole navitia running.
         Thus, we do not need the "self" parameter, and response_checker is set to None.
@@ -248,21 +286,13 @@ class ArtemisTestFixture(object):
         # launching request dans comparing
         self.request_compare('journeys?' + query)
 
-    def api(self, url, response_checker=default_checker.default_checker):
-        """
-        NOTE: works only when one region is loaded for the moment (when needed change this)
-        """
-        # launching request dans comparing
-        self.request_compare(url)
-
 
 def compare_with_ref(self, response, response_checker=default_checker.default_journey_checker):
     """
-    This function take the response (which is a dictionary) and compare it to a the reference
+    This function takes the response (which is a dictionary) and compare it to the reference
     It first goes finding the reference
     Then filters both ref and resp
     Finaly it compares them
-
     """
 
     def ref_resp2files():
@@ -295,7 +325,7 @@ def compare_with_ref(self, response, response_checker=default_checker.default_jo
             else:
                 sys.stdout.write(line)
 
-    # Get the reference
+    ### Get the reference
 
     # Create the file name
     filename = self.get_file_name()
