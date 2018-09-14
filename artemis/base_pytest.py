@@ -205,11 +205,8 @@ class ArtemisTestFixture(object):
         # Wait until data is reloaded
         wait_for_kraken_reload(last_reload_time, data_set.name)
 
-    #####################################################################################################
-
     def send_ire(self, ire_name):
-        print("IRE FILE = {} :\n{}".format(ire_name, get_ire_data(ire_name)))
-        print("Request to : {}".format(_kirin_api+'/ire'))
+        logger.info("Sending IRE file : ".format(ire_name))
         r = requests.post(_kirin_api+'/ire',
                       data=get_ire_data(ire_name).encode('UTF-8'),
                       headers={'Content-Type': 'application/xml;charset=utf-8'})
@@ -231,8 +228,6 @@ class ArtemisTestFixture(object):
         if last_rt_data_loaded == rt_data_loaded:
             raise Exception("real time data not loaded")
 
-    #####################################################################################################
-    
     def request_compare(self, url):
 
         # creating the url
