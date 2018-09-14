@@ -1,5 +1,4 @@
-from artemis.test_mechanism import dataset, DataSet, set_scenario
-from artemis.base_pytest import ArtemisTestFixture
+from artemis.test_mechanism import dataset, DataSet, set_scenario, ArtemisTestFixture
 
 """
 These parameters should be inserted into db via tyr. 
@@ -15,6 +14,7 @@ IDFM_PARAMS = {
     "_min_journeys_calls": 2,
     "_min_nb_journeys": 1
 }
+
 
 @dataset([DataSet("idfm")])
 class IdfM(object):
