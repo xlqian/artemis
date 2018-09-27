@@ -1,4 +1,5 @@
 from artemis.test_mechanism import dataset, DataSet, set_scenario, ArtemisTestFixture
+import datetime
 
 """
 These parameters should be inserted into db via tyr. 
@@ -16,7 +17,7 @@ IDFM_PARAMS = {
 }
 
 
-@dataset([DataSet("idfm")])
+@dataset([DataSet("idfm", datetime.timedelta(minutes=5))])
 class IdfM(object):
 
     def test_idfm_0(self):
