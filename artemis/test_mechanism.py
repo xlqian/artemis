@@ -311,7 +311,7 @@ class ArtemisTestFixture:
 
             # we wait a bit for the kraken to be started
             try:
-                Retrying(stop_max_delay=2 * 60 * 1000,  # we wait max 2 minutes for the kraken to be loaded
+                Retrying(stop_max_delay=5 * 60 * 1000,  # we wait max 2 minutes for the kraken to be loaded
                          wait_fixed=100,
                          retry_on_result=lambda x: x != 'running') \
                     .call(kraken_status, data_set)
