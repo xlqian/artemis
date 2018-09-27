@@ -87,7 +87,7 @@ def set_scenario(config):
         for c in cls.__bases__:
             if hasattr(c, "data_sets"):
                 for dataset in c.data_sets:
-                    cls.data_sets.append(DataSet(dataset.name, dataset.scenario))
+                    cls.data_sets.append(DataSet(dataset.name, datetime.timedelta(minutes=2), dataset.scenario))
         if config:
             for dataset in cls.data_sets:
                 conf = config.get(dataset.name, None)
