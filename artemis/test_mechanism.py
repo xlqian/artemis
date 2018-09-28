@@ -13,6 +13,7 @@ from artemis import default_checker
 from artemis import utils
 import requests
 from artemis.configuration_manager import config
+import datetime
 
 # regexp used to identify a test method (simplified version of nose)
 _test_method_regexp = re.compile("^(test_.*|.*_test)$")
@@ -71,9 +72,10 @@ def truncate_tables(cursor, table_names_string):
 
 
 class DataSet(object):
-    def __init__(self, name, scenario='default'):
+    def __init__(self, name, reload_timeout=datetime.timedelta(minutes=2), scenario='default'):
         self.name = name
         self.scenario = scenario
+        self.reload_timeout = reload_timeout.seconds
 
     def __str__(self):
         return self.name
@@ -85,7 +87,7 @@ def set_scenario(config):
         for c in cls.__bases__:
             if hasattr(c, "data_sets"):
                 for dataset in c.data_sets:
-                    cls.data_sets.append(DataSet(dataset.name, dataset.scenario))
+                    cls.data_sets.append(DataSet(dataset.name, datetime.timedelta(minutes=2), dataset.scenario))
         if config:
             for dataset in cls.data_sets:
                 conf = config.get(dataset.name, None)
@@ -311,7 +313,7 @@ class ArtemisTestFixture:
 
             # we wait a bit for the kraken to be started
             try:
-                Retrying(stop_max_delay=2 * 60 * 1000,  # we wait max 2 minutes for the kraken to be loaded
+                Retrying(stop_max_delay=data_set.reload_timeout * 1000,
                          wait_fixed=100,
                          retry_on_result=lambda x: x != 'running') \
                     .call(kraken_status, data_set)
