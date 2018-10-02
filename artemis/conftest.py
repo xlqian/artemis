@@ -7,6 +7,7 @@ import logging
 import pytest
 from artemis import utils
 from artemis.configuration_manager import config
+import requests
 
 
 def pytest_addoption(parser):
@@ -29,7 +30,13 @@ def load_cities(request):
     """
     log = logging.getLogger(__name__)
     if request.config.getvalue("skip_cities") or request.config.getvalue("check_ref"):
-        log.info("skiping cities loading")
+        log.info("skipping cities loading")
+        return
+
+    if config['USE_DOCKER']:
+        url = "http://localhost:9898/v0/cities/"
+        files = {'file':open(config['CITIES_INPUT_FILE'],'rb')}
+        response = requests.post(url, files=files)
         return
 
     log.info("loading cities database")
