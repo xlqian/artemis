@@ -9,7 +9,7 @@ import sys
 import six
 import pytest
 import logging
-from collections import defaultdict
+from collections import Counter
 import docker
 import tarfile
 import zipfile
@@ -81,7 +81,7 @@ class ArtemisTestFixture(object):
         Note: py.test does not want to collect class with custom constructor,
         so we init the class in the setup
         """
-        self.test_counter = defaultdict(int)
+        self.test_counter = Counter()
 
     @classmethod
     @pytest.yield_fixture(scope='class', autouse=True)
@@ -181,7 +181,6 @@ class ArtemisTestFixture(object):
         wait_for_kraken_reload(last_reload_time, data_set.name)
 
     def send_ire(self, ire_name):
-        logger.info("Sending IRE file : ".format(ire_name))
         r = requests.post(_kirin_api+'/ire',
                       data=get_ire_data(ire_name).encode('UTF-8'),
                       headers={'Content-Type': 'application/xml;charset=utf-8'})
@@ -229,7 +228,33 @@ class ArtemisTestFixture(object):
         func_name = get_calling_test_function()
         test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
         file_name = "{}.json".format(test_name)
+        self.test_counter[test_name] += 1
+
+        if self.test_counter[test_name] > 1:
+            return "{}_{}.json".format(test_name, self.test_counter[test_name] - 1)
+        else:
+            return "{}.json".format(test_name)
+
         return file_name
+
+    def api(self, url, response_checker=default_checker.default_checker):
+        """
+        used to check misc API
+
+        NOTE: works only when one region is loaded for the moment (when needed change this)
+        """
+        if len(self.__class__.data_sets) == 1:
+            full_url = "coverage/{region}/{url}".format(region=self.__class__.data_sets[0].name, url=url)
+
+        return self._api_call(full_url, response_checker)
+
+    def _api_call(self, url, response_checker):
+        """
+        call the api and check against previous results
+
+        the query is writen in a file
+        """
+        self.request_compare(url)
 
     def journey(self, _from, to, datetime,
                 datetime_represents='departure',
