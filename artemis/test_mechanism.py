@@ -74,8 +74,8 @@ def truncate_tables(cursor, table_names_string):
 class DataSet(object):
     def __init__(self,
                  name,
-                 reload_timeout,
-                 fixed_wait,
+                 reload_timeout=datetime.timedelta(minutes=2),
+                 fixed_wait=datetime.timedelta(seconds=1),
                  scenario='default'):
         self.name = name
         self.scenario = scenario
