@@ -37,7 +37,7 @@ CONTAINER_DATA_INPUT_PATH ='/srv/ed/input'
 CONTAINER_DATA_OUTPUT_PATH ='/srv/ed/output'
 
 # Is it "Artemis Next Gen" running?
-USE_DOCKER = True
+USE_DOCKER = False
 
 LOGGER = {
     'version': 1,

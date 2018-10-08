@@ -21,7 +21,7 @@ How to use
     - Once you set up all correctly, launch this command: `docker-compose -f docker-compose.yml -f docker-artemis-instance.yml up`
 
 * In default_settings.py
-    - set URL_JORMUN
+    - set URL_JORMUN (with port)
     - set URL_TYR
     - set DATA_DIR (artemis data)
     - set REFERENCE_FILE_PATH(the path to artemis references)

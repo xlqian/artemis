@@ -6,7 +6,6 @@ import shutil
 import psycopg2
 import re
 import json
-import time
 import pytest
 from retrying import Retrying, retry, RetryError
 from artemis import default_checker
@@ -22,7 +21,7 @@ _tyr = config['TYR_DIR'] + "/manage.py"
 _tyr_config_file = config['TYR_DIR'] + "/settings.py"
 
 _kirin_api = config['KIRIN_API']
-#to limit the permissions of the jenkins user on the artemis platform, we create a proxy for all kraken services
+# to limit the permissions of the jenkins user on the artemis platform, we create a proxy for all kraken services
 _kraken_wrapper = '/usr/local/bin/kraken_service_wrapper'
 
 
@@ -37,7 +36,7 @@ def get_calling_test_function():
         if _test_method_regexp.match(method_name):
             return method_name
 
-    #a test method has to be found by construction, if none is found there is a problem
+    # a test method has to be found by construction, if none is found there is a problem
     raise KeyError("impossible to find the calling test method")
 
 
@@ -72,10 +71,15 @@ def truncate_tables(cursor, table_names_string):
 
 
 class DataSet(object):
-    def __init__(self, name, reload_timeout=datetime.timedelta(minutes=2), scenario='default'):
+    def __init__(self,
+                 name,
+                 reload_timeout=datetime.timedelta(minutes=2),
+                 fixed_wait=datetime.timedelta(seconds=1),
+                 scenario='default'):
         self.name = name
         self.scenario = scenario
-        self.reload_timeout = reload_timeout.seconds
+        self.reload_timeout = reload_timeout
+        self.fixed_wait = fixed_wait
 
     def __str__(self):
         return self.name
@@ -87,7 +91,10 @@ def set_scenario(config):
         for c in cls.__bases__:
             if hasattr(c, "data_sets"):
                 for dataset in c.data_sets:
-                    cls.data_sets.append(DataSet(dataset.name, datetime.timedelta(minutes=2), dataset.scenario))
+                    cls.data_sets.append(DataSet(name=dataset.name,
+                                                 reload_timeout=datetime.timedelta(minutes=2),
+                                                 fixed_wait=datetime.timedelta(seconds=1),
+                                                 scenario=dataset.scenario))
         if config:
             for dataset in cls.data_sets:
                 conf = config.get(dataset.name, None)
@@ -313,8 +320,8 @@ class ArtemisTestFixture:
 
             # we wait a bit for the kraken to be started
             try:
-                Retrying(stop_max_delay=data_set.reload_timeout * 1000,
-                         wait_fixed=100,
+                Retrying(stop_max_delay=data_set.reload_timeout.total_seconds() * 1000,
+                         wait_fixed=data_set.fixed_wait.total_seconds() * 1000,
                          retry_on_result=lambda x: x != 'running') \
                     .call(kraken_status, data_set)
             except RetryError as e:
@@ -360,6 +367,12 @@ class ArtemisTestFixture:
                       data=get_ire_data(ire_name),
                       headers={'Content-Type': 'application/xml;charset=utf-8'})
 
+    def send_cots(self, cots_name):
+        r = requests.post(_kirin_api+'/cots',
+                      data=get_ire_data(cots_name).encode('UTF-8'),
+                      headers={'Content-Type': 'application/xml;charset=utf-8'})
+        r.raise_for_status()
+        
     @retry(stop_max_delay=25000, wait_fixed=500)
     def get_last_rt_loaded_time(self, cov):
         if self.check_ref:

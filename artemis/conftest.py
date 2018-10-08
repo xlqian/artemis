@@ -34,7 +34,7 @@ def load_cities(request):
         return
 
     if config['USE_DOCKER']:
-        url = "http://localhost:9898/v0/cities/"
+        url = config['URL_TYR']+"/v0/cities/"
         files = {'file':open(config['CITIES_INPUT_FILE'],'rb')}
         response = requests.post(url, files=files)
         return

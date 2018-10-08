@@ -91,7 +91,7 @@ class GuichetUnique(object):
                      _override_scenario="new_default")
 
     """
-    test RealTime on SNCF
+    test RealTime on SNCF (IRE)
     """
 
     def test_no_disruption(self):
@@ -195,7 +195,6 @@ class GuichetUnique(object):
                      datetime="20121220T1700",
                      data_freshness="realtime")
 
-
     def test_kirin_delay_train_and_partial_delete(self):
         """
         test first to send a delay on a train
@@ -255,10 +254,75 @@ class GuichetUnique(object):
         # we still can find 1 (and only one) disruption (mixing delay and partial deletion)
         self.api('trips/OCE:SN866143F01001/disruptions')
 
+    """
+    test RealTime on SNCF (COTS)
+    """
+    def test_kirin_cots_trip_delay(self):
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_delay_9580_tgv.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87212027",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T160000",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87212027",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T160000",
+                     data_freshness="base_schedule")
+
+    def test_kirin_cots_trip_removal(self):
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_removal_4669_ic.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)  
+
+        self.journey(_from="stop_area:OCE:SA:87581009",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121216T173000",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87581009",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121216T173000",
+                     data_freshness="base_schedule")
+
+    def test_kirin_cots_trip_deleted_partially(self):
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_partially_deleted_5312_tgv.json')
+        self.send_cots('trip_partially_deleted_5358_tgv.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)  
+
+        self.journey(_from="stop_area:OCE:SA:87318964",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121119T123600",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87318964",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121119T123000",
+                     data_freshness="base_schedule")   
+
+    def test_kirin_cots_trip_observed_delay_passe_minuit(self):
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_observed_delay_passe_minuit_847919_ter.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)  
+
+        self.journey(_from="stop_area:OCE:SA:87271007",
+                     to="stop_area:OCE:SA:87296004",
+                     datetime="20121216T223000",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87271007",
+                     to="stop_area:OCE:SA:87296004",
+                     datetime="20121216T223000",
+                     data_freshness="base_schedule") 
+
 
 @set_scenario({COVERAGE: {"scenario": "default"}})
 class TestGuichetUniqueDefault(GuichetUnique, ArtemisTestFixture):
     pass
+
 
 @set_scenario({COVERAGE: {"scenario": "new_default"}})
 class TestGuichetUniqueNewDefault(GuichetUnique, ArtemisTestFixture):
