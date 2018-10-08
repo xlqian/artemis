@@ -74,8 +74,8 @@ def truncate_tables(cursor, table_names_string):
 class DataSet(object):
     def __init__(self,
                  name,
-                 reload_timeout=datetime.timedelta(minutes=2),
-                 fixed_wait=datetime.timedelta(seconds=1),
+                 reload_timeout,
+                 fixed_wait,
                  scenario='default'):
         self.name = name
         self.scenario = scenario
@@ -92,7 +92,10 @@ def set_scenario(config):
         for c in cls.__bases__:
             if hasattr(c, "data_sets"):
                 for dataset in c.data_sets:
-                    cls.data_sets.append(DataSet(dataset.name, datetime.timedelta(minutes=2), dataset.scenario))
+                    cls.data_sets.append(DataSet(dataset.name,
+                                                 datetime.timedelta(minutes=2),
+                                                 datetime.timedelta(seconds=1),
+                                                 dataset.scenario))
         if config:
             for dataset in cls.data_sets:
                 conf = config.get(dataset.name, None)
