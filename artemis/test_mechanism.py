@@ -72,10 +72,15 @@ def truncate_tables(cursor, table_names_string):
 
 
 class DataSet(object):
-    def __init__(self, name, reload_timeout=datetime.timedelta(minutes=2), scenario='default'):
+    def __init__(self,
+                 name,
+                 reload_timeout=datetime.timedelta(minutes=2),
+                 fixed_wait=datetime.timedelta(seconds=1),
+                 scenario='default'):
         self.name = name
         self.scenario = scenario
         self.reload_timeout = reload_timeout.seconds
+        self.fixed_wait = fixed_wait.seconds
 
     def __str__(self):
         return self.name
@@ -314,7 +319,7 @@ class ArtemisTestFixture:
             # we wait a bit for the kraken to be started
             try:
                 Retrying(stop_max_delay=data_set.reload_timeout * 1000,
-                         wait_fixed=100,
+                         wait_fixed=data_set.fixed_wait * 1000,
                          retry_on_result=lambda x: x != 'running') \
                     .call(kraken_status, data_set)
             except RetryError as e:
