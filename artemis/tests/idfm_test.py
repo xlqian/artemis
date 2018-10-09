@@ -17,7 +17,7 @@ IDFM_PARAMS = {
 }
 
 
-@dataset([DataSet("idfm", datetime.timedelta(minutes=5), datetime.timedelta(seconds=2))])
+@dataset([DataSet("idfm", datetime.timedelta(minutes=5), datetime.timedelta(seconds=10))])
 class IdfM(object):
 
     def test_idfm_0(self):
