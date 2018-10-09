@@ -132,7 +132,7 @@ class ArtemisTestFixture:
         self.test_counter = defaultdict(int)
 
     @classmethod
-    @pytest.yield_fixture(scope='class', autouse=True)
+    @pytest.yield_fixture(scope='module', autouse=True)
     def my_method_setup(cls, request):
         """
         method called once for each fixture
