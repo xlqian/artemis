@@ -79,8 +79,8 @@ class DataSet(object):
                  scenario='default'):
         self.name = name
         self.scenario = scenario
-        self.reload_timeout = reload_timeout.seconds
-        self.fixed_wait = fixed_wait.seconds
+        self.reload_timeout = reload_timeout.total_seconds()
+        self.fixed_wait = fixed_wait.total_seconds()
 
     def __str__(self):
         return self.name
