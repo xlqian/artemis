@@ -181,19 +181,20 @@ class ArtemisTestFixture(object):
         # Wait until data is reloaded
         wait_for_kraken_reload(last_reload_time, data_set.name)
 
-    def send_sncf_feed(self, endpoint, file_name):
-        url=config['KIRIN_API']+endpoint
-        logging.warning("Sending file {} to {}".format(file_name, url))
+    def _send_sncf_feed(self, endpoint, file_name):
+        url = config['KIRIN_API']+endpoint
+        headers = {'Content-Type': 'application/{};charset=utf-8'.format('xml' if endpoint == '/ire' else 'json')}
+        logging.info("Sending file {} to {}".format(file_name, url))
         r = requests.post(url,
                           data=get_ire_data(file_name).encode('UTF-8'),
-                          headers={'Content-Type': 'application/xml;charset=utf-8'})
+                          headers=headers)
         r.raise_for_status()
 
     def send_ire(self, ire_name):
-        self.send_sncf_feed('/ire', ire_name)
+        self._send_sncf_feed('/ire', ire_name)
 
     def send_cots(self, cots_name):
-        self.send_sncf_feed('/cots', cots_name)
+        self._send_sncf_feed('/cots', cots_name)
 
     @retry(stop_max_delay=25000, wait_fixed=500)
     def get_last_rt_loaded_time(self, cov):

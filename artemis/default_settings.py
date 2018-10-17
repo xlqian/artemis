@@ -32,9 +32,9 @@ CITIES_DB = 'dbname=cities user=navitia host=localhost password=password'
 URL_JORMUN = 'http://localhost'
 URL_TYR = 'http://localhost:9898'
 
-CONTAINER_DATA_INPUT_PATH ='/srv/ed/input'
+CONTAINER_DATA_INPUT_PATH = '/srv/ed/input'
 
-CONTAINER_DATA_OUTPUT_PATH ='/srv/ed/output'
+CONTAINER_DATA_OUTPUT_PATH = '/srv/ed/output'
 
 # Is it "Artemis Next Gen" running?
 USE_DOCKER = False

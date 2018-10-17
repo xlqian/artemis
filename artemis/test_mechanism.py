@@ -370,7 +370,7 @@ class ArtemisTestFixture:
     def send_cots(self, cots_name):
         r = requests.post(_kirin_api+'/cots',
                       data=get_ire_data(cots_name).encode('UTF-8'),
-                      headers={'Content-Type': 'application/xml;charset=utf-8'})
+                      headers={'Content-Type': 'application/json;charset=utf-8'})
         r.raise_for_status()
         
     @retry(stop_max_delay=25000, wait_fixed=500)
