@@ -508,6 +508,7 @@ class TestGuichetUniqueNewDefault(GuichetUnique, ArtemisTestFixture):
     def test_kirin_cots_trip_deleted_partially(self):
         super(TestGuichetUniqueNewDefault, self).test_kirin_cots_trip_deleted_partially()
 
+
 @set_scenario({COVERAGE: {"scenario": "experimental"}})
 class TestGuichetUniqueExperimental(GuichetUnique, ArtemisTestFixture):
     @xfail(reason="Waiting for fix", raises=AssertionError)
