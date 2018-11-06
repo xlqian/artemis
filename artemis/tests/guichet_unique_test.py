@@ -388,6 +388,31 @@ class GuichetUnique(object):
                      datetime="20121120T160000",
                      data_freshness="realtime")
 
+    def test_kirin_cots_trip_add_several_new_stop_points_in_one_cots(self):
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_add_several_new_stop_points_in_one_cots_9580_tgv.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87212027",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T160000",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87212027",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T160000",
+                     data_freshness="base_schedule")
+
+        # Then we resend a cots that doesn't contain the added new_stop_time
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_delay_9580_tgv.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87212027",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T160000",
+                     data_freshness="realtime")
+
     def test_kirin_cots_trip_add_several_times_same_new_stop_point(self):
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_9580_tgv.json')
