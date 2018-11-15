@@ -34,9 +34,11 @@ def load_cities(request):
         return
 
     if config['USE_DOCKER']:
+        log.warning('Posting cities')
         url = config['URL_TYR']+"/v0/cities/"
-        files = {'file':open(config['CITIES_INPUT_FILE'],'rb')}
-        response = requests.post(url, files=files)
+        files = {'file': open(config['CITIES_INPUT_FILE'], 'rb')}
+        r = requests.post(url, files=files)
+        r.raise_for_status()
         return
 
     log.info("loading cities database")

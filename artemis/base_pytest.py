@@ -233,8 +233,7 @@ class ArtemisTestFixture(object):
         """
         mro = inspect.getmro(self.__class__)
         class_name = "Test{}".format(mro[1].__name__)
-        # TODO: needs to be configurable
-        scenario = 'new_default'
+        scenario = mro[0].data_sets[0].scenario
 
         func_name = get_calling_test_function()
         test_name = '{}/{}/{}'.format(class_name, scenario, func_name)

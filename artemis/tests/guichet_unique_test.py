@@ -3,8 +3,9 @@ from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_sce
 import pytest
 
 xfail = pytest.mark.xfail
-
 COVERAGE = "guichet-unique"
+
+
 @dataset([DataSet(COVERAGE)])
 class GuichetUnique(object):
     """
@@ -148,7 +149,7 @@ class GuichetUnique(object):
 
         # test of departures with a cancelled train
         # in realtime we should have 6 passages, and in base_schedule we should have 7
-        # the addditional passage should be the one at 20121215T163700
+        # the additional passage should be the one at 20121215T163700
         self.api('stop_areas/stop_area:OCE:SA:87686006/'
                  'lines/line:OCE:TGV-87751008-87686006/departures?from_datetime=20121215T1630')
 
@@ -290,6 +291,8 @@ class GuichetUnique(object):
     def test_kirin_cots_trip_deleted_partially(self):
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_partially_deleted_5312_tgv.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_partially_deleted_5358_tgv.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)  
 
