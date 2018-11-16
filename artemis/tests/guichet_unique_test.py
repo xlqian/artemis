@@ -92,173 +92,19 @@ class GuichetUnique(object):
                      _override_scenario="new_default")
 
     """
-    test RealTime on SNCF (IRE)
-    """
-
-    def test_no_disruption(self):
-        """
-        Request on disruptions before applying any
-        We shouldn't have any
-        """
-        self.api('disruptions')
-
-    def test_kirin_normal_train(self):
-        """
-        Requested departure: 2012/12/15 16:30
-        From: Gare de Lyon, Paris
-        To: Saint Charles, Marseille
-
-        we should find a train travelling from 16:37 to 19:50
-        """
-        self.journey(_from="stop_area:OCE:SA:87686006",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121215T1630",
-                     data_freshness="realtime")
-
-    def test_kirin_cancel_train(self):
-        """
-        test cancellation of the train
-
-        Requested departure: 2012/12/15 16:30
-        From: Gare de Lyon, Paris
-        To: Saint Charles, Marseille
-
-        Before the cancellation, we should find a train travelling from 16:37 to 19:50
-        After the cancellation, a train travelling from 17:07 to 20:24 will be found
-        """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-
-        # TGV
-        self.send_ire('trip_removal_tgv_6121.xml')
-
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        # test that it is still OK in base-schedule
-        self.journey(_from="stop_area:OCE:SA:87686006",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121215T1630",
-                     data_freshness="base_schedule")
-
-        # test that RT is disrupted
-        self.journey(_from="stop_area:OCE:SA:87686006",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121215T1630",
-                     data_freshness="realtime")
-
-        self.api('vehicle_journeys/vehicle_journey:OCE:SN006121F02003/disruptions')
-
-        # test of departures with a cancelled train
-        # in realtime we should have 6 passages, and in base_schedule we should have 7
-        # the additional passage should be the one at 20121215T163700
-        self.api('stop_areas/stop_area:OCE:SA:87686006/'
-                 'lines/line:OCE:TGV-87751008-87686006/departures?from_datetime=20121215T1630')
-
-        self.api('stop_areas/stop_area:OCE:SA:87686006/'
-                 'lines/line:OCE:TGV-87751008-87686006/departures'
-                 '?from_datetime=20121215T1630&data_freshness=base_schedule')
-
-    def test_kirin_repeat_the_same_ire_and_reload_from_scratch(self):
-        """
-        test cancellation of the train
-
-        Requested departure: 2012/12/20 17:00
-        From: Gare de Lyon, Paris
-        To: Saint Charles, Marseille
-
-        After the cancellation, a train travelling from 18:19 to 21:29 should be found
-        """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-
-        for i in range(5):
-            self.send_ire('trip_removal_tgv_6123.xml')
-
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.journey(_from="stop_area:OCE:SA:87686006",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121220T1700",
-                     data_freshness="realtime")
-
-        """
-        At this point, an IRE is saved into the db,
-        now we'll test the case where kraken is run from scratch and the previous
-        IRE should be taken into account
-        """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-
-        self.kill_the_krakens()
-        self.pop_krakens()
-
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.journey(_from="stop_area:OCE:SA:87686006",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121220T1700",
-                     data_freshness="realtime")
-
-    def test_kirin_delay_train_and_partial_delete(self):
-        """
-        test first to send a delay on a train
-
-        Then we send a partial delete (some stops are no longer served)
-
-        Requested departure: 2012/11/20 19:00
-        From: Bordeaux-St-Jean
-        To: Moulis-Listrac
-
-        Before the delay, we should take the train 866143 travelling from 19:54 to 20:42
-        After the delay, we take the same train, travelling from 19:54 to 20:52 will be found
-
-        The partial deletion is on the last stops [Macau, Margaux, Moulis-Listrac and Pauillac]
-        Note: only the departure from Macau is deleted
-        and in the IRE data the last stop is Lesparre, but it's not in the navitia's VJ (so we don't impact it)
-
-        So after the partial deletion, we cannot take the same train, we take the train the day after (21/11)
-        at 06:54 to 07:46
-        """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_ire('trip_delay_866143.xml')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        # test that it is still OK in base-schedule
-        self.journey(_from="stop_area:OCE:SA:87581009",
-                     to="stop_area:OCE:SA:87581231",
-                     datetime="20121120T190000",
-                     data_freshness="base_schedule")
-
-        # test that the journey is delayed
-        self.journey(_from="stop_area:OCE:SA:87581009",
-                     to="stop_area:OCE:SA:87581231",
-                     datetime="20121120T190000",
-                     data_freshness="realtime")
-
-        # we also can find the disruption through the VJ
-        self.api('trips/OCE:SN866143F01001/disruptions')
-
-        # we then send the partial delete
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_ire('trip_partially_deleted_866143.xml')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        # test that it is still OK in base-schedule
-        self.journey(_from="stop_area:OCE:SA:87581009",
-                     to="stop_area:OCE:SA:87581231",
-                     datetime="20121120T190000",
-                     data_freshness="base_schedule")
-
-        # but now in real time we take the next train
-        self.journey(_from="stop_area:OCE:SA:87581009",
-                     to="stop_area:OCE:SA:87581231",
-                     datetime="20121120T190000",
-                     data_freshness="realtime")
-
-        # we still can find 1 (and only one) disruption (mixing delay and partial deletion)
-        self.api('trips/OCE:SN866143F01001/disruptions')
-
-    """
     test RealTime on SNCF (COTS)
     """
     def test_kirin_cots_trip_delay(self):
+        """
+        Test delay on a train
+
+        Requested departure: 2012/11/20 16:00:00
+        From: gare de Strasbourg (Strasbourg)
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Before the delay, the train travels from 16:12:00 to 21:46:00
+        After the delay, the train travels from 16:12:00 to 22:16:00
+        """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_delay_9580_tgv.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
@@ -274,6 +120,16 @@ class GuichetUnique(object):
                      data_freshness="base_schedule")
 
     def test_kirin_cots_trip_removal(self):
+        """
+        Test removal of a train
+
+        Requested departure: 2012/12/16 17:30:00
+        From: gare de Bordeaux-St-Jean (Bordeaux)
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Before the removal, a train (headsign: 4669) travels on 2012/12/16 from 17:31:00 to 23:46:00
+        After the removal, an other train (headsign: 4655) travels on 2012/12/17 from 06:45:00 to 12:59:00
+        """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_removal_4669_ic.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)  
@@ -289,6 +145,16 @@ class GuichetUnique(object):
                      data_freshness="base_schedule")
 
     def test_kirin_cots_trip_deleted_partially(self):
+        """
+        Test removal of some stops of a vj
+
+        Requested departure: 2012/11/19 12:36:00
+        From: gare de Avignon-TGV (Avignon)
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Before the removal of the stops, a train (headsign: 5312/5358) travels from 12:39:00 to 13:14:00
+        After the removal of the departure stop, an other train (headsign: 5101) travels from 13:11:00 to 13:48:00
+        """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_partially_deleted_5312_tgv.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
@@ -307,6 +173,16 @@ class GuichetUnique(object):
                      data_freshness="base_schedule")   
 
     def test_kirin_cots_trip_observed_delay_passe_minuit(self):
+        """
+        Test delay of a train which arrival is the day after the departure
+
+        Requested departure: 2012/12/16 22:30:00
+        From: gare de Paris-Nord (Paris)
+        To: gare de St Quentin (Saint-Quentin)
+
+        Before the delay, the train travels from 2012/12/16 22:37:00 to 2012/12/17 00:16:00
+        After the delay, the train travels from 2012/12/16 22:37:00 to 2012/12/17 00:41:00
+        """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_observed_delay_passe_minuit_847919_ter.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)  
@@ -320,6 +196,32 @@ class GuichetUnique(object):
                      to="stop_area:OCE:SA:87296004",
                      datetime="20121216T223000",
                      data_freshness="base_schedule") 
+
+    def test_kirin_cots_trip_departure_delayed_pass_midnight(self):
+        """
+        Test delay of a train with a departure without delay before midnight,
+        then a departure after midnight with the delay
+
+        Requested departure: 2012/12/16 23:40:00
+        From: gare de Noyon (Noyon)
+        To: gare de St Quentin (Saint-Quentin)
+
+        Before the delay, the train travels from 2012/12/16 23:44:00 to 2012/12/17 00:16:00
+        After the delay, the train travels from 2012/12/17 00:09:00 to 2012/12/17 00:41:00
+        """
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_observed_delay_passe_minuit_847919_ter.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87276782",
+                     to="stop_area:OCE:SA:87296004",
+                     datetime="20121216T234000",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87276782",
+                     to="stop_area:OCE:SA:87296004",
+                     datetime="20121216T234000",
+                     data_freshness="base_schedule")
 
 
 @set_scenario({COVERAGE: {"scenario": "default"}})
