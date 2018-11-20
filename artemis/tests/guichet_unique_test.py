@@ -1,3 +1,4 @@
+
 from artemis.test_mechanism import dataset, DataSet, set_scenario
 from artemis.tests.fixture import ArtemisTestFixture
 import pytest
@@ -86,7 +87,6 @@ class GuichetUnique(object):
     """
     test RealTime on SNCF (COTS)
     """
-
     def test_kirin_cots_trip_delay(self):
         """
         Test delay on a train
@@ -252,6 +252,7 @@ class GuichetUnique(object):
                      datetime="20121120T160000",
                      data_freshness="realtime")
 
+
     def test_kirin_cots_trip_add_new_stop_point_at_the_beginning(self):
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_at_the_beginning_9580_tgv.json')
@@ -280,6 +281,7 @@ class GuichetUnique(object):
                      datetime="20121120T120000",
                      data_freshness="base_schedule")
 
+
     def test_kirin_cots_trip_add_new_stop_point_in_the_middle(self):
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
@@ -296,6 +298,7 @@ class GuichetUnique(object):
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T135800",
                      data_freshness="base_schedule")
+
 
         # new stop_point at the beginning
         self.journey(_from="stop_area:OCE:SA:87193821",
