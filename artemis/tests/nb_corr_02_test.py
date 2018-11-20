@@ -1,4 +1,5 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
+from artemis.test_mechanism import dataset, DataSet, set_scenario
+from artemis.tests.fixture import ArtemisTestFixture
 
 @dataset([DataSet("nb-corr-02")])
 class NbCorr02(object):

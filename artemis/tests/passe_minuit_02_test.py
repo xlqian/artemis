@@ -1,4 +1,5 @@
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
+from artemis.test_mechanism import dataset, DataSet, set_scenario
+from artemis.tests.fixture import ArtemisTestFixture
 
 @dataset([DataSet("passe-minuit-02")])
 class PasseMinuit02(object):

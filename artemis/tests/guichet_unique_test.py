@@ -1,5 +1,6 @@
 
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
+from artemis.test_mechanism import dataset, DataSet, set_scenario
+from artemis.tests.fixture import ArtemisTestFixture
 import pytest
 
 xfail = pytest.mark.xfail
@@ -222,6 +223,42 @@ class GuichetUnique(object):
                      to="stop_area:OCE:SA:87296004",
                      datetime="20121216T234000",
                      data_freshness="base_schedule")
+
+    def test_kirin_cots_reload_from_scratch(self):
+        """
+        Test removal of a train
+
+        Requested departure: 2012/12/16 17:30:00
+        From: gare de Bordeaux-St-Jean (Bordeaux)
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Before the removal, a train (headsign: 4669) travels on 2012/12/16 from 17:31:00 to 23:46:00
+        After the removal, an other train (headsign: 4655) travels on 2012/12/17 from 06:45:00 to 12:59:00
+        """
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_delay_9580_tgv.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87212027",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T160000",
+                     data_freshness="realtime")
+
+        """
+        At this point, the COTS feed is saved into the db,
+        now the kraken is run from scratch and the previous COTS feed should be taken into account
+        """
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+
+        self.kill_the_krakens()
+        self.pop_krakens()
+
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87212027",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T160000",
+                     data_freshness="realtime")
 
 
 @set_scenario({COVERAGE: {"scenario": "default"}})

@@ -70,10 +70,6 @@ class ArtemisTestFixture(object):
 
     dataset_binarized = []
 
-    # Name of the docker container from the docker-compose
-    # TODO: Needs to be common with docker-compose.yml
-    tyr_worker_container_name = 'navitiadockercompose_tyr_worker_1'
-
     @pytest.fixture(scope='function', autouse=True)
     def before_each_test(self):
         """
@@ -87,7 +83,6 @@ class ArtemisTestFixture(object):
     @classmethod
     @pytest.yield_fixture(scope='class', autouse=True)
     def manage_data(cls):
-
         for data_set in cls.data_sets:
             if data_set.name in cls.dataset_binarized:
                 logger.info("binarization dataset {} has been done, skipping....".format(data_set))
@@ -100,9 +95,11 @@ class ArtemisTestFixture(object):
     def remove_data_by_dataset(cls, data_set):
         file_path = '/srv/ed/output/{}.nav.lz4'.format(data_set.name)
         logger.info('path to volume from container: ' + file_path)
-        client = docker.from_env()
-        container = client.containers.get(cls.tyr_worker_container_name)
-        container.exec_run('rm ' + file_path)
+        containers = [x for x in docker.from_env().containers.list() if 'tyr_worker' in x.name]
+        if not containers:
+            logger.error("No Docker Container found for tyr_worker")
+        else:
+            containers[0].exec_run('rm ' + file_path)
 
     @classmethod
     def update_data_by_dataset(cls, data_set):
@@ -127,9 +124,11 @@ class ArtemisTestFixture(object):
         logger.info("updating data for {}".format(data_set.name))
 
         # opening the container as client
-        client = docker.from_env()
-        container = client.containers.get(cls.tyr_worker_container_name)
-        container.exec_run('mkdir ' + input_path)
+        containers = [x for x in docker.from_env().containers.list() if 'tyr_worker' in x.name]
+        if not containers:
+            logger.error("No Docker Container found for tyr_worker")
+        else:
+            containers[0].exec_run('mkdir ' + input_path)
 
         # Have the last reload time by Kraken
         last_reload_time = get_last_coverage_loaded_time(cov=data_set.name)
@@ -160,7 +159,7 @@ class ArtemisTestFixture(object):
 
                 # send the tar to the volume
                 with open('./{}.tar'.format(data_type), 'rb') as f:
-                    container.put_archive(input_path, f.read())
+                    containers[0].put_archive(input_path, f.read())
             else:
                 logger.warning('{} path does not exist : {}'.format(data_type, path))
 
@@ -180,6 +179,26 @@ class ArtemisTestFixture(object):
 
         # Wait until data is reloaded
         wait_for_kraken_reload(last_reload_time, data_set.name)
+
+
+    @classmethod
+    def kill_the_krakens(cls):
+        for data_set in cls.data_sets:
+            logger.debug("Restarting the Kraken {}".format(data_set.name))
+            containers = [x for x in docker.from_env().containers.list() if data_set.name in x.name]
+            if not containers:
+                logger.error("No Docker Container found for Kraken {}".format(data_set.name))
+            else:
+                containers[0].restart()
+
+    @classmethod
+    def pop_krakens(cls):
+        """
+        Does nothing.
+        Inherited from old Artemis where the kraken is stopped then started
+        In Artemis NG, the kraken is restarted in 'kill_the_krakens'
+        """
+        pass
 
     def _send_sncf_feed(self, endpoint, file_name):
         url = config['KIRIN_API']+endpoint

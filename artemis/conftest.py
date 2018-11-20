@@ -33,7 +33,7 @@ def load_cities(request):
         log.info("skipping cities loading")
         return
 
-    if config['USE_DOCKER']:
+    if config.get('USE_ARTEMIS_NG'):
         log.warning('Posting cities')
         url = config['URL_TYR']+"/v0/cities/"
         files = {'file': open(config['CITIES_INPUT_FILE'], 'rb')}
