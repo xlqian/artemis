@@ -526,7 +526,7 @@ class GuichetUnique(object):
 
     def test_kirin_cots_trip_add_stop_point_at_the_end_make_pass_midnight(self):
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_at_the_begnning_make_pass_midnight_9580_tgv.json')
+        self.send_cots('trip_add_new_stop_point_at_the_end_make_pass_midnight_9580_tgv.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
         self.journey(_from="stop_area:OCE:SA:80110684",
@@ -541,7 +541,7 @@ class GuichetUnique(object):
 
     def test_kirin_cots_trip_add_stop_point_at_the_beginning_make_pass_midnight(self):
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_at_the_end_make_pass_midnight_9580_tgv.json')
+        self.send_cots('trip_add_new_stop_point_at_the_begnning_make_pass_midnight_9580_tgv.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
         self.journey(_from="stop_area:OCE:SA:80110684",
@@ -554,6 +554,20 @@ class GuichetUnique(object):
                      datetime="20121120T135800",
                      data_freshness="base_schedule")
 
+    def test_kirin_cots_trip_add_stop_make_pass_midnight_local_and_UTC(self):
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_add_stop_point_make_pass_midnight_local_and_UTC_9580_tgv.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87775007",
+                     datetime="20121120T135800",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87775007",
+                     datetime="20121120T135800",
+                     data_freshness="base_schedule")
 
 @set_scenario({COVERAGE: {"scenario": "default"}})
 class TestGuichetUniqueDefault(GuichetUnique, ArtemisTestFixture):
