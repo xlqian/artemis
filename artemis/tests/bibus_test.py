@@ -1,6 +1,7 @@
 from artemis import default_checker
 from artemis.default_checker import stop_schedule_checker
-from artemis.test_mechanism import ArtemisTestFixture, dataset, DataSet, set_scenario
+from artemis.test_mechanism import dataset, DataSet, set_scenario
+from artemis.tests.fixture import ArtemisTestFixture
 import pytest
 
 xfail = pytest.mark.xfail

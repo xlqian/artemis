@@ -6,7 +6,6 @@ import shutil
 import psycopg2
 import re
 import json
-import time
 import pytest
 from retrying import Retrying, retry, RetryError
 from artemis import default_checker
@@ -22,7 +21,7 @@ _tyr = config['TYR_DIR'] + "/manage.py"
 _tyr_config_file = config['TYR_DIR'] + "/settings.py"
 
 _kirin_api = config['KIRIN_API']
-#to limit the permissions of the jenkins user on the artemis platform, we create a proxy for all kraken services
+# to limit the permissions of the jenkins user on the artemis platform, we create a proxy for all kraken services
 _kraken_wrapper = '/usr/local/bin/kraken_service_wrapper'
 
 
@@ -37,7 +36,7 @@ def get_calling_test_function():
         if _test_method_regexp.match(method_name):
             return method_name
 
-    #a test method has to be found by construction, if none is found there is a problem
+    # a test method has to be found by construction, if none is found there is a problem
     raise KeyError("impossible to find the calling test method")
 
 
@@ -368,6 +367,12 @@ class ArtemisTestFixture:
                       data=get_ire_data(ire_name),
                       headers={'Content-Type': 'application/xml;charset=utf-8'})
 
+    def send_cots(self, cots_name):
+        r = requests.post(_kirin_api+'/cots',
+                      data=get_ire_data(cots_name).encode('UTF-8'),
+                      headers={'Content-Type': 'application/json;charset=utf-8'})
+        r.raise_for_status()
+        
     @retry(stop_max_delay=25000, wait_fixed=500)
     def get_last_rt_loaded_time(self, cov):
         if self.check_ref:

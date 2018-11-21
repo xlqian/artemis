@@ -32,12 +32,11 @@ class Colors(Enum):
 
 logger = logging.getLogger(__name__)
 
-_kirin_api = config['KIRIN_API']
-
 
 def print_color(line, color=Colors.DEFAULT):
     """console print, with color"""
     sys.stdout.write('{}{}{}'.format(color.value, line, Colors.DEFAULT.value))
+
 
 # TODO: Move in utils
 def get_calling_test_function():
@@ -56,6 +55,7 @@ def get_calling_test_function():
     #a test method has to be found by construction, if none is found there is a problem
     raise KeyError("impossible to find the calling test method")
 
+
 def get_ire_data(name):
     """
     return an IRE input as string
@@ -64,14 +64,11 @@ def get_ire_data(name):
     _file = os.path.join(os.path.dirname(__file__), 'tests', 'fixtures', name)
     with open(_file, "r") as ire:
         return ire.read()
-        
+
+
 class ArtemisTestFixture(object):
 
     dataset_binarized = []
-
-    # Name of the docker container from the docker-compose
-    # TODO: Needs to be common with docker-compose.yml
-    tyr_worker_container_name = 'navitiadockercompose_tyr_worker_1'
 
     @pytest.fixture(scope='function', autouse=True)
     def before_each_test(self):
@@ -86,7 +83,6 @@ class ArtemisTestFixture(object):
     @classmethod
     @pytest.yield_fixture(scope='class', autouse=True)
     def manage_data(cls):
-
         for data_set in cls.data_sets:
             if data_set.name in cls.dataset_binarized:
                 logger.info("binarization dataset {} has been done, skipping....".format(data_set))
@@ -99,9 +95,11 @@ class ArtemisTestFixture(object):
     def remove_data_by_dataset(cls, data_set):
         file_path = '/srv/ed/output/{}.nav.lz4'.format(data_set.name)
         logger.info('path to volume from container: ' + file_path)
-        client = docker.from_env()
-        container = client.containers.get(cls.tyr_worker_container_name)
-        container.exec_run('rm ' + file_path)
+        containers = [x for x in docker.from_env().containers.list() if 'tyr_worker' in x.name]
+        if not containers:
+            logger.error("No Docker Container found for tyr_worker")
+        else:
+            containers[0].exec_run('rm ' + file_path)
 
     @classmethod
     def update_data_by_dataset(cls, data_set):
@@ -112,12 +110,13 @@ class ArtemisTestFixture(object):
 
         # wait 5 min at most
         @retry(stop_max_delay=3000000, wait_fixed=5000)
-        def wait_for_kraken_reload(last_rt_data_loaded, cov):
-            new_rt_data_loaded = get_last_coverage_loaded_time(cov)
+        def wait_for_kraken_reload(last_data_loaded, cov):
+            new_data_loaded = get_last_coverage_loaded_time(cov)
 
-            if last_rt_data_loaded == new_rt_data_loaded:
+            if last_data_loaded == new_data_loaded:
                 raise Exception("kraken data is not loaded")
-            return
+
+            logger.info('Kraken reloaded')
 
         data_path = config['DATA_DIR']
         input_path = '{}/{}'.format(config['CONTAINER_DATA_INPUT_PATH'], data_set.name)
@@ -125,13 +124,14 @@ class ArtemisTestFixture(object):
         logger.info("updating data for {}".format(data_set.name))
 
         # opening the container as client
-        client = docker.from_env()
-        container = client.containers.get(cls.tyr_worker_container_name)
-        container.exec_run('mkdir ' + input_path)
+        containers = [x for x in docker.from_env().containers.list() if 'tyr_worker' in x.name]
+        if not containers:
+            logger.error("No Docker Container found for tyr_worker")
+        else:
+            containers[0].exec_run('mkdir ' + input_path)
 
         # Have the last reload time by Kraken
         last_reload_time = get_last_coverage_loaded_time(cov=data_set.name)
-        logger.info('last loaded time : ' + str(last_reload_time))
 
         def put_data(data_type, file_suffix, zipped):
             path = '{}/{}/{}'.format(data_path, data_set.name, data_type)
@@ -159,7 +159,7 @@ class ArtemisTestFixture(object):
 
                 # send the tar to the volume
                 with open('./{}.tar'.format(data_type), 'rb') as f:
-                    container.put_archive(input_path, f.read())
+                    containers[0].put_archive(input_path, f.read())
             else:
                 logger.warning('{} path does not exist : {}'.format(data_type, path))
 
@@ -180,12 +180,41 @@ class ArtemisTestFixture(object):
         # Wait until data is reloaded
         wait_for_kraken_reload(last_reload_time, data_set.name)
 
-    def send_ire(self, ire_name):
-        r = requests.post(_kirin_api+'/ire',
-                      data=get_ire_data(ire_name).encode('UTF-8'),
-                      headers={'Content-Type': 'application/xml;charset=utf-8'})
+
+    @classmethod
+    def kill_the_krakens(cls):
+        for data_set in cls.data_sets:
+            logger.debug("Restarting the Kraken {}".format(data_set.name))
+            containers = [x for x in docker.from_env().containers.list() if data_set.name in x.name]
+            if not containers:
+                logger.error("No Docker Container found for Kraken {}".format(data_set.name))
+            else:
+                containers[0].restart()
+
+    @classmethod
+    def pop_krakens(cls):
+        """
+        Does nothing.
+        Inherited from old Artemis where the kraken is stopped then started
+        In Artemis NG, the kraken is restarted in 'kill_the_krakens'
+        """
+        pass
+
+    def _send_sncf_feed(self, endpoint, file_name):
+        url = config['KIRIN_API']+endpoint
+        headers = {'Content-Type': 'application/{};charset=utf-8'.format('xml' if endpoint == '/ire' else 'json')}
+        logging.info("Sending file {} to {}".format(file_name, url))
+        r = requests.post(url,
+                          data=get_ire_data(file_name).encode('UTF-8'),
+                          headers=headers)
         r.raise_for_status()
-        
+
+    def send_ire(self, ire_name):
+        self._send_sncf_feed('/ire', ire_name)
+
+    def send_cots(self, cots_name):
+        self._send_sncf_feed('/cots', cots_name)
+
     @retry(stop_max_delay=25000, wait_fixed=500)
     def get_last_rt_loaded_time(self, cov):
         _res, _, status_code = utils.request("coverage/{cov}/status".format(cov=cov))
@@ -197,13 +226,14 @@ class ArtemisTestFixture(object):
 
     @retry(stop_max_delay=25000, wait_fixed=500)
     def wait_for_rt_reload(self, last_rt_data_loaded, cov):
+        logging.warning("waiting for rt reload later than {}".format(last_rt_data_loaded))
         rt_data_loaded = self.get_last_rt_loaded_time(cov)
 
         if last_rt_data_loaded == rt_data_loaded:
             raise Exception("real time data not loaded")
+        logger.info('RT data reloaded at {}'.format(rt_data_loaded))    
 
     def request_compare(self, url):
-
         # creating the url
         query = config['URL_JORMUN'] + '/v1/coverage/' + str(self.data_sets[0]) + '/' + url
 
@@ -222,8 +252,7 @@ class ArtemisTestFixture(object):
         """
         mro = inspect.getmro(self.__class__)
         class_name = "Test{}".format(mro[1].__name__)
-        # TODO: needs to be configurable
-        scenario = 'new_default'
+        scenario = mro[0].data_sets[0].scenario
 
         func_name = get_calling_test_function()
         test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
@@ -252,7 +281,7 @@ class ArtemisTestFixture(object):
         """
         call the api and check against previous results
 
-        the query is writen in a file
+        the query is written in a file
         """
         self.request_compare(url)
 
@@ -343,7 +372,6 @@ def compare_with_ref(self, response, response_checker=default_checker.default_jo
 
     # Get only the full_response part from the ref
     ref_full_response = dict_ref['full_response']
-
 
     ### Filtering ref end resp
 
