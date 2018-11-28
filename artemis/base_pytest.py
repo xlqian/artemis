@@ -270,10 +270,7 @@ class ArtemisTestFixture(object):
 
         NOTE: works only when one region is loaded for the moment (when needed change this)
         """
-        if len(self.__class__.data_sets) == 1:
-            full_url = "coverage/{region}/{url}".format(region=self.__class__.data_sets[0].name, url=url)
-
-        return self._api_call(full_url, response_checker)
+        return self._api_call(url, response_checker)
 
     def _api_call(self, url, response_checker):
         """
@@ -286,6 +283,7 @@ class ArtemisTestFixture(object):
     def journey(self, _from, to, datetime,
                 datetime_represents='departure',
                 first_section_mode=[], last_section_mode=[],
+                forbidden_uris=[],
                 **kwargs):
         """
         This function is coming from the test_mechanism.py file.
@@ -306,6 +304,9 @@ class ArtemisTestFixture(object):
 
         for mode in last_section_mode:
             query = '{query}&last_section_mode[]={mode}'.format(query=query, mode=mode)
+
+        for uri in forbidden_uris:
+            query = '{query}&forbidden_uris[]={uri}'.format(query=query, uri=uri)
 
         for k, v in six.iteritems(kwargs):
             query = "{query}&{k}={v}".format(query=query, k=k, v=v)

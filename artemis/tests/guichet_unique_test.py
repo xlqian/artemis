@@ -1,4 +1,3 @@
-
 from artemis.test_mechanism import dataset, DataSet, set_scenario
 from artemis.tests.fixture import ArtemisTestFixture
 import pytest
@@ -237,8 +236,8 @@ class GuichetUnique(object):
                      data_freshness="realtime")
 
         """
-        At this point, the COTS feed is saved into the db,
-        now the kraken is run from scratch and the previous COTS feed should be taken into account
+        At this point, the COTS feed is saved into the db.
+        Now, the Kraken is run from scratch and the previous COTS feed should be taken into account.
         """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
 
@@ -252,257 +251,68 @@ class GuichetUnique(object):
                      datetime="20121120T160000",
                      data_freshness="realtime")
 
-
     def test_kirin_cots_trip_add_new_stop_point_at_the_beginning(self):
+        """
+        Test add a stop_time at the departure of the vj
+
+        Requested departure: 2012/11/20 12:30:00
+        From: gare de Bitche (Bitche)
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Before the addition, a train travels on 2012/11/20 from 13:37:00 to 06:32:00 on 2012/11/21
+        After the addition, an other train travels on 2012/11/20 from 12:30:00 to 22:16:00
+        """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_at_the_beginning_9580_tgv.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
-        # original start-end
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="realtime")
-
-        # original start-end
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T120000",
-                     data_freshness="base_schedule")
-
-        # new stop_point at the beginning
-        self.journey(_from="stop_area:OCE:SA:87193821",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T120000",
+                     datetime="20121120T123000",
+                     forbidden_uris=["commercial_mode:OCECarTER"],
                      data_freshness="realtime")
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T120000",
+                     datetime="20121120T123000",
+                     forbidden_uris=["commercial_mode:OCECarTER"],
                      data_freshness="base_schedule")
-
 
     def test_kirin_cots_trip_add_new_stop_point_in_the_middle(self):
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
-        # original start-end
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="realtime")
-
-        # original start-end
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T135800",
-                     data_freshness="base_schedule")
-
-
-        # new stop_point at the beginning
-        self.journey(_from="stop_area:OCE:SA:87193821",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T140000",
+                     max_nb_transfers="0",
                      data_freshness="realtime")
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T140000",
+                     datetime="20121120T135800",
+                     max_nb_transfers="0",
                      data_freshness="base_schedule")
 
     def test_kirin_cots_trip_add_new_stop_point_at_the_end(self):
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_at_the_end_9580_tgv.json')
+        self.send_cots('trip_add_new_stop_point_9580_tgv_at_the_end.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="realtime")
-
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="base_schedule")
-
-        # new stop_point at the end(gare de Nime)
+        # new stop_point at the end(gare de Nîmes)
         self.journey(_from="stop_area:OCE:SA:80110684",
                      to="stop_area:OCE:SA:87775007",
                      datetime="20121120T135800",
+                     max_nb_transfers="0",
                      data_freshness="realtime")
 
         self.journey(_from="stop_area:OCE:SA:80110684",
                      to="stop_area:OCE:SA:87775007",
                      datetime="20121120T135800",
+                     max_nb_transfers="0",
                      data_freshness="base_schedule")
 
-    def test_kirin_cots_trip_remove_new_stop_point(self):
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.journey(_from="stop_area:OCE:SA:87212027",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T160000",
-                     data_freshness="realtime")
-
-        self.journey(_from="stop_area:OCE:SA:87212027",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T160000",
-                     data_freshness="base_schedule")
-
-        # Then we resend a cots that doesn't contain the added new_stop_time
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_delay_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.journey(_from="stop_area:OCE:SA:87212027",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T160000",
-                     data_freshness="realtime")
-
-    def test_kirin_cots_trip_add_new_stop_point_several_times(self):
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.journey(_from="stop_area:OCE:SA:87271007",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="realtime")
-
-        self.journey(_from="stop_area:OCE:SA:87271007",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="base_schedule")
-
-        # Then we resend a cots that doesn't contain the added new_stop_time
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.journey(_from="stop_area:OCE:SA:87271007",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="realtime")
-
-    def test_kirin_cots_trip_add_several_new_stop_points_in_one_cots(self):
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_several_new_stop_points_in_one_cots_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="realtime")
-
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="base_schedule")
-
-    def test_kirin_cots_trip_add_several_times_same_new_stop_point(self):
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.journey(_from="stop_area:OCE:SA:87271007",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="realtime")
-
-        self.journey(_from="stop_area:OCE:SA:87271007",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="base_schedule")
-
-        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.journey(_from="stop_area:OCE:SA:87271007",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="realtime")
-
-        self.journey(_from="stop_area:OCE:SA:87271007",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="base_schedule")
-
-        # new stop_point
-        self.journey(_from="stop_area:OCE:SA:87271007",
-                     to="stop_area:OCE:SA:87193821",
-                     datetime="20121120T135800",
-                     data_freshness="realtime")
-
-        self.journey(_from="stop_area:OCE:SA:87271007",
-                     to="stop_area:OCE:SA:87193821",
-                     datetime="20121120T135800",
-                     data_freshness="base_schedule")
-
-    def test_kirin_cots_trip_add_stop_point_non_existent(self):
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_trash_stop_points_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="realtime")
-
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="base_schedule")
-
-    def test_kirin_cots_trip_add_stop_point_at_the_end_make_pass_midnight(self):
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_at_the_end_make_pass_midnight_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="realtime")
-
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="base_schedule")
-
-    def test_kirin_cots_trip_add_stop_point_at_the_beginning_make_pass_midnight(self):
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_at_the_begnning_make_pass_midnight_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="realtime")
-
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="base_schedule")
-
-    def test_kirin_cots_trip_add_stop_make_pass_midnight_local_and_UTC(self):
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_stop_point_make_pass_midnight_local_and_UTC_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87775007",
-                     datetime="20121120T135800",
-                     data_freshness="realtime")
-
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87775007",
-                     datetime="20121120T135800",
-                     data_freshness="base_schedule")
 
 
 @set_scenario({COVERAGE: {"scenario": "new_default"}})
