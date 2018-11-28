@@ -82,7 +82,12 @@ class ArtemisTestFixture(object):
 
     @classmethod
     @pytest.yield_fixture(scope='class', autouse=True)
-    def manage_data(cls):
+    def manage_data(cls, request):
+        skip_bina = request.config.getvalue("skip_bina")
+        if skip_bina:
+            logger.info("Skipping binarisation...")
+            return
+
         for data_set in cls.data_sets:
             if data_set.name in cls.dataset_binarized:
                 logger.info("binarization dataset {} has been done, skipping....".format(data_set))

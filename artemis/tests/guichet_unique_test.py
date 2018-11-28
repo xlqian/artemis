@@ -300,7 +300,7 @@ class GuichetUnique(object):
         self.send_cots('trip_add_new_stop_point_9580_tgv_at_the_end.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
-        # new stop_point at the end(gare de Nîmes)
+        # New stop_point at the end(gare de Nimes)
         self.journey(_from="stop_area:OCE:SA:80110684",
                      to="stop_area:OCE:SA:87775007",
                      datetime="20121120T135800",
