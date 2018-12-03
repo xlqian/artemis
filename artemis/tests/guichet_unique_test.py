@@ -313,6 +313,183 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="base_schedule")
 
+    """
+    Wait until https://jira.kisio.org/browse/NAVP-1095 is implemented
+
+    def test_kirin_cots_trip_remove_new_stop_point(self):
+        self.api('disruptions')
+
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87212027",
+                     datetime="20121120T140000",
+                     forbidden_uris=["commercial_mode:OCEICE"],
+                     data_freshness="realtime",
+                     _current_datetime="20121120T140000")
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87212027",
+                     datetime="20121120T140000",
+                     forbidden_uris=["commercial_mode:OCEICE"],
+                     data_freshness="base_schedule")
+
+        # Then we send a cots feed with the previously added new_stop_time now to delete
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_delete_new_stop_point_9580_tgv_in_the_middle.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87212027",
+                     datetime="20121120T140000",
+                     forbidden_uris=["commercial_mode:OCEICE"],
+                     data_freshness="realtime")
+    """
+
+    def test_kirin_cots_trip_add_new_stop_point_several_times(self):
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87271007",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87271007",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     data_freshness="base_schedule")
+
+        # Then we resend a cots that doesn't contain the added new_stop_time
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87271007",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     data_freshness="realtime")
+
+    def test_kirin_cots_trip_add_several_new_stop_points_in_one_cots(self):
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_add_several_new_stop_points_in_one_cots_9580_tgv.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     data_freshness="base_schedule")
+
+    def test_kirin_cots_trip_add_several_times_same_new_stop_point(self):
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87271007",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87271007",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     data_freshness="base_schedule")
+
+        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87271007",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87271007",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     data_freshness="base_schedule")
+
+        # new stop_point
+        self.journey(_from="stop_area:OCE:SA:87271007",
+                     to="stop_area:OCE:SA:87193821",
+                     datetime="20121120T135800",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87271007",
+                     to="stop_area:OCE:SA:87193821",
+                     datetime="20121120T135800",
+                     data_freshness="base_schedule")
+
+    def test_kirin_cots_trip_add_stop_point_non_existent(self):
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_add_new_stop_point_trash_stop_points_9580_tgv.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     data_freshness="base_schedule")
+
+    def test_kirin_cots_trip_add_stop_point_at_the_end_make_pass_midnight(self):
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_add_new_stop_point_at_the_end_make_pass_midnight_9580_tgv.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     data_freshness="base_schedule")
+
+    def test_kirin_cots_trip_add_stop_point_at_the_beginning_make_pass_midnight(self):
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_add_new_stop_point_at_the_begnning_make_pass_midnight_9580_tgv.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     data_freshness="base_schedule")
+
+    def test_kirin_cots_trip_add_stop_make_pass_midnight_local_and_utc(self):
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_add_stop_point_make_pass_midnight_local_and_UTC_9580_tgv.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87775007",
+                     datetime="20121120T135800",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87775007",
+                     datetime="20121120T135800",
+                     data_freshness="base_schedule")
+
 
 
 @set_scenario({COVERAGE: {"scenario": "new_default"}})
