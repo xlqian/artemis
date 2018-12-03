@@ -17,6 +17,7 @@ from copy import deepcopy
 import re
 import jsonpath_rw as jp
 import functools
+import inspect
 
 
 ARTEMIS_CUSTOM_ID = '__artemis_id__'
@@ -38,6 +39,7 @@ def new_fusio_files_path(dataset):
     p = config['NEW_FUSIO_FILE_PATH_LAYOUT']
     return p.format(dataset=dataset.upper())
 
+
 def request(url):
     """
     default call to the api
@@ -49,6 +51,7 @@ def request(url):
     raw_response = requests.get(norm_url)
 
     return json.loads(raw_response.text), norm_url, raw_response.status_code
+
 
 def get_ref(call_id):
     """
@@ -79,13 +82,15 @@ def get_ref_full_response(call_id):
     all_ref_dict = get_ref(call_id)
     return all_ref_dict['full_response']
 
+
 def get_ref_short_response(call_id):
     all_ref_dict = get_ref(call_id)
     return all_ref_dict['response']
 
+
 def compare_with_ref(resp, call_id, checker):
     """
-    compare the answer to it's reference.
+    compare the answer to its reference.
 
     if a mask is provided we only compare the filtered field
     """
@@ -141,6 +146,33 @@ def filter_dict(response, mask):
     if not mask:
         return response  # without mask we do not filter
     return flask_restful.marshal(response, mask)
+
+
+def get_calling_test_function():
+    """
+    return the calling test method.
+
+    go back up the stack until a method with test in the name
+
+    Used here to find the name of the coverage
+    """
+    for m in inspect.stack():
+        method_name = m[3]  # m is a tuple and the 4th elt is the name of the function
+        if _test_method_regexp.match(method_name):
+            return method_name
+
+    # a test method has to be found by construction, if none is found there is a problem
+    raise KeyError("impossible to find the calling test method")
+
+
+def get_rt_data(name):
+    """
+    :param name: real-time feed file (located in tests/fixtures)
+    :return: real-time feed input as string
+    """
+    _file = os.path.join(os.path.dirname(__file__), 'tests', 'fixtures', name)
+    with open(_file, "r") as ire:
+        return ire.read()
 
 
 class WhiteListMask(object):
@@ -441,4 +473,3 @@ class StopScheduleIDGenerator(object):
 
 # regexp used to identify a test method (simplified version of nose)
 _test_method_regexp = re.compile("^(test_.*|.*_test)$")
-

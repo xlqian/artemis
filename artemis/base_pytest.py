@@ -14,7 +14,7 @@ import docker
 import tarfile
 import zipfile
 from retrying import retry
-
+from artemis.common_fixture import CommonTestFixture
 
 if six.PY3: # case using python 3
     from enum import Enum
@@ -38,35 +38,7 @@ def print_color(line, color=Colors.DEFAULT):
     sys.stdout.write('{}{}{}'.format(color.value, line, Colors.DEFAULT.value))
 
 
-# TODO: Move in utils
-def get_calling_test_function():
-    """
-    return the calling test method.
-
-    go back up the stack until a method with test in the name
-
-    Used here to find the name of the coverage
-    """
-    for m in inspect.stack():
-        method_name = m[3]  # m is a tuple and the 4th elt is the name of the function
-        if utils._test_method_regexp.match(method_name):
-            return method_name
-
-    #a test method has to be found by construction, if none is found there is a problem
-    raise KeyError("impossible to find the calling test method")
-
-
-def get_ire_data(name):
-    """
-    return an IRE input as string
-    the name must be the name of a file in tests/fixtures
-    """
-    _file = os.path.join(os.path.dirname(__file__), 'tests', 'fixtures', name)
-    with open(_file, "r") as ire:
-        return ire.read()
-
-
-class ArtemisTestFixture(object):
+class ArtemisTestFixture(CommonTestFixture):
 
     dataset_binarized = []
 
@@ -205,21 +177,6 @@ class ArtemisTestFixture(object):
         """
         pass
 
-    def _send_sncf_feed(self, endpoint, file_name):
-        url = config['KIRIN_API']+endpoint
-        headers = {'Content-Type': 'application/{};charset=utf-8'.format('xml' if endpoint == '/ire' else 'json')}
-        logging.info("Sending file {} to {}".format(file_name, url))
-        r = requests.post(url,
-                          data=get_ire_data(file_name).encode('UTF-8'),
-                          headers=headers)
-        r.raise_for_status()
-
-    def send_ire(self, ire_name):
-        self._send_sncf_feed('/ire', ire_name)
-
-    def send_cots(self, cots_name):
-        self._send_sncf_feed('/cots', cots_name)
-
     @retry(stop_max_delay=25000, wait_fixed=500)
     def get_last_rt_loaded_time(self, cov):
         _res, _, status_code = utils.request("coverage/{cov}/status".format(cov=cov))
@@ -259,7 +216,7 @@ class ArtemisTestFixture(object):
         class_name = "Test{}".format(mro[1].__name__)
         scenario = mro[0].data_sets[0].scenario
 
-        func_name = get_calling_test_function()
+        func_name = utils.get_calling_test_function()
         test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
         file_name = "{}.json".format(test_name)
         self.test_counter[test_name] += 1
