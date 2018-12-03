@@ -233,7 +233,7 @@ class ArtemisTestFixture:
                      if os.path.isdir(os.path.join(data_path, sub_dir_name))]
 
         logging.getLogger(__name__).debug("loading {}".format(data_dirs))
-        utils.launch_exec("{tyr} load_data {data_set} {data_set_dir}"
+        utils.launch_exec("sudo {tyr} load_data {data_set} {data_set_dir}"
                           .format(tyr=_tyr,
                                   data_set=data_set.name,
                                   data_set_dir=','.join(data_dirs)),
