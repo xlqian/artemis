@@ -264,8 +264,6 @@ class ArtemisTestFixture(object):
         else:
             return "{}.json".format(test_name)
 
-        return file_name
-
     def api(self, url, response_checker=default_checker.default_checker):
         """
         used to check misc API
@@ -386,11 +384,11 @@ def compare_with_ref(self, response, response_checker=default_checker.default_jo
     json_filtered_response = json.dumps(filtered_response, indent=4)
 
     ### Compare response and reference
-    compare_result = response_checker.compare(filtered_response, filtered_reference)
-
-    ### If not resp and ref different
-    if not compare_result:
-
+    try:
+        response_checker.compare(filtered_response, filtered_reference)
+    except AssertionError as e:
+        # print the assertion error message
+        logging.error("Assertion Error: %s" % str(e))
         # find name of test
         file_path = str(self.get_file_name())
         file_name = file_path.split('/')[-1]
@@ -411,4 +409,3 @@ def compare_with_ref(self, response, response_checker=default_checker.default_jo
         # Print difference in console
         print_diff()
 
-    assert compare_result

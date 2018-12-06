@@ -98,7 +98,7 @@ def compare_with_ref(resp, call_id, checker):
     # first check that short response matches
     check_reference_consistency(call_id, checker)
 
-    assert checker.compare(resp, ref)
+    checker.compare(resp, ref)
 
 
 def check_reference_consistency(call_id, checker):
@@ -268,7 +268,7 @@ def check_equals(a, b):
 
     the implementation might be done with hidden variables and a default decorator on each test function
     """
-    return a == b
+    assert a == b
 
 
 def is_subset(obj1, obj2, current_path=None):
