@@ -98,7 +98,7 @@ def compare_with_ref(resp, call_id, checker):
     # first check that short response matches
     check_reference_consistency(call_id, checker)
 
-    checker.compare(resp, ref)
+    assert checker.compare(resp, ref)
 
 
 def check_reference_consistency(call_id, checker):
