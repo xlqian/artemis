@@ -4,7 +4,6 @@ import logging
 import os
 import shutil
 import psycopg2
-import re
 import json
 import pytest
 from retrying import Retrying, retry, RetryError
@@ -30,11 +29,6 @@ def dir_path(dataset):
 def nav_path(dataset):
     p = config['NAV_FILE_PATH_LAYOUT']
     return p.format(dataset=dataset)
-
-
-def new_fusio_files_path(dataset):
-    p = config['NEW_FUSIO_FILE_PATH_LAYOUT']
-    return p.format(dataset=dataset.upper())
 
 
 # given a cursor on a db, and table names separated by a comma (ex: "tata, toto, titi")
@@ -377,9 +371,8 @@ class ArtemisTestFixture(CommonTestFixture):
             return
 
         response, url, _ = utils.request(url)
-
         filtered_response = response_checker.filter(response)
-
+ 
         filename = self._save_response(url, response, filtered_response)
 
         utils.compare_with_ref(filtered_response, filename, response_checker)

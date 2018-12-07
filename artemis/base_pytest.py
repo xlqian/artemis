@@ -72,7 +72,7 @@ class ArtemisTestFixture(CommonTestFixture):
     def remove_data_by_dataset(cls, data_set):
         file_path = '/srv/ed/output/{}.nav.lz4'.format(data_set.name)
         logger.info('path to volume from container: ' + file_path)
-        containers = [x for x in docker.from_env().containers.list() if 'tyr_worker' in x.name]
+        containers = [x for x in docker.DockerClient(version='auto').containers.list() if 'tyr_worker' in x.name]
         if not containers:
             logger.error("No Docker Container found for tyr_worker")
         else:
@@ -101,7 +101,7 @@ class ArtemisTestFixture(CommonTestFixture):
         logger.info("updating data for {}".format(data_set.name))
 
         # opening the container as client
-        containers = [x for x in docker.from_env().containers.list() if 'tyr_worker' in x.name]
+        containers = [x for x in docker.DockerClient(version='auto').containers.list() if 'tyr_worker' in x.name]
         if not containers:
             logger.error("No Docker Container found for tyr_worker")
         else:
@@ -162,7 +162,7 @@ class ArtemisTestFixture(CommonTestFixture):
     def kill_the_krakens(cls):
         for data_set in cls.data_sets:
             logger.debug("Restarting the Kraken {}".format(data_set.name))
-            containers = [x for x in docker.from_env().containers.list() if data_set.name in x.name]
+            containers = [x for x in docker.DockerClient(version='auto').containers.list() if data_set.name in x.name]
             if not containers:
                 logger.error("No Docker Container found for Kraken {}".format(data_set.name))
             else:

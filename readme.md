@@ -2,7 +2,10 @@
 Artemis
 *******
 
-Business tests for navitia
+Business tests for Navitia
+
+A new version of Artemis is now available. It allows to run Artemis to run locally (or on any machine) by running services in docker containers.
+Follow the link to run [Artemis Next Generation](https://github.com/CanalTP/artemis/blob/master/artemis/readme.md)
 
 Usage
 =====
