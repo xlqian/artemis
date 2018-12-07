@@ -268,7 +268,7 @@ def check_equals(a, b):
 
     the implementation might be done with hidden variables and a default decorator on each test function
     """
-    return a == b
+    assert a == b
 
 
 def is_subset(obj1, obj2, current_path=None):
