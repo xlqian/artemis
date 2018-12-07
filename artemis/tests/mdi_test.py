@@ -20,10 +20,6 @@ class MDI(object):
         self.journey(_from="stop_area:MDI:SA:2", to="stop_area:MDI:SA:1", datetime="20070419T0700")
 
 
-@set_scenario({"mdi": {"scenario": "default"}})
-class TestMDIDefault(MDI, ArtemisTestFixture):
-    pass
-
 @set_scenario({"mdi": {"scenario": "new_default"}})
 class TestMDINewDefault(MDI, ArtemisTestFixture):
     pass

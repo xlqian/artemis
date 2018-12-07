@@ -26,10 +26,6 @@ class FreqGtfs(object):
                      datetime_represents="arrival")
 
 
-@set_scenario({"freqgtfs": {"scenario": "default"}})
-class TestFreqGtfsDefault(FreqGtfs, ArtemisTestFixture):
-    pass
-
 @set_scenario({"freqgtfs": {"scenario": "new_default"}})
 class TestFreqGtfsNewDefault(FreqGtfs, ArtemisTestFixture):
     pass

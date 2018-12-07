@@ -72,11 +72,6 @@ class SaintOmer(object):
                      walking_speed="1", max_duration_to_pt="1000")
 
 
-@set_scenario({"saintomer": {"scenario": "default"}})
-class TestSaintOmerDefault(SaintOmer, ArtemisTestFixture):
-    pass
-
-
 @set_scenario({"saintomer": {"scenario": "new_default"}})
 class TestSaintOmerNewDefault(SaintOmer, ArtemisTestFixture):
     pass

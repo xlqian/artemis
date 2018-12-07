@@ -87,11 +87,6 @@ class Sherbrooke(object):
                      walking_speed="0.83", max_duration_to_pt="0")
 
 
-@set_scenario({"sherbrooke": {"scenario": "default"}})
-class TestSherbrookeDefault(Sherbrooke, ArtemisTestFixture):
-    pass
-
-
 @set_scenario({"sherbrooke": {"scenario": "new_default"}})
 class TestSherbrookeNewDefault(Sherbrooke, ArtemisTestFixture):
     pass

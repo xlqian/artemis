@@ -24,10 +24,6 @@ class FreqSimple(object):
                      datetime_represents="arrival")
 
 
-@set_scenario({"freqsimple": {"scenario": "default"}})
-class TestFreqSimpleDefault(FreqSimple, ArtemisTestFixture):
-    pass
-
 @set_scenario({"freqsimple": {"scenario": "new_default"}})
 class TestFreqSimpleNewDefault(FreqSimple, ArtemisTestFixture):
     pass

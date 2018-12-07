@@ -18,11 +18,6 @@ class Itl(object):
                      datetime="20041213T070100")
 
 
-@set_scenario({"itl": {"scenario": "default"}})
-class TestItlDefault(Itl, ArtemisTestFixture):
-    pass
-
-
 @set_scenario({"itl": {"scenario": "new_default"}})
 class TestItlNewDefault(Itl, ArtemisTestFixture):
     pass

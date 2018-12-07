@@ -19,9 +19,6 @@ class ProlongAuto(object):
         self.journey(_from="stop_area:PRA:SA:1",
                      to="stop_area:PRA:SA:5", datetime="20041213T0700")
 
-@set_scenario({"prolong-auto": {"scenario": "default"}})
-class TestProlongAutoDefault(ProlongAuto, ArtemisTestFixture):
-    pass
 
 @set_scenario({"prolong-auto": {"scenario": "new_default"}})
 class TestProlongAutoNewDefault(ProlongAuto, ArtemisTestFixture):

@@ -33,10 +33,6 @@ class PasseMinuit01(object):
                      datetime="20051124T070000", datetime_represents="arrival")
 
 
-@set_scenario({"passe-minuit-01": {"scenario": "default"}})
-class TestPasseMinuit01Default(PasseMinuit01, ArtemisTestFixture):
-    pass
-
 @set_scenario({"passe-minuit-01": {"scenario": "new_default"}})
 class TestPasseMinuit01NewDefault(PasseMinuit01, ArtemisTestFixture):
     pass

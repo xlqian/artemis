@@ -289,11 +289,6 @@ class Bibus(object):
         self.api('_geo_status')
 
 
-@set_scenario({"bibus": {"scenario": "default"}})
-class TestBibusDefault(Bibus, ArtemisTestFixture):
-    pass
-
-
 @set_scenario({"bibus": {"scenario": "new_default"}})
 class TestBibusNewDefault(Bibus, ArtemisTestFixture):
     pass

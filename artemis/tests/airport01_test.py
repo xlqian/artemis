@@ -29,10 +29,6 @@ class Airport1(object):
                      to="stop_area:AI1:SA:AIRPORTMRS", datetime="20120908T1200")
 
 
-@set_scenario({"airport-01": {"scenario": "default"}})
-class TestAirport1Default(Airport1, ArtemisTestFixture):
-    pass
-
 @set_scenario({"airport-01": {"scenario": "new_default"}})
 class TestAirport1NewDefault(Airport1, ArtemisTestFixture):
     pass

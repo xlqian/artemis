@@ -19,10 +19,6 @@ class Corr01():
                      max_nb_transfers=11, max_duration_to_pt=0)
 
 
-@set_scenario({"corr-01": {"scenario": "default"}})
-class TestCorr01Default(Corr01, ArtemisTestFixture):
-    pass
-
 @set_scenario({"corr-01": {"scenario": "new_default"}})
 class TestCorr01NewDefault(Corr01, ArtemisTestFixture):
     pass

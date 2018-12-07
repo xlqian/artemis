@@ -11,14 +11,6 @@ COVERAGE = "guichet-unique"
 class GuichetUnique(object):
     """
     """
-    def test_guichet_unique_caen_to_marseille(self):
-        """
-        ID artemis v1: 0
-        """
-        self.journey(_from="admin:fr:14118",
-                     to="admin:fr:13055", datetime="20120924T070000",
-                     walking_speed="0.83", max_duration_to_pt="240")
-
     def test_guichet_unique_paris_to_rouen(self):
         """
         ID artemis v1: 1
@@ -261,20 +253,10 @@ class GuichetUnique(object):
                      data_freshness="realtime")
 
 
-@set_scenario({COVERAGE: {"scenario": "default"}})
-class TestGuichetUniqueDefault(GuichetUnique, ArtemisTestFixture):
-    pass
-
-
 @set_scenario({COVERAGE: {"scenario": "new_default"}})
 class TestGuichetUniqueNewDefault(GuichetUnique, ArtemisTestFixture):
-    @xfail(reason="Unsupported new_default scenario!", raises=AssertionError)
-    def test_guichet_unique_caen_to_marseille(self):
-        super(TestGuichetUniqueNewDefault, self).test_guichet_unique_caen_to_marseille()
-
+    pass
 
 @set_scenario({COVERAGE: {"scenario": "experimental"}})
 class TestGuichetUniqueExperimental(GuichetUnique, ArtemisTestFixture):
-    @xfail(reason="Unsupported experimental scenario!", raises=AssertionError)
-    def test_guichet_unique_caen_to_marseille(self):
-        super(TestGuichetUniqueExperimental, self).test_guichet_unique_caen_to_marseille()
+    pass

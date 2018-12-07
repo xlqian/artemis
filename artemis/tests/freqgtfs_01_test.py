@@ -27,11 +27,6 @@ class FreqGtfs_01(object):
         self.journey(_from="stop_area:FQT:SA:527405", to="stop_area:FQT:SA:1374208", datetime="20120822T192900")
 
 
-@set_scenario({"freqgtfs-01": {"scenario": "default"}})
-class TestFreqGtfs_01Default(FreqGtfs_01, ArtemisTestFixture):
-    pass
-
-
 @set_scenario({"freqgtfs-01": {"scenario": "new_default"}})
 class TestFreqGtfs_01NewDefault(FreqGtfs_01, ArtemisTestFixture):
     pass

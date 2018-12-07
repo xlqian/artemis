@@ -44,9 +44,6 @@ class Map(object):
         """
         self.journey(_from="stop_area:MAP:SA:2", to="stop_area:MAP:SA:5", datetime="20041210T070000")
 
-@set_scenario({"map": {"scenario": "default"}})
-class TestMapDefault(Map, ArtemisTestFixture):
-    pass
 
 @set_scenario({"map": {"scenario": "new_default"}})
 class TestMapNewDefault(Map, ArtemisTestFixture):

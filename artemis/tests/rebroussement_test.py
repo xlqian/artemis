@@ -39,9 +39,6 @@ class Rebroussement(object):
         self.journey(_from="stop_area:RBR:SA:4",
                      to="stop_area:RBR:SA:7", datetime="20041213T0900")
 
-@set_scenario({"rebroussement": {"scenario": "default"}})
-class TestRebroussementDefault(Rebroussement, ArtemisTestFixture):
-    pass
 
 @set_scenario({"rebroussement": {"scenario": "new_default"}})
 class TestRebroussementNewDefault(Rebroussement, ArtemisTestFixture):
