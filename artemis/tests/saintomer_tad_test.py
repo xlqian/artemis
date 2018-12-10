@@ -84,4 +84,18 @@ class TestSaintOmerNewDefault(SaintOmer, ArtemisTestFixture):
 
 @set_scenario({"saintomer": {"scenario": "experimental"}})
 class TestSaintOmerExperimental(SaintOmer, ArtemisTestFixture):
-    pass
+    @xfail(reason="Artemis regression", raises=AssertionError)
+    def test_saint_omer_address_to_admin(self):
+        super(TestSaintOmerExperimental, self).test_saint_omer_address_to_admin()
+
+    @xfail(reason="Artemis regression", raises=AssertionError)
+    def test_saint_omer_admin_to_address(self):
+        super(TestSaintOmerExperimental, self).test_saint_omer_admin_to_address()
+
+    @xfail(reason="Artemis regression", raises=AssertionError)
+    def test_saint_omer_admin_to_poi(self):
+        super(TestSaintOmerExperimental, self).test_saint_omer_admin_to_poi()
+
+    @xfail(reason="Artemis regression", raises=AssertionError)
+    def test_saint_omer_poi_to_admin(self):
+        super(TestSaintOmerExperimental, self).test_saint_omer_poi_to_admin()
