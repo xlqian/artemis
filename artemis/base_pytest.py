@@ -409,3 +409,4 @@ def compare_with_ref(self, response, response_checker=default_checker.default_jo
         # Print difference in console
         print_diff()
 
+        assert False
