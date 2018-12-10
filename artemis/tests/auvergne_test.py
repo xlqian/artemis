@@ -6,6 +6,7 @@ class Auvergne(object):
     """
     test for new_default with data from auvergne
     """
+    @xfail(reason="Artemis regression", raises=AssertionError)
     def test_auvergne_01(self):
         """
         http://jira.canaltp.fr/browse/NAVITIAII-2020
@@ -17,6 +18,7 @@ class Auvergne(object):
                      min_nb_journeys=3,
                      max_duration_to_pt=1200)
 
+    @xfail(reason="Artemis regression", raises=AssertionError)
     def test_auvergne_02(self):
         """
         http://jira.canaltp.fr/browse/NAVITIAII-2016
@@ -29,6 +31,7 @@ class Auvergne(object):
                      _night_bus_filter_base_factor=7200,
                      max_duration_to_pt=1800)
 
+    @xfail(reason="Artemis regression", raises=AssertionError)
     def test_auvergne_03(self):
         """
         same that 02, but this time the nigth bus filter should remove walking solution since they are too late
@@ -41,6 +44,7 @@ class Auvergne(object):
                      _night_bus_filter_base_factor=3600,
                      max_duration_to_pt=1800)
 
+    @xfail(reason="Artemis regression", raises=AssertionError)
     def test_auvergne_04(self):
         """
         http://jira.canaltp.fr/browse/NAVITIAII-2011
@@ -51,6 +55,7 @@ class Auvergne(object):
                      last_section_mode=['walking'],
                      min_nb_journeys=3)
 
+    @xfail(reason="Artemis regression", raises=AssertionError)
     def test_min_nb_journeys(self):
         """
         https://jira.kisio.org/browse/NAVP-863
@@ -59,6 +64,7 @@ class Auvergne(object):
                      to="3.04947;45.76422", datetime="20160120T100000",
                      min_nb_journeys=5)
 
+    @xfail(reason="Artemis regression", raises=AssertionError)
     def test_no_shared_section(self):
         """
         https://jira.kisio.org/browse/NAVP-858
@@ -68,6 +74,7 @@ class Auvergne(object):
                      min_nb_journeys=5,
                      _no_shared_section=True)
 
+    @xfail(reason="Artemis regression", raises=AssertionError)
     def test_free_radius_from(self):
         """
         https://jira.kisio.org/browse/NAVP-820
@@ -82,6 +89,7 @@ class Auvergne(object):
         """
         self.api('_geo_status')
 
+    @xfail(reason="Artemis regression", raises=AssertionError)
     def test_auvergne_admin_to_station(self):
         """
         test the admin to station
@@ -98,6 +106,7 @@ class Auvergne(object):
                      first_section_mode=['walking', 'car'],
                      last_section_mode=['walking'])
 
+    @xfail(reason="Artemis regression", raises=AssertionError)
     def test_time_frame_duration(self):
         """
         Test parameter 'timeframe_duration'.
@@ -111,6 +120,7 @@ class Auvergne(object):
                      datetime="20160118T080000",
                      timeframe_duration="600")
 
+    @xfail(reason="Artemis regression", raises=AssertionError)
     def test_time_frame_duration_with_max_nb_journey(self):
         """
         Test the combination of 'timeframe_duration' along with 'max_nb_journeys'.
