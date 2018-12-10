@@ -73,10 +73,6 @@ class Poitiers(object):
                      walking_speed="0.83", max_duration_to_pt="1200")
 
 
-@set_scenario({"poitiers": {"scenario": "default"}})
-class TestPoitiersDefault(Poitiers, ArtemisTestFixture):
-    pass
-
 @set_scenario({"poitiers": {"scenario": "new_default"}})
 class TestPoitiersNewDefault(Poitiers, ArtemisTestFixture):
     pass

@@ -64,10 +64,6 @@ class TCL(object):
                      datetime_represents="arrival", walking_speed="0.83", max_duration_to_pt="240")
 
 
-@set_scenario({"tcl": {"scenario": "default"}})
-class TestTCLDefault(TCL, ArtemisTestFixture):
-    pass
-
 @set_scenario({"tcl": {"scenario": "new_default"}})
 class TestTCLNewDefault(TCL, ArtemisTestFixture):
     pass

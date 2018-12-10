@@ -61,9 +61,6 @@ class PasseMinuit02(object):
         self.journey(_from="stop_area:PM2:SA:5",
                      to="stop_area:PM2:SA:6", datetime="20080408T0055", datetime_represents="arrival")
 
-@set_scenario({"passe-minuit-02": {"scenario": "default"}})
-class TestPasseMinuit02Default(PasseMinuit02, ArtemisTestFixture):
-    pass
 
 @set_scenario({"passe-minuit-02": {"scenario": "new_default"}})
 class TestPasseMinuit02NewDefault(PasseMinuit02, ArtemisTestFixture):

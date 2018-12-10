@@ -24,10 +24,6 @@ class Corr02(object):
         self.journey(_from="stop_area:CR2:SA:1", to="stop_area:CR2:SA:4", datetime="20041213T0700")
 
 
-@set_scenario({"corr-02": {"scenario": "default"}})
-class TestCorr02Default(Corr02, ArtemisTestFixture):
-    pass
-
 @set_scenario({"corr-02": {"scenario": "new_default"}})
 class TestCorr02NewDefault(Corr02, ArtemisTestFixture):
     pass

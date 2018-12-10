@@ -33,11 +33,6 @@ class Mission(object):
         self.journey(_from="stop_area:MIS:SA:1", to="stop_area:MIS:SA:4", datetime="20041210T070000")
 
 
-@set_scenario({"mission": {"scenario": "default"}})
-class TestMissionDefault(Mission, ArtemisTestFixture):
-    pass
-
-
 @set_scenario({"mission": {"scenario": "new_default"}})
 class TestMissionNewDefault(Mission, ArtemisTestFixture):
     pass

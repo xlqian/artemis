@@ -10,11 +10,6 @@ class ArtTest03(object):
         self.journey(_from="stop_area:TS3:SA:1", to="stop_area:TS3:SA:6", datetime="20041214T0700")
 
 
-@set_scenario({"test-03": {"scenario": "default"}})
-class TestTest03Default(ArtTest03, ArtemisTestFixture):
-    pass
-
-
 @set_scenario({"test-03": {"scenario": "new_default"}})
 class TestTest03NewDefault(ArtTest03, ArtemisTestFixture):
     pass

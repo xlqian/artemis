@@ -233,10 +233,6 @@ class Tad(object):
                      to="stop_area:CA3:SA:blr9",
                      datetime="20150407T102000")
 
-@set_scenario({"tad": {"scenario": "default"}})
-class TestTadDefault(Tad, ArtemisTestFixture):
-    pass
-
 
 @set_scenario({"tad": {"scenario": "new_default"}})
 class TestTadNewDefault(Tad, ArtemisTestFixture):

@@ -15,10 +15,6 @@ class NbCorr03(object):
                      to="stop_area:NC3:SA:5", datetime="20041213T0700")
 
 
-@set_scenario({"nb-corr-03": {"scenario": "default"}})
-class TestNbCorr03Default(NbCorr03, ArtemisTestFixture):
-    pass
-
 @set_scenario({"nb-corr-03": {"scenario": "new_default"}})
 class TestNbCorr03NewDefault(NbCorr03, ArtemisTestFixture):
     pass
