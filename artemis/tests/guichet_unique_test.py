@@ -260,7 +260,7 @@ class GuichetUnique(object):
         To: gare de Marseille-St-Charles (Marseille)
 
         Before the addition, a train travels on 2012/11/20 from 13:37:00 to 06:32:00 on 2012/11/21
-        After the addition, an other train travels on 2012/11/20 from 12:30:00 to 22:16:00
+        After the addition, an other train travels on 2012/11/20 from 13:30:00 to 22:16:00
         """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_at_the_beginning_9580_tgv.json')
