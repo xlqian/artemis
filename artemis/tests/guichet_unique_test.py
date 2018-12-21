@@ -136,6 +136,7 @@ class GuichetUnique(object):
                      datetime="20121216T173000",
                      data_freshness="base_schedule")
 
+    @xfail(reason="Waiting for fix - NAVP-1126", raises=AssertionError)
     def test_kirin_cots_trip_deleted_partially(self):
         """
         Test removal of some stops of a vj
@@ -255,7 +256,7 @@ class GuichetUnique(object):
         """
         Test add a stop_time at the departure of the vj
 
-        Requested departure: 2012/11/20 12:30:00
+        Requested departure: 2012/11/20 13:30:00
         From: gare de Bitche (Bitche)
         To: gare de Marseille-St-Charles (Marseille)
 
@@ -268,17 +269,27 @@ class GuichetUnique(object):
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T123000",
+                     datetime="20121120T133000",
                      forbidden_uris=["commercial_mode:OCECarTER"],
                      data_freshness="realtime")
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T123000",
+                     datetime="20121120T133000",
                      forbidden_uris=["commercial_mode:OCECarTER"],
                      data_freshness="base_schedule")
 
     def test_kirin_cots_trip_add_new_stop_point_in_the_middle(self):
+        """
+        Test add a stop_time in the middle of the vj
+
+        Requested departure: 2012/11/20 13:58:00
+        From: gare de Bitche (Bitche)
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Before the addition, no solution can be found without transfer
+        After the addition, the train travels on 2012/11/20 from 14:20:00 to 22:16:00
+        """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
@@ -296,11 +307,20 @@ class GuichetUnique(object):
                      data_freshness="base_schedule")
 
     def test_kirin_cots_trip_add_new_stop_point_at_the_end(self):
+        """
+        Test add a stop_time at the end of the vj
+
+        Requested departure: 2012/11/20 13:58:00
+        From: gare de Frankfurt-am-Main-Hbf
+        To: gare de Nimes (Nimes)
+
+        Before the addition, no solution can be found without transfer
+        After the addition, the train travels on 2012/11/20 from 14:20:00 to 22:16:00
+        """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_9580_tgv_at_the_end.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
-        # New stop_point at the end(gare de Nimes)
         self.journey(_from="stop_area:OCE:SA:80110684",
                      to="stop_area:OCE:SA:87775007",
                      datetime="20121120T135800",
@@ -313,9 +333,7 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="base_schedule")
 
-    """
-    Wait until https://jira.kisio.org/browse/NAVP-1095 is implemented
-
+    @xfail(reason="Waiting for fix - NAVP-1095", raises=AssertionError)
     def test_kirin_cots_trip_remove_new_stop_point(self):
         self.api('disruptions')
 
@@ -346,7 +364,6 @@ class GuichetUnique(object):
                      datetime="20121120T140000",
                      forbidden_uris=["commercial_mode:OCEICE"],
                      data_freshness="realtime")
-    """
 
     def test_kirin_cots_trip_add_new_stop_point_several_times(self):
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
@@ -374,18 +391,52 @@ class GuichetUnique(object):
                      data_freshness="realtime")
 
     def test_kirin_cots_trip_add_several_new_stop_points_in_one_cots(self):
+        """
+        Test add several stop_times in a single COTS feed:
+        - gare de Bitche (Bitche) departure 13:30
+        - gare de Haguenau (Haguenau) departure 14:15
+        - gare de Nimes (Nimes) arrival 23:30
+
+        Requested departure: 2012/11/20 13:25:00
+        From: gare de Bitche (Bitche)
+        To: gare de Nimes (Nimes)
+        Before the addition, no solution can be found without transfer
+        After the addition, a train travels on 2012/11/20 from 13:30:00 to 23:30:00
+
+        Requested departure: 2012/11/20 13:25:00
+        From: gare de Haguenau (Haguenau)
+        To: gare de Nimes (Nimes)
+        Before the addition, no solution can be found without transfer
+        After the addition, a train travels on 2012/11/20 from 14:15:00 to 23:30:00
+        """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_several_new_stop_points_in_one_cots_9580_tgv.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
+        # Bitche -> Nimes
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87775007",
+                     datetime="20121120T132500",
+                     max_nb_transfers="0",
                      data_freshness="realtime")
 
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87775007",
+                     datetime="20121120T132500",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+        # Haguenau -> Nimes
+        self.journey(_from="stop_area:OCE:SA:87213058",
+                     to="stop_area:OCE:SA:87775007",
+                     datetime="20121120T132500",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87213058",
+                     to="stop_area:OCE:SA:87775007",
+                     datetime="20121120T132500",
+                     max_nb_transfers="0",
                      data_freshness="base_schedule")
 
     def test_kirin_cots_trip_add_several_times_same_new_stop_point(self):
@@ -431,48 +482,85 @@ class GuichetUnique(object):
                      data_freshness="base_schedule")
 
     def test_kirin_cots_trip_add_stop_point_non_existent(self):
+        """
+        Test add a stop_time with an invalid CR-CI-CH code
+        The COTS feed isn't rejected and the delay is taken into account
+
+        Requested departure: 2012/11/20 13:58:00
+        From: gare de Strasbourg (Strasbourg)
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Before the delay, the train travels from 16:12:00 to 21:46:00
+        After the delay, the train travels from 16:12:00 to 22:16:00
+        """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_trash_stop_points_9580_tgv.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
-        self.journey(_from="stop_area:OCE:SA:80110684",
+        self.journey(_from="stop_area:OCE:SA:87212027",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T135800",
+                     max_nb_transfers="0",
                      data_freshness="realtime")
 
-        self.journey(_from="stop_area:OCE:SA:80110684",
+        self.journey(_from="stop_area:OCE:SA:87212027",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T135800",
+                     max_nb_transfers="0",
                      data_freshness="base_schedule")
 
     def test_kirin_cots_trip_add_stop_point_at_the_end_make_pass_midnight(self):
+        """
+        Test add a stop_time at the end of the vj that arrives the day after the departure
+
+        Requested departure: 2012/11/20 13:58:00
+        From: gare de Frankfurt-am-Main-Hbf
+        To: gare de Nimes (Nimes)
+
+        Before the addition, no solution can be found without transfer
+        After the addition, an other train travels from 14:20:00 on 2012/11/20 to 00:30:00 on 2012/11/21
+        """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_at_the_end_make_pass_midnight_9580_tgv.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
         self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
+                     to="stop_area:OCE:SA:87775007",
                      datetime="20121120T135800",
+                     max_nb_transfers="0",
                      data_freshness="realtime")
 
         self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
+                     to="stop_area:OCE:SA:87775007",
                      datetime="20121120T135800",
+                     max_nb_transfers="0",
                      data_freshness="base_schedule")
 
     def test_kirin_cots_trip_add_stop_point_at_the_beginning_make_pass_midnight(self):
+        """
+        Test add a stop_time at the beginning of the vj that the day before the first stop of the theoretical vj
+
+        Requested departure: 2012/11/19 22:30:00
+        From: gare de Luxembourg
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Before the addition, no solution can be found without transfer
+        After the addition, an other train travels from 14:20:00 on 2012/11/20 to 00:30:00 on 2012/11/21
+        """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_at_the_begnning_make_pass_midnight_9580_tgv.json')
+        self.send_cots('trip_add_new_stop_point_at_the_beginning_make_pass_midnight_9580_tgv.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
-        self.journey(_from="stop_area:OCE:SA:80110684",
+        self.journey(_from="stop_area:OCE:SA:82001000",
                      to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
+                     datetime="20121119T223000",
+                     max_nb_transfers="0",
                      data_freshness="realtime")
 
-        self.journey(_from="stop_area:OCE:SA:80110684",
+        self.journey(_from="stop_area:OCE:SA:82001000",
                      to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
+                     datetime="20121119T223000",
+                     max_nb_transfers="0",
                      data_freshness="base_schedule")
 
     def test_kirin_cots_trip_add_stop_make_pass_midnight_local_and_utc(self):
@@ -491,16 +579,11 @@ class GuichetUnique(object):
                      data_freshness="base_schedule")
 
 
-
 @set_scenario({COVERAGE: {"scenario": "new_default"}})
 class TestGuichetUniqueNewDefault(GuichetUnique, ArtemisTestFixture):
-    @xfail(reason="Waiting for fix", raises=AssertionError)
-    def test_kirin_cots_trip_deleted_partially(self):
-        super(TestGuichetUniqueNewDefault, self).test_kirin_cots_trip_deleted_partially()
+    pass
 
 
 @set_scenario({COVERAGE: {"scenario": "experimental"}})
 class TestGuichetUniqueExperimental(GuichetUnique, ArtemisTestFixture):
-    @xfail(reason="Waiting for fix", raises=AssertionError)
-    def test_kirin_cots_trip_deleted_partially(self):
-        super(TestGuichetUniqueExperimental, self).test_kirin_cots_trip_deleted_partially()
+    pass
