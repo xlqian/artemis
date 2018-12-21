@@ -381,6 +381,7 @@ class GuichetUnique(object):
                      data_freshness="base_schedule")
 
         # Then we resend a cots that doesn't contain the added new_stop_time
+        # MB: ????
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
@@ -440,6 +441,7 @@ class GuichetUnique(object):
                      data_freshness="base_schedule")
 
     def test_kirin_cots_trip_add_several_times_same_new_stop_point(self):
+        # What's the difference with test_kirin_cots_trip_add_new_stop_point_several_times ?
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
@@ -536,6 +538,7 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="base_schedule")
 
+    @xfail(reason="Waiting for fix - NAVP-1128", raises=AssertionError)
     def test_kirin_cots_trip_add_stop_point_at_the_beginning_make_pass_midnight(self):
         """
         Test add a stop_time at the beginning of the vj that the day before the first stop of the theoretical vj
@@ -545,7 +548,7 @@ class GuichetUnique(object):
         To: gare de Marseille-St-Charles (Marseille)
 
         Before the addition, no solution can be found without transfer
-        After the addition, an other train travels from 14:20:00 on 2012/11/20 to 00:30:00 on 2012/11/21
+        After the addition, an other train travels from 22:30:00 on 2012/11/19 to 22:16:00 on 2012/11/20
         """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_at_the_beginning_make_pass_midnight_9580_tgv.json')
@@ -564,18 +567,30 @@ class GuichetUnique(object):
                      data_freshness="base_schedule")
 
     def test_kirin_cots_trip_add_stop_make_pass_midnight_local_and_utc(self):
+        """
+        Test add a stop time that arrives the same day of the theoretical vj and leaves the day after
+
+        Requested departure: 2012/11/20 14:00:00
+        From: gare de Frankfurt-am-Main-Hbf
+        To: gare de Montpellier-Saint-Roch (Montpellier)
+
+        Before the addition, no solution can be found without transfer
+        After the addition, an other train travels from 14:01:00 on 2012/11/20 to 01:30:00 on 2012/11/21
+        """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_stop_point_make_pass_midnight_local_and_UTC_9580_tgv.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
         self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87775007",
-                     datetime="20121120T135800",
+                     to="stop_area:OCE:SA:87773002",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
                      data_freshness="realtime")
 
         self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87775007",
-                     datetime="20121120T135800",
+                     to="stop_area:OCE:SA:87773002",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
                      data_freshness="base_schedule")
 
 
