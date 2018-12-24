@@ -260,7 +260,7 @@ class GuichetUnique(object):
         From: gare de Bitche (Bitche)
         To: gare de Marseille-St-Charles (Marseille)
 
-        Before the addition, a train travels on 2012/11/20 from 13:37:00 to 06:32:00 on 2012/11/21
+        Before the addition, no solution can be found without transfer
         After the addition, an other train travels on 2012/11/20 from 13:30:00 to 22:16:00
         """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
@@ -270,13 +270,13 @@ class GuichetUnique(object):
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T133000",
-                     forbidden_uris=["commercial_mode:OCECarTER"],
+                     max_nb_transfers="0",
                      data_freshness="realtime")
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T133000",
-                     forbidden_uris=["commercial_mode:OCECarTER"],
+                     max_nb_transfers="0",
                      data_freshness="base_schedule")
 
     def test_kirin_cots_trip_add_new_stop_point_in_the_middle(self):
