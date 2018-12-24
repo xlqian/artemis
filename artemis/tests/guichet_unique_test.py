@@ -366,29 +366,41 @@ class GuichetUnique(object):
                      data_freshness="realtime")
 
     def test_kirin_cots_trip_add_new_stop_point_several_times(self):
+        """
+        Test add a stop_time with the same COTS feed several times
+
+        Requested departure: 2012/11/20 13:58:00
+        From: gare de Bitche (Bitche)
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Before the addition, no solution can be found without transfer
+        After the addition, the train travels on 2012/11/20 from 14:20:00 to 22:16:00
+        """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
-        self.journey(_from="stop_area:OCE:SA:87271007",
+        self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T135800",
+                     max_nb_transfers="0",
                      data_freshness="realtime")
 
-        self.journey(_from="stop_area:OCE:SA:87271007",
+        self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T135800",
+                     max_nb_transfers="0",
                      data_freshness="base_schedule")
 
-        # Then we resend a cots that doesn't contain the added new_stop_time
-        # MB: ????
+        # Send the same COTS feed and check that the stop_time is still available
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
-        self.journey(_from="stop_area:OCE:SA:87271007",
+        self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T135800",
+                     max_nb_transfers="0",
                      data_freshness="realtime")
 
     def test_kirin_cots_trip_add_several_new_stop_points_in_one_cots(self):
@@ -438,49 +450,6 @@ class GuichetUnique(object):
                      to="stop_area:OCE:SA:87775007",
                      datetime="20121120T132500",
                      max_nb_transfers="0",
-                     data_freshness="base_schedule")
-
-    def test_kirin_cots_trip_add_several_times_same_new_stop_point(self):
-        # What's the difference with test_kirin_cots_trip_add_new_stop_point_several_times ?
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.journey(_from="stop_area:OCE:SA:87271007",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="realtime")
-
-        self.journey(_from="stop_area:OCE:SA:87271007",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="base_schedule")
-
-        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.journey(_from="stop_area:OCE:SA:87271007",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="realtime")
-
-        self.journey(_from="stop_area:OCE:SA:87271007",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T135800",
-                     data_freshness="base_schedule")
-
-        # new stop_point
-        self.journey(_from="stop_area:OCE:SA:87271007",
-                     to="stop_area:OCE:SA:87193821",
-                     datetime="20121120T135800",
-                     data_freshness="realtime")
-
-        self.journey(_from="stop_area:OCE:SA:87271007",
-                     to="stop_area:OCE:SA:87193821",
-                     datetime="20121120T135800",
                      data_freshness="base_schedule")
 
     def test_kirin_cots_trip_add_stop_point_non_existent(self):
