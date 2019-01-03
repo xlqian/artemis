@@ -208,24 +208,6 @@ class ArtemisTestFixture(CommonTestFixture):
         # Comparing my response and my reference
         compare_with_ref(self, dict_resp)
 
-    def get_file_name(self):
-        """
-        Get second half of the path to the artemis reference file
-        """
-        mro = inspect.getmro(self.__class__)
-        class_name = "Test{}".format(mro[1].__name__)
-        scenario = mro[0].data_sets[0].scenario
-
-        func_name = utils.get_calling_test_function()
-        test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
-        file_name = "{}.json".format(test_name)
-        self.test_counter[test_name] += 1
-
-        if self.test_counter[test_name] > 1:
-            return "{}_{}.json".format(test_name, self.test_counter[test_name] - 1)
-        else:
-            return "{}.json".format(test_name)
-
     def api(self, url, response_checker=default_checker.default_checker):
         """
         used to check misc API
@@ -318,7 +300,7 @@ def compare_with_ref(self, response, response_checker=default_checker.default_jo
     ### Get the reference
 
     # Create the file name
-    filename = self.get_file_name()
+    filename = self._get_file_name()
 
     # Add path to artemis references
     relative_path_ref = config['REFERENCE_FILE_PATH']
@@ -353,7 +335,7 @@ def compare_with_ref(self, response, response_checker=default_checker.default_jo
         # print the assertion error message
         logging.error("Assertion Error: %s" % str(e))
         # find name of test
-        file_path = str(self.get_file_name())
+        file_path = str(self._get_file_name())
         file_name = file_path.split('/')[-1]
         file_name = file_name[:-5]
 

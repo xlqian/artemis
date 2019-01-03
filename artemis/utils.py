@@ -152,7 +152,7 @@ def get_calling_test_function():
     """
     return the calling test method.
 
-    go back up the stack until a method with test in the name
+    go back up the stack until a method with the test's name is found
 
     Used here to find the name of the coverage
     """

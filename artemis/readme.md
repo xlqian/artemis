@@ -12,8 +12,7 @@ aka ArtemisNG has been designed to run tests using docker-compose, in order to b
     `docker-compose -f docker-compose.yml -f artemis/docker-artemis-instance.yml -f kirin/docker-compose_kirin.yml up`
 
 * Create a virtual environment with the python packages in requirements.txt (for python 3):
-    `mkvirtualenv --python=/usr/bin/python3 <venv_name>`
-    `pip3 install -r requirements.txt`
+    `mkvirtualenv  -p python3 -r requirements.txt <venv_name>`
 
   For python2:
     `pip install -r requirements_py2.txt`

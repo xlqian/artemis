@@ -1,5 +1,4 @@
 from collections import defaultdict
-import inspect
 import logging
 import os
 import shutil
@@ -372,7 +371,7 @@ class ArtemisTestFixture(CommonTestFixture):
 
         response, url, _ = utils.request(url)
         filtered_response = response_checker.filter(response)
- 
+
         filename = self._save_response(url, response, filtered_response)
 
         utils.compare_with_ref(filtered_response, filename, response_checker)
@@ -420,31 +419,6 @@ class ArtemisTestFixture(CommonTestFixture):
             response_checker = default_checker.journeys_retrocompatibility_checker
 
         self._api_call(query, response_checker)
-
-    def _get_file_name(self):
-        """
-        create the name of the file for storing the query.
-
-        the file is:
-
-        {fixture_name}/{function_name}_{md5_on_url}(|_{call_number}).json
-
-        if a custom_name is provided we take it, else we create a md5 on the url.
-        a custom_name must be provided is the same call is done twice in the same test function
-        """
-        mro = inspect.getmro(self.__class__)
-        class_name = "Test{}".format(mro[1].__name__)
-        scenario = mro[0].data_sets[0].scenario
-
-        func_name = utils.get_calling_test_function()
-        test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
-
-        self.test_counter[test_name] += 1
-
-        if self.test_counter[test_name] > 1:
-            return "{}_{}.json".format(test_name, self.test_counter[test_name] - 1)
-        else:
-            return "{}.json".format(test_name)
 
     def _save_response(self, url, response, filtered_response):
         """
