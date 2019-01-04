@@ -1,43 +1,23 @@
 from collections import defaultdict
-import inspect
 import logging
 import os
 import shutil
 import psycopg2
-import re
 import json
 import pytest
 from retrying import Retrying, retry, RetryError
 from artemis import default_checker
 from artemis import utils
-import requests
 from artemis.configuration_manager import config
 import datetime
+from artemis.common_fixture import CommonTestFixture
 
-# regexp used to identify a test method (simplified version of nose)
-_test_method_regexp = re.compile("^(test_.*|.*_test)$")
 
 _tyr = config['TYR_DIR'] + "/manage.py"
 _tyr_config_file = config['TYR_DIR'] + "/settings.py"
 
-_kirin_api = config['KIRIN_API']
 # to limit the permissions of the jenkins user on the artemis platform, we create a proxy for all kraken services
 _kraken_wrapper = '/usr/local/bin/kraken_service_wrapper'
-
-
-def get_calling_test_function():
-    """
-    return the calling test method.
-
-    go back up the stack until a method with test in the name
-    """
-    for m in inspect.stack():
-        method_name = m[3]  # m is a tuple and the 4th elt is the name of the function
-        if _test_method_regexp.match(method_name):
-            return method_name
-
-    # a test method has to be found by construction, if none is found there is a problem
-    raise KeyError("impossible to find the calling test method")
 
 
 def dir_path(dataset):
@@ -49,20 +29,6 @@ def nav_path(dataset):
     p = config['NAV_FILE_PATH_LAYOUT']
     return p.format(dataset=dataset)
 
-
-def new_fusio_files_path(dataset):
-    p = config['NEW_FUSIO_FILE_PATH_LAYOUT']
-    return p.format(dataset=dataset.upper())
-
-
-def get_ire_data(name):
-    """
-    return an IRE input as string
-    the name must be the name of a file in tests/fixtures
-    """
-    _file = os.path.join(os.path.dirname(__file__), 'tests', 'fixtures', name)
-    with open(_file, "r") as ire:
-        return ire.read()
 
 # given a cursor on a db, and table names separated by a comma (ex: "tata, toto, titi")
 def truncate_tables(cursor, table_names_string):
@@ -115,7 +81,7 @@ def kraken_status(data_set):
     return current_region['status']
 
 
-class ArtemisTestFixture:
+class ArtemisTestFixture(CommonTestFixture):
     """
     Mother class for all integration tests
     """
@@ -359,20 +325,6 @@ class ArtemisTestFixture:
     # wrappers around utils functions #
     ###################################
 
-    def send_ire(self, ire_name):
-        if self.check_ref:
-            return
-
-        requests.post(_kirin_api+'/ire',
-                      data=get_ire_data(ire_name),
-                      headers={'Content-Type': 'application/xml;charset=utf-8'})
-
-    def send_cots(self, cots_name):
-        r = requests.post(_kirin_api+'/cots',
-                      data=get_ire_data(cots_name).encode('UTF-8'),
-                      headers={'Content-Type': 'application/json;charset=utf-8'})
-        r.raise_for_status()
-        
     @retry(stop_max_delay=25000, wait_fixed=500)
     def get_last_rt_loaded_time(self, cov):
         if self.check_ref:
@@ -412,13 +364,12 @@ class ArtemisTestFixture:
 
         the query is writen in a file
         """
-        if self.check_ref: # only check consistency
-            filename = self._get_file_name()
+        if self.check_ref:  # only check consistency
+            filename = self.get_file_name()
             assert utils.check_reference_consistency(filename, response_checker)
             return
 
         response, url, _ = utils.request(url)
-
         filtered_response = response_checker.filter(response)
 
         filename = self._save_response(url, response, filtered_response)
@@ -469,36 +420,11 @@ class ArtemisTestFixture:
 
         self._api_call(query, response_checker)
 
-    def _get_file_name(self):
-        """
-        create the name of the file for storing the query.
-
-        the file is:
-
-        {fixture_name}/{function_name}_{md5_on_url}(|_{call_number}).json
-
-        if a custom_name is provided we take it, else we create a md5 on the url.
-        a custom_name must be provided is the same call is done twice in the same test function
-        """
-        mro = inspect.getmro(self.__class__)
-        class_name = "Test{}".format(mro[1].__name__)
-        scenario = mro[0].data_sets[0].scenario
-
-        func_name = get_calling_test_function()
-        test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
-
-        self.test_counter[test_name] += 1
-
-        if self.test_counter[test_name] > 1:
-            return "{}_{}.json".format(test_name, self.test_counter[test_name] - 1)
-        else:
-            return "{}.json".format(test_name)
-
     def _save_response(self, url, response, filtered_response):
         """
         save the response in a file and return the filename (with the fixture directory)
         """
-        filename = self._get_file_name()
+        filename = self.get_file_name()
         file_complete_path = os.path.join(config['RESPONSE_FILE_PATH'], filename)
         if not os.path.exists(os.path.dirname(file_complete_path)):
             os.makedirs(os.path.dirname(file_complete_path))

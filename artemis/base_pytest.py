@@ -14,7 +14,7 @@ import docker
 import tarfile
 import zipfile
 from retrying import retry
-
+from artemis.common_fixture import CommonTestFixture
 
 if six.PY3: # case using python 3
     from enum import Enum
@@ -38,35 +38,7 @@ def print_color(line, color=Colors.DEFAULT):
     sys.stdout.write('{}{}{}'.format(color.value, line, Colors.DEFAULT.value))
 
 
-# TODO: Move in utils
-def get_calling_test_function():
-    """
-    return the calling test method.
-
-    go back up the stack until a method with test in the name
-
-    Used here to find the name of the coverage
-    """
-    for m in inspect.stack():
-        method_name = m[3]  # m is a tuple and the 4th elt is the name of the function
-        if utils._test_method_regexp.match(method_name):
-            return method_name
-
-    #a test method has to be found by construction, if none is found there is a problem
-    raise KeyError("impossible to find the calling test method")
-
-
-def get_ire_data(name):
-    """
-    return an IRE input as string
-    the name must be the name of a file in tests/fixtures
-    """
-    _file = os.path.join(os.path.dirname(__file__), 'tests', 'fixtures', name)
-    with open(_file, "r") as ire:
-        return ire.read()
-
-
-class ArtemisTestFixture(object):
+class ArtemisTestFixture(CommonTestFixture):
 
     dataset_binarized = []
 
@@ -82,7 +54,12 @@ class ArtemisTestFixture(object):
 
     @classmethod
     @pytest.yield_fixture(scope='class', autouse=True)
-    def manage_data(cls):
+    def manage_data(cls, request):
+        skip_bina = request.config.getvalue("skip_bina")
+        if skip_bina:
+            logger.info("Skipping binarisation...")
+            return
+
         for data_set in cls.data_sets:
             if data_set.name in cls.dataset_binarized:
                 logger.info("binarization dataset {} has been done, skipping....".format(data_set))
@@ -95,7 +72,7 @@ class ArtemisTestFixture(object):
     def remove_data_by_dataset(cls, data_set):
         file_path = '/srv/ed/output/{}.nav.lz4'.format(data_set.name)
         logger.info('path to volume from container: ' + file_path)
-        containers = [x for x in docker.from_env().containers.list() if 'tyr_worker' in x.name]
+        containers = [x for x in docker.DockerClient(version='auto').containers.list() if 'tyr_worker' in x.name]
         if not containers:
             logger.error("No Docker Container found for tyr_worker")
         else:
@@ -124,7 +101,7 @@ class ArtemisTestFixture(object):
         logger.info("updating data for {}".format(data_set.name))
 
         # opening the container as client
-        containers = [x for x in docker.from_env().containers.list() if 'tyr_worker' in x.name]
+        containers = [x for x in docker.DockerClient(version='auto').containers.list() if 'tyr_worker' in x.name]
         if not containers:
             logger.error("No Docker Container found for tyr_worker")
         else:
@@ -185,7 +162,7 @@ class ArtemisTestFixture(object):
     def kill_the_krakens(cls):
         for data_set in cls.data_sets:
             logger.debug("Restarting the Kraken {}".format(data_set.name))
-            containers = [x for x in docker.from_env().containers.list() if data_set.name in x.name]
+            containers = [x for x in docker.DockerClient(version='auto').containers.list() if data_set.name in x.name]
             if not containers:
                 logger.error("No Docker Container found for Kraken {}".format(data_set.name))
             else:
@@ -199,21 +176,6 @@ class ArtemisTestFixture(object):
         In Artemis NG, the kraken is restarted in 'kill_the_krakens'
         """
         pass
-
-    def _send_sncf_feed(self, endpoint, file_name):
-        url = config['KIRIN_API']+endpoint
-        headers = {'Content-Type': 'application/{};charset=utf-8'.format('xml' if endpoint == '/ire' else 'json')}
-        logging.info("Sending file {} to {}".format(file_name, url))
-        r = requests.post(url,
-                          data=get_ire_data(file_name).encode('UTF-8'),
-                          headers=headers)
-        r.raise_for_status()
-
-    def send_ire(self, ire_name):
-        self._send_sncf_feed('/ire', ire_name)
-
-    def send_cots(self, cots_name):
-        self._send_sncf_feed('/cots', cots_name)
 
     @retry(stop_max_delay=25000, wait_fixed=500)
     def get_last_rt_loaded_time(self, cov):
@@ -246,34 +208,13 @@ class ArtemisTestFixture(object):
         # Comparing my response and my reference
         compare_with_ref(self, dict_resp)
 
-    def get_file_name(self):
-        """
-        Get second half of the path to the artemis reference file
-        """
-        mro = inspect.getmro(self.__class__)
-        class_name = "Test{}".format(mro[1].__name__)
-        scenario = mro[0].data_sets[0].scenario
-
-        func_name = get_calling_test_function()
-        test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
-        file_name = "{}.json".format(test_name)
-        self.test_counter[test_name] += 1
-
-        if self.test_counter[test_name] > 1:
-            return "{}_{}.json".format(test_name, self.test_counter[test_name] - 1)
-        else:
-            return "{}.json".format(test_name)
-
     def api(self, url, response_checker=default_checker.default_checker):
         """
         used to check misc API
 
         NOTE: works only when one region is loaded for the moment (when needed change this)
         """
-        if len(self.__class__.data_sets) == 1:
-            full_url = "coverage/{region}/{url}".format(region=self.__class__.data_sets[0].name, url=url)
-
-        return self._api_call(full_url, response_checker)
+        return self._api_call(url, response_checker)
 
     def _api_call(self, url, response_checker):
         """
@@ -286,6 +227,7 @@ class ArtemisTestFixture(object):
     def journey(self, _from, to, datetime,
                 datetime_represents='departure',
                 first_section_mode=[], last_section_mode=[],
+                forbidden_uris=[],
                 **kwargs):
         """
         This function is coming from the test_mechanism.py file.
@@ -306,6 +248,9 @@ class ArtemisTestFixture(object):
 
         for mode in last_section_mode:
             query = '{query}&last_section_mode[]={mode}'.format(query=query, mode=mode)
+
+        for uri in forbidden_uris:
+            query = '{query}&forbidden_uris[]={uri}'.format(query=query, uri=uri)
 
         for k, v in six.iteritems(kwargs):
             query = "{query}&{k}={v}".format(query=query, k=k, v=v)
