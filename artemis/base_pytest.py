@@ -300,7 +300,7 @@ def compare_with_ref(self, response, response_checker=default_checker.default_jo
     ### Get the reference
 
     # Create the file name
-    filename = self._get_file_name()
+    filename = self.get_file_name()
 
     # Add path to artemis references
     relative_path_ref = config['REFERENCE_FILE_PATH']
@@ -335,7 +335,7 @@ def compare_with_ref(self, response, response_checker=default_checker.default_jo
         # print the assertion error message
         logging.error("Assertion Error: %s" % str(e))
         # find name of test
-        file_path = str(self._get_file_name())
+        file_path = str(self.get_file_name())
         file_name = file_path.split('/')[-1]
         file_name = file_name[:-5]
 

@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 
 class CommonTestFixture(object):
-    def _get_file_name(self):
+    def get_file_name(self):
         """
         create the name of the file for storing the query.
 

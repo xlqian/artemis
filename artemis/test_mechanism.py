@@ -364,8 +364,8 @@ class ArtemisTestFixture(CommonTestFixture):
 
         the query is writen in a file
         """
-        if self.check_ref: # only check consistency
-            filename = self._get_file_name()
+        if self.check_ref:  # only check consistency
+            filename = self.get_file_name()
             assert utils.check_reference_consistency(filename, response_checker)
             return
 
@@ -424,7 +424,7 @@ class ArtemisTestFixture(CommonTestFixture):
         """
         save the response in a file and return the filename (with the fixture directory)
         """
-        filename = self._get_file_name()
+        filename = self.get_file_name()
         file_complete_path = os.path.join(config['RESPONSE_FILE_PATH'], filename)
         if not os.path.exists(os.path.dirname(file_complete_path)):
             os.makedirs(os.path.dirname(file_complete_path))
