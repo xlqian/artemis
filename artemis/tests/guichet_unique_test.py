@@ -136,7 +136,6 @@ class GuichetUnique(object):
                      datetime="20121216T173000",
                      data_freshness="base_schedule")
 
-    @xfail(reason="Waiting for fix - NAVP-1126", raises=AssertionError)
     def test_kirin_cots_trip_deleted_partially(self):
         """
         Test removal of some stops of a vj
