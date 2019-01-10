@@ -332,25 +332,32 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="base_schedule")
 
-    @xfail(reason="Waiting for fix - NAVP-1095", raises=AssertionError)
     def test_kirin_cots_trip_remove_new_stop_point(self):
-        self.api('disruptions')
+        """
+        Test add a stop_time in the middle of the vj then remove it
 
+        Requested departure: 2012/11/20 13:58:00
+        From: gare de Bitche (Bitche)
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Before the addition, no solution can be found without transfer
+        After the addition, the train travels on 2012/11/20 from 14:20:00 to 22:16:00
+        After the removal, no solution can be found without transfer
+        """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
         self.journey(_from="stop_area:OCE:SA:87193821",
-                     to="stop_area:OCE:SA:87212027",
-                     datetime="20121120T140000",
-                     forbidden_uris=["commercial_mode:OCEICE"],
-                     data_freshness="realtime",
-                     _current_datetime="20121120T140000")
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
 
         self.journey(_from="stop_area:OCE:SA:87193821",
-                     to="stop_area:OCE:SA:87212027",
-                     datetime="20121120T140000",
-                     forbidden_uris=["commercial_mode:OCEICE"],
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     max_nb_transfers="0",
                      data_freshness="base_schedule")
 
         # Then we send a cots feed with the previously added new_stop_time now to delete
@@ -359,9 +366,9 @@ class GuichetUnique(object):
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
 
         self.journey(_from="stop_area:OCE:SA:87193821",
-                     to="stop_area:OCE:SA:87212027",
-                     datetime="20121120T140000",
-                     forbidden_uris=["commercial_mode:OCEICE"],
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     max_nb_transfers="0",
                      data_freshness="realtime")
 
     def test_kirin_cots_trip_add_new_stop_point_several_times(self):

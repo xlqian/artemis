@@ -335,8 +335,7 @@ def compare_with_ref(self, response, response_checker=default_checker.default_jo
         # print the assertion error message
         logging.error("Assertion Error: %s" % str(e))
         # find name of test
-        file_path = str(self.get_file_name())
-        file_name = file_path.split('/')[-1]
+        file_name = filename.split('/')[-1]
         file_name = file_name[:-5]
 
         # create a folder
@@ -354,3 +353,4 @@ def compare_with_ref(self, response, response_checker=default_checker.default_jo
         # Print difference in console
         print_diff()
 
+        raise
