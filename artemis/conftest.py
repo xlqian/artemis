@@ -21,6 +21,7 @@ def pytest_addoption(parser):
     parser.addoption("--hard_journey_check", action="store_true", help="journeys comparison is made on full response")
     parser.addoption("--check_ref", action="store_true",
                      help="only check that response is consistent with full response in reference files")
+    parser.addoption("--create_ref", action="store_true", help="create a reference file using the response received - USE WITH CAUTION")
 
 
 @pytest.fixture(scope="session", autouse=True)
