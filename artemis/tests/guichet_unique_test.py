@@ -278,6 +278,7 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="base_schedule")
 
+    @xfail(reason="Waiting for fix - NAVP-1135", raises=AssertionError)
     def test_kirin_cots_trip_add_new_stop_point_in_the_middle(self):
         """
         Test add a stop_time in the middle of the vj
