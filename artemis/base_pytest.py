@@ -274,41 +274,39 @@ class ArtemisTestFixture(CommonTestFixture):
         filename = self.get_file_name()
         filepath = os.path.join(config['REFERENCE_FILE_PATH'], filename)
 
-        assert not os.path.isfile(filepath), "{} is already present".format(filepath)
+        if os.path.isfile(filepath):
+            logger.warning("NO REF FILE CREATED - {} is already present".format(filepath))
+        else:
+            # Concatenate reference file info
+            reference_text = OrderedDict()
+            reference_text["query"] = self.query.replace(config['URL_JORMUN'][7:], 'localhost')
+            logger.warning('Query: {}'.format(self.query))
+            reference_text["response"] = response_checker.filter(json.loads(self.full_resp))
+            reference_text["full_response"] = json.loads(self.full_resp.replace(config['URL_JORMUN'][7:], 'localhost'))
 
-        # Concatenate reference file info
-        reference_text = OrderedDict()
-        reference_text["query"] = self.query.replace(config['URL_JORMUN'][7:], 'localhost')
-        logger.warning('Query: {}'.format(self.query))
-        reference_text["response"] = response_checker.filter(json.loads(self.full_resp))
-        reference_text["full_response"] = json.loads(self.full_resp.replace(config['URL_JORMUN'][7:], 'localhost'))
-
-        # Write reference file directly in the references folder
-        with open(filepath, 'w') as ref:
-            ref.write(json.dumps(reference_text, indent=4))
-        logger.info("Created reference file : {}".format(filepath))
+            # Write reference file directly in the references folder
+            with open(filepath, 'w') as ref:
+                ref.write(json.dumps(reference_text, indent=4))
+            logger.info("Created reference file : {}".format(filepath))
 
     def compare_with_ref(self, response, response_checker=default_checker.default_journey_checker):
         """
-        This function takes the response (which is a dictionary) and compare it to the reference
-        It first goes finding the reference
-        Then filters both ref and resp
-        Finally it compares them
+        Compare the response (which is a dictionary) to the reference
+        First, the function retrieves the reference then filters both ref and resp
+        Finally, it compares them
         """
 
-        def ref_resp2files():
+        def ref_resp2files(output_file, output_json):
             """
             Create a file for the filtered response and for the filtered response
             """
-            # save reference
-            with open(full_file_name_ref, 'w') as reference_text:
-                reference_text.write(json_filtered_reference)
-            # save response
-            with open(full_file_name_resp, 'w') as response_text:
-                response_text.write(json_filtered_response)
+            with open(output_file, 'w') as reference_text:
+                reference_text.write(output_json)
 
         def print_diff():
-
+            """
+            Print differences between reference and response in console
+            """
             # open reference
             with open(full_file_name_ref) as reference_text:
                 reference = reference_text.readlines()
@@ -319,7 +317,6 @@ class ArtemisTestFixture(CommonTestFixture):
             # Print failed test name
             print_color('\n\n' + str(file_name) + ' failed :' + '\n\n', Colors.PINK)
 
-            # PriTestFixturent differences between ref and resp in console
             for line in difflib.unified_diff(reference, response):
                 if line[0] == '+':
                     print_color(line, Colors.GREEN)
@@ -327,6 +324,9 @@ class ArtemisTestFixture(CommonTestFixture):
                     print_color(line, Colors.RED)
                 else:
                     sys.stdout.write(line)
+
+        # Filtering the answer. (We compare to a reference also filtered with the same filter)
+        filtered_response = response_checker.filter(response)
 
         ### Get the reference
 
@@ -345,22 +345,12 @@ class ArtemisTestFixture(CommonTestFixture):
         # Get only the full_response part from the ref
         ref_full_response = dict_ref['full_response']
 
-        ### Filtering ref end resp
-
-        # Filtering with the checker
+        # Filtering the reference
         filtered_reference = response_checker.filter(ref_full_response)
-
-        # Filtering the answer. (We compare to a reference also filtered with the same filter)
-        filtered_response = response_checker.filter(response)
-
-        ### Create a json layout string
-        json_filtered_reference = json.dumps(filtered_reference, indent=4)
-        json_filtered_response = json.dumps(filtered_response, indent=4)
 
         ### Compare response and reference
         try:
             response_checker.compare(filtered_response, filtered_reference)
-
         except AssertionError as e:
             # print the assertion error message
             logging.error("Assertion Error: %s" % str(e))
@@ -377,8 +367,12 @@ class ArtemisTestFixture(CommonTestFixture):
             full_file_name_ref = dir_path + '/reference_' + file_name + '.txt'
             full_file_name_resp = dir_path + '/response_' + file_name + '.txt'
 
+            json_filtered_reference = json.dumps(filtered_reference, indent=4)
+            json_filtered_response = json.dumps(filtered_response, indent=4)
+
             # Save resp and ref as txt files in folder named outputs
-            ref_resp2files()
+            ref_resp2files(full_file_name_ref, json_filtered_reference)
+            ref_resp2files(full_file_name_resp, json_filtered_response)
 
             # Print difference in console
             print_diff()
