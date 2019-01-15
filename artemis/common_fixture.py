@@ -1,5 +1,6 @@
 import logging
 import inspect
+import psycopg2
 import requests
 
 import artemis.utils as utils
@@ -7,6 +8,32 @@ import artemis.utils as utils
 from artemis.configuration_manager import config
 
 logger = logging.getLogger(__name__)
+
+
+# given a cursor on a db, and table names separated by a comma (ex: "tata, toto, titi")
+def truncate_tables(cursor, table_names_string):
+    logging.getLogger(__name__).debug("query db: TRUNCATE {} CASCADE ;".format(table_names_string))
+    cursor.execute("TRUNCATE {} CASCADE ;".format(table_names_string))
+
+
+# the time cost is around 1.3s on artemis platform
+def clean_kirin_db():
+    logging.getLogger(__name__).info("cleaning kirin database")
+    conn = psycopg2.connect(config['KIRIN_DB'])
+    try:
+        cur = conn.cursor()
+        cur.execute("SELECT relname FROM pg_stat_user_tables WHERE relname != 'alembic_version';")
+        tables = cur.fetchall()
+
+        truncate_tables(cur, ', '.join(e[0] for e in tables))
+
+        conn.commit()
+        logging.getLogger(__name__).debug("query done")
+    except:
+        logging.getLogger(__name__).exception("problem with kirin db")
+        conn.close()
+        assert False, "problem while cleaning kirin db"
+    conn.close()
 
 
 class CommonTestFixture(object):
