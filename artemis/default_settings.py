@@ -2,10 +2,27 @@
 
 import os
 
-TYR_DIR = "/srv/tyr"
+# Active Artemis NG
+USE_ARTEMIS_NG = False
 
 # Path to artemis_data folder
-DATA_DIR = "/srv/artemis_data"
+DATA_DIR = os.getenv('ARTEMIS_DATA_DIR', '/srv/artemis_data')
+
+# By default, the requests will be made locally. But it can be directed to any Jormun/Tyr instance
+URL_JORMUN = os.getenv('ARTEMIS_URL_JORMUN', 'http://localhost')
+URL_TYR = os.getenv('ARTEMIS_URL_TYR', 'http://localhost:9898')
+
+# Usefull when using Kirin with Artemis
+KIRIN_API = os.getenv('ARTEMIS_KIRIN_API', 'http://localhost:9090')
+KIRIN_DB = os.getenv('ARTEMIS_KIRIN_DB', 'dbname=kirin user=kirin host=localhost password=kirin')
+
+# Path of the Artemis references
+REFERENCE_FILE_PATH = os.getenv('ARTEMIS_REFERENCE_FILE_PATH', 'reference')
+
+# Path to Create responses and references files, when there is a fail
+RESPONSE_FILE_PATH = os.getenv('ARTEMIS_RESPONSE_FILE_PATH', 'output')
+
+TYR_DIR = "/srv/tyr"
 
 CITIES_INPUT_FILE = DATA_DIR + "/france_boundaries.osm.pbf"
 
@@ -15,31 +32,15 @@ NAV_FILE_PATH_LAYOUT = "/srv/ed/{dataset}/data.nav.lz4"
 
 NEW_FUSIO_FILE_PATH_LAYOUT = "/srv/fusio/source/{dataset}/NAVITIART/databases.zip"
 
-RESPONSE_FILE_PATH = 'output'
-
-# Path to artemis_references folder
-REFERENCE_FILE_PATH = 'reference'
-
 API_POINT_PREFIX = ''
-
-KIRIN_API = 'http://localhost:9090'
 
 JORMUNGANDR_DB = 'dbname=jormungandr user=jormungandr host=localhost password=jormungandr'
 
-KIRIN_DB = os.getenv('ARTEMIS_KIRIN_DB', 'dbname=kirin user=kirin host=localhost password=kirin')
-
 CITIES_DB = 'dbname=cities user=navitia host=localhost password=password'
-
-# By default, the requests will be made locally. But it can be directed to any Jormun/Tyr instance
-URL_JORMUN = 'http://localhost'
-URL_TYR = 'http://localhost:9898'
 
 CONTAINER_DATA_INPUT_PATH = '/srv/ed/input'
 
 CONTAINER_DATA_OUTPUT_PATH = '/srv/ed/output'
-
-# Is it "Artemis Next Gen" running?
-USE_ARTEMIS_NG = False
 
 LOGGER = {
     'version': 1,
