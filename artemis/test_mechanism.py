@@ -10,8 +10,7 @@ from artemis import default_checker
 from artemis import utils
 from artemis.configuration_manager import config
 import datetime
-from artemis.common_fixture import CommonTestFixture
-
+from artemis.common_fixture import CommonTestFixture, truncate_tables
 
 _tyr = config['TYR_DIR'] + "/manage.py"
 _tyr_config_file = config['TYR_DIR'] + "/settings.py"
@@ -28,12 +27,6 @@ def dir_path(dataset):
 def nav_path(dataset):
     p = config['NAV_FILE_PATH_LAYOUT']
     return p.format(dataset=dataset)
-
-
-# given a cursor on a db, and table names separated by a comma (ex: "tata, toto, titi")
-def truncate_tables(cursor, table_names_string):
-    logging.getLogger(__name__).debug("query db: TRUNCATE {} CASCADE ;".format(table_names_string))
-    cursor.execute("TRUNCATE {} CASCADE ;".format(table_names_string))
 
 
 class DataSet(object):
@@ -86,6 +79,7 @@ class ArtemisTestFixture(CommonTestFixture):
     Mother class for all integration tests
     """
     dataset_binarized = []
+
     @pytest.fixture(scope='function', autouse=True)
     def before_each_test(self):
         """
@@ -140,9 +134,6 @@ class ArtemisTestFixture(CommonTestFixture):
         cls.kill_jormungandr()
 
         cls.run_additional_service()
-
-        # clean kirin database
-        cls.clean_kirin_db()
 
         cls.manage_data(skip_bina)
 
@@ -301,25 +292,6 @@ class ArtemisTestFixture(CommonTestFixture):
         utils.launch_exec('sudo service apache2 status')
 
         assert ret == 0, "cannot stop apache"
-
-    @classmethod
-    def clean_kirin_db(cls):
-        logging.getLogger(__name__).debug("cleaning kirin database")
-        conn = psycopg2.connect(config['KIRIN_DB'])
-        try:
-            cur = conn.cursor()
-            cur.execute("SELECT relname FROM pg_stat_user_tables WHERE relname != 'alembic_version';")
-            tables = cur.fetchall()
-
-            truncate_tables(cur, ', '.join(e[0] for e in tables))
-
-            conn.commit()
-            logging.getLogger(__name__).debug("query done")
-        except:
-            logging.getLogger(__name__).exception("problem with kirin db")
-            conn.close()
-            assert False, "problem while cleaning kirin db"
-        conn.close()
 
     ###################################
     # wrappers around utils functions #

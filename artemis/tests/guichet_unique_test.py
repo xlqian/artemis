@@ -1,9 +1,15 @@
+from artemis.common_fixture import clean_kirin_db
 from artemis.test_mechanism import dataset, DataSet, set_scenario
 from artemis.tests.fixture import ArtemisTestFixture
 import pytest
 
 xfail = pytest.mark.xfail
 COVERAGE = "guichet-unique"
+
+
+@pytest.fixture(scope='function', autouse=True)
+def clean_kirin_db_before_each_test():
+    return clean_kirin_db()
 
 
 @dataset([DataSet(COVERAGE)])
@@ -278,7 +284,6 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="base_schedule")
 
-    @xfail(reason="Waiting for fix - NAVP-1135", raises=AssertionError)
     def test_kirin_cots_trip_add_new_stop_point_in_the_middle(self):
         """
         Test add a stop_time in the middle of the vj
