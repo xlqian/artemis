@@ -377,6 +377,83 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="realtime")
 
+    def test_kirin_cots_trip_add_stop_point_at_the_beginning_then_delete_then_delay_another_stop_point(self):
+        """
+        Test add a stop_time at the beginning of the vj, then we delete it, then we delay another stop_point
+
+        In the final /disruptions, we should be able to see the deletion of the first stop_point and the delay
+
+        Requested departure: 2012/11/20 13:30:00
+        From: gare de Bitche (Bitche)
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Before the addition, no solution can be found without transfer
+        After the addition, an other train travels on 2012/11/20 from 13:30:00 to 22:16:00
+        """
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_add_new_stop_point_at_the_beginning_9580_tgv.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T133000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T133000",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+        """
+        Requested departure: 2012/11/20 13:30:00
+        From: gare de Bitche (Bitche)
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Now we delete the added stop_point, no journeys should be found in both data_freshness
+        But in the /disruptions we should be able to see that the first stop_point is deleted
+        
+        """
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_delete_new_stop_point_at_the_beginning_9580_tgv.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T133000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T133000",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+        """
+        Requested departure: 2012/11/20 14:00:00
+        From: gare de Frankfurt-am-Main-Hbf
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Now we send a delay on the arrival at Marseille St Charles
+        """
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_delay_delete_new_stop_point_at_the_beginning_9580_tgv.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
     def test_kirin_cots_trip_add_new_stop_point_several_times(self):
         """
         Test add a stop_time with the same COTS feed several times
