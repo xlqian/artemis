@@ -298,32 +298,28 @@ class ArtemisTestFixture(CommonTestFixture):
 
         def ref_resp2files(output_file, output_json):
             """
-            Create a file for the filtered response and for the filtered response
+            Create a file for the filtered response and for the filtered reference
             """
             with open(output_file, 'w') as reference_text:
                 reference_text.write(output_json)
 
-        def print_diff():
+        def print_diff(ref_file, resp_file):
             """
             Print differences between reference and response in console
             """
             # open reference
-            with open(full_file_name_ref) as reference_text:
+            with open(ref_file) as reference_text:
                 reference = reference_text.readlines()
             # open response
-            with open(full_file_name_resp) as response_text:
+            with open(resp_file) as response_text:
                 response = response_text.readlines()
 
             # Print failed test name
             print_color('\n\n' + str(file_name) + ' failed :' + '\n\n', Colors.PINK)
 
+            symbol2color = {'+': Colors.GREEN, '-': Colors.RED}
             for line in difflib.unified_diff(reference, response):
-                if line[0] == '+':
-                    print_color(line, Colors.GREEN)
-                elif line[0] == '-':
-                    print_color(line, Colors.RED)
-                else:
-                    sys.stdout.write(line)
+                print_color(line, symbol2color.get(line[0], Colors.DEFAULT))
 
         # Filtering the answer. (We compare to a reference also filtered with the same filter)
         filtered_response = response_checker.filter(response)
@@ -375,6 +371,6 @@ class ArtemisTestFixture(CommonTestFixture):
             ref_resp2files(full_file_name_resp, json_filtered_response)
 
             # Print difference in console
-            print_diff()
+            print_diff(full_file_name_ref, full_file_name_resp)
 
             raise
