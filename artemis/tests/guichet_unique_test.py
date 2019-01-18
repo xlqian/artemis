@@ -574,6 +574,232 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="base_schedule")
 
+    def test_kirin_cots_trip_detour_at_the_beginning(self):
+        """
+        Test a detour at the beginning of the vj
+
+        Requested departure: 2012/11/20 14:00:00
+        From: gare de Bitche (Bitche) that replaces gare de Frankfurt-am-Main-Hbf
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Before detour, no solution can be found without transfer
+        After detour, the train travels from 14:20:00 to 21:46:00
+        After detour, no solution can be found without transfer from gare de Frankfurt-am-Main-Hbf
+        """
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_detour_start_9580.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+    def test_kirin_cots_trip_detour_at_the_end(self):
+        """
+        Test a detour at the end of the vj
+
+        Requested departure: 2012/11/20 14:00:00
+        From: gare de Frankfurt-am-Main-Hbf
+        To: gare de Nice-Ville (Nice) that replaces gare de Marseille-St-Charles (Marseille)
+
+        Before detour, no solution can be found without transfer
+        After detour, the train travels from 14:01:00 to 21:55:00
+        After detour, no solution can be found without transfer to gare de Marseille-St-Charles
+        """
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_detour_end_9580.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87756056",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87756056",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+    def test_kirin_cots_trip_detour_in_the_middle(self):
+        """
+        Test a detour in the middle of the vj impacting 2 stop points:
+        gare de Mulhouse and gare de Belfort-Montbeliard-TGV are deleted and gare de Vesoul is added
+
+        Requested departure: 2012/11/20 17:00:00
+        From: gare de Vesoul (Vesoul)
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Before detour, no solution can be found without transfer
+        After detour, the train travels from 17:33:00 to 21:46:00
+        After detour, an other train travels from gare de Mulhouse to gare de Marseille-St-Charles from 21:27:00 to 06:32:00
+        """
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_detour_middle_9580.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87185009",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87185009",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+        self.journey(_from="stop_area:OCE:SA:87182063",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+    def test_kirin_cots_trip_detour_everywhere(self):
+        """
+        Test a detour at the beginning, at the end and in the middle of the vj.
+        Impacted stops:
+        - gare de Bitche (Bitche) that replaces gare de Frankfurt-am-Main-Hbf
+        - gare de Nice-Ville (Nice) that replaces gare de Marseille-St-Charles (Marseille)
+        - gare de Mulhouse and gare de Belfort-Montbeliard-TGV are deleted and gare de Vesoul is added
+
+        Requested departure: 2012/11/20 14:00:00
+        From: gare de Bitche (Bitche)
+        To: gare de Vesoul (Vesoul)
+        Before detour, no solution can be found without transfer
+        After detour, the train travels from 14:20:00 to 16:59:00
+
+        Requested departure: 2012/11/20 17:00:00
+        From: gare de Vesoul (Vesoul)
+        To: gare de Nice-Ville (Nice)
+        Before detour, no solution can be found without transfer
+        After detour, the train travels from 17:08:00 to 21:55:00
+        """
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_detour_start_between_end_9580.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87185009",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87185009",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+        self.journey(_from="stop_area:OCE:SA:87185009",
+                     to="stop_area:OCE:SA:87756056",
+                     datetime="20121120T170000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87185009",
+                     to="stop_area:OCE:SA:87756056",
+                     datetime="20121120T170000",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+    @xfail(reason="Waiting for fix - NAVP-1138", raises=AssertionError)
+    def test_kirin_cots_trip_detour_case_8(self):
+        """
+        CCoooooommmmbo breaker!!!!
+
+        1. Detour at the beginning of the vj + 25 mins of delay on every other stops
+        Requested departure: 2012/11/20 14:00:00
+        From: gare de Bitche (Bitche) that replaces gare de Frankfurt-am-Main-Hbf
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Before detour, no solution can be found without transfer
+        After detour, the train travels from 14:20:00 to 22:11:00
+        """
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_9580_cas8_1_detour_start_delay_25.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+        """
+        2. Add new stop 
+        Requested departure: 2012/11/20 16:30:00
+        From: gare de Vesoul (Vesoul)
+        To: gare de Marseille-St-Charles (Marseille)
+        
+        Before detour, no solution can be found without transfer
+        After detour, the train travels from 16:40:00 to 22:11:00
+        """
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_9580_cas8_2_detour_start_delay_25_and_add_middle.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87185009",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T163000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87185009",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T163000",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+        """
+        3. Add more delay
+        Requested departure: 2012/11/20 16:30:00
+        From: gare de Vesoul (Vesoul)
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Before detour, no solution can be found without transfer
+        After detour, the train travels from 16:40:00 to 22:26:00
+        """
+        self.journey(_from="stop_area:OCE:SA:87185009",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T163000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87185009",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T163000",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
 
 @set_scenario({COVERAGE: {"scenario": "new_default"}})
 class TestGuichetUniqueNewDefault(GuichetUnique, ArtemisTestFixture):
