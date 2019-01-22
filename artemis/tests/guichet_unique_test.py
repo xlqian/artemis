@@ -808,7 +808,7 @@ class GuichetUnique(object):
             - Cots 2 : We keep delays except the last. It back to normal
 
         At the end, it remains 5 stop_date_time with delays :
-        stop_date_times[7]  : 17:54 > 18:09 gare de Besançon-Franche-Comte (Les Auxons)
+        stop_date_times[7]  : 17:54 > 18:09 gare de Besancon-Franche-Comte (Les Auxons)
         ...
         stop_date_times[11] : 21:41 > 21:44 gare de Aix-en-Provence-TGV (Aix-en-Provence)
 
