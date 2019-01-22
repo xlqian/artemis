@@ -501,7 +501,7 @@ class GuichetUnique(object):
         To: gare de Nimes (Nimes)
 
         Before the addition, no solution can be found without transfer
-        After the addition, an other train travels from 14:20:00 on 2012/11/20 to 00:30:00 on 2012/11/21
+        After the addition, an other train travels from 14:01:00 on 2012/11/20 to 00:30:00 on 2012/11/21
         """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_at_the_end_make_pass_midnight_9580_tgv.json')
@@ -800,6 +800,105 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="base_schedule")
 
+    def test_kirin_cots_sequence_03(self):
+        """
+        SNCF sequence n.03:
+        1. Add a station on a vj
+        Requested departure: 2012/11/20 14:00:00
+        From: gare de Bitche (Bitche)
+        To: gare de Marseille-St-Charles (Marseille)
+
+        Before the addition, no solution can be found without transfer
+        After the addition, the train travels on 2012/11/20 from 14:20:00 to 21:46:00
+        """
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_seq3_01_add_new_stop_point.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+        """
+        2. Add a delay of 15 mins after the added station
+        
+        From: gare de Bitche (Bitche)
+        To: gare de Marseille-St-Charles (Marseille)
+
+        After the delay, the train travels on 2012/11/20 from 14:20:00 to 22:01:00
+        """
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_seq3_02_add_delay.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        3. Back to normal: no delay + added station removed
+        From: gare de Bitche (Bitche)
+        To: gare de Marseille-St-Charles (Marseille)
+        
+        After the RT update, no solution can be found without transfer
+        
+        From: gare de Frankfurt-am-Main-Hbf
+        To: gare de Marseille-St-Charles (Marseille)
+        
+        After the RT update, the train travels on 2012/11/20 from 14:01:00 to 21:46:00
+        """
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_seq3_03_back_to_normal.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        4. Add delay of 30 mins after the 1st station
+        From: gare de Bitche (Bitche)
+        To: gare de Marseille-St-Charles (Marseille)
+        Still no solution can be found without transfer
+
+        From: gare de Frankfurt-am-Main-Hbf
+        To: gare de Marseille-St-Charles (Marseille)
+
+        After the RT update, the train travels on 2012/11/20 from 14:01:00 to 22:16:00
+        """
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_seq3_04_add_delay.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T135800",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
 
 @set_scenario({COVERAGE: {"scenario": "new_default"}})
 class TestGuichetUniqueNewDefault(GuichetUnique, ArtemisTestFixture):
