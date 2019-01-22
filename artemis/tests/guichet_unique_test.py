@@ -755,11 +755,11 @@ class GuichetUnique(object):
                      data_freshness="base_schedule")
 
         """
-        2. Add new stop 
+        2. Add new stop
         Requested departure: 2012/11/20 16:30:00
         From: gare de Vesoul (Vesoul)
         To: gare de Marseille-St-Charles (Marseille)
-        
+
         Before detour, no solution can be found without transfer
         After detour, the train travels from 16:40:00 to 22:11:00
         """
@@ -797,6 +797,41 @@ class GuichetUnique(object):
         self.journey(_from="stop_area:OCE:SA:87185009",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T163000",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+
+    def test_kirin_cots_sequence_1(self):
+        """
+        Sequence
+            - Cots 1 : Delay several stop points with a medium delay (10min)
+            - Cots 2 : We keep delays except the last. It back to normal
+
+        At the end, it remains 5 stop_date_time with delays :
+        stop_date_times[7]  : 17:54 > 18:09 gare de Besançon-Franche-Comté (Les Auxons)
+        ...
+        stop_date_times[11] : 21:41 > 21:44 gare de Aix-en-Provence-TGV (Aix-en-Provence)
+
+        Requested datetime: 2012/11/20 14:00:00
+        From: 14:01 > 14:01 gare de Frankfurt-am-Main-Hbf
+        To:   21:46 > 21:46 gare de Marseille-St-Charles (Marseille)
+        """
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_delay_9580_tgv.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
+        self.send_cots('trip_seq1_02_delays_with_last_back_to_normal.json')
+        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
                      max_nb_transfers="0",
                      data_freshness="base_schedule")
 
