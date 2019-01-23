@@ -815,7 +815,7 @@ class GuichetUnique(object):
         Delayed the 6 last stations :
         stop_date_times[7]  : 17:54 > 18:09 gare de Besancon-Franche-Comte (Les Auxons)
         ...
-        stop_date_times[12] : 21:56 > 21:56 gare de Aix-en-Provence-TGV (Aix-en-Provence)
+        stop_date_times[12] : 21:56 > 21:56 gare de Marseille-St-Charles (Marseille)
         """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_delay_9580_tgv.json')
