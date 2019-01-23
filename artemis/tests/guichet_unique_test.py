@@ -806,19 +806,34 @@ class GuichetUnique(object):
         Sequence
             - Cots 1 : Delay several stop points with a medium delay (10min)
             - Cots 2 : We keep delays except the last. It back to normal
-
-        At the end, it remains 5 stop_date_time with delays :
-        stop_date_times[7]  : 17:54 > 18:09 gare de Besancon-Franche-Comte (Les Auxons)
-        ...
-        stop_date_times[11] : 21:41 > 21:44 gare de Aix-en-Provence-TGV (Aix-en-Provence)
-
         Requested datetime: 2012/11/20 14:00:00
         From: 14:01 > 14:01 gare de Frankfurt-am-Main-Hbf
         To:   21:46 > 21:46 gare de Marseille-St-Charles (Marseille)
         """
+
+        """
+        Delayed the 6 last stations :
+        stop_date_times[7]  : 17:54 > 18:09 gare de Besancon-Franche-Comte (Les Auxons)
+        ...
+        stop_date_times[12] : 21:56 > 21:56 gare de Aix-en-Provence-TGV (Aix-en-Provence)
+        """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_delay_9580_tgv.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        Suppress the delay on the last station.
+        It remains 5 with delays :
+        stop_date_times[7]  : 17:54 > 18:09 gare de Besancon-Franche-Comte (Les Auxons)
+        ...
+        stop_date_times[11] : 21:41 > 21:44 gare de Aix-en-Provence-TGV (Aix-en-Provence)
+        """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_seq1_02_delays_with_last_back_to_normal.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
