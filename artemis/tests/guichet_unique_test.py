@@ -928,11 +928,18 @@ class GuichetUnique(object):
         From: gare de Bitche (Bitche)
         To: gare de Marseille-St-Charles (Marseille)
         
+        Before the RT update, no solution can be found without transfer
         After the RT update, the train travels from 17:18:00 to 21:46:00
         """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_seq5_02_add_stop.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T160000",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
