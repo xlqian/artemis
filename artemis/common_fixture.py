@@ -63,6 +63,9 @@ class CommonTestFixture(object):
             return "{}.json".format(test_name)
 
     def send_cots(self, cots_file_name):
+        if self.check_ref:
+            return
+
         r = requests.post(config['KIRIN_API'] + '/cots',
                           data=utils.get_rt_data(cots_file_name).encode('UTF-8'),
                           headers={'Content-Type': 'application/json;charset=utf-8'})
