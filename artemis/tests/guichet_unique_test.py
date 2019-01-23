@@ -801,7 +801,7 @@ class GuichetUnique(object):
                      data_freshness="base_schedule")
 
 
-    def test_kirin_cots_sequence_1(self):
+    def test_kirin_cots_sequence_01(self):
         """
         Sequence
             - Cots 1 : Delay several stop points with a medium delay (10min)
