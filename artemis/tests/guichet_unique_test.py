@@ -390,9 +390,7 @@ class GuichetUnique(object):
         To: gare de Marseille-St-Charles (Marseille)
 
         Before the addition, no solution can be found without transfer
-        After the addition, an other train travels on 2012/11/20 from 13:30:00 to 22:16:00
-        
-        Note that there is already a delay in the cots.
+        After the addition, an other train travels on 2012/11/20 from 13:30:00 to 21:46:00
         """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_add_new_stop_point_at_the_beginning_9580_tgv.json')
@@ -415,10 +413,8 @@ class GuichetUnique(object):
         From: gare de Bitche (Bitche)
         To: gare de Marseille-St-Charles (Marseille)
 
-        Now we delete the added stop_point, no journeys should be found in both data_freshness
+        Now we delete the added stop_point, no journeys should be found in 'realtime'
         But in the /disruptions we should be able to see that the first stop_point is deleted
-
-        Note that the delay sent previously should be maintained.        
         """
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_delete_new_stop_point_at_the_beginning_9580_tgv.json')
@@ -435,10 +431,18 @@ class GuichetUnique(object):
         From: gare de Frankfurt-am-Main-Hbf
         To: gare de Marseille-St-Charles (Marseille)
 
-        Now we send a delay on the arrival at Marseille St Charles        
-
-        Note that the delay sent previously is updated.      
+        Now we send a delay on the arrival at Marseille St Charles
         """
+
+        # Before sending a new cots, there is no delay
+        # From: gare de Frankfurt-am-Main-Hbf at 20121120T140100
+        # To: gare de Marseille-St-Charles (Marseille) at 20121120T214600
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
         last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
         self.send_cots('trip_delay_delete_new_stop_point_at_the_beginning_9580_tgv.json')
         self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
@@ -448,6 +452,15 @@ class GuichetUnique(object):
         self.journey(_from="stop_area:OCE:SA:80110684",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        # After the new cots, there is sill no solution for this request
+        # From:  gare de Bitche (Bitche) at 20121120T133000
+        # To: gare de Marseille-St-Charles (Marseille)
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T133000",
                      max_nb_transfers="0",
                      data_freshness="realtime")
 
