@@ -28,7 +28,7 @@ def clean_kirin_db():
         truncate_tables(cur, ', '.join(e[0] for e in tables if e[0] not in ("layer", "topology")))
 
         conn.commit()
-        logger.debug("query done")
+        logger.debug("kirin db purge done")
     except:
         logger.exception("problem with kirin db")
         conn.close()
@@ -69,10 +69,10 @@ class CommonTestFixture(object):
                           headers={'Content-Type': 'application/json;charset=utf-8'})
         r.raise_for_status()
 
-    def send_and_wait(self, cots_file_name):
+    def send_and_wait(self, rt_file_name):
         """
         Send a COTS and wait until the data is reloaded
-        :param cots_file_name: name of the COTS file (obviously)
+        :param rt_file_name: name of the real-time feed file (obviously)
         """
         if self.check_ref:
             return
@@ -81,5 +81,5 @@ class CommonTestFixture(object):
             logger.warning(" >1 data_set for test class !!!")
         coverage = self.data_sets[0].name
         last_rt_data_loaded = self.get_last_rt_loaded_time(coverage)
-        self._send_cots(cots_file_name)
+        self._send_cots(rt_file_name)
         self.wait_for_rt_reload(last_rt_data_loaded, coverage)
