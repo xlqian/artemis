@@ -12,13 +12,13 @@ logger = logging.getLogger(__name__)
 
 # given a cursor on a db, and table names separated by a comma (ex: "tata, toto, titi")
 def truncate_tables(cursor, table_names_string):
-    logging.getLogger(__name__).debug("query db: TRUNCATE {} CASCADE ;".format(table_names_string))
+    logger.debug("query db: TRUNCATE {} CASCADE ;".format(table_names_string))
     cursor.execute("TRUNCATE {} CASCADE ;".format(table_names_string))
 
 
 # the time cost is around 1.3s on artemis platform
 def clean_kirin_db():
-    logging.getLogger(__name__).info("cleaning kirin database")
+    logger.info("cleaning kirin database")
     conn = psycopg2.connect(config['KIRIN_DB'])
     try:
         cur = conn.cursor()
@@ -28,9 +28,9 @@ def clean_kirin_db():
         truncate_tables(cur, ', '.join(e[0] for e in tables if e[0] not in ("layer", "topology")))
 
         conn.commit()
-        logging.getLogger(__name__).debug("query done")
+        logger.debug("kirin db purge done")
     except:
-        logging.getLogger(__name__).exception("problem with kirin db")
+        logger.exception("problem with kirin db")
         conn.close()
         assert False, "problem while cleaning kirin db"
     conn.close()
@@ -62,12 +62,24 @@ class CommonTestFixture(object):
         else:
             return "{}.json".format(test_name)
 
-    def send_cots(self, cots_file_name):
-        if self.check_ref:
-            return
-
+    @staticmethod
+    def _send_cots(cots_file_name):
         r = requests.post(config['KIRIN_API'] + '/cots',
                           data=utils.get_rt_data(cots_file_name).encode('UTF-8'),
                           headers={'Content-Type': 'application/json;charset=utf-8'})
         r.raise_for_status()
 
+    def send_and_wait(self, rt_file_name):
+        """
+        Send a COTS and wait until the data is reloaded
+        :param rt_file_name: name of the real-time feed file (obviously)
+        """
+        if self.check_ref:
+            return
+
+        if len(self.data_sets) > 1:
+            logger.warning(" >1 data_set for test class !!!")
+        coverage = self.data_sets[0].name
+        last_rt_data_loaded = self.get_last_rt_loaded_time(coverage)
+        self._send_cots(rt_file_name)
+        self.wait_for_rt_reload(last_rt_data_loaded, coverage)

@@ -103,9 +103,7 @@ class GuichetUnique(object):
         Before the delay, the train travels from 16:12:00 to 21:46:00
         After the delay, the train travels from 16:12:00 to 22:16:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_delay_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_delay_9580_tgv.json')
 
         self.journey(_from="stop_area:OCE:SA:87212027",
                      to="stop_area:OCE:SA:87751008",
@@ -128,9 +126,7 @@ class GuichetUnique(object):
         Before the removal, a train (headsign: 4669) travels on 2012/12/16 from 17:31:00 to 23:46:00
         After the removal, an other train (headsign: 4655) travels on 2012/12/17 from 06:45:00 to 12:59:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_removal_4669_ic.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_removal_4669_ic.json')
 
         self.journey(_from="stop_area:OCE:SA:87581009",
                      to="stop_area:OCE:SA:87751008",
@@ -153,12 +149,8 @@ class GuichetUnique(object):
         Before the removal of the stops, a train (headsign: 5312/5358) travels from 12:39:00 to 13:14:00
         After the removal of the departure stop, an other train (headsign: 5101) travels from 13:11:00 to 13:48:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_partially_deleted_5312_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_partially_deleted_5358_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_partially_deleted_5312_tgv.json')
+        self.send_and_wait('trip_partially_deleted_5358_tgv.json')
 
         self.journey(_from="stop_area:OCE:SA:87318964",
                      to="stop_area:OCE:SA:87751008",
@@ -181,9 +173,7 @@ class GuichetUnique(object):
         Before the delay, the train travels from 2012/12/16 22:37:00 to 2012/12/17 00:16:00
         After the delay, the train travels from 2012/12/16 22:37:00 to 2012/12/17 00:41:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_observed_delay_passe_minuit_847919_ter.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_observed_delay_passe_minuit_847919_ter.json')
 
         self.journey(_from="stop_area:OCE:SA:87271007",
                      to="stop_area:OCE:SA:87296004",
@@ -207,9 +197,7 @@ class GuichetUnique(object):
         Before the delay, the train travels from 2012/12/16 23:44:00 to 2012/12/17 00:16:00
         After the delay, the train travels from 2012/12/17 00:09:00 to 2012/12/17 00:41:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_observed_delay_passe_minuit_847919_ter.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_observed_delay_passe_minuit_847919_ter.json')
 
         self.journey(_from="stop_area:OCE:SA:87276782",
                      to="stop_area:OCE:SA:87296004",
@@ -232,9 +220,7 @@ class GuichetUnique(object):
         Before the removal, a train (headsign: 4669) travels on 2012/12/16 from 17:31:00 to 23:46:00
         After the removal, an other train (headsign: 4655) travels on 2012/12/17 from 06:45:00 to 12:59:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_delay_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_delay_9580_tgv.json')
 
         self.journey(_from="stop_area:OCE:SA:87212027",
                      to="stop_area:OCE:SA:87751008",
@@ -268,9 +254,7 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, an other train travels on 2012/11/20 from 13:30:00 to 21:46:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_at_the_beginning_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_add_new_stop_point_at_the_beginning_9580_tgv.json')
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
@@ -295,9 +279,7 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, the train travels on 2012/11/20 from 14:20:00 to 22:16:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
@@ -322,9 +304,7 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, the train travels on 2012/11/20 from 14:20:00 to 22:16:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_9580_tgv_at_the_end.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_add_new_stop_point_9580_tgv_at_the_end.json')
 
         self.journey(_from="stop_area:OCE:SA:80110684",
                      to="stop_area:OCE:SA:87775007",
@@ -350,9 +330,7 @@ class GuichetUnique(object):
         After the addition, the train travels on 2012/11/20 from 14:20:00 to 22:16:00
         After the removal, no solution can be found without transfer
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
@@ -367,9 +345,7 @@ class GuichetUnique(object):
                      data_freshness="base_schedule")
 
         # Then we send a cots feed with the previously added new_stop_time now to delete
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_delete_new_stop_point_9580_tgv_in_the_middle.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_delete_new_stop_point_9580_tgv_in_the_middle.json')
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
@@ -392,9 +368,7 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, an other train travels on 2012/11/20 from 13:30:00 to 21:46:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_at_the_beginning_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_add_new_stop_point_at_the_beginning_9580_tgv.json')
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
@@ -416,9 +390,7 @@ class GuichetUnique(object):
         Now we delete the added stop_point, no journeys should be found in 'realtime'
         But in the /disruptions we should be able to see that the first stop_point is deleted
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_delete_new_stop_point_at_the_beginning_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_delete_new_stop_point_at_the_beginning_9580_tgv.json')
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
@@ -443,9 +415,7 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="realtime")
 
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_delay_delete_new_stop_point_at_the_beginning_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_delay_delete_new_stop_point_at_the_beginning_9580_tgv.json')
 
         # From: gare de Frankfurt-am-Main-Hbf at 20121120T140100
         # To: gare de Marseille-St-Charles (Marseille) at 20121120T222600
@@ -455,7 +425,7 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="realtime")
 
-        # After the new cots, there is sill no solution for this request
+        # After the new cots, there is stg ill no solution for this request
         # From:  gare de Bitche (Bitche) at 20121120T133000
         # To: gare de Marseille-St-Charles (Marseille)
         self.journey(_from="stop_area:OCE:SA:87193821",
@@ -475,9 +445,7 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, the train travels on 2012/11/20 from 14:20:00 to 22:16:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
@@ -492,9 +460,7 @@ class GuichetUnique(object):
                      data_freshness="base_schedule")
 
         # Send the same COTS feed and check that the stop_time is still available
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_add_new_stop_point_9580_tgv_in_the_middle.json')
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
@@ -521,9 +487,7 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, a train travels on 2012/11/20 from 14:15:00 to 23:30:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_several_new_stop_points_in_one_cots_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_add_several_new_stop_points_in_one_cots_9580_tgv.json')
 
         # Bitche -> Nimes
         self.journey(_from="stop_area:OCE:SA:87193821",
@@ -563,9 +527,7 @@ class GuichetUnique(object):
         Before the delay, the train travels from 16:12:00 to 21:46:00
         After the delay, the train travels from 16:12:00 to 22:16:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_trash_stop_points_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_add_new_stop_point_trash_stop_points_9580_tgv.json')
 
         self.journey(_from="stop_area:OCE:SA:87212027",
                      to="stop_area:OCE:SA:87751008",
@@ -590,9 +552,7 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, an other train travels from 14:01:00 on 2012/11/20 to 00:30:00 on 2012/11/21
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_at_the_end_make_pass_midnight_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_add_new_stop_point_at_the_end_make_pass_midnight_9580_tgv.json')
 
         self.journey(_from="stop_area:OCE:SA:80110684",
                      to="stop_area:OCE:SA:87775007",
@@ -618,9 +578,7 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, an other train travels from 22:30:00 on 2012/11/19 to 22:16:00 on 2012/11/20
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_new_stop_point_at_the_beginning_make_pass_midnight_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_add_new_stop_point_at_the_beginning_make_pass_midnight_9580_tgv.json')
 
         self.journey(_from="stop_area:OCE:SA:82001000",
                      to="stop_area:OCE:SA:87751008",
@@ -645,9 +603,7 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, an other train travels from 14:01:00 on 2012/11/20 to 01:30:00 on 2012/11/21
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_add_stop_point_make_pass_midnight_local_and_UTC_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_add_stop_point_make_pass_midnight_local_and_UTC_9580_tgv.json')
 
         self.journey(_from="stop_area:OCE:SA:80110684",
                      to="stop_area:OCE:SA:87773002",
@@ -673,9 +629,7 @@ class GuichetUnique(object):
         After detour, the train travels from 14:20:00 to 21:46:00
         After detour, no solution can be found without transfer from gare de Frankfurt-am-Main-Hbf
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_detour_start_9580.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_detour_start_9580.json')
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
@@ -707,9 +661,7 @@ class GuichetUnique(object):
         After detour, the train travels from 14:01:00 to 21:55:00
         After detour, no solution can be found without transfer to gare de Marseille-St-Charles
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_detour_end_9580.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_detour_end_9580.json')
 
         self.journey(_from="stop_area:OCE:SA:80110684",
                      to="stop_area:OCE:SA:87756056",
@@ -742,9 +694,7 @@ class GuichetUnique(object):
         After detour, the train travels from 17:33:00 to 21:46:00
         After detour, an other train travels from gare de Mulhouse to gare de Marseille-St-Charles from 21:27:00 to 06:32:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_detour_middle_9580.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_detour_middle_9580.json')
 
         self.journey(_from="stop_area:OCE:SA:87185009",
                      to="stop_area:OCE:SA:87751008",
@@ -784,9 +734,7 @@ class GuichetUnique(object):
         Before detour, no solution can be found without transfer
         After detour, the train travels from 17:08:00 to 21:55:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_detour_start_between_end_9580.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_detour_start_between_end_9580.json')
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87185009",
@@ -825,9 +773,7 @@ class GuichetUnique(object):
         Before detour, no solution can be found without transfer
         After detour, the train travels from 14:20:00 to 22:11:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_9580_cas8_1_detour_start_delay_25.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_9580_cas8_1_detour_start_delay_25.json')
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
@@ -850,9 +796,7 @@ class GuichetUnique(object):
         Before detour, no solution can be found without transfer
         After detour, the train travels from 16:40:00 to 22:11:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_9580_cas8_2_detour_start_delay_25_and_add_middle.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_9580_cas8_2_detour_start_delay_25_and_add_middle.json')
 
         self.journey(_from="stop_area:OCE:SA:87185009",
                      to="stop_area:OCE:SA:87751008",
@@ -875,6 +819,8 @@ class GuichetUnique(object):
         Before detour, no solution can be found without transfer
         After detour, the train travels from 16:40:00 to 22:26:00
         """
+        self.send_and_wait('trip_9580_cas8_3_detour_start_delay_40_and_add_middle.json')
+
         self.journey(_from="stop_area:OCE:SA:87185009",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T163000",
@@ -884,6 +830,51 @@ class GuichetUnique(object):
         self.journey(_from="stop_area:OCE:SA:87185009",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T163000",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+    def test_kirin_cots_sequence_01(self):
+        """
+        Sequence
+            - Cots 1 : Delay several stop points with a medium delay (10min)
+            - Cots 2 : We keep delays except the last. It back to normal
+        Requested datetime: 2012/11/20 14:00:00
+        From: 14:01 > 14:01 gare de Frankfurt-am-Main-Hbf
+        To:   21:46 > 21:46 gare de Marseille-St-Charles (Marseille)
+        """
+
+        """
+        Delayed the 6 last stations :
+        stop_date_times[7]  : 17:54 > 18:09 gare de Besancon-Franche-Comte (Les Auxons)
+        ...
+        stop_date_times[12] : 21:56 > 21:56 gare de Marseille-St-Charles (Marseille)
+        """
+        self.send_and_wait('trip_delay_9580_tgv.json')
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        Suppress the delay on the last station.
+        It remains 5 with delays :
+        stop_date_times[7]  : 17:54 > 18:09 gare de Besancon-Franche-Comte (Les Auxons)
+        ...
+        stop_date_times[11] : 21:41 > 21:44 gare de Aix-en-Provence-TGV (Aix-en-Provence)
+        """
+        self.send_and_wait('trip_seq1_02_delays_with_last_back_to_normal.json')
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
                      max_nb_transfers="0",
                      data_freshness="base_schedule")
 
@@ -897,9 +888,7 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, the train travels on 2012/11/20 from 14:20:00 to 21:46:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_seq3_01_add_new_stop_point.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_seq3_01_add_new_stop_point.json')
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
@@ -920,9 +909,7 @@ class GuichetUnique(object):
         
         After the delay, the train travels on 2012/11/20 from 14:20:00 to 22:01:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_seq3_02_add_delay.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_seq3_02_add_delay.json')
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
@@ -942,9 +929,7 @@ class GuichetUnique(object):
         
         After the RT update, the train travels on 2012/11/20 from 14:01:00 to 21:46:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_seq3_03_back_to_normal.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_seq3_03_back_to_normal.json')
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
@@ -970,9 +955,7 @@ class GuichetUnique(object):
         
         After the RT update, the train travels on 2012/11/20 from 14:01:00 to 22:16:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_seq3_04_add_delay.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_seq3_04_add_delay.json')
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
@@ -996,9 +979,8 @@ class GuichetUnique(object):
         Before the RT update, the train travels from 16:12:00 to 21:46:00
         After the RT update, an other train travels from 19:59:00 to 06:32:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_seq5_01_remove_stops.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_seq5_01_remove_stops.json')
+
         self.journey(_from="stop_area:OCE:SA:87212027",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T160000",
@@ -1018,9 +1000,7 @@ class GuichetUnique(object):
         Before the RT update, no solution can be found without transfer
         After the RT update, the train travels from 17:18:00 to 21:46:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_seq5_02_add_stop.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_seq5_02_add_stop.json')
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
@@ -1046,9 +1026,7 @@ class GuichetUnique(object):
 
         After the RT update, the train travels from 16:12:00 to 21:46:00
         """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_seq5_03_back_to_normal.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
+        self.send_and_wait('trip_seq5_03_back_to_normal.json')
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
@@ -1061,56 +1039,6 @@ class GuichetUnique(object):
                      datetime="20121120T160000",
                      max_nb_transfers="0",
                      data_freshness="realtime")
-
-
-    def test_kirin_cots_sequence_01(self):
-        """
-        Sequence
-            - Cots 1 : Delay several stop points with a medium delay (10min)
-            - Cots 2 : We keep delays except the last. It back to normal
-        Requested datetime: 2012/11/20 14:00:00
-        From: 14:01 > 14:01 gare de Frankfurt-am-Main-Hbf
-        To:   21:46 > 21:46 gare de Marseille-St-Charles (Marseille)
-        """
-
-        """
-        Delayed the 6 last stations :
-        stop_date_times[7]  : 17:54 > 18:09 gare de Besancon-Franche-Comte (Les Auxons)
-        ...
-        stop_date_times[12] : 21:56 > 21:56 gare de Marseille-St-Charles (Marseille)
-        """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_delay_9580_tgv.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T140000",
-                     max_nb_transfers="0",
-                     data_freshness="realtime")
-
-        """
-        Suppress the delay on the last station.
-        It remains 5 with delays :
-        stop_date_times[7]  : 17:54 > 18:09 gare de Besancon-Franche-Comte (Les Auxons)
-        ...
-        stop_date_times[11] : 21:41 > 21:44 gare de Aix-en-Provence-TGV (Aix-en-Provence)
-        """
-        last_rt_data_loaded = self.get_last_rt_loaded_time(COVERAGE)
-        self.send_cots('trip_seq1_02_delays_with_last_back_to_normal.json')
-        self.wait_for_rt_reload(last_rt_data_loaded, COVERAGE)
-
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T140000",
-                     max_nb_transfers="0",
-                     data_freshness="realtime")
-
-        self.journey(_from="stop_area:OCE:SA:80110684",
-                     to="stop_area:OCE:SA:87751008",
-                     datetime="20121120T140000",
-                     max_nb_transfers="0",
-                     data_freshness="base_schedule")
 
 
 @set_scenario({COVERAGE: {"scenario": "new_default"}})
