@@ -997,8 +997,8 @@ class GuichetUnique(object):
         From: gare de Vesoul (Vesoul)
         To: gare de Marseille-St-Charles (Marseille)
 
-        Before detour, no solution can be found without transfer
-        After detour, the train travels from 16:40:00 to 22:11:00
+        Before the addition, no solution can be found without transfer
+        After the addition, the train travels from 16:40:00 to 22:11:00
 
         From: gare de Frankfurt-am-Main-Hbf
         To: gare de Marseille-St-Charles (Marseille)
@@ -1031,14 +1031,24 @@ class GuichetUnique(object):
         From: gare de Vesoul (Vesoul)
         To: gare de Marseille-St-Charles (Marseille)
 
-        Before detour, no solution can be found without transfer
-        After detour, the train travels from 16:52:00 to 22:26:00
+        After delay, the train travels from 16:52:00 to 22:26:00
+        
+        From: gare de Bitche (Bitche) 
+        To: gare de Marseille-St-Charles (Marseille)
+        
+        After detour and delay, the train travels from 14:20:00 to 22:26:00
         """
         self.send_and_wait('trip_seq8_03_detour_start_delay_40_and_add_middle.json')
 
         self.journey(_from="stop_area:OCE:SA:87185009",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T163000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:87193821",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
                      max_nb_transfers="0",
                      data_freshness="realtime")
 
