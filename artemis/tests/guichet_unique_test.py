@@ -833,7 +833,7 @@ class GuichetUnique(object):
         2. Add a delay of 15 mins after the added station
         From: gare de Bitche (Bitche)
         To: gare de Marseille-St-Charles (Marseille)
-        
+
         After the delay, the train travels on 2012/11/20 from 14:20:00 to 22:01:00
         """
         self.send_and_wait('trip_seq3_02_add_delay.json')
@@ -848,12 +848,12 @@ class GuichetUnique(object):
         3. Back to normal: no delay + added station removed
         From: gare de Bitche (Bitche)
         To: gare de Marseille-St-Charles (Marseille)
-        
+
         After the RT update, no solution can be found without transfer
-        
+
         From: gare de Frankfurt-am-Main-Hbf
         To: gare de Marseille-St-Charles (Marseille)
-        
+
         After the RT update, the train travels on 2012/11/20 from 14:01:00 to 21:46:00
         """
         self.send_and_wait('trip_seq3_03_back_to_normal.json')
@@ -874,12 +874,12 @@ class GuichetUnique(object):
         4. Add delay of 30 mins after the 1st station
         From: gare de Bitche (Bitche)
         To: gare de Marseille-St-Charles (Marseille)
-        
+
         Still no solution can be found without transfer
 
         From: gare de Frankfurt-am-Main-Hbf
         To: gare de Marseille-St-Charles (Marseille)
-        
+
         After the RT update, the train travels on 2012/11/20 from 14:01:00 to 22:16:00
         """
         self.send_and_wait('trip_seq3_04_add_delay.json')
@@ -923,7 +923,7 @@ class GuichetUnique(object):
         2. Add a new station
         From: gare de Bitche (Bitche)
         To: gare de Marseille-St-Charles (Marseille)
-        
+
         Before the RT update, no solution can be found without transfer
         After the RT update, the train travels from 17:18:00 to 21:46:00
         """
@@ -945,9 +945,9 @@ class GuichetUnique(object):
         3. Back to normal: Removed stations are now back and added station isn't available
         From: gare de Bitche (Bitche)
         To: gare de Marseille-St-Charles (Marseille)
-        
+
         After the RT update, no solution can be found without transfer
-        
+
         From: gare de Strasbourg (Strasbourg)
         To: gare de Marseille-St-Charles (Marseille)
 
@@ -1032,10 +1032,10 @@ class GuichetUnique(object):
         To: gare de Marseille-St-Charles (Marseille)
 
         After delay, the train travels from 16:52:00 to 22:26:00
-        
-        From: gare de Bitche (Bitche) 
+
+        From: gare de Bitche (Bitche)
         To: gare de Marseille-St-Charles (Marseille)
-        
+
         After detour and delay, the train travels from 14:20:00 to 22:26:00
         """
         self.send_and_wait('trip_seq8_03_detour_start_delay_40_and_add_middle.json')
@@ -1048,6 +1048,89 @@ class GuichetUnique(object):
 
         self.journey(_from="stop_area:OCE:SA:87193821",
                      to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+    def test_kirin_cots_sequence_09(self):
+        """
+        Sequence 09
+          - Cots 1 : Delay All stop points with a medium delay (10min) + add 2 new stop point at the end
+          - Cots 2 : Change delays (60 mins) of the last 5 stop point
+          - Cots 3 : Remove the 2 added stop point
+        """
+
+
+        """
+        Base request
+
+        Requested datetime: 2012/11/20 14:00:00
+        From: gare de Frankfurt-am-Main-Hbf
+        To:   gare de Marseille-St-Charles (Marseille)
+        """
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+        """
+        Delay all stop point + add 2 new stop point at the end:
+            stop_date_times[0]  : 14:11 gare de Frankfurt-am-Main-Hbf
+            ...
+        add stop_date_times[13] : 22:00 > 22:30 gare de Cannes (Cannes)
+        add stop_date_times[14] : 23:00         gare de Nice-ville (Nice)
+
+        Requested datetime: 2012/11/20 14:00:00
+        From: gare de Frankfurt-am-Main-Hbf
+        To:   gare de Nice-ville (Nice)
+        """
+        self.send_and_wait('trip_seq9_01_delays_and_new_stop_points.json')
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87756056",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        Change delays (60 mins) of the last 5 stop point
+        stop_date_times[0]  : 14:11 gare de Frankfurt-am-Main-Hbf
+        ...
+        stop_date_times[14] : 00:00 gare de Nice-ville (Nice)
+
+        Requested datetime: 2012/11/20 14:00:00
+        From: gare de Frankfurt-am-Main-Hbf
+        To:   gare de Nice-ville (Nice)
+        """
+        self.send_and_wait('trip_seq9_02_update_delays.json')
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87756056",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        Remove the 2 added stop point at the end
+        add stop_date_times[0]  : 14:11 gare de Frankfurt-am-Main-Hbf
+        ...
+        add stop_date_times[12] : 22:46 gare de Marseille-St-Charles (Marseille)
+
+        Requested datetime: 2012/11/20 14:00:00
+        From: gare de Frankfurt-am-Main-Hbf
+        To:   gare de Nice-ville (Nice)
+        """
+        self.send_and_wait('trip_seq9_03_delays_and_delete_stop_points.json')
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        self.journey(_from="stop_area:OCE:SA:80110684",
+                     to="stop_area:OCE:SA:87756056",
                      datetime="20121120T140000",
                      max_nb_transfers="0",
                      data_freshness="realtime")
