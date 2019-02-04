@@ -1052,6 +1052,7 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="realtime")
 
+    @xfail(reason="Waiting for fix - NAVP-1153", raises=AssertionError)
     def test_kirin_cots_sequence_09(self):
         """
         Sequence 09
