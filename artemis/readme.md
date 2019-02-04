@@ -31,7 +31,7 @@ aka ArtemisNG has been designed to run tests using docker-compose, in order to b
     - KIRIN_API (if needed)
     - KIRIN_DB (if needed)  
       If Kirin is launched via kirin/docker-compose_kirin.yml, use:  
-      `KIRIN_DB = 'dbname=kirin user=navitia password=navitia host=localhost port=15432'`
+      `KIRIN_DB = 'dbname=kirin user=navitia password=navitia host=localhost port=9494'`
 
 * In the settings file, set 'USE_ARTEMIS_NG' to True
 
