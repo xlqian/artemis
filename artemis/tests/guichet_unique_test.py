@@ -1060,7 +1060,6 @@ class GuichetUnique(object):
           - Cots 3 : Remove the 2 added stop point
         """
 
-
         """
         Base request
 
@@ -1132,6 +1131,63 @@ class GuichetUnique(object):
         self.journey(_from="stop_area:OCE:SA:80110684",
                      to="stop_area:OCE:SA:87756056",
                      datetime="20121120T140000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+    @xfail(reason="Waiting for fix - NAVP-1035", raises=AssertionError)
+    def test_kirin_cots_added_course(self):
+        """
+        Test an added circulation
+
+        Requested datetime: 2012/11/20 12:00:00
+        From: gare de Auxerre-St-Gervais
+        To:   gare de Marseille-St-Charles
+
+        Before added circulation, no solution can be found without transfer.
+        After added circulation, a train travels from 13:00:00 to 17:00:00
+        """
+        self.send_and_wait('trip_base_add_new_full_trip.json')
+
+        self.journey(_from="stop_area:OCE:SA:87683573",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T120000",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+        self.journey(_from="stop_area:OCE:SA:87683573",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T120000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+    @xfail(reason="Waiting for fix - NAVP-1035", raises=AssertionError)
+    def test_kirin_cots_remove_added_course(self):
+        """
+        Test the removal of an added circulation
+
+        Requested datetime: 2012/11/20 12:00:00
+        From: gare de Auxerre-St-Gervais
+        To:   gare de Marseille-St-Charles
+
+        Before added circulation, no solution can be found without transfer.
+        After added circulation, a train travels from 13:00:00 to 17:00:00
+        """
+        self.send_and_wait('trip_add_new_trip_151515.json')
+
+        self.journey(_from="stop_area:OCE:SA:87683573",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T120000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        After new RT update, no solution can be found without transfer.
+        """
+        self.send_and_wait('trip_remove_new_trip_151515.json')
+
+        self.journey(_from="stop_area:OCE:SA:87683573",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T120000",
                      max_nb_transfers="0",
                      data_freshness="realtime")
 
