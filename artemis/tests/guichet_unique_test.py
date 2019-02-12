@@ -1134,7 +1134,7 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="realtime")
 
-    @xfail(reason="Waiting for fix - NAVP-1035", raises=AssertionError)
+    @xfail(reason="Waiting for fix - NAVP-1035", raises=AssertionError, strict=True)
     def test_kirin_cots_added_course(self):
         """
         Test an added circulation
@@ -1146,7 +1146,7 @@ class GuichetUnique(object):
         Before added circulation, no solution can be found without transfer.
         After added circulation, a train travels from 13:00:00 to 17:00:00
         """
-        self.send_and_wait('trip_base_add_new_full_trip.json')
+        self.send_and_wait('trip_add_new_trip_151515.json')
 
         self.journey(_from="stop_area:OCE:SA:87683573",
                      to="stop_area:OCE:SA:87751008",
@@ -1160,7 +1160,7 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="realtime")
 
-    @xfail(reason="Waiting for fix - NAVP-1035", raises=AssertionError)
+    @xfail(reason="Waiting for fix - NAVP-1035", raises=AssertionError, strict=True)
     def test_kirin_cots_remove_added_course(self):
         """
         Test the removal of an added circulation
