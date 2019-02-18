@@ -1060,7 +1060,6 @@ class GuichetUnique(object):
           - Cots 3 : Remove the 2 added stop point
         """
 
-
         """
         Base request
 
@@ -1125,14 +1124,15 @@ class GuichetUnique(object):
         stop_date_times[0]  : 14:11 gare de Frankfurt-am-Main-Hbf
         ...
         stop_date_times[14] : 00:00 gare de Nice-ville (Nice)
+        """
+        self.send_and_wait('trip_seq9_02_update_delays.json')
 
+        """
         Requested datetime: 2012/11/20 14:00:00
         From: gare de Frankfurt-am-Main-Hbf
         To:   gare de Nice-ville (Nice)
         Departure at 14:11 and arrival at 00:00 with one hour delay
         """
-        self.send_and_wait('trip_seq9_02_update_delays.json')
-
         self.journey(_from="stop_area:OCE:SA:80110684",
                      to="stop_area:OCE:SA:87756056",
                      datetime="20121120T140000",
@@ -1141,24 +1141,30 @@ class GuichetUnique(object):
 
         """
         Remove the 2 added stop point at the end
-        add stop_date_times[0]  : 14:11 gare de Frankfurt-am-Main-Hbf
+        stop_date_times[0]  : 14:11 gare de Frankfurt-am-Main-Hbf
         ...
-        add stop_date_times[12] : 22:46 gare de Marseille-St-Charles (Marseille)
-
-        Requested datetime: 2012/11/20 14:00:00
-        From: gare de Frankfurt-am-Main-Hbf
-        To:   gare de Nice-ville (Nice)
+        stop_date_times[12] : 22:46 gare de Marseille-St-Charles (Marseille)
         """
         self.send_and_wait('trip_seq9_03_delays_and_delete_stop_points.json')
 
-        # Departure at 14:11 and arrival at 22:46 with one hour delay
+        """
+        Requested datetime: 2012/11/20 14:00:00
+        From: gare de Frankfurt-am-Main-Hbf
+        To:   gare de Marseille-St-Charles (Marseille)
+        Departure at 14:11 and arrival at 22:46 with one hour delay
+        """
         self.journey(_from="stop_area:OCE:SA:80110684",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T140000",
                      max_nb_transfers="0",
                      data_freshness="realtime")
 
-        # Should have a no-solution as the destination is added and then deleted by flux cots
+        """
+        Requested datetime: 2012/11/20 14:00:00
+        From: gare de Frankfurt-am-Main-Hbf
+        To:   gare de Nice-ville (Nice)
+        Should have a no-solution as the destination is added and then deleted by flux cots
+        """
         self.journey(_from="stop_area:OCE:SA:80110684",
                      to="stop_area:OCE:SA:87756056",
                      datetime="20121120T140000",
