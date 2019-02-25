@@ -1055,6 +1055,7 @@ class GuichetUnique(object):
     @xfail(reason="Waiting for NAVP-1035", raises=AssertionError, strict=True)
     def test_kirin_cots_add_trip_chain_type_1(self):
         """
+        Test for case 11 from the file "Enchainement Cas_API_20181010.xlsx"
         1. A simple trip add with 5 stop_times all existing in navitia
         2. Trip modified with 15 minutes delay in each stop_times
         3. Return to normal
@@ -1129,6 +1130,7 @@ class GuichetUnique(object):
     @xfail(reason="Waiting for NAVP-1035", raises=AssertionError, strict=True)
     def test_kirin_cots_add_trip_chain_type_2(self):
         """
+        Test for case 12 from the file "Enchainement Cas_API_20181010.xlsx"
         1. A simple trip add with 5 stop_times all existing in navitia
         2. Trip modified with 15 minutes delay in each stop_times
         3. Trip modified with a stop_time (gare de Auxerre-St-Gervais) deleted in the above flux cots
@@ -1219,10 +1221,12 @@ class GuichetUnique(object):
     @xfail(reason="Waiting for NAVP-1035", raises=AssertionError, strict=True)
     def test_kirin_cots_add_trip_chain_type_3(self):
         """
+        Test for case 2 from the file "Enchainement Cas_API_20181010.xlsx" (from 1 to 4)
         1. A simple trip add with 5 stop_times all existing in navitia
         2. Trip modified with 15 minutes delay in each stop_times
         3. Trip modified with a new stop_time (gare de Orleans) added in the above flux cots
         4. Delete the trip with "statutCirculationOPE": "SUPPRESSION" in all stop_times
+        5. Add again the same trip as 1.
         """
         """
         Base and realtime request
@@ -1301,6 +1305,23 @@ class GuichetUnique(object):
         Should have a no-solution as the trip has been deleted
         """
         self.journey(_from="stop_area:OCE:SA:87543009",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T125500",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        Add the trip recently deleted above
+        """
+        self.send_and_wait('trip_add_paris_marseille.json')
+
+        """
+        Realtime request with datetime: 2012/11/20 12:55:00
+        From: gare de Auxerre-St-Gervais
+        To:   gare de Marseille-St-Charles (Marseille)
+        Should have a solution with departure at 13:00 and arrival at 17:00
+        """
+        self.journey(_from="stop_area:OCE:SA:87683573",
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T125500",
                      max_nb_transfers="0",
