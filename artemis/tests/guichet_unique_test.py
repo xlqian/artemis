@@ -1171,6 +1171,37 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="realtime")
 
+    @xfail(reason="Waiting for fix - NAVP-1035", raises=AssertionError, strict=True)
+    def test_kirin_cots_add_and_remove_new_course(self):
+        """
+        Test the addition of a circulation and then, the removal of the added circulation
+
+        Requested datetime: 2012/11/20 12:00:00
+        From: gare de Auxerre-St-Gervais
+        To:   gare de Marseille-St-Charles
+
+        Before added circulation, no solution can be found without transfer.
+        After added circulation, a train travels from 13:00:00 to 17:00:00
+        """
+        self.send_and_wait('trip_add_new_trip_151515.json')
+
+        self.journey(_from="stop_area:OCE:SA:87683573",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T120000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        After new RT update (removal of the added circulation), no solution can be found without transfer.
+        """
+        self.send_and_wait('trip_remove_new_trip_151515.json')
+
+        self.journey(_from="stop_area:OCE:SA:87683573",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T120000",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
 
 @set_scenario({COVERAGE: {"scenario": "new_default"}})
 class TestGuichetUniqueNewDefault(GuichetUnique, ArtemisTestFixture):
