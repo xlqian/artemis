@@ -1053,15 +1053,13 @@ class GuichetUnique(object):
                      data_freshness="realtime")
 
     @xfail(reason="Waiting for NAVP-1035", raises=AssertionError, strict=True)
-    def test_kirin_cots_add_trip_chain_type_1(self):
+    def test_kirin_cots_add_trip_sequence_11(self):
         """
-        Test for case 11 from the file "Enchainement Cas_API_20181010.xlsx"
-        1. A simple trip add with 5 stop_times all existing in navitia
+        1. A simple trip addition with 5 stop_times all existing in navitia
         2. Trip modified with 15 minutes delay in each stop_times
         3. Return to normal
         """
         """
-        Base and realtime request
         Requested datetime: 2012/11/20 11:55:00
         From: gare de Paris-Montparnasse 1-2 (Paris)
         To:   gare de Marseille-St-Charles (Marseille)
@@ -1128,16 +1126,14 @@ class GuichetUnique(object):
                      data_freshness="realtime")
 
     @xfail(reason="Waiting for NAVP-1035", raises=AssertionError, strict=True)
-    def test_kirin_cots_add_trip_chain_type_2(self):
+    def test_kirin_cots_add_trip_sequence_12(self):
         """
-        Test for case 12 from the file "Enchainement Cas_API_20181010.xlsx"
-        1. A simple trip add with 5 stop_times all existing in navitia
+        1. A simple trip addition with 5 stop_times all existing in navitia
         2. Trip modified with 15 minutes delay in each stop_times
         3. Trip modified with a stop_time (gare de Auxerre-St-Gervais) deleted in the above flux cots
         4. Return to normal
         """
         """
-        Base and realtime request
         Requested datetime: 2012/11/20 12:55:00
         From: gare de Auxerre-St-Gervais
         To:   gare de Marseille-St-Charles (Marseille)
@@ -1219,17 +1215,15 @@ class GuichetUnique(object):
                      data_freshness="realtime")
 
     @xfail(reason="Waiting for NAVP-1035", raises=AssertionError, strict=True)
-    def test_kirin_cots_add_trip_chain_type_3(self):
+    def test_kirin_cots_add_trip_sequence_2(self):
         """
-        Test for case 2 from the file "Enchainement Cas_API_20181010.xlsx" (from 1 to 4)
-        1. A simple trip add with 5 stop_times all existing in navitia
+        1. A simple trip addition with 5 stop_times all existing in navitia
         2. Trip modified with 15 minutes delay in each stop_times
         3. Trip modified with a new stop_time (gare de Orleans) added in the above flux cots
         4. Delete the trip with "statutCirculationOPE": "SUPPRESSION" in all stop_times
         5. Add again the same trip as 1.
         """
         """
-        Base and realtime request
         Requested datetime: 2012/11/20 12:55:00
         From: gare de Orleans
         To:   gare de Marseille-St-Charles (Marseille)
