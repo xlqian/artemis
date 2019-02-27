@@ -1052,6 +1052,275 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="realtime")
 
+    @xfail(reason="Waiting for NAVP-1035", raises=AssertionError, strict=True)
+    def test_kirin_cots_add_trip_sequence_11(self):
+        """
+        1. A simple trip addition with 5 stop_times all existing in navitia
+        2. Trip modified with 15 minutes delay in each stop_times
+        3. Return to normal
+        """
+        """
+        Requested datetime: 2012/11/20 11:55:00
+        From: gare de Paris-Montparnasse 1-2 (Paris)
+        To:   gare de Marseille-St-Charles (Marseille)
+        Should have a no-solution for both requests
+        """
+        self.journey(_from="stop_area:OCE:SA:87391003",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T115500",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+        self.journey(_from="stop_area:OCE:SA:87391003",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T115500",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        Add a new trip with:
+        depart: gare de Paris-Montparnasse 1-2 (Paris) at 12:00:00
+        destination: gare de Marseille-St-Charles (Marseille) at 17:00:00
+        and 3 stations in between
+        """
+        self.send_and_wait('trip_add_paris_marseille.json')
+
+        """
+        Realtime request with same parameters as above
+        Should have a solution with departure at 12:00 and arrival at 17:00
+        """
+        self.journey(_from="stop_area:OCE:SA:87391003",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T115500",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        All stop times in the trip are delayed by 15 minutes.
+        """
+        self.send_and_wait('trip_add_paris_marseille_with_delay_15.json')
+
+        """
+        Realtime request with same parameters as above
+        Should have a solution with departure at 12:15 and arrival at 17:15
+        """
+        self.journey(_from="stop_area:OCE:SA:87391003",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T115500",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        Return to normal without any delay
+        """
+        self.send_and_wait('trip_add_paris_marseille_to_normal.json')
+
+        """
+        Realtime request with same parameters as above
+        Should have a solution with departure at 12:00 and arrival at 17:00
+        """
+        self.journey(_from="stop_area:OCE:SA:87391003",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T115500",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+    @xfail(reason="Waiting for NAVP-1035", raises=AssertionError, strict=True)
+    def test_kirin_cots_add_trip_sequence_12(self):
+        """
+        1. A simple trip addition with 5 stop_times all existing in navitia
+        2. Trip modified with 15 minutes delay in each stop_times
+        3. Trip modified with a stop_time (gare de Auxerre-St-Gervais) deleted in the above flux cots
+        4. Return to normal
+        """
+        """
+        Requested datetime: 2012/11/20 12:55:00
+        From: gare de Auxerre-St-Gervais
+        To:   gare de Marseille-St-Charles (Marseille)
+        Should have a no-solution for both requests
+        """
+        self.journey(_from="stop_area:OCE:SA:87683573",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T125500",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+        self.journey(_from="stop_area:OCE:SA:87683573",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T125500",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        Add a new trip with:
+        depart: gare de Paris-Montparnasse 1-2 (Paris) at 12:00:00
+        destination: gare de Marseille-St-Charles (Marseille) at 17:00:00
+        and 3 stations in between
+        """
+        self.send_and_wait('trip_add_paris_marseille.json')
+
+        """
+        Realtime request with same parameters as above
+        Should have a solution with departure at 13:00 and arrival at 17:00
+        """
+        self.journey(_from="stop_area:OCE:SA:87683573",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T125500",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        All stop times in the trip are delayed by 15 minutes.
+        """
+        self.send_and_wait('trip_add_paris_marseille_with_delay_15.json')
+
+        """
+        Realtime request with same parameters as above
+        Should have a solution with departure at 13:15 and arrival at 17:15
+        """
+        self.journey(_from="stop_area:OCE:SA:87683573",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T125500",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        Delete the second station "gare de Auxerre-St-Gervais" in the recently added trip with 15 minutes delay 
+        """
+        self.send_and_wait('trip_add_paris_marseille_with_delay_15_and_stop_time_deleted.json')
+
+        """
+        Realtime request with same parameters as above
+        Should have a no-solution as the departure station is deleted
+        """
+        self.journey(_from="stop_area:OCE:SA:87683573",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T125500",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        Return to normal without any delay
+        """
+        self.send_and_wait('trip_add_paris_marseille_to_normal.json')
+
+        """
+        Realtime request with same parameters as above
+        Should have a solution with departure at 13:00 and arrival at 17:00
+        """
+        self.journey(_from="stop_area:OCE:SA:87683573",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T125500",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+    @xfail(reason="Waiting for NAVP-1035", raises=AssertionError, strict=True)
+    def test_kirin_cots_add_trip_sequence_2(self):
+        """
+        1. A simple trip addition with 5 stop_times all existing in navitia
+        2. Trip modified with 15 minutes delay in each stop_times
+        3. Trip modified with a new stop_time (gare de Orleans) added in the above flux cots
+        4. Delete the trip with "statutCirculationOPE": "SUPPRESSION" in all stop_times
+        5. Add again the same trip as 1.
+        """
+        """
+        Requested datetime: 2012/11/20 12:55:00
+        From: gare de Orleans
+        To:   gare de Marseille-St-Charles (Marseille)
+        Should have a no-solution for both requests
+        """
+        self.journey(_from="stop_area:OCE:SA:87543009",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T125500",
+                     max_nb_transfers="0",
+                     data_freshness="base_schedule")
+
+        self.journey(_from="stop_area:OCE:SA:87543009",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T125500",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        Add a new trip with:
+        depart: gare de Paris-Montparnasse 1-2 (Paris) at 12:00:00
+        destination: gare de Marseille-St-Charles (Marseille) at 17:00:00
+        and 3 stations in between
+        """
+        self.send_and_wait('trip_add_paris_marseille.json')
+
+        """
+        Realtime request with same parameters as above
+        Should have a no-solution as the departure station doesn't exist in recently added trip
+        """
+        self.journey(_from="stop_area:OCE:SA:87543009",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T125500",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        All stop times in the trip are delayed by 15 minutes.
+        """
+        self.send_and_wait('trip_add_paris_marseille_with_delay_15.json')
+
+        """
+        Realtime request with same parameters as above
+        Should have a no-solution as the departure station doesn't exist in recently added trip
+        """
+        self.journey(_from="stop_area:OCE:SA:87543009",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T125500",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        Add a station "gare de Orleans" in the recently added trip with 15 minutes delay
+        """
+        self.send_and_wait('trip_add_paris_marseille_with_delay_15_and_stop_time_added.json')
+
+        """
+        Realtime request with same parameters as above
+        Should have a solution with departure at 12:55 and arrival at 17:15
+        """
+        self.journey(_from="stop_area:OCE:SA:87543009",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T125500",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        Delete the recently added trip
+        """
+        self.send_and_wait('trip_add_paris_marseille_delete_with_delay_15_and_stop_time_added.json')
+
+        """
+        Realtime request with same parameters as above
+        Should have a no-solution as the trip has been deleted
+        """
+        self.journey(_from="stop_area:OCE:SA:87543009",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T125500",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
+        """
+        Add the trip recently deleted above
+        """
+        self.send_and_wait('trip_add_paris_marseille.json')
+
+        """
+        Realtime request with datetime: 2012/11/20 12:55:00
+        From: gare de Auxerre-St-Gervais
+        To:   gare de Marseille-St-Charles (Marseille)
+        Should have a solution with departure at 13:00 and arrival at 17:00
+        """
+        self.journey(_from="stop_area:OCE:SA:87683573",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T125500",
+                     max_nb_transfers="0",
+                     data_freshness="realtime")
+
     def test_kirin_cots_sequence_09(self):
         """
         Sequence 09
