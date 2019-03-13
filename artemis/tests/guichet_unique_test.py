@@ -92,7 +92,7 @@ class GuichetUnique(object):
     """
     test RealTime on SNCF (COTS)
     """
-    def test_kirin_cots_trip_delay(self):
+    def test_kirin_cots_trip_delay_then_normal(self):
         """
         Test delay on a train
 
@@ -114,6 +114,16 @@ class GuichetUnique(object):
                      to="stop_area:OCE:SA:87751008",
                      datetime="20121120T160000",
                      data_freshness="base_schedule")
+
+        # Send new feed where everything is back to normal
+        # So train arrives at 21:46:00 in Marseille
+        self.send_and_wait('trip_base_9580_tgv.json')
+
+        self.journey(_from="stop_area:OCE:SA:87212027",
+                     to="stop_area:OCE:SA:87751008",
+                     datetime="20121120T160000",
+                     data_freshness="realtime")
+
 
     def test_kirin_cots_trip_removal(self):
         """
