@@ -261,8 +261,11 @@ class ArtemisTestFixture(CommonTestFixture):
 
         for k, v in six.iteritems(kwargs):
             query = "{query}&{k}={v}".format(query=query, k=k, v=v)
+                
+        # TODO: the scenario should be read from database
+        if self.__class__.data_sets:
+            query += "&_override_scenario={scenario}".format(scenario=self.__class__.data_sets[0].scenario)
 
-        # launching request dans comparing
         self.request_compare('journeys?' + query)
 
     def create_reference(self, response_checker=default_checker.default_journey_checker):
