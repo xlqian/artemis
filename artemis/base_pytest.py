@@ -88,7 +88,7 @@ class ArtemisTestFixture(CommonTestFixture):
             return _response.get('status', {}).get('last_load_at', "")
 
         # wait 5 min at most
-        @retry(stop_max_delay=3000000, wait_fixed=5000)
+        @retry(stop_max_delay=300000, wait_fixed=500)
         def wait_for_kraken_reload(last_data_loaded, cov):
             new_data_loaded = get_last_coverage_loaded_time(cov)
 
