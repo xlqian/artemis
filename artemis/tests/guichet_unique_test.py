@@ -86,8 +86,7 @@ class GuichetUnique(object):
         linked to http://jira.canaltp.fr/browse/NAVITIAII-2000
         """
         self.journey(_from="stop_area:OCE:SA:87296004",
-                     to="stop_area:OCE:SA:87313270", datetime="20121123T2019",
-                     _override_scenario="new_default")
+                     to="stop_area:OCE:SA:87313270", datetime="20121123T2019")
 
     """
     test RealTime on SNCF (COTS)

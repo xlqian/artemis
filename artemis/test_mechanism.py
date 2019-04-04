@@ -309,7 +309,7 @@ class ArtemisTestFixture(CommonTestFixture):
 
         return _res.get('status', {}).get('last_rt_data_loaded', object())
 
-    @retry(stop_max_delay=25000, wait_fixed=500)
+    @retry(stop_max_delay=60000, wait_fixed=500)
     def wait_for_rt_reload(self, last_rt_data_loaded, cov):
         if self.check_ref:
             return
