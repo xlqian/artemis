@@ -22,6 +22,7 @@ class GuichetUnique(object):
         For each GuichetUnique test with realtime (cots) we should reload kraken
         """
         self.kill_the_krakens()
+        self.pop_krakens()
 
     def test_guichet_unique_paris_to_rouen(self):
         """
@@ -1073,7 +1074,7 @@ class GuichetUnique(object):
         1. A simple trip addition with 5 stop_times all existing in navitia
         2. Trip modified with 15 minutes delay in each stop_times
         3. Return to normal
-        Attention: Since physical_mode:LongDistanceTrain is absent in Database, physical_mode:Bike is
+        Attention: Since physical_mode:LongDistanceTrain is absent in NTFS, physical_mode:Bike is
         used in the vehicle_journey.
         """
         """
@@ -1332,7 +1333,7 @@ class GuichetUnique(object):
         Realtime request with datetime: 2012/11/20 12:55:00
         From: gare de Auxerre-St-Gervais
         To:   gare de Marseille-St-Charles (Marseille)
-        Should have a solution with departure at 13:00 and arrival at 17:00
+        Should have a solution with departure at 13:10 and arrival at 17:00
         """
         self.journey(_from="stop_area:OCE:SA:87683573",
                      to="stop_area:OCE:SA:87751008",
