@@ -16,14 +16,6 @@ def clean_kirin_db_before_each_test():
 class GuichetUnique(object):
     """
     """
-    @pytest.fixture(scope='function', autouse=True)
-    def kill_kraken_before_each_test(self):
-        """
-        For each GuichetUnique test with realtime (cots) we should reload kraken
-        """
-        self.kill_the_krakens()
-        self.pop_krakens()
-
     def test_guichet_unique_paris_to_rouen(self):
         """
         ID artemis v1: 1
@@ -1077,6 +1069,10 @@ class GuichetUnique(object):
         Attention: Since physical_mode:LongDistanceTrain is absent in NTFS, physical_mode:Bike is
         used in the vehicle_journey.
         """
+        # Reload kraken
+        self.kill_the_krakens()
+        self.pop_krakens()
+
         """
         Requested datetime: 2012/11/20 11:55:00
         From: gare de Paris-Montparnasse 1-2 (Paris)
@@ -1152,6 +1148,10 @@ class GuichetUnique(object):
         Attention: Since physical_mode:LongDistanceTrain is absent in Database, physical_mode:Bike is
         used in the vehicle_journey.
         """
+        # Reload kraken
+        self.kill_the_krakens()
+        self.pop_krakens()
+
         """
         Requested datetime: 2012/11/20 12:55:00
         From: gare de Auxerre-St-Gervais
@@ -1243,6 +1243,10 @@ class GuichetUnique(object):
         Attention: Since physical_mode:LongDistanceTrain is absent in Database, physical_mode:Bike is
         used in the vehicle_journey.
         """
+        # Reload kraken
+        self.kill_the_krakens()
+        self.pop_krakens()
+
         """
         Requested datetime: 2012/11/20 12:55:00
         From: gare de Orleans
@@ -1471,6 +1475,10 @@ class GuichetUnique(object):
         Before added circulation, no solution can be found without transfer.
         After added circulation, a train travels from 13:10:00 to 17:00:00
         """
+        # Reload kraken
+        self.kill_the_krakens()
+        self.pop_krakens()
+
         self.send_and_wait('trip_add_new_trip_151515.json')
 
         self.journey(_from="stop_area:OCE:SA:87683573",
