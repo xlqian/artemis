@@ -1145,7 +1145,7 @@ class GuichetUnique(object):
         2. Trip modified with 15 minutes delay in each stop_times
         3. Trip modified with a stop_time (gare de Auxerre-St-Gervais) deleted in the above flux cots
         4. Return to normal
-        Attention: Since physical_mode:LongDistanceTrain is absent in Database, physical_mode:Bike is
+        Attention: Since physical_mode:LongDistanceTrain is absent in NTFS, physical_mode:Bike is
         used in the vehicle_journey.
         """
         # Reload kraken
@@ -1240,7 +1240,7 @@ class GuichetUnique(object):
         3. Trip modified with a new stop_time (gare de Orleans) added in the above flux cots
         4. Delete the trip with "statutCirculationOPE": "SUPPRESSION" in all stop_times
         5. Add again the same trip as 1.
-        Attention: Since physical_mode:LongDistanceTrain is absent in Database, physical_mode:Bike is
+        Attention: Since physical_mode:LongDistanceTrain is absent in NTFS, physical_mode:Bike is
         used in the vehicle_journey.
         """
         # Reload kraken
