@@ -1,10 +1,16 @@
 from artemis.test_mechanism import dataset, DataSet, set_scenario
 from artemis.tests.fixture import ArtemisTestFixture
 import datetime
+from artemis.configuration_manager import config
+import pytest
 
 """
 These parameters should be inserted into db via tyr. 
 Since there is no tyr webservice in artemis so far(Sept 2018), we adopt this quick solution
+
+When using Artemis NG, uncomment these two parameters which are configured in db on Artemis Old
+"max_duration_to_pt"
+"_night_bus_filter_base_factor"
 
 TODO: POST these params via tyr service when Artemis_NG is ready
 """
@@ -14,7 +20,9 @@ IDFM_PARAMS = {
     "_final_line_filter": True,
     "_max_extra_second_pass": 10,
     "_min_journeys_calls": 2,
-    "_min_nb_journeys": 1
+    "_min_nb_journeys": 1,
+    # "max_duration_to_pt": 900,
+    # "_night_bus_filter_base_factor": 3600
 }
 
 
@@ -3983,7 +3991,7 @@ class IdfM(object):
                      datetime="20190321T190000",
                      **IDFM_PARAMS)
 
-    def test_idfm_440(self):
+    def idfm_440(self):
         """
         /v1/coverage/stif/journeys?from=2.3903;48.8363&to=2.3943630000000002;48.838957&datetime=20190328T210000&walking_speed=1.17&_night_bus_filter_max_factor=1.3&_final_line_filter=true
         """
@@ -3991,6 +3999,8 @@ class IdfM(object):
                      to="2.3943630000000002;48.838957",
                      datetime="20190328T210000",
                      **IDFM_PARAMS)
+
+    test_idfm_440 = pytest.mark.xfail(idfm_440) if config.get('USE_ARTEMIS_NG') else idfm_440
 
     def test_idfm_441(self):
         """
