@@ -1061,13 +1061,18 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="realtime")
 
-    @xfail(reason="Waiting for NAVP-1035", raises=AssertionError, strict=True)
     def test_kirin_cots_add_trip_sequence_11(self):
         """
         1. A simple trip addition with 5 stop_times all existing in navitia
         2. Trip modified with 15 minutes delay in each stop_times
         3. Return to normal
+        Attention: Since physical_mode:LongDistanceTrain is absent in NTFS, physical_mode:Bike is
+        used in the vehicle_journey.
         """
+        # Reload kraken
+        self.kill_the_krakens()
+        self.pop_krakens()
+
         """
         Requested datetime: 2012/11/20 11:55:00
         From: gare de Paris-Montparnasse 1-2 (Paris)
@@ -1134,14 +1139,19 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="realtime")
 
-    @xfail(reason="Waiting for NAVP-1035", raises=AssertionError, strict=True)
     def test_kirin_cots_add_trip_sequence_12(self):
         """
         1. A simple trip addition with 5 stop_times all existing in navitia
         2. Trip modified with 15 minutes delay in each stop_times
         3. Trip modified with a stop_time (gare de Auxerre-St-Gervais) deleted in the above flux cots
         4. Return to normal
+        Attention: Since physical_mode:LongDistanceTrain is absent in NTFS, physical_mode:Bike is
+        used in the vehicle_journey.
         """
+        # Reload kraken
+        self.kill_the_krakens()
+        self.pop_krakens()
+
         """
         Requested datetime: 2012/11/20 12:55:00
         From: gare de Auxerre-St-Gervais
@@ -1170,7 +1180,7 @@ class GuichetUnique(object):
 
         """
         Realtime request with same parameters as above
-        Should have a solution with departure at 13:00 and arrival at 17:00
+        Should have a solution with departure at 13:10 and arrival at 17:00
         """
         self.journey(_from="stop_area:OCE:SA:87683573",
                      to="stop_area:OCE:SA:87751008",
@@ -1185,7 +1195,7 @@ class GuichetUnique(object):
 
         """
         Realtime request with same parameters as above
-        Should have a solution with departure at 13:15 and arrival at 17:15
+        Should have a solution with departure at 13:25 and arrival at 17:15
         """
         self.journey(_from="stop_area:OCE:SA:87683573",
                      to="stop_area:OCE:SA:87751008",
@@ -1215,7 +1225,7 @@ class GuichetUnique(object):
 
         """
         Realtime request with same parameters as above
-        Should have a solution with departure at 13:00 and arrival at 17:00
+        Should have a solution with departure at 13:10 and arrival at 17:00
         """
         self.journey(_from="stop_area:OCE:SA:87683573",
                      to="stop_area:OCE:SA:87751008",
@@ -1223,7 +1233,6 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="realtime")
 
-    @xfail(reason="Waiting for NAVP-1035", raises=AssertionError, strict=True)
     def test_kirin_cots_add_trip_sequence_2(self):
         """
         1. A simple trip addition with 5 stop_times all existing in navitia
@@ -1231,7 +1240,13 @@ class GuichetUnique(object):
         3. Trip modified with a new stop_time (gare de Orleans) added in the above flux cots
         4. Delete the trip with "statutCirculationOPE": "SUPPRESSION" in all stop_times
         5. Add again the same trip as 1.
+        Attention: Since physical_mode:LongDistanceTrain is absent in NTFS, physical_mode:Bike is
+        used in the vehicle_journey.
         """
+        # Reload kraken
+        self.kill_the_krakens()
+        self.pop_krakens()
+
         """
         Requested datetime: 2012/11/20 12:55:00
         From: gare de Orleans
@@ -1322,7 +1337,7 @@ class GuichetUnique(object):
         Realtime request with datetime: 2012/11/20 12:55:00
         From: gare de Auxerre-St-Gervais
         To:   gare de Marseille-St-Charles (Marseille)
-        Should have a solution with departure at 13:00 and arrival at 17:00
+        Should have a solution with departure at 13:10 and arrival at 17:00
         """
         self.journey(_from="stop_area:OCE:SA:87683573",
                      to="stop_area:OCE:SA:87751008",
@@ -1449,7 +1464,6 @@ class GuichetUnique(object):
                      max_nb_transfers="0",
                      data_freshness="realtime")
 
-    @xfail(reason="Waiting for fix - NAVP-1035", raises=AssertionError, strict=True)
     def test_kirin_cots_add_and_remove_new_course(self):
         """
         Test the addition of a circulation and then, the removal of the added circulation
@@ -1459,8 +1473,12 @@ class GuichetUnique(object):
         To:   gare de Marseille-St-Charles
 
         Before added circulation, no solution can be found without transfer.
-        After added circulation, a train travels from 13:00:00 to 17:00:00
+        After added circulation, a train travels from 13:10:00 to 17:00:00
         """
+        # Reload kraken
+        self.kill_the_krakens()
+        self.pop_krakens()
+
         self.send_and_wait('trip_add_new_trip_151515.json')
 
         self.journey(_from="stop_area:OCE:SA:87683573",
