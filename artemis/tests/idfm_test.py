@@ -8,7 +8,7 @@ import pytest
 These parameters should be inserted into db via tyr. 
 Since there is no tyr webservice in artemis so far(Sept 2018), we adopt this quick solution
 
-When using Artemis NG, uncomment these two parameters which are configured in db on Artemis Old
+When using Artemis NG, these two parameters are passed by parameters, which are configured in db on Artemis Old
 "max_duration_to_pt"
 "_night_bus_filter_base_factor"
 
@@ -21,9 +21,10 @@ IDFM_PARAMS = {
     "_max_extra_second_pass": 10,
     "_min_journeys_calls": 2,
     "_min_nb_journeys": 1,
-    # "max_duration_to_pt": 900,
-    # "_night_bus_filter_base_factor": 3600
 }
+
+IDFM_PARAMS.update({"max_duration_to_pt": 900,"_night_bus_filter_base_factor": 3600}
+                   if config.get('USE_ARTEMIS_NG') else {})
 
 
 @dataset([DataSet("idfm",
