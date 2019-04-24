@@ -3992,7 +3992,7 @@ class IdfM(object):
                      datetime="20190321T190000",
                      **IDFM_PARAMS)
 
-    def idfm_440(self):
+    def test_idfm_440(self):
         """
         /v1/coverage/stif/journeys?from=2.3903;48.8363&to=2.3943630000000002;48.838957&datetime=20190328T210000&walking_speed=1.17&_night_bus_filter_max_factor=1.3&_final_line_filter=true
         """
@@ -4001,7 +4001,7 @@ class IdfM(object):
                      datetime="20190328T210000",
                      **IDFM_PARAMS)
 
-    test_idfm_440 = pytest.mark.xfail(idfm_440) if config.get('USE_ARTEMIS_NG') else idfm_440
+    test_idfm_440 = pytest.mark.xfail(test_idfm_440) if config.get('USE_ARTEMIS_NG') else test_idfm_440
 
     def test_idfm_441(self):
         """
