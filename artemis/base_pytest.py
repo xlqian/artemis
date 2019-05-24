@@ -1,5 +1,5 @@
 import os
-import ujson
+import ujson as json
 import requests
 import difflib
 import sys
@@ -205,7 +205,7 @@ class ArtemisTestFixture(CommonTestFixture):
         raw_response = requests.get(self.query)
 
         # Transform the string into a dictionary
-        dict_resp = ujson.loads(raw_response.text)
+        dict_resp = json.loads(raw_response.text)
 
         if self.create_ref:
             # Create the reference file
@@ -281,12 +281,12 @@ class ArtemisTestFixture(CommonTestFixture):
             reference_text = OrderedDict()
             reference_text["query"] = self.query.replace(config['URL_JORMUN'][7:], 'localhost')
             logger.warning('Query: {}'.format(self.query))
-            reference_text["response"] = response_checker.filter(ujson.loads(self.full_resp))
-            reference_text["full_response"] = ujson.loads(self.full_resp.replace(config['URL_JORMUN'][7:], 'localhost'))
+            reference_text["response"] = response_checker.filter(json.loads(self.full_resp))
+            reference_text["full_response"] = json.loads(self.full_resp.replace(config['URL_JORMUN'][7:], 'localhost'))
 
             # Write reference file directly in the references folder
             with open(filepath, 'w') as ref:
-                ref.write(ujson.dumps(reference_text, indent=4))
+                ref.write(json.dumps(reference_text, indent=4))
             logger.info("Created reference file : {}".format(filepath))
 
     def compare_with_ref(self, response, response_checker=default_checker.default_journey_checker):
@@ -336,7 +336,7 @@ class ArtemisTestFixture(CommonTestFixture):
             raw_reference = f.read()
 
         # Transform the string into a dictionary
-        dict_ref = ujson.loads(raw_reference)
+        dict_ref = json.loads(raw_reference)
 
         # Get only the full_response part from the ref
         ref_full_response = dict_ref['full_response']
@@ -363,8 +363,8 @@ class ArtemisTestFixture(CommonTestFixture):
             full_file_name_ref = dir_path + '/reference_' + file_name + '.txt'
             full_file_name_resp = dir_path + '/response_' + file_name + '.txt'
 
-            json_filtered_reference = ujson.dumps(filtered_reference, indent=4)
-            json_filtered_response = ujson.dumps(filtered_response, indent=4)
+            json_filtered_reference = json.dumps(filtered_reference, indent=4)
+            json_filtered_response = json.dumps(filtered_response, indent=4)
 
             # Save resp and ref as txt files in folder named outputs
             ref_resp2files(full_file_name_ref, json_filtered_reference)
