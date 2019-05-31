@@ -8,6 +8,8 @@ import pytest
 from artemis import utils
 from artemis.configuration_manager import config
 import requests
+from retrying import retry
+import ujson as json
 
 
 def pytest_addoption(parser):
@@ -24,22 +26,54 @@ def pytest_addoption(parser):
     parser.addoption("--create_ref", action="store_true", help="create a reference file using the response received - USE WITH CAUTION")
 
 
+class RetryError(Exception):
+    pass
+
+
 @pytest.fixture(scope="session", autouse=True)
 def load_cities(request):
     """
-    Before running the tests we want to load cities
+    Load cities before running the tests
     """
+
+    def is_retry_exception(exception):
+        return isinstance(exception, RetryError)
+
+    def get_last_cities_job():
+        r_cities = requests.get(config['URL_TYR'] + "/v0/cities/status")
+        r_cities.raise_for_status()
+        return json.loads(r_cities.text)['latest_job']
+
+    @retry(stop_max_delay=300000, wait_fixed=500, retry_on_exception=is_retry_exception)
+    def wait_for_cities_completion():
+        """
+        Wait until the 'cities' task is completed
+        The task is considered failed if any error occurs while requesting Tyr
+        """
+        last_cities_job = get_last_cities_job()
+
+        if last_cities_job and 'state' in last_cities_job:
+            if last_cities_job['state'] == 'running':
+                raise RetryError("Cities task still running...")
+            elif last_cities_job['state'] == 'failed':
+                raise Exception("Job 'cities' status")
+        else:
+            raise Exception("Couldn't get 'cities' job status")
+
     log = logging.getLogger(__name__)
     if request.config.getvalue("skip_cities") or request.config.getvalue("check_ref"):
         log.info("skipping cities loading")
         return
 
     if config.get('USE_ARTEMIS_NG'):
-        log.warning('Posting cities')
+        log.info('Posting cities')
         url = config['URL_TYR']+"/v0/cities/"
         files = {'file': open(config['CITIES_INPUT_FILE'], 'rb')}
         r = requests.post(url, files=files)
         r.raise_for_status()
+
+        wait_for_cities_completion()
+        log.info('Cities task finished')
         return
 
     log.info("loading cities database")

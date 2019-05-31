@@ -1,5 +1,5 @@
 import os
-import json
+import ujson as json
 import requests
 import difflib
 import sys
