@@ -133,10 +133,14 @@ class Auvergne(object):
 
         related to this PR: https://github.com/CanalTP/navitia/pull/2813
         """
+        first_section_mode = ['bike', 'walking', 'car']
+        if isinstance(self, TestAuvergneExperimental):
+            first_section_mode += ['taxi']
+
         self.journey(_from="3.08863;45.77246",
                      to="3.06402;45.77015",
                      datetime="20160117T080000",
-                     first_section_mode=['bike', 'walking', 'car', 'taxi'],
+                     first_section_mode=first_section_mode,
                      _min_taxi=0,
                      _min_car=0,
                      _min_bike=0)
