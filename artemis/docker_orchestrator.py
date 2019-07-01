@@ -112,7 +112,7 @@ os.chdir(DOCKER_COMPOSE_PATH)
 init_dockers()
 
 # Load instance Jinja2 template
-env = jinja2.Environment(loader=jinja2.FileSystemLoader('/home/mehdi/fork_git/navitia-docker-compose'))
+env = jinja2.Environment(loader=jinja2.FileSystemLoader(DOCKER_COMPOSE_PATH))
 template = env.get_template('docker-instances.jinja2')
 
 # Read the yaml file to get instances
