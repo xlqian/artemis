@@ -7,12 +7,7 @@ import jinja2
 import pytest
 
 from retrying import retry
-
-# Path to the docker-compose files
-DOCKER_COMPOSE_PATH = os.getenv('ARTEMIS_DOCKER_COMPOSE_PATH')
-INSTANCES_PATH = DOCKER_COMPOSE_PATH+"artemis/"
-INSTANCES_LIST = INSTANCES_PATH+"artemis_custom_instances_list.yml"
-TEST_PATH = os.getenv('ARTEMIS_TEST_PATH', os.getcwd()+'/tests')
+from artemis.configuration_manager import config
 
 
 def get_containers_list():
@@ -74,6 +69,70 @@ def wait_for_docker_stop(kraken_name):
     wait_for_kraken_stop()
 
 
+def init_dockers():
+    """
+    Run docker containers with no instance
+    Create 'jormungandr' and 'cities' db
+    """
+    upCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml up -d --remove-orphans"
+    subprocess.Popen(upCommand, shell=True)
+    wait_for_cities_db()
+
+
+def launch_coverages():
+    if not config['DOCKER_COMPOSE_PATH']:
+        raise Exception("DOCKER_COMPOSE_PATH needs to be set")
+    instances_path = config['DOCKER_COMPOSE_PATH'] + "artemis/"
+    instances_list = instances_path + "artemis_custom_instances_list.yml"
+    test_path = os.getenv('ARTEMIS_TEST_PATH')
+
+    # Load instance Jinja2 template
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader(config['DOCKER_COMPOSE_PATH']))
+    try:
+        template = env.get_template('docker-instances.jinja2')
+    except jinja2.TemplateNotFound:
+        print ("ERROR: Couldn't find template")
+        return
+
+    # Read the yaml file to get instances
+    with open(instances_list, 'r') as stream:
+        data = yaml.load(stream)
+
+        for instance in data['instances']:
+            # Create file for docker-compose
+            instance_name = list(instance)[0]
+            instance_file = instances_path + "docker-instance-" + instance_name + ".yml"
+            print("Create : {}".format(instance_file))
+
+            with open(instance_file, 'w') as docker_instance:
+                instance_render = [instance_name]
+                env_parameters = instance[instance_name]['env'] if 'env' in instance[instance_name] else []
+                docker_instance.write(template.render(instances=instance_render, env=env_parameters))
+
+            # Create and start containers
+            upInstanceCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f " + instance_file + " up -d --remove-orphans kraken-" + instance_name + " instances_configurator"
+            subprocess.Popen(upInstanceCommand, shell=True)
+            # Wait for the containers to be ready
+            wait_for_jormun()
+
+            test_class = instance[instance_name]['test_class']
+            # Run pytest
+            pytest_cmd = test_path + " -k " + test_class
+
+            print("\n ----> RUN TESTS for {} \n     - CMD : {}\n".format(instance_name, pytest_cmd))
+            pytest.main([test_path, '-k', test_class])
+
+            # Delete instance container
+            kraken_name = "kraken-" + instance_name
+            stopCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f " + instance_file + " rm -sfv kraken-" + instance_name
+            subprocess.Popen(stopCommand, shell=True)
+            wait_for_docker_stop(kraken_name)
+
+            # Delete docker-compose instance file
+            print("Remove instance file {}".format(instance_file))
+            os.remove(instance_file)
+
+
 def docker_clean():
     """
     Stop and remove all containers
@@ -90,67 +149,14 @@ def docker_clean():
     wait_for_containers_stop()
 
 
-def init_dockers():
-    """
-    Run docker containers with no instance
-    Create 'jormungandr' and 'cities' db
-    """
-    upCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml up -d --remove-orphans"
-    subprocess.Popen(upCommand, shell=True)
-    wait_for_cities_db()
-
 """
 MAIN
 """
 
-if not DOCKER_COMPOSE_PATH:
-    print("DOCKER_COMPOSE_PATH needs to be set")
-    raise Exception
-
-os.chdir(DOCKER_COMPOSE_PATH)
+os.chdir(config['DOCKER_COMPOSE_PATH'])
 
 init_dockers()
 
-# Load instance Jinja2 template
-env = jinja2.Environment(loader=jinja2.FileSystemLoader(DOCKER_COMPOSE_PATH))
-template = env.get_template('docker-instances.jinja2')
-
-# Read the yaml file to get instances
-with open(INSTANCES_LIST, 'r') as stream:
-    data = yaml.load(stream)
-
-    for instance in data['instances']:
-        # Create file for docker-compose
-        instance_name = list(instance)[0]
-        instance_file = INSTANCES_PATH+"docker-instance-"+instance_name+".yml"
-        print("Create : {}".format(instance_file))
-
-        with open(instance_file, 'w') as docker_instance:
-            instance_render = [instance_name]
-            env_parameters = instance[instance_name]['env'] if 'env' in instance[instance_name] else []
-            docker_instance.write(template.render(instances=instance_render, env=env_parameters))
-
-        # Create and start containers
-        upInstanceCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f "+instance_file+" up -d --remove-orphans kraken-"+instance_name+" instances_configurator"
-        subprocess.Popen(upInstanceCommand, shell=True)
-        # Wait for the containers to be ready
-        wait_for_jormun()
-
-        test_class = instance[instance_name]['test_class']
-        # Run pytest
-        pytest_cmd = TEST_PATH+" -k " + test_class
-
-        print("\n ----> RUN TESTS for {} \n     - CMD : {}\n".format(instance_name, pytest_cmd))
-        pytest.main([TEST_PATH, '-k', test_class])
-
-        # Delete instance container
-        kraken_name = "kraken-"+instance_name
-        stopCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f "+instance_file+" rm -sfv kraken-"+instance_name
-        subprocess.Popen(stopCommand, shell=True)
-        wait_for_docker_stop(kraken_name)
-
-        # Delete docker-compose instance file
-        print("Remove instance file {}".format(instance_file))
-        os.remove(instance_file)
+launch_coverages()
 
 docker_clean()

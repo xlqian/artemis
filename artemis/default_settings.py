@@ -22,6 +22,10 @@ REFERENCE_FILE_PATH = os.getenv('ARTEMIS_REFERENCE_FILE_PATH', 'reference')
 # Path to Create responses and references files, when there is a fail
 RESPONSE_FILE_PATH = os.getenv('ARTEMIS_RESPONSE_FILE_PATH', 'output')
 
+# For ArtemisNG orchestrator, path to the sources of repo 'navitia-docker-compose'
+DOCKER_COMPOSE_PATH = os.getenv('ARTEMIS_DOCKER_COMPOSE_PATH')
+TEST_PATH = os.getenv('ARTEMIS_TEST_PATH')
+
 TYR_DIR = "/srv/tyr"
 
 CITIES_INPUT_FILE = DATA_DIR + "/france_boundaries.osm.pbf"
