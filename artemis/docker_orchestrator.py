@@ -16,7 +16,7 @@ def get_containers_list():
 
 @retry(stop_max_delay=3000000, wait_fixed=2000)
 def wait_for_jormun():
-    query = 'http://localhost:9191/v1/status'
+    query = config['URL_JORMUN']+'/v1/status'
     response = requests.get(query)
     if response.status_code == 200:
         print(" -> JORMUN Responding")
@@ -42,7 +42,7 @@ def wait_for_cities_db():
 def wait_for_cities_job_completion():
 
     print("Wait for cities job completion...")
-    query = 'http://localhost:9898/v0/cities/status'
+    query = config['URL_TYR']+'/v0/cities/status'
     response = requests.get(query)
     if response.status_code != 200:
         raise Exception("Cities not reachable")
@@ -62,8 +62,7 @@ def wait_for_docker_stop(kraken_name):
     @retry(stop_max_delay=3000000, wait_fixed=2000)
     def wait_for_kraken_stop():
         docker_list = get_containers_list()
-        containers = [x for x in docker_list if kraken_name in x.name]
-        if len(containers) > 0:
+        if next((x for x in docker_list if kraken_name in x.name), None):
             raise Exception("Kraken still running...")
 
     wait_for_kraken_stop()
@@ -82,8 +81,8 @@ def init_dockers():
 def launch_coverages():
     if not config['DOCKER_COMPOSE_PATH']:
         raise Exception("DOCKER_COMPOSE_PATH needs to be set")
-    instances_path = config['DOCKER_COMPOSE_PATH'] + "artemis/"
-    instances_list = instances_path + "artemis_custom_instances_list.yml"
+    instances_path = os.path.join(config['DOCKER_COMPOSE_PATH'], "artemis/")
+    instances_list = os.path.join(instances_path, "artemis_custom_instances_list.yml")
     test_path = os.getenv('ARTEMIS_TEST_PATH')
 
     # Load instance Jinja2 template
@@ -101,7 +100,8 @@ def launch_coverages():
         for instance in data['instances']:
             # Create file for docker-compose
             instance_name = list(instance)[0]
-            instance_file = instances_path + "docker-instance-" + instance_name + ".yml"
+            instance_file_name = "docker-instance-" + instance_name + ".yml"
+            instance_file = os.path.join(instances_path, instance_file_name)
             print("Create : {}".format(instance_file))
 
             with open(instance_file, 'w') as docker_instance:
@@ -139,7 +139,7 @@ def docker_clean():
     """
     @retry(stop_max_delay=3000000, wait_fixed=2000)
     def wait_for_containers_stop():
-        if len(get_containers_list()) > 0:
+        if get_containers_list():
             raise Exception("Containers still running...")
 
     # Stop and remove containers
@@ -149,14 +149,11 @@ def docker_clean():
     wait_for_containers_stop()
 
 
-"""
-MAIN
-"""
+if __name__ == '__main__':
+    os.chdir(config['DOCKER_COMPOSE_PATH'])
 
-os.chdir(config['DOCKER_COMPOSE_PATH'])
+    init_dockers()
 
-init_dockers()
+    launch_coverages()
 
-launch_coverages()
-
-docker_clean()
+    docker_clean()
