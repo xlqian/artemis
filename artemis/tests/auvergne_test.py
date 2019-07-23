@@ -128,6 +128,7 @@ class Auvergne(object):
                      max_nb_journeys="3")
 
 
+
 @set_scenario({"fr-auv": {"scenario": "new_default"}})
 class TestAuvergneNewDefault(Auvergne, ArtemisTestFixture):
     pass
@@ -143,3 +144,25 @@ class TestAuvergneExperimental(Auvergne, ArtemisTestFixture):
                      taxi_speed=5,
                      first_section_mode=['taxi'],
                      last_section_mode=['taxi'])
+
+    def test_one_mode_combination_fails(self):
+        """
+
+        first_section_mode = ['bike', 'walking']
+        last_section_mode = ['bike', 'walking']
+
+        because of max_bike_duration_to_pt=120, the mode pair (bike, bike) will raise
+        an exception in distributed, but the remaining modes are OK, the scenario distributed
+        should still return the result
+
+        :return:
+        """
+        first_section_mode = ['bike', 'walking']
+        last_section_mode = ['bike', 'walking']
+
+        self.journey(_from="3.11291;45.92753",
+                     to="admin:fr:63300",
+                     datetime="20160122T080000",
+                     first_section_mode=first_section_mode,
+                     last_section_mode=last_section_mode,
+                     max_bike_duration_to_pt=120)
