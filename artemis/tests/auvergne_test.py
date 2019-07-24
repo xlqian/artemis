@@ -127,6 +127,23 @@ class Auvergne(object):
                      timeframe_duration="600",
                      max_nb_journeys="3")
 
+    def test_project_coord_car_bike_with_dense_walking(self):
+        """
+        Test if the projection works even the place's walking nodes are highly dense
+
+        related to this PR: https://github.com/CanalTP/navitia/pull/2813
+        """
+        first_section_mode = ['bike', 'walking', 'car']
+        if isinstance(self, TestAuvergneExperimental):
+            first_section_mode += ['taxi']
+
+        self.journey(_from="3.08863;45.77246",
+                     to="3.06402;45.77015",
+                     datetime="20160117T080000",
+                     first_section_mode=first_section_mode,
+                     _min_taxi=0,
+                     _min_car=0,
+                     _min_bike=0)
 
 @set_scenario({"fr-auv": {"scenario": "new_default"}})
 class TestAuvergneNewDefault(Auvergne, ArtemisTestFixture):
