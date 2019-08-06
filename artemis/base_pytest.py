@@ -55,7 +55,7 @@ class ArtemisTestFixture(CommonTestFixture):
         self.create_ref = request.config.getvalue("create_ref")
 
     @classmethod
-    @pytest.yield_fixture(scope='class', autouse=True)
+    @pytest.fixture(scope='class', autouse=True)
     def manage_data(cls, request):
         skip_bina = request.config.getvalue("skip_bina")
         if skip_bina:
