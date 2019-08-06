@@ -9,6 +9,8 @@ import pytest
 from retrying import retry
 from artemis.configuration_manager import config
 
+from docopt import docopt
+
 
 def get_containers_list():
     return docker.DockerClient(version='auto').containers.list()
@@ -20,7 +22,6 @@ def wait_for_jormun():
     response = requests.get(query)
     if response.status_code == 200:
         print(" -> JORMUN Responding")
-        print(response.status_code, response.text)
     else:
         raise Exception("JORMUN NOT Responding")
 
@@ -28,7 +29,7 @@ def wait_for_jormun():
 @retry(stop_max_delay=3000000, wait_fixed=2000)
 def wait_for_cities_db():
     print("Wait for cities db upgrade...")
-    query = 'http://localhost:9898/v0/cities/status'
+    query = config['URL_TYR']+'/v0/cities/status'
     response = requests.get(query)
     if response.status_code != 200:
         raise Exception("Cities not reachable")
@@ -57,7 +58,7 @@ def wait_for_cities_job_completion():
 
 
 def wait_for_docker_stop(kraken_name):
-    print("WAITING TO STOP {}".format(kraken_name))
+    print("Waiting to stop {}".format(kraken_name))
 
     @retry(stop_max_delay=3000000, wait_fixed=2000)
     def wait_for_kraken_stop():
@@ -73,12 +74,12 @@ def init_dockers():
     Run docker containers with no instance
     Create 'jormungandr' and 'cities' db
     """
-    upCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml up -d --remove-orphans"
+    upCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml up -d --remove-orphans"
     subprocess.Popen(upCommand, shell=True)
     wait_for_cities_db()
 
 
-def launch_coverages():
+def launch_coverages(coverages):
     if not config['DOCKER_COMPOSE_PATH']:
         raise Exception("DOCKER_COMPOSE_PATH needs to be set")
     instances_path = os.path.join(config['DOCKER_COMPOSE_PATH'], "artemis/")
@@ -97,7 +98,14 @@ def launch_coverages():
     with open(instances_list, 'r') as stream:
         data = yaml.load(stream)
 
-        for instance in data['instances']:
+        if coverages:
+            list_of_coverages = []
+            for coverage_to_run in coverages:
+                list_of_coverages.extend([x for x in data['instances'] if coverage_to_run in x])
+        else:
+            list_of_coverages = data['instances']
+
+        for instance in list_of_coverages:
             # Create file for docker-compose
             instance_name = list(instance)[0]
             instance_file_name = "docker-instance-" + instance_name + ".yml"
@@ -106,11 +114,12 @@ def launch_coverages():
 
             with open(instance_file, 'w') as docker_instance:
                 instance_render = [instance_name]
-                env_parameters = instance[instance_name]['env'] if 'env' in instance[instance_name] else []
-                docker_instance.write(template.render(instances=instance_render, env=env_parameters))
+                kraken_env_parameters = instance[instance_name]['kraken_env'] if 'kraken_env' in instance[instance_name] else []
+                jormun_env_parameters = instance[instance_name]['jormun_env'] if 'jormun_env' in instance[instance_name] else ''
+                docker_instance.write(template.render(instances=instance_render, kraken_env=kraken_env_parameters, jormun_env=jormun_env_parameters))
 
             # Create and start containers
-            upInstanceCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f " + instance_file + " up -d --remove-orphans kraken-" + instance_name + " instances_configurator"
+            upInstanceCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f " + instance_file + " up -d --remove-orphans kraken-" + instance_name + " instances_configurator"
             subprocess.Popen(upInstanceCommand, shell=True)
             # Wait for the containers to be ready
             wait_for_jormun()
@@ -124,7 +133,7 @@ def launch_coverages():
 
             # Delete instance container
             kraken_name = "kraken-" + instance_name
-            stopCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f " + instance_file + " rm -sfv kraken-" + instance_name
+            stopCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f " + instance_file + " rm -sfv kraken-" + instance_name
             subprocess.Popen(stopCommand, shell=True)
             wait_for_docker_stop(kraken_name)
 
@@ -137,23 +146,37 @@ def docker_clean():
     """
     Stop and remove all containers
     """
+    print("Cleaning...")
+
     @retry(stop_max_delay=3000000, wait_fixed=2000)
     def wait_for_containers_stop():
         if get_containers_list():
             raise Exception("Containers still running...")
 
     # Stop and remove containers
-    downCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml down -v --remove-orphans"
+    downCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml  -f asgard/docker-compose_asgard.yml down -v --remove-orphans"
     subprocess.Popen(downCommand, shell=True)
 
     wait_for_containers_stop()
 
 
+script_doc = """ Artemis Docker Orchestrator.
+Usage:
+    docker_orchestrator.py test [<coverage>...]
+    docker_orchestrator.py clean
+
+Options:
+    -h  --help  Help (obviously...)
+"""
 if __name__ == '__main__':
-    os.chdir(config['DOCKER_COMPOSE_PATH'])
+    args = docopt(script_doc, version='0.0.1')
 
-    init_dockers()
+    if args['test']:
+        os.chdir(config['DOCKER_COMPOSE_PATH'])
 
-    launch_coverages()
+        init_dockers()
 
-    docker_clean()
+        launch_coverages(args['<coverage>'])
+
+    if args['clean'] or args['test']:
+        docker_clean()

@@ -145,6 +145,7 @@ class Auvergne(object):
                      _min_car=0,
                      _min_bike=0)
 
+
 @set_scenario({"fr-auv": {"scenario": "new_default"}})
 class TestAuvergneNewDefault(Auvergne, ArtemisTestFixture):
     pass
@@ -160,3 +161,8 @@ class TestAuvergneExperimental(Auvergne, ArtemisTestFixture):
                      taxi_speed=5,
                      first_section_mode=['taxi'],
                      last_section_mode=['taxi'])
+
+
+@set_scenario({"fr-auv": {"scenario": "asgard"}})
+class TestAuvAsgard(Auvergne, ArtemisTestFixture):
+    pass

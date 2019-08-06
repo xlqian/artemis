@@ -262,6 +262,13 @@ class ArtemisTestFixture(CommonTestFixture):
         for k, v in six.iteritems(kwargs):
             query = "{query}&{k}={v}".format(query=query, k=k, v=v)
 
+        # Override scenario
+        if self.__class__.data_sets[0].scenario in ['distributed', 'experimental', 'asgard']:
+            overridden_scenario = 'experimental'
+        else:
+            overridden_scenario = 'new_default'
+        query = "{query}&_override_scenario={scenario}".format(query=query, scenario=overridden_scenario)
+
         # launching request dans comparing
         self.request_compare('journeys?' + query)
 
