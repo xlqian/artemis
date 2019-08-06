@@ -35,7 +35,6 @@ def wait_for_cities_db():
         raise Exception("Cities not reachable")
     else:
         print(" -> Cities Responding")
-        print(response.status_code, response.text)
 
 
 # Unused for now!
@@ -84,7 +83,9 @@ def launch_coverages(coverages):
         raise Exception("DOCKER_COMPOSE_PATH needs to be set")
     instances_path = os.path.join(config['DOCKER_COMPOSE_PATH'], "artemis/")
     instances_list = os.path.join(instances_path, "artemis_custom_instances_list.yml")
-    test_path = os.getenv('ARTEMIS_TEST_PATH')
+    if not config['TEST_PATH']:
+        raise Exception("TEST_PATH needs to be set")
+    test_path = config['TEST_PATH']
 
     # Load instance Jinja2 template
     env = jinja2.Environment(loader=jinja2.FileSystemLoader(config['DOCKER_COMPOSE_PATH']))
@@ -106,6 +107,7 @@ def launch_coverages(coverages):
             list_of_coverages = data['instances']
 
         for instance in list_of_coverages:
+            print("-> Instance read :\n {}".format(instance))
             # Create file for docker-compose
             instance_name = list(instance)[0]
             instance_file_name = "docker-instance-" + instance_name + ".yml"
