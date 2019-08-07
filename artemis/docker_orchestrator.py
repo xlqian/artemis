@@ -121,7 +121,9 @@ def launch_coverages(coverages):
                 docker_instance.write(template.render(instances=instance_render, kraken_env=kraken_env_parameters, jormun_env=jormun_env_parameters))
 
             # Create and start containers
-            upInstanceCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f " + instance_file + " up -d --remove-orphans kraken-" + instance_name + " instances_configurator"
+            kraken_name = "kraken-" + instance_name
+            upInstanceCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f " + instance_file + " up -d --remove-orphans " + kraken_name + " instances_configurator"
+            print("Run : {}".format(upInstanceCommand))
             subprocess.Popen(upInstanceCommand, shell=True)
             # Wait for the containers to be ready
             wait_for_jormun()
@@ -132,11 +134,21 @@ def launch_coverages(coverages):
 
             print("\n ----> RUN TESTS for {} \n     - CMD : {}\n".format(instance_name, pytest_cmd))
             pytest.main([test_path, '-k', test_class])
+            print("\nTests Done!!!\n")
 
             # Delete instance container
-            kraken_name = "kraken-" + instance_name
-            stopCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f " + instance_file + " rm -sfv kraken-" + instance_name
-            subprocess.Popen(stopCommand, shell=True)
+            # NOTE: the command 'rm -s' doesn't work on version < 1.14.0 (https://github.com/docker/compose/blob/master/CHANGELOG.md)
+            # stopCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f " + instance_file + " rm -sfv " + kraken_name
+
+            # The command is divided in 2 separate commands to be handled on old versions of docker/docker-compose
+            stopCommand1 = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f " + instance_file + " stop " + kraken_name
+            subprocess.Popen(stopCommand1, shell=True)
+            print("Run : {}".format(stopCommand1))
+
+            stopCommand2 = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f " + instance_file + " rm -f " + kraken_name
+            subprocess.Popen(stopCommand2, shell=True)
+            print("Run : {}".format(stopCommand2))
+
             wait_for_docker_stop(kraken_name)
 
             # Delete docker-compose instance file
