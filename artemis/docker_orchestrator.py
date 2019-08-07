@@ -13,7 +13,7 @@ from docopt import docopt
 
 
 def get_containers_list():
-    return docker.DockerClient(version='auto').containers.list()
+    return docker.DockerClient(version='auto').containers.list(all)
 
 
 @retry(stop_max_delay=3000000, wait_fixed=2000)
@@ -56,16 +56,29 @@ def wait_for_cities_job_completion():
             print('cities job done!')
 
 
-def wait_for_docker_stop(kraken_name):
-    print("Waiting to stop {}".format(kraken_name))
+@retry(stop_max_delay=3000000, wait_fixed=2000)
+def wait_for_kraken_stop(kraken_name):
+    docker_list = get_containers_list()
+    kraken_container = next((x for x in docker_list if kraken_name in x.name), None)
+    if kraken_container:
+        if kraken_container.status == 'running':
+            raise Exception("Kraken still running...")
+        else:
+            print('Container {} : Status: {}'.format(kraken_container.name, kraken_container.status))
+    else:
+        print('No container found for {}'.format(kraken_name))
+
+
+def wait_for_docker_removal(kraken_name):
+    print("Waiting to stop and remove {}".format(kraken_name))
 
     @retry(stop_max_delay=3000000, wait_fixed=2000)
-    def wait_for_kraken_stop():
+    def wait_for_kraken_removal():
         docker_list = get_containers_list()
         if next((x for x in docker_list if kraken_name in x.name), None):
-            raise Exception("Kraken still running...")
+            raise Exception("Kraken not yet removed...")
 
-    wait_for_kraken_stop()
+    wait_for_kraken_removal()
 
 
 def init_dockers():
@@ -138,18 +151,24 @@ def launch_coverages(coverages):
 
             # Delete instance container
             # NOTE: the command 'rm -s' doesn't work on version < 1.14.0 (https://github.com/docker/compose/blob/master/CHANGELOG.md)
-            # stopCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f " + instance_file + " rm -sfv " + kraken_name
 
+            # SWITCH: (comment case according to the machine config)
+            # CASE 1 : docker-compose > 1.14.0
+            # stopCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f " + instance_file + " rm -sfv " + kraken_name
+            # wait_for_docker_removal(kraken_name)
+
+            # CASE 2 : docker-compose < 1.14.0 (Jenkins)
             # The command is divided in 2 separate commands to be handled on old versions of docker/docker-compose
             stopCommand1 = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f " + instance_file + " stop " + kraken_name
             subprocess.Popen(stopCommand1, shell=True)
             print("Run : {}".format(stopCommand1))
+            wait_for_kraken_stop(kraken_name)
 
             stopCommand2 = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f " + instance_file + " rm -f " + kraken_name
             subprocess.Popen(stopCommand2, shell=True)
             print("Run : {}".format(stopCommand2))
-
-            wait_for_docker_stop(kraken_name)
+            wait_for_docker_removal(kraken_name)
+            # END OF SWITCH CASE
 
             # Delete docker-compose instance file
             print("Remove instance file {}".format(instance_file))
