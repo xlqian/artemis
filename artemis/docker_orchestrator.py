@@ -12,8 +12,12 @@ from artemis.configuration_manager import config
 from docopt import docopt
 
 
-def get_containers_list():
-    return docker.DockerClient(version='auto').containers.list(all)
+def get_compose_containers_list():
+    """
+    :return: a list of all containers created with docker-compose
+    """
+    all_containers_list = docker.DockerClient(version='auto').containers.list(all)
+    return list(x for x in all_containers_list if 'navitia-docker-compose' in x.attrs['Name'])
 
 
 @retry(stop_max_delay=3000000, wait_fixed=2000)
@@ -58,7 +62,7 @@ def wait_for_cities_job_completion():
 
 @retry(stop_max_delay=3000000, wait_fixed=2000)
 def wait_for_kraken_stop(kraken_name):
-    docker_list = get_containers_list()
+    docker_list = get_compose_containers_list()
     kraken_container = next((x for x in docker_list if kraken_name in x.name), None)
     if kraken_container:
         if kraken_container.status == 'running':
@@ -74,7 +78,7 @@ def wait_for_docker_removal(kraken_name):
 
     @retry(stop_max_delay=3000000, wait_fixed=2000)
     def wait_for_kraken_removal():
-        docker_list = get_containers_list()
+        docker_list = get_compose_containers_list()
         if next((x for x in docker_list if kraken_name in x.name), None):
             raise Exception("Kraken not yet removed...")
 
@@ -183,7 +187,7 @@ def docker_clean():
 
     @retry(stop_max_delay=3000000, wait_fixed=2000)
     def wait_for_containers_stop():
-        if get_containers_list():
+        if get_compose_containers_list():
             raise Exception("Containers still running...")
 
     # Stop and remove containers
