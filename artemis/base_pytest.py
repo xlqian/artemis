@@ -264,7 +264,7 @@ class ArtemisTestFixture(CommonTestFixture):
 
         # Override scenario
         if self.__class__.data_sets[0].scenario in ['distributed', 'experimental', 'asgard']:
-            overridden_scenario = 'experimental'
+            overridden_scenario = 'distributed'
         else:
             overridden_scenario = 'new_default'
         query = "{query}&_override_scenario={scenario}".format(query=query, scenario=overridden_scenario)
