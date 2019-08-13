@@ -10,15 +10,15 @@ from artemis.configuration_manager import config
 
 from docopt import docopt
 
-CURRENT_VENV=os.path.join(os.getenv("VIRTUAL_ENV"), "bin")
-
+CURRENT_VENV = os.path.join(os.getenv("VIRTUAL_ENV"), "bin")
+COMPOSE_PROJECT_NAME = 'navitia'
 
 def get_compose_containers_list():
     """
     :return: a list of all containers created with docker-compose
     """
     all_containers_list = docker.DockerClient(version='auto').containers.list(all)
-    return list(x for x in all_containers_list if 'navitia-docker-compose' in x.attrs['Name'])
+    return list(x for x in all_containers_list if COMPOSE_PROJECT_NAME in x.attrs['Name'])
 
 
 @retry(stop_max_delay=3000000, wait_fixed=2000)
@@ -91,7 +91,7 @@ def init_dockers():
     Run docker containers with no instance
     Create 'jormungandr' and 'cities' db
     """
-    upCommand = "PATH=$PATH:{} TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml up -d --remove-orphans".format(CURRENT_VENV)
+    upCommand = "PATH={}:$PATH TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml up -d --remove-orphans".format(CURRENT_VENV)
     subprocess.Popen(upCommand, shell=True)
     wait_for_cities_db()
 
@@ -140,7 +140,7 @@ def launch_coverages(coverages):
 
             # Create and start containers
             kraken_name = "kraken-" + instance_name
-            upInstanceCommand = "PATH=$PATH:{} TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f ".format(CURRENT_VENV) + instance_file + " up -d --remove-orphans " + kraken_name + " instances_configurator"
+            upInstanceCommand = "PATH={}:$PATH TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f ".format(CURRENT_VENV) + instance_file + " up -d --remove-orphans " + kraken_name + " instances_configurator"
             print("Run : {}".format(upInstanceCommand))
             subprocess.Popen(upInstanceCommand, shell=True)
             # Wait for the containers to be ready
@@ -155,8 +155,7 @@ def launch_coverages(coverages):
             print("\nTests Done!!!\n")
 
             # Delete instance container
-            # NOTE: the command 'rm -s' doesn't work on version < 1.14.0 (https://github.com/docker/compose/blob/master/CHANGELOG.md#1140-2017-06-19)
-            stopCommand = "PATH=$PATH:{} TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f ".format(CURRENT_VENV) + instance_file + " rm -sfv " + kraken_name
+            stopCommand = "PATH={}:$PATH TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f ".format(CURRENT_VENV) + instance_file + " rm -sfv " + kraken_name
             subprocess.Popen(stopCommand, shell=True)
             wait_for_docker_removal(kraken_name)
 
@@ -177,7 +176,7 @@ def docker_clean():
             raise Exception("Containers still running...")
 
     # Stop and remove containers
-    downCommand = "PATH=$PATH:{} TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml  -f asgard/docker-compose_asgard.yml down -v --remove-orphans".format(CURRENT_VENV)
+    downCommand = "PATH={}:$PATH TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml  -f asgard/docker-compose_asgard.yml down -v --remove-orphans".format(CURRENT_VENV)
     subprocess.Popen(downCommand, shell=True)
 
     wait_for_containers_stop()
@@ -193,12 +192,6 @@ Options:
 """
 if __name__ == '__main__':
     args = docopt(script_doc, version='0.0.1')
-
-    # For Test Purpose
-    print("VENV = {}".format(CURRENT_VENV))
-
-    versionCommand = "PATH=$PATH:{} docker-compose --version".format(CURRENT_VENV)
-    subprocess.Popen(versionCommand, shell=True)
 
     if args['test']:
         os.chdir(config['DOCKER_COMPOSE_PATH'])
