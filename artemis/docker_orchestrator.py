@@ -91,7 +91,7 @@ def init_dockers():
     Run docker containers with no instance
     Create 'jormungandr' and 'cities' db
     """
-    upCommand = "PATH={}:$PATH TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml up -d --remove-orphans".format(CURRENT_VENV)
+    upCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml up -d --remove-orphans"
     subprocess.Popen(upCommand, shell=True)
     wait_for_cities_db()
 
@@ -140,7 +140,7 @@ def launch_coverages(coverages):
 
             # Create and start containers
             kraken_name = "kraken-" + instance_name
-            upInstanceCommand = "PATH={}:$PATH TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f ".format(CURRENT_VENV) + instance_file + " up -d --remove-orphans " + kraken_name + " instances_configurator"
+            upInstanceCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f " + instance_file + " up -d --remove-orphans " + kraken_name + " instances_configurator"
             print("Run : {}".format(upInstanceCommand))
             subprocess.Popen(upInstanceCommand, shell=True)
             # Wait for the containers to be ready
@@ -155,8 +155,15 @@ def launch_coverages(coverages):
             print("\nTests Done!!!\n")
 
             # Delete instance container
-            stopCommand = "PATH={}:$PATH TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f ".format(CURRENT_VENV) + instance_file + " rm -sfv " + kraken_name
-            subprocess.Popen(stopCommand, shell=True)
+            # The command is divided in 2 separate commands to be handled on old versions of docker/docker-compose
+            stopCommand1 = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f " + instance_file + " stop " + kraken_name
+            subprocess.Popen([CURRENT_VENV, stopCommand1], shell=True)
+            print("Run : {}".format(stopCommand1))
+            wait_for_kraken_stop(kraken_name)
+
+            stopCommand2 = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f " + instance_file + " rm -f " + kraken_name
+            subprocess.Popen([CURRENT_VENV, stopCommand2], shell=True)
+            print("Run : {}".format(stopCommand2))
             wait_for_docker_removal(kraken_name)
 
             # Delete docker-compose instance file
@@ -176,7 +183,7 @@ def docker_clean():
             raise Exception("Containers still running...")
 
     # Stop and remove containers
-    downCommand = "PATH={}:$PATH TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml  -f asgard/docker-compose_asgard.yml down -v --remove-orphans".format(CURRENT_VENV)
+    downCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml  -f asgard/docker-compose_asgard.yml down -v --remove-orphans"
     subprocess.Popen(downCommand, shell=True)
 
     wait_for_containers_stop()
