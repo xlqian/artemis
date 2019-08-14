@@ -165,4 +165,11 @@ class TestAuvergneExperimental(Auvergne, ArtemisTestFixture):
 
 @set_scenario({"fr-auv": {"scenario": "asgard"}})
 class TestAuvAsgard(Auvergne, ArtemisTestFixture):
-    pass
+    @xfail(reason="we need to update the marshaller and the references for taxi distances and durations", raises=AssertionError)
+    def test_first_last_section_mode_taxi(self):
+        self.journey(_from="3.10763;45.78656",
+                     to="3.04947;45.76422", datetime="20160120T100000",
+                     min_nb_journeys=5,
+                     taxi_speed=5,
+                     first_section_mode=['taxi'],
+                     last_section_mode=['taxi'])
