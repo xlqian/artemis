@@ -10,7 +10,6 @@ from artemis.configuration_manager import config
 
 from docopt import docopt
 
-CURRENT_VENV = os.path.join(os.getenv("VIRTUAL_ENV"), "bin")
 COMPOSE_PROJECT_NAME = 'navitia'
 
 def get_compose_containers_list():
@@ -157,12 +156,12 @@ def launch_coverages(coverages):
             # Delete instance container
             # The command is divided in 2 separate commands to be handled on old versions of docker/docker-compose
             stopCommand1 = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f " + instance_file + " stop " + kraken_name
-            subprocess.Popen([CURRENT_VENV, stopCommand1], shell=True)
+            subprocess.Popen(stopCommand1, shell=True)
             print("Run : {}".format(stopCommand1))
             wait_for_kraken_stop(kraken_name)
 
             stopCommand2 = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f " + instance_file + " rm -f " + kraken_name
-            subprocess.Popen([CURRENT_VENV, stopCommand2], shell=True)
+            subprocess.Popen(stopCommand2, shell=True)
             print("Run : {}".format(stopCommand2))
             wait_for_docker_removal(kraken_name)
 
