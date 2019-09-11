@@ -28,6 +28,16 @@ def clean_kirin_db():
         truncate_tables(cur, ', '.join(e[0] for e in tables if e[0] not in ("layer", "topology")))
 
         conn.commit()
+
+        cur.execute(
+            "INSERT INTO contributor SELECT 'realtime.sherbrooke','ca-qc-sherbrooke','token_to_be_modified',"
+            "'feed_url_to_be_modified','gtfs-rt'"
+        )
+        cur.execute(
+            "INSERT INTO contributor SELECT 'realtime.cots','sncf','token_to_be_modified',"
+            "'feed_url_to_be_modified','cots'"
+        )
+        conn.commit()
         logger.debug("kirin db purge done")
     except:
         logger.exception("problem with kirin db")
