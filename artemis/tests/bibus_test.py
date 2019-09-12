@@ -296,4 +296,29 @@ class TestBibusNewDefault(Bibus, ArtemisTestFixture):
 
 @set_scenario({"bibus": {"scenario": "experimental"}})
 class TestBibusExperimental(Bibus, ArtemisTestFixture):
-    pass
+    # There is not any stop_point within 50 seconds of walking period from origin
+    def test_no_origin(self):
+        self.journey(_from="-4.48244;48.404277",
+                     to="stop_area:BIB:SA:1210", datetime="20041214T220000",
+                     datetime_represents="departure", walking_speed="0.83", max_duration_to_pt="50",
+                     max_walking_direct_path_duration=0)
+
+    # There is not any stop_point within 50 seconds of walking period from destination
+    def test_no_destination(self):
+        self.journey(_from="stop_area:BIB:SA:9",
+                     to="-4.48244;48.404277", datetime="20041214T220000",
+                     datetime_represents="departure", walking_speed="0.83", max_duration_to_pt="50",
+                     max_walking_direct_path_duration=0)
+
+    # There is no solution without any correspondence and with max duration of 1500 seconds
+    def test_no_solution(self):
+        self.journey(_from="stop_area:BIB:SA:9",
+                     to="-4.48244;48.404277", datetime="20041214T000000",
+                     datetime_represents="departure", walking_speed="0.83", max_duration_to_pt="1200",
+                     max_duration="1500", max_transfers="0", max_walking_direct_path_duration=0)
+
+    def test_no_origin_nor_destination(self):
+        self.journey(_from="-4.084801490596711;48.01533468818747",
+                     to="-4.080642851923755;47.97614436460814", datetime="20041214T000000",
+                     datetime_represents="departure", walking_speed="0.83", max_duration_to_pt="1200",
+                     max_transfers="0", max_walking_direct_path_duration=0)
