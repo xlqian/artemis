@@ -352,7 +352,7 @@ class ArtemisTestFixture(CommonTestFixture):
                 response_checker=default_checker.default_journey_checker,
                 auto_from=None, auto_to=None,
                 first_section_mode=[], last_section_mode=[],
-                **kwargs):
+                direct_path_mode=[], **kwargs):
         """
         syntactic sugar around the journey api
 
@@ -377,6 +377,9 @@ class ArtemisTestFixture(CommonTestFixture):
 
         for mode in last_section_mode:
             query = '{query}&last_section_mode[]={mode}'.format(query=query, mode=mode)
+
+        for mode in direct_path_mode:
+            query = '{query}&direct_path_mode[]={mode}'.format(query=query, mode=mode)
 
         for k, v in kwargs.iteritems():
             query = "{query}&{k}={v}".format(query=query, k=k, v=v)
