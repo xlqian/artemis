@@ -147,7 +147,7 @@ class Auvergne(object):
 
     def test_auvergne_01_with_direct_path_mode_bike(self):
         """
-        Same reponse as test_auvergne_01
+        Same response as test_auvergne_01
         """
         self.journey(_from="poi:osm:node:303386067",
                      to="3.0630843999999797;45.7589254", datetime="20160121T170000",
@@ -159,7 +159,7 @@ class Auvergne(object):
 
     def test_auvergne_02_with_direct_path_mode_car_bike(self):
         """
-        Same reponse as test_auvergne_02
+        Same response as test_auvergne_02
         """
         self.journey(_from="admin:fr:63135",
                      to="3.121833801269531;45.885276435738504", datetime="20160118T120300",
@@ -172,7 +172,7 @@ class Auvergne(object):
 
     def test_auvergne_02_with_direct_path_mode_car(self):
         """
-        Same reponse as test_auvergne_02 without direct_path bike
+        Same response as test_auvergne_02 without direct_path bike
         """
         self.journey(_from="admin:fr:63135",
                      to="3.121833801269531;45.885276435738504", datetime="20160118T120300",
@@ -185,7 +185,7 @@ class Auvergne(object):
 
     def test_auvergne_02_with_direct_path_mode_bike(self):
         """
-        Same reponse as test_auvergne_02 without direct_path car
+        Same response as test_auvergne_02 without direct_path car
         """
         self.journey(_from="admin:fr:63135",
                      to="3.121833801269531;45.885276435738504", datetime="20160118T120300",
@@ -199,7 +199,7 @@ class Auvergne(object):
 
     def test_project_coord_car_bike_with_dense_walking_direct_path_mode_car(self):
         """
-        Same reponse as test_project_coord_car_bike_with_dense_walking with only direct_path car
+        Same response as test_project_coord_car_bike_with_dense_walking with only direct_path car
         """
         first_section_mode = ['bike', 'walking', 'car']
         if isinstance(self, TestAuvergneExperimental):
@@ -216,7 +216,7 @@ class Auvergne(object):
 
     def test_project_coord_car_bike_with_dense_walking_direct_path_mode_bike_only(self):
         """
-        Same reponse as test_project_coord_car_bike_with_dense_walking with only direct_path bike
+        Same response as test_project_coord_car_bike_with_dense_walking with only direct_path bike
         Without bike as first_section_mode
         """
         first_section_mode = ['walking', 'car']
