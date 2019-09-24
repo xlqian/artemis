@@ -25,6 +25,14 @@ ARTEMIS_CUSTOM_ID = '__artemis_id__'
 _api_current_root_point = config['URL_JORMUN'] + '/v1/'
 
 
+class RetryError(Exception):
+    pass
+
+
+def is_retry_exception(exception):
+    return isinstance(exception, RetryError)
+
+
 def instance_data_path(dataset):
     p = config['DATASET_PATH_LAYOUT']
     return p.format(dataset=dataset)

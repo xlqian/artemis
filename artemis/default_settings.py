@@ -24,6 +24,7 @@ RESPONSE_FILE_PATH = os.getenv('ARTEMIS_RESPONSE_FILE_PATH', 'output')
 
 # For ArtemisNG orchestrator, path to the sources of repo 'navitia-docker-compose'
 DOCKER_COMPOSE_PATH = os.getenv('ARTEMIS_DOCKER_COMPOSE_PATH')
+# For ArtemisNG orchestrator, path to the root of artemis tests sources
 TEST_PATH = os.getenv('ARTEMIS_TEST_PATH')
 
 TYR_DIR = "/srv/tyr"
