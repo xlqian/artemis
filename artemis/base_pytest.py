@@ -72,7 +72,6 @@ class ArtemisTestFixture(CommonTestFixture):
             cls.check_values(data_set.name)
             cls.dataset_binarized.append(data_set.name)
 
-
     @classmethod
     def update_instance_db(cls, data_set):
         """
@@ -94,12 +93,17 @@ class ArtemisTestFixture(CommonTestFixture):
 
         cov_status = _response.get('status', {}).get('status', "")
         if cov_status != "running":
-            raise Exception("overage NOT RUNNING")
+            raise Exception("Coverage {} NOT RUNNING".format(data_set))
 
         params = _response.get('status', {}).get('parameters', "")
+        diffs = {}
         for k, v in default_values.items():
-            if params[k] != v:
-                raise Exception("PARAM {} NOT UPDATED: {}".format(k, v))
+            if k not in params:
+                diffs[k] = "Missing in Tyr"
+            elif params[k] != v:
+                diffs[k] = "{artemis} != {tyr}".format(artemis=v, tyr=params[k])
+        if diffs:
+            raise Exception("Diff(s) in parameters : {}".format(json.dumps(diffs)))
 
     @classmethod
     def remove_data_by_dataset(cls, data_set):
