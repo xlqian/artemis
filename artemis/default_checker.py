@@ -17,15 +17,9 @@ The default behaviour for journeys is to check only a subset journey
 
 the mask create a new dict filtering only the wanted elt
 """
-link = {
-    "type": fields.Raw,
-    "id": fields.Raw,
-}
-
 fare = {
     "total": fields.Raw(attribute="total.value"),
     "currency": fields.Raw(attribute="total.currency"),
-    "links": fields.List(fields.Nested(link))
 }
 
 distances = {"bike": fields.Raw, "car": fields.Raw, "walking": fields.Raw}
