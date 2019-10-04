@@ -132,7 +132,10 @@ def failure_report_maker(rep):
                 log.error(("test {} failed, but data set name cannot be retrieved, "
                           "no failure report will be generated for this test").format(rep.nodeid))
 
-            f.write("## [{}]({}) \n".format(rep.nodeid, query))
+            f.write("## {}\n".format(rep.nodeid))
+            f.write("[query]({}) | [open old]({})  |  [open new]({})\n".format(query,
+                                                               'http://canaltp.github.io/navitia-playground/file.html',
+                                                               'http://canaltp.github.io/navitia-playground/file.html'))
             f.write("{}\n".format('\n'.join(failure_messages)))
 
 
