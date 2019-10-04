@@ -6,7 +6,7 @@ def journeys_diff(ref, output):
         ref_j = json.load(ref_f)
         out_j = json.load(output_f)
         diff = jsondiff.diff(ref_j['response'].get('journeys', []), out_j['response'].get('journeys', []),
-                             syntax='compact')
+                             syntax='explicit')
 
         updated_nb = sum(str(k).isdigit() for k in diff.keys())
 
@@ -14,7 +14,7 @@ def journeys_diff(ref, output):
             "* new journeys nb: {}\n"
             "* discarded journeys nb: {}\n"
             "* updated journeys nb: {}\n"
-            "\n<details><summary>CLICK ME</summary><p>\n"
+            "\n<details open><summary>CLICK ME</summary><p>\n"
             "\n```json\n{}\n```\n"
             "\n</p></details>\n"
         ).format(len(diff.get(jsondiff.symbols.insert, [])),
