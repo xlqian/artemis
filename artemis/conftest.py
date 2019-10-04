@@ -5,12 +5,12 @@ Used to run some stuff at global scope
 """
 import logging
 import pytest
-from artemis import utils
+from artemis import utils, pytest_report_makers
 from artemis.configuration_manager import config
 import requests
 from retrying import retry
 import ujson as json
-
+import os
 
 def pytest_addoption(parser):
     """
@@ -83,3 +83,56 @@ def load_cities(request):
                       additional_args=[config['CITIES_DB']])
 
     log.info("cities database loaded")
+
+
+def retrieve_scenario(test_class_name):
+    for scenario in ('NewDefault', 'Experimental'):
+        if test_class_name.endswith(scenario):
+            return scenario
+
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    # execute all other hooks to obtain the report object
+    outcome = yield
+    rep = outcome.get_result()
+    log = logging.getLogger(__name__)
+
+    failures_report = os.path.join(config['RESPONSE_FILE_PATH'], "failures_report.md")
+    # we only look at actual failing test calls, not setup/teardown
+    if rep.when == "call" and rep.failed:
+        mode = "a" if os.path.exists(failures_report) else "w"
+        with open(failures_report, mode) as f:
+            # let's also access a fixture for the fun of it
+            (_, test_class_name, test_name) = rep.nodeid.split("::")
+
+            scenario = retrieve_scenario(test_class_name)
+            test_dataset_name = test_class_name.strip(scenario)
+
+            reference = os.path.join(config['REFERENCE_FILE_PATH'],
+                                     test_dataset_name,
+                                     # yep, that's ugly...
+                                     scenario.lower() if scenario != 'NewDefault' else 'new_default',
+                                     '{}.json'.format(test_name))
+
+            output = os.path.join(config['RESPONSE_FILE_PATH'],
+                                  test_dataset_name,
+                                  # yep, that's ugly...
+                                  scenario.lower() if scenario != 'NewDefault' else 'new_default',
+                                   '{}.json'.format(test_name))
+
+            with open(output) as j:
+                query = json.load(j)['query']
+
+            # Here is the magic
+            failure_messages = []
+            import inspect
+            for fun_name, fun in inspect.getmembers(pytest_report_makers, inspect.isfunction):
+                failure_messages.append("### {}:".format(fun_name))
+                failure_messages.append(fun(reference, output))
+
+            if not test_dataset_name:
+                log.error(("test {} failed, but data set name cannot be retrieved, "
+                          "no failure report will be generated for this test").format(rep.nodeid))
+
+            f.write("## [{}]({}) \n".format(rep.nodeid, query))
+            f.write("{}\n".format('\n'.join(failure_messages)))
