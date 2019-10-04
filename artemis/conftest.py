@@ -90,11 +90,9 @@ def retrieve_scenario(test_class_name):
         if test_class_name.endswith(scenario):
             return scenario
 
-@pytest.hookimpl(tryfirst=True, hookwrapper=True)
-def pytest_runtest_makereport(item, call):
-    # execute all other hooks to obtain the report object
-    outcome = yield
-    rep = outcome.get_result()
+
+def failure_report_maker(rep):
+
     log = logging.getLogger(__name__)
 
     failures_report = os.path.join(config['RESPONSE_FILE_PATH'], "failures_report.md")
@@ -136,3 +134,16 @@ def pytest_runtest_makereport(item, call):
 
             f.write("## [{}]({}) \n".format(rep.nodeid, query))
             f.write("{}\n".format('\n'.join(failure_messages)))
+
+
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    # execute all other hooks to obtain the report object
+    outcome = yield
+    rep = outcome.get_result()
+    log = logging.getLogger(__name__)
+
+    try:
+        failure_report_maker(rep)
+    except Exception as e:
+        log.exception(str(e))
