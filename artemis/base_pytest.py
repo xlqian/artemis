@@ -60,7 +60,7 @@ class ArtemisTestFixture(CommonTestFixture):
         self.create_ref = request.config.getvalue("create_ref")
 
     @classmethod
-    @pytest.fixture(scope="class", autouse=True)
+    @pytest.fixture(scope='class', autouse=True)
     def manage_data(cls, request):
         skip_bina = request.config.getvalue("skip_bina")
         if skip_bina:
@@ -227,7 +227,8 @@ class ArtemisTestFixture(CommonTestFixture):
                 logger.warning("{} path does not exist : {}".format(data_type, path))
 
         # put the fusio data
-        put_data("fusio", ".txt", zipped=True)
+        put_data("fusio", (".txt", ".csv"), zipped=True)
+
         # put the osm data
         put_data("osm", ".pbf", zipped=False)
 
@@ -242,6 +243,7 @@ class ArtemisTestFixture(CommonTestFixture):
 
         # Wait until data is reloaded
         wait_for_kraken_reload(last_reload_time, data_set.name)
+
 
     @classmethod
     def kill_the_krakens(cls):
@@ -291,8 +293,12 @@ class ArtemisTestFixture(CommonTestFixture):
     def request_compare(self, http_query, checker):
         self.nb_call_to_request_compare += 1
 
+        # creating the url
+        http_query = config['URL_JORMUN'] + '/v1/coverage/' + str(self.data_sets[0]) + '/' + url
+
         # Get the json answer of the request (it is just a string here)
         http_response = requests.get(http_query)
+
 
         response_string = http_response.text
 
@@ -465,6 +471,7 @@ class ArtemisTestFixture(CommonTestFixture):
             for line in difflib.unified_diff(reference, response):
                 print_color(line, symbol2color.get(line[0], Colors.DEFAULT))
 
+        
         resp_dict = json.loads(response_string)
 
         # Filtering the answer. (We compare to a reference also filtered with the same filter)
