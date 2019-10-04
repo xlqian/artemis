@@ -125,7 +125,7 @@ def failure_report_maker(rep):
             failure_messages = []
             import inspect
             for fun_name, fun in inspect.getmembers(pytest_report_makers, inspect.isfunction):
-                failure_messages.append("### {}:".format(fun_name))
+                failure_messages.append("\n### {}:".format(fun_name))
                 failure_messages.append(fun(reference, output))
 
             if not test_dataset_name:
