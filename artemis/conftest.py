@@ -5,12 +5,14 @@ Used to run some stuff at global scope
 """
 import logging
 import pytest
-from artemis import utils, pytest_report_makers
+from artemis import utils
 from artemis.configuration_manager import config
 import requests
 from retrying import retry
 import ujson as json
 import os
+import six
+
 
 def pytest_addoption(parser):
     """
@@ -139,14 +141,17 @@ def failure_report_maker(rep):
             f.write("{}\n".format('\n'.join(failure_messages)))
 
 
-@pytest.hookimpl(tryfirst=True, hookwrapper=True)
-def pytest_runtest_makereport(item, call):
-    # execute all other hooks to obtain the report object
-    outcome = yield
-    rep = outcome.get_result()
-    log = logging.getLogger(__name__)
+if six.PY3:
+    from artemis import pytest_report_makers
+    # failure report is activated only on PY3
+    @pytest.hookimpl(tryfirst=True, hookwrapper=True)
+    def pytest_runtest_makereport(item, call):
+        # execute all other hooks to obtain the report object
+        outcome = yield
+        rep = outcome.get_result()
+        log = logging.getLogger(__name__)
 
-    try:
-        failure_report_maker(rep)
-    except Exception as e:
-        log.exception(str(e))
+        try:
+            failure_report_maker(rep)
+        except Exception as e:
+            log.exception(str(e))
