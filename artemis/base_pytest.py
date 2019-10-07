@@ -234,7 +234,7 @@ class ArtemisTestFixture(CommonTestFixture):
     def journey(self, _from, to, datetime,
                 datetime_represents='departure',
                 first_section_mode=[], last_section_mode=[],
-                forbidden_uris=[],
+                forbidden_uris=[], direct_path_mode=[],
                 **kwargs):
         """
         This function is coming from the test_mechanism.py file.
@@ -256,6 +256,9 @@ class ArtemisTestFixture(CommonTestFixture):
         for mode in last_section_mode:
             query = '{query}&last_section_mode[]={mode}'.format(query=query, mode=mode)
 
+        for mode in direct_path_mode:
+            query = '{query}&direct_path_mode[]={mode}'.format(query=query, mode=mode)
+            
         for uri in forbidden_uris:
             query = '{query}&forbidden_uris[]={uri}'.format(query=query, uri=uri)
 

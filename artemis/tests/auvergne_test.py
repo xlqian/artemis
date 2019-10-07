@@ -145,6 +145,92 @@ class Auvergne(object):
                      _min_car=0,
                      _min_bike=0)
 
+    def test_auvergne_01_with_direct_path_mode_bike(self):
+        """
+        Same response as test_auvergne_01
+        """
+        self.journey(_from="poi:osm:node:303386067",
+                     to="3.0630843999999797;45.7589254", datetime="20160121T170000",
+                     first_section_mode=['bike', 'bss', 'walking', 'car'],
+                     last_section_mode=['walking'],
+                     min_nb_journeys=3,
+                     max_duration_to_pt=1200,
+                     direct_path_mode=["bike"])
+
+    def test_auvergne_02_with_direct_path_mode_car_bike(self):
+        """
+        Same response as test_auvergne_02
+        """
+        self.journey(_from="admin:fr:63135",
+                     to="3.121833801269531;45.885276435738504", datetime="20160118T120300",
+                     first_section_mode=['bike', 'bss', 'walking', 'car'],
+                     last_section_mode=['walking'],
+                     min_nb_journeys=3,
+                     _night_bus_filter_base_factor=7200,
+                     max_duration_to_pt=1800,
+                     direct_path_mode=["car", "bike"])
+
+    def test_auvergne_02_with_direct_path_mode_car(self):
+        """
+        Same response as test_auvergne_02 without direct_path bike
+        """
+        self.journey(_from="admin:fr:63135",
+                     to="3.121833801269531;45.885276435738504", datetime="20160118T120300",
+                     first_section_mode=['bike', 'bss', 'walking', 'car'],
+                     last_section_mode=['walking'],
+                     min_nb_journeys=3,
+                     _night_bus_filter_base_factor=7200,
+                     max_duration_to_pt=1800,
+                     direct_path_mode=["car"])
+
+    def test_auvergne_02_with_direct_path_mode_bike(self):
+        """
+        Same response as test_auvergne_02 without direct_path car
+        """
+        self.journey(_from="admin:fr:63135",
+                     to="3.121833801269531;45.885276435738504", datetime="20160118T120300",
+                     first_section_mode=['bike', 'bss', 'walking', 'car'],
+                     last_section_mode=['walking'],
+                     min_nb_journeys=3,
+                     _night_bus_filter_base_factor=7200,
+                     max_duration_to_pt=1800,
+                     direct_path_mode=["bike"])
+
+
+    def test_project_coord_car_bike_with_dense_walking_direct_path_mode_car(self):
+        """
+        Same response as test_project_coord_car_bike_with_dense_walking with only direct_path car
+        """
+        first_section_mode = ['bike', 'walking', 'car']
+        if isinstance(self, TestAuvergneExperimental):
+            first_section_mode += ['taxi']
+
+        self.journey(_from="3.08863;45.77246",
+                     to="3.06402;45.77015",
+                     datetime="20160117T080000",
+                     first_section_mode=first_section_mode,
+                     _min_taxi=0,
+                     _min_car=0,
+                     _min_bike=0,
+                     direct_path_mode=["car"])
+
+    def test_project_coord_car_bike_with_dense_walking_direct_path_mode_bike_only(self):
+        """
+        Same response as test_project_coord_car_bike_with_dense_walking with only direct_path bike
+        Without bike as first_section_mode
+        """
+        first_section_mode = ['walking', 'car']
+        if isinstance(self, TestAuvergneExperimental):
+            first_section_mode += ['taxi']
+
+        self.journey(_from="3.08863;45.77246",
+                     to="3.06402;45.77015",
+                     datetime="20160117T080000",
+                     first_section_mode=first_section_mode,
+                     _min_taxi=0,
+                     _min_car=0,
+                     _min_bike=0,
+                     direct_path_mode=["bike"])
 
 @set_scenario({"fr-auv": {"scenario": "new_default"}})
 class TestAuvergneNewDefault(Auvergne, ArtemisTestFixture):
