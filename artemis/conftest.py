@@ -5,7 +5,7 @@ Used to run some stuff at global scope
 """
 import logging
 import pytest
-from artemis import utils, pytest_report_makers
+from artemis import utils
 from artemis.configuration_manager import config
 import requests
 from retrying import retry
@@ -142,6 +142,7 @@ def failure_report_maker(rep):
 
 
 if six.PY3:
+    from artemis import pytest_report_makers
     # failure report is activated only on PY3
     @pytest.hookimpl(tryfirst=True, hookwrapper=True)
     def pytest_runtest_makereport(item, call):
