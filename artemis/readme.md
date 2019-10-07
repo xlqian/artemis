@@ -36,5 +36,8 @@ aka ArtemisNG has been designed to run tests using docker-compose, in order to b
     - If you don't want to call `cities`, add `--skip_cities`
     - If the data has already been binarized, add `--skip_bina`
     - If you want to show prints, you can also add this argument `-s`
+    - If you are adding a new test, you can use `--create_ref` to create a reference file for your test in REFERENCE_FILE_PATH.
+      Works only if there is no reference file for your test.
+      If a reference file for a test already exists, the test will fail and no reference will be created.
     - Of course, every pytest invocation arguments can also be used on this command.  
       *Ex: if you want to run a specific test (or a tests class for a coverage)*`-k <tests_to_run>`

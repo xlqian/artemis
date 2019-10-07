@@ -233,21 +233,22 @@ class ArtemisTestFixture(CommonTestFixture):
 
     def request_compare(self, url):
         # creating the url
-        self.query = config['URL_JORMUN'] + '/v1/coverage/' + str(self.data_sets[0]) + '/' + url
+        http_query = config['URL_JORMUN'] + '/v1/coverage/' + str(self.data_sets[0]) + '/' + url
 
         # Get the json answer of the request (it is just a string here)
-        raw_response = requests.get(self.query)
+        http_response = requests.get(http_query)
 
-        # Transform the string into a dictionary
-        dict_resp = json.loads(raw_response.text)
+        #raise an exception if the http request failed
+        http_response.raise_for_status()
+
+        response_string = http_response.text
 
         if self.create_ref:
             # Create the reference file
-            self.full_resp = raw_response.text
-            self.create_reference()
+            self.create_reference(http_query, response_string)
         else:
             # Comparing my response and my reference
-            self.compare_with_ref(dict_resp)
+            self.compare_with_ref(http_query, response_string)
 
     def api(self, url, response_checker=default_checker.default_checker):
         """
@@ -309,7 +310,7 @@ class ArtemisTestFixture(CommonTestFixture):
         # launching request dans comparing
         self.request_compare('journeys?' + query)
 
-    def create_reference(self, response_checker=default_checker.default_journey_checker):
+    def create_reference(self, http_query, response_string, response_checker=default_checker.default_journey_checker):
         """
         Create the reference file of a test using the response received.
         The file will be created in the git references folder provided in the settings file
@@ -320,20 +321,21 @@ class ArtemisTestFixture(CommonTestFixture):
 
         if os.path.isfile(filepath):
             logger.warning("NO REF FILE CREATED - {} is already present".format(filepath))
+            assert False
         else:
             # Concatenate reference file info
             reference_text = OrderedDict()
-            reference_text["query"] = self.query.replace(config['URL_JORMUN'][7:], 'localhost')
-            logger.warning('Query: {}'.format(self.query))
-            reference_text["response"] = response_checker.filter(json.loads(self.full_resp))
-            reference_text["full_response"] = json.loads(self.full_resp.replace(config['URL_JORMUN'][7:], 'localhost'))
+            reference_text["query"] = http_query.replace(config['URL_JORMUN'][7:], 'localhost')
+            logger.warning('Query: {}'.format(http_query))
+            reference_text["response"] = response_checker.filter(json.loads(response_string))
+            reference_text["full_response"] = json.loads(response_string.replace(config['URL_JORMUN'][7:], 'localhost'))
 
             # Write reference file directly in the references folder
             with open(filepath, 'w') as ref:
-                ref.write(json.dumps(reference_text, indent=4))
+                ref.write(json.dumps(reference_text, indent=4, escape_forward_slashes=False, encode_html_chars=False, ensure_ascii=True))
             logger.info("Created reference file : {}".format(filepath))
 
-    def compare_with_ref(self, response, response_checker=default_checker.default_journey_checker):
+    def compare_with_ref(self, http_query, response_string, response_checker=default_checker.default_journey_checker):
         """
         Compare the response (which is a dictionary) to the reference
         First, the function retrieves the reference then filters both ref and resp
@@ -366,7 +368,7 @@ class ArtemisTestFixture(CommonTestFixture):
                 print_color(line, symbol2color.get(line[0], Colors.DEFAULT))
 
         # Filtering the answer. (We compare to a reference also filtered with the same filter)
-        filtered_response = response_checker.filter(response)
+        filtered_response = response_checker.filter(json.loads(response_string))
 
         ### Get the reference
 
@@ -383,10 +385,10 @@ class ArtemisTestFixture(CommonTestFixture):
         dict_ref = json.loads(raw_reference)
 
         # Get only the full_response part from the ref
-        ref_full_response = dict_ref['full_response']
+        full_reference = dict_ref['full_response']
 
         # Filtering the reference
-        filtered_reference = response_checker.filter(ref_full_response)
+        filtered_reference = response_checker.filter(full_reference)
 
         ### Compare response and reference
         try:
@@ -407,12 +409,16 @@ class ArtemisTestFixture(CommonTestFixture):
             full_file_name_ref = dir_path + '/reference_' + file_name + '.txt'
             full_file_name_resp = dir_path + '/response_' + file_name + '.txt'
 
-            json_filtered_reference = json.dumps(filtered_reference, indent=4)
-            json_filtered_response = json.dumps(filtered_response, indent=4)
+            full_response_dict = OrderedDict()
+            full_response_dict["query"] = http_query.replace(config['URL_JORMUN'][7:], 'localhost')
+            full_response_dict["response"] = filtered_response
+            full_response_dict["full_response"] = json.loads(response_string.replace(config['URL_JORMUN'][7:], 'localhost'))
+
+            json_full_response = json.dumps(full_response_dict, indent=4, escape_forward_slashes=False, encode_html_chars=False, ensure_ascii=True)
 
             # Save resp and ref as txt files in folder named outputs
-            ref_resp2files(full_file_name_ref, json_filtered_reference)
-            ref_resp2files(full_file_name_resp, json_filtered_response)
+            ref_resp2files(full_file_name_ref, raw_reference)
+            ref_resp2files(full_file_name_resp, json_full_response)
 
             # Print difference in console
             print_diff(full_file_name_ref, full_file_name_resp)
