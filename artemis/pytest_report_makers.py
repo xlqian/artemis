@@ -6,7 +6,7 @@ def journeys_diff(ref, output):
         ref_j = json.load(ref_f)
         out_j = json.load(output_f)
         diff = jsondiff.diff(ref_j['response'].get('journeys', []), out_j['response'].get('journeys', []),
-                             syntax='explicit')
+                             syntax='symmetric')
 
         updated_nb = sum(str(k).isdigit() for k in diff.keys())
 
