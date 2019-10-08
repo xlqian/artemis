@@ -2,6 +2,7 @@ import logging
 import inspect
 import psycopg2
 import requests
+import os
 
 import artemis.utils as utils
 
@@ -47,6 +48,41 @@ def clean_kirin_db():
 
 
 class CommonTestFixture(object):
+
+
+    def get_reference_suffix_path(self):
+
+        mro = inspect.getmro(self.__class__)
+        class_name = "Test{}".format(mro[1].__name__)
+        scenario = mro[0].data_sets[0].scenario
+        return os.path.join(class_name, scenario)
+
+    def get_reference_filename_prefix(self):
+
+        # When there is multiple calls to request_compare within one test function
+        #  (e.g. in guichet_unique kirin_cots_trip_remove_new_stop_point)
+        #  the name of the reference file for the first call is `func_name`
+        #  For the (n+1)th call, the name of the reference file is func_name_n
+        func_name = utils.get_calling_test_function()
+
+        if self.nb_call_to_request_compare <= 1:
+            return func_name
+        else :
+            assert self.nb_call_to_request_compare > 1
+            return "{}_{}".format(func_name, self.nb_call_to_request_compare - 1)
+
+    def get_test_name(self):
+        path = os.path.join(self.get_reference_suffix_path(),
+                            self.get_reference_filename_prefix())
+        return str(path)
+
+ 
+    def get_reference_file_path(self):
+        filename = "{}.json".format(self.get_reference_filename_prefix())
+        return os.path.join(config['REFERENCE_FILE_PATH']
+                            , self.get_reference_suffix_path()
+                            , filename )
+
     def get_file_name(self):
         """
         create the name of the file for storing the query.

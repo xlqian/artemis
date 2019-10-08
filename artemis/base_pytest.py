@@ -50,7 +50,12 @@ class ArtemisTestFixture(CommonTestFixture):
         Note: py.test does not want to collect class with custom constructor,
         so we init the class in the setup
         """
-        self.test_counter = Counter()
+
+        # Count how many times request_compare() is called within a test function
+        # Needed for retrieving the correct reference file 
+        # (cf common_fixture.py get_reference_filename_prefix)
+        self.nb_call_to_request_compare = 0
+
         self.check_ref = request.config.getvalue("check_ref")
         self.create_ref = request.config.getvalue("create_ref")
 
@@ -232,14 +237,14 @@ class ArtemisTestFixture(CommonTestFixture):
         logger.info('RT data reloaded at {}'.format(rt_data_loaded))
 
     def request_compare(self, url):
+        self.nb_call_to_request_compare += 1
+
         # creating the url
         http_query = config['URL_JORMUN'] + '/v1/coverage/' + str(self.data_sets[0]) + '/' + url
 
         # Get the json answer of the request (it is just a string here)
         http_response = requests.get(http_query)
 
-        #raise an exception if the http request failed
-        http_response.raise_for_status()
 
         response_string = http_response.text
 
@@ -316,8 +321,7 @@ class ArtemisTestFixture(CommonTestFixture):
         The file will be created in the git references folder provided in the settings file
         """
         # Check that the file doesn't already exist
-        filename = self.get_file_name()
-        filepath = os.path.join(config['REFERENCE_FILE_PATH'], filename)
+        filepath = self.get_reference_file_path()
 
         if os.path.isfile(filepath):
             logger.warning("NO REF FILE CREATED - {} is already present".format(filepath))
@@ -349,7 +353,7 @@ class ArtemisTestFixture(CommonTestFixture):
             with open(output_file, 'w') as reference_text:
                 reference_text.write(output_json)
 
-        def print_diff(ref_file, resp_file):
+        def print_diff(ref_file, resp_file, test_name):
             """
             Print differences between reference and response in console
             """
@@ -361,7 +365,7 @@ class ArtemisTestFixture(CommonTestFixture):
                 response = response_text.readlines()
 
             # Print failed test name
-            print_color('\n\n' + str(file_name) + ' failed :' + '\n\n', Colors.PINK)
+            print_color('\n\n' + str(test_name) + ' failed :' + '\n\n', Colors.PINK)
 
             symbol2color = {'+': Colors.GREEN, '-': Colors.RED}
             for line in difflib.unified_diff(reference, response):
@@ -371,14 +375,11 @@ class ArtemisTestFixture(CommonTestFixture):
         filtered_response = response_checker.filter(json.loads(response_string))
 
         ### Get the reference
+        reference_filepath = self.get_reference_file_path()
 
-        # Create the file name
-        filename = self.get_file_name()
-        filepath = os.path.join(config['REFERENCE_FILE_PATH'], filename)
+        assert os.path.isfile(reference_filepath), "{} is not a file".format(reference_filepath)
 
-        assert os.path.isfile(filepath), "{} is not a file".format(filepath)
-
-        with open(filepath, 'r') as f:
+        with open(reference_filepath, 'r') as f:
             raw_reference = f.read()
 
         # Transform the string into a dictionary
@@ -397,18 +398,24 @@ class ArtemisTestFixture(CommonTestFixture):
             # print the assertion error message
             logging.error("Assertion Error: %s" % str(e))
             # find name of test
-            file_name = filename.split('/')[-1]
-            file_name = file_name[:-5]
+            filename_prefix = self.get_reference_filename_prefix()
 
-            # create a folder
-            dir_path = config['RESPONSE_FILE_PATH']
-            if not os.path.exists(dir_path):
-                os.makedirs(dir_path)
+            # get output directory path
+            output_dir_path = os.path.join(config['RESPONSE_FILE_PATH']
+                                            , self.get_reference_suffix_path())
 
-            # create path to ref and resp
-            full_file_name_ref = dir_path + '/reference_' + file_name + '.txt'
-            full_file_name_resp = dir_path + '/response_' + file_name + '.txt'
+            # create the directory if it does not exists
+            if not os.path.exists(output_dir_path):
+                os.makedirs(output_dir_path)
 
+            # create response and reference filepaths
+            response_filename = "{}_resp.json".format(filename_prefix)
+            response_filepath = os.path.join(output_dir_path, response_filename)
+
+            output_reference_filename = "{}_ref.json".format(filename_prefix)
+            output_reference_filepath = os.path.join(output_dir_path, output_reference_filename)
+
+            # create the response data to be written
             full_response_dict = OrderedDict()
             full_response_dict["query"] = http_query.replace(config['URL_JORMUN'][7:], 'localhost')
             full_response_dict["response"] = filtered_response
@@ -417,10 +424,11 @@ class ArtemisTestFixture(CommonTestFixture):
             json_full_response = json.dumps(full_response_dict, indent=4, escape_forward_slashes=False, encode_html_chars=False, ensure_ascii=True)
 
             # Save resp and ref as txt files in folder named outputs
-            ref_resp2files(full_file_name_ref, raw_reference)
-            ref_resp2files(full_file_name_resp, json_full_response)
+            ref_resp2files(response_filepath, json_full_response)
+            ref_resp2files(output_reference_filepath, raw_reference)
+            
 
             # Print difference in console
-            print_diff(full_file_name_ref, full_file_name_resp)
+            print_diff(response_filepath, output_reference_filepath, self.get_test_name())
 
             raise
