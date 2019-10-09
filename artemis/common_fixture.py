@@ -51,18 +51,17 @@ class CommonTestFixture(object):
 
 
     def get_reference_suffix_path(self):
-
         mro = inspect.getmro(self.__class__)
         class_name = "Test{}".format(mro[1].__name__)
         scenario = mro[0].data_sets[0].scenario
         return os.path.join(class_name, scenario)
 
     def get_reference_filename_prefix(self):
-
-        # When there is multiple calls to request_compare within one test function
-        #  (e.g. in guichet_unique kirin_cots_trip_remove_new_stop_point)
-        #  the name of the reference file for the first call is `func_name`
-        #  For the (n+1)th call, the name of the reference file is func_name_n
+        """
+        When there is multiple calls to request_compare within one test function
+          the name of the reference file for the first call is `func_name`
+          For the (n+1)th call, the name of the reference file is `func_name_n`
+        """
         func_name = utils.get_calling_test_function()
 
         if self.nb_call_to_request_compare <= 1:
@@ -82,31 +81,6 @@ class CommonTestFixture(object):
         return os.path.join(config['REFERENCE_FILE_PATH']
                             , self.get_reference_suffix_path()
                             , filename )
-
-    def get_file_name(self):
-        """
-        create the name of the file for storing the query.
-
-        the file is:
-
-        {fixture_name}/{function_name}_{md5_on_url}(|_{call_number}).json
-
-        if a custom_name is provided we take it, else we create a md5 on the url.
-        a custom_name must be provided is the same call is done twice in the same test function
-        """
-        mro = inspect.getmro(self.__class__)
-        class_name = "Test{}".format(mro[1].__name__)
-        scenario = mro[0].data_sets[0].scenario
-
-        func_name = utils.get_calling_test_function()
-        test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
-
-        self.test_counter[test_name] += 1
-
-        if self.test_counter[test_name] > 1:
-            return "{}_{}.json".format(test_name, self.test_counter[test_name] - 1)
-        else:
-            return "{}.json".format(test_name)
 
     @staticmethod
     def _send_cots(cots_file_name):

@@ -90,6 +90,31 @@ class ArtemisTestFixture(CommonTestFixture):
         """
         self.test_counter = defaultdict(int)
 
+
+    def get_file_name(self):
+        """
+        create the name of the file for storing the query.
+
+        the file is:
+
+        {class_name}/{function_name}(|_{call_number}).json
+
+        """
+        mro = inspect.getmro(self.__class__)
+        class_name = "Test{}".format(mro[1].__name__)
+        scenario = mro[0].data_sets[0].scenario
+
+        func_name = utils.get_calling_test_function()
+        test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
+
+        self.test_counter[test_name] += 1
+
+        if self.test_counter[test_name] > 1:
+            return "{}_{}.json".format(test_name, self.test_counter[test_name] - 1)
+        else:
+            return "{}.json".format(test_name)
+
+
     @classmethod
     @pytest.yield_fixture(scope='class', autouse=True)
     def my_method_setup(cls, request):

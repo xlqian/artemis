@@ -379,10 +379,10 @@ class ArtemisTestFixture(CommonTestFixture):
         dict_ref = json.loads(raw_reference)
 
         # Get only the full_response part from the ref
-        full_reference = dict_ref['full_response']
+        reference_full_response = dict_ref['full_response']
 
         # Filtering the reference
-        filtered_reference = response_checker.filter(full_reference)
+        filtered_reference = response_checker.filter(reference_full_response)
 
         ### Compare response and reference
         try:
