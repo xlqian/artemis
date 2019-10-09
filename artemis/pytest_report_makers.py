@@ -12,13 +12,12 @@ def journeys_diff(ref, output):
 
         if not all((ref_journey,  out_journey)):
             # in case where ref_journey/out_journey is empty, the diff becomes a list, here we build the diff ourselves
-            if not ref_journey:
-                diff = {jsondiff.symbols.insert
-                        if not ref_journey
-                        else jsondiff.symbols.delete: [[i, j] for i, j in enumerate(out_journey
+            diff = {jsondiff.symbols.insert
+                    if not ref_journey
+                    else jsondiff.symbols.delete: [[i, j] for i, j in enumerate(out_journey)]}
         else:
             diff = jsondiff.diff(ref_journey, out_journey, syntax='symmetric')
-	
+
         updated_nb = sum(str(k).isdigit() for k in diff.keys())
 
         message = (
