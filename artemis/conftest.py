@@ -28,25 +28,17 @@ def pytest_addoption(parser):
     parser.addoption("--create_ref", action="store_true", help="create a reference file using the response received - USE WITH CAUTION")
 
 
-class RetryError(Exception):
-    pass
-
-
 @pytest.fixture(scope="session", autouse=True)
 def load_cities(request):
     """
     Load cities before running the tests
     """
-
-    def is_retry_exception(exception):
-        return isinstance(exception, RetryError)
-
     def get_last_cities_job():
         r_cities = requests.get(config['URL_TYR'] + "/v0/cities/status")
         r_cities.raise_for_status()
         return json.loads(r_cities.text)['latest_job']
 
-    @retry(stop_max_delay=300000, wait_fixed=500, retry_on_exception=is_retry_exception)
+    @retry(stop_max_delay=300000, wait_fixed=500, retry_on_exception=utils.is_retry_exception)
     def wait_for_cities_completion():
         """
         Wait until the 'cities' task is completed
@@ -56,9 +48,9 @@ def load_cities(request):
 
         if last_cities_job and 'state' in last_cities_job:
             if last_cities_job['state'] == 'running':
-                raise RetryError("Cities task still running...")
+                raise utils.RetryError("Cities task still running...")
             elif last_cities_job['state'] == 'failed':
-                raise Exception("Job 'cities' status")
+                raise Exception("Job 'cities' status FAILED")
         else:
             raise Exception("Couldn't get 'cities' job status")
 

@@ -11,10 +11,10 @@ import docker
 import tarfile
 import zipfile
 from retrying import retry
-
 from artemis import default_checker, utils
 from artemis.configuration_manager import config
 from artemis.common_fixture import CommonTestFixture
+from artemis.instance_default_values import default_values
 
 if six.PY3: # case using python 3
     from enum import Enum
@@ -66,9 +66,44 @@ class ArtemisTestFixture(CommonTestFixture):
             if data_set.name in cls.dataset_binarized:
                 logger.info("binarization dataset {} has been done, skipping....".format(data_set))
                 continue
+            cls.update_instance_db(data_set.name)
             cls.remove_data_by_dataset(data_set)
             cls.update_data_by_dataset(data_set)
+            cls.check_values(data_set.name)
             cls.dataset_binarized.append(data_set.name)
+
+    @classmethod
+    def update_instance_db(cls, data_set):
+        """
+        Update db with default values from migrations
+        """
+        r = requests.put(config["URL_TYR"] + "/v0/instances/" + data_set,
+                          data=json.dumps(default_values),
+                          headers={"Content-Type": "application/json"})
+        r.raise_for_status()
+
+    @classmethod
+    def check_values(cls, data_set):
+        """
+        Security check: verify that db instance is updated with default values
+        """
+        _response, _, _status = utils.request("coverage/{cov}/status".format(cov=data_set))
+        if _status != 200:
+            raise Exception("Error while getting coverage status")
+
+        cov_status = _response.get('status', {}).get('status', "")
+        if cov_status != "running":
+            raise Exception("Coverage {} NOT RUNNING".format(data_set))
+
+        params = _response.get('status', {}).get('parameters', "")
+        diffs = {}
+        for k, v in default_values.items():
+            if k not in params:
+                diffs[k] = "Missing in Tyr"
+            elif params[k] != v:
+                diffs[k] = "{artemis} != {tyr}".format(artemis=v, tyr=params[k])
+        if diffs:
+            raise Exception("Diff(s) in parameters : {}".format(json.dumps(diffs)))
 
     @classmethod
     def remove_data_by_dataset(cls, data_set):
@@ -83,17 +118,16 @@ class ArtemisTestFixture(CommonTestFixture):
     @classmethod
     def update_data_by_dataset(cls, data_set):
         def get_last_coverage_loaded_time(cov):
-
             _response, _, _ = utils.request("coverage/{cov}/status".format(cov=cov))
             return _response.get('status', {}).get('last_load_at', "")
 
         # wait 5 min at most
-        @retry(stop_max_delay=300000, wait_fixed=500)
+        @retry(stop_max_delay=300000, wait_fixed=500, retry_on_exception=utils.is_retry_exception)
         def wait_for_kraken_reload(last_data_loaded, cov):
             new_data_loaded = get_last_coverage_loaded_time(cov)
 
             if last_data_loaded == new_data_loaded:
-                raise Exception("kraken data is not loaded")
+                raise utils.RetryError("kraken data is not loaded")
 
             logger.info('Kraken reloaded')
 
