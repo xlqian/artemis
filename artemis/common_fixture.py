@@ -50,11 +50,16 @@ def clean_kirin_db():
 class CommonTestFixture(object):
 
 
-    def get_reference_suffix_path(self):
+    def get_dataset_name(self):
         mro = inspect.getmro(self.__class__)
-        class_name = "Test{}".format(mro[1].__name__)
-        scenario = mro[0].data_sets[0].scenario
-        return os.path.join(class_name, scenario)
+        return "Test{}".format(mro[1].__name__)
+
+    def get_scenario_name(self):
+        mro = inspect.getmro(self.__class__)
+        return mro[0].data_sets[0].scenario
+
+    def get_reference_suffix_path(self):
+        return os.path.join(self.get_dataset_name(), self.get_scenario_name())
 
     def get_reference_filename_prefix(self):
         """

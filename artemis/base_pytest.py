@@ -364,8 +364,11 @@ class ArtemisTestFixture(CommonTestFixture):
             for line in difflib.unified_diff(reference, response):
                 print_color(line, symbol2color.get(line[0], Colors.DEFAULT))
 
+        
+        resp_dict = json.loads(response_string)
+
         # Filtering the answer. (We compare to a reference also filtered with the same filter)
-        filtered_response = response_checker.filter(json.loads(response_string))
+        filtered_response = response_checker.filter(resp_dict)
 
         ### Get the reference
         reference_filepath = self.get_reference_file_path()
@@ -376,10 +379,10 @@ class ArtemisTestFixture(CommonTestFixture):
             raw_reference = f.read()
 
         # Transform the string into a dictionary
-        dict_ref = json.loads(raw_reference)
+        ref_dict = json.loads(raw_reference)
 
         # Get only the full_response part from the ref
-        reference_full_response = dict_ref['full_response']
+        reference_full_response = ref_dict['full_response']
 
         # Filtering the reference
         filtered_reference = response_checker.filter(reference_full_response)
@@ -413,7 +416,11 @@ class ArtemisTestFixture(CommonTestFixture):
             with open(output_reference_filepath, 'w') as reference_text:
                 reference_text.write(raw_reference)
 
+            if six.PY3:
+                from artemis import pytest_report_makers
+                report_message = pytest_report_makers.journeys_diff(filtered_reference, filtered_response)
+                pytest_report_makers.add_to_report(self.get_test_name(), http_query, report_message)
             # Print difference in console
-            print_diff(response_filepath, output_reference_filepath, self.get_test_name())
+            # print_diff(response_filepath, output_reference_filepath, self.get_test_name())
 
             raise
