@@ -5,6 +5,7 @@ import shutil
 import psycopg2
 import json
 import pytest
+import inspect
 from retrying import Retrying, retry, RetryError
 from artemis import default_checker
 from artemis import utils
