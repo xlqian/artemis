@@ -193,7 +193,6 @@ class ArtemisTestFixture(CommonTestFixture):
         # Wait until data is reloaded
         wait_for_kraken_reload(last_reload_time, data_set.name)
 
-
     @classmethod
     def kill_the_krakens(cls):
         for data_set in cls.data_sets:
@@ -231,7 +230,7 @@ class ArtemisTestFixture(CommonTestFixture):
             raise Exception("real time data not loaded")
         logger.info('RT data reloaded at {}'.format(rt_data_loaded))
 
-    def request_compare(self, url):
+    def request_compare(self, url, checker):
         # creating the url
         self.query = config['URL_JORMUN'] + '/v1/coverage/' + str(self.data_sets[0]) + '/' + url
 
@@ -247,7 +246,7 @@ class ArtemisTestFixture(CommonTestFixture):
             self.create_reference()
         else:
             # Comparing my response and my reference
-            self.compare_with_ref(dict_resp)
+            self.compare_with_ref(dict_resp, checker)
 
     def api(self, url, response_checker=default_checker.default_checker):
         """
@@ -263,7 +262,7 @@ class ArtemisTestFixture(CommonTestFixture):
 
         the query is written in a file
         """
-        self.request_compare(url)
+        self.request_compare(url, response_checker)
 
     def journey(self, _from, to, datetime,
                 datetime_represents='departure',
