@@ -303,9 +303,9 @@ class ArtemisTestFixture(CommonTestFixture):
         query = "{query}&_override_scenario={scenario}".format(query=query, scenario=overridden_scenario)
 
         # launching request dans comparing
-        self.request_compare('journeys?' + query)
+        self.request_compare('journeys?' + query, default_checker.default_journey_checker)
 
-    def create_reference(self, response_checker=default_checker.default_journey_checker):
+    def create_reference(self, response_checker):
         """
         Create the reference file of a test using the response received.
         The file will be created in the git references folder provided in the settings file
