@@ -2,6 +2,7 @@ import logging
 import inspect
 import psycopg2
 import requests
+import os
 
 import artemis.utils as utils
 
@@ -28,6 +29,16 @@ def clean_kirin_db():
         truncate_tables(cur, ', '.join(e[0] for e in tables if e[0] not in ("layer", "topology")))
 
         conn.commit()
+
+        cur.execute(
+            "INSERT INTO contributor SELECT 'realtime.sherbrooke','ca-qc-sherbrooke','token_to_be_modified',"
+            "'feed_url_to_be_modified','gtfs-rt'"
+        )
+        cur.execute(
+            "INSERT INTO contributor SELECT 'realtime.cots','sncf','token_to_be_modified',"
+            "'feed_url_to_be_modified','cots'"
+        )
+        conn.commit()
         logger.debug("kirin db purge done")
     except:
         logger.exception("problem with kirin db")
@@ -37,30 +48,44 @@ def clean_kirin_db():
 
 
 class CommonTestFixture(object):
-    def get_file_name(self):
-        """
-        create the name of the file for storing the query.
 
-        the file is:
 
-        {fixture_name}/{function_name}_{md5_on_url}(|_{call_number}).json
-
-        if a custom_name is provided we take it, else we create a md5 on the url.
-        a custom_name must be provided is the same call is done twice in the same test function
-        """
+    def get_dataset_name(self):
         mro = inspect.getmro(self.__class__)
-        class_name = "Test{}".format(mro[1].__name__)
-        scenario = mro[0].data_sets[0].scenario
+        return "Test{}".format(mro[1].__name__)
 
+    def get_scenario_name(self):
+        mro = inspect.getmro(self.__class__)
+        return mro[0].data_sets[0].scenario
+
+    def get_reference_suffix_path(self):
+        return os.path.join(self.get_dataset_name(), self.get_scenario_name())
+
+    def get_reference_filename_prefix(self):
+        """
+        When there is multiple calls to request_compare within one test function
+          the name of the reference file for the first call is `func_name`
+          For the (n+1)th call, the name of the reference file is `func_name_n`
+        """
         func_name = utils.get_calling_test_function()
-        test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
 
-        self.test_counter[test_name] += 1
+        if self.nb_call_to_request_compare <= 1:
+            return func_name
+        else :
+            assert self.nb_call_to_request_compare > 1
+            return "{}_{}".format(func_name, self.nb_call_to_request_compare - 1)
 
-        if self.test_counter[test_name] > 1:
-            return "{}_{}.json".format(test_name, self.test_counter[test_name] - 1)
-        else:
-            return "{}.json".format(test_name)
+    def get_test_name(self):
+        path = os.path.join(self.get_reference_suffix_path(),
+                            self.get_reference_filename_prefix())
+        return str(path)
+
+ 
+    def get_reference_file_path(self):
+        filename = "{}.json".format(self.get_reference_filename_prefix())
+        return os.path.join(config['REFERENCE_FILE_PATH']
+                            , self.get_reference_suffix_path()
+                            , filename )
 
     @staticmethod
     def _send_cots(cots_file_name):

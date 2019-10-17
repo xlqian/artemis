@@ -10,6 +10,8 @@ from artemis.configuration_manager import config
 import requests
 from retrying import retry
 import ujson as json
+import os
+import six
 
 
 def pytest_addoption(parser):
@@ -75,3 +77,5 @@ def load_cities(request):
                       additional_args=[config['CITIES_DB']])
 
     log.info("cities database loaded")
+
+

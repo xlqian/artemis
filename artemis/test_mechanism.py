@@ -5,6 +5,7 @@ import shutil
 import psycopg2
 import json
 import pytest
+import inspect
 from retrying import Retrying, retry, RetryError
 from artemis import default_checker
 from artemis import utils
@@ -89,6 +90,31 @@ class ArtemisTestFixture(CommonTestFixture):
         so we init the class in the setup
         """
         self.test_counter = defaultdict(int)
+
+
+    def get_file_name(self):
+        """
+        create the name of the file for storing the query.
+
+        the file is:
+
+        {class_name}/{function_name}(|_{call_number}).json
+
+        """
+        mro = inspect.getmro(self.__class__)
+        class_name = "Test{}".format(mro[1].__name__)
+        scenario = mro[0].data_sets[0].scenario
+
+        func_name = utils.get_calling_test_function()
+        test_name = '{}/{}/{}'.format(class_name, scenario, func_name)
+
+        self.test_counter[test_name] += 1
+
+        if self.test_counter[test_name] > 1:
+            return "{}_{}.json".format(test_name, self.test_counter[test_name] - 1)
+        else:
+            return "{}.json".format(test_name)
+
 
     @classmethod
     @pytest.yield_fixture(scope='class', autouse=True)
@@ -352,7 +378,7 @@ class ArtemisTestFixture(CommonTestFixture):
                 response_checker=default_checker.default_journey_checker,
                 auto_from=None, auto_to=None,
                 first_section_mode=[], last_section_mode=[],
-                **kwargs):
+                direct_path_mode=[], **kwargs):
         """
         syntactic sugar around the journey api
 
@@ -377,6 +403,9 @@ class ArtemisTestFixture(CommonTestFixture):
 
         for mode in last_section_mode:
             query = '{query}&last_section_mode[]={mode}'.format(query=query, mode=mode)
+
+        for mode in direct_path_mode:
+            query = '{query}&direct_path_mode[]={mode}'.format(query=query, mode=mode)
 
         for k, v in kwargs.iteritems():
             query = "{query}&{k}={v}".format(query=query, k=k, v=v)
