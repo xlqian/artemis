@@ -163,13 +163,13 @@ class Bibus(object):
         self.api('networks?filter=network.has_code(source,rien)')
 
     def test_one_network_external_code_BIB1001(self):
-        self._api_call('networks?external_code=BIB1001', default_checker.default_checker)
+        self._api_call('/networks?external_code=BIB1001', default_checker.default_checker)
 
     def test_one_network_external_code_BIB1006(self):
-        self._api_call('networks?external_code=BIB1006', default_checker.default_checker)
+        self._api_call('/networks?external_code=BIB1006', default_checker.default_checker)
 
     def test_one_network_external_code_rien(self):
-        self._api_call('networks?external_code=rien', default_checker.default_checker)
+        self._api_call('/networks?external_code=rien', default_checker.default_checker)
 
     def test_one_network_depth_1(self):
         self._pt_ref_call('networks', 'network:bibus', depth=1)

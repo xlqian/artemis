@@ -82,7 +82,15 @@ class ArtemisTestFixture(CommonTestFixture):
         """
         Update db with default values from migrations
         """
-        r = requests.put(config["URL_TYR"] + "/v0/instances/" + data_set,
+        # Check that instance is in db
+        instance_url = "{base_url}/v0/instances/{instance}".format(base_url=config["URL_TYR"], instance=data_set)
+        r = requests.get(instance_url)
+        r.raise_for_status()
+        status_dict = json.loads(r.text)
+        assert len(status_dict) == 1
+        assert status_dict[0]["name"] == data_set
+        # Send request to update values
+        r = requests.put(instance_url,
                           data=json.dumps(default_values),
                           headers={"Content-Type": "application/json"})
         r.raise_for_status()
@@ -235,11 +243,8 @@ class ArtemisTestFixture(CommonTestFixture):
             raise Exception("real time data not loaded")
         logger.info('RT data reloaded at {}'.format(rt_data_loaded))
 
-    def request_compare(self, url, checker):
+    def request_compare(self, http_query, checker):
         self.nb_call_to_request_compare += 1
-
-        # creating the url
-        http_query = config['URL_JORMUN'] + '/v1/coverage/' + str(self.data_sets[0]) + '/' + url
 
         # Get the json answer of the request (it is just a string here)
         http_response = requests.get(http_query)
@@ -248,18 +253,18 @@ class ArtemisTestFixture(CommonTestFixture):
 
         if self.create_ref:
             # Create the reference file
-            self.create_reference(http_query, response_string)
+            self.create_reference(http_query, response_string, checker)
         else:
             # Comparing my response and my reference
-            self.compare_with_ref(http_query, response_string)
+            self.compare_with_ref(http_query, response_string, checker)
 
     def api(self, url, response_checker=default_checker.default_checker):
         """
-        used to check misc API
-
+        Call to an endpoint using a coverage
         NOTE: works only when one region is loaded for the moment (when needed change this)
         """
-        return self._api_call(url, response_checker)
+        coverage_query = "/coverage/{coverage_name}/{query}".format(coverage_name=str(self.data_sets[0]), query=url)
+        return self._api_call(coverage_query, response_checker)
 
     def _api_call(self, url, response_checker):
         """
@@ -267,7 +272,8 @@ class ArtemisTestFixture(CommonTestFixture):
 
         the query is written in a file
         """
-        self.request_compare(url, response_checker)
+        http_query = "{base_query}/v1{url}".format(base_query=config['URL_JORMUN'], url=url)
+        self.request_compare(http_query, response_checker)
 
     def journey(self, _from, to, datetime,
                 datetime_represents='departure',
@@ -310,9 +316,14 @@ class ArtemisTestFixture(CommonTestFixture):
             overridden_scenario = 'new_default'
         query = "{query}&_override_scenario={scenario}".format(query=query, scenario=overridden_scenario)
 
+        # creating the full URL
+        http_query = "{base_url}/v1/coverage/{coverage}/journeys?{query_parameters}".format(
+            base_url=config['URL_JORMUN'],
+            coverage=str(self.data_sets[0]),
+            query_parameters=query
+        )
         # launching request dans comparing
-        self.request_compare('journeys?' + query, default_checker.default_journey_checker)
-
+        self.request_compare(http_query, default_checker.default_journey_checker)
 
     def write_full_response_to_file(self, http_query, response_string, filepath, response_checker=default_checker.default_journey_checker):
         reference_text = OrderedDict()
@@ -338,7 +349,7 @@ class ArtemisTestFixture(CommonTestFixture):
             self.write_full_response_to_file(http_query, response_string, filepath, response_checker)
             logger.info("Created reference file : {}".format(filepath))
 
-    def compare_with_ref(self, http_query, response_string, response_checker=default_checker.default_journey_checker):
+    def compare_with_ref(self, http_query, response_string, response_checker):
         """
         Compare the response (which is a dictionary) to the reference
         First, the function retrieves the reference then filters both ref and resp
@@ -363,7 +374,6 @@ class ArtemisTestFixture(CommonTestFixture):
             for line in difflib.unified_diff(reference, response):
                 print_color(line, symbol2color.get(line[0], Colors.DEFAULT))
 
-        
         resp_dict = json.loads(response_string)
 
         # Filtering the answer. (We compare to a reference also filtered with the same filter)
