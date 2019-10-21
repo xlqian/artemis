@@ -24,7 +24,7 @@ def journeys_diff(ref_dict, resp_dict):
         "* new journeys nb: {}\n"
         "* discarded journeys nb: {}\n"
         "* updated journeys nb: {}\n"
-        "<details open><summary>CLICK ME</summary><p>\n"
+        "<details open><summary>CLICK ME</summary><p>\n\n"
         "```json\n"
         "{}\n"
         "```\n"
