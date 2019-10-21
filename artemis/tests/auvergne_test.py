@@ -52,8 +52,7 @@ class Auvergne(object):
                      to="3.1218767166137695;45.88621444878203", datetime="20160118T120300",
                      first_section_mode=['bike', 'bss', 'walking', 'car'],
                      last_section_mode=['walking'],
-                     min_nb_journeys=3,
-                     max_duration_to_pt=900)
+                     min_nb_journeys=3)
 
     def test_min_nb_journeys(self):
         """
@@ -100,8 +99,7 @@ class Auvergne(object):
         self.journey(_from="admin:fr:63063",
                      to="stop_area:SNC:SA:SAOCE87734004", datetime="20160117T120000",
                      first_section_mode=['walking', 'car'],
-                     last_section_mode=['walking'],
-                     max_duration_to_pt=900)
+                     last_section_mode=['walking'])
 
     def test_time_frame_duration(self):
         """
@@ -114,8 +112,7 @@ class Auvergne(object):
         self.journey(_from="3.08643;45.75419",
                      to="3.09981;45.77871",
                      datetime="20160118T080000",
-                     timeframe_duration="600",
-                     max_duration_to_pt=900)
+                     timeframe_duration="600")
 
     def test_time_frame_duration_with_max_nb_journey(self):
         """
@@ -128,8 +125,7 @@ class Auvergne(object):
                      to="3.09981;45.77871",
                      datetime="20160118T080000",
                      timeframe_duration="600",
-                     max_nb_journeys="3",
-                     max_duration_to_pt=900)
+                     max_nb_journeys="3")
 
     def test_project_coord_car_bike_with_dense_walking(self):
         """
@@ -147,8 +143,7 @@ class Auvergne(object):
                      first_section_mode=first_section_mode,
                      _min_taxi=0,
                      _min_car=0,
-                     _min_bike=0,
-                     max_duration_to_pt=900)
+                     _min_bike=0)
 
     def test_auvergne_01_with_direct_path_mode_bike(self):
         """
