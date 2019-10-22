@@ -3,7 +3,6 @@ import jsondiff
 import os
 from artemis.configuration_manager import config
 import logging
-import urllib.parse
 
 def journeys_diff(ref_dict, resp_dict):
     log = logging.getLogger(__name__)
@@ -25,7 +24,7 @@ def journeys_diff(ref_dict, resp_dict):
         "* new journeys nb: {}\n"
         "* discarded journeys nb: {}\n"
         "* updated journeys nb: {}\n"
-        "<details open><summary>CLICK ME</summary><p>\n\n"
+        "<details open><summary>CLICK ME</summary><p>\n"
         "```json\n"
         "{}\n"
         "```\n"
@@ -45,8 +44,10 @@ def add_to_report(test_name, test_query, report_message):
     reading_mode = "a" if os.path.exists(failures_report_path) else "w"
     with open(failures_report_path, reading_mode) as failures_report:
         failures_report.write("## {}\n".format(test_name))
-        encoded = urllib.parse.quote(test_query)
-        failures_report.write(("[open query in navitia-playground]"
-                              "(http://canaltp.github.io/navitia-playground/play.html?request={})\n").format(encoded))
+        failures_report.write("[query]({}) | [open old]({})  |  [open new]({})\n"
+                                .format(test_query,
+                                        'http://canaltp.github.io/navitia-playground/file.html',
+                                        'http://canaltp.github.io/navitia-playground/file.html')
+                                )
         failures_report.write("{}\n".format(report_message))
 

@@ -232,28 +232,6 @@ class Auvergne(object):
                      _min_bike=0,
                      direct_path_mode=["bike"])
 
-    def test_direct_path_with_non_default_speed(self):
-        """
-        Here we test the direct_path by bike with a non default bike_speed
-        https://jira.kisio.org/browse/NAVITIAII-2908
-        https://github.com/CanalTP/navitia/pull/3002
-        """
-        request = {
-            "_from": "3.08390;45.88953",
-            "to": "3.13801;45.91932",
-            "datetime": "20160118T120300",
-            "first_section_mode": ['bike'],
-            "direct_path_mode": ["bike"],
-            "direct_path": "only",
-            "bike_speed": 1
-        }
-        if isinstance(self, TestAuvergneNewDefault):
-            # we want to have this direct_path with new_default
-            request["max_duration_to_pt"] = 7200
-
-        self.journey(**request)
-
-
 @set_scenario({"fr-auv": {"scenario": "new_default"}})
 class TestAuvergneNewDefault(Auvergne, ArtemisTestFixture):
     pass
