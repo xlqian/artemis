@@ -37,8 +37,6 @@ def journeys_diff(ref_dict, resp_dict):
                 )
     return message
 
-        #"\n\n"
-
 def add_to_report(test_name, test_query, report_message):
     failures_report_path = os.path.join(config['RESPONSE_FILE_PATH'], "failures_report.md")
 
