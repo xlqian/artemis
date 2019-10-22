@@ -18,7 +18,7 @@ import re
 import jsonpath_rw as jp
 import functools
 import inspect
-
+from six import iteritems
 
 ARTEMIS_CUSTOM_ID = '__artemis_id__'
 
@@ -375,7 +375,7 @@ def is_subset(obj1, obj2, current_path=None):
         return
 
     if type(obj1) is dict and type(obj2) is dict:
-        for k, v in obj1.iteritems():
+        for k, v in iteritems(obj1):
             assert k in obj2, u"'{k}' not in {obj2} in path {p}".format(k=k, obj2=obj2, p=current_path)
 
             v2 = obj2[k]
