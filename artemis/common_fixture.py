@@ -20,13 +20,17 @@ def truncate_tables(cursor, table_names_string):
 # the time cost is around 1.3s on artemis platform
 def clean_kirin_db():
     logger.info("cleaning kirin database")
-    conn = psycopg2.connect(config['KIRIN_DB'])
+    conn = psycopg2.connect(config["KIRIN_DB"])
     try:
         cur = conn.cursor()
-        cur.execute("SELECT relname FROM pg_stat_user_tables WHERE relname != 'alembic_version';")
+        cur.execute(
+            "SELECT relname FROM pg_stat_user_tables WHERE relname != 'alembic_version';"
+        )
         tables = cur.fetchall()
 
-        truncate_tables(cur, ', '.join(e[0] for e in tables if e[0] not in ("layer", "topology")))
+        truncate_tables(
+            cur, ", ".join(e[0] for e in tables if e[0] not in ("layer", "topology"))
+        )
 
         conn.commit()
 
@@ -40,7 +44,7 @@ def clean_kirin_db():
         )
         conn.commit()
         logger.debug("kirin db purge done")
-    except:
+    except Exception:
         logger.exception("problem with kirin db")
         conn.close()
         assert False, "problem while cleaning kirin db"
@@ -48,8 +52,6 @@ def clean_kirin_db():
 
 
 class CommonTestFixture(object):
-
-
     def get_dataset_name(self):
         mro = inspect.getmro(self.__class__)
         return "Test{}".format(mro[1].__name__)
@@ -71,27 +73,29 @@ class CommonTestFixture(object):
 
         if self.nb_call_to_request_compare <= 1:
             return func_name
-        else :
+        else:
             assert self.nb_call_to_request_compare > 1
             return "{}_{}".format(func_name, self.nb_call_to_request_compare - 1)
 
     def get_test_name(self):
-        path = os.path.join(self.get_reference_suffix_path(),
-                            self.get_reference_filename_prefix())
+        path = os.path.join(
+            self.get_reference_suffix_path(), self.get_reference_filename_prefix()
+        )
         return str(path)
 
- 
     def get_reference_file_path(self):
         filename = "{}.json".format(self.get_reference_filename_prefix())
-        return os.path.join(config['REFERENCE_FILE_PATH']
-                            , self.get_reference_suffix_path()
-                            , filename )
+        return os.path.join(
+            config["REFERENCE_FILE_PATH"], self.get_reference_suffix_path(), filename
+        )
 
     @staticmethod
     def _send_cots(cots_file_name):
-        r = requests.post(config['KIRIN_API'] + '/cots',
-                          data=utils.get_rt_data(cots_file_name).encode('UTF-8'),
-                          headers={'Content-Type': 'application/json;charset=utf-8'})
+        r = requests.post(
+            config["KIRIN_API"] + "/cots",
+            data=utils.get_rt_data(cots_file_name).encode("UTF-8"),
+            headers={"Content-Type": "application/json;charset=utf-8"},
+        )
         r.raise_for_status()
 
     def send_and_wait(self, rt_file_name):

@@ -1,6 +1,6 @@
 default_values = {
-    "scenario": 'new_default',
-    "journey_order": 'arrival_time',
+    "scenario": "new_default",
+    "journey_order": "arrival_time",
     "bike_speed": 4.1,
     "bss_speed": 4.1,
     "car_speed": 11.11,
@@ -26,7 +26,13 @@ default_values = {
     "max_extra_second_pass": 0,
     "min_journeys_calls": 1,
     "min_nb_journeys": 0,
-    "max_nb_crowfly_by_mode": {"bss": 5000, "car": 5000, "bike": 5000, "taxi": 5000, "walking": 5000},
+    "max_nb_crowfly_by_mode": {
+        "bss": 5000,
+        "car": 5000,
+        "bike": 5000,
+        "taxi": 5000,
+        "walking": 5000,
+    },
     "additional_time_after_first_section_taxi": 300,
     "additional_time_before_last_section_taxi": 300,
     "taxi_speed": 11.11,

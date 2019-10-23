@@ -20,9 +20,9 @@ import functools
 import inspect
 from six import iteritems
 
-ARTEMIS_CUSTOM_ID = '__artemis_id__'
+ARTEMIS_CUSTOM_ID = "__artemis_id__"
 
-_api_current_root_point = config['URL_JORMUN'] + '/v1/'
+_api_current_root_point = config["URL_JORMUN"] + "/v1/"
 
 
 class RetryError(Exception):
@@ -34,17 +34,17 @@ def is_retry_exception(exception):
 
 
 def instance_data_path(dataset):
-    p = config['DATASET_PATH_LAYOUT']
+    p = config["DATASET_PATH_LAYOUT"]
     return p.format(dataset=dataset)
 
 
 def nav_path(dataset):
-    p = config['NAV_FILE_PATH_LAYOUT']
+    p = config["NAV_FILE_PATH_LAYOUT"]
     return p.format(dataset=dataset)
 
 
 def new_fusio_files_path(dataset):
-    p = config['NEW_FUSIO_FILE_PATH_LAYOUT']
+    p = config["NEW_FUSIO_FILE_PATH_LAYOUT"]
     return p.format(dataset=dataset.upper())
 
 
@@ -71,15 +71,19 @@ def get_ref(call_id):
     It would thus be possible to execute the tests on a dev computer and access the ref
     on the CI platform
     """
-    assert os.path.exists(config['REFERENCE_FILE_PATH']), \
-        "no reference directory found: {} does not exists".format(config['REFERENCE_FILE_PATH'])
+    assert os.path.exists(
+        config["REFERENCE_FILE_PATH"]
+    ), "no reference directory found: {} does not exists".format(
+        config["REFERENCE_FILE_PATH"]
+    )
 
-    ref_filename = os.path.join(config['REFERENCE_FILE_PATH'], call_id)
+    ref_filename = os.path.join(config["REFERENCE_FILE_PATH"], call_id)
 
-    assert os.path.isfile(ref_filename), \
-        "No reference available for query {}, we can't test anything".format(call_id)
+    assert os.path.isfile(
+        ref_filename
+    ), "No reference available for query {}, we can't test anything".format(call_id)
 
-    _file = open(ref_filename, 'r')
+    _file = open(ref_filename, "r")
 
     dict_response = json.load(_file)
 
@@ -88,12 +92,12 @@ def get_ref(call_id):
 
 def get_ref_full_response(call_id):
     all_ref_dict = get_ref(call_id)
-    return all_ref_dict['full_response']
+    return all_ref_dict["full_response"]
 
 
 def get_ref_short_response(call_id):
     all_ref_dict = get_ref(call_id)
-    return all_ref_dict['response']
+    return all_ref_dict["response"]
 
 
 def compare_with_ref(resp, call_id, checker):
@@ -104,7 +108,7 @@ def compare_with_ref(resp, call_id, checker):
     """
     ref_full_response = get_ref_full_response(call_id)
 
-    #we filter again the reference with the mask to have less
+    # we filter again the reference with the mask to have less
     # differences when the output or the mask change
     ref = checker.filter(ref_full_response)
 
@@ -126,21 +130,27 @@ def check_reference_consistency(call_id, checker):
         checker.compare(ref, short_ref)
     except Exception as e:
         is_ok = False
-        print # cleaner output
-        logging.getLogger(__name__).error('File {}, "response" and "full_response" decorrelated: {}'.format(call_id, e))
+        print  # cleaner output
+        logging.getLogger(__name__).error(
+            'File {}, "response" and "full_response" decorrelated: {}'.format(
+                call_id, e
+            )
+        )
     try:
         checker.compare(short_ref, ref)
     except Exception as e:
         is_ok = False
-        print # cleaner output
-        logging.getLogger(__name__).warning('File {}, "response" maybe outdated considering "full_response" '
-                                            '(artemis checks more values than before?): {}'.format(call_id, e))
+        print  # cleaner output
+        logging.getLogger(__name__).warning(
+            'File {}, "response" maybe outdated considering "full_response" '
+            "(artemis checks more values than before?): {}".format(call_id, e)
+        )
 
     return is_ok
 
 
 def launch_exec_background(exec_name, args):
-    logging.getLogger(__name__).debug('Launching ' + exec_name + ' ' + ' '.join(args))
+    logging.getLogger(__name__).debug("Launching " + exec_name + " " + " ".join(args))
     args.insert(0, exec_name)
     proc = subprocess.Popen(args)
 
@@ -178,7 +188,7 @@ def get_rt_data(name):
     :param name: real-time feed file (located in tests/fixtures)
     :return: real-time feed input as string
     """
-    _file = os.path.join(os.path.dirname(__file__), 'tests', 'fixtures', name)
+    _file = os.path.join(os.path.dirname(__file__), "tests", "fixtures", name)
     with open(_file, "r") as ire:
         return ire.read()
 
@@ -206,6 +216,7 @@ class BlackListMask(object):
     >>> print bl.filter(bobette).get('titi')
     [{'a': -1, 'b': 1}, {'a': 1}]
     """
+
     def __init__(self, masks=[]):
         self.masks = masks
 
@@ -245,12 +256,13 @@ def comparator(compare_generator):
         by setting it to object(), we ensure that it will be !=
         from any values returned by the other generator
         """
-        for a, b in itertools.izip_longest(compare_generator(obj1),
-                                           compare_generator(obj2),
-                                           fillvalue=object()):
+        for a, b in itertools.izip_longest(
+            compare_generator(obj1), compare_generator(obj2), fillvalue=object()
+        ):
             if a != b:
                 return -1 if a < b else 1
         return 0
+
     return compare
 
 
@@ -265,7 +277,7 @@ def sort_all_list_dict(response):
         if not isinstance(elt, collections.Iterable):
             yield elt
         else:
-            to_check = [ARTEMIS_CUSTOM_ID, 'uri', 'id', 'label', 'name', 'href']
+            to_check = [ARTEMIS_CUSTOM_ID, "uri", "id", "label", "name", "href"]
             for field in to_check:
                 if field in elt:
                     yield elt[field]
@@ -277,7 +289,7 @@ def sort_all_list_dict(response):
                 elt.sort(cmp=comparator(magic_sort))
             for val in elt:
                 queue.append(val)
-        elif hasattr(elt, 'iteritems'):
+        elif hasattr(elt, "iteritems"):
             for k, v in elt.iteritems():
                 queue.append((k, v))
         elif first:  # for the first elt, we add it even if it is no collection
@@ -371,24 +383,29 @@ def is_subset(obj1, obj2, current_path=None):
     current_path = current_path or []
     if type(obj1) is list and type(obj2) is list:
         for idx, (s1, s2) in enumerate(zip(obj1, obj2)):
-            is_subset(s1, s2, current_path=current_path[:] + ['[{}]'.format(idx)])
+            is_subset(s1, s2, current_path=current_path[:] + ["[{}]".format(idx)])
         return
 
     if type(obj1) is dict and type(obj2) is dict:
         for k, v in iteritems(obj1):
-            assert k in obj2, u"'{k}' not in {obj2} in path {p}".format(k=k, obj2=obj2, p=current_path)
+            assert k in obj2, u"'{k}' not in {obj2} in path {p}".format(
+                k=k, obj2=obj2, p=current_path
+            )
 
             v2 = obj2[k]
             is_subset(v, v2, current_path=current_path[:] + [k])
         return
 
-    assert obj1 == obj2, u"'{elt1}' != '{elt2}' in path {p}".format(elt1=obj1, elt2=obj2, p=current_path)
+    assert obj1 == obj2, u"'{elt1}' != '{elt2}' in path {p}".format(
+        elt1=obj1, elt2=obj2, p=current_path
+    )
 
 
 class PerfectComparator(object):
     """
     Classic comparator, all dict must be perfectly equals
     """
+
     @staticmethod
     def compare(response, ref):
         return check_equals(response, ref)
@@ -400,6 +417,7 @@ class SubsetComparator(object):
 
     It tests that the api is always retro compatible (there can be more stuff, but never less)
     """
+
     @staticmethod
     def compare(response, ref):
         return is_subset(ref, response)
@@ -417,6 +435,7 @@ class Checker(object):
     - one to filter the navitia response
     - one to compare the filtered response
     """
+
     def __init__(self, filters, comparator=PerfectComparator()):
         self._filters = filters
         self._comparator = comparator
@@ -439,7 +458,7 @@ def launch_exec(cmd, additional_args=[], additional_env=None):
     the process can be used for example to kill the process later
     """
     logger = logging.getLogger(__name__)
-    logger.debug('Launching ' + cmd + ' '.join(additional_args))
+    logger.debug("Launching " + cmd + " ".join(additional_args))
 
     fdr, fdw = os.pipe()
     new_env = os.environ.copy()
@@ -447,10 +466,11 @@ def launch_exec(cmd, additional_args=[], additional_env=None):
         for k, v in additional_env.iteritems():
             new_env[k] = v
     try:
-        splited = cmd.split(' ')
+        splited = cmd.split(" ")
         splited.extend(additional_args)
-        proc = subprocess.Popen(splited, stderr=fdw,
-                         stdout=fdw, close_fds=True, env=new_env)
+        proc = subprocess.Popen(
+            splited, stderr=fdw, stdout=fdw, close_fds=True, env=new_env
+        )
         poller = select.poll()
         poller.register(fdr)
         while True:
@@ -471,13 +491,16 @@ class StopScheduleIDGenerator(object):
     """
     For stopschedule, we need to generate a custom stop schedule ID to be able to sort them for the comparison
     """
+
     def filter(self, response):
-        for stop_schedule in response.get('stop_schedules', []):
-            stop_schedule[ARTEMIS_CUSTOM_ID] = "{s}__**__{r}".\
-                format(s=stop_schedule.get('stop_point', {}).get('id'),
-                       r=stop_schedule.get('route', {}).get('id'))
+        for stop_schedule in response.get("stop_schedules", []):
+            stop_schedule[ARTEMIS_CUSTOM_ID] = "{s}__**__{r}".format(
+                s=stop_schedule.get("stop_point", {}).get("id"),
+                r=stop_schedule.get("route", {}).get("id"),
+            )
 
         return response
+
 
 # regexp used to identify a test method (simplified version of nose)
 _test_method_regexp = re.compile("^(test_.*|.*_test)$")
