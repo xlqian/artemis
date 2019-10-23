@@ -2,13 +2,10 @@ import ujson as json
 import jsondiff
 import os
 from artemis.configuration_manager import config
-import logging
 import urllib.parse
 
 
 def journeys_diff(ref_dict, resp_dict):
-    log = logging.getLogger(__name__)
-
     ref_journeys = ref_dict.get("journeys", [])
     resp_journeys = resp_dict.get("journeys", [])
 

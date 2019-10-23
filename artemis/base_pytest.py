@@ -6,7 +6,7 @@ import sys
 import six
 import pytest
 import logging
-from collections import Counter, OrderedDict
+from collections import OrderedDict
 import docker
 import tarfile
 import zipfile
@@ -19,7 +19,7 @@ from artemis.instance_default_values import default_values
 if six.PY3:  # case using python 3
     from enum import Enum
 
-if six.PY2:  # case using python 2
+elif six.PY2:  # case using python 2
     from aenum import Enum
 
 
@@ -454,7 +454,7 @@ class ArtemisTestFixture(CommonTestFixture):
         # Filtering the answer. (We compare to a reference also filtered with the same filter)
         filtered_response = response_checker.filter(resp_dict)
 
-        ### Get the reference
+        # Get the reference
         reference_filepath = self.get_reference_file_path()
 
         assert os.path.isfile(reference_filepath), "{} is not a file".format(
@@ -473,7 +473,7 @@ class ArtemisTestFixture(CommonTestFixture):
         # Filtering the reference
         filtered_reference = response_checker.filter(reference_full_response)
 
-        ### Compare response and reference
+        # Compare response and reference
         try:
             response_checker.compare(filtered_response, filtered_reference)
         except AssertionError as e:

@@ -10,8 +10,6 @@ from artemis.configuration_manager import config
 import requests
 from retrying import retry
 import ujson as json
-import os
-import six
 
 
 def pytest_addoption(parser):
