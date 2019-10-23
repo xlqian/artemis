@@ -110,3 +110,12 @@ class TestParisAndLyon(ArtemisTestFixture):
         # --> this test will be checked against the reference as the first call
 
 ````
+Contributing
+============
+
+Artemis provides a few git hooks that you should use to prevent any issues and have a consistent code formatting. These hooks are managed by pre-commit and need to be installed with:\
+`pre-commit install`
+
+Once installed, all pre-commits from the file [.pre-commit-config.yaml](https://github.com/CanalTP/artemis/blob/master/.pre-commit-config.yaml) will be run on the staged files to commit.
+
+You can manually run all pre-commit hooks with `pre-commit run --all-files` or you can run a specific hook with `pre-commit run <hook_id>`.
