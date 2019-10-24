@@ -41,3 +41,7 @@ aka ArtemisNG has been designed to run tests using docker-compose, in order to b
       If a reference file for a test already exists, the test will fail and no reference will be created.
     - Of course, every pytest invocation arguments can also be used on this command.\
       *Ex: if you want to run a specific test (or a tests class for a coverage)*`-k <tests_to_run>`
+
+## Contributing
+
+Old or New, pre-commits are always nice to have.Please refer to this [section](https://github.com/CanalTP/artemis#contributing) for more info.
