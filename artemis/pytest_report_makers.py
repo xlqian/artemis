@@ -16,7 +16,7 @@ def journeys_diff(ref_dict, resp_dict):
     elif ref_journeys and not resp_journeys:
         diff = {jsondiff.symbols.delete: [[i, j] for i, j in enumerate(ref_journeys)]}
     else:
-        diff = jsondiff.diff(ref_journeys, resp_journeys, syntax='symmetric')
+        diff = jsondiff.diff(ref_journeys, resp_journeys, syntax="symmetric")
 
     updated_nb = sum(str(k).isdigit() for k in diff.keys())
 

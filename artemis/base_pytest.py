@@ -95,6 +95,7 @@ class ArtemisTestFixture(CommonTestFixture):
         status_dict = json.loads(r.text)
         assert len(status_dict) == 1
         assert status_dict[0]["name"] == data_set
+
         # Send request to update values
         r = requests.put(
             instance_url,
