@@ -9,13 +9,12 @@ def journeys_diff(ref_dict, resp_dict):
     ref_journeys = ref_dict.get("journeys", [])
     resp_journeys = resp_dict.get("journeys", [])
 
-    if not all((ref_journeys, resp_journeys)):
-        # in case where ref_journey/resp_journey is empty, the diff becomes a list, here we build the diff ourselves
-        diff = {
-            jsondiff.symbols.insert
-            if not ref_journeys
-            else jsondiff.symbols.delete: [[i, j] for i, j in enumerate(resp_journeys)]
-        }
+    if not ref_journeys and not resp_journeys:
+        diff = {}
+    elif not ref_journeys and resp_journeys:
+        diff = {jsondiff.symbols.insert: [[i, j] for i, j in enumerate(resp_journeys)]}
+    elif ref_journeys and not resp_journeys:
+        diff = {jsondiff.symbols.delete: [[i, j] for i, j in enumerate(ref_journeys)]}
     else:
         diff = jsondiff.diff(ref_journeys, resp_journeys, syntax="symmetric")
 

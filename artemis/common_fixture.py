@@ -39,8 +39,8 @@ def clean_kirin_db():
             "'feed_url_to_be_modified','gtfs-rt'"
         )
         cur.execute(
-            "INSERT INTO contributor SELECT 'realtime.cots','sncf','token_to_be_modified',"
-            "'feed_url_to_be_modified','cots'"
+            "INSERT INTO contributor SELECT 'realtime.cots','guichet-unique','token_to_be_modified',"
+            "'N/A','cots'"
         )
         conn.commit()
         logger.debug("kirin db purge done")
