@@ -60,7 +60,6 @@ ticket = {
     "comment": fields.Raw,
     "name": fields.Raw,
     "cost": fields.Nested(cost),
-    "links": fields.List(fields.Nested(link)),
     "found": fields.Raw,
     "id": fields.Raw,
     "source_id": fields.Raw,
@@ -72,7 +71,7 @@ default_journey_checker = Checker(
             mask={
                 "journeys": fields.List(fields.Nested(journey)),
                 "error": fields.Nested(error),
-		"tickets": fields.List(fields.Nested(ticket)),
+                "tickets": fields.List(fields.Nested(ticket)),
             }
         )
     ]
