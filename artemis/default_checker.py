@@ -61,7 +61,6 @@ ticket = {
     "name": fields.Raw,
     "cost": fields.Nested(cost),
     "found": fields.Raw,
-    "id": fields.Raw,
     "source_id": fields.Raw,
 }
 
