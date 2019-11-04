@@ -86,15 +86,30 @@ class ArtemisTestFixture(CommonTestFixture):
         """
         Update db with default values from migrations
         """
-        # Check that instance is in db
+        # wait 1 min for Tyr task to update coverage
+        @retry(
+            stop_max_delay=60000,
+            wait_fixed=500,
+            retry_on_exception=utils.is_retry_exception,
+        )
+        def wait_for_tyr_instance_scan(instance_name):
+            instances_url = "{base_url}/v0/instances/".format(
+                base_url=config["URL_TYR"]
+            )
+            instances_request = requests.get(instances_url)
+            instances_request.raise_for_status()
+            if instance_name not in [
+                instance["name"] for instance in json.loads(instances_request.text)
+            ]:
+                raise utils.RetryError(
+                    "Instance {} not yet scanned by Tyr".format(instance_name)
+                )
+
+        wait_for_tyr_instance_scan(data_set)
+
         instance_url = "{base_url}/v0/instances/{instance}".format(
             base_url=config["URL_TYR"], instance=data_set
         )
-        r = requests.get(instance_url)
-        r.raise_for_status()
-        status_dict = json.loads(r.text)
-        assert len(status_dict) == 1
-        assert status_dict[0]["name"] == data_set
 
         # Send request to update values
         r = requests.put(

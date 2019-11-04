@@ -24,17 +24,11 @@ def get_compose_containers_list():
 
 
 @retry(stop_max_delay=3000000, wait_fixed=2000)
-def wait_for_jormun():
-    query = config["URL_JORMUN"] + "/v1/status"
-    response = requests.get(query)
-    if response.status_code == 200:
-        print(" -> JORMUN Responding")
-    else:
-        raise Exception("JORMUN NOT Responding")
-
-
-@retry(stop_max_delay=3000000, wait_fixed=2000)
 def wait_for_cities_db():
+    """
+    When initializing docker-compose containers, cities db is the last step in instance configuration
+    :return: when cities db is upgraded and reachable
+    """
     print("Wait for cities db upgrade...")
     query = config["URL_TYR"] + "/v0/cities/status"
     response = requests.get(query)
@@ -44,10 +38,39 @@ def wait_for_cities_db():
         print(" -> Cities Responding")
 
 
+@retry(stop_max_delay=3000000, wait_fixed=2000)
+def wait_for_instance_configuration():
+    """
+    When creating a new coverage with a Kraken, the 'instance_configurator' container is recreated and executed again to create the new instance in db
+    :return: when the instance is configured
+    """
+    print("Wait_for_instance_configuration")
+
+    @retry(stop_max_delay=2000000, wait_fixed=2000)
+    def wait_for_instance_configuration_status(status):
+        docker_list = get_compose_containers_list()
+        instance_config_container = next(
+            (x for x in docker_list if "instances_configurator" in x.name), None
+        )
+        if instance_config_container:
+            if instance_config_container.status != status:
+                raise Exception(
+                    "instances_configurator status: {actual} - Expected: {expected}".format(
+                        actual=instance_config_container.status, expected=status
+                    )
+                )
+        else:
+            print("No 'instances_configurator' container found")
+
+    wait_for_instance_configuration_status("running")
+    wait_for_instance_configuration_status("exited")
+
+    print("instance_configuration DONE!!!")
+
+
 # Unused for now!
 @retry(stop_max_delay=3000000, wait_fixed=2000)
 def wait_for_cities_job_completion():
-
     print("Wait for cities job completion...")
     query = config["URL_TYR"] + "/v0/cities/status"
     response = requests.get(query)
@@ -65,6 +88,10 @@ def wait_for_cities_job_completion():
 
 @retry(stop_max_delay=3000000, wait_fixed=2000)
 def wait_for_kraken_stop(kraken_name):
+    """
+    :param kraken_name: The name of the Kraken running for a specific coverage
+    :return: when the Kraken container is stopped
+    """
     docker_list = get_compose_containers_list()
     kraken_container = next((x for x in docker_list if kraken_name in x.name), None)
     if kraken_container:
@@ -81,6 +108,10 @@ def wait_for_kraken_stop(kraken_name):
 
 
 def wait_for_docker_removal(kraken_name):
+    """
+    :param kraken_name: The name of the Kraken running for a specific coverage
+    :return: when the Kraken container is removed
+    """
     print("Waiting to stop and remove {}".format(kraken_name))
 
     @retry(stop_max_delay=3000000, wait_fixed=2000)
@@ -169,11 +200,12 @@ def launch_coverages(coverages):
             )
             print("Run : {}".format(upInstanceCommand))
             subprocess.Popen(upInstanceCommand, shell=True)
-            # Wait for the containers to be ready
-            wait_for_jormun()
 
-            test_class = instance[instance_name]["test_class"]
+            # Wait for the containers to be ready
+            wait_for_instance_configuration()
+
             # Run pytest
+            test_class = instance[instance_name]["test_class"]
             pytest_cmd = test_path + " -k " + test_class
 
             print(
