@@ -56,8 +56,8 @@ def set_scenario(config):
                     cls.data_sets.append(
                         DataSet(
                             name=dataset.name,
-                            reload_timeout=datetime.timedelta(minutes=2),
-                            fixed_wait=datetime.timedelta(seconds=1),
+                            reload_timeout=dataset.reload_timeout,
+                            fixed_wait=dataset.fixed_wait,
                             scenario=dataset.scenario,
                         )
                     )
