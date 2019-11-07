@@ -10,7 +10,6 @@ from retrying import Retrying, retry, RetryError
 from artemis import default_checker
 from artemis import utils
 from artemis.configuration_manager import config
-import datetime
 from artemis.common_fixture import CommonTestFixture, truncate_tables
 
 _tyr = config["TYR_DIR"] + "/manage.py"
@@ -18,57 +17,6 @@ _tyr_config_file = config["TYR_DIR"] + "/settings.py"
 
 # to limit the permissions of the jenkins user on the artemis platform, we create a proxy for all kraken services
 _kraken_wrapper = "/usr/local/bin/kraken_service_wrapper"
-
-
-def dir_path(dataset):
-    p = config["DATASET_PATH_LAYOUT"]
-    return p.format(dataset=dataset)
-
-
-def nav_path(dataset):
-    p = config["NAV_FILE_PATH_LAYOUT"]
-    return p.format(dataset=dataset)
-
-
-class DataSet(object):
-    def __init__(
-        self,
-        name,
-        reload_timeout=datetime.timedelta(minutes=2),
-        fixed_wait=datetime.timedelta(seconds=1),
-        scenario="default",
-    ):
-        self.name = name
-        self.scenario = scenario
-        self.reload_timeout = reload_timeout
-        self.fixed_wait = fixed_wait
-
-    def __str__(self):
-        return self.name
-
-
-def set_scenario(config):
-    def deco(cls):
-        cls.data_sets = []
-        for c in cls.__bases__:
-            if hasattr(c, "data_sets"):
-                for dataset in c.data_sets:
-                    cls.data_sets.append(
-                        DataSet(
-                            name=dataset.name,
-                            reload_timeout=dataset.reload_timeout,
-                            fixed_wait=dataset.fixed_wait,
-                            scenario=dataset.scenario,
-                        )
-                    )
-        if config:
-            for dataset in cls.data_sets:
-                conf = config.get(dataset.name, None)
-                if conf:
-                    dataset.scenario = conf.get("scenario", "default")
-        return cls
-
-    return deco
 
 
 def kraken_status(data_set):
@@ -513,17 +461,3 @@ class ArtemisTestFixture(CommonTestFixture):
     def call_autocomplete(self, place):
         # TODO!
         pass
-
-
-def dataset(datasets):
-    """
-    decorator giving class attribute 'data_sets'
-
-    each test should have this decorator to make clear the data set used for the tests
-    """
-
-    def deco(cls):
-        cls.data_sets = datasets
-        return cls
-
-    return deco

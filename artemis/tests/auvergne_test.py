@@ -1,4 +1,4 @@
-from artemis.test_mechanism import dataset, DataSet, set_scenario
+from artemis.common_fixture import dataset, DataSet, set_scenario
 from artemis.tests.fixture import ArtemisTestFixture
 import pytest
 
@@ -279,7 +279,6 @@ class Auvergne(object):
             direct_path_mode=["bike"],
         )
 
-
     def test_direct_path_with_non_default_speed(self):
         """
         Here we test the direct_path by bike with a non default bike_speed
@@ -290,10 +289,10 @@ class Auvergne(object):
             "_from": "3.08390;45.88953",
             "to": "3.13801;45.91932",
             "datetime": "20160118T120300",
-            "first_section_mode": ['bike'],
+            "first_section_mode": ["bike"],
             "direct_path_mode": ["bike"],
             "direct_path": "only",
-            "bike_speed": 1
+            "bike_speed": 1,
         }
         if isinstance(self, TestAuvergneNewDefault):
             # we want to have this direct_path with new_default

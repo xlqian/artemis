@@ -1,4 +1,4 @@
-from artemis.test_mechanism import dataset, DataSet, set_scenario
+from artemis.common_fixture import dataset, DataSet, set_scenario
 from artemis.tests.fixture import ArtemisTestFixture
 
 

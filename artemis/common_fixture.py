@@ -3,6 +3,7 @@ import inspect
 import psycopg2
 import requests
 import os
+import datetime
 
 import artemis.utils as utils
 
@@ -112,3 +113,57 @@ class CommonTestFixture(object):
         last_rt_data_loaded = self.get_last_rt_loaded_time(coverage)
         self._send_cots(rt_file_name)
         self.wait_for_rt_reload(last_rt_data_loaded, coverage)
+
+
+class DataSet(object):
+    def __init__(
+        self,
+        name,
+        reload_timeout=datetime.timedelta(minutes=2),
+        fixed_wait=datetime.timedelta(seconds=1),
+        scenario="default",
+    ):
+        self.name = name
+        self.scenario = scenario
+        self.reload_timeout = reload_timeout
+        self.fixed_wait = fixed_wait
+
+    def __str__(self):
+        return self.name
+
+
+def dataset(datasets):
+    """
+    decorator giving class attribute 'data_sets'
+    each test should have this decorator to make clear the data set used for the tests
+    """
+
+    def deco(cls):
+        cls.data_sets = datasets
+        return cls
+
+    return deco
+
+
+def set_scenario(config):
+    def deco(cls):
+        cls.data_sets = []
+        for c in cls.__bases__:
+            if hasattr(c, "data_sets"):
+                for data_set in c.data_sets:
+                    cls.data_sets.append(
+                        DataSet(
+                            name=data_set.name,
+                            reload_timeout=data_set.reload_timeout,
+                            fixed_wait=data_set.fixed_wait,
+                            scenario=data_set.scenario,
+                        )
+                    )
+        if config:
+            for dataset in cls.data_sets:
+                conf = config.get(dataset.name, None)
+                if conf:
+                    dataset.scenario = conf.get("scenario", "default")
+        return cls
+
+    return deco
