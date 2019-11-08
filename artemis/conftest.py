@@ -50,7 +50,7 @@ def load_cities(request):
 
     @retry(
         stop_max_delay=300000,
-        wait_fixed=500,
+        wait_fixed=1000,
         retry_on_exception=utils.is_retry_exception,
     )
     def wait_for_cities_completion():
