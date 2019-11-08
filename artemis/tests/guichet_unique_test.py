@@ -1,5 +1,4 @@
-from artemis.common_fixture import clean_kirin_db
-from artemis.test_mechanism import dataset, DataSet, set_scenario
+from artemis.common_fixture import clean_kirin_db, dataset, DataSet, set_scenario
 from artemis.tests.fixture import ArtemisTestFixture
 import pytest
 
