@@ -163,9 +163,6 @@ def filter_dict(response, mask):
     """
     if not mask:
         return response  # without mask we do not filter
-    # We should sort tickets here
-    if response.get("tickets", None):
-        response["tickets"].sort()
     return flask_restful.marshal(response, mask)
 
 
@@ -201,7 +198,11 @@ class WhiteListMask(object):
         self.mask = mask
 
     def filter(self, response):
-        return filter_dict(response, self.mask)
+        resp = filter_dict(response, self.mask)
+        # We should sort tickets here
+        if resp.get("tickets", None):
+            resp["tickets"].sort()
+        return resp
 
 
 class BlackListMask(object):
