@@ -293,7 +293,6 @@ class ArtemisTestFixture(CommonTestFixture):
                 jobs_type_to_process.append(job_type)
 
         for type in jobs_type_to_process:
-            logger.info("MBO: Wait for job ")
             wait_for_job_completion(type, current_utc_datetime)
 
         # Wait until data is reloaded
