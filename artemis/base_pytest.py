@@ -281,7 +281,6 @@ class ArtemisTestFixture(CommonTestFixture):
         data_to_process = [
             ("fusio", "fusio", ".txt", True),
             ("osm", "osm", ".pbf", False),
-            ("poi", "poi", ".txt", True),
             ("fusio-poi", "poi", ".txt", True),
             ("geopal", "geopal", ".txt", True),
             ("fusio-geopal", "geopal", ".txt", True),
