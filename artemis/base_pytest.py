@@ -174,7 +174,7 @@ class ArtemisTestFixture(CommonTestFixture):
             """
             Wait until the data passed to Tyr is processed by checking the associated job status
             :param data_type: Type of data passed to Tyr
-            :param time_limit: Time limit from when the job could have been created
+            :param time_limit: UTC time from when the job could have been created. Allows to exclude jobs from previous bina
             :return: When job is "done"
             """
             instance_jobs_url = "{base_url}/v0/jobs/{instance}".format(
@@ -242,7 +242,6 @@ class ArtemisTestFixture(CommonTestFixture):
         last_reload_time = get_last_coverage_loaded_time(cov=data_set.name)
 
         def put_data(data_type, file_suffix, zipped):
-            process_data = False
             path = "{}/{}/{}".format(data_path, data_set.name, data_type)
             zip_file = "{}/{}_{}.zip".format(path, data_set.name, data_type)
 
@@ -268,11 +267,11 @@ class ArtemisTestFixture(CommonTestFixture):
                 # send the tar to the volume
                 with open("./{}.tar".format(data_type), "rb") as f:
                     containers[0].put_archive(input_path, f.read())
-                    process_data = True
+                    return True
             else:
                 logger.warning("{} path does not exist : {}".format(data_type, path))
 
-            return process_data
+            return False
 
         # Get current datetime to check jobs created from now
         current_utc_datetime = datetime.datetime.utcnow()
@@ -291,8 +290,8 @@ class ArtemisTestFixture(CommonTestFixture):
             if put_data(data_type, file_ext, is_zipped):
                 jobs_type_to_process.append(job_type)
 
-        for type in jobs_type_to_process:
-            wait_for_job_completion(type, current_utc_datetime)
+        for job_type in jobs_type_to_process:
+            wait_for_job_completion(job_type, current_utc_datetime)
 
         # Wait until data is reloaded
         wait_for_kraken_reload(last_reload_time, data_set.name)
