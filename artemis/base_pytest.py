@@ -189,15 +189,15 @@ class ArtemisTestFixture(CommonTestFixture):
                 )
                 if job_creation > time_limit:
                     if data_type in [dataset["type"] for dataset in job["data_sets"]]:
-                        if job["state"] == "running":
-                            raise utils.RetryError(
-                                "Job with dataset '{}' still running...".format(
-                                    data_type
-                                )
-                            )
-                        elif job["state"] == "done":
+                        if job["state"] == "done":
                             logger.info("Job with dataset '{}' done!".format(data_type))
                             return
+                        elif job["state"] != "failed":
+                            raise utils.RetryError(
+                                "Job with dataset '{type}' still in process ({state})".format(
+                                    type=data_type, state=job["state"]
+                                )
+                            )
                         else:
                             raise Exception(
                                 "Job with dataset '{type}' in state '{state}'".format(
