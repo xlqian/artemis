@@ -10,6 +10,7 @@ from collections import OrderedDict
 import docker
 import tarfile
 import zipfile
+import datetime
 from retrying import retry
 from artemis import default_checker, utils
 from artemis.configuration_manager import config
@@ -164,7 +165,50 @@ class ArtemisTestFixture(CommonTestFixture):
             _response, _, _ = utils.request("coverage/{cov}/status".format(cov=cov))
             return _response.get("status", {}).get("last_load_at", "")
 
-        # wait 5 min at most
+        @retry(
+            stop_max_delay=data_set.reload_timeout.total_seconds() * 1000,
+            wait_fixed=data_set.fixed_wait.total_seconds() * 1000,
+            retry_on_exception=utils.is_retry_exception,
+        )
+        def wait_for_job_completion(data_type, time_limit):
+            """
+            Wait until the data passed to Tyr is processed by checking the associated job status
+            :param data_type: Type of data passed to Tyr
+            :param time_limit: UTC time from when the job could have been created. Allows to exclude jobs from previous bina
+            :return: When job is "done"
+            """
+            instance_jobs_url = "{base_url}/v0/jobs/{instance}".format(
+                base_url=config["URL_TYR"], instance=data_set
+            )
+            r = requests.get(instance_jobs_url)
+            r.raise_for_status()
+            jobs_resp = json.loads(r.text)["jobs"]
+            for job in jobs_resp:
+                job_creation = datetime.datetime.strptime(
+                    job["created_at"], "%Y-%m-%dT%H:%M:%S.%f"
+                )
+                if job_creation > time_limit:
+                    if data_type in [dataset["type"] for dataset in job["data_sets"]]:
+                        if job["state"] == "done":
+                            logger.info("Job with dataset '{}' done!".format(data_type))
+                            return
+                        elif job["state"] != "failed":
+                            raise utils.RetryError(
+                                "Job with dataset '{type}' still in process ({state})".format(
+                                    type=data_type, state=job["state"]
+                                )
+                            )
+                        else:
+                            raise Exception(
+                                "Job with dataset '{type}' in state '{state}'".format(
+                                    type=data_type, state=job["state"]
+                                )
+                            )
+            raise utils.RetryError(
+                "Job with dataset '{}' not yet created ".format(data_type)
+            )
+
+        # Wait 5 min max
         @retry(
             stop_max_delay=300000,
             wait_fixed=500,
@@ -223,22 +267,31 @@ class ArtemisTestFixture(CommonTestFixture):
                 # send the tar to the volume
                 with open("./{}.tar".format(data_type), "rb") as f:
                     containers[0].put_archive(input_path, f.read())
+                    return True
             else:
                 logger.warning("{} path does not exist : {}".format(data_type, path))
 
-        # put the fusio data
-        put_data("fusio", ".txt", zipped=True)
-        # put the osm data
-        put_data("osm", ".pbf", zipped=False)
+            return False
 
-        # put the poi data
-        put_data("poi", ".txt", zipped=True)
-        put_data("fusio-poi", ".txt", zipped=True)
+        # Get current datetime to check jobs created from now
+        current_utc_datetime = datetime.datetime.utcnow()
 
-        # put the geopal data
-        put_data("geopal", ".txt", zipped=True)
-        put_data("fusio-geopal", ".txt", zipped=True)
-        put_data("fusio-address", ".txt", zipped=True)
+        # List of tuples representing (type of data, type of job, files extension, is zipped)
+        data_to_process = [
+            ("fusio", "fusio", ".txt", True),
+            ("osm", "osm", ".pbf", False),
+            ("fusio-poi", "poi", ".txt", True),
+            ("geopal", "geopal", ".txt", True),
+            ("fusio-geopal", "geopal", ".txt", True),
+        ]
+
+        jobs_type_to_process = []
+        for data_type, job_type, file_ext, is_zipped in data_to_process:
+            if put_data(data_type, file_ext, is_zipped):
+                jobs_type_to_process.append(job_type)
+
+        for job_type in jobs_type_to_process:
+            wait_for_job_completion(job_type, current_utc_datetime)
 
         # Wait until data is reloaded
         wait_for_kraken_reload(last_reload_time, data_set.name)
