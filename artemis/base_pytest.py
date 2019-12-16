@@ -271,7 +271,6 @@ class ArtemisTestFixture(CommonTestFixture):
             else:
                 logger.warning("{} path does not exist : {}".format(data_type, path))
 
-
             return False
 
         # Get current datetime to check jobs created from now
