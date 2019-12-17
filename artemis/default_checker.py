@@ -17,6 +17,10 @@ The default behaviour for journeys is to check only a subset journey
 
 the mask create a new dict filtering only the wanted elt
 """
+fare = {
+    "total": fields.Raw(attribute="total.value"),
+    "currency": fields.Raw(attribute="total.currency"),
+}
 
 distances = {"bike": fields.Raw, "car": fields.Raw, "walking": fields.Raw}
 
@@ -45,9 +49,20 @@ journey = {
     "durations": fields.Nested(durations),
     "sections": fields.List(fields.Nested(section)),
     "type": fields.Raw,
+    "fare": fields.Nested(fare),
 }
 
 error = {"id": fields.Raw, "message": fields.Raw}
+
+cost = {"currency": fields.Raw, "value": fields.Raw}
+
+ticket = {
+    "comment": fields.Raw,
+    "name": fields.Raw,
+    "cost": fields.Nested(cost),
+    "found": fields.Raw,
+    "source_id": fields.Raw,
+}
 
 default_journey_checker = Checker(
     filters=[
@@ -55,6 +70,7 @@ default_journey_checker = Checker(
             mask={
                 "journeys": fields.List(fields.Nested(journey)),
                 "error": fields.Nested(error),
+                "tickets": fields.List(fields.Nested(ticket)),
             }
         )
     ]

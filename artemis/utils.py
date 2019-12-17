@@ -163,6 +163,17 @@ def filter_dict(response, mask):
     """
     if not mask:
         return response  # without mask we do not filter
+    # We should sort tickets in full response. Tickets will also be sorted in short response
+    if response.get("tickets", None):
+        response["tickets"].sort(
+            key=lambda k: (
+                k.get("name"),
+                k.get("source_id"),
+                k.get("comment"),
+                k.get("found"),
+                k.get("cost", {}).get("value"),
+            )
+        )
     return flask_restful.marshal(response, mask)
 
 
