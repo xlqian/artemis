@@ -209,10 +209,9 @@ class ArtemisTestFixture(CommonTestFixture):
                 "Job with dataset '{}' not yet created ".format(data_type)
             )
 
-        # Wait 5 min max
         @retry(
-            stop_max_delay=300000,
-            wait_fixed=500,
+            stop_max_delay=data_set.reload_timeout.total_seconds() * 1000,
+            wait_fixed=data_set.fixed_wait.total_seconds() * 1000,
             retry_on_exception=utils.is_retry_exception,
         )
         def wait_for_kraken_reload(last_data_loaded, cov):
@@ -279,7 +278,7 @@ class ArtemisTestFixture(CommonTestFixture):
 
         # List of tuples representing (type of data files, type of dataset, files extension, is zipped)
         data_to_process = [
-            ("fusio", "fusio", ".txt", True),
+            ("fusio", "fusio", (".txt", ".csv"), True),
             ("osm", "osm", ".pbf", False),
             ("fusio-poi", "poi", ".txt", True),
             ("geopal", "geopal", ".txt", True),
