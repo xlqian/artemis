@@ -23,18 +23,18 @@ fare = {
 }
 
 distances = {
-    'bike': fields.Raw,
-    'car': fields.Raw,
-    'walking': fields.Raw,
-    'taxi': fields.Raw
+    "bike": fields.Raw,
+    "car": fields.Raw,
+    "walking": fields.Raw,
+    "taxi": fields.Raw,
 }
 
 durations = {
-    'bike': fields.Raw,
-    'car': fields.Raw,
-    'total': fields.Raw,
-    'walking': fields.Raw,
-    'taxi': fields.Raw
+    "bike": fields.Raw,
+    "car": fields.Raw,
+    "total": fields.Raw,
+    "walking": fields.Raw,
+    "taxi": fields.Raw,
 }
 
 section = {
