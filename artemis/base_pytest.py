@@ -170,12 +170,12 @@ class ArtemisTestFixture(CommonTestFixture):
             wait_fixed=data_set.fixed_wait.total_seconds() * 1000,
             retry_on_exception=utils.is_retry_exception,
         )
-        def wait_for_job_completion(data_type, time_limit):
+        def wait_for_data_processing(data_type, time_limit):
             """
-            Wait until the data passed to Tyr is processed by checking the associated job status
+            Wait until the data passed to Tyr is processed by checking the associated dataset state in the job
             :param data_type: Type of data passed to Tyr
             :param time_limit: UTC time from when the job could have been created. Allows to exclude jobs from previous bina
-            :return: When job is "done"
+            :return: When dataset is "done"
             """
             instance_jobs_url = "{base_url}/v0/jobs/{instance}".format(
                 base_url=config["URL_TYR"], instance=data_set
@@ -188,22 +188,23 @@ class ArtemisTestFixture(CommonTestFixture):
                     job["created_at"], "%Y-%m-%dT%H:%M:%S.%f"
                 )
                 if job_creation > time_limit:
-                    if data_type in [dataset["type"] for dataset in job["data_sets"]]:
-                        if job["state"] == "done":
-                            logger.info("Job with dataset '{}' done!".format(data_type))
-                            return
-                        elif job["state"] != "failed":
-                            raise utils.RetryError(
-                                "Job with dataset '{type}' still in process ({state})".format(
-                                    type=data_type, state=job["state"]
+                    for dataset in job["data_sets"]:
+                        if data_type == dataset["type"]:
+                            if dataset["state"] == "done":
+                                logger.info("Dataset '{}' done!".format(data_type))
+                                return
+                            elif dataset["state"] != "failed":
+                                raise utils.RetryError(
+                                    "Job with dataset '{type}' still in process ({state})".format(
+                                        type=data_type, state=job["state"]
+                                    )
                                 )
-                            )
-                        else:
-                            raise Exception(
-                                "Job with dataset '{type}' in state '{state}'".format(
-                                    type=data_type, state=job["state"]
+                            else:
+                                raise Exception(
+                                    "Dataset '{type}' in state '{state}'".format(
+                                        type=data_type, state=job["state"]
+                                    )
                                 )
-                            )
             raise utils.RetryError(
                 "Job with dataset '{}' not yet created ".format(data_type)
             )
@@ -275,7 +276,7 @@ class ArtemisTestFixture(CommonTestFixture):
         # Get current datetime to check jobs created from now
         current_utc_datetime = datetime.datetime.utcnow()
 
-        # List of tuples representing (type of data, type of job, files extension, is zipped)
+        # List of tuples representing (type of data files, type of dataset, files extension, is zipped)
         data_to_process = [
             ("fusio", "fusio", (".txt", ".csv"), True),
             ("osm", "osm", ".pbf", False),
@@ -284,13 +285,13 @@ class ArtemisTestFixture(CommonTestFixture):
             ("fusio-geopal", "geopal", ".txt", True),
         ]
 
-        jobs_type_to_process = []
-        for data_type, job_type, file_ext, is_zipped in data_to_process:
-            if put_data(data_type, file_ext, is_zipped):
-                jobs_type_to_process.append(job_type)
+        dataset_types_to_process = []
+        for data_files_type, dataset_type, file_ext, is_zipped in data_to_process:
+            if put_data(data_files_type, file_ext, is_zipped):
+                dataset_types_to_process.append(dataset_type)
 
-        for job_type in jobs_type_to_process:
-            wait_for_job_completion(job_type, current_utc_datetime)
+        for dataset_type in dataset_types_to_process:
+            wait_for_data_processing(dataset_type, current_utc_datetime)
 
         # Wait until data is reloaded
         wait_for_kraken_reload(last_reload_time, data_set.name)
