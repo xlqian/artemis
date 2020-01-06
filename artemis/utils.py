@@ -8,7 +8,7 @@ import itertools
 import requests
 import logging
 from flask import json
-import werkzeug
+from werkzeug.urls import url_fix
 from artemis.configuration_manager import config
 import subprocess
 import select
@@ -55,7 +55,7 @@ def request(url):
 
     return the response and the url called (it might have been modified with the normalization)
     """
-    norm_url = werkzeug.url_fix(_api_current_root_point + url)  # normalize url
+    norm_url = url_fix(_api_current_root_point + url)  # normalize url
     raw_response = requests.get(norm_url)
 
     return json.loads(raw_response.text), norm_url, raw_response.status_code
