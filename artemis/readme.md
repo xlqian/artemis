@@ -15,7 +15,10 @@ aka ArtemisNG has been designed to run tests using docker-compose, in order to b
     [instructions](https://github.com/CanalTP/navitia-docker-compose/blob/master/kirin/README.md) to have it in the docker-compose. In this case, the command is:\
     `docker-compose -f docker-compose.yml -f artemis/docker-artemis-instance.yml -f kirin/docker-compose_kirin.yml up`
 
+    - To stop the running containers and remove them along with the associated networks and volumes, use the same command to start the containers and replace `up` with `down -v`
 ### 2. Run tests with Artemis NG
+
+Once all containers are running, it's time to run the tests.
 
 * Create a virtual environment with the python packages in requirements.txt (for python 3):\
     `mkvirtualenv  -p python3 -r requirements.txt <venv_name>`
@@ -33,6 +36,7 @@ aka ArtemisNG has been designed to run tests using docker-compose, in order to b
       by default: `KIRIN_DB = 'dbname=kirin user=navitia password=navitia host=localhost port=9494'`
 
 * Launch tests: `py.test artemis/tests`
+    - As for the old Artemis, it's possible to create a custom config file with the values above and call `CONFIG_FILE=my_settings.py py.test artemis/tests`
     - If you don't want to call `cities`, add `--skip_cities`
     - If the data has already been binarized, add `--skip_bina`
     - If you want to show prints, you can also add this argument `-s`
