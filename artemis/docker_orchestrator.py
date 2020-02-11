@@ -7,7 +7,6 @@ import jinja2
 import pytest
 from retrying import retry
 from artemis.configuration_manager import config
-
 from docopt import docopt
 
 COMPOSE_PROJECT_NAME = "navitia"
@@ -128,7 +127,7 @@ def init_dockers():
     Run docker containers with no instance
     Create 'jormungandr' and 'cities' db
     """
-    upCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml up -d --remove-orphans"
+    upCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml up -d --remove-orphans"
     subprocess.Popen(upCommand, shell=True)
     wait_for_cities_db()
 
@@ -152,6 +151,7 @@ def launch_coverages(coverages):
         print("ERROR: Couldn't find template")
         return
 
+    has_failures = False
     # Read the yaml file to get instances
     with open(instances_list, "r") as stream:
         data = yaml.load(stream)
@@ -195,7 +195,7 @@ def launch_coverages(coverages):
 
             # Create and start containers
             kraken_name = "kraken-" + instance_name
-            upInstanceCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f {instance_file} up -d --remove-orphans {kraken_name} instances_configurator".format(
+            upInstanceCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f {instance_file} up -d --remove-orphans {kraken_name} instances_configurator".format(
                 instance_file=instance_file, kraken_name=kraken_name
             )
             print("Run : {}".format(upInstanceCommand))
@@ -206,26 +206,21 @@ def launch_coverages(coverages):
 
             # Run pytest
             test_class = instance[instance_name]["test_class"]
-            pytest_cmd = test_path + " -k " + test_class
-
-            print(
-                "\n ----> RUN TESTS for {} \n     - CMD : {}\n".format(
-                    instance_name, pytest_cmd
-                )
-            )
-            pytest.main([test_path, "-k", test_class])
-            print("\nTests Done!!!\n")
+            p = pytest.main([test_path, "-k", test_class, "--tb=no"])
+            # Check 'pytest.ExitCode.OK' which is 0. Enum available from version > 5
+            if p != 0:
+                has_failures = True
 
             # Delete instance container
             # The command is divided in 2 separate commands to be handled on old versions of docker/docker-compose
-            stopCommand1 = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f {instance_file} stop {kraken_name}".format(
+            stopCommand1 = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f {instance_file} stop {kraken_name}".format(
                 instance_file=instance_file, kraken_name=kraken_name
             )
             subprocess.Popen(stopCommand1, shell=True)
             print("Run : {}".format(stopCommand1))
             wait_for_kraken_stop(kraken_name)
 
-            stopCommand2 = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f asgard/docker-compose_asgard.yml -f {instance_file} rm -f {kraken_name}".format(
+            stopCommand2 = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f {instance_file} rm -f {kraken_name}".format(
                 instance_file=instance_file, kraken_name=kraken_name
             )
             subprocess.Popen(stopCommand2, shell=True)
@@ -235,6 +230,8 @@ def launch_coverages(coverages):
             # Delete docker-compose instance file
             print("Remove instance file {}".format(instance_file))
             os.remove(instance_file)
+
+    return has_failures
 
 
 def docker_clean():
@@ -249,7 +246,7 @@ def docker_clean():
             raise Exception("Containers still running...")
 
     # Stop and remove containers
-    downCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml  -f asgard/docker-compose_asgard.yml down -v --remove-orphans"
+    downCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml down -v --remove-orphans"
     subprocess.Popen(downCommand, shell=True)
 
     wait_for_containers_stop()
@@ -271,7 +268,9 @@ if __name__ == "__main__":
 
         init_dockers()
 
-        launch_coverages(args["<coverage>"])
+        f = launch_coverages(args["<coverage>"])
 
     if args["clean"] or args["test"]:
         docker_clean()
+
+    assert not f
