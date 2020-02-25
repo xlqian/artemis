@@ -7,6 +7,7 @@ import pytest
 xfail = pytest.mark.xfail
 
 
+@pytest.mark.Bibus
 @dataset([DataSet("bibus")])
 class Bibus(object):
     """

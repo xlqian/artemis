@@ -1,9 +1,9 @@
 from artemis.common_fixture import dataset, DataSet, set_scenario
 from artemis.tests.fixture import ArtemisTestFixture
+import pytest
 
-# TODO: rename the test
 
-
+@pytest.mark.Boucle01
 @dataset([DataSet("boucle-01")])
 class Boucle01(object):
     """

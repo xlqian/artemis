@@ -1,7 +1,9 @@
 from artemis.common_fixture import dataset, DataSet, set_scenario
 from artemis.tests.fixture import ArtemisTestFixture
+import pytest
 
 
+@pytest.mark.NbCorr05
 @dataset([DataSet("nb-corr-05")])
 class NbCorr05(object):
     """

@@ -5,6 +5,7 @@ import pytest
 xfail = pytest.mark.xfail
 
 
+@pytest.mark.Sherbrooke
 @dataset([DataSet("sherbrooke")])
 class Sherbrooke(object):
     def test_sherbrooke_01(self):

@@ -11,6 +11,7 @@ def clean_kirin_db_before_each_test():
     return clean_kirin_db()
 
 
+@pytest.mark.GuichetUnique
 @dataset([DataSet(COVERAGE)])
 class GuichetUnique(object):
     """

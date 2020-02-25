@@ -1,7 +1,9 @@
 from artemis.common_fixture import dataset, DataSet, set_scenario
 from artemis.tests.fixture import ArtemisTestFixture
+import pytest
 
 
+@pytest.mark.Tad
 @dataset([DataSet("tad")])
 class Tad(object):
     """

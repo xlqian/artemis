@@ -5,6 +5,7 @@ import pytest
 xfail = pytest.mark.xfail
 
 
+@pytest.mark.Auvergne
 @dataset([DataSet("fr-auv")])
 class Auvergne(object):
     """
