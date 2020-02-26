@@ -5,6 +5,7 @@ import pytest
 xfail = pytest.mark.xfail
 
 
+@pytest.mark.Itl
 @dataset([DataSet("itl")])
 class Itl(object):
     """

@@ -1,7 +1,9 @@
 from artemis.common_fixture import dataset, DataSet, set_scenario
 from artemis.tests.fixture import ArtemisTestFixture
+import pytest
 
 
+@pytest.mark.PasseMinuit02
 @dataset([DataSet("passe-minuit-02")])
 class PasseMinuit02(object):
     """

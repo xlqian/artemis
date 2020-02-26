@@ -30,6 +30,7 @@ IDFM_PARAMS.update(
 )
 
 
+@pytest.mark.IdfM
 @dataset(
     [
         DataSet(

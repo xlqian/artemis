@@ -5,6 +5,7 @@ import pytest
 xfail = pytest.mark.xfail
 
 
+@pytest.mark.Airport1
 @dataset([DataSet("airport-01")])
 class Airport1(object):
     """

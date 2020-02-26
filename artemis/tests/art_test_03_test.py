@@ -1,7 +1,9 @@
 from artemis.common_fixture import dataset, DataSet, set_scenario
 from artemis.tests.fixture import ArtemisTestFixture
+import pytest
 
 
+@pytest.mark.ArtTest03
 @dataset([DataSet("test-03")])
 class ArtTest03(object):
     """

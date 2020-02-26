@@ -206,7 +206,7 @@ def launch_coverages(coverages):
 
             # Run pytest
             test_class = instance[instance_name]["test_class"]
-            p = pytest.main([test_path, "-k", test_class, "--tb=no"])
+            p = pytest.main([test_path, "-m", test_class, "--tb=no"])
             # Check 'pytest.ExitCode.OK' which is 0. Enum available from version > 5
             if p != 0:
                 has_failures = True
@@ -273,4 +273,5 @@ if __name__ == "__main__":
     if args["clean"] or args["test"]:
         docker_clean()
 
-    assert not f
+    if f:
+        raise Exception("Some tests FAILED")
