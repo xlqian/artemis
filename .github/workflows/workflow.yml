@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  release:
+    types:
+      - created
+
+
+jobs:
+  precommit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: install dependencies
+      run: |
+        pip install -r requirements_py2.txt
+        pre-commit install
+    - name: run pre-commit
+      run: |
+        pre-commit run --all-files --show-diff-on-failure
