@@ -10,6 +10,7 @@ from artemis.configuration_manager import config
 from docopt import docopt
 
 COMPOSE_PROJECT_NAME = "navitia"
+COMPOSE_BASE_COMMAND = "TAG=dev KIRIN_TAG=master docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml"
 
 
 def get_compose_containers_list():
@@ -127,7 +128,7 @@ def init_dockers():
     Run docker containers with no instance
     Create 'jormungandr' and 'cities' db
     """
-    upCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml up -d --remove-orphans"
+    upCommand = "{} up -d --remove-orphans".format(COMPOSE_BASE_COMMAND)
     subprocess.Popen(upCommand, shell=True)
     wait_for_cities_db()
 
@@ -195,8 +196,10 @@ def launch_coverages(coverages):
 
             # Create and start containers
             kraken_name = "kraken-" + instance_name
-            upInstanceCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f {instance_file} up -d --remove-orphans {kraken_name} instances_configurator".format(
-                instance_file=instance_file, kraken_name=kraken_name
+            upInstanceCommand = "{base} -f {instance_file} up -d --remove-orphans {kraken_name} instances_configurator".format(
+                base=COMPOSE_BASE_COMMAND,
+                instance_file=instance_file,
+                kraken_name=kraken_name,
             )
             print("Run : {}".format(upInstanceCommand))
             subprocess.Popen(upInstanceCommand, shell=True)
@@ -213,15 +216,19 @@ def launch_coverages(coverages):
 
             # Delete instance container
             # The command is divided in 2 separate commands to be handled on old versions of docker/docker-compose
-            stopCommand1 = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f {instance_file} stop {kraken_name}".format(
-                instance_file=instance_file, kraken_name=kraken_name
+            stopCommand1 = "{base} -f {instance_file} stop {kraken_name}".format(
+                base=COMPOSE_BASE_COMMAND,
+                instance_file=instance_file,
+                kraken_name=kraken_name,
             )
             subprocess.Popen(stopCommand1, shell=True)
             print("Run : {}".format(stopCommand1))
             wait_for_kraken_stop(kraken_name)
 
-            stopCommand2 = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml -f {instance_file} rm -f {kraken_name}".format(
-                instance_file=instance_file, kraken_name=kraken_name
+            stopCommand2 = "{base} -f {instance_file} rm -f {kraken_name}".format(
+                base=COMPOSE_BASE_COMMAND,
+                instance_file=instance_file,
+                kraken_name=kraken_name,
             )
             subprocess.Popen(stopCommand2, shell=True)
             print("Run : {}".format(stopCommand2))
@@ -246,7 +253,7 @@ def docker_clean():
             raise Exception("Containers still running...")
 
     # Stop and remove containers
-    downCommand = "TAG=dev docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml down -v --remove-orphans"
+    downCommand = "{} down -v --remove-orphans".format(COMPOSE_BASE_COMMAND)
     subprocess.Popen(downCommand, shell=True)
 
     wait_for_containers_stop()
