@@ -12,7 +12,6 @@ class Airport(object):
     TODO: put there comments about the dataset
     """
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1485", raises=AssertionError)
     def test_airport_01(self):
         self.journey(
             _from="stop_area:AIR:SA:AIRPORTAIRPORT",
@@ -20,7 +19,6 @@ class Airport(object):
             datetime="20120904T0700",
         )
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1485", raises=AssertionError)
     def test_airport_02(self):
         self.journey(
             _from="stop_area:AIR:SA:AIRPORTAMS",
@@ -28,7 +26,6 @@ class Airport(object):
             datetime="20120904T0900",
         )
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1485", raises=AssertionError)
     def test_airport_03(self):
         self.journey(
             _from="stop_area:AIR:SA:AIRPORTAIRPORT",
