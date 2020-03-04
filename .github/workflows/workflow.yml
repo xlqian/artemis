@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  release:
+    types:
+      - created
+
+
+jobs:
+  precommit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.6'
+        architecture: 'x64'
+    - name: install dependencies
+      run: |
+        pip install -r requirements.txt
+        pre-commit install
+    - name: run pre-commit
+      run: |
+        pre-commit run --all-files --show-diff-on-failure
