@@ -19,7 +19,6 @@ class Airport1(object):
             datetime="20120904T0700",
         )
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1485", raises=AssertionError)
     def test_airport_01_02(self):
         self.journey(
             _from="stop_area:AI1:SA:AIRPORTAMS",
@@ -27,7 +26,6 @@ class Airport1(object):
             datetime="20120904T0900",
         )
 
-    @xfail(reason="http://jira.canaltp.fr/browse/NAVITIAII-1485", raises=AssertionError)
     def test_airport_01_03(self):
         self.journey(
             _from="stop_area:AI1:SA:AIRPORTAIRPORT",
