@@ -121,7 +121,7 @@ class DataSet(object):
         self,
         name,
         reload_timeout=datetime.timedelta(minutes=2),
-        fixed_wait=datetime.timedelta(seconds=1),
+        fixed_wait=datetime.timedelta(seconds=2),
         scenario="default",
     ):
         self.name = name
