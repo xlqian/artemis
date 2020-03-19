@@ -4,7 +4,7 @@ import psycopg2
 import requests
 import os
 import datetime
-
+from retrying import retry
 import artemis.utils as utils
 
 from artemis.configuration_manager import config
@@ -20,7 +20,7 @@ def truncate_tables(cursor, table_names_string):
 
 # the time cost is around 1.3s on artemis platform
 def clean_kirin_db():
-    logger.info("cleaning kirin database")
+    logger.debug("cleaning kirin database")
     conn = psycopg2.connect(config["KIRIN_DB"])
     try:
         cur = conn.cursor()
@@ -100,6 +100,30 @@ class CommonTestFixture(object):
         )
         r.raise_for_status()
 
+    @retry(stop_max_delay=25000, wait_fixed=500)
+    def get_last_rt_loaded_time(self, cov):
+        if self.check_ref:
+            return
+
+        _res, _, status_code = utils.request("coverage/{cov}/status".format(cov=cov))
+
+        if status_code == 503:
+            raise Exception("Navitia is not available")
+
+        return _res.get("status", {}).get("last_rt_data_loaded", object())
+
+    @retry(stop_max_delay=60000, wait_fixed=500)
+    def wait_for_rt_reload(self, last_rt_data_loaded, cov):
+        if self.check_ref:
+            return
+
+        rt_data_loaded = self.get_last_rt_loaded_time(cov)
+
+        if last_rt_data_loaded == rt_data_loaded:
+            raise Exception("real time data not loaded")
+        else:
+            return rt_data_loaded
+
     def send_and_wait(self, rt_file_name):
         """
         Send a COTS and wait until the data is reloaded
@@ -112,8 +136,19 @@ class CommonTestFixture(object):
             logger.warning(" >1 data_set for test class !!!")
         coverage = self.data_sets[0].name
         last_rt_data_loaded = self.get_last_rt_loaded_time(coverage)
+        datetime_last_rt_data_loaded = datetime.datetime.strptime(
+            last_rt_data_loaded, "%Y%m%dT%H%M%S.%f"
+        )
         self._send_cots(rt_file_name)
-        self.wait_for_rt_reload(last_rt_data_loaded, coverage)
+        rt_data_loaded = self.wait_for_rt_reload(last_rt_data_loaded, coverage)
+        datetime_rt_data_loaded = datetime.datetime.strptime(
+            rt_data_loaded, "%Y%m%dT%H%M%S.%f"
+        )
+        logger.info(
+            "RT reloaded in {}".format(
+                datetime_rt_data_loaded - datetime_last_rt_data_loaded
+            )
+        )
 
 
 class DataSet(object):

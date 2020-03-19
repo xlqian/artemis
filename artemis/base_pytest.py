@@ -321,26 +321,6 @@ class ArtemisTestFixture(CommonTestFixture):
         """
         pass
 
-    @retry(stop_max_delay=25000, wait_fixed=500)
-    def get_last_rt_loaded_time(self, cov):
-        _res, _, status_code = utils.request("coverage/{cov}/status".format(cov=cov))
-
-        if status_code == 503:
-            raise Exception("Navitia is not available")
-
-        return _res.get("status", {}).get("last_rt_data_loaded", object())
-
-    @retry(stop_max_delay=60000, wait_fixed=500)
-    def wait_for_rt_reload(self, last_rt_data_loaded, cov):
-        logging.warning(
-            "waiting for rt reload later than {}".format(last_rt_data_loaded)
-        )
-        rt_data_loaded = self.get_last_rt_loaded_time(cov)
-
-        if last_rt_data_loaded == rt_data_loaded:
-            raise Exception("real time data not loaded")
-        logger.info("RT data reloaded at {}".format(rt_data_loaded))
-
     def request_compare(self, http_query, checker):
         self.nb_call_to_request_compare += 1
 

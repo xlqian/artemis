@@ -6,7 +6,7 @@ import psycopg2
 import json
 import pytest
 import inspect
-from retrying import Retrying, retry, RetryError
+from retrying import Retrying, RetryError
 from artemis import default_checker
 from artemis import utils
 from artemis.configuration_manager import config
@@ -320,28 +320,6 @@ class ArtemisTestFixture(CommonTestFixture):
     ###################################
     # wrappers around utils functions #
     ###################################
-
-    @retry(stop_max_delay=25000, wait_fixed=500)
-    def get_last_rt_loaded_time(self, cov):
-        if self.check_ref:
-            return
-
-        _res, _, status_code = utils.request("coverage/{cov}/status".format(cov=cov))
-
-        if status_code == 503:
-            raise Exception("Navitia is not available")
-
-        return _res.get("status", {}).get("last_rt_data_loaded", object())
-
-    @retry(stop_max_delay=60000, wait_fixed=500)
-    def wait_for_rt_reload(self, last_rt_data_loaded, cov):
-        if self.check_ref:
-            return
-
-        rt_data_loaded = self.get_last_rt_loaded_time(cov)
-
-        if last_rt_data_loaded == rt_data_loaded:
-            raise Exception("real time data not loaded")
 
     def api(self, url, response_checker=default_checker.default_checker):
         """
