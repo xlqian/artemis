@@ -146,7 +146,7 @@ class CommonTestFixture(object):
         )
         logger.info(
             "{test}: RT reloaded in {timedelta}".format(
-                test=self.get_reference_filename_prefix(),
+                test=utils.get_calling_test_function(),
                 timedelta=datetime_rt_data_loaded - datetime_last_rt_data_loaded,
             )
         )
