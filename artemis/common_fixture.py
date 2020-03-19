@@ -121,8 +121,6 @@ class CommonTestFixture(object):
 
         if last_rt_data_loaded == rt_data_loaded:
             raise Exception("real time data not loaded")
-        else:
-            return rt_data_loaded
 
     def send_and_wait(self, rt_file_name):
         """
@@ -136,18 +134,21 @@ class CommonTestFixture(object):
             logger.warning(" >1 data_set for test class !!!")
         coverage = self.data_sets[0].name
         last_rt_data_loaded = self.get_last_rt_loaded_time(coverage)
-        datetime_last_rt_data_loaded = datetime.datetime.strptime(
-            last_rt_data_loaded, "%Y%m%dT%H%M%S.%f"
-        )
+        start_datetime = datetime.datetime.utcnow()
         self._send_cots(rt_file_name)
-        rt_data_loaded = self.wait_for_rt_reload(last_rt_data_loaded, coverage)
-        datetime_rt_data_loaded = datetime.datetime.strptime(
-            rt_data_loaded, "%Y%m%dT%H%M%S.%f"
-        )
+        cots_processing_time = datetime.datetime.utcnow()
+        self.wait_for_rt_reload(last_rt_data_loaded, coverage)
+        kraken_reloaded_time = datetime.datetime.utcnow()
+
+        def round_time(beginning, end):
+            return round((end - beginning).total_seconds(), 2)
+
         logger.info(
-            "{test}: RT reloaded in {timedelta}".format(
+            "{test}: RT processed in {total}s (Kirin:{kirin}/Kraken:{kraken})".format(
                 test=utils.get_calling_test_function(),
-                timedelta=datetime_rt_data_loaded - datetime_last_rt_data_loaded,
+                total=round_time(start_datetime, kraken_reloaded_time),
+                kirin=round_time(start_datetime, cots_processing_time),
+                kraken=round_time(cots_processing_time, kraken_reloaded_time),
             )
         )
 
