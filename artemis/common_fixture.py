@@ -145,8 +145,9 @@ class CommonTestFixture(object):
             rt_data_loaded, "%Y%m%dT%H%M%S.%f"
         )
         logger.info(
-            "RT reloaded in {}".format(
-                datetime_rt_data_loaded - datetime_last_rt_data_loaded
+            "{test}: RT reloaded in {timedelta}".format(
+                test=self.get_reference_filename_prefix(),
+                timedelta=datetime_rt_data_loaded - datetime_last_rt_data_loaded,
             )
         )
 
