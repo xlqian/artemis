@@ -9,6 +9,7 @@ from retrying import retry
 from artemis.configuration_manager import config
 from docopt import docopt
 
+
 COMPOSE_PROJECT_NAME = "navitia"
 COMPOSE_BASE_COMMAND = "TAG=dev KIRIN_TAG=master docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml"
 
@@ -123,11 +124,23 @@ def wait_for_docker_removal(kraken_name):
     wait_for_kraken_removal()
 
 
-def init_dockers():
+def init_dockers(pull):
     """
     Run docker containers with no instance
     Create 'jormungandr' and 'cities' db
+    :param pull: update Docker images by pulling them from Dockerhub
     """
+    if pull:
+        pull_command = "{} pull".format(COMPOSE_BASE_COMMAND)
+        child = subprocess.Popen(pull_command, shell=True)
+        # Wait for the process to end
+        child.communicate()
+        status = child.returncode
+        if status:
+            print(
+                "Error occurred when pulling images frm Dockerhub \n-> Proceeding with available images"
+            )
+
     upCommand = "{} up -d --remove-orphans".format(COMPOSE_BASE_COMMAND)
     subprocess.Popen(upCommand, shell=True)
     wait_for_cities_db()
@@ -259,13 +272,16 @@ def docker_clean():
     wait_for_containers_stop()
 
 
-script_doc = """ Artemis Docker Orchestrator.
+script_doc = """
+Artemis Docker Orchestrator
+
 Usage:
-    docker_orchestrator.py test [<coverage>...]
+    docker_orchestrator.py test [<coverage>...] [-p | --pull]
     docker_orchestrator.py clean
 
 Options:
     -h  --help  Help (obviously...)
+    -p  --pull  Pull images from Dockerhub
 """
 if __name__ == "__main__":
     args = docopt(script_doc, version="0.0.1")
@@ -273,7 +289,7 @@ if __name__ == "__main__":
     if args["test"]:
         os.chdir(config["DOCKER_COMPOSE_PATH"])
 
-        init_dockers()
+        init_dockers(args["-p"] | args["--pull"])
 
         f = launch_coverages(args["<coverage>"])
 
