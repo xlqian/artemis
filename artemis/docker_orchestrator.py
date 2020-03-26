@@ -12,6 +12,7 @@ from docopt import docopt
 
 COMPOSE_PROJECT_NAME = "navitia"
 COMPOSE_BASE_COMMAND = "TAG=dev KIRIN_TAG=master docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml"
+LOGS_DIR_PATH = os.path.join(config["RESPONSE_FILE_PATH"], "logs")
 
 
 def get_compose_containers_list():
@@ -124,11 +125,12 @@ def wait_for_docker_removal(kraken_name):
     wait_for_kraken_removal()
 
 
-def init_dockers(pull):
+def init_dockers(pull, logs):
     """
     Run docker containers with no instance
     Create 'jormungandr' and 'cities' db
     :param pull: update Docker images by pulling them from Dockerhub
+    :param logs: store logs in an output folder
     """
     if pull:
         pull_command = "{} pull".format(COMPOSE_BASE_COMMAND)
@@ -145,8 +147,15 @@ def init_dockers(pull):
     subprocess.Popen(upCommand, shell=True)
     wait_for_cities_db()
 
+    if logs:
+        # Create logs folder
+        if os.path.isdir(LOGS_DIR_PATH):
+            os.removedirs(LOGS_DIR_PATH)
+        else:
+            os.makedirs(LOGS_DIR_PATH)
 
-def launch_coverages(coverages):
+
+def launch_coverages(coverages, logs):
     if not config["DOCKER_COMPOSE_PATH"]:
         raise Exception("DOCKER_COMPOSE_PATH needs to be set")
     instances_path = os.path.join(config["DOCKER_COMPOSE_PATH"], "artemis/")
@@ -227,6 +236,18 @@ def launch_coverages(coverages):
             if p != 0:
                 has_failures = True
 
+            if logs:
+                # Store logs for each coverage
+                instance_logs_dir = os.path.join(LOGS_DIR_PATH, instance_name)
+                os.makedirs(instance_logs_dir)
+                docker_list = get_compose_containers_list()
+                for container in docker_list:
+                    file_path = os.path.join(
+                        instance_logs_dir, "{}.txt".format(container.name[:-2])
+                    )
+                    log_file = open(file_path, "w")
+                    log_file.write(container.logs().decode())
+
             # Delete instance container
             # The command is divided in 2 separate commands to be handled on old versions of docker/docker-compose
             stopCommand1 = "{base} -f {instance_file} stop {kraken_name}".format(
@@ -276,22 +297,24 @@ script_doc = """
 Artemis Docker Orchestrator
 
 Usage:
-    docker_orchestrator.py test [<coverage>...] [-p | --pull]
+    docker_orchestrator.py test [<coverage>...] [-p | --pull] [-l | --logs]
     docker_orchestrator.py clean
 
 Options:
     -h  --help  Help (obviously...)
     -p  --pull  Pull images from Dockerhub
+    -l  --logs  Store containers logs in folder
 """
 if __name__ == "__main__":
     args = docopt(script_doc, version="0.0.1")
 
     if args["test"]:
         os.chdir(config["DOCKER_COMPOSE_PATH"])
+        store_logs = args["-l"] | args["--logs"]
 
-        init_dockers(args["-p"] | args["--pull"])
+        init_dockers(args["-p"] | args["--pull"], store_logs)
 
-        f = launch_coverages(args["<coverage>"])
+        f = launch_coverages(args["<coverage>"], store_logs)
 
     if args["clean"] or args["test"]:
         docker_clean()
