@@ -51,6 +51,8 @@ CONTAINER_DATA_INPUT_PATH = "/srv/ed/input"
 
 CONTAINER_DATA_OUTPUT_PATH = "/srv/ed/output"
 
+LOG_LEVEL = os.getenv("ARTEMIS_LOG_LEVEL", "INFO")
+
 LOGGER = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -59,13 +61,13 @@ LOGGER = {
     },
     "handlers": {
         "default": {
-            "level": "INFO",
+            "level": LOG_LEVEL,
             "class": "logging.StreamHandler",
             "formatter": "default",
         }
     },
     "loggers": {
-        "": {"handlers": ["default"], "level": "INFO", "propagate": True},
+        "": {"handlers": ["default"], "level": LOG_LEVEL, "propagate": True},
         "requests": {"handlers": ["default"], "level": "WARN", "propagate": True},
     },
 }
