@@ -17,7 +17,7 @@ def clean_kirin_db_before_each_test():
     [
         DataSet(
             COVERAGE,
-            reload_timeout=datetime.timedelta(minutes=5),
+            reload_timeout=datetime.timedelta(minutes=6),
             fixed_wait=datetime.timedelta(seconds=5),
         )
     ]
