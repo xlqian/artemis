@@ -103,7 +103,6 @@ def get_ref_short_response(call_id):
 def compare_with_ref(resp, call_id, checker):
     """
     compare the answer to its reference.
-
     if a mask is provided we only compare the filtered field
     """
     ref_full_response = get_ref_full_response(call_id)
@@ -112,8 +111,9 @@ def compare_with_ref(resp, call_id, checker):
     # differences when the output or the mask change
     ref = checker.filter(ref_full_response)
 
-    # first check that short response matches
-    check_reference_consistency(call_id, checker)
+    # /!\ Full responses will be removed for references /!\
+    # TODO: Remove completely during https://jira.kisio.org/browse/NAVP-1462
+    # check_reference_consistency(call_id, checker)
 
     checker.compare(resp, ref)
 
