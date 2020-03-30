@@ -235,7 +235,9 @@ def launch_coverages(coverages, logs):
             # Run pytest
             test_class = instance[instance_name]["test_class"]
             logger.info("Run {} test".format(test_class))
-            p = pytest.main([test_path, "-m", test_class, "--tb=no"])
+            pytest_command = [test_path, "-m", test_class, "--tb=no"]
+            pytest_command.append("--junitxml=output.xml") if logs else None
+            p = pytest.main(pytest_command)
             # Check 'pytest.ExitCode.OK' which is 0. Enum available from version > 5
             if p != 0:
                 has_failures = True
@@ -251,6 +253,11 @@ def launch_coverages(coverages, logs):
                     )
                     log_file = open(file_path, "w")
                     log_file.write(container.logs().decode())
+                # Store pytest results
+                os.replace(
+                    "output.xml",
+                    os.path.join(instance_logs_dir, "{}.xml".format(instance_name)),
+                )
 
             logger.info("Wait for {} docker removal".format(instance_name))
             # Delete instance container
