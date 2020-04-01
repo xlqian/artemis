@@ -5,6 +5,7 @@ import requests
 import yaml
 import jinja2
 import pytest
+import logging
 from retrying import retry
 from artemis.configuration_manager import config
 from docopt import docopt
@@ -12,6 +13,9 @@ from docopt import docopt
 
 COMPOSE_PROJECT_NAME = "navitia"
 COMPOSE_BASE_COMMAND = "TAG=dev KIRIN_TAG=master docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml"
+LOGS_DIR_PATH = os.path.join(config["RESPONSE_FILE_PATH"], "logs")
+
+logger = logging.getLogger("NG_ORCHESTRATOR")
 
 
 def get_compose_containers_list():
@@ -30,13 +34,13 @@ def wait_for_cities_db():
     When initializing docker-compose containers, cities db is the last step in instance configuration
     :return: when cities db is upgraded and reachable
     """
-    print("Wait for cities db upgrade...")
+    logger.debug("Wait for cities db upgrade...")
     query = config["URL_TYR"] + "/v0/cities/status"
     response = requests.get(query)
     if response.status_code != 200:
         raise Exception("Cities not reachable")
     else:
-        print(" -> Cities Responding")
+        logging.debug(" -> Cities Responding")
 
 
 @retry(stop_max_delay=3000000, wait_fixed=2000)
@@ -45,7 +49,6 @@ def wait_for_instance_configuration():
     When creating a new coverage with a Kraken, the 'instance_configurator' container is recreated and executed again to create the new instance in db
     :return: when the instance is configured
     """
-    print("Wait_for_instance_configuration")
 
     @retry(stop_max_delay=2000000, wait_fixed=2000)
     def wait_for_instance_configuration_status(status):
@@ -61,18 +64,16 @@ def wait_for_instance_configuration():
                     )
                 )
         else:
-            print("No 'instances_configurator' container found")
+            logger.warning("No 'instances_configurator' container found")
 
     wait_for_instance_configuration_status("running")
     wait_for_instance_configuration_status("exited")
-
-    print("instance_configuration DONE!!!")
 
 
 # Unused for now!
 @retry(stop_max_delay=3000000, wait_fixed=2000)
 def wait_for_cities_job_completion():
-    print("Wait for cities job completion...")
+    logger.debug("Wait for cities job completion...")
     query = config["URL_TYR"] + "/v0/cities/status"
     response = requests.get(query)
     if response.status_code != 200:
@@ -84,7 +85,7 @@ def wait_for_cities_job_completion():
         elif last_job["state"] == "running":
             raise Exception("Cities db job in progress")
         else:
-            print("cities job done!")
+            logger.debug("cities job done!")
 
 
 @retry(stop_max_delay=3000000, wait_fixed=2000)
@@ -99,13 +100,13 @@ def wait_for_kraken_stop(kraken_name):
         if kraken_container.status == "running":
             raise Exception("Kraken still running...")
         else:
-            print(
+            logger.debug(
                 "Container {} : Status: {}".format(
                     kraken_container.name, kraken_container.status
                 )
             )
     else:
-        print("No container found for {}".format(kraken_name))
+        logger.warning("No container found for {}".format(kraken_name))
 
 
 def wait_for_docker_removal(kraken_name):
@@ -113,7 +114,7 @@ def wait_for_docker_removal(kraken_name):
     :param kraken_name: The name of the Kraken running for a specific coverage
     :return: when the Kraken container is removed
     """
-    print("Waiting to stop and remove {}".format(kraken_name))
+    logger.debug("Waiting to stop and remove {}".format(kraken_name))
 
     @retry(stop_max_delay=3000000, wait_fixed=2000)
     def wait_for_kraken_removal():
@@ -124,11 +125,12 @@ def wait_for_docker_removal(kraken_name):
     wait_for_kraken_removal()
 
 
-def init_dockers(pull):
+def init_dockers(pull, logs):
     """
     Run docker containers with no instance
     Create 'jormungandr' and 'cities' db
     :param pull: update Docker images by pulling them from Dockerhub
+    :param logs: store logs in an output folder
     """
     if pull:
         pull_command = "{} pull".format(COMPOSE_BASE_COMMAND)
@@ -137,7 +139,7 @@ def init_dockers(pull):
         child.communicate()
         status = child.returncode
         if status:
-            print(
+            logger.warning(
                 "Error occurred when pulling images frm Dockerhub \n-> Proceeding with available images"
             )
 
@@ -145,13 +147,22 @@ def init_dockers(pull):
     subprocess.Popen(upCommand, shell=True)
     wait_for_cities_db()
 
+    if logs:
+        # Create logs folder
+        if os.path.isdir(LOGS_DIR_PATH):
+            os.removedirs(LOGS_DIR_PATH)
+        else:
+            os.makedirs(LOGS_DIR_PATH)
 
-def launch_coverages(coverages):
+
+def launch_coverages(coverages, logs):
     if not config["DOCKER_COMPOSE_PATH"]:
+        logger.exception("DOCKER_COMPOSE_PATH needs to be set")
         raise Exception("DOCKER_COMPOSE_PATH needs to be set")
     instances_path = os.path.join(config["DOCKER_COMPOSE_PATH"], "artemis/")
     instances_list = os.path.join(instances_path, "artemis_custom_instances_list.yml")
     if not config["TEST_PATH"]:
+        logger.exception("TEST_PATH needs to be set")
         raise Exception("TEST_PATH needs to be set")
     test_path = config["TEST_PATH"]
 
@@ -162,7 +173,7 @@ def launch_coverages(coverages):
     try:
         template = env.get_template("docker-instances.jinja2")
     except jinja2.TemplateNotFound:
-        print("ERROR: Couldn't find template")
+        logger.error("ERROR: Couldn't find template")
         return
 
     has_failures = False
@@ -180,12 +191,12 @@ def launch_coverages(coverages):
             list_of_coverages = data["instances"]
 
         for instance in list_of_coverages:
-            print("-> Instance read :\n {}".format(instance))
+            logger.info("-> Instance read : {}".format(instance))
             # Create file for docker-compose
             instance_name = list(instance)[0]
             instance_file_name = "docker-instance-" + instance_name + ".yml"
             instance_file = os.path.join(instances_path, instance_file_name)
-            print("Create : {}".format(instance_file))
+            logger.debug("Create : {}".format(instance_file))
 
             with open(instance_file, "w") as docker_instance:
                 instance_render = [instance_name]
@@ -214,19 +225,41 @@ def launch_coverages(coverages):
                 instance_file=instance_file,
                 kraken_name=kraken_name,
             )
-            print("Run : {}".format(upInstanceCommand))
+            logger.debug("Run : {}".format(upInstanceCommand))
             subprocess.Popen(upInstanceCommand, shell=True)
 
             # Wait for the containers to be ready
+            logger.info("Wait for {} docker configuration".format(instance_name))
             wait_for_instance_configuration()
 
             # Run pytest
             test_class = instance[instance_name]["test_class"]
-            p = pytest.main([test_path, "-m", test_class, "--tb=no"])
+            logger.info("Run {} test".format(test_class))
+            pytest_command = [test_path, "-m", test_class, "--tb=no"]
+            pytest_command.append("--junitxml=output.xml") if logs else None
+            p = pytest.main(pytest_command)
             # Check 'pytest.ExitCode.OK' which is 0. Enum available from version > 5
             if p != 0:
                 has_failures = True
 
+            if logs:
+                # Store logs for each coverage
+                instance_logs_dir = os.path.join(LOGS_DIR_PATH, instance_name)
+                os.makedirs(instance_logs_dir)
+                docker_list = get_compose_containers_list()
+                for container in docker_list:
+                    file_path = os.path.join(
+                        instance_logs_dir, "{}.txt".format(container.name[:-2])
+                    )
+                    log_file = open(file_path, "w")
+                    log_file.write(container.logs().decode())
+                # Store pytest results
+                os.replace(
+                    "output.xml",
+                    os.path.join(instance_logs_dir, "{}.xml".format(instance_name)),
+                )
+
+            logger.info("Wait for {} docker removal".format(instance_name))
             # Delete instance container
             # The command is divided in 2 separate commands to be handled on old versions of docker/docker-compose
             stopCommand1 = "{base} -f {instance_file} stop {kraken_name}".format(
@@ -235,7 +268,7 @@ def launch_coverages(coverages):
                 kraken_name=kraken_name,
             )
             subprocess.Popen(stopCommand1, shell=True)
-            print("Run : {}".format(stopCommand1))
+            logger.debug("Run : {}".format(stopCommand1))
             wait_for_kraken_stop(kraken_name)
 
             stopCommand2 = "{base} -f {instance_file} rm -f {kraken_name}".format(
@@ -244,11 +277,11 @@ def launch_coverages(coverages):
                 kraken_name=kraken_name,
             )
             subprocess.Popen(stopCommand2, shell=True)
-            print("Run : {}".format(stopCommand2))
+            logger.debug("Run : {}".format(stopCommand2))
             wait_for_docker_removal(kraken_name)
 
             # Delete docker-compose instance file
-            print("Remove instance file {}".format(instance_file))
+            logger.debug("Remove instance file {}".format(instance_file))
             os.remove(instance_file)
 
     return has_failures
@@ -258,7 +291,7 @@ def docker_clean():
     """
     Stop and remove all containers
     """
-    print("Cleaning...")
+    logger.info("Cleaning...")
 
     @retry(stop_max_delay=3000000, wait_fixed=2000)
     def wait_for_containers_stop():
@@ -276,22 +309,24 @@ script_doc = """
 Artemis Docker Orchestrator
 
 Usage:
-    docker_orchestrator.py test [<coverage>...] [-p | --pull]
+    docker_orchestrator.py test [<coverage>...] [-p | --pull] [-l | --logs]
     docker_orchestrator.py clean
 
 Options:
     -h  --help  Help (obviously...)
     -p  --pull  Pull images from Dockerhub
+    -l  --logs  Store containers logs in folder
 """
 if __name__ == "__main__":
     args = docopt(script_doc, version="0.0.1")
 
     if args["test"]:
         os.chdir(config["DOCKER_COMPOSE_PATH"])
+        store_logs = args["-l"] | args["--logs"]
 
-        init_dockers(args["-p"] | args["--pull"])
+        init_dockers(args["-p"] | args["--pull"], store_logs)
 
-        f = launch_coverages(args["<coverage>"])
+        f = launch_coverages(args["<coverage>"], store_logs)
 
     if args["clean"] or args["test"]:
         docker_clean()
