@@ -340,10 +340,10 @@ if __name__ == "__main__":
 
         init_dockers(args["-p"] | args["--pull"], store_logs)
 
-        f = launch_coverages(args["<coverage>"], store_logs)
+        has_failures = launch_coverages(args["<coverage>"], store_logs)
 
     if args["clean"] or args["test"]:
         docker_clean()
 
-    if f:
+    if has_failures:
         raise Exception("Some tests FAILED")
