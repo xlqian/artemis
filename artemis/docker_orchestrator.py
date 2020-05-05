@@ -190,99 +190,102 @@ def launch_coverages(coverages, logs):
         else:
             list_of_coverages = data["instances"]
 
-        for instance in list_of_coverages:
-            logger.info("-> Instance read : {}".format(instance))
-            # Create file for docker-compose
-            instance_name = list(instance)[0]
-            instance_file_name = "docker-instance-" + instance_name + ".yml"
-            instance_file = os.path.join(instances_path, instance_file_name)
-            logger.debug("Create : {}".format(instance_file))
+        if not list_of_coverages:
+            logger.error("Couldn't find instance matching '{}'".format(coverage_to_run))
+        else:
+            for instance in list_of_coverages:
+                logger.info("-> Instance read : {}".format(instance))
+                # Create file for docker-compose
+                instance_name = list(instance)[0]
+                instance_file_name = "docker-instance-" + instance_name + ".yml"
+                instance_file = os.path.join(instances_path, instance_file_name)
+                logger.debug("Create : {}".format(instance_file))
 
-            with open(instance_file, "w") as docker_instance:
-                instance_render = [instance_name]
-                kraken_env_parameters = (
-                    instance[instance_name]["kraken_env"]
-                    if "kraken_env" in instance[instance_name]
-                    else []
-                )
-                jormun_env_parameters = (
-                    instance[instance_name]["jormun_env"]
-                    if "jormun_env" in instance[instance_name]
-                    else ""
-                )
-                docker_instance.write(
-                    template.render(
-                        instances=instance_render,
-                        kraken_env=kraken_env_parameters,
-                        jormun_env=jormun_env_parameters,
+                with open(instance_file, "w") as docker_instance:
+                    instance_render = [instance_name]
+                    kraken_env_parameters = (
+                        instance[instance_name]["kraken_env"]
+                        if "kraken_env" in instance[instance_name]
+                        else []
                     )
-                )
-
-            # Create and start containers
-            kraken_name = "kraken-" + instance_name
-            upInstanceCommand = "{base} -f {instance_file} up -d --remove-orphans {kraken_name} instances_configurator".format(
-                base=COMPOSE_BASE_COMMAND,
-                instance_file=instance_file,
-                kraken_name=kraken_name,
-            )
-            logger.debug("Run : {}".format(upInstanceCommand))
-            subprocess.Popen(upInstanceCommand, shell=True)
-
-            # Wait for the containers to be ready
-            logger.info("Wait for {} docker configuration".format(instance_name))
-            wait_for_instance_configuration()
-
-            # Run pytest
-            test_class = instance[instance_name]["test_class"]
-            logger.info("Run {} test".format(test_class))
-            pytest_command = [test_path, "-m", test_class, "--tb=no"]
-            pytest_command.append("--junitxml=output.xml") if logs else None
-            p = pytest.main(pytest_command)
-            # Check 'pytest.ExitCode.OK' which is 0. Enum available from version > 5
-            if p != 0:
-                has_failures = True
-
-            if logs:
-                # Store logs for each coverage
-                instance_logs_dir = os.path.join(LOGS_DIR_PATH, instance_name)
-                os.makedirs(instance_logs_dir)
-                docker_list = get_compose_containers_list()
-                for container in docker_list:
-                    file_path = os.path.join(
-                        instance_logs_dir, "{}.txt".format(container.name[:-2])
+                    jormun_env_parameters = (
+                        instance[instance_name]["jormun_env"]
+                        if "jormun_env" in instance[instance_name]
+                        else ""
                     )
-                    log_file = open(file_path, "w")
-                    log_file.write(container.logs().decode())
-                # Store pytest results
-                os.replace(
-                    "output.xml",
-                    os.path.join(instance_logs_dir, "{}.xml".format(instance_name)),
+                    docker_instance.write(
+                        template.render(
+                            instances=instance_render,
+                            kraken_env=kraken_env_parameters,
+                            jormun_env=jormun_env_parameters,
+                        )
+                    )
+
+                # Create and start containers
+                kraken_name = "kraken-" + instance_name
+                upInstanceCommand = "{base} -f {instance_file} up -d --remove-orphans {kraken_name} instances_configurator".format(
+                    base=COMPOSE_BASE_COMMAND,
+                    instance_file=instance_file,
+                    kraken_name=kraken_name,
                 )
+                logger.debug("Run : {}".format(upInstanceCommand))
+                subprocess.Popen(upInstanceCommand, shell=True)
 
-            logger.info("Wait for {} docker removal".format(instance_name))
-            # Delete instance container
-            # The command is divided in 2 separate commands to be handled on old versions of docker/docker-compose
-            stopCommand1 = "{base} -f {instance_file} stop {kraken_name}".format(
-                base=COMPOSE_BASE_COMMAND,
-                instance_file=instance_file,
-                kraken_name=kraken_name,
-            )
-            subprocess.Popen(stopCommand1, shell=True)
-            logger.debug("Run : {}".format(stopCommand1))
-            wait_for_kraken_stop(kraken_name)
+                # Wait for the containers to be ready
+                logger.info("Wait for {} docker configuration".format(instance_name))
+                wait_for_instance_configuration()
 
-            stopCommand2 = "{base} -f {instance_file} rm -f {kraken_name}".format(
-                base=COMPOSE_BASE_COMMAND,
-                instance_file=instance_file,
-                kraken_name=kraken_name,
-            )
-            subprocess.Popen(stopCommand2, shell=True)
-            logger.debug("Run : {}".format(stopCommand2))
-            wait_for_docker_removal(kraken_name)
+                # Run pytest
+                test_class = instance[instance_name]["test_class"]
+                logger.info("Run {} test".format(test_class))
+                pytest_command = [test_path, "-m", test_class, "--tb=no"]
+                pytest_command.append("--junitxml=output.xml") if logs else None
+                p = pytest.main(pytest_command)
+                # Check 'pytest.ExitCode.OK' which is 0. Enum available from version > 5
+                if p != 0:
+                    has_failures = True
 
-            # Delete docker-compose instance file
-            logger.debug("Remove instance file {}".format(instance_file))
-            os.remove(instance_file)
+                if logs:
+                    # Store logs for each coverage
+                    instance_logs_dir = os.path.join(LOGS_DIR_PATH, instance_name)
+                    os.makedirs(instance_logs_dir)
+                    docker_list = get_compose_containers_list()
+                    for container in docker_list:
+                        file_path = os.path.join(
+                            instance_logs_dir, "{}.txt".format(container.name[:-2])
+                        )
+                        log_file = open(file_path, "w")
+                        log_file.write(container.logs().decode())
+                    # Store pytest results
+                    os.replace(
+                        "output.xml",
+                        os.path.join(instance_logs_dir, "{}.xml".format(instance_name)),
+                    )
+
+                logger.info("Wait for {} docker removal".format(instance_name))
+                # Delete instance container
+                # The command is divided in 2 separate commands to be handled on old versions of docker/docker-compose
+                stopCommand1 = "{base} -f {instance_file} stop {kraken_name}".format(
+                    base=COMPOSE_BASE_COMMAND,
+                    instance_file=instance_file,
+                    kraken_name=kraken_name,
+                )
+                subprocess.Popen(stopCommand1, shell=True)
+                logger.debug("Run : {}".format(stopCommand1))
+                wait_for_kraken_stop(kraken_name)
+
+                stopCommand2 = "{base} -f {instance_file} rm -f {kraken_name}".format(
+                    base=COMPOSE_BASE_COMMAND,
+                    instance_file=instance_file,
+                    kraken_name=kraken_name,
+                )
+                subprocess.Popen(stopCommand2, shell=True)
+                logger.debug("Run : {}".format(stopCommand2))
+                wait_for_docker_removal(kraken_name)
+
+                # Delete docker-compose instance file
+                logger.debug("Remove instance file {}".format(instance_file))
+                os.remove(instance_file)
 
     return has_failures
 
