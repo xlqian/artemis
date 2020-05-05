@@ -18,6 +18,13 @@ LOGS_DIR_PATH = os.path.join(config["RESPONSE_FILE_PATH"], "logs")
 logger = logging.getLogger("NG_ORCHESTRATOR")
 
 
+def check_argument_path(arg: str):
+    if arg not in config:
+        raise Exception("{} needs to be set".format(arg))
+    if not os.path.isdir(config[arg]):
+        raise Exception("{} isn't a valid path".format(config[arg]))
+
+
 def get_compose_containers_list():
     """
     :return: a list of all containers created with docker-compose
@@ -156,15 +163,8 @@ def init_dockers(pull, logs):
 
 
 def launch_coverages(coverages, logs):
-    if not config["DOCKER_COMPOSE_PATH"]:
-        logger.exception("DOCKER_COMPOSE_PATH needs to be set")
-        raise Exception("DOCKER_COMPOSE_PATH needs to be set")
     instances_path = os.path.join(config["DOCKER_COMPOSE_PATH"], "artemis/")
     instances_list = os.path.join(instances_path, "artemis_custom_instances_list.yml")
-    if not config["TEST_PATH"]:
-        logger.exception("TEST_PATH needs to be set")
-        raise Exception("TEST_PATH needs to be set")
-    test_path = config["TEST_PATH"]
 
     # Load instance Jinja2 template
     env = jinja2.Environment(
@@ -238,7 +238,7 @@ def launch_coverages(coverages, logs):
                 # Run pytest
                 test_class = instance[instance_name]["test_class"]
                 logger.info("Run {} test".format(test_class))
-                pytest_command = [test_path, "-m", test_class, "--tb=no"]
+                pytest_command = [config["TEST_PATH"], "-m", test_class, "--tb=no"]
                 pytest_command.append("--junitxml=output.xml") if logs else None
                 p = pytest.main(pytest_command)
                 # Check 'pytest.ExitCode.OK' which is 0. Enum available from version > 5
@@ -324,7 +324,11 @@ if __name__ == "__main__":
     args = docopt(script_doc, version="0.0.1")
 
     if args["test"]:
+        check_argument_path("DOCKER_COMPOSE_PATH")
+        check_argument_path("TEST_PATH")
+
         os.chdir(config["DOCKER_COMPOSE_PATH"])
+
         store_logs = args["-l"] | args["--logs"]
 
         init_dockers(args["-p"] | args["--pull"], store_logs)
