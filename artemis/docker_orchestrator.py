@@ -165,6 +165,9 @@ def init_dockers(pull, logs):
 def launch_coverages(coverages, logs):
     instances_path = os.path.join(config["DOCKER_COMPOSE_PATH"], "artemis/")
     instances_list = os.path.join(instances_path, "artemis_custom_instances_list.yml")
+    if not os.path.isfile(instances_list):
+        logger.error("Couldn't find instances list at {}".format(instances_list))
+        return
 
     # Load instance Jinja2 template
     env = jinja2.Environment(
@@ -184,14 +187,18 @@ def launch_coverages(coverages, logs):
         if coverages:
             list_of_coverages = []
             for coverage_to_run in coverages:
-                list_of_coverages.extend(
-                    [x for x in data["instances"] if coverage_to_run in x]
-                )
+                coverage_to_add = [x for x in data["instances"] if coverage_to_run in x]
+                if not coverage_to_add:
+                    logger.warning("No coverage matches '{}'".format(coverage_to_run))
+                else:
+                    list_of_coverages.extend(
+                        [x for x in data["instances"] if coverage_to_run in x]
+                    )
         else:
             list_of_coverages = data["instances"]
 
         if not list_of_coverages:
-            logger.error("Couldn't find instance matching '{}'".format(coverage_to_run))
+            logger.error("No instance to run!".format(coverage_to_run))
         else:
             for instance in list_of_coverages:
                 logger.info("-> Instance read : {}".format(instance))
