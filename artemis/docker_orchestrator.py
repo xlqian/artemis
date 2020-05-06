@@ -191,9 +191,7 @@ def launch_coverages(coverages, logs):
                 if not coverage_to_add:
                     logger.warning("No coverage matches '{}'".format(coverage_to_run))
                 else:
-                    list_of_coverages.extend(
-                        [x for x in data["instances"] if coverage_to_run in x]
-                    )
+                    list_of_coverages.extend(coverage_to_add)
         else:
             list_of_coverages = data["instances"]
 
