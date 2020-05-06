@@ -46,6 +46,11 @@ Once all containers are running, it's time to run the tests.
     - Of course, every pytest invocation arguments can also be used on this command.\
       *Ex: if you want to run a specific test (or a tests class for a coverage)*`-k <tests_to_run>`
 
+### Or... Docker orchestrator
+
+See [here](https://github.com/CanalTP/artemis/blob/master/artemis/docker_orchestrator.md) how the orchestrator can handle the 2 setps above.
+
+
 ## Contributing
 
 Old or New, pre-commits are always nice to have.Please refer to this [section](https://github.com/CanalTP/artemis#contributing) for more info.
