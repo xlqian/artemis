@@ -18,7 +18,7 @@ LOGS_DIR_PATH = os.path.join(config["RESPONSE_FILE_PATH"], "logs")
 logger = logging.getLogger("NG_ORCHESTRATOR")
 
 
-def check_argument_path(arg: str):
+def check_argument_path(config, arg):
     if arg not in config:
         raise Exception("{} needs to be set".format(arg))
     if not os.path.isdir(config[arg]):
@@ -329,8 +329,8 @@ if __name__ == "__main__":
     args = docopt(script_doc, version="0.0.1")
 
     if args["test"]:
-        check_argument_path("DOCKER_COMPOSE_PATH")
-        check_argument_path("TEST_PATH")
+        check_argument_path(config, "DOCKER_COMPOSE_PATH")
+        check_argument_path(config, "TEST_PATH")
 
         os.chdir(config["DOCKER_COMPOSE_PATH"])
 
