@@ -19,7 +19,7 @@ logger = logging.getLogger("NG_ORCHESTRATOR")
 
 
 def check_argument_path(config, arg):
-    if arg not in config:
+    if arg not in config or not config[arg]:
         raise Exception("{} needs to be set".format(arg))
     if not os.path.isdir(config[arg]):
         raise Exception("{} isn't a valid path".format(config[arg]))
