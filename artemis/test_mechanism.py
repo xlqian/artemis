@@ -12,6 +12,8 @@ from artemis import utils
 from artemis.configuration_manager import config
 from artemis.common_fixture import CommonTestFixture, truncate_tables
 
+from typing import List
+
 _tyr = config["TYR_DIR"] + "/manage.py"
 _tyr_config_file = config["TYR_DIR"] + "/settings.py"
 
@@ -37,7 +39,7 @@ class ArtemisTestFixture(CommonTestFixture):
     Mother class for all integration tests
     """
 
-    dataset_binarized = []
+    dataset_binarized = []  # type: List[str]
 
     @pytest.fixture(scope="function", autouse=True)
     def before_each_test(self):
