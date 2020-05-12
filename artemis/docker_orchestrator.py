@@ -331,12 +331,12 @@ Options:
 """
 if __name__ == "__main__":
     args = docopt(script_doc, version="0.0.1")
+    has_failures = None
+    check_argument_path(config, "DOCKER_COMPOSE_PATH")
+    os.chdir(config["DOCKER_COMPOSE_PATH"])
 
     if args["test"]:
-        check_argument_path(config, "DOCKER_COMPOSE_PATH")
         check_argument_path(config, "TEST_PATH")
-
-        os.chdir(config["DOCKER_COMPOSE_PATH"])
 
         store_logs = args["-l"] | args["--logs"]
 
