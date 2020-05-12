@@ -10,6 +10,9 @@ from retrying import retry
 from artemis.configuration_manager import config
 from docopt import docopt
 
+# Imports needed for mypy annotations
+from flask.config import Config
+from typing import List
 
 COMPOSE_PROJECT_NAME = "navitia"
 COMPOSE_BASE_COMMAND = "TAG=dev KIRIN_TAG=master docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml"
@@ -18,14 +21,14 @@ LOGS_DIR_PATH = os.path.join(config["RESPONSE_FILE_PATH"], "logs")
 logger = logging.getLogger("NG_ORCHESTRATOR")
 
 
-def check_argument_path(config, arg):
+def check_argument_path(config: Config, arg: str):
     if arg not in config or not config[arg]:
         raise Exception("{} needs to be set".format(arg))
     if not os.path.isdir(config[arg]):
         raise Exception("{} isn't a valid path".format(config[arg]))
 
 
-def get_compose_containers_list():
+def get_compose_containers_list() -> List[docker.models.containers.Container]:
     """
     :return: a list of all containers created with docker-compose
     """
@@ -132,7 +135,7 @@ def wait_for_docker_removal(kraken_name):
     wait_for_kraken_removal()
 
 
-def init_dockers(pull, logs):
+def init_dockers(pull: bool, logs: bool):
     """
     Run docker containers with no instance
     Create 'jormungandr' and 'cities' db
@@ -162,7 +165,7 @@ def init_dockers(pull, logs):
             os.makedirs(LOGS_DIR_PATH)
 
 
-def launch_coverages(coverages, logs):
+def launch_coverages(coverages: List[str], logs: bool):
     instances_path = os.path.join(config["DOCKER_COMPOSE_PATH"], "artemis/")
     instances_list = os.path.join(instances_path, "artemis_custom_instances_list.yml")
     if not os.path.isfile(instances_list):
@@ -244,7 +247,8 @@ def launch_coverages(coverages, logs):
                 test_class = instance[instance_name]["test_class"]
                 logger.info("Run {} test".format(test_class))
                 pytest_command = [config["TEST_PATH"], "-m", test_class, "--tb=no"]
-                pytest_command.append("--junitxml=output.xml") if logs else None
+                if logs:
+                    pytest_command.append("--junitxml=output.xml")
                 p = pytest.main(pytest_command)
                 # Check 'pytest.ExitCode.OK' which is 0. Enum available from version > 5
                 if p != 0:
