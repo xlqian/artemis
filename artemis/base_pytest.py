@@ -43,7 +43,7 @@ def print_color(line, color=Colors.DEFAULT):
 
 class ArtemisTestFixture(CommonTestFixture):
 
-    dataset_binarized: List[str] = []
+    dataset_binarized = []  # type: List[str]
 
     @pytest.fixture(scope="function", autouse=True)
     def before_each_test(self, request):

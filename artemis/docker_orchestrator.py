@@ -21,14 +21,14 @@ LOGS_DIR_PATH = os.path.join(config["RESPONSE_FILE_PATH"], "logs")
 logger = logging.getLogger("NG_ORCHESTRATOR")
 
 
-def check_argument_path(config: Config, arg: str):
+def check_argument_path(config, arg):  # type: (Config, str) -> None
     if arg not in config or not config[arg]:
         raise Exception("{} needs to be set".format(arg))
     if not os.path.isdir(config[arg]):
         raise Exception("{} isn't a valid path".format(config[arg]))
 
 
-def get_compose_containers_list() -> List[docker.models.containers.Container]:
+def get_compose_containers_list():  # type: () -> List[docker.models.containers.Container]
     """
     :return: a list of all containers created with docker-compose
     """
@@ -135,7 +135,7 @@ def wait_for_docker_removal(kraken_name):
     wait_for_kraken_removal()
 
 
-def init_dockers(pull: bool, logs: bool):
+def init_dockers(pull, logs):  # type: (bool, bool) -> None
     """
     Run docker containers with no instance
     Create 'jormungandr' and 'cities' db
@@ -165,12 +165,18 @@ def init_dockers(pull: bool, logs: bool):
             os.makedirs(LOGS_DIR_PATH)
 
 
-def launch_coverages(coverages: List[str], logs: bool):
+def launch_coverages(coverages, logs):  # type: ( List[str], bool) -> bool
+    """
+    Launch containers with coverage parameters and run Artemis tests
+    :param coverages: optional list of coverages to run
+    :param logs: store tests logs
+    :return: True if pytest has failures else False
+    """
     instances_path = os.path.join(config["DOCKER_COMPOSE_PATH"], "artemis/")
     instances_list = os.path.join(instances_path, "artemis_custom_instances_list.yml")
     if not os.path.isfile(instances_list):
         logger.error("Couldn't find instances list at {}".format(instances_list))
-        return
+        return False
 
     # Load instance Jinja2 template
     env = jinja2.Environment(
@@ -180,7 +186,7 @@ def launch_coverages(coverages: List[str], logs: bool):
         template = env.get_template("docker-instances.jinja2")
     except jinja2.TemplateNotFound:
         logger.error("ERROR: Couldn't find template")
-        return
+        return False
 
     has_failures = False
     # Read the yaml file to get instances
@@ -199,7 +205,7 @@ def launch_coverages(coverages: List[str], logs: bool):
             list_of_coverages = data["instances"]
 
         if not list_of_coverages:
-            logger.error("No instance to run!".format(coverage_to_run))
+            logger.error("No instance to run!")
         else:
             for instance in list_of_coverages:
                 logger.info("-> Instance read : {}".format(instance))
