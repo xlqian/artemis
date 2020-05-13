@@ -12,7 +12,7 @@ from docopt import docopt
 
 # Imports needed for mypy annotations
 from flask.config import Config
-from typing import List
+from typing import List, Optional
 
 COMPOSE_PROJECT_NAME = "navitia"
 COMPOSE_BASE_COMMAND = "TAG=dev KIRIN_TAG=master docker-compose -f docker-compose.yml -f kirin/docker-compose_kirin.yml"
@@ -165,7 +165,7 @@ def init_dockers(pull, logs):  # type: (bool, bool) -> None
             os.makedirs(LOGS_DIR_PATH)
 
 
-def launch_coverages(coverages, logs):  # type: ( List[str], bool) -> bool
+def launch_coverages(coverages, logs):  # type: ( List[str], bool) -> Optional[bool]
     """
     Launch containers with coverage parameters and run Artemis tests
     :param coverages: optional list of coverages to run
@@ -176,7 +176,7 @@ def launch_coverages(coverages, logs):  # type: ( List[str], bool) -> bool
     instances_list = os.path.join(instances_path, "artemis_custom_instances_list.yml")
     if not os.path.isfile(instances_list):
         logger.error("Couldn't find instances list at {}".format(instances_list))
-        return False
+        return None
 
     # Load instance Jinja2 template
     env = jinja2.Environment(
@@ -186,7 +186,7 @@ def launch_coverages(coverages, logs):  # type: ( List[str], bool) -> bool
         template = env.get_template("docker-instances.jinja2")
     except jinja2.TemplateNotFound:
         logger.error("ERROR: Couldn't find template")
-        return False
+        return None
 
     has_failures = False
     # Read the yaml file to get instances
