@@ -48,7 +48,7 @@ Once all containers are running, it's time to run the tests.
 
 ### Or... Docker orchestrator
 
-See [here](https://github.com/CanalTP/artemis/blob/master/artemis/docker_orchestrator.md) how the orchestrator can handle the 2 setps above.
+See [here](https://github.com/CanalTP/artemis/blob/master/artemis/docker_orchestrator.md) how the orchestrator can handle the 2 steps above.
 
 
 ## Contributing

@@ -17,6 +17,8 @@ from artemis.configuration_manager import config
 from artemis.common_fixture import CommonTestFixture
 from artemis.instance_default_values import default_values
 
+from typing import List
+
 if six.PY3:  # case using python 3
     from enum import Enum
 
@@ -41,7 +43,7 @@ def print_color(line, color=Colors.DEFAULT):
 
 class ArtemisTestFixture(CommonTestFixture):
 
-    dataset_binarized = []
+    dataset_binarized = []  # type: List[str]
 
     @pytest.fixture(scope="function", autouse=True)
     def before_each_test(self, request):
