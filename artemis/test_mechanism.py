@@ -401,6 +401,10 @@ class ArtemisTestFixture(CommonTestFixture):
 
         for k, v in kwargs.iteritems():
             query = "{query}&{k}={v}".format(query=query, k=k, v=v)
+
+        # Add current_datetime for disruptions
+        query = "{query}&_current_datetime={d}".format(query=query, d=datetime)
+
         if len(self.__class__.data_sets) == 1:
             # for tests with only one dataset, we directly use the region's journey API
             # Note: this should not be mandatory, but since there are still bugs with the global journey API
