@@ -29,6 +29,7 @@ default_values = {
     "max_nb_crowfly_by_mode": {
         "bss": 5000,
         "car": 5000,
+        "car_no_park": 5000,
         "bike": 5000,
         "taxi": 5000,
         "walking": 5000,
