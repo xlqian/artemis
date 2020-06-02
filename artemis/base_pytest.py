@@ -444,7 +444,7 @@ class ArtemisTestFixture(CommonTestFixture):
             ref.write(
                 json.dumps(
                     reference_text,
-                    indent=4,
+                    indent=2,
                     escape_forward_slashes=False,
                     encode_html_chars=False,
                     ensure_ascii=True,
