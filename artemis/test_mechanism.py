@@ -433,7 +433,7 @@ class ArtemisTestFixture(CommonTestFixture):
         }
 
         file_ = open(file_complete_path, "w")
-        file_.write(json.dumps(enhanced_response, indent=2))
+        file_.write(json.dumps(enhanced_response, indent=2, separators=(",", ": ")))
         file_.close()
 
         return filename
