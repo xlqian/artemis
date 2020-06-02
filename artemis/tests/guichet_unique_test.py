@@ -189,10 +189,6 @@ class GuichetUnique(object):
         Before the removal, a train (headsign: 4669) travels on 2012/12/16 from 17:31:00 to 23:46:00
         After the removal, an other train (headsign: 4655) travels on 2012/12/17 from 06:45:00 to 12:59:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_removal_4669_ic.json")
 
         self.journey(
@@ -220,10 +216,6 @@ class GuichetUnique(object):
         Before the removal of the stops, a train (headsign: 5312/5358) travels from 12:39:00 to 13:14:00
         After the removal of the departure stop, an other train (headsign: 5101) travels from 13:11:00 to 13:48:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_partially_deleted_5312_tgv.json")
         self.send_and_wait("trip_partially_deleted_5358_tgv.json")
 
@@ -252,10 +244,6 @@ class GuichetUnique(object):
         Before the delay, the train travels from 2012/12/16 22:37:00 to 2012/12/17 00:16:00
         After the delay, the train travels from 2012/12/16 22:37:00 to 2012/12/17 00:41:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_observed_delay_passe_minuit_847919_ter.json")
 
         self.journey(
@@ -284,10 +272,6 @@ class GuichetUnique(object):
         Before the delay, the train travels from 2012/12/16 23:44:00 to 2012/12/17 00:16:00
         After the delay, the train travels from 2012/12/17 00:09:00 to 2012/12/17 00:41:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_observed_delay_passe_minuit_847919_ter.json")
 
         self.journey(
