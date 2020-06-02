@@ -24,13 +24,11 @@ class GuichetUnique(object):
     @pytest.fixture(scope="function", autouse=True)
     def reload_kraken(self, clean_kirin_db_before_each_test):
         # Reload kraken
-        print("Reload kraken")
         self.kill_the_krakens()
         self.pop_krakens()
 
     @pytest.fixture
     def clean_kirin_db_before_each_test(self):
-        print("clean_kirin_db_before_each_test")
         return clean_kirin_db()
 
     def test_guichet_unique_paris_to_rouen(self):
