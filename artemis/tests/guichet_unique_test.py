@@ -7,11 +7,6 @@ xfail = pytest.mark.xfail
 COVERAGE = "guichet-unique"
 
 
-@pytest.fixture(scope="function", autouse=True)
-def clean_kirin_db_before_each_test():
-    return clean_kirin_db()
-
-
 @pytest.mark.GuichetUnique
 @dataset(
     [
@@ -25,6 +20,18 @@ def clean_kirin_db_before_each_test():
 class GuichetUnique(object):
     """
     """
+
+    @pytest.fixture(scope="function", autouse=True)
+    def reload_kraken(self, clean_kirin_db_before_each_test):
+        # Reload kraken
+        print("Reload kraken")
+        self.kill_the_krakens()
+        self.pop_krakens()
+
+    @pytest.fixture
+    def clean_kirin_db_before_each_test(self):
+        print("clean_kirin_db_before_each_test")
+        return clean_kirin_db()
 
     def test_guichet_unique_paris_to_rouen(self):
         """
@@ -146,10 +153,6 @@ class GuichetUnique(object):
         Before the delay, the train travels from 16:12:00 to 21:46:00
         After the delay, the train travels from 16:12:00 to 22:16:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_delay_9580_tgv.json")
 
         self.journey(
@@ -314,10 +317,6 @@ class GuichetUnique(object):
         Before the removal, a train (headsign: 4669) travels on 2012/12/16 from 17:31:00 to 23:46:00
         After the removal, an other train (headsign: 4655) travels on 2012/12/17 from 06:45:00 to 12:59:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_delay_9580_tgv.json")
 
         self.journey(
@@ -356,10 +355,6 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, an other train travels on 2012/11/20 from 13:30:00 to 21:46:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_add_new_stop_point_at_the_beginning_9580_tgv.json")
 
         self.journey(
@@ -389,10 +384,6 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, the train travels on 2012/11/20 from 14:20:00 to 22:16:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_add_new_stop_point_9580_tgv_in_the_middle.json")
 
         self.journey(
@@ -422,10 +413,6 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, the train travels on 2012/11/20 from 14:20:00 to 22:16:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_add_new_stop_point_9580_tgv_at_the_end.json")
 
         self.journey(
@@ -456,10 +443,6 @@ class GuichetUnique(object):
         After the addition, the train travels on 2012/11/20 from 14:20:00 to 22:16:00
         After the removal, no solution can be found without transfer
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_add_new_stop_point_9580_tgv_in_the_middle.json")
 
         self.journey(
@@ -506,10 +489,6 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, an other train travels on 2012/11/20 from 13:30:00 to 21:46:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_add_new_stop_point_at_the_beginning_9580_tgv.json")
 
         self.journey(
@@ -601,10 +580,6 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, the train travels on 2012/11/20 from 14:20:00 to 22:16:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_add_new_stop_point_9580_tgv_in_the_middle.json")
 
         self.journey(
@@ -653,10 +628,6 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, a train travels on 2012/11/20 from 14:15:00 to 23:30:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_add_several_new_stop_points_in_one_cots_9580_tgv.json")
 
         # Bitche -> Nimes
@@ -705,10 +676,6 @@ class GuichetUnique(object):
         Before the delay, the train travels from 16:12:00 to 21:46:00
         After the delay, the train travels from 16:12:00 to 22:16:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_add_new_stop_point_trash_stop_points_9580_tgv.json")
 
         self.journey(
@@ -738,10 +705,6 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, an other train travels from 14:01:00 on 2012/11/20 to 00:30:00 on 2012/11/21
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait(
             "trip_add_new_stop_point_at_the_end_make_pass_midnight_9580_tgv.json"
         )
@@ -774,10 +737,6 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, an other train travels from 22:30:00 on 2012/11/19 to 22:16:00 on 2012/11/20
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait(
             "trip_add_new_stop_point_at_the_beginning_make_pass_midnight_9580_tgv.json"
         )
@@ -809,10 +768,6 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, an other train travels from 14:01:00 on 2012/11/20 to 01:30:00 on 2012/11/21
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait(
             "trip_add_stop_point_make_pass_midnight_local_and_UTC_9580_tgv.json"
         )
@@ -845,10 +800,6 @@ class GuichetUnique(object):
         After detour, the train travels from 14:20:00 to 21:46:00
         After detour, no solution can be found without transfer from gare de Frankfurt-am-Main-Hbf
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_detour_start_9580.json")
 
         self.journey(
@@ -887,10 +838,6 @@ class GuichetUnique(object):
         After detour, the train travels from 14:01:00 to 21:55:00
         After detour, no solution can be found without transfer to gare de Marseille-St-Charles
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_detour_end_9580.json")
 
         self.journey(
@@ -930,10 +877,6 @@ class GuichetUnique(object):
         After detour, the train travels from 17:33:00 to 21:46:00
         After detour, an other train travels from gare de Mulhouse to gare de Marseille-St-Charles from 21:27:00 to 06:32:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_detour_middle_9580.json")
 
         self.journey(
@@ -980,10 +923,6 @@ class GuichetUnique(object):
         Before detour, no solution can be found without transfer
         After detour, the train travels from 17:08:00 to 21:55:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_detour_start_between_end_9580.json")
 
         self.journey(
@@ -1034,10 +973,6 @@ class GuichetUnique(object):
         ...
         stop_date_times[12] : 21:56 > 21:56 gare de Marseille-St-Charles (Marseille)
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_delay_9580_tgv.json")
 
         self.journey(
@@ -1087,10 +1022,6 @@ class GuichetUnique(object):
         Before the addition, no solution can be found without transfer
         After the addition, the train travels on 2012/11/20 from 14:20:00 to 21:46:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_seq3_01_add_new_stop_point.json")
 
         self.journey(
@@ -1196,10 +1127,6 @@ class GuichetUnique(object):
         Before the RT update, the train travels from 16:12:00 to 21:46:00
         After the RT update, an other train travels from 19:59:00 to 06:32:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_seq5_01_remove_stops.json")
 
         self.journey(
@@ -1283,10 +1210,6 @@ class GuichetUnique(object):
         Before detour, no solution can be found without transfer
         After detour, the train travels from 14:20:00 to 22:11:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_seq8_01_detour_start_delay_25.json")
 
         self.journey(
@@ -1383,12 +1306,7 @@ class GuichetUnique(object):
         3. Return to normal
         Attention: Since physical_mode:LongDistanceTrain is absent in NTFS, physical_mode:Bike is
         used in the vehicle_journey.
-        """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
 
-        """
         Requested datetime: 2012/11/20 11:55:00
         From: gare de Paris-Montparnasse 1-2 (Paris)
         To:   gare de Marseille-St-Charles (Marseille)
@@ -1472,12 +1390,7 @@ class GuichetUnique(object):
         4. Return to normal
         Attention: Since physical_mode:LongDistanceTrain is absent in NTFS, physical_mode:Bike is
         used in the vehicle_journey.
-        """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
 
-        """
         Requested datetime: 2012/11/20 12:55:00
         From: gare de Auxerre-St-Gervais
         To:   gare de Marseille-St-Charles (Marseille)
@@ -1581,12 +1494,7 @@ class GuichetUnique(object):
         5. Add again the same trip as 1.
         Attention: Since physical_mode:LongDistanceTrain is absent in NTFS, physical_mode:Bike is
         used in the vehicle_journey.
-        """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
 
-        """
         Requested datetime: 2012/11/20 12:55:00
         From: gare de Orleans
         To:   gare de Marseille-St-Charles (Marseille)
@@ -1708,20 +1616,13 @@ class GuichetUnique(object):
           - Cots 1 : Delay All stop points with a medium delay (10min) + add 2 new stop point at the end
           - Cots 2 : Change delays (60 mins) of the last 5 stop point
           - Cots 3 : Remove the 2 added stop point
-        """
 
-        """
-        Base request
-
+        Base request:
         Requested datetime: 2012/11/20 14:00:00
         From: gare de Frankfurt-am-Main-Hbf
         To:   gare de Marseille-St-Charles (Marseille)
         Departure at 14:01 and arrival at 21:46
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.journey(
             _from="stop_area:OCE:SA:80110684",
             to="stop_area:OCE:SA:87751008",
@@ -1850,10 +1751,6 @@ class GuichetUnique(object):
         Before added circulation, no solution can be found without transfer.
         After added circulation, a train travels from 13:10:00 to 17:00:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_add_new_trip_151515.json")
 
         self.journey(
