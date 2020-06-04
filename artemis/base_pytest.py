@@ -413,6 +413,9 @@ class ArtemisTestFixture(CommonTestFixture):
             query=query, scenario=overridden_scenario
         )
 
+        # Add current_datetime for disruptions
+        query = "{query}&_current_datetime={d}".format(query=query, d=datetime)
+
         # creating the full URL
         http_query = "{base_url}/v1/coverage/{coverage}/journeys?{query_parameters}".format(
             base_url=config["URL_JORMUN"],

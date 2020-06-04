@@ -7,11 +7,6 @@ xfail = pytest.mark.xfail
 COVERAGE = "guichet-unique"
 
 
-@pytest.fixture(scope="function", autouse=True)
-def clean_kirin_db_before_each_test():
-    return clean_kirin_db()
-
-
 @pytest.mark.GuichetUnique
 @dataset(
     [
@@ -25,6 +20,16 @@ def clean_kirin_db_before_each_test():
 class GuichetUnique(object):
     """
     """
+
+    @pytest.fixture(scope="function", autouse=True)
+    def reload_kraken(self, clean_kirin_db_before_each_test):
+        # Reload kraken
+        self.kill_the_krakens()
+        self.pop_krakens()
+
+    @pytest.fixture
+    def clean_kirin_db_before_each_test(self):
+        return clean_kirin_db()
 
     def test_guichet_unique_paris_to_rouen(self):
         """
@@ -967,6 +972,10 @@ class GuichetUnique(object):
         ...
         stop_date_times[11] : 21:41 > 21:44 gare de Aix-en-Provence-TGV (Aix-en-Provence)
         """
+        # Reload kraken
+        self.kill_the_krakens()
+        self.pop_krakens()
+
         self.send_and_wait("trip_seq1_02_delays_with_last_back_to_normal.json")
 
         self.journey(
@@ -1092,7 +1101,7 @@ class GuichetUnique(object):
 
     def test_kirin_cots_sequence_05(self):
         """
-        SNCF sequence n.03:
+        SNCF sequence n.05:
         1. Remove stations from the vj
         From: gare de Strasbourg (Strasbourg)
         To: gare de Marseille-St-Charles (Marseille)
@@ -1279,12 +1288,7 @@ class GuichetUnique(object):
         3. Return to normal
         Attention: Since physical_mode:LongDistanceTrain is absent in NTFS, physical_mode:Bike is
         used in the vehicle_journey.
-        """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
 
-        """
         Requested datetime: 2012/11/20 11:55:00
         From: gare de Paris-Montparnasse 1-2 (Paris)
         To:   gare de Marseille-St-Charles (Marseille)
@@ -1368,12 +1372,7 @@ class GuichetUnique(object):
         4. Return to normal
         Attention: Since physical_mode:LongDistanceTrain is absent in NTFS, physical_mode:Bike is
         used in the vehicle_journey.
-        """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
 
-        """
         Requested datetime: 2012/11/20 12:55:00
         From: gare de Auxerre-St-Gervais
         To:   gare de Marseille-St-Charles (Marseille)
@@ -1477,12 +1476,7 @@ class GuichetUnique(object):
         5. Add again the same trip as 1.
         Attention: Since physical_mode:LongDistanceTrain is absent in NTFS, physical_mode:Bike is
         used in the vehicle_journey.
-        """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
 
-        """
         Requested datetime: 2012/11/20 12:55:00
         From: gare de Orleans
         To:   gare de Marseille-St-Charles (Marseille)
@@ -1604,11 +1598,8 @@ class GuichetUnique(object):
           - Cots 1 : Delay All stop points with a medium delay (10min) + add 2 new stop point at the end
           - Cots 2 : Change delays (60 mins) of the last 5 stop point
           - Cots 3 : Remove the 2 added stop point
-        """
 
-        """
-        Base request
-
+        Base request:
         Requested datetime: 2012/11/20 14:00:00
         From: gare de Frankfurt-am-Main-Hbf
         To:   gare de Marseille-St-Charles (Marseille)
@@ -1742,10 +1733,6 @@ class GuichetUnique(object):
         Before added circulation, no solution can be found without transfer.
         After added circulation, a train travels from 13:10:00 to 17:00:00
         """
-        # Reload kraken
-        self.kill_the_krakens()
-        self.pop_krakens()
-
         self.send_and_wait("trip_add_new_trip_151515.json")
 
         self.journey(

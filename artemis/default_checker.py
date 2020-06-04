@@ -70,6 +70,32 @@ ticket = {
     "source_id": fields.Raw,
 }
 
+severity = {"name": fields.Raw, "effect": fields.Raw}
+
+pt_object = {"name": fields.Raw, "embedded_type": fields.Raw}
+
+stop_point = {"name": fields.Raw}
+
+impacted_stop = {
+    "arrival_status": fields.Raw,
+    "departure_status": fields.Raw,
+    "stop_point": fields.Nested(stop_point),
+}
+
+impacted_object = {
+    "pt_object": fields.Nested(pt_object),
+    # Currently no need for impacted_section in the response. Un-comment if needed one day and blame Big M!
+    # "impacted_section": fields.Nested(section),
+    "impacted_stops": fields.List(fields.Nested(impacted_stop)),
+}
+
+disruption = {
+    "status": fields.Raw,
+    "contributor": fields.Raw,
+    "severity": fields.Nested(severity),
+    "impacted_objects": fields.List(fields.Nested(impacted_object)),
+}
+
 default_journey_checker = Checker(
     filters=[
         WhiteListMask(
@@ -77,6 +103,7 @@ default_journey_checker = Checker(
                 "journeys": fields.List(fields.Nested(journey)),
                 "error": fields.Nested(error),
                 "tickets": fields.List(fields.Nested(ticket)),
+                "disruptions": fields.List(fields.Nested(disruption)),
             }
         )
     ]
